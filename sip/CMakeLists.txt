@@ -154,7 +154,7 @@ else()
     set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${LIB_INCLUDE_DIRS} )
   endforeach()
 
-  set( libs muparser::muparser ZLIB::ZLIB )
+  set( libs muparser::muparser ZLIB::ZLIB Qwt::Qwt )
   foreach( lib ${libs} )
     get_lib_properties( ${lib} LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
     string( JOIN "\n," SIP_LINK_LIBS \"${LIB_NAME}\" ${SIP_LINK_LIBS} )
@@ -194,7 +194,6 @@ else()
     \"makhber\"
     \"minigzip\"
     \"origin\"
-    \"qwt5-qt5\"
     \"qwtplot3d\"
     ${SIP_LINK_LIBS}
     )
@@ -205,7 +204,6 @@ else()
       ${CMAKE_BINARY_DIR}/src/@CONFIG@
       ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
       ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src/@CONFIG@
       ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d/@CONFIG@
       )
   else()
@@ -214,14 +212,13 @@ else()
       ${CMAKE_BINARY_DIR}/src
       ${CMAKE_BINARY_DIR}/3rdparty
       ${CMAKE_BINARY_DIR}/3rdparty/liborigin
-      ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src
       ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d
       )
   endif()
   list( REMOVE_DUPLICATES SIP_LINK_DIRS )
   string( JOIN "\"\n,\"" SIP_LINK_DIRS ${SIP_LINK_DIRS} )
 
-  foreach( lib libmakhber qwt5-qt5 qwtplot3d )
+  foreach( lib libmakhber qwtplot3d )
     get_target_property( INCLUDE_DIRS ${lib} INTERFACE_INCLUDE_DIRECTORIES )
     set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${INCLUDE_DIRS} )
   endforeach()

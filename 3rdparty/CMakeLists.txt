@@ -18,9 +18,6 @@ if( BUILD_SHARED_LIBS )
   )
 endif()
 
-# Qwt5
-add_subdirectory( qwt5-qt5 )
-
 # QwtPlot3D
 add_subdirectory( qwtplot3d )
 

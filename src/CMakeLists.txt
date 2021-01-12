@@ -334,8 +334,8 @@ target_link_libraries( libmakhber
   OpenGL::GLU
   ZLIB::ZLIB
   muparser::muparser
+  Qwt::Qwt
   minigzip
-  qwt5-qt5
   qwtplot3d
 )
 

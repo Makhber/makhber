@@ -58,6 +58,23 @@ jobs:
             libgtest-dev \
             xvfb
 
+      - name: Cache Qwt
+        id: cache-qwt
+        uses: actions/cache@v1
+        with:
+          path: ../Qwt
+          key: ${{ runner.os }}-Qwt
+
+      - name: Build and install Qwt
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+        run: |
+          wget https://downloads.sourceforge.net/qwt/qwt-6.1.6.tar.bz2
+          tar -xf qwt-6.1.6.tar.bz2 && cd qwt-6.1.6
+          sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
+          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
+          make -j$(nproc)
+          sudo make install
+
       - name: Install Python packages
         run: |
           pip3 install sip pyqt5 pyqt-builder numpy
@@ -69,7 +86,8 @@ jobs:
             -DMAKHBER_SEARCH_FOR_UPDATES=OFF \
             -DMAKHBER_DOWNLOAD_LINKS=OFF \
             -DMAKHBER_SCRIPTING_PYTHON=ON \
-            -DMAKHBER_BUILD_TESTS=ON
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/../Qwt
 
       - name: Building
         run: |
@@ -93,19 +111,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1
-        with:
-          path: ../Qt
-          key: ${{ runner.os }}-QtCache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: 5.15.2
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
       - name: Setup NuGet Credentials
         run: |
           & $(vcpkg fetch nuget | select -last 1) sources add `
@@ -117,7 +122,11 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
+          vcpkg install zlib gsl qwt muparser opengl gl2ps gtest --triplet x64-windows
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
 
       - name: Install Python packages
         run: pip install sip pyqt5 pyqt-builder numpy
@@ -130,7 +139,8 @@ jobs:
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
-            -DMAKHBER_BUILD_TESTS=ON
+            -DMAKHBER_BUILD_TESTS=ON `
+            -DCMAKE_SYSTEM_VERSION="10.0"
 
       - name: Building
         run: |
@@ -173,11 +183,29 @@ jobs:
         run: |
           brew install --display-times muparser gsl gl2ps googletest
 
+      - name: Cache Qwt
+        id: cache-qwt
+        uses: actions/cache@v1
+        with:
+          path: ../Qwt
+          key: ${{ runner.os }}-Qwt
+
+      - name: Build and install Qwt
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+        run: |
+          wget https://downloads.sourceforge.net/qwt/qwt-6.1.6.tar.bz2
+          tar -xf qwt-6.1.6.tar.bz2 && cd qwt-6.1.6
+          sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
+          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
+          make -j$(sysctl -n hw.logicalcpu)
+          sudo make install
+
       - name: Configuring
         run: |
           mkdir build && cd build
           cmake .. \
-            -DMAKHBER_BUILD_TESTS=ON
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/../Qwt
 
       - name: Building
         run: |
@@ -185,5 +213,6 @@ jobs:
 
       - name: Testing
         run: |
+          export DYLD_FALLBACK_FRAMEWORK_PATH=${GITHUB_WORKSPACE}/../Qwt/lib
           cd build
           ctest --output-on-failure --repeat until-pass:3
