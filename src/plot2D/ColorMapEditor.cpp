@@ -99,7 +99,7 @@ void ColorMapEditor::updateColorMap()
     QColor c_max = QColor(COLORVALUE(table->item(rows - 1, 1)->text()));
     QwtLinearColorMap map(c_min, c_max);
     for (int i = 1; i < rows - 1; i++) {
-        QwtDoubleInterval range = QwtDoubleInterval(min_val, max_val);
+        QwtInterval range = QwtInterval(min_val, max_val);
         double val = (table->item(i, 0)->text().toDouble() - min_val) / range.width();
         map.addColorStop(val, QColor(COLORVALUE(table->item(i, 1)->text())));
     }
@@ -118,13 +118,13 @@ void ColorMapEditor::setColorMap(const QwtLinearColorMap &map)
     table->blockSignals(true);
 
     for (int i = 0; i < rows; i++) {
-        QwtDoubleInterval range = QwtDoubleInterval(min_val, max_val);
+        QwtInterval range = QwtInterval(min_val, max_val);
         double val = min_val + colors[i] * range.width();
 
         auto *it = new QTableWidgetItem(QString::number(val));
         table->setItem(i, 0, it);
 
-        QColor c = QColor(map.rgb(QwtDoubleInterval(0, 1), colors[i]));
+        QColor c = QColor(map.rgb(QwtInterval(0, 1), colors[i]));
         it = new QTableWidgetItem(c.name());
         it->setFlags(it->flags() & (~Qt::ItemIsEditable));
         it->setBackground(QBrush(c));
@@ -145,12 +145,12 @@ void ColorMapEditor::setRange(double min, double max)
 void ColorMapEditor::insertLevel()
 {
     int row = table->currentRow();
-    QwtDoubleInterval range = QwtDoubleInterval(min_val, max_val);
+    QwtInterval range = QwtInterval(min_val, max_val);
 
     double val = 0.5
             * (table->item(row, 0)->text().toDouble() + table->item(row - 1, 0)->text().toDouble());
     double mapped_val = (val - min_val) / range.width();
-    QColor c = QColor(color_map.rgb(QwtDoubleInterval(0, 1), mapped_val));
+    QColor c = QColor(color_map.rgb(QwtInterval(0, 1), mapped_val));
 
     table->blockSignals(true);
     table->insertRow(row);
@@ -242,7 +242,7 @@ void ColorMapEditor::validateLevel(int row, int col)
         user_input_error = true;
     }
 
-    QwtDoubleInterval range = QwtDoubleInterval(min_val, max_val);
+    QwtInterval range = QwtInterval(min_val, max_val);
     double val = table->item(row, 0)->text().replace(",", ".").toDouble();
     if (!range.contains(val) || user_input_error) {
         QVector<double> colors = color_map.colorStops();

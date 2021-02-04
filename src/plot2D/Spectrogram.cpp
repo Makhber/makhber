@@ -263,7 +263,7 @@ QString Spectrogram::saveToString()
         s += "\t\t<ColorStops>" + QString::number(stops - 2) + "</ColorStops>\n";
         for (int i = 1; i < stops - 1; i++) {
             s += "\t\t<Stop>" + QString::number(colors[i]) + "\t";
-            s += COLORNAME(QColor(color_map.rgb(QwtDoubleInterval(0, 1), colors[i])));
+            s += COLORNAME(QColor(color_map.rgb(QwtInterval(0, 1), colors[i])));
             s += "</Stop>\n";
         }
         s += "\t</ColorMap>\n";

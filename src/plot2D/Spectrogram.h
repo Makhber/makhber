@@ -142,7 +142,7 @@ public:
 
     virtual QwtRasterData *copy() const { return new MatrixData(d_matrix); }
 
-    virtual QwtDoubleInterval range() const { return QwtDoubleInterval(min_z, max_z); }
+    virtual QwtInterval range() const { return QwtInterval(min_z, max_z); }
 
     virtual QSize rasterHint(const QRectF &) const { return QSize(n_cols, n_rows); }
 
