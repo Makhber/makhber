@@ -53,7 +53,7 @@ Spectrogram::Spectrogram(Matrix *m)
     setData(MatrixData(m));
     double step = fabs(data().range().maxValue() - data().range().minValue()) / 5;
 
-    QwtValueList contourLevels;
+    QList<double> contourLevels;
     for (size_t i = 1; i < 5; i++)
         contourLevels += data().range().minValue() + i * step;
 
@@ -84,7 +84,7 @@ void Spectrogram::setLevelsNumber(int levels)
 {
     double step = fabs(data().range().maxValue() - data().range().minValue()) / levels;
 
-    QwtValueList contourLevels;
+    QList<double> contourLevels;
     for (size_t i = 1; i < static_cast<size_t>(levels); i++)
         contourLevels += data().range().minValue() + i * step;
 

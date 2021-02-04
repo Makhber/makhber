@@ -89,7 +89,7 @@ void Grid::draw(QPainter *painter, const QwtScaleMap &mx, const QwtScaleMap &my,
 }
 
 void Grid::drawLines(QPainter *painter, const QRect &rect, Qt::Orientation orientation,
-                     const QwtScaleMap &map, const QwtValueList &values) const
+                     const QwtScaleMap &map, const QList<double> &values) const
 {
     const int x1 = rect.left();
     const int x2 = rect.right() + 1;

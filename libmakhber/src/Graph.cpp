@@ -3416,7 +3416,7 @@ void Graph::updatePlot()
 void Graph::updateScale()
 {
     const QwtScaleDiv *scDiv = d_plot->axisScaleDiv(QwtPlot::xBottom);
-    QwtValueList lst = scDiv->ticks(QwtScaleDiv::MajorTick);
+    QList<double> lst = scDiv->ticks(QwtScaleDiv::MajorTick);
 
     double step = fabs(lst[1] - lst[0]);
 

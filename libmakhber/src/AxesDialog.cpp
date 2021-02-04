@@ -1447,7 +1447,7 @@ void AxesDialog::updateScale()
     }
     }
 
-    QwtValueList lst = scDiv->ticks(QwtScaleDiv::MajorTick);
+    QList<double> lst = scDiv->ticks(QwtScaleDiv::MajorTick);
     boxStep->setText(QString::number(d_graph->axisStep(a)));
     boxMajorValue->setValue(lst.count());
 

@@ -112,15 +112,15 @@ void ScaleDraw::labelFormat(char &f, int &prec) const
 void ScaleDraw::drawTick(QPainter *p, double value, int len) const
 {
     QwtScaleDiv scDiv = scaleDiv();
-    QwtValueList majTicks = scDiv.ticks(QwtScaleDiv::MajorTick);
+    QList<double> majTicks = scDiv.ticks(QwtScaleDiv::MajorTick);
     if (majTicks.contains(value) && (d_majTicks == In || d_majTicks == None))
         return;
 
-    QwtValueList medTicks = scDiv.ticks(QwtScaleDiv::MediumTick);
+    QList<double> medTicks = scDiv.ticks(QwtScaleDiv::MediumTick);
     if (medTicks.contains(value) && (d_minTicks == In || d_minTicks == None))
         return;
 
-    QwtValueList minTicks = scDiv.ticks(QwtScaleDiv::MinorTick);
+    QList<double> minTicks = scDiv.ticks(QwtScaleDiv::MinorTick);
     if (minTicks.contains(value) && (d_minTicks == In || d_minTicks == None))
         return;
 
