@@ -29,7 +29,6 @@
 #include "VectorCurve.h"
 
 #include <qwt_painter.h>
-#include <qwt_double_rect.h>
 #include <QPainter>
 #include <QLocale>
 
@@ -228,9 +227,9 @@ void VectorCurve::fillArrowHead(bool fill)
         filledArrow = fill;
 }
 
-QwtDoubleRect VectorCurve::boundingRect() const
+QRectF VectorCurve::boundingRect() const
 {
-    QwtDoubleRect rect = QwtPlotCurve::boundingRect();
+    QRectF rect = QwtPlotCurve::boundingRect();
 
     if (d_type == Graph::VectXYXY)
         rect |= vectorEnd->boundingRect();
@@ -243,16 +242,16 @@ QwtDoubleRect VectorCurve::boundingRect() const
             double mag = vectorEnd->y(i);
             switch (d_position) {
             case Tail:
-                rect |= QwtDoubleRect(x_i, y_i, mag * cos(angle), mag * sin(angle)).normalized();
+                rect |= QRectF(x_i, y_i, mag * cos(angle), mag * sin(angle)).normalized();
                 break;
             case Middle: {
-                QwtDoubleRect rect_i(0, 0, fabs(mag * cos(angle)), fabs(mag * sin(angle)));
+                QRectF rect_i(0, 0, fabs(mag * cos(angle)), fabs(mag * sin(angle)));
                 rect_i.moveCenter(QwtDoublePoint(x_i, y_i));
                 rect |= rect_i;
                 break;
             }
             case Head:
-                rect |= QwtDoubleRect(x_i, y_i, -mag * cos(angle), -mag * sin(angle)).normalized();
+                rect |= QRectF(x_i, y_i, -mag * cos(angle), -mag * sin(angle)).normalized();
                 break;
             }
         }

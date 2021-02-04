@@ -115,7 +115,7 @@ QRect Legend::rect() const
     return QRect(QPoint(x, y), QSize(width - 1, height - 1));
 }
 
-QwtDoubleRect Legend::boundingRect() const
+QRectF Legend::boundingRect() const
 {
     QRect bounding_rect = rect();
     const QwtScaleMap &x_map = d_plot->canvasMap(xAxis());
@@ -126,7 +126,7 @@ QwtDoubleRect Legend::boundingRect() const
     double top = y_map.invTransform(bounding_rect.top());
     double bottom = y_map.invTransform(bounding_rect.bottom());
 
-    return QwtDoubleRect(left, top, qAbs(right - left), qAbs(bottom - top));
+    return QRectF(left, top, qAbs(right - left), qAbs(bottom - top));
 }
 
 void Legend::setTextColor(const QColor &c)

@@ -33,7 +33,6 @@
 
 #include "PlotToolInterface.h"
 #include <QObject>
-#include <qwt_double_rect.h>
 #include <qwt_plot_marker.h>
 #include <qwt_plot_picker.h>
 

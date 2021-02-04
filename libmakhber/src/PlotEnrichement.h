@@ -70,7 +70,7 @@ public:
     virtual void setRect(int x, int y, int w, int h);
 
     //! Return bounding rectangle in plot coordinates.
-    virtual QwtDoubleRect boundingRect() const;
+    virtual QRectF boundingRect() const;
     //! Set position (xValue() and yValue()), right and bottom values giving everything in plot coordinates.
     virtual void setBoundingRect(double left, double top, double right, double bottom);
 

@@ -42,7 +42,7 @@ public:
     int type() const { return d_type; };
     void setType(int t) { d_type = t; };
 
-    QwtDoubleRect boundingRect() const;
+    QRectF boundingRect() const;
 
 protected:
     int d_type;

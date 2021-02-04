@@ -186,8 +186,8 @@ Graph::Graph(QWidget *parent, QString name, Qt::WindowFlags f) : QWidget(parent,
             SIGNAL(rightAxisTitleDblClicked()));
     connect(scalePicker, SIGNAL(topAxisTitleDblClicked()), this, SIGNAL(topAxisTitleDblClicked()));
 
-    connect(d_zoomer[0], SIGNAL(zoomed(const QwtDoubleRect &)), this,
-            SLOT(zoomed(const QwtDoubleRect &)));
+    connect(d_zoomer[0], SIGNAL(zoomed(const QRectF &)), this,
+            SLOT(zoomed(const QRectF &)));
 }
 
 void Graph::notifyChanges()
@@ -3642,7 +3642,7 @@ bool Graph::zoomOn()
     return (d_zoomer[0]->isEnabled() || d_zoomer[1]->isEnabled());
 }
 
-void Graph::zoomed(const QwtDoubleRect &)
+void Graph::zoomed(const QRectF &)
 {
     emit modifiedGraph();
 }

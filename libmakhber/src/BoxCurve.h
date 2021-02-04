@@ -44,7 +44,7 @@ public:
 
     void copy(const BoxCurve *b);
 
-    virtual QwtDoubleRect boundingRect() const;
+    virtual QRectF boundingRect() const;
 
     QwtSymbol::Style minStyle() { return min_style; };
     void setMinStyle(QwtSymbol::Style s) { min_style = s; };

@@ -39,7 +39,6 @@
 #include "MyWidget.h"
 #include "ScriptingEnv.h"
 #include "Script.h"
-#include <qwt_double_rect.h>
 #include "future/matrix/future_Matrix.h"
 #include "future/matrix/MatrixView.h"
 
@@ -273,10 +272,10 @@ public slots:
     double yEnd() { return d_future_matrix->yEnd(); };
 
     //! Returns the bounding rect of the matrix coordinates
-    QwtDoubleRect boundingRect()
+    QRectF boundingRect()
     {
-        return QwtDoubleRect(xStart(), yStart(), xEnd() - xStart(), yEnd() - yStart()).normalized();
-    };
+        return QRectF(xStart(), yStart(), xEnd() - xStart(), yEnd() - yStart()).normalized();
+    }
     //! Set the X and Y coordinate intervals
     void setCoordinates(double xs, double xe, double ys, double ye);
 

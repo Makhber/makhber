@@ -67,7 +67,7 @@ public:
     //! Bounding rectangle in paint coordinates.
     QRect rect() const;
     //! Bounding rectangle in plot coordinates.
-    virtual QwtDoubleRect boundingRect() const;
+    virtual QRectF boundingRect() const;
 
     void setOrigin(const QPoint &p);
 

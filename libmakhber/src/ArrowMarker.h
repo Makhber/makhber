@@ -115,7 +115,7 @@ public:
     QRect rect() const { return QRect(startPoint(), endPoint()).normalized(); };
 
     //! Returns the bounding rectangle in plot coordinates.
-    QwtDoubleRect boundingRect() const;
+    QRectF boundingRect() const;
     void setBoundingRect(double xs, double ys, double xe, double ye);
 
     //! Recalculates the bounding rectangle in values coordinates using the pixel coordinats when the scales change
@@ -158,7 +158,7 @@ private:
     QPoint d_end;
 
     //! Bounding rectangle of the arrow in axes values coordinates
-    QwtDoubleRect d_rect;
+    QRectF d_rect;
     //! Whether start and end point can be moved by the user.
     bool d_editable;
 

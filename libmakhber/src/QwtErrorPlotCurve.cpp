@@ -219,13 +219,13 @@ void QwtErrorPlotCurve::setColor(const QColor &c)
     setPen(p);
 }
 
-QwtDoubleRect QwtErrorPlotCurve::boundingRect() const
+QRectF QwtErrorPlotCurve::boundingRect() const
 {
-    QwtDoubleRect rect = QwtPlotCurve::boundingRect();
+    QRectF rect = QwtPlotCurve::boundingRect();
 
     int size = dataSize();
 
-    QwtArray<double> X(size), Y(size), min(size), max(size);
+    QVector<double> X(size), Y(size), min(size), max(size);
     for (int i = 0; i < size; i++) {
         X[i] = x(i);
         Y[i] = y(i);
@@ -247,8 +247,8 @@ QwtDoubleRect QwtErrorPlotCurve::boundingRect() const
         erMax = new QwtArrayData(max, Y);
     }
 
-    QwtDoubleRect minrect = erMin->boundingRect();
-    QwtDoubleRect maxrect = erMax->boundingRect();
+    QRectF minrect = erMin->boundingRect();
+    QRectF maxrect = erMax->boundingRect();
 
     rect.setTop(qMin(minrect.top(), maxrect.top()));
     rect.setBottom(qMax(minrect.bottom(), maxrect.bottom()));

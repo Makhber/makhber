@@ -295,9 +295,9 @@ void BoxCurve::setWhiskersRange(int type, double coeff)
         w_coeff = coeff;
 }
 
-QwtDoubleRect BoxCurve::boundingRect() const
+QRectF BoxCurve::boundingRect() const
 {
-    QwtDoubleRect rect = QwtPlotCurve::boundingRect();
+    QRectF rect = QwtPlotCurve::boundingRect();
 
     double dy = 0.2 * (rect.bottom() - rect.top());
     rect.setTop(rect.top() - dy);

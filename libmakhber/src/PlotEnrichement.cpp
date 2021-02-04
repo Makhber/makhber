@@ -74,9 +74,9 @@ void PlotEnrichement::updateBoundingRect()
     d_y_bottom = plot()->invTransform(yAxis(), d_pos.y() + d_size.height());
 }
 
-QwtDoubleRect PlotEnrichement::boundingRect() const
+QRectF PlotEnrichement::boundingRect() const
 {
-    return QwtDoubleRect(xValue(), yValue(), qAbs(d_x_right - xValue()),
+    return QRectF(xValue(), yValue(), qAbs(d_x_right - xValue()),
                          qAbs(d_y_bottom - yValue()));
 }
 

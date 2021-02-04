@@ -48,7 +48,7 @@ public:
 
     void copy(const VectorCurve *vc);
 
-    QwtDoubleRect boundingRect() const;
+    QRectF boundingRect() const;
 
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;

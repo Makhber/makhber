@@ -117,9 +117,9 @@ void ImageMarker::updateBoundingRect()
     d_y_bottom = plot()->invTransform(yAxis(), d_pos.y() + d_size.height());
 }
 
-QwtDoubleRect ImageMarker::boundingRect() const
+QRectF ImageMarker::boundingRect() const
 {
-    return QwtDoubleRect(xValue(), yValue(), qAbs(d_x_right - xValue()),
+    return QRectF(xValue(), yValue(), qAbs(d_x_right - xValue()),
                          qAbs(d_y_bottom - yValue()));
 }
 

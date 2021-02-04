@@ -295,9 +295,9 @@ int DataCurve::tableRow(int point)
     return d_index_to_row.value(point, -1);
 }
 
-QwtDoubleRect PlotCurve::boundingRect() const
+QRectF PlotCurve::boundingRect() const
 {
-    QwtDoubleRect r = QwtPlotCurve::boundingRect();
+    QRectF r = QwtPlotCurve::boundingRect();
     if (symbol().style() == QwtSymbol::NoSymbol)
         return r;
 
@@ -318,5 +318,5 @@ QwtDoubleRect PlotCurve::boundingRect() const
     int y_bottom = yMap.transform(r.bottom());
     double d_y_bottom = yMap.invTransform(y_bottom - margin);
 
-    return QwtDoubleRect(d_x_left, d_y_top, qAbs(d_x_right - d_x_left), qAbs(d_y_bottom - d_y_top));
+    return QRectF(d_x_left, d_y_top, qAbs(d_x_right - d_x_left), qAbs(d_y_bottom - d_y_top));
 }

@@ -142,7 +142,7 @@ public:
 
     virtual QwtDoubleInterval range() const { return QwtDoubleInterval(min_z, max_z); }
 
-    virtual QSize rasterHint(const QwtDoubleRect &) const { return QSize(n_cols, n_rows); }
+    virtual QSize rasterHint(const QRectF &) const { return QSize(n_cols, n_rows); }
 
     virtual double value(double x, double y) const;
 

@@ -43,7 +43,7 @@ public:
 
     void copy(const QwtErrorPlotCurve *e);
 
-    QwtDoubleRect boundingRect() const;
+    QRectF boundingRect() const;
 
     double errorValue(int i);
     QwtArray<double> errors() { return err; };

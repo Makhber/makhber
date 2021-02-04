@@ -329,7 +329,7 @@ public slots:
 
     //! \name Zoom
     //@{
-    void zoomed(const QwtDoubleRect &);
+    void zoomed(const QRectF &);
     void zoom(bool on);
     void zoomOut();
     bool zoomOn();
