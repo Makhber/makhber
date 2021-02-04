@@ -103,7 +103,7 @@ void DataPickerTool::append(const QPoint &pos)
     if (!d_selected_curve)
         return;
 
-    QwtPlotPicker::append(transform(QwtDoublePoint(d_selected_curve->x(d_selected_point),
+    QwtPlotPicker::append(transform(QPointF(d_selected_curve->x(d_selected_point),
                                                    d_selected_curve->y(d_selected_point))));
 }
 
@@ -147,7 +147,7 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
                                 .arg(t->text(row, xCol), t->text(row, yCol)));
     }
 
-    QwtDoublePoint selected_point_value(d_selected_curve->x(d_selected_point),
+    QPointF selected_point_value(d_selected_curve->x(d_selected_point),
                                         d_selected_curve->y(d_selected_point));
     d_selection_marker.setValue(selected_point_value);
     if (d_selection_marker.plot() == nullptr)
@@ -411,7 +411,7 @@ void DataPickerTool::moveBy(int dx, int dy)
     end(true);
 }
 
-QwtText DataPickerTool::trackerText(const QwtDoublePoint &point) const
+QwtText DataPickerTool::trackerText(const QPointF &point) const
 {
     return plot()->axisScaleDraw(xAxis())->label(point.x()).text() + ", "
             + plot()->axisScaleDraw(yAxis())->label(point.y()).text();

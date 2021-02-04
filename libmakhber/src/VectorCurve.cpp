@@ -246,7 +246,7 @@ QRectF VectorCurve::boundingRect() const
                 break;
             case Middle: {
                 QRectF rect_i(0, 0, fabs(mag * cos(angle)), fabs(mag * sin(angle)));
-                rect_i.moveCenter(QwtDoublePoint(x_i, y_i));
+                rect_i.moveCenter(QPointF(x_i, y_i));
                 rect |= rect_i;
                 break;
             }

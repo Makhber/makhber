@@ -187,11 +187,11 @@ void LineDialog::initGeometryTab()
 void LineDialog::displayCoordinates(int unit)
 {
     if (unit == ScaleCoordinates) {
-        QwtDoublePoint sp = lm->startPointCoord();
+        QPointF sp = lm->startPointCoord();
         xStartBox->setText(QString::number(sp.x()));
         yStartBox->setText(QString::number(sp.y()));
 
-        QwtDoublePoint ep = lm->endPointCoord();
+        QPointF ep = lm->endPointCoord();
         xEndBox->setText(QString::number(ep.x()));
         yEndBox->setText(QString::number(ep.y()));
     } else {

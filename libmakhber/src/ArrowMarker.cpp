@@ -285,9 +285,9 @@ QPoint ArrowMarker::startPoint() const
                   plot()->transform(yAxis(), d_rect.top()));
 }
 
-QwtDoublePoint ArrowMarker::startPointCoord()
+QPointF ArrowMarker::startPointCoord()
 {
-    return QwtDoublePoint(d_rect.left(), d_rect.top());
+    return QPointF(d_rect.left(), d_rect.top());
 }
 
 void ArrowMarker::setStartPoint(double x, double y)
@@ -329,9 +329,9 @@ void ArrowMarker::setEndPoint(double x, double y)
     d_end = QPoint(plot()->transform(xAxis(), x), plot()->transform(yAxis(), y));
 }
 
-QwtDoublePoint ArrowMarker::endPointCoord()
+QPointF ArrowMarker::endPointCoord()
 {
-    return QwtDoublePoint(d_rect.right(), d_rect.bottom());
+    return QPointF(d_rect.right(), d_rect.bottom());
 }
 
 void ArrowMarker::setBoundingRect(double xs, double ys, double xe, double ye)

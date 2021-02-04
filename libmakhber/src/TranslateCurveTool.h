@@ -33,6 +33,7 @@
 
 #include "PlotToolInterface.h"
 #include <QObject>
+#include <QPointF>
 
 class ApplicationWindow;
 class QwtPlotCurve;
@@ -67,13 +68,13 @@ public slots:
     //! Select curve to translate, using the specified point as base point.
     void selectCurvePoint(QwtPlotCurve *curve, int point_index);
     //! Select the coordinates where the base point should end up (modulo projection on #d_dir direction).
-    void selectDestination(const QwtDoublePoint &point);
+    void selectDestination(const QPointF &point);
 
 private:
     Direction d_dir;
     PlotToolInterface *d_sub_tool;
     QwtPlotCurve *d_selected_curve {};
-    QwtDoublePoint d_curve_point;
+    QPointF d_curve_point;
     ApplicationWindow *d_app;
 };
 

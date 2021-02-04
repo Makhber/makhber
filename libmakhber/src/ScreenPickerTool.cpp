@@ -63,7 +63,7 @@ void ScreenPickerTool::append(const QPoint &point)
 {
     //	QwtPlotPicker::append(point);
 
-    QwtDoublePoint pos = invTransform(point);
+    QPointF pos = invTransform(point);
     emit statusText(trackerText(pos).text());
 
     d_selection_marker.setValue(pos);
@@ -95,7 +95,7 @@ bool ScreenPickerTool::eventFilter(QObject *obj, QEvent *event)
     return QwtPlotPicker::eventFilter(obj, event);
 }
 
-QwtText ScreenPickerTool::trackerText(const QwtDoublePoint &point) const
+QwtText ScreenPickerTool::trackerText(const QPointF &point) const
 {
     return plot()->axisScaleDraw(xAxis())->label(point.x()).text() + ", "
             + plot()->axisScaleDraw(yAxis())->label(point.y()).text();

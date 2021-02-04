@@ -57,12 +57,12 @@ public:
     void setEndPoint(const QPoint &p);
 
     //! Axes values coordinates of the start point
-    QwtDoublePoint startPointCoord();
+    QPointF startPointCoord();
     //! Sets the start point in axes values coordinates
     void setStartPoint(double x, double y);
 
     //! Axes values coordinates of the end point
-    QwtDoublePoint endPointCoord();
+    QPointF endPointCoord();
     //! Sets the end point in axes values coordinates
     void setEndPoint(double x, double y);
 

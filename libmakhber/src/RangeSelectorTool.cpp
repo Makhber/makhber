@@ -207,7 +207,7 @@ void RangeSelectorTool::emitStatusText()
 
 void RangeSelectorTool::switchActiveMarker()
 {
-    QwtDoublePoint tmp = d_active_marker.value();
+    QPointF tmp = d_active_marker.value();
     d_active_marker.setValue(d_inactive_marker.value());
     d_inactive_marker.setValue(tmp);
     int tmp2 = d_active_point;

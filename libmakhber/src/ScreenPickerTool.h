@@ -61,7 +61,7 @@ signals:
 protected:
     virtual void append(const QPoint &point);
     QwtPlotMarker d_selection_marker;
-    virtual QwtText trackerText(const QwtDoublePoint &point) const;
+    virtual QwtText trackerText(const QPointF &point) const;
 };
 
 #endif // ifndef SCREEN_PICKER_TOOL_H

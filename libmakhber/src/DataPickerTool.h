@@ -71,7 +71,7 @@ protected:
     virtual bool end(bool ok);
     void setSelection(QwtPlotCurve *curve, int point_index);
     void moveBy(int dx, int dy);
-    virtual QwtText trackerText(const QwtDoublePoint &point) const;
+    virtual QwtText trackerText(const QPointF &point) const;
 
 private:
     ApplicationWindow *d_app;
