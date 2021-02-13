@@ -90,17 +90,17 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     }
 
     if (bar_style == Vertical) {
-        dx = abs(xMap.transform(x(from + 1)) - xMap.transform(x(from)));
+        dx = abs(xMap.transform(sample(from + 1).x()) - xMap.transform(sample(from).x()));
         for (int i = from + 2; i < to; i++) {
-            int min = abs(xMap.transform(x(i + 1)) - xMap.transform(x(i)));
+            int min = abs(xMap.transform(sample(i + 1).x()) - xMap.transform(sample(i).x()));
             if (min <= dx)
                 dx = min;
         }
         bar_width = dx * (1 - bar_gap * 0.01);
     } else {
-        dy = abs(yMap.transform(y(from + 1)) - yMap.transform(y(from)));
+        dy = abs(yMap.transform(sample(from + 1).y()) - yMap.transform(sample(from).y()));
         for (int i = from + 2; i < to; i++) {
-            int min = abs(yMap.transform(y(i + 1)) - yMap.transform(y(i)));
+            int min = abs(yMap.transform(sample(i + 1).y()) - yMap.transform(sample(i).y()));
             if (min <= dy)
                 dy = min;
         }
@@ -110,16 +110,16 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     const int half_width = int((0.5 - bar_offset * 0.01) * bar_width);
     int bw1 = int(bar_width) + 1;
     for (int i = from; i <= to; i++) {
-        const int px = xMap.transform(x(i));
-        const int py = yMap.transform(y(i));
+        const int px = xMap.transform(sample(i).x());
+        const int py = yMap.transform(sample(i).y());
 
         if (bar_style == Vertical) {
-            if (y(i) < 0)
+            if (sample(i).y() < 0)
                 painter->drawRect(px - half_width, ref2, bw1, qRound(py - ref2));
             else
                 painter->drawRect(px - half_width, py, bw1, qRound(ref1 - py + 1));
         } else {
-            if (x(i) < 0)
+            if (sample(i).x() < 0)
                 painter->drawRect(px, py - half_width, qRound(ref2 - px), bw1);
             else
                 painter->drawRect(ref1, py - half_width, qRound(px - ref1), bw1);
@@ -166,11 +166,11 @@ double QwtBarCurve::dataOffset()
 {
     if (bar_style == Vertical) {
         const QwtScaleMap &xMap = plot()->canvasMap(xAxis());
-        int dx = abs(xMap.transform(x(1)) - xMap.transform(x(0)));
+        int dx = abs(xMap.transform(sample(1).x()) - xMap.transform(sample(0).x()));
         double bar_width = dx * (1 - bar_gap * 0.01);
         if (plot()->isVisible()) {
             for (int i = 2; i < dataSize(); i++) {
-                int min = abs(xMap.transform(x(i)) - xMap.transform(x(i - 1)));
+                int min = abs(xMap.transform(sample(i).x()) - xMap.transform(sample(i - 1).x()));
                 if (min <= dx)
                     dx = min;
             }
@@ -180,11 +180,11 @@ double QwtBarCurve::dataOffset()
             return 0.5 * bar_offset * 0.01 * bar_width;
     } else {
         const QwtScaleMap &yMap = plot()->canvasMap(yAxis());
-        int dy = abs(yMap.transform(y(1)) - yMap.transform(y(0)));
+        int dy = abs(yMap.transform(sample(1).y()) - yMap.transform(sample(0).y()));
         double bar_width = dy * (1 - bar_gap * 0.01);
         if (plot()->isVisible()) {
             for (int i = 2; i < dataSize(); i++) {
-                int min = abs(yMap.transform(y(i)) - yMap.transform(y(i - 1)));
+                int min = abs(yMap.transform(sample(i).y()) - yMap.transform(sample(i - 1).y()));
                 if (min <= dy)
                     dy = min;
             }

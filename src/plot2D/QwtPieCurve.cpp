@@ -77,14 +77,14 @@ void QwtPieCurve::drawPie(QPainter *painter, const QwtScaleMap &, const QwtScale
 
     double sum = 0.0;
     for (int i = from; i <= to; i++) {
-        const double yi = y(i);
+        const double yi = sample(i).y();
         sum += yi;
     }
 
     int angle = (int)(5760 * 0.75);
     painter->save();
     for (int i = from; i <= to; i++) {
-        const double yi = y(i);
+        const double yi = sample(i).y();
         const int value = (int)(yi / sum * 5760);
 
         painter->setPen(QwtPlotCurve::pen());

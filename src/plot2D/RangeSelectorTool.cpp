@@ -77,10 +77,10 @@ RangeSelectorTool::RangeSelectorTool(Graph *graph, const QObject *status_target,
                                           QPen(Qt::black, 2), QSize(marker_size, marker_size)));
     d_inactive_marker.setLineStyle(QwtPlotMarker::VLine);
     d_inactive_marker.setLinePen(QPen(Qt::black, 1, Qt::DashLine));
-    d_active_marker.setValue(d_selected_curve->x(d_active_point),
-                             d_selected_curve->y(d_active_point));
-    d_inactive_marker.setValue(d_selected_curve->x(d_inactive_point),
-                               d_selected_curve->y(d_inactive_point));
+    d_active_marker.setValue(d_selected_curve->sample(d_active_point).x(),
+                             d_selected_curve->sample(d_active_point).y());
+    d_inactive_marker.setValue(d_selected_curve->sample(d_inactive_point).x(),
+                               d_selected_curve->sample(d_inactive_point).y());
     d_active_marker.attach(d_graph->plotWidget());
     d_inactive_marker.attach(d_graph->plotWidget());
 
@@ -122,9 +122,9 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
         double max_x = curve->data().boundingRect().right();
         int n = curve->dataSize();
         double second_x = NAN;
-        if (curve->x(point) == min_x)
+        if (curve->sample(point).x() == min_x)
             second_x = max_x;
-        else if (curve->x(point) == max_x)
+        else if (curve->sample(point).x() == max_x)
             second_x = min_x;
         else if (d_active_marker.xValue() < d_inactive_marker.xValue())
             second_x = max_x;
@@ -132,18 +132,19 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
             second_x = min_x;
         if (second_x == max_x) { // start at selected point and try larger indices first
             for (int i = 0; i < n; ++i)
-                if (qFuzzyCompare(curve->x((i + point) % n), max_x))
+                if (qFuzzyCompare(curve->sample((i + point) % n).x(), max_x))
                     d_inactive_point = (i + point) % n;
         } else { // start at selected point and try smaller indices first
             for (int i = n - 1; i >= 0; --i)
-                if (qFuzzyCompare(curve->x((i + point) % n), max_x))
+                if (qFuzzyCompare(curve->sample((i + point) % n).x(), max_x))
                     d_inactive_point = (i + point) % n;
         }
         d_selected_curve = curve;
-        d_inactive_marker.setValue(curve->x(d_inactive_point), curve->y(d_inactive_point));
+        d_inactive_marker.setValue(curve->sample(d_inactive_point).x(),
+                                   curve->sample(d_inactive_point).y());
         d_active_point = point;
-        d_active_marker.setValue(d_selected_curve->x(d_active_point),
-                                 d_selected_curve->y(d_active_point));
+        d_active_marker.setValue(d_selected_curve->sample(d_active_point).x(),
+                                 d_selected_curve->sample(d_active_point).y());
         emitStatusText();
         Q_EMIT rangeSelectorChanged();
     }
@@ -157,10 +158,10 @@ void RangeSelectorTool::setSelectedCurve(QwtPlotCurve *curve)
     d_selected_curve = curve;
     d_active_point = 0;
     d_inactive_point = d_selected_curve->dataSize() - 1;
-    d_active_marker.setValue(d_selected_curve->x(d_active_point),
-                             d_selected_curve->y(d_active_point));
-    d_inactive_marker.setValue(d_selected_curve->x(d_inactive_point),
-                               d_selected_curve->y(d_inactive_point));
+    d_active_marker.setValue(d_selected_curve->sample(d_active_point).x(),
+                             d_selected_curve->sample(d_active_point).y());
+    d_inactive_marker.setValue(d_selected_curve->sample(d_inactive_point).x(),
+                               d_selected_curve->sample(d_inactive_point).y());
     emitStatusText();
     Q_EMIT rangeSelectorChanged();
 }
@@ -170,8 +171,8 @@ void RangeSelectorTool::setActivePoint(int point)
     if (point == d_active_point)
         return;
     d_active_point = point;
-    d_active_marker.setValue(d_selected_curve->x(d_active_point),
-                             d_selected_curve->y(d_active_point));
+    d_active_marker.setValue(d_selected_curve->sample(d_active_point).x(),
+                             d_selected_curve->sample(d_active_point).y());
     emitStatusText();
     Q_EMIT rangeSelectorChanged();
 }
@@ -185,8 +186,10 @@ void RangeSelectorTool::emitStatusText()
                                                                                    : tr("Left"),
                              d_selected_curve->title().text())
                         .arg(d_active_point + 1)
-                        .arg(QLocale().toString(d_selected_curve->x(d_active_point), 'G', 15),
-                             QLocale().toString(d_selected_curve->y(d_active_point), 'G', 15)));
+                        .arg(QLocale().toString(d_selected_curve->sample(d_active_point).x(), 'G',
+                                                15),
+                             QLocale().toString(d_selected_curve->sample(d_active_point).y(), 'G',
+                                                15)));
     } else {
         Table *t = (dynamic_cast<DataCurve *>(d_selected_curve))->table();
         if (!t)

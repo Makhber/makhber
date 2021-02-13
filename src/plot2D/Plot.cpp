@@ -410,8 +410,8 @@ int Plot::closestCurve(int xpos, int ypos, int &dist, int &point)
         if (item->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
             auto *c = dynamic_cast<PlotCurve *>(item);
             for (int i = 0; i < c->dataSize(); i++) {
-                double cx = map[c->xAxis()].xTransform(c->x(i)) - double(xpos);
-                double cy = map[c->yAxis()].xTransform(c->y(i)) - double(ypos);
+                double cx = map[c->xAxis()].transform(c->sample(i).x()) - double(xpos);
+                double cy = map[c->yAxis()].transform(c->sample(i).y()) - double(ypos);
                 double f = qwtSqr(cx) + qwtSqr(cy);
                 if (f < dmin && c->type() != Graph::ErrorBars) {
                     dmin = f;

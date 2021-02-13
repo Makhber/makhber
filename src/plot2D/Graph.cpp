@@ -2381,7 +2381,7 @@ QString Graph::saveCurves()
                     // the 2 last tabs are legacy code, kept for compatibility with old project
                     // files
                 } else if (c->type() == Box)
-                    s += "curve\t" + QString::number(c->x(0)) + "\t" + c->title().text() + "\t";
+                    s += "curve\t" + QString::number(c->data()->sample(0).x()) + "\t" + c->title().text() + "\t";
                 else
                     s += "curve\t" + dynamic_cast<DataCurve *>(c)->xColumnName() + "\t"
                             + c->title().text() + "\t";
@@ -2764,8 +2764,8 @@ int Graph::range(int index, double *start, double *end)
         if (!c)
             return 0;
 
-        *start = c->x(0);
-        *end = c->x(c->dataSize() - 1);
+        *start = c->data()->sample(0).x();
+        *end = c->data()->sample(c->dataSize() - 1).x();
         return c->dataSize();
     }
 }
@@ -3949,8 +3949,8 @@ void Graph::createTable(const QwtPlotCurve *curve)
     xCol->setPlotDesignation(Makhber::X);
     yCol->setPlotDesignation(Makhber::Y);
     for (int i = 0; i < size; i++) {
-        xCol->setValueAt(i, curve->x(i));
-        yCol->setValueAt(i, curve->y(i));
+        xCol->setValueAt(i, curve->data()->sample(i).x());
+        yCol->setValueAt(i, curve->data()->sample(i).y());
     }
     QString legend = tr("Data set generated from curve") + ": " + curve->title().text();
     Q_EMIT createTable(tr("Curve data %1").arg(1), legend, QList<Column *>() << xCol << yCol);
@@ -4481,8 +4481,8 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             QVector<double> x(n);
             QVector<double> y(n);
             for (int j = 0; j < n; j++) {
-                x[j] = cv->x(j);
-                y[j] = cv->y(j);
+                x[j] = cv->data()->sample(j).x();
+                y[j] = cv->data()->sample(j).y();
             }
 
             PlotCurve *c = nullptr;

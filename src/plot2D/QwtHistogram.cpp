@@ -69,14 +69,14 @@ void QwtHistogram::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtSca
     painter->setBrush(QwtPlotCurve::brush());
 
     const int ref = yMap.transform(baseline());
-    const int dx = abs(xMap.transform(x(from + 1)) - xMap.transform(x(from)));
+    const int dx = abs(xMap.transform(sample(from + 1).x()) - xMap.transform(sample(from).x()));
     const int bar_width = int(dx * (1 - gap() * 0.01));
     const int half_width = int(0.5 * (dx - bar_width));
     const int xOffset = int(0.01 * offset() * bar_width);
 
     for (int i = from; i <= to; i++) {
-        const int px1 = xMap.transform(x(i));
-        const int py1 = yMap.transform(y(i));
+        const int px1 = xMap.transform(sample(i).x());
+        const int py1 = yMap.transform(sample(i).y());
         painter->drawRect(px1 + half_width + xOffset, py1, bar_width + 1, (ref - py1 + 1));
     }
 
@@ -86,8 +86,8 @@ void QwtHistogram::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtSca
 QRectF QwtHistogram::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
-    rect.setLeft(rect.left() - x(1));
-    rect.setRight(rect.right() + x(dataSize() - 1));
+    rect.setLeft(rect.left() - sample(1).x());
+    rect.setRight(rect.right() + sample(dataSize() - 1).x());
     rect.setTop(0);
     rect.setBottom(1.2 * rect.bottom());
     return rect;

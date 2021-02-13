@@ -1072,13 +1072,13 @@ void PlotDialog::showStatistics()
     if (t) {
         double h_sum = 0.0;
         for (int i = 0; i < h->dataSize(); i++)
-            h_sum += h->y(i);
+            h_sum += h->sample(i).y();
 
         double sum = 0.0;
         for (int i = 0; i < h->dataSize(); i++) {
-            sum += h->y(i);
-            t->column(0)->setValueAt(i, h->x(i));
-            t->column(1)->setValueAt(i, h->y(i));
+            sum += h->sample(i).y();
+            t->column(0)->setValueAt(i, h->sample(i).x());
+            t->column(1)->setValueAt(i, h->sample(i).y());
             t->column(2)->setValueAt(i, sum);
             t->column(3)->setValueAt(i, sum / h_sum * 100);
         }

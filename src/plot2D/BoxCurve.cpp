@@ -86,7 +86,7 @@ void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMa
 
     auto *dat = new double[size];
     for (int i = from; i <= to; i++)
-        dat[i] = y(i);
+        dat[i] = sample(i).y();
 
     drawBox(painter, xMap, yMap, dat, size);
     drawSymbols(painter, xMap, yMap, dat, size);
@@ -98,9 +98,9 @@ void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMa
 void BoxCurve::drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                        double *dat, int size) const
 {
-    const int px = xMap.transform(x(0));
-    const int px_min = xMap.transform(x(0) - 0.5);
-    const int px_max = xMap.transform(x(0) + 0.5);
+    const int px = xMap.transform(sample(0).x());
+    const int px_min = xMap.transform(sample(0).x() - 0.5);
+    const int px_max = xMap.transform(sample(0).x() + 0.5);
     const int box_width = 1 + (px_max - px_min) * b_width / 100;
     const int hbw = box_width / 2;
     const int median = yMap.transform(gsl_stats_median_from_sorted_data(dat, 1, size));
@@ -218,16 +218,16 @@ void BoxCurve::drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
 void BoxCurve::drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                            double *dat, int size) const
 {
-    const int px = xMap.transform(x(0));
+    const int px = xMap.transform(sample(0).x());
 
     QwtSymbol s = this->symbol();
     if (min_style != QwtSymbol::NoSymbol) {
-        const int py_min = yMap.transform(y(0));
+        const int py_min = yMap.transform(sample(0).y());
         s.setStyle(min_style);
         s.draw(painter, px, py_min);
     }
     if (max_style != QwtSymbol::NoSymbol) {
-        const int py_max = yMap.transform(y(size - 1));
+        const int py_max = yMap.transform(sample(size - 1).y());
         s.setStyle(max_style);
         s.draw(painter, px, py_max);
     }

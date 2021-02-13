@@ -243,7 +243,7 @@ int Filter::sortedCurveData(QwtPlotCurve *c, double start, double end, double **
     int datasize = c->dataSize();
     vector<double> xtemp;
     for (int i = 0; i < datasize; i++) {
-        xtemp.push_back(c->x(i));
+        xtemp.push_back(c->sample(i).x());
     }
     vector<size_t> p(datasize);
     gsl_sort_index(&p[0], &xtemp[0], 1, datasize);
@@ -251,10 +251,10 @@ int Filter::sortedCurveData(QwtPlotCurve *c, double start, double end, double **
     // find indices that, when permuted by the sort result, give start and end
     int i_start = 0, i_end = 0;
     for (i_start = 0; i_start < datasize; i_start++)
-        if (c->x(static_cast<int>(p[i_start])) >= start)
+        if (c->sample(static_cast<int>(p[i_start])).x() >= start)
             break;
     for (i_end = datasize - 1; i_end >= 0; i_end--)
-        if (c->x(static_cast<int>(p[i_end])) <= end)
+        if (c->sample(static_cast<int>(p[i_end])).x() <= end)
             break;
 
     // make result arrays
@@ -263,8 +263,8 @@ int Filter::sortedCurveData(QwtPlotCurve *c, double start, double end, double **
     (*x) = new double[n];
     (*y) = new double[n];
     for (int j = 0, i = i_start; i <= i_end; i++, j++) {
-        (*x)[j] = c->x(static_cast<int>(p[i]));
-        (*y)[j] = c->y(static_cast<int>(p[i]));
+        (*x)[j] = c->sample(static_cast<int>(p[i])).x();
+        (*y)[j] = c->sample(static_cast<int>(p[i])).x();
     }
     return n;
 }
@@ -277,10 +277,10 @@ int Filter::curveData(QwtPlotCurve *c, double start, double end, double **x, dou
     int datasize = c->dataSize();
     int i_start = 0, i_end = 0;
     for (i_start = 0; i_start < datasize; i_start++)
-        if (c->x(i_start) >= start)
+        if (c->sample(i_start).x() >= start)
             break;
     for (i_end = datasize - 1; i_end >= 0; i_end--)
-        if (c->x(i_end) <= end)
+        if (c->sample(i_end).x() <= end)
             break;
 
     int n = i_end - i_start + 1;
@@ -289,8 +289,8 @@ int Filter::curveData(QwtPlotCurve *c, double start, double end, double **x, dou
     (*y) = new double[n];
 
     for (int j = 0, i = i_start; i <= i_end; i++, j++) {
-        (*x)[j] = c->x(i);
-        (*y)[j] = c->y(i);
+        (*x)[j] = c->sample(i).x();
+        (*y)[j] = c->sample(i).y();
     }
     return n;
 }

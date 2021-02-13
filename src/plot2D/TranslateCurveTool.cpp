@@ -67,7 +67,7 @@ TranslateCurveTool::TranslateCurveTool(Graph *graph, ApplicationWindow *app, Dir
 void TranslateCurveTool::selectCurvePoint(QwtPlotCurve *curve, int point_index)
 {
     d_selected_curve = curve;
-    d_curve_point = QPointF(curve->x(point_index), curve->y(point_index));
+    d_curve_point = QPointF(curve->sample(point_index).x(), curve->sample(point_index).y());
     delete d_sub_tool;
 
     // Phase 2: select destination
@@ -137,10 +137,10 @@ void TranslateCurveTool::selectDestination(const QPointF &point)
         int row_end = row_start + c->dataSize();
         for (int i = row_start; i < row_end; i++) {
             if (!tab->column(col)->isInvalid(i))
-                tab->column(col)->setValueAt(
-                        i,
-                        (d_dir == Horizontal ? d_selected_curve->x(i) : d_selected_curve->y(i))
-                                + d);
+                tab->column(col)->setValueAt(i,
+                                             (d_dir == Horizontal ? d_selected_curve->sample(i).x()
+                                                                  : d_selected_curve->sample(i).y())
+                                                     + d);
         }
         d_app->updateCurves(tab, col_name);
         d_app->modifiedProject();

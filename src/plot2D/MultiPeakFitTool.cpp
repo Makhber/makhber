@@ -79,13 +79,13 @@ void MultiPeakFitTool::selectPeak(QwtPlotCurve *curve, int point_index)
         return;
     d_curve = curve;
 
-    d_fit->setInitialGuess(3 * d_selected_peaks, curve->y(point_index));
-    d_fit->setInitialGuess(3 * d_selected_peaks + 1, curve->x(point_index));
+    d_fit->setInitialGuess(3 * d_selected_peaks, curve->sample(point_index).y());
+    d_fit->setInitialGuess(3 * d_selected_peaks + 1, curve->sample(point_index).x());
 
     auto *m = new QwtPlotMarker();
     m->setLineStyle(QwtPlotMarker::VLine);
     m->setLinePen(QPen(Qt::green, 2, Qt::DashLine));
-    m->setXValue(curve->x(point_index));
+    m->setXValue(curve->sample(point_index).x());
     d_graph->plotWidget()->insertMarker(m);
     d_graph->plotWidget()->replot();
 

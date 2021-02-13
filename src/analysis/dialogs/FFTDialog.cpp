@@ -184,7 +184,7 @@ void FFTDialog::activateCurve(const QString &curveName)
         if (!c)
             return;
 
-        boxSampling->setText(QString::number(c->x(1) - c->x(0)));
+        boxSampling->setText(QString::number(c->sample(1).x() - c->sample(0).x()));
     } else if (d_table) {
         int col = d_table->colIndex(curveName);
         double x0 = d_table->text(0, col).toDouble();

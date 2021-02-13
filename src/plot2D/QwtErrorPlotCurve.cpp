@@ -104,12 +104,12 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
         d_yOffset = (dynamic_cast<QwtBarCurve *>(d_master_curve))->dataOffset();
 
     for (int i = from; i <= to; i++) {
-        const int xi = xMap.transform(x(i) + d_xOffset);
-        const int yi = yMap.transform(y(i) + d_yOffset);
+        const int xi = xMap.transform(sample(i).x() + d_xOffset);
+        const int yi = yMap.transform(sample(i).y() + d_yOffset);
 
         if (type == Vertical) {
-            int y_plus = yMap.transform(y(i) + err[i]);
-            int y_minus = yMap.transform(y(i) - err[i]);
+            int y_plus = yMap.transform(sample(i).y() + err[i]);
+            int y_minus = yMap.transform(sample(i).y() - err[i]);
             bool y_minus_is_finite = true;
 
             if (yMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= y(i)) {
@@ -143,8 +143,8 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
                     QwtPainter::drawLine(painter, xi, yi - sh / 2, xi, y_minus);
             }
         } else if (type == Horizontal) {
-            int x_plus = xMap.transform(x(i) + err[i]);
-            int x_minus = xMap.transform(x(i) - err[i]);
+            int x_plus = xMap.transform(sample(i).x() + err[i]);
+            int x_minus = xMap.transform(sample(i).x() - err[i]);
             bool x_minus_is_finite = true;
 
             if (xMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= x(i)) {
@@ -228,14 +228,14 @@ QRectF QwtErrorPlotCurve::boundingRect() const
 
     QVector<double> X(size), Y(size), min(size), max(size);
     for (int i = 0; i < size; i++) {
-        X[i] = x(i);
-        Y[i] = y(i);
+        X[i] = sample(i).x();
+        Y[i] = sample(i).y();
         if (type == Vertical) {
-            min[i] = y(i) - err[i];
-            max[i] = y(i) + err[i];
+            min[i] = sample(i).y() - err[i];
+            max[i] = sample(i).y() + err[i];
         } else {
-            min[i] = x(i) - err[i];
-            max[i] = x(i) + err[i];
+            min[i] = sample(i).x() - err[i];
+            max[i] = sample(i).x() + err[i];
         }
     }
 

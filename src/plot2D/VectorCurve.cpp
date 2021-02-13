@@ -90,10 +90,10 @@ void VectorCurve::drawVector(QPainter *painter, const QwtScaleMap &xMap, const Q
 {
     if (d_type == Graph::VectXYAM) {
         for (int i = from; i <= to; i++) {
-            const double x0 = x(i);
-            const double y0 = y(i);
-            const double angle = vectorEnd->x(i);
-            const double mag = vectorEnd->y(i);
+            const double x0 = sample(i).x();
+            const double y0 = sample(i).y();
+            const double angle = vectorEnd->sample(i).x();
+            const double mag = vectorEnd->sample(i).y();
 
             int xs = 0, ys = 0, xe = 0, ye = 0;
             switch (d_position) {
@@ -125,10 +125,10 @@ void VectorCurve::drawVector(QPainter *painter, const QwtScaleMap &xMap, const Q
         }
     } else {
         for (int i = from; i <= to; i++) {
-            const int xs = xMap.transform(x(i));
-            const int ys = yMap.transform(y(i));
-            const int xe = xMap.transform(vectorEnd->x(i));
-            const int ye = yMap.transform(vectorEnd->y(i));
+            const int xs = xMap.transform(sample(i).x());
+            const int ys = yMap.transform(sample(i).y());
+            const int xe = xMap.transform(vectorEnd->sample(i).x());
+            const int ye = yMap.transform(vectorEnd->sample(i).y());
             QwtPainter::drawLine(painter, xs, ys, xe, ye);
             drawArrowHead(painter, xs, ys, xe, ye);
         }
@@ -237,10 +237,10 @@ QRectF VectorCurve::boundingRect() const
     else {
         int rows = abs(d_end_row - d_start_row) + 1;
         for (int i = 0; i < rows; i++) {
-            double x_i = x(i);
-            double y_i = y(i);
-            double angle = vectorEnd->x(i);
-            double mag = vectorEnd->y(i);
+            double x_i = sample(i).x();
+            double y_i = sample(i).y();
+            double angle = vectorEnd->sample(i).x();
+            double mag = vectorEnd->sample(i).y();
             switch (d_position) {
             case Tail:
                 rect |= QRectF(x_i, y_i, mag * cos(angle), mag * sin(angle)).normalized();

@@ -79,6 +79,6 @@ QPointF DataPointPicker::pick()
 //! Handle selection of a point by the user.
 void DataPointPicker::pointSelected(QwtPlotCurve *curve, int pointIndex)
 {
-    m_result = QPointF(curve->x(pointIndex), curve->y(pointIndex));
+    m_result = QPointF(curve->sample(pointIndex).x(), curve->sample(pointIndex).y());
     m_picking_loop.exit(0);
 }

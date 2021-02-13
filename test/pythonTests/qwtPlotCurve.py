@@ -52,10 +52,10 @@ assert symbol.size()==QtCore.QSize(20,20)
 
 assert curve.dataSize()==NP
 for i in range(t1.numRows()):
-    assert curve.x(i)==t1.column(0).valueAt(i)
-    assert curve.y(i)==t1.column(1).valueAt(i)
-    assert curve.minXValue() < curve.x(i) < curve.maxXValue()
-    assert curve.minYValue() < curve.y(i) < curve.maxYValue()
+    assert curve.sample(i).x()==t1.column(0).valueAt(i)
+    assert curve.sample(i).y()==t1.column(1).valueAt(i)
+    assert curve.minXValue() < curve.sample(i).x() < curve.maxXValue()
+    assert curve.minYValue() < curve.sample(i).y() < curve.maxYValue()
 
 # equality not defined for QwtSymbol
 #assert curve.symbol()==symbol
