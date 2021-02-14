@@ -31,6 +31,7 @@
 #include <Python.h>
 #endif
 #include "globals.h"
+#include "version.h"
 #include "qwt_global.h"
 #include <QMessageBox>
 #include <QIcon>

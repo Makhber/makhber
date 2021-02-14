@@ -1,0 +1,5 @@
+
+const char *SciDAVis::scidavis_version = "@PROJECT_VERSION@";
+const char *SciDAVis::extra_version = "@PROJECT_VERSION_TWEAK@";
+const char *SciDAVis::release_date = "@PROJECT_RELEASE_DATE@";
+const int SciDAVis::scidavis_versionNo = @PROJECT_VERSION_NO@;

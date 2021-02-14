@@ -158,7 +158,8 @@ set( HEADERS
   "src/future/core/interfaces.h"
   "src/MuParserScript.h"
   "src/MuParserScripting.h"
-)
+  )
+configure_file( "src/version.h.in" "version.h" )
 
 ###################### SOURCES ##############################################
 set( SRCS
@@ -265,7 +266,6 @@ set( SRCS
   "src/TeXTableSettings.cpp"
   "src/TeXTableSettingsWidget.cpp"
   "src/TeXTableExportDialog.cpp"
-  "src/version.cpp"
   "src/PenWidget.cpp"
   "src/future/core/AbstractAspect.cpp"
   "src/future/core/AbstractPart.cpp"
@@ -342,14 +342,17 @@ target_link_libraries( libscidavis
   qwtplot3d
   )
 
-target_include_directories( libscidavis PUBLIC ${MUPARSER_INCLUDE_DIR} )
+target_include_directories( libscidavis PUBLIC
+  ${MUPARSER_INCLUDE_DIR}
+  ${CMAKE_CURRENT_BINARY_DIR}
+  )
 
 if( SCRIPTING_PYTHON )
   target_include_directories( libscidavis PUBLIC ${Python3_INCLUDE_DIRS} )
   target_link_libraries( libscidavis  ${Python3_LIBRARIES} )
 
   # add sip generated files' directory to include path
-  target_include_directories( libscidavis PUBLIC ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
+  target_include_directories( libscidavis PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 endif()
 
 target_compile_definitions( libscidavis PUBLIC
