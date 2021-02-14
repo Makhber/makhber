@@ -1,42 +1,25 @@
 cmake_minimum_required( VERSION 3.16 )
 
-# Target platform is Windows 10
-if( CMAKE_GENERATOR STREQUAL "Visual Studio 15 2017" OR
-    CMAKE_GENERATOR STREQUAL "Visual Studio 14 2015" )
-  set(CMAKE_SYSTEM_VERSION 10.0)
-endif()
-
 cmake_policy(SET CMP0091 NEW)
 
 project( scidavis
   VERSION 2.3.0
   DESCRIPTION "SciDAVis is a free application for Scientific Data Analysis and Visualization."
   HOMEPAGE_URL "https://scidavis.sourceforge.net"
-  LANGUAGES CXX C )
+  LANGUAGES CXX C
+  )
 
-set( CMAKE_CXX_STANDARD 17)
+set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED TRUE )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
-set( CMAKE_C_STANDARD 11)
+set( CMAKE_C_STANDARD 11 )
 set( CMAKE_C_STANDARD_REQUIRED TRUE )
 set( CMAKE_C_EXTENSIONS OFF )
 
 get_property( MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG )
 
 set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
-
-# Target platform is Windows 10
-if( CMAKE_GENERATOR STREQUAL "Visual Studio 15 2017" OR
-    CMAKE_GENERATOR STREQUAL "Visual Studio 14 2015" )
-  if (CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION VERSION_LESS 10)
-    message(SEND_ERROR "Windows 10 SDK is not found! Please, install one or set \
-      a CMAKE_WINDOWS_KITS_10_DIR environment variable to an absolute path to look \
-      for Windows 10 SDKs. The directory is expected to contain Include/10.0.* directories.")
-  else()
-    message(STATUS "Use Windows 10 SDK version ${CMAKE_VS_WINDOWS_TARGET_PLATFORM_VERSION}")
-  endif()
-endif()
 
 find_package( Qt5
   COMPONENTS
@@ -149,10 +132,6 @@ if( WIN32 )
   install( FILES ${DOC_FILES} DESTINATION . )
 else()
   install( FILES ${DOC_FILES} DESTINATION share/doc/scidavis )
-endif()
-
-if( MSVC )
-  set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT "scidavis")
 endif()
 
 set( CPACK_PACKAGE_NAME "SciDAVis" )

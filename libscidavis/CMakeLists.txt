@@ -304,7 +304,8 @@ set( SRCS
   )
 
 ###################### FORMS ##############################################
-set( FORMS "src/SciDAVisAbout.ui"
+set( FORMS
+  "src/SciDAVisAbout.ui"
   "src/future/matrix/matrixcontroltabs.ui"
   "src/future/core/ProjectConfigPage.ui"
   "src/future/table/controltabs.ui"
@@ -321,35 +322,6 @@ add_library( libscidavis STATIC
   ${HEADERS}
   ${FORMS}
   )
-  
-if( MSVC )
-	foreach(_source IN ITEMS ${SRCS})
-		get_filename_component(_source_path "${_source}" PATH)
-		string(REGEX REPLACE "^src/?([^/]*)" "\\1" _source_path ${_source_path})
-		if (NOT ${_source_path} STREQUAL "")
-			source_group("Source Files/${_source_path}" FILES "${_source}")
-		endif()
-	endforeach()
-
-	foreach(_source IN ITEMS ${HEADERS})
-		get_filename_component(_source_path "${_source}" PATH)
-		string(REGEX REPLACE "^src/?([^/]*)" "\\1" _source_path ${_source_path})
-		if (NOT ${_source_path} STREQUAL "")
-			source_group("Header Files/${_source_path}" FILES "${_source}")
-		endif()
-	endforeach()
-
-	foreach(_source IN ITEMS ${FORMS})
-		get_filename_component(_source_path "${_source}" PATH)
-		string(REGEX REPLACE "^src/?([^/]*)" "\\1" _source_path ${_source_path})
-		if (NOT ${_source_path} STREQUAL "")
-			source_group("Forms/${_source_path}" FILES "${_source}")
-		else()
-			source_group("Forms" FILES "${_source}")
-		endif()
-		
-	endforeach()
-endif()
 
 set_target_properties(libscidavis PROPERTIES OUTPUT_NAME scidavis)
 
@@ -360,31 +332,17 @@ target_link_libraries( libscidavis
   OpenGL::GL
   OpenGL::GLU
   ${MUPARSER_LIB}
-  minigzip
   Qt5::Core
   Qt5::Gui
   Qt5::PrintSupport
   Qt5::OpenGL
   Qt5::Svg
+  minigzip
+  qwt5-qt5
+  qwtplot3d
   )
 
 target_include_directories( libscidavis PUBLIC ${MUPARSER_INCLUDE_DIR} )
-
-if( NOT BUILD_QWT )
-  target_include_directories( libscidavis PUBLIC ${QWT_INCLUDE_DIR} )
-  target_link_libraries( libscidavis ${QWT_LIBRARY} )
-else()
-  target_include_directories( libscidavis PUBLIC
-    "${CMAKE_SOURCE_DIR}/3rdparty/qwt5-qt5/src" )
-  target_link_libraries( libscidavis qwt5-qt5 )
-endif()
-
-if( NOT BUILD_QWTPLOT3D )
-  target_include_directories( libscidavis PUBLIC ${QWTPLOT3D_INCLUDE_DIR} )
-  target_link_libraries( libscidavis ${QWTPLOT3D_LIBRARY} )
-else()
-  target_link_libraries( libscidavis qwtplot3d )
-endif()
 
 if( SCRIPTING_PYTHON )
   target_include_directories( libscidavis PUBLIC ${Python3_INCLUDE_DIRS} )
@@ -435,13 +393,8 @@ endif()
 
 if( ORIGIN_IMPORT )
   target_compile_definitions( libscidavis PUBLIC ORIGIN_IMPORT )
-  if( LIBORIGIN_FOUND )
-    target_link_libraries( libscidavis PkgConfig::LIBORIGIN )
-  else()
-    target_link_libraries( libscidavis origin_static )
-    target_include_directories( libscidavis PUBLIC
-      "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
-  endif()
+  target_link_libraries( libscidavis origin_static )
+  target_include_directories( libscidavis PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
 endif()
 
 if( SCRIPTING_PYTHON )
