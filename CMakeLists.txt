@@ -142,7 +142,6 @@ endif()
 set( DOC_FILES
   ChangeLog.md
   README.md
-  gpl.txt
   license.rtf
   )
 
@@ -159,7 +158,7 @@ endif()
 set( CPACK_PACKAGE_NAME "SciDAVis" )
 set( CPACK_PACKAGE_VENDOR "High Performance Coders" )
 set( CPACK_PACKAGE_DESCRIPTION "SciDAVis Installer" )
-set( CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/gpl.txt" )
+set( CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE" )
 set( CPACK_PACKAGE_EXECUTABLES "scidavis;SciDAVis" )
 set( CPACK_CREATE_DESKTOP_LINKS "scidavis" )
 set( CPACK_STRIP_FILES ON )
