@@ -5,14 +5,9 @@ on: [pull_request,push]
 jobs:
   Ubuntu:
 
-    runs-on: ubuntu-${{ matrix.ubuntu_ver }}
+    runs-on: ubuntu-20.04
 
-    strategy:
-      fail-fast: false
-      matrix:
-        ubuntu_ver: [18.04, 20.04]
-
-    name: ubuntu-${{ matrix.ubuntu_ver }}
+    name: ubuntu-20.04
 
     steps:
       - name: Checkout
@@ -22,10 +17,7 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          wget http://download.opensuse.org/repositories/home:hpcoder1/xUbuntu_${{ matrix.ubuntu_ver }}/Release.key
-          sudo apt-key add - < Release.key
-          sudo add-apt-repository -y \
-            'deb http://download.opensuse.org/repositories/home:/hpcoder1/xUbuntu_${{ matrix.ubuntu_ver }}/ /'
+          sudo apt update
           sudo apt install -y --no-install-recommends \
             qtbase5-dev \
             qttools5-dev \
@@ -33,25 +25,20 @@ jobs:
             libqt5opengl5-dev \
             libmuparser-dev \
             libgsl-dev \
-            libqwt5-qt5-dev \
             pyqt5-dev \
             python3-pyqt5 \
             libgtest-dev \
             python3-numpy \
             xvfb
 
-      - name: Build and Install GTest
-        if: matrix.ubuntu_ver == 18.04
-        run: |
-          mkdir gtest && cd gtest
-          cmake /usr/src/googletest
-          make -j$(nproc)
-          sudo make install
-
       - name: Configuring
         run: |
           mkdir build && cd build
-          cmake .. -DSEARCH_FOR_UPDATES=OFF -DDOWNLOAD_LINKS=OFF -DORIGIN_IMPORT=ON -DSCRIPTING_PYTHON=ON \
+          cmake .. \
+            -DSEARCH_FOR_UPDATES=OFF \
+            -DDOWNLOAD_LINKS=OFF \
+            -DORIGIN_IMPORT=ON \
+            -DSCRIPTING_PYTHON=ON \
             -DBUILD_TESTS=ON
 
       - name: Building
@@ -64,18 +51,10 @@ jobs:
           xvfb-run ctest --output-on-failure
 
   MSVC:
-    name: MSVC_Qt_${{ matrix.qt_ver }}
+    name: Windows MSVC
     runs-on: windows-latest
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - qt_ver: 5.12.10
-            python: OFF
-          - qt_ver: 5.15.2
-            python: ON
 
     steps:
       - name: Checkout
@@ -88,12 +67,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qt
-          key: ${{ runner.os }}-${{ matrix.qt_ver }}-QtCache
+          key: ${{ runner.os }}-QtCache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: ${{ matrix.qt_ver }}
+          version: 5.15.2
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       - name: Setup NuGet Credentials
@@ -110,14 +89,16 @@ jobs:
           vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
 
       - name: Install Python packages
-        if: ${{ matrix.qt_ver == '5.15.2' }}
         run: pip install sip==5.5.0 pyqt5 numpy
 
       - name: Configuring
         run: |
           mkdir build; cd build
-          cmake .. -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake `
-            -DORIGIN_IMPORT=ON -DSCRIPTING_PYTHON=${{ matrix.python }} -DBUILD_TESTS=ON
+          cmake .. `
+            -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake `
+            -DORIGIN_IMPORT=ON `
+            -DSCRIPTING_PYTHON=ON `
+            -DBUILD_TESTS=ON
 
       - name: Building
         run: |
@@ -127,53 +108,6 @@ jobs:
         run: |
           cd build
           ctest -C Release --output-on-failure
-
-  MinGW-w64:
-
-    runs-on: windows-latest
-
-    name: MinGW-w64
-
-    defaults:
-      run:
-        shell: msys2 {0}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          submodules: true
-
-      - name: Install MinGW-w64 packages
-        uses: msys2/setup-msys2@v2
-        with:
-          update: true
-          install: >-
-            make
-            mingw-w64-x86_64-cmake
-            mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-qt5
-            mingw-w64-x86_64-muparser
-            mingw-w64-x86_64-gsl
-            mingw-w64-x86_64-gl2ps
-            mingw-w64-x86_64-gtest
-            mingw-w64-x86_64-sip5
-            mingw-w64-x86_64-python-pyqt5
-            mingw-w64-x86_64-python-numpy
-
-      - name: Configuring
-        run: |
-          mkdir build && cd build
-          cmake .. -G"MSYS Makefiles" -DORIGIN_IMPORT=ON -DSCRIPTING_PYTHON=ON -DBUILD_TESTS=ON
-
-      - name: Building
-        run: |
-          make -C build -j$(nproc)
-
-      - name: Testing
-        run: |
-          cd build
-          ctest --output-on-failure
 
   macos:
 
@@ -207,7 +141,10 @@ jobs:
       - name: Configuring
         run: |
           mkdir build && cd build
-          cmake .. -DORIGIN_IMPORT=ON -DSCRIPTING_PYTHON=ON -DPython3_ROOT_DIR=$pythonLocation \
+          cmake .. \
+            -DPython3_ROOT_DIR=$pythonLocation \
+            -DORIGIN_IMPORT=ON \
+            -DSCRIPTING_PYTHON=ON \
             -DBUILD_TESTS=ON
 
       - name: Building
