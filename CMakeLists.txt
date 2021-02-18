@@ -133,6 +133,17 @@ set( DOC_FILES
   license.rtf
   )
 
+option( BUILD_CODE_DOCS "Build Code documentation" OFF )
+
+if( BUILD_CODE_DOCS )
+  find_package( Doxygen )
+  if( Doxygen_FOUND )
+    set( DOXYGEN_FILE_PATTERNS "*.cpp" "*.h" )
+    set( DOXYGEN_EXCLUDE_PATTERNS "*/build/*" "*/3rdparty/*" )
+    doxygen_add_docs( code_documentation libscidavis scidavis )
+  endif()
+endif()
+
 if( WIN32 )
   install( FILES ${DOC_FILES} DESTINATION . )
 else()
