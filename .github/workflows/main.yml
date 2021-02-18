@@ -48,7 +48,7 @@ jobs:
       - name: Testing
         run: |
           cd build
-          xvfb-run ctest --output-on-failure
+          xvfb-run -a ctest --output-on-failure
 
   MSVC:
     name: Windows MSVC
