@@ -44,7 +44,7 @@ else()
     )
 endif()
 
-if( SCRIPTING_PYTHON )
+if( SCIDAVIS_SCRIPTING_PYTHON )
 
   if( MULTI_CONFIG )
     file( GENERATE OUTPUT $<CONFIG>/scidavisrc.py INPUT scidavisrc.py )
@@ -130,7 +130,7 @@ if( UNIX )
   install( FILES x-sciprj.desktop DESTINATION share/mimelnk/application )
 endif()
 
-if( SCRIPTING_PYTHON )
+if( SCIDAVIS_SCRIPTING_PYTHON )
   if( MULTI_CONFIG )
     install( FILES scidavisrc.py ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>/scidavisrc.pyc DESTINATION etc )
   else()

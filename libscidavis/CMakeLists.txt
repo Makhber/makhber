@@ -312,7 +312,7 @@ set( FORMS
   "src/future/table/DimensionsDialog.ui"
   )
 
-if( ORIGIN_IMPORT )
+if( SCIDAVIS_ORIGIN_IMPORT )
   list( APPEND HEADERS "src/importOPJ.h" )
   list( APPEND SRCS "src/importOPJ.cpp" )
 endif()
@@ -347,7 +347,7 @@ target_include_directories( libscidavis PUBLIC
   ${CMAKE_CURRENT_BINARY_DIR}
   )
 
-if( SCRIPTING_PYTHON )
+if( SCIDAVIS_SCRIPTING_PYTHON )
   target_include_directories( libscidavis PUBLIC ${Python3_INCLUDE_DIRS} )
   target_link_libraries( libscidavis  ${Python3_LIBRARIES} )
 
@@ -382,25 +382,25 @@ if( WIN32 )
     )
 endif()
 
-if( SEARCH_FOR_UPDATES )
+if( SCIDAVIS_SEARCH_FOR_UPDATES )
   target_compile_definitions( libscidavis PUBLIC SEARCH_FOR_UPDATES )
 endif()
 
-if( DOWNLOAD_LINKS )
+if( SCIDAVIS_DOWNLOAD_LINKS )
   target_compile_definitions( libscidavis PUBLIC DOWNLOAD_LINKS )
 endif()
 
-if( SCRIPTING_MUPARSER )
+if( SCIDAVIS_SCRIPTING_MUPARSER )
   target_compile_definitions( libscidavis PUBLIC SCRIPTING_MUPARSER )
 endif()
 
-if( ORIGIN_IMPORT )
+if( SCIDAVIS_ORIGIN_IMPORT )
   target_compile_definitions( libscidavis PUBLIC ORIGIN_IMPORT )
   target_link_libraries( libscidavis origin_static )
   target_include_directories( libscidavis PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
 endif()
 
-if( SCRIPTING_PYTHON )
+if( SCIDAVIS_SCRIPTING_PYTHON )
   target_compile_definitions( libscidavis PUBLIC
     PYTHON_CONFIG_PATH="${CMAKE_INSTALL_PREFIX}/etc"
     PYTHON_UTIL_PATH="${CMAKE_INSTALL_PREFIX}/share/scidavis"
@@ -419,7 +419,7 @@ if( SCRIPTING_PYTHON )
   endif()
 endif()
 
-if( SEARCH_FOR_UPDATE OR DOWNLOAD_LINKS )
+if( SCIDAVIS_SEARCH_FOR_UPDATE OR SCIDAVIS_DOWNLOAD_LINKS )
   target_link_libraries( libscidavis Qt5::Network )
 endif()
 
@@ -428,7 +428,7 @@ target_include_directories( libscidavis PUBLIC
   "${CMAKE_CURRENT_SOURCE_DIR}/src/future"
   )
 
-if( SCRIPTING_PYTHON )
+if( SCIDAVIS_SCRIPTING_PYTHON )
 
   set(scidavis_PyQt_HDR ${CMAKE_CURRENT_BINARY_DIR}/sipAPIscidavis.h)
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )

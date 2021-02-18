@@ -67,22 +67,22 @@ if( APPLE )
 endif()
 
 # Searching for updates
-option( SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
+option( SCIDAVIS_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
 
 # Download links
-option( DOWNLOAD_LINKS "Enable Download links" ON )
+option( SCIDAVIS_DOWNLOAD_LINKS "Enable Download links" ON )
 
-if( SEARCH_FOR_UPDATES OR DOWNLOAD_LINKS )
+if( SCIDAVIS_SEARCH_FOR_UPDATES OR SCIDAVIS_DOWNLOAD_LINKS )
   find_package( Qt5 COMPONENTS Network REQUIRED )
 endif()
 
-option( SCRIPTING_MUPARSER "Enable muParser Scripting" ON )
+option( SCIDAVIS_SCRIPTING_MUPARSER "Enable muParser Scripting" ON )
 
-option( SCRIPTING_PYTHON "Enable Python Scripting" OFF )
+option( SCIDAVIS_SCRIPTING_PYTHON "Enable Python Scripting" OFF )
 
-option( BUILD_TESTS "Build tests" OFF )
+option( SCIDAVIS_BUILD_TESTS "Build tests" OFF )
 
-if( SCRIPTING_PYTHON )
+if( SCIDAVIS_SCRIPTING_PYTHON )
   if( MINGW )
     set( Python3_FIND_REGISTRY LAST )
   endif()
@@ -91,7 +91,7 @@ if( SCRIPTING_PYTHON )
   find_package( PyQt REQUIRED )
 endif()
 
-option( ORIGIN_IMPORT "Enable importing OriginLab project files" OFF )
+option( SCIDAVIS_ORIGIN_IMPORT "Enable importing OriginLab project files" OFF )
 
 # GSL
 find_package( GSL REQUIRED )
@@ -121,7 +121,7 @@ add_subdirectory( scidavis )
 
 add_subdirectory( fitPlugins )
 
-if( BUILD_TESTS )
+if( SCIDAVIS_BUILD_TESTS )
   enable_testing()
   add_subdirectory( test )
 endif()
@@ -133,9 +133,9 @@ set( DOC_FILES
   license.rtf
   )
 
-option( BUILD_CODE_DOCS "Build Code documentation" OFF )
+option( SCIDAVIS_BUILD_CODE_DOCS "Build Code documentation" OFF )
 
-if( BUILD_CODE_DOCS )
+if( SCIDAVIS_BUILD_CODE_DOCS )
   find_package( Doxygen )
   if( Doxygen_FOUND )
     set( DOXYGEN_FILE_PATTERNS "*.cpp" "*.h" )

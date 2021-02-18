@@ -28,7 +28,7 @@ if( NOT WIN32 )
   target_link_libraries( unittest pthread )
 endif()
 
-if( ORIGIN_IMPORT )
+if( SCIDAVIS_ORIGIN_IMPORT )
   target_compile_definitions( unittest PRIVATE ORIGIN_IMPORT )
 endif()
 
@@ -54,7 +54,7 @@ set( TestDataFiles
   )
 file( COPY ${TestDataFiles} DESTINATION . )
 
-if( NOT (SEARCH_FOR_UPDATES OR DOWNLOAD_LINKS) )
+if( NOT (SCIDAVIS_SEARCH_FOR_UPDATES OR SCIDAVIS_DOWNLOAD_LINKS) )
 
   set( menu_files defaultMenus_en.menudat appWithGraphen.menudat )
 
@@ -66,7 +66,7 @@ if( NOT (SEARCH_FOR_UPDATES OR DOWNLOAD_LINKS) )
 
 endif()
 
-if( SCRIPTING_PYTHON )
+if( SCIDAVIS_SCRIPTING_PYTHON )
 
   file( COPY pythonTests/ DESTINATION ./tmp )
   file( COPY ../scidavis-logo.png DESTINATION ./tmp )

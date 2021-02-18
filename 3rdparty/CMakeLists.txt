@@ -14,7 +14,7 @@ add_subdirectory( qwt5-qt5 )
 add_subdirectory( qwtplot3d )
 
 # liborigin
-if( ORIGIN_IMPORT )
+if( SCIDAVIS_ORIGIN_IMPORT )
   message( STATUS "Importing OriginLab files Enabled" )
   add_subdirectory( liborigin )
 else()

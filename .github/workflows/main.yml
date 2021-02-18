@@ -35,11 +35,11 @@ jobs:
         run: |
           mkdir build && cd build
           cmake .. \
-            -DSEARCH_FOR_UPDATES=OFF \
-            -DDOWNLOAD_LINKS=OFF \
-            -DORIGIN_IMPORT=ON \
-            -DSCRIPTING_PYTHON=ON \
-            -DBUILD_TESTS=ON
+            -DSCIDAVIS_SEARCH_FOR_UPDATES=OFF \
+            -DSCIDAVIS_DOWNLOAD_LINKS=OFF \
+            -DSCIDAVIS_ORIGIN_IMPORT=ON \
+            -DSCIDAVIS_SCRIPTING_PYTHON=ON \
+            -DSCIDAVIS_BUILD_TESTS=ON
 
       - name: Building
         run: |
@@ -96,9 +96,9 @@ jobs:
           mkdir build; cd build
           cmake .. `
             -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake `
-            -DORIGIN_IMPORT=ON `
-            -DSCRIPTING_PYTHON=ON `
-            -DBUILD_TESTS=ON
+            -DSCIDAVIS_ORIGIN_IMPORT=ON `
+            -DSCIDAVIS_SCRIPTING_PYTHON=ON `
+            -DSCIDAVIS_BUILD_TESTS=ON
 
       - name: Building
         run: |
@@ -143,9 +143,9 @@ jobs:
           mkdir build && cd build
           cmake .. \
             -DPython3_ROOT_DIR=$pythonLocation \
-            -DORIGIN_IMPORT=ON \
-            -DSCRIPTING_PYTHON=ON \
-            -DBUILD_TESTS=ON
+            -DSCIDAVIS_ORIGIN_IMPORT=ON \
+            -DSCIDAVIS_SCRIPTING_PYTHON=ON \
+            -DSCIDAVIS_BUILD_TESTS=ON
 
       - name: Building
         run: |
