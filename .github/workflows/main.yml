@@ -135,8 +135,8 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          brew install muparser gsl gl2ps googletest sip
-          pip install pyqt5 numpy
+          brew install muparser gsl gl2ps googletest
+          pip3 install sip==5.5.0 pyqt5 numpy
 
       - name: Configuring
         run: |
