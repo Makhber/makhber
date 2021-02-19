@@ -331,7 +331,7 @@ target_link_libraries( libscidavis
   GSL::gslcblas
   OpenGL::GL
   OpenGL::GLU
-  ${MUPARSER_LIB}
+  muparser::muparser
   Qt5::Core
   Qt5::Gui
   Qt5::PrintSupport
@@ -342,10 +342,7 @@ target_link_libraries( libscidavis
   qwtplot3d
   )
 
-target_include_directories( libscidavis PUBLIC
-  ${MUPARSER_INCLUDE_DIR}
-  ${CMAKE_CURRENT_BINARY_DIR}
-  )
+target_include_directories( libscidavis PUBLIC ${CMAKE_CURRENT_BINARY_DIR} )
 
 if( SCIDAVIS_SCRIPTING_PYTHON )
   target_include_directories( libscidavis PUBLIC ${Python3_INCLUDE_DIRS} )
