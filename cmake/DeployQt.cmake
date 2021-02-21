@@ -23,15 +23,18 @@
 find_package(Qt5Core REQUIRED)
 
 # Retrieve the absolute path to qmake and then use that path to find
-# the windeployqt binary
+# the windeployqt and macdeployqt binaries
 get_target_property(_qmake_executable Qt5::qmake IMPORTED_LOCATION)
 get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
-find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${_qt_bin_dir}")
 
-# Running this with MSVC 2015 requires CMake 3.6+
-if((MSVC_VERSION VERSION_EQUAL 1900 OR MSVC_VERSION VERSION_GREATER 1900)
-        AND CMAKE_VERSION VERSION_LESS "3.6")
-    message(WARNING "Deploying with MSVC 2015+ requires CMake 3.6+")
+find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${_qt_bin_dir}")
+if(WIN32 AND NOT WINDEPLOYQT_EXECUTABLE)
+    message(FATAL_ERROR "windeployqt not found")
+endif()
+
+find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
+if(APPLE AND NOT MACDEPLOYQT_EXECUTABLE)
+    message(FATAL_ERROR "macdeployqt not found")
 endif()
 
 # Add commands that copy the Qt runtime to the target's output directory after
@@ -47,6 +50,7 @@ function(windeployqt target directory)
                 --no-angle
                 --no-opengl-sw
                 \"$<TARGET_FILE:${target}>\"
+        COMMENT "Deploying Qt..."
     )
 
     # install(CODE ...) doesn't support generator expressions, but
@@ -94,9 +98,20 @@ function(windeployqt target directory)
         add_custom_command(TARGET ${target} POST_BUILD
             COMMAND "${CMAKE_COMMAND}" -E
                 copy_if_different "${lib}" \"$<TARGET_FILE_DIR:${target}>\"
+            COMMENT "Copying ${filename}..."
         )
     endforeach()
-
 endfunction()
 
-mark_as_advanced(WINDEPLOYQT_EXECUTABLE)
+# Add commands that copy the required Qt files to the application bundle
+# represented by the target.
+function(macdeployqt target)
+    add_custom_command(TARGET ${target} POST_BUILD
+        COMMAND "${MACDEPLOYQT_EXECUTABLE}"
+            \"$<TARGET_FILE_DIR:${target}>/../..\"
+            -always-overwrite
+        COMMENT "Deploying Qt..."
+    )
+endfunction()
+
+mark_as_advanced(WINDEPLOYQT_EXECUTABLE MACDEPLOYQT_EXECUTABLE)

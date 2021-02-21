@@ -26,13 +26,20 @@ set( TS_FILES
 qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/libscidavis" ${TS_FILES} )
 
 add_executable( scidavis
-  WIN32
+  WIN32 MACOSX_BUNDLE
   "src/main.cpp"
   "${RESOURCES}"
   "${QM_FILES}"
   )
 
 target_link_libraries( scidavis libscidavis )
+
+if( APPLE )
+  set( MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME} )
+  set( MACOSX_BUNDLE_VERSION ${PROJECT_VERSION} )
+  set( MACOSX_BUNDLE_ICON_FILE "scidavis.icns" )
+  set_target_properties( scidavis PROPERTIES MACOSX_BUNDLE ON )
+endif()
 
 if( MULTI_CONFIG )
   target_include_directories( scidavis PRIVATE
@@ -74,40 +81,51 @@ endif()
 if( WIN32 )
   install( TARGETS scidavis RUNTIME DESTINATION . )
   install( FILES ${QM_FILES} DESTINATION translations )
+elseif( APPLE )
+  install( TARGETS scidavis BUNDLE DESTINATION . )
+  install( FILES ${QM_FILES} DESTINATION scidavis.app/Contents/MacOS/translations )
+  install( FILES icons/scidavis.icns DESTINATION scidavis.app/Contents/Resources )
 else()
   install( TARGETS scidavis RUNTIME DESTINATION bin )
-  install( FILES ${QM_FILES}  DESTINATION share/scidavis/translations )
+  install( FILES ${QM_FILES} DESTINATION share/scidavis/translations )
 endif()
 
 if( RUNTIME_DIR )
   set( EXCLUDE_DLL "system32/*" "shell32*" "kernel32*" )
+  set( SCIDAVIS_DIR "." )
+  set( SCIDAVIS_EXECUTABLE "${SCIDAVIS_DIR}/scidavis.exe" )
   install( CODE "
     file( GET_RUNTIME_DEPENDENCIES
       RESOLVED_DEPENDENCIES_VAR RESOLVED_DEPENDENCIES
       UNRESOLVED_DEPENDENCIES_VAR UNRESOLVED_DEPENDENCIES
       CONFLICTING_DEPENDENCIES_PREFIX CONFLICTING_DEPENDENCIES
-      EXECUTABLES \"\${CMAKE_INSTALL_PREFIX}/scidavis.exe\"
+      EXECUTABLES \"\${CMAKE_INSTALL_PREFIX}/${SCIDAVIS_EXECUTABLE}\"
       DIRECTORIES \"${RUNTIME_DIR}\"
       POST_EXCLUDE_REGEXES ${EXCLUDE_DLL}
       )
     foreach( lib \${RESOLVED_DEPENDENCIES} )
       execute_process(
         COMMAND \"${CMAKE_COMMAND}\" -E
-        copy \${lib} \"\${CMAKE_INSTALL_PREFIX}\"
+        copy \${lib} \"\${CMAKE_INSTALL_PREFIX}/${SCIDAVIS_DIR}\"
         )
     endforeach()
     ")
 endif()
 
+if( APPLE )
+  include(DeployQt)
+  macdeployqt(scidavis)
+endif()
+
 if( WIN32 )
   set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION . )
-  include(Windeployqt)
+  include(DeployQt)
   windeployqt( scidavis . )
 endif()
 
 # Icons
 
-if( UNIX )
+if( UNIX AND NOT APPLE )
   install( FILES icons/scidavis.svg DESTINATION share/icons/hicolor/scalable/apps )
 
   foreach( res IN ITEMS 16 22 32 48 64 128 )
@@ -122,7 +140,7 @@ if( UNIX )
 endif()
 
 # Application Files
-if( UNIX )
+if( UNIX AND NOT APPLE )
   install( FILES scidavis.desktop DESTINATION share/applications )
   install( FILES scidavis.xml DESTINATION share/mime/packages )
   install( FILES scidavis.1 DESTINATION share/man/man1 )
