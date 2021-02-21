@@ -138,6 +138,8 @@ endif()
 
 if( WIN32 )
   install( FILES ${DOC_FILES} DESTINATION . )
+elseif( APPLE )
+  install( FILES ${DOC_FILES} DESTINATION scidavis.app/Contents/Resources )
 else()
   install( FILES ${DOC_FILES} DESTINATION share/doc/scidavis )
 endif()

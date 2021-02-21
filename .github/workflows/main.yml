@@ -95,7 +95,7 @@ jobs:
         run: |
           mkdir build; cd build
           cmake .. `
-            -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake `
+            -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DSCIDAVIS_ORIGIN_IMPORT=ON `
             -DSCIDAVIS_SCRIPTING_PYTHON=ON `
             -DSCIDAVIS_BUILD_TESTS=ON

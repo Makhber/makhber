@@ -31,6 +31,8 @@ jobs:
     name: MSVC
     runs-on: windows-latest
     needs: Release
+    env:
+      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
 
     steps:
       - name: Checkout
@@ -51,20 +53,28 @@ jobs:
           version: 5.15.2
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
-      - uses: lukka/run-vcpkg@v6
-        with:
-          vcpkgGitCommitId: 50ea8c0ab7aca3bb9245bba7fc877ad2f2a4464c
-          setupOnly: true
-      - name: Install VCPKG packages
+      - name: Setup NuGet Credentials
         run: |
-          Add-Content ${{ env.VCPKG_ROOT }}\triplets\x64-windows.cmake "set(VCPKG_BUILD_TYPE release)"
-          ${{ env.VCPKG_ROOT }}\vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
+          & $(vcpkg fetch nuget | select -last 1) sources add `
+          -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" `
+          -storepasswordincleartext `
+          -name "GitHub" `
+          -username ${{ github.repository_owner }} `
+          -password "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: vcpkg package restore
+        run: |
+          vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
 
       - name: Configuring
         run: |
           mkdir build; cd build
-          cmake .. -DCMAKE_TOOLCHAIN_FILE=${{ env.VCPKG_ROOT }}\scripts\buildsystems\vcpkg.cmake `
-            -DORIGIN_IMPORT=ON -DRUNTIME_DIR=${{ env.VCPKG_ROOT }}/installed/x64-windows/bin `
+          $Env:VCPKG_INSTALLATION_ROOT
+          cmake .. `
+            -DSCIDAVIS_ORIGIN_IMPORT=ON `
+            -DSCIDAVIS_BUILD_TESTS=ON `
+            -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
+            -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin" `
             -DCPACK_PACKAGE_FILE_NAME=scidavis
 
       - name: Building
@@ -107,4 +117,69 @@ jobs:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/scidavis.exe
           asset_name: scidavis-${{ steps.packaging.outputs.version }}-win64.exe
+          asset_content_type: application/zip
+
+  macos:
+    runs-on: macos-latest
+    name: macos
+    needs: Release
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{ runner.os }}-QtCache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+      - name: Install prerequisties
+        run: |
+          brew install muparser gsl gl2ps googletest
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -DSCIDAVIS_ORIGIN_IMPORT=ON \
+            -DSCIDAVIS_BUILD_TESTS=ON \
+            -DCPACK_PACKAGE_FILE_NAME=scidavis
+
+      - name: Building
+        run: |
+          make -j$(sysctl -n hw.logicalcpu) -C build
+
+      - name: Testing
+        run: |
+          cd build
+          ctest --output-on-failure
+
+      - name: Packaging
+        id: packaging
+        continue-on-error: true
+        run: |
+          export version=$(git describe --tags)
+          echo $version
+          echo "::set-output name=version::$version"
+          cd build
+          cpack -G DragNDrop
+
+      - name: Upload MacOS package
+        continue-on-error: true
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.Release.outputs.upload_url }}
+          asset_path: build/scidavis.dmg
+          asset_name: scidavis-${{ steps.packaging.outputs.version }}-macos.dmg
           asset_content_type: application/zip

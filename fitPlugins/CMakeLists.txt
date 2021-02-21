@@ -17,6 +17,10 @@ if( WIN32 )
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
     RUNTIME DESTINATION fitPlugins
     )
+elseif( APPLE )
+  install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
+    LIBRARY DESTINATION scidavis.app/Contents/PlugIns/fitPlugins
+    )
 else()
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
     LIBRARY DESTINATION lib/scidavis/plugins
