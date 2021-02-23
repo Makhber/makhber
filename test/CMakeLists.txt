@@ -69,6 +69,7 @@ endif()
 if( SCIDAVIS_SCRIPTING_PYTHON )
 
   file( COPY pythonTests/ DESTINATION ./tmp )
+  file( COPY ${CMAKE_SOURCE_DIR}/scidavis/scidavisrc.py DESTINATION ./tmp )
   file( COPY ../scidavis-logo.png DESTINATION ./tmp )
 
   file( GLOB pythonTests pythonTests/*.py )
