@@ -39,10 +39,10 @@
 #include <gsl/gsl_blas.h>
 #include <gsl/gsl_math.h>
 
-#if defined(_MSC_VER) // MSVC Compiler
-#define MY_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+#define DLL_EXPORT __declspec(dllexport)
 #else
-#define MY_EXPORT
+#define DLL_EXPORT
 #endif
 
 struct fitData
@@ -54,28 +54,28 @@ struct fitData
     double *sigma; // weighting data
 };
 
-extern "C" MY_EXPORT const char *name()
+extern "C" DLL_EXPORT const char *name()
 {
     return "Rational1";
 }
 
-extern "C" MY_EXPORT const char *function()
+extern "C" DLL_EXPORT const char *function()
 {
     return "A*t^2*x/(1+4*PI^2*t^2*x^2)";
 }
 
-extern "C" MY_EXPORT const char *parameters()
+extern "C" DLL_EXPORT const char *parameters()
 {
     return "A,t";
 }
 
-extern "C" MY_EXPORT double function_eval(double x, double *params)
+extern "C" DLL_EXPORT double function_eval(double x, double *params)
 {
     double t2 = params[1] * params[1];
     return (params[0] * t2 * x / (1 + 4 * M_SQRTPI * x * x * t2));
 }
 
-extern "C" MY_EXPORT int function_f(const gsl_vector *x, void *params, gsl_vector *f)
+extern "C" DLL_EXPORT int function_f(const gsl_vector *x, void *params, gsl_vector *f)
 {
     size_t n = ((struct fitData *)params)->n;
     double *X = ((struct fitData *)params)->X;
@@ -96,7 +96,7 @@ extern "C" MY_EXPORT int function_f(const gsl_vector *x, void *params, gsl_vecto
     return GSL_SUCCESS;
 }
 
-extern "C" MY_EXPORT double function_d(const gsl_vector *x, void *params, gsl_vector *)
+extern "C" DLL_EXPORT double function_d(const gsl_vector *x, void *params, gsl_vector *)
 {
     size_t n = ((struct fitData *)params)->n;
     double *X = ((struct fitData *)params)->X;
@@ -118,7 +118,7 @@ extern "C" MY_EXPORT double function_d(const gsl_vector *x, void *params, gsl_ve
     return val;
 }
 
-extern "C" MY_EXPORT int function_df(const gsl_vector *x, void *params, gsl_matrix *J)
+extern "C" DLL_EXPORT int function_df(const gsl_vector *x, void *params, gsl_matrix *J)
 {
     size_t n = ((struct fitData *)params)->n;
     double *X = ((struct fitData *)params)->X;
@@ -143,7 +143,7 @@ extern "C" MY_EXPORT int function_df(const gsl_vector *x, void *params, gsl_matr
     return GSL_SUCCESS;
 }
 
-extern "C" MY_EXPORT int function_fdf(const gsl_vector *x, void *params, gsl_vector *f,
+extern "C" DLL_EXPORT int function_fdf(const gsl_vector *x, void *params, gsl_vector *f,
                                       gsl_matrix *J)
 {
     function_f(x, params, f);

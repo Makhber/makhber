@@ -34,6 +34,12 @@
 #include <gsl/gsl_matrix.h>
 #include <math.h>
 
+#ifdef _WIN32
+#define DLL_EXPORT __declspec(dllexport)
+#else
+#define DLL_EXPORT
+#endif
+
 struct data {
 	size_t n;
 	size_t p;
@@ -42,18 +48,18 @@ struct data {
 	double * sigma;
 };
 
-char * name() { return "Exp/Lin"; }
+DLL_EXPORT char * name() { return "Exp/Lin"; }
 
-char * function() { return "exp(-b1*x)/(b2+b3*x)"; }
+DLL_EXPORT char * function() { return "exp(-b1*x)/(b2+b3*x)"; }
 
-char * parameters() { return "b1,b2,b3"; }
+DLL_EXPORT char * parameters() { return "b1,b2,b3"; }
 
-double function_eval(double x, double * params)
+DLL_EXPORT double function_eval(double x, double * params)
 {
 	return exp(-params[0]*x)/(params[1]+params[2]*x);
 }
 
-int function_f(const gsl_vector * params, void * void_data, gsl_vector * f)
+DLL_EXPORT int function_f(const gsl_vector * params, void * void_data, gsl_vector * f)
 {
 	struct data * d = (struct data*) void_data;
 	double p[3];
@@ -67,7 +73,7 @@ int function_f(const gsl_vector * params, void * void_data, gsl_vector * f)
 	return GSL_SUCCESS;
 }
 
-double function_d(const gsl_vector * params, void * void_data)
+DLL_EXPORT double function_d(const gsl_vector * params, void * void_data)
 {
 	struct data * d = (struct data*) void_data;
 	gsl_vector * f = gsl_vector_alloc(d->n);
@@ -82,7 +88,7 @@ double function_d(const gsl_vector * params, void * void_data)
 	return result;
 }
 
-int function_df(const gsl_vector * params, void * void_data, gsl_matrix * J)
+DLL_EXPORT int function_df(const gsl_vector * params, void * void_data, gsl_matrix * J)
 {
 	struct data * d = (struct data*) void_data;
 	double b1 = gsl_vector_get(params, 0);
@@ -100,7 +106,7 @@ int function_df(const gsl_vector * params, void * void_data, gsl_matrix * J)
 	return GSL_SUCCESS;
 }
 
-int function_fdf(const gsl_vector * params, void * void_data, gsl_vector * f, gsl_matrix * J)
+DLL_EXPORT int function_fdf(const gsl_vector * params, void * void_data, gsl_vector * f, gsl_matrix * J)
 {
 	function_f(params, void_data, f);
 	function_df(params, void_data, J);

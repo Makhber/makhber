@@ -38,10 +38,10 @@
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_blas.h>
 
-#if defined(_MSC_VER) // MSVC Compiler
-#define MY_EXPORT __declspec(dllexport)
+#ifdef _WIN32
+#define DLL_EXPORT __declspec(dllexport)
 #else
-#define MY_EXPORT
+#define DLL_EXPORT
 #endif
 
 struct data
@@ -53,27 +53,27 @@ struct data
     double *sigma; // weighting data
 };
 
-extern "C" MY_EXPORT const char *name()
+extern "C" DLL_EXPORT const char *name()
 {
     return "Rational0";
 }
 
-extern "C" MY_EXPORT const char *function()
+extern "C" DLL_EXPORT const char *function()
 {
     return "(b + c*x)/(1 + a*x)";
 }
 
-extern "C" MY_EXPORT const char *parameters()
+extern "C" DLL_EXPORT const char *parameters()
 {
     return "a,b,c";
 }
 
-extern "C" MY_EXPORT double function_eval(double x, double *params)
+extern "C" DLL_EXPORT double function_eval(double x, double *params)
 {
     return (params[1] + x * params[2]) / (1 + x * params[0]);
 }
 
-extern "C" MY_EXPORT int function_f(const gsl_vector *x, void *params, gsl_vector *f)
+extern "C" DLL_EXPORT int function_f(const gsl_vector *x, void *params, gsl_vector *f)
 {
     size_t n = ((struct data *)params)->n;
     double *X = ((struct data *)params)->X;
@@ -92,7 +92,7 @@ extern "C" MY_EXPORT int function_f(const gsl_vector *x, void *params, gsl_vecto
 
     return GSL_SUCCESS;
 }
-extern "C" MY_EXPORT double function_d(const gsl_vector *x, void *params)
+extern "C" DLL_EXPORT double function_d(const gsl_vector *x, void *params)
 {
     size_t n = ((struct data *)params)->n;
     double *X = ((struct data *)params)->X;
@@ -113,7 +113,7 @@ extern "C" MY_EXPORT double function_d(const gsl_vector *x, void *params)
     return val;
 }
 
-extern "C" MY_EXPORT int function_df(const gsl_vector *x, void *params, gsl_matrix *J)
+extern "C" DLL_EXPORT int function_df(const gsl_vector *x, void *params, gsl_matrix *J)
 {
     size_t n = ((struct data *)params)->n;
     double *X = ((struct data *)params)->X;
@@ -140,7 +140,7 @@ extern "C" MY_EXPORT int function_df(const gsl_vector *x, void *params, gsl_matr
     return GSL_SUCCESS;
 }
 
-extern "C" MY_EXPORT int function_fdf(const gsl_vector *x, void *params, gsl_vector *f,
+extern "C" DLL_EXPORT int function_fdf(const gsl_vector *x, void *params, gsl_vector *f,
                                       gsl_matrix *J)
 {
     function_f(x, params, f);
