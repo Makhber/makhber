@@ -92,7 +92,7 @@ class AbstractAspect;
 class AxesDialog;
 
 #ifndef TS_PATH
-#define TS_PATH (qApp->applicationDirPath() + "/translations")
+#define TS_PATH "/translations"
 #endif
 
 /**

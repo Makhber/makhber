@@ -360,15 +360,18 @@ target_compile_definitions( libscidavis PUBLIC
 
 if( WIN32 )
   target_compile_definitions( libscidavis PUBLIC
-    TS_PATH="${CMAKE_INSTALL_PREFIX}/translations"
-    DOC_PATH="${CMAKE_INSTALL_PREFIX}"
-    PLUGIN_PATH="${CMAKE_INSTALL_PREFIX}/fitPlugins"
+    TS_PATH="/translations"
+    PLUGIN_PATH="/fitPlugins"
+    )
+elseif( APPLE )
+  target_compile_definitions( libscidavis PUBLIC
+    TS_PATH="/../Resources/translations"
+    PLUGIN_PATH="/../PlugIns/fitPlugins"
     )
 else()
   target_compile_definitions( libscidavis PUBLIC
-    TS_PATH="${CMAKE_INSTALL_PREFIX}/share/scidavis/translations"
-    DOC_PATH="${CMAKE_INSTALL_PREFIX}/share/doc/scidavis"
-    PLUGIN_PATH="${CMAKE_INSTALL_PREFIX}/lib/scidavis/plugins"
+    TS_PATH="/../share/scidavis/translations"
+    PLUGIN_PATH="/../lib/scidavis/plugins"
     )
 endif()
 

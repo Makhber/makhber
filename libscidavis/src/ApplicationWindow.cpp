@@ -4203,17 +4203,17 @@ void ApplicationWindow::readSettings()
     workingDir = settings.value("/WorkingDir", qApp->applicationDirPath()).toString();
     helpFilePath = settings.value("/HelpFile", "").toString();
 #ifdef PLUGIN_PATH
-    QString defaultFitPluginsPath = PLUGIN_PATH;
+    QString defaultFitPluginsPath = qApp->applicationDirPath() + PLUGIN_PATH;
 #else // defined PLUGIN_PATH
 #ifdef Q_OS_WIN
-    QString defaultFitPluginsPath = "fitPlugins";
-#else
+    QString defaultFitPluginsPath = qApp->applicationDirPath() + "fitPlugins";
+#else // defined Q_OS_WIN
     QString defaultFitPluginsPath = "/usr/lib/scidavis/plugins";
 #endif
 #endif // defined PLUGIN_PATH
 #ifdef DYNAMIC_PLUGIN_PATH
     fitPluginsPath = settings.value("/FitPlugins", defaultFitPluginsPath).toString();
-#else // defined PLUGIN_PATH
+#else // defined DYNAMIC_PLUGIN_PATH
     fitPluginsPath = defaultFitPluginsPath;
 #endif
 
@@ -11819,7 +11819,7 @@ void ApplicationWindow::createLanguagesList()
     qApp->installTranslator(appTranslator);
     qApp->installTranslator(qtTranslator);
 
-    qmPath = TS_PATH;
+    qmPath = qApp->applicationDirPath() + TS_PATH;
 
     QString lng; // lang, as en_GB
     QString slng; // short lang, as en
