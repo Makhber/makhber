@@ -1,11 +1,4 @@
-*.o
-*.qm
-*.gcov
-*.gcda
-*.gcno
 *~
-*.so.*
-\#*\#
-Makefile
 build/
 CMakeLists.txt.user*
+.vscode/
