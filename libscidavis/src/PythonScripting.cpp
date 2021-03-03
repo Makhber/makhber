@@ -38,9 +38,6 @@
 
 #include <iostream>
 
-#define str(x) xstr(x)
-#define xstr(x) #x
-
 #if PY_VERSION_HEX < 0x020400A1
 typedef struct _traceback
 {
@@ -63,6 +60,10 @@ typedef struct _traceback
 
 // includes sip.h, which undefines Qt's "slots" macro since SIP 4.6
 #include "sipAPIscidavis.h"
+
+#define str(x) xstr(x)
+#define xstr(x) #x
+
 extern "C" {
 #if PY_MAJOR_VERSION < 3
 void initsip();
