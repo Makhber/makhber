@@ -1,10 +1,10 @@
 /***************************************************************************
         File                 : PythonScripting.cpp
-        Project              : SciDAVis
+        Project              : Makhber
 --------------------------------------------------------------------
         Copyright            : (C) 2006 by Knut Franke
         Email (use @ for *)  : knut.franke*gmx.de
-        Description          : Execute Python code from within SciDAVis
+        Description          : Execute Python code from within Makhber
 
  ***************************************************************************/
 
@@ -59,7 +59,7 @@ typedef struct _traceback
 #include <QCoreApplication>
 
 // includes sip.h, which undefines Qt's "slots" macro since SIP 4.6
-#include "sipAPIscidavis.h"
+#include "sipAPImakhber.h"
 
 #define str(x) xstr(x)
 #define xstr(x) #x
@@ -69,13 +69,13 @@ extern "C" {
 void initsip();
 void initQtCore();
 void initQtGui();
-void initscidavis();
+void initmakhber();
 #define PYUNICODE_AsUTF8 PyString_AsString
 #define PYUNICODE_FromString PyString_FromString
 #define PYLong_AsLong PyInt_AsLong
 #define PYCodeObject_cast (PyCodeObject *)
 #else
-PyMODINIT_FUNC PyInit_scidavis(void);
+PyMODINIT_FUNC PyInit_makhber(void);
 #define PYUNICODE_AsUTF8 PyUnicode_AsUTF8
 #define PYUNICODE_FromString PyUnicode_FromString
 #define PYLong_AsLong PyLong_AsLong
@@ -193,7 +193,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     : ScriptingEnv(parent, langName)
 {
     Q_UNUSED(batch)
-    PyObject *mainmod = NULL, *scidavismod = NULL, *sysmod = NULL;
+    PyObject *mainmod = NULL, *makhbermod = NULL, *sysmod = NULL;
     math = NULL;
     sys = NULL;
     d_initialized = false;
@@ -215,7 +215,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
 #endif
         //		PyEval_InitThreads ();
 #if PY_MAJOR_VERSION >= 3
-        PyImport_AppendInittab("scidavis", &PyInit_scidavis);
+        PyImport_AppendInittab("makhber", &PyInit_makhber);
 #endif
         Py_Initialize();
         if (!Py_IsInitialized())
@@ -227,7 +227,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
         initQtCore();
         initQtGui();
 #endif
-        initscidavis();
+        initmakhber();
 #endif
         mainmod = PyImport_AddModule("__main__");
         if (!mainmod) {
@@ -249,19 +249,19 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     if (!math)
         PyErr_Print();
 
-    scidavismod = PyImport_ImportModule("scidavis");
-    if (scidavismod) {
-        PyDict_SetItemString(globals, "scidavis", scidavismod);
-        PyObject *scidavisDict = PyModule_GetDict(scidavismod);
-        if (!setQObject(d_parent, "app", scidavisDict))
+    makhbermod = PyImport_ImportModule("makhber");
+    if (makhbermod) {
+        PyDict_SetItemString(globals, "makhber", makhbermod);
+        PyObject *makhberDict = PyModule_GetDict(makhbermod);
+        if (!setQObject(d_parent, "app", makhberDict))
             QMessageBox::warning(
-                    d_parent, tr("Failed to export SciDAVis API"),
-                    tr("Accessing SciDAVis functions or objects from Python code won't work."
-                       "Probably your version of SIP differs from the one SciDAVis was compiled "
+                    d_parent, tr("Failed to export Makhber API"),
+                    tr("Accessing Makhber functions or objects from Python code won't work."
+                       "Probably your version of SIP differs from the one Makhber was compiled "
                        "against;"
-                       "try updating SIP or recompiling SciDAVis."));
-        PyDict_SetItemString(scidavisDict, "mathFunctions", math);
-        Py_DECREF(scidavismod);
+                       "try updating SIP or recompiling Makhber."));
+        PyDict_SetItemString(makhberDict, "mathFunctions", math);
+        Py_DECREF(makhbermod);
     } else
         PyErr_Print();
 
@@ -299,22 +299,22 @@ bool PythonScripting::initialize()
         setQObject(this, "stderr", sys);
     }
     bool initialized;
-    initialized = loadInitFile(QDir::homePath() + "/scidavisrc");
+    initialized = loadInitFile(QDir::homePath() + "/makhberrc");
     if (!initialized)
-        initialized = loadInitFile(QDir::homePath() + "/.scidavisrc");
+        initialized = loadInitFile(QDir::homePath() + "/.makhberrc");
 #ifdef PYTHON_CONFIG_PATH
     if (!initialized)
-        initialized = loadInitFile(PYTHON_CONFIG_PATH "/scidavisrc");
+        initialized = loadInitFile(PYTHON_CONFIG_PATH "/makhberrc");
     if (!initialized)
-        initialized = loadInitFile(PYTHON_CONFIG_PATH "/.scidavisrc");
+        initialized = loadInitFile(PYTHON_CONFIG_PATH "/.makhberrc");
 #endif
     if (!initialized)
-        initialized = loadInitFile(QDir::rootPath() + "etc/scidavisrc");
+        initialized = loadInitFile(QDir::rootPath() + "etc/makhberrc");
     if (!initialized)
         initialized =
-                loadInitFile(QCoreApplication::instance()->applicationDirPath() + "/scidavisrc");
+                loadInitFile(QCoreApplication::instance()->applicationDirPath() + "/makhberrc");
     if (!initialized)
-        initialized = loadInitFile("scidavisrc");
+        initialized = loadInitFile("makhberrc");
 
     //	PyEval_ReleaseLock();
     return true;

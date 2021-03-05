@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : interfaces.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 by Knut Franke
     Email (use @ for *)  : knut.franke*gmx.de
@@ -60,7 +60,7 @@ public:
     virtual QAction *makeAction(QObject *parent) = 0;
 };
 
-Q_DECLARE_INTERFACE(PartMaker, "net.sf.scidavis.partmaker/0.1")
+Q_DECLARE_INTERFACE(PartMaker, "net.sf.makhber.partmaker/0.1")
 
 //! Factory for filters.
 /**
@@ -75,7 +75,7 @@ public:
     virtual QAction *makeAction(QObject *parent, int id = 0) = 0;
 };
 
-Q_DECLARE_INTERFACE(FilterMaker, "net.sf.scidavis.filtermaker/0.1")
+Q_DECLARE_INTERFACE(FilterMaker, "net.sf.makhber.filtermaker/0.1")
 
 //! Factory for import/export filters.
 class FileFormat
@@ -86,7 +86,7 @@ public:
     virtual AbstractExportFilter *makeExportFilter() = 0;
 };
 
-Q_DECLARE_INTERFACE(FileFormat, "net.sf.scidavis.fileformat/0.1")
+Q_DECLARE_INTERFACE(FileFormat, "net.sf.makhber.fileformat/0.1")
 
 //! A module (typically a PartMaker) that has an ActionManager
 class ActionManagerOwner
@@ -98,7 +98,7 @@ public:
     virtual void initActionManager() { }
 };
 
-Q_DECLARE_INTERFACE(ActionManagerOwner, "net.sf.scidavis.actionmanagerowner/0.1")
+Q_DECLARE_INTERFACE(ActionManagerOwner, "net.sf.makhber.actionmanagerowner/0.1")
 
 //! A module with application-wide settings
 class ConfigPageMaker
@@ -112,7 +112,7 @@ public:
     //		virtual QIcon icon() = 0;
 };
 
-Q_DECLARE_INTERFACE(ConfigPageMaker, "net.sf.scidavis.configpagemaker/0.1")
+Q_DECLARE_INTERFACE(ConfigPageMaker, "net.sf.makhber.configpagemaker/0.1")
 
 //! Factory that creates an aspect out of an XML element.
 class XmlElementAspectMaker
@@ -125,6 +125,6 @@ public:
     virtual AbstractAspect *createAspectFromXml(XmlStreamReader *reader) = 0;
 };
 
-Q_DECLARE_INTERFACE(XmlElementAspectMaker, "net.sf.scidavis.xmlelementaspectmaker/0.1")
+Q_DECLARE_INTERFACE(XmlElementAspectMaker, "net.sf.makhber.xmlelementaspectmaker/0.1")
 
 #endif // ifndef INTERFACES_H

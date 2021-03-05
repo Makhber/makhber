@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Differentiation.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Ion Vasilief
     Email (use @ for *)  : ion_vasilief*yahoo.fr
@@ -61,10 +61,12 @@ void Differentiation::init()
 
 void Differentiation::output()
 {
-    Column *xCol = new Column(tr("1", "differention table x column name"), SciDAVis::ColumnMode::Numeric);
-    Column *yCol = new Column(tr("2", "differention table y column name"), SciDAVis::ColumnMode::Numeric);
-    xCol->setPlotDesignation(SciDAVis::X);
-    yCol->setPlotDesignation(SciDAVis::Y);
+    Column *xCol =
+            new Column(tr("1", "differention table x column name"), Makhber::ColumnMode::Numeric);
+    Column *yCol =
+            new Column(tr("2", "differention table y column name"), Makhber::ColumnMode::Numeric);
+    xCol->setPlotDesignation(Makhber::X);
+    yCol->setPlotDesignation(Makhber::Y);
     for (unsigned i = 1; i < d_n - 1; i++) {
         xCol->setValueAt(i - 1, d_x[i]);
         yCol->setValueAt(i - 1,

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Column.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Aspect that manages a column
     --------------------------------------------------------------------
     Copyright            : (C) 2007-2009 Tilman Benkert (thzs*gmx.net)
@@ -35,7 +35,7 @@
 #include <QXmlStreamWriter>
 #include <QtDebug>
 
-Column::Column(const QString &name, SciDAVis::ColumnMode mode) : AbstractColumn(name)
+Column::Column(const QString &name, Makhber::ColumnMode mode) : AbstractColumn(name)
 {
     d_column_private = new Private(this, mode);
     d_string_io = new ColumnStringIO(this);
@@ -48,20 +48,21 @@ Column::Column(const QString &name, SciDAVis::ColumnMode mode) : AbstractColumn(
 template<>
 void Column::initPrivate(std::unique_ptr<QVector<qreal>> d, IntervalAttribute<bool> v)
 {
-    d_column_private = new Private(this, SciDAVis::TypeDouble, SciDAVis::ColumnMode::Numeric, d.release(), v);
+    d_column_private =
+            new Private(this, Makhber::TypeDouble, Makhber::ColumnMode::Numeric, d.release(), v);
 }
 
 template<>
 void Column::initPrivate(std::unique_ptr<QStringList> d, IntervalAttribute<bool> v)
 {
     d_column_private =
-            new Private(this, SciDAVis::TypeQString, SciDAVis::ColumnMode::Text, d.release(), v);
+            new Private(this, Makhber::TypeQString, Makhber::ColumnMode::Text, d.release(), v);
 }
 
 template<>
 void Column::initPrivate(std::unique_ptr<QList<QDateTime>> d, IntervalAttribute<bool> v)
 {
-    d_column_private = new Private(this, SciDAVis::TypeQDateTime, SciDAVis::ColumnMode::DateTime,
+    d_column_private = new Private(this, Makhber::TypeQDateTime, Makhber::ColumnMode::DateTime,
                                    d.release(), v);
 }
 
@@ -80,7 +81,7 @@ Column::~Column()
     delete d_column_private;
 }
 
-void Column::setColumnMode(SciDAVis::ColumnMode mode, AbstractFilter *conversion_filter)
+void Column::setColumnMode(Makhber::ColumnMode mode, AbstractFilter *conversion_filter)
 {
     if (mode != columnMode()) // mode changed
     {
@@ -101,7 +102,7 @@ void Column::setColumnMode(SciDAVis::ColumnMode mode, AbstractFilter *conversion
         endMacro();
     }
     // mode is not changed, but DateTime numeric converter changed
-    else if ((mode == SciDAVis::ColumnMode::DateTime) && (nullptr != conversion_filter)) {
+    else if ((mode == Makhber::ColumnMode::DateTime) && (nullptr != conversion_filter)) {
         auto numeric_datetime_converter =
                 reinterpret_cast<NumericDateTimeBaseFilter *>(conversion_filter);
         if (nullptr != numeric_datetime_converter)
@@ -140,7 +141,7 @@ void Column::removeRows(int first, int count)
         exec(new ColumnRemoveRowsCmd(d_column_private, first, count));
 }
 
-void Column::setPlotDesignation(SciDAVis::PlotDesignation pd)
+void Column::setPlotDesignation(Makhber::PlotDesignation pd)
 {
     if (pd != plotDesignation())
         exec(new ColumnSetPlotDesignationCmd(d_column_private, pd));
@@ -272,11 +273,11 @@ double Column::valueAt(int row) const
 QIcon Column::icon() const
 {
     switch (dataType()) {
-    case SciDAVis::TypeDouble:
+    case Makhber::TypeDouble:
         return QIcon(QPixmap(":/numerictype.png"));
-    case SciDAVis::TypeQString:
+    case Makhber::TypeQString:
         return QIcon(QPixmap(":/texttype.png"));
-    case SciDAVis::TypeQDateTime:
+    case Makhber::TypeQDateTime:
         return QIcon(QPixmap(":/datetype.png"));
     }
     return QIcon();
@@ -286,10 +287,11 @@ void Column::save(QXmlStreamWriter *writer) const
 {
     writer->writeStartElement("column");
     writeBasicAttributes(writer);
-    writer->writeAttribute("type", SciDAVis::enumValueToString(dataType(), "ColumnDataType"));
-    writer->writeAttribute("mode", SciDAVis::enumValueToString(static_cast<int>(columnMode()), "ColumnMode"));
+    writer->writeAttribute("type", Makhber::enumValueToString(dataType(), "ColumnDataType"));
+    writer->writeAttribute(
+            "mode", Makhber::enumValueToString(static_cast<int>(columnMode()), "ColumnMode"));
     writer->writeAttribute("plot_designation",
-                           SciDAVis::enumValueToString(plotDesignation(), "PlotDesignation"));
+                           Makhber::enumValueToString(plotDesignation(), "PlotDesignation"));
     writeCommentElement(writer);
     writer->writeStartElement("input_filter");
     d_column_private->inputFilter()->save(writer);
@@ -314,22 +316,22 @@ void Column::save(QXmlStreamWriter *writer) const
     }
     int i;
     switch (dataType()) {
-    case SciDAVis::TypeDouble:
+    case Makhber::TypeDouble:
         for (i = 0; i < rowCount(); i++) {
             writer->writeStartElement("row");
             writer->writeAttribute("type",
-                                   SciDAVis::enumValueToString(dataType(), "ColumnDataType"));
+                                   Makhber::enumValueToString(dataType(), "ColumnDataType"));
             writer->writeAttribute("index", QString::number(i));
             writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
             writer->writeCharacters(QString::number(valueAt(i), 'e', 16));
             writer->writeEndElement();
         }
         break;
-    case SciDAVis::TypeQString:
+    case Makhber::TypeQString:
         for (i = 0; i < rowCount(); i++) {
             writer->writeStartElement("row");
             writer->writeAttribute("type",
-                                   SciDAVis::enumValueToString(dataType(), "ColumnDataType"));
+                                   Makhber::enumValueToString(dataType(), "ColumnDataType"));
             writer->writeAttribute("index", QString::number(i));
             writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
             writer->writeCharacters(textAt(i));
@@ -337,7 +339,7 @@ void Column::save(QXmlStreamWriter *writer) const
         }
         break;
 
-    case SciDAVis::TypeQDateTime: {
+    case Makhber::TypeQDateTime: {
         { // this conversion is needed to store base class;
             NumericDateTimeBaseFilter numericFilter(
                     *(d_column_private->getNumericDateTimeFilter()));
@@ -348,7 +350,7 @@ void Column::save(QXmlStreamWriter *writer) const
         for (i = 0; i < rowCount(); i++) {
             writer->writeStartElement("row");
             writer->writeAttribute("type",
-                                   SciDAVis::enumValueToString(dataType(), "ColumnDataType"));
+                                   Makhber::enumValueToString(dataType(), "ColumnDataType"));
             writer->writeAttribute("index", QString::number(i));
             writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
 #if QT_VERSION < 0x040400 // avoid a bug in Qt < 4.4
@@ -386,7 +388,7 @@ bool Column::load(XmlStreamReader *reader)
             reader->raiseError(tr("column type missing"));
             return false;
         }
-        int type_code = SciDAVis::enumStringToValue(str, "ColumnDataType");
+        int type_code = Makhber::enumStringToValue(str, "ColumnDataType");
         if (type_code == -1) {
             reader->raiseError(tr("column type invalid"));
             return false;
@@ -397,26 +399,26 @@ bool Column::load(XmlStreamReader *reader)
             reader->raiseError(tr("column mode missing"));
             return false;
         }
-        int mode_code = SciDAVis::enumStringToValue(str, "ColumnMode");
+        int mode_code = Makhber::enumStringToValue(str, "ColumnMode");
         if (mode_code == -1) {
             reader->raiseError(tr("column mode invalid"));
             return false;
         }
-        setColumnMode((SciDAVis::ColumnMode)mode_code);
+        setColumnMode((Makhber::ColumnMode)mode_code);
         if (type_code != int(dataType())) {
             reader->raiseError(tr("column type or mode invalid"));
             return false;
         }
         // read plot designation
         str = attribs.value(reader->namespaceUri().toString(), "plot_designation").toString();
-        int pd_code = SciDAVis::enumStringToValue(str, "PlotDesignation");
+        int pd_code = Makhber::enumStringToValue(str, "PlotDesignation");
         if (str.isEmpty())
-            setPlotDesignation(SciDAVis::noDesignation);
+            setPlotDesignation(Makhber::noDesignation);
         else if (pd_code == -1) {
             reader->raiseError(tr("column plot designation invalid"));
             return false;
         } else
-            setPlotDesignation((SciDAVis::PlotDesignation)pd_code);
+            setPlotDesignation((Makhber::PlotDesignation)pd_code);
 
         setComment("");
         if (rowCount() > 0)
@@ -548,7 +550,7 @@ bool Column::XmlReadRow(XmlStreamReader *reader)
     QXmlStreamAttributes attribs = reader->attributes();
     // verfiy type
     str = attribs.value(reader->namespaceUri().toString(), "type").toString();
-    type_code = SciDAVis::enumStringToValue(str, "ColumnDataType");
+    type_code = Makhber::enumStringToValue(str, "ColumnDataType");
     if (str.isEmpty() || type_code == -1 || type_code != int(dataType())) {
         reader->raiseError(tr("invalid or missing row type"));
         return false;
@@ -563,7 +565,7 @@ bool Column::XmlReadRow(XmlStreamReader *reader)
 
     str = reader->readElementText();
     switch (dataType()) {
-    case SciDAVis::TypeDouble: {
+    case Makhber::TypeDouble: {
         double value = str.toDouble(&ok);
         if (!ok) {
             reader->raiseError(tr("invalid row value"));
@@ -572,11 +574,11 @@ bool Column::XmlReadRow(XmlStreamReader *reader)
         setValueAt(index, value);
         break;
     }
-    case SciDAVis::TypeQString:
+    case Makhber::TypeQString:
         setTextAt(index, str);
         break;
 
-    case SciDAVis::TypeQDateTime:
+    case Makhber::TypeQDateTime:
         QDateTime date_time = QDateTime::fromString(str, "yyyy-dd-MM hh:mm:ss:zzz");
         setDateTimeAt(index, date_time);
         break;
@@ -588,12 +590,12 @@ bool Column::XmlReadRow(XmlStreamReader *reader)
 
     return true;
 }
-SciDAVis::ColumnDataType Column::dataType() const
+Makhber::ColumnDataType Column::dataType() const
 {
     return d_column_private->dataType();
 }
 
-SciDAVis::ColumnMode Column::columnMode() const
+Makhber::ColumnMode Column::columnMode() const
 {
     return d_column_private->columnMode();
 }
@@ -602,7 +604,7 @@ int Column::rowCount() const
     return d_column_private->rowCount();
 }
 
-SciDAVis::PlotDesignation Column::plotDesignation() const
+Makhber::PlotDesignation Column::plotDesignation() const
 {
     return d_column_private->plotDesignation();
 }
@@ -687,7 +689,7 @@ void ColumnStringIO::setTextAt(int row, const QString &value)
 
 bool ColumnStringIO::copy(const AbstractColumn *other)
 {
-    if (other->columnMode() != SciDAVis::ColumnMode::Text)
+    if (other->columnMode() != Makhber::ColumnMode::Text)
         return false;
     d_owner->d_column_private->inputFilter()->input(0, other);
     d_owner->copy(d_owner->d_column_private->inputFilter()->output(0));
@@ -698,7 +700,7 @@ bool ColumnStringIO::copy(const AbstractColumn *other)
 bool ColumnStringIO::copy(const AbstractColumn *source, int source_start, int dest_start,
                           int num_rows)
 {
-    if (source->columnMode() != SciDAVis::ColumnMode::Text)
+    if (source->columnMode() != Makhber::ColumnMode::Text)
         return false;
     d_owner->d_column_private->inputFilter()->input(0, source);
     d_owner->copy(d_owner->d_column_private->inputFilter()->output(0), source_start, dest_start,

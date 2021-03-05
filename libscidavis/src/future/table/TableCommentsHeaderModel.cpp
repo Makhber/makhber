@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : TableCommentsHeaderModel.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Tilman Benkert,
     Email (use @ for *)  : thzs*gmx.net

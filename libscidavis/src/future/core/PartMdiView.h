@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : PartMdiView.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : MDI sub window to be wrapped around views of
                            AbstractPart.
     --------------------------------------------------------------------

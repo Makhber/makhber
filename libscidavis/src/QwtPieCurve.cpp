@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : QwtPieCurve.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -121,7 +121,7 @@ bool QwtPieCurve::loadData()
 
     for (int row = d_start_row; row <= d_end_row && row < y_col_ptr->rowCount(); row++) {
         if (!y_col_ptr->isInvalid(row)) {
-            if (yColType == SciDAVis::ColumnMode::Text) {
+            if (yColType == Makhber::ColumnMode::Text) {
                 QString yval = y_col_ptr->textAt(row);
                 bool valid_data = true;
                 Y[size] = QLocale().toDouble(yval, &valid_data);

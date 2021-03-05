@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : LineProfileTool.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006,2007 by Ion Vasilief,
                            Tilman Benkert, Knut Franke
@@ -87,14 +87,14 @@ void LineProfileTool::calculateLineProfile(const QPoint &start, const QPoint &en
         y2 = int(y2 * ratioY);
     }
 
-    Column *pixelCol = new Column(tr("pixel"), SciDAVis::ColumnMode::Numeric);
-    Column *xCol = new Column(tr("x"), SciDAVis::ColumnMode::Numeric);
-    Column *yCol = new Column(tr("y"), SciDAVis::ColumnMode::Numeric);
-    Column *intCol = new Column(tr("intensity"), SciDAVis::ColumnMode::Numeric);
-    pixelCol->setPlotDesignation(SciDAVis::X);
-    xCol->setPlotDesignation(SciDAVis::Y);
-    yCol->setPlotDesignation(SciDAVis::Y);
-    intCol->setPlotDesignation(SciDAVis::Y);
+    Column *pixelCol = new Column(tr("pixel"), Makhber::ColumnMode::Numeric);
+    Column *xCol = new Column(tr("x"), Makhber::ColumnMode::Numeric);
+    Column *yCol = new Column(tr("y"), Makhber::ColumnMode::Numeric);
+    Column *intCol = new Column(tr("intensity"), Makhber::ColumnMode::Numeric);
+    pixelCol->setPlotDesignation(Makhber::X);
+    xCol->setPlotDesignation(Makhber::Y);
+    yCol->setPlotDesignation(Makhber::Y);
+    intCol->setPlotDesignation(Makhber::Y);
 
     // uses the fast Bresenham's line-drawing algorithm
 #define sgn(x) ((x < 0) ? -1 : ((x > 0) ? 1 : 0))

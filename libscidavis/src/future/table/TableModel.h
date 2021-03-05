@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : TableModel.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Model for the access to a Table
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)

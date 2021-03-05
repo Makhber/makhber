@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : MultiLayer.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -286,8 +286,8 @@ void MultiLayer::confirmRemoveLayer()
     if (graphs > 1) {
         switch (QMessageBox::information(
                 this, tr("Guess best layout?"),
-                tr("Do you want SciDAVis to rearrange the remaining layers?"), tr("&Yes"),
-                tr("&No"), tr("&Cancel"), 0, 2)) {
+                tr("Do you want Makhber to rearrange the remaining layers?"), tr("&Yes"), tr("&No"),
+                tr("&Cancel"), 0, 2)) {
         case 0:
             removeLayer();
             arrangeLayers(true, false);
@@ -674,7 +674,7 @@ void MultiLayer::exportVector(const QString &fileName, int, bool color, bool kee
 
     QPrinter printer;
     printer.setDocName(this->name());
-    printer.setCreator("SciDAVis");
+    printer.setCreator("Makhber");
     printer.setFullPage(true);
     printer.setOutputFileName(fileName);
     if (fileName.contains(".eps")) {

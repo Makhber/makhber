@@ -1,9 +1,9 @@
 ############################################################################
 #                                                                          #
-# File                 : scidavisUtil.py                                   #
-# Project              : SciDAVis                                          #
+# File                 : makhberUtil.py                                   #
+# Project              : Makhber                                          #
 # Description          : Some Python utilities useful when doing data      #
-#                        analysis with SciDAVis                            #
+#                        analysis with Makhber                            #
 # Copyright            : (C) 2006 Knut Franke (knut.franke*gmx.de)         #
 #                        (replace * with @ in the email address)           #
 #                                                                          #
@@ -27,11 +27,11 @@
 ############################################################################
 
 """
-	Some classes and functions that are particularly useful when doing calculations in SciDAVis;
+	Some classes and functions that are particularly useful when doing calculations in Makhber;
 	maybe also outside of it.
 """
 
-import math, scidavis
+import math, makhber
 
 class value:
 	"""
@@ -54,13 +54,13 @@ class value:
 		The standard constructor is
 		value(val, sigma)
 		where val is the actual value and sigma is the error estimate (standard deviation). You can also
-		construct a value from a SciDAVis table, like this:
+		construct a value from a Makhber table, like this:
 		value(table, valcol, errcol, row)
-		where table is a scidavis.Table instance, valcol the column containing the actual value, errcol the column
+		where table is a makhber.Table instance, valcol the column containing the actual value, errcol the column
 		containing the error estimate and row, if you haven't guessed this, the row from which to read the values.
 	"""
 	def __init__(self,val,var=None,sigma=True,row=None):
-		if val.__class__==scidavis.Table:
+		if val.__class__==makhber.Table:
 			self.val,self.var = val.cell(var,row),val.cell(sigma,row)**2
 		elif hasattr(val, "inherits") and val.inherits("Fit"):
 			self.val = val.results()[var-1]
@@ -154,7 +154,7 @@ def polar(x, y):
 def lookup(tab, col, txt):
 	"""
 	  lookup(tab, col, txt):
-	  search column col of SciDAVis table tab for a cell with text content txt,
+	  search column col of Makhber table tab for a cell with text content txt,
 	  returning the row of the first match; None on failure.
 	"""
 	for i in range(1,tab.numRows()+1):
@@ -214,12 +214,12 @@ def exportTableToTeX(t, filename=None):
 		exportToTeX(table, filename=None):
 		Export table as TeX-tabular to filename. If filename==None, popup a file selection dialog.
 	"""
-	if (scidavis.app.qtVersion() >= 0x050000):
+	if (makhber.app.qtVersion() >= 0x050000):
 		from PyQt5.QtWidgets import QFileDialog
 	else:
 		from PyQt4.QtGui import QFileDialog
 	if not filename:
-		filename=QFileDialog.getSaveFileName(scidavis.app,"SciDAVis - Export TeX table","","All files *;;TeX documents (*.tex *.TEX);;");
+		filename=QFileDialog.getSaveFileName(makhber.app,"Makhber - Export TeX table","","All files *;;TeX documents (*.tex *.TEX);;");
 	f=open(filename,'w')
 	f.write('\\begin{tabular}{|' + 'c|'*t.numCols() + '}\\hline\n')
 	for col in range(1,t.numCols()):

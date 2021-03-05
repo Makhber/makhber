@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Graph.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -98,7 +98,7 @@ typedef struct CurveLayout_struct
  * various parts of the user interaction.
  *
  * Graph contains support for various curve types (see #CurveType),
- * some of them relying on SciDAVis-specific QwtPlotCurve subclasses for parts of the functionality.
+ * some of them relying on Makhber-specific QwtPlotCurve subclasses for parts of the functionality.
  *
  * %Note that some of Graph's methods are implemented in analysis.cpp.
  *

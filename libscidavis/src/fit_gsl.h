@@ -1,6 +1,6 @@
 /***************************************************************************
    File                 : fit_gsl.h
-   Project              : SciDAVis
+   Project              : Makhber
    Description          : Built-in data fit models for QtiPlot
    --------------------------------------------------------------------
    Copyright            : (C) 2004-2007 Ion Vasilief (ion_vasilief*yahoo.fr)

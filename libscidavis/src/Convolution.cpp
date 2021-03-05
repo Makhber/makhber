@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Convolution.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Ion Vasilief
     Email (use @ for *)  : ion_vasilief*yahoo.fr
@@ -55,12 +55,12 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
     int response_col = d_table->colIndex(responseColName);
 
     if (signal_col < 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                              tr("The signal data set %1 does not exist!").arg(signalColName));
         d_init_err = true;
         return;
     } else if (response_col < 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                              tr("The response data set %1 does not exist!").arg(responseColName));
         d_init_err = true;
         return;
@@ -78,7 +78,7 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
             d_n_response++;
     }
     if (d_n_response >= rows / 2) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                              tr("The response dataset '%1' must be less then half the size of the "
                                 "signal dataset '%2'!")
                                      .arg(responseColName)
@@ -86,7 +86,7 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
         d_init_err = true;
         return;
     } else if (d_n_response % 2 == 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                              tr("The response dataset '%1' must contain an odd number of points!")
                                      .arg(responseColName));
         d_init_err = true;
@@ -109,7 +109,7 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
         for (int i = 0; i < d_n_response; i++)
             d_y[i] = d_table->cell(i, response_col);
     } else {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         d_init_err = true;
         d_n = 0;
@@ -148,7 +148,7 @@ void Convolution::addResultCurve()
 
     d_table->setColName(cols, tr("Index") + id);
     d_table->setColName(cols2, label);
-    d_table->setColPlotDesignation(cols, SciDAVis::X);
+    d_table->setColPlotDesignation(cols, Makhber::X);
 
     MultiLayer *ml = app->newGraph(objectName() + tr("Plot"));
     if (!ml)

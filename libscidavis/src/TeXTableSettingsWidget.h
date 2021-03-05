@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : TeXTableSettingsWidget.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2010 by Iurie Nistor
     Email (use @ for *)  : nistor*iurie.org

@@ -33,106 +33,43 @@
 #include "globals.h"
 #include "version.h"
 #include "qwt_global.h"
+#include "gsl/gsl_version.h"
+#include "muParserDef.h"
 #include <QMessageBox>
 #include <QIcon>
 #include <QObject>
 #include <QMetaObject>
 #include <QMetaEnum>
 #include <QtDebug>
-#include "ui_SciDAVisAbout.h"
+#include "ui_MakhberAbout.h"
 
-const QString SciDAVis::copyright_string = "\
-=== Credits ===\n\
-\n\
---- Developers ---\n\
-\n\
-The following people have written parts of the SciDAVis source code, ranging from a few lines to large chunks.\n\
-In alphabetical order.\n\
-\n\
-Tilman Benkert[1], Knut Franke, Miquel Garriga, Arun Narayanankutty, Dmitriy Pozitron, Russell Standish\n\
-\n\
---- Documentation ---\n\
-\n\
-The following people have written parts of the manual and/or other documentation.\n\
-In alphabetical order.\n\
-\n\
-Knut Franke, Roger Gadiou\n\
-\n\
---- Translations ---\n\
-\n\
-The following people have contributed translations or parts thereof.\n\
-In alphabetical order.\n\
-\n\
-Tilman Benkert[1], Markus Bongard, Tobias Burnus, Rémy Claverie, f0ma, José Antonio Lorenzo Fernández, \
-Pavel Fric, Jan Helebrant, Daniel Klaer, Peter Landgren, Fellype do Nascimento, Tomomasa Ohkubo, \
-Mikhail Shevyakov, Russell Standish, Mauricio Troviano\n\
-\n\
---- Packagers ---\n\
-\n\
-The following people have made installing SciDAVis easier by providing specialized binary packages.\n\
-In alphabetical order.\n\
-\n\
-Burkhard Bunk (Debian), Quentin Denis (SUSE), Yu-Hung Lien (old Mac OS X), Fellype do Nascimento (Slackware), Russell Standish (new MacOSX)\
-Eric Tanguy (Fedora), Mauricio Troviano (Windows installer)\n\
-\n\
---- QtiPlot ---\n\
-\n\
-SciDAVis uses code from QtiPlot, which consisted (at the time of the fork, i.e. QtiPlot 0.9-rc2) of code by the following people:\n\
-\n\
-Tilman Benkert[1], Shen Chen, Borries Demeler, José Antonio Lorenzo Fernández, Knut Franke, Vasileios Gkanis, Gudjon Gudjonsson, \
-Alex Kargovsky, Michael Mac-Vicar, Tomomasa Ohkubo, Aaron Van Tassle, Branimir Vasilic, Ion Vasilief, Vincent Wagelaar\n\
-\n\
-The SciDAVis manual is based on the QtiPlot manual, written by (in alphabetical order):\n\
-\n\
-Knut Franke, Roger Gadiou, Ion Vasilief\n\
-\n\
-footnotes:\n\
-[1] birth name: Tilman Höner zu Siederdissen\n\
-\n\
-=== Special Thanks ===\n\
-\n\
-We also want to acknowledge the people having helped us indirectly by contributing to the following\n\
-fine pieces of software. In no particular order.\n\
-\n\
-Qt (http://doc.trolltech.com/4.3/credits.html),\n\
-Qwt (http://qwt.sourceforge.net/#credits),\n\
-Qwtplot3D (http://qwtplot3d.sourceforge.net/),\n\
-muParser (http://muparser.sourceforge.net/),\n\
-Python (http://www.python.org/),\n\
-liborigin (http://sourceforge.net/projects/liborigin/),\n\
-Vim (http://www.vim.org/thanks.php/),\n\
-webgen (http://webgen.rubyforge.org/),\n\
-Doxygen (http://www.doxygen.org/),\n\
-Subversion (http://subversion.tigris.org/),\n\
-GSL (http://www.gnu.org/software/gsl/)\n\
-\n\
-... and many more we just forgot to mention.\n";
+const QString Makhber::copyright_string = "";
 
-int SciDAVis::version()
+int Makhber::version()
 {
-    return scidavis_versionNo;
+    return makhber_versionNo;
 }
 
-QString SciDAVis::schemaVersion()
+QString Makhber::schemaVersion()
 {
-    return "SciDAVis " + QString::number((version() & 0xFF0000) >> 16) + "."
+    return "Makhber " + QString::number((version() & 0xFF0000) >> 16) + "."
             + QString::number((version() & 0x00FF00) >> 8) + "."
             + QString::number(version() & 0x0000FF);
 }
 
-QString SciDAVis::versionString()
+QString Makhber::versionString()
 {
-    return QString("SciDAVis ") + scidavis_version;
+    return QString("Makhber ") + makhber_version;
 }
 
-QString SciDAVis::extraVersion()
+QString Makhber::extraVersion()
 {
     return QString(extra_version);
 }
 
-void SciDAVis::about()
+void Makhber::about()
 {
-    QString text = SciDAVis::copyright_string;
+    QString text = Makhber::copyright_string;
     text.replace(QRegExp("\\[1\\]"), "<sup>1</sup>");
     text.replace("é", "&eacute;");
     text.replace("á", "&aacute;");
@@ -153,37 +90,37 @@ void SciDAVis::about()
     flags |= Qt::WindowCloseButtonHint;
 #endif
     QDialog *dialog = new QDialog(0, flags);
-    Ui::SciDAVisAbout ui;
+    Ui::MakhberAbout ui;
     ui.setupUi(dialog);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
-    dialog->setWindowTitle(QObject::tr("About SciDAVis"));
+    dialog->setWindowTitle(QObject::tr("About Makhber"));
     ui.version_label->setText(versionString() + extraVersion());
-    ui.release_date_label->setText(QString("Qt: ") + QT_VERSION_STR + ". Qwt: "
-                                   + QWT_VERSION_STR
+    ui.release_date_label->setText(QObject::tr("Built") + ": " + QString(Makhber::build_date));
+    ui.used_libraries->setText(QString("Makhber was built with the fellowing libraries: ")
+                               + "\nQt: " + QT_VERSION_STR + "\nQwt: " + QWT_VERSION_STR
 #ifdef SCRIPTING_PYTHON
-                                   ". Python: "
-                                   + PY_VERSION
-#else
-                                   + ". No python"
+                               + "\nPython: " + PY_VERSION
 #endif
-                                   + QObject::tr("\nReleased") + ": "
-                                   + QString(SciDAVis::release_date));
-    ui.credits_box->setHtml(text);
-
+                               + "\nGSL: " + GSL_VERSION
+#ifdef MUP_VERSION
+                               + "\nmuParser: " + MUP_VERSION);
+#else
+                               + "\nmuParser: " + QString::fromStdString(mu::ParserVersion));
+#endif
     dialog->exec();
 }
 
-QString SciDAVis::copyrightString()
+QString Makhber::copyrightString()
 {
     return copyright_string;
 }
 
-QString SciDAVis::releaseDateString()
+QString Makhber::buildDateString()
 {
-    return release_date;
+    return build_date;
 }
 
-QString SciDAVis::enumValueToString(int key, const QString &enum_name)
+QString Makhber::enumValueToString(int key, const QString &enum_name)
 {
     int index = staticMetaObject.indexOfEnumerator(enum_name.toUtf8());
     if (index == -1)
@@ -192,7 +129,7 @@ QString SciDAVis::enumValueToString(int key, const QString &enum_name)
     return QString(meta_enum.valueToKey(key));
 }
 
-int SciDAVis::enumStringToValue(const QString &string, const QString &enum_name)
+int Makhber::enumStringToValue(const QString &string, const QString &enum_name)
 {
     int index = staticMetaObject.indexOfEnumerator(enum_name.toUtf8());
     if (index == -1)

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : columncommands.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Commands to be called by Column to modify Column::Private
     --------------------------------------------------------------------
     Copyright            : (C) 2007-2009 Tilman Benkert (thzs*gmx.net)
@@ -33,7 +33,7 @@
 ///////////////////////////////////////////////////////////////////////////
 // class ColumnSetModeCmd
 ///////////////////////////////////////////////////////////////////////////
-ColumnSetModeCmd::ColumnSetModeCmd(Column::Private *col, SciDAVis::ColumnMode mode,
+ColumnSetModeCmd::ColumnSetModeCmd(Column::Private *col, Makhber::ColumnMode mode,
                                    AbstractFilter *conversion_filter, QUndoCommand *parent)
     : QUndoCommand(parent), d_col(col), d_mode(mode), d_conversion_filter(conversion_filter)
 {
@@ -46,20 +46,20 @@ ColumnSetModeCmd::~ColumnSetModeCmd()
 {
     if (d_undone) {
         if (d_new_data != d_old_data) {
-            if (d_new_type == SciDAVis::TypeDouble)
+            if (d_new_type == Makhber::TypeDouble)
                 delete static_cast<QVector<double> *>(d_new_data);
-            else if (d_new_type == SciDAVis::TypeQString)
+            else if (d_new_type == Makhber::TypeQString)
                 delete static_cast<QStringList *>(d_new_data);
-            else if (d_new_type == SciDAVis::TypeQDateTime)
+            else if (d_new_type == Makhber::TypeQDateTime)
                 delete static_cast<QList<QDateTime> *>(d_new_data);
         }
     } else {
         if (d_new_data != d_old_data) {
-            if (d_old_type == SciDAVis::TypeDouble)
+            if (d_old_type == Makhber::TypeDouble)
                 delete static_cast<QVector<double> *>(d_old_data);
-            else if (d_old_type == SciDAVis::TypeQString)
+            else if (d_old_type == Makhber::TypeQString)
                 delete static_cast<QStringList *>(d_old_data);
-            else if (d_old_type == SciDAVis::TypeQDateTime)
+            else if (d_old_type == Makhber::TypeQDateTime)
                 delete static_cast<QList<QDateTime> *>(d_old_data);
         }
     }
@@ -288,7 +288,7 @@ void ColumnRemoveRowsCmd::undo()
 // class ColumnSetPlotDesignationCmd
 ///////////////////////////////////////////////////////////////////////////
 ColumnSetPlotDesignationCmd::ColumnSetPlotDesignationCmd(Column::Private *col,
-                                                         SciDAVis::PlotDesignation pd,
+                                                         Makhber::PlotDesignation pd,
                                                          QUndoCommand *parent)
     : QUndoCommand(parent), d_col(col), d_new_pd(pd)
 {
@@ -326,18 +326,18 @@ ColumnClearCmd::ColumnClearCmd(Column::Private *col, QUndoCommand *parent)
 ColumnClearCmd::~ColumnClearCmd()
 {
     if (d_undone) {
-        if (d_type == SciDAVis::TypeDouble)
+        if (d_type == Makhber::TypeDouble)
             delete static_cast<QVector<double> *>(d_empty_data);
-        else if (d_type == SciDAVis::TypeQString)
+        else if (d_type == Makhber::TypeQString)
             delete static_cast<QStringList *>(d_empty_data);
-        else if (d_type == SciDAVis::TypeQDateTime)
+        else if (d_type == Makhber::TypeQDateTime)
             delete static_cast<QList<QDateTime> *>(d_empty_data);
     } else {
-        if (d_type == SciDAVis::TypeDouble)
+        if (d_type == Makhber::TypeDouble)
             delete static_cast<QVector<double> *>(d_data);
-        else if (d_type == SciDAVis::TypeQString)
+        else if (d_type == Makhber::TypeQString)
             delete static_cast<QStringList *>(d_data);
-        else if (d_type == SciDAVis::TypeQDateTime)
+        else if (d_type == Makhber::TypeQDateTime)
             delete static_cast<QList<QDateTime> *>(d_data);
     }
 }
@@ -347,13 +347,13 @@ void ColumnClearCmd::redo()
     if (!d_empty_data) {
         d_type = d_col->dataType();
         switch (d_type) {
-        case SciDAVis::TypeDouble:
+        case Makhber::TypeDouble:
             d_empty_data = new QVector<double>();
             break;
-        case SciDAVis::TypeQDateTime:
+        case Makhber::TypeQDateTime:
             d_empty_data = new QList<QDateTime>();
             break;
-        case SciDAVis::TypeQString:
+        case Makhber::TypeQString:
             d_empty_data = new QStringList();
             break;
         }

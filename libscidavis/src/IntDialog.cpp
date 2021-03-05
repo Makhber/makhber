@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : IntDialog.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Vasileios Gkanis, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -98,7 +98,7 @@ void IntDialog::accept()
     QwtPlotCurve *c = graph->curve(curveName);
     QStringList curvesList = graph->analysableCurvesList();
     if (!c || !curvesList.contains(curveName)) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Warning"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Warning"),
                               tr("The curve <b> %1 </b> doesn't exist anymore! Operation aborted!")
                                       .arg(curveName));
         boxName->clear();

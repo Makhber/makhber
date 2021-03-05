@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Folder.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Folder in a project
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)

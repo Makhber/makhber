@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Matrix.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Aspect providing a spreadsheet to manage MxN matrix data
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)

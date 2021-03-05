@@ -1,10 +1,10 @@
-#ifndef SCIDAVISOBJECT_H
-#define SCIDAVISOBJECT_H
+#ifndef MAKHBEROBJECT_H
+#define MAKHBEROBJECT_H
 /**
-   Generic base class for Qt based classes in SciDAVis
+   Generic base class for Qt based classes in Makhber
 **/
 template<class Base>
-class SciDAVisObject : public Base
+class MakhberObject : public Base
 {
     void m_setParent(QObject *child, QObject *parent) { child->setParent(parent); }
     // overload that preserves the default window flags
@@ -15,7 +15,7 @@ class SciDAVisObject : public Base
 
 public:
     template<class... A>
-    SciDAVisObject(A... args) : Base(std::forward<A>(args)...)
+    MakhberObject(A... args) : Base(std::forward<A>(args)...)
     {
     }
 

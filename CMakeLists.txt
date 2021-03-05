@@ -2,17 +2,17 @@ cmake_minimum_required( VERSION 3.16 )
 
 cmake_policy(SET CMP0091 NEW)
 
-project( scidavis
-  VERSION 2.3.0
-  DESCRIPTION "SciDAVis is a free application for Scientific Data Analysis and Visualization."
-  HOMEPAGE_URL "https://scidavis.sourceforge.net"
+project( makhber
+  VERSION 0.9.0
+  DESCRIPTION "Makhber is a free application for Analysis and Visualization of Scientific Data."
+  HOMEPAGE_URL "https://github.com/Makhber/makhber"
   LANGUAGES CXX C
   )
 
 math( EXPR PROJECT_VERSION_NO "${PROJECT_VERSION_MAJOR} * 65536 + \
   ${PROJECT_VERSION_MINOR} * 256 + ${PROJECT_VERSION_PATCH}" )
 
-set( PROJECT_RELEASE_DATE "Jun, 12 2020" )
+string( TIMESTAMP PROJECT_BUILD_DATE "%b, %d %Y" )
 
 set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED TRUE )
@@ -67,22 +67,22 @@ if( APPLE )
 endif()
 
 # Searching for updates
-option( SCIDAVIS_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
+option( MAKHBER_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
 
 # Download links
-option( SCIDAVIS_DOWNLOAD_LINKS "Enable Download links" ON )
+option( MAKHBER_DOWNLOAD_LINKS "Enable Download links" ON )
 
-if( SCIDAVIS_SEARCH_FOR_UPDATES OR SCIDAVIS_DOWNLOAD_LINKS )
+if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
   find_package( Qt5 COMPONENTS Network REQUIRED )
 endif()
 
-option( SCIDAVIS_SCRIPTING_MUPARSER "Enable muParser Scripting" ON )
+option( MAKHBER_SCRIPTING_MUPARSER "Enable muParser Scripting" ON )
 
-option( SCIDAVIS_SCRIPTING_PYTHON "Enable Python Scripting" OFF )
+option( MAKHBER_SCRIPTING_PYTHON "Enable Python Scripting" OFF )
 
-option( SCIDAVIS_BUILD_TESTS "Build tests" OFF )
+option( MAKHBER_BUILD_TESTS "Build tests" OFF )
 
-if( SCIDAVIS_SCRIPTING_PYTHON )
+if( MAKHBER_SCRIPTING_PYTHON )
   if( MINGW )
     set( Python3_FIND_REGISTRY LAST )
   endif()
@@ -91,7 +91,7 @@ if( SCIDAVIS_SCRIPTING_PYTHON )
   find_package( PyQt REQUIRED )
 endif()
 
-option( SCIDAVIS_ORIGIN_IMPORT "Enable importing OriginLab project files" OFF )
+option( MAKHBER_ORIGIN_IMPORT "Enable importing OriginLab project files" OFF )
 
 # GSL
 find_package( GSL REQUIRED )
@@ -113,7 +113,7 @@ add_subdirectory( scidavis )
 
 add_subdirectory( fitPlugins )
 
-if( SCIDAVIS_BUILD_TESTS )
+if( MAKHBER_BUILD_TESTS )
   enable_testing()
   add_subdirectory( test )
 endif()
@@ -125,31 +125,31 @@ set( DOC_FILES
   license.rtf
   )
 
-option( SCIDAVIS_BUILD_CODE_DOCS "Build Code documentation" OFF )
+option( MAKHBER_BUILD_CODE_DOCS "Build Code documentation" OFF )
 
-if( SCIDAVIS_BUILD_CODE_DOCS )
+if( MAKHBER_BUILD_CODE_DOCS )
   find_package( Doxygen )
   if( Doxygen_FOUND )
     set( DOXYGEN_FILE_PATTERNS "*.cpp" "*.h" )
     set( DOXYGEN_EXCLUDE_PATTERNS "*/build/*" "*/3rdparty/*" )
-    doxygen_add_docs( code_documentation libscidavis scidavis )
+    doxygen_add_docs( code_documentation libmakhber makhber )
   endif()
 endif()
 
 if( WIN32 )
   install( FILES ${DOC_FILES} DESTINATION . )
 elseif( APPLE )
-  install( FILES ${DOC_FILES} DESTINATION scidavis.app/Contents/Resources )
+  install( FILES ${DOC_FILES} DESTINATION makhber.app/Contents/Resources )
 else()
-  install( FILES ${DOC_FILES} DESTINATION share/doc/scidavis )
+  install( FILES ${DOC_FILES} DESTINATION share/doc/makhber )
 endif()
 
-set( CPACK_PACKAGE_NAME "SciDAVis" )
-set( CPACK_PACKAGE_VENDOR "High Performance Coders" )
-set( CPACK_PACKAGE_DESCRIPTION "SciDAVis Installer" )
+set( CPACK_PACKAGE_NAME "Makhber" )
+set( CPACK_PACKAGE_VENDOR "Mehdi Chinoune" )
+set( CPACK_PACKAGE_DESCRIPTION "Makhber Installer" )
 set( CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/LICENSE" )
-set( CPACK_PACKAGE_EXECUTABLES "scidavis;SciDAVis" )
-set( CPACK_CREATE_DESKTOP_LINKS "scidavis" )
+set( CPACK_PACKAGE_EXECUTABLES "makhber;Makhber" )
+set( CPACK_CREATE_DESKTOP_LINKS "makhber" )
 set( CPACK_STRIP_FILES ON )
 
 # Source packaging

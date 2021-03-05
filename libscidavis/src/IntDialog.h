@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : IntDialog.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Vasileios Gkanis, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net

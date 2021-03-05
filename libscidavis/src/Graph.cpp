@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Graph.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -772,7 +772,7 @@ void Graph::setLabelsTextFormat(int axis, Table *table, const QString &columnNam
                 this, tr("Internal Error"),
                 tr("<html>Failed to set axis labels on Graph %1. Maybe you're trying to open a "
                    "corrupted"
-                   " project file; or there's some problem within SciDAVis. Please report this"
+                   " project file; or there's some problem within Makhber. Please report this"
                    " as a bug (together with detailed instructions how to reproduce this message or"
                    " the corrupted file).<p>"
                    "<a href=\"https://sourceforge.net/tracker/?group_id=199120&atid=968214>\">"
@@ -794,7 +794,7 @@ void Graph::setLabelsColHeaderFormat(int axis, Table *table)
 
     QMap<int, QString> list;
     for (int col = 0; col < table->columnCount(); col++)
-        if (table->colPlotDesignation(col) == SciDAVis::Y)
+        if (table->colPlotDesignation(col) == Makhber::Y)
             list.insert(col, table->colLabel(col));
     QwtTextScaleDraw *sd = new QwtTextScaleDraw(
             *static_cast<const ScaleDraw *>(d_plot->axisScaleDraw(axis)), list);
@@ -816,7 +816,7 @@ void Graph::setLabelsDateTimeFormat(int axis, AxisType type, const QString &form
     }
 
     switch (type) {
-    case AxisType::Time : {
+    case AxisType::Time: {
         TimeScaleDraw *sd = new TimeScaleDraw(
                 *static_cast<const ScaleDraw *>(d_plot->axisScaleDraw(axis)),
                 list[0].isEmpty() ? QTime(12, 0, 0, 0) : QTime::fromString(list[0].right(8)),
@@ -1376,7 +1376,7 @@ void Graph::exportVector(const QString &fileName, int, bool color, bool keepAspe
     }
 
     QPrinter printer;
-    printer.setCreator("SciDAVis");
+    printer.setCreator("Makhber");
     printer.setFullPage(true);
 
     printer.setOutputFileName(fileName);
@@ -1829,8 +1829,8 @@ void Graph::updateCurvesData(Table *w, const QString &colName)
                     atype = (AxisType)axisType[QwtPlot::yLeft];
             }
             // compare setLabels*Format() calls in insertCurve()
-            if ((colType == SciDAVis::ColumnMode::Text && atype != AxisType::Txt)
-                || (colType == SciDAVis::ColumnMode::DateTime
+            if ((colType == Makhber::ColumnMode::Text && atype != AxisType::Txt)
+                || (colType == Makhber::ColumnMode::DateTime
                     && ((atype != AxisType::Time) && (atype != AxisType::Date)
                         && (atype != AxisType::DateTime))))
                 to_remove << c;
@@ -2161,7 +2161,7 @@ QString Graph::saveTitle()
 
 QString Graph::saveScaleTitles()
 {
-    int a{};
+    int a {};
     QString s = "";
     for (int i = 0; i < 4; i++) {
         switch (i) {
@@ -2392,7 +2392,7 @@ QString Graph::saveCurves()
                 if (c->type() == Function) {
                     s += "<formula>\n"
                             + static_cast<FunctionCurve *>(c)->formulas().join(
-                                      "\n</formula>\n<formula>\n")
+                                    "\n</formula>\n<formula>\n")
                             + "\n</formula>\n";
                 }
             } else if (c->type() == ErrorBars) {
@@ -3085,7 +3085,7 @@ void Graph::plotPie(Table *w, const QString &name, int startRow, int endRow)
     QVarLengthArray<double> Y(abs(endRow - startRow) + 1);
     for (int row = startRow; row <= endRow && row < y_col_ptr->rowCount(); row++) {
         if (!y_col_ptr->isInvalid(row)) {
-            if (yColType == SciDAVis::ColumnMode::Text) {
+            if (yColType == Makhber::ColumnMode::Text) {
                 QString yval = y_col_ptr->textAt(row);
                 bool valid_data = true;
                 Y[size] = QLocale().toDouble(yval, &valid_data);
@@ -3166,7 +3166,7 @@ bool Graph::plotHistogram(Table *w, QStringList names, int startRow, int endRow)
     bool success = false;
     foreach (QString col, names) {
         Column *col_ptr = w->column(col);
-        if (!col_ptr || col_ptr->columnMode() != SciDAVis::ColumnMode::Numeric)
+        if (!col_ptr || col_ptr->columnMode() != Makhber::ColumnMode::Numeric)
             continue;
 
         QwtHistogram *c = new QwtHistogram(w, col, startRow, endRow);
@@ -3219,8 +3219,8 @@ bool Graph::insertCurvesList(Table *w, const QStringList &names, int style, int 
             if (colIndex < 0)
                 continue;
             switch (w->colPlotDesignation(colIndex)) {
-            case SciDAVis::xErr:
-            case SciDAVis::yErr:
+            case Makhber::xErr:
+            case Makhber::yErr:
                 errorCurves << col;
                 break;
             default:
@@ -3240,7 +3240,7 @@ bool Graph::insertCurvesList(Table *w, const QStringList &names, int style, int 
                 type_of_i = ErrorBars;
                 int ycol = -1;
                 for (int k = j - 1; k >= 0; k--) {
-                    if (w->colPlotDesignation(k) == SciDAVis::Y) {
+                    if (w->colPlotDesignation(k) == Makhber::Y) {
                         ycol = k;
                         break;
                     }
@@ -3250,7 +3250,7 @@ bool Graph::insertCurvesList(Table *w, const QStringList &names, int style, int 
                 if (ycol < 0)
                     return false;
 
-                if (w->colPlotDesignation(j) == SciDAVis::xErr)
+                if (w->colPlotDesignation(j) == Makhber::xErr)
                     ok = addErrorBars(w->colName(ycol), w, lst[i],
                                       (int)QwtErrorPlotCurve::Horizontal);
                 else
@@ -3866,7 +3866,7 @@ bool Graph::insertFunctionCurve(ApplicationWindow *parent, const QStringList &fu
 
     QStringList curve = func_spec[0].split(",");
     if (fileVersion >= 0x000105) {
-        // SciDAVis 0.1.4 and 0.2.0 crash when trying to save a function curve;
+        // Makhber 0.1.4 and 0.2.0 crash when trying to save a function curve;
         // thus, it's safe to assume every version from 0.1.5 on uses the new format,
         // even though 0.2.0 doesn't actually contain the revised code yet
         type = curve[0].toInt();
@@ -3940,10 +3940,12 @@ void Graph::createTable(const QwtPlotCurve *curve)
 
     int size = curve->dataSize();
 
-    Column *xCol = new Column(tr("1", "curve data table x column name"), SciDAVis::ColumnMode::Numeric);
-    Column *yCol = new Column(tr("2", "curve data table y column name"), SciDAVis::ColumnMode::Numeric);
-    xCol->setPlotDesignation(SciDAVis::X);
-    yCol->setPlotDesignation(SciDAVis::Y);
+    Column *xCol =
+            new Column(tr("1", "curve data table x column name"), Makhber::ColumnMode::Numeric);
+    Column *yCol =
+            new Column(tr("2", "curve data table y column name"), Makhber::ColumnMode::Numeric);
+    xCol->setPlotDesignation(Makhber::X);
+    yCol->setPlotDesignation(Makhber::Y);
     for (int i = 0; i < size; i++) {
         xCol->setValueAt(i, curve->x(i));
         yCol->setValueAt(i, curve->y(i));

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : matrixcommands.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Commands used in Matrix (part of the undo/redo framework)
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)

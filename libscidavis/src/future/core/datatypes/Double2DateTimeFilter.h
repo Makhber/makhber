@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Double2DateTimeFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke, Tilman Benkert
     Email (use @ for *)  : knut.franke*gmx.de, thzs@gmx.net
@@ -47,7 +47,7 @@ public:
     // Double2DateTimeFilter(const UnitInterval unit = UnitInterval::Day, const QDateTime&
     // date_time_0 = zeroOffsetDate) :
     Double2DateTimeFilter(const UnitInterval unit, const QDateTime &date_time_0)
-        : NumericDateTimeBaseFilter(unit, date_time_0){};
+        : NumericDateTimeBaseFilter(unit, date_time_0) {};
 
     virtual QDate dateAt(int row) const { return dateTimeAt(row).date(); }
     virtual QTime timeAt(int row) const { return dateTimeAt(row).time(); }
@@ -60,17 +60,17 @@ public:
     }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
 
     //! Explicit conversion from base class using conversion ctor
     explicit Double2DateTimeFilter(const NumericDateTimeBaseFilter &numeric)
-        : NumericDateTimeBaseFilter(numeric){};
+        : NumericDateTimeBaseFilter(numeric) {};
 
 protected:
     //! Using typed ports: only double inputs are accepted.
     virtual bool inputAcceptable(int, const AbstractColumn *source)
     {
-        return source->dataType() == SciDAVis::TypeDouble;
+        return source->dataType() == Makhber::TypeDouble;
     }
 };
 

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : AbstractPart.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Base class of Aspects with MDI windows as views.
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Knut Franke (knut.franke*gmx.de)
@@ -37,7 +37,7 @@ class QToolBar;
 
 //! Base class of Aspects with MDI windows as views.
 /**
- * SciDAVis's Parts are somewhat similar to KDE's KParts in that they are independent application
+ * Makhber's Parts are somewhat similar to KDE's KParts in that they are independent application
  * components running on top of a kernel (a bit like KOffice's shell).
  */
 class AbstractPart : public AbstractAspect

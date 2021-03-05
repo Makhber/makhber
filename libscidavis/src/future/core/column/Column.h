@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Column.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Aspect that manages a column
     --------------------------------------------------------------------
     Copyright            : (C) 2007-2009 Tilman Benkert (thzs*gmx.net)
@@ -67,7 +67,7 @@ public:
      * \param name the column name (= aspect name)
      * \param mode initial column mode
      */
-    Column(const QString &name, SciDAVis::ColumnMode mode);
+    Column(const QString &name, Makhber::ColumnMode mode);
     //! Ctor
     /** @{
      * \param name the column name (= aspect name)
@@ -102,7 +102,7 @@ public:
     //@}
 
     //! Return the data type of the column
-    SciDAVis::ColumnDataType dataType() const override;
+    Makhber::ColumnDataType dataType() const override;
     //! Return whether the object is read-only
     bool isReadOnly() const override { return false; };
     //! Return the column mode
@@ -111,13 +111,13 @@ public:
      * by plots. The column mode specifies how to interpret
      * the values in the column additional to the data type.
      */
-    SciDAVis::ColumnMode columnMode() const override;
+    Makhber::ColumnMode columnMode() const override;
     //! Set the column mode
     /**
      * This sets the column mode and, if
      * necessary, converts it to another datatype.
      */
-    void setColumnMode(SciDAVis::ColumnMode mode, AbstractFilter *conversion_filter = 0) override;
+    void setColumnMode(Makhber::ColumnMode mode, AbstractFilter *conversion_filter = 0) override;
     //! Copy another column of the same type
     /**
      * This function will return false if the data type
@@ -150,9 +150,9 @@ public:
     //! Remove 'count' rows starting from row 'first'
     void removeRows(int first, int count) override;
     //! Return the column plot designation
-    SciDAVis::PlotDesignation plotDesignation() const override;
+    Makhber::PlotDesignation plotDesignation() const override;
     //! Set the column plot designation
-    void setPlotDesignation(SciDAVis::PlotDesignation pd);
+    void setPlotDesignation(Makhber::PlotDesignation pd);
     //! Clear the whole column
     void clear() override;
     //! This must be called before the column is replaced by another
@@ -350,9 +350,9 @@ public:
         : AbstractColumn(tr("as string")), d_owner(owner), d_setting(false)
     {
     }
-    virtual SciDAVis::ColumnMode columnMode() const { return SciDAVis::ColumnMode::Text; }
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeQString; }
-    virtual SciDAVis::PlotDesignation plotDesignation() const { return d_owner->plotDesignation(); }
+    virtual Makhber::ColumnMode columnMode() const { return Makhber::ColumnMode::Text; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQString; }
+    virtual Makhber::PlotDesignation plotDesignation() const { return d_owner->plotDesignation(); }
     virtual int rowCount() const { return d_owner->rowCount(); }
     virtual QString textAt(int row) const;
     virtual void setTextAt(int row, const QString &value);

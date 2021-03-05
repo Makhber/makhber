@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : FFT.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Ion Vasilief
     Email (use @ for *)  : ion_vasilief*yahoo.fr
@@ -78,7 +78,7 @@ QList<Column *> FFT::fftTable()
     gsl_fft_complex_workspace *workspace = gsl_fft_complex_workspace_alloc(d_n);
 
     if (!amp || !wavetable || !workspace) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         d_init_err = true;
         return QList<Column *>();
@@ -88,10 +88,10 @@ QList<Column *> FFT::fftTable()
     double aMax = 0.0; // max amplitude
     QList<Column *> columns;
     if (!d_inverse) {
-        columns << new Column(tr("Frequency"), SciDAVis::ColumnMode::Numeric);
+        columns << new Column(tr("Frequency"), Makhber::ColumnMode::Numeric);
         gsl_fft_complex_forward(d_y, 1, d_n, wavetable, workspace);
     } else {
-        columns << new Column(tr("Time"), SciDAVis::ColumnMode::Numeric);
+        columns << new Column(tr("Time"), Makhber::ColumnMode::Numeric);
         gsl_fft_complex_inverse(d_y, 1, d_n, wavetable, workspace);
     }
 
@@ -120,10 +120,10 @@ QList<Column *> FFT::fftTable()
             aMax = a;
     }
 
-    columns << new Column(tr("Real"), SciDAVis::ColumnMode::Numeric);
-    columns << new Column(tr("Imaginary"), SciDAVis::ColumnMode::Numeric);
-    columns << new Column(tr("Amplitude"), SciDAVis::ColumnMode::Numeric);
-    columns << new Column(tr("Angle"), SciDAVis::ColumnMode::Numeric);
+    columns << new Column(tr("Real"), Makhber::ColumnMode::Numeric);
+    columns << new Column(tr("Imaginary"), Makhber::ColumnMode::Numeric);
+    columns << new Column(tr("Amplitude"), Makhber::ColumnMode::Numeric);
+    columns << new Column(tr("Angle"), Makhber::ColumnMode::Numeric);
     for (int i = 0; i < static_cast<int>(d_n); i++) {
         int i2 = 2 * i;
         columns.at(0)->setValueAt(i, d_x[i]);
@@ -136,11 +136,11 @@ QList<Column *> FFT::fftTable()
         columns.at(4)->setValueAt(i, atan(d_y[i2 + 1] / d_y[i2]));
     }
     delete[] amp;
-    columns.at(0)->setPlotDesignation(SciDAVis::X);
-    columns.at(1)->setPlotDesignation(SciDAVis::Y);
-    columns.at(2)->setPlotDesignation(SciDAVis::Y);
-    columns.at(3)->setPlotDesignation(SciDAVis::Y);
-    columns.at(4)->setPlotDesignation(SciDAVis::Y);
+    columns.at(0)->setPlotDesignation(Makhber::X);
+    columns.at(1)->setPlotDesignation(Makhber::Y);
+    columns.at(2)->setPlotDesignation(Makhber::Y);
+    columns.at(3)->setPlotDesignation(Makhber::Y);
+    columns.at(4)->setPlotDesignation(Makhber::Y);
     return columns;
 }
 
@@ -209,7 +209,7 @@ void FFT::setDataFromTable(Table *t, const QString &realColName, const QString &
                 d_y[i2 + 1] = d_table->cell(i, d_imag_col);
         }
     } else {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         d_init_err = true;
     }

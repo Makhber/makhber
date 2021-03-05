@@ -1,10 +1,10 @@
 /***************************************************************************
         File                 : PythonScripting.h
-        Project              : SciDAVis
+        Project              : Makhber
 --------------------------------------------------------------------
         Copyright            : (C) 2006 by Knut Franke
         Email (use @ for *)  : knut.franke*gmx.de
-        Description          : Execute Python code from within SciDAVis
+        Description          : Execute Python code from within Makhber
 
  ***************************************************************************/
 
@@ -67,7 +67,7 @@ public:
      * reporting errors. Returns a new reference; NULL means caller has to do
      * exception handling.
      */
-    PyObject *eval(const QString &code, PyObject *argDict = NULL, const char *name = "<scidavis>");
+    PyObject *eval(const QString &code, PyObject *argDict = NULL, const char *name = "<makhber>");
     //! execute a sequence of Python statements
     /**
      * Executes code, using argDict (borrowed reference) as local dictionary
@@ -75,7 +75,7 @@ public:
      * reporting errors. A false return value means caller has to do exception
      * handling.
      */
-    bool exec(const QString &code, PyObject *argDict = NULL, const char *name = "<scidavis>");
+    bool exec(const QString &code, PyObject *argDict = NULL, const char *name = "<makhber>");
     QString errorMsg();
 
     bool isRunning() const override;

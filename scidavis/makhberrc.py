@@ -1,8 +1,8 @@
 ############################################################################
 #                                                                          #
-# File                 : scidavisrc.py                                     #
-# Project              : SciDAVis                                          #
-# Description          : default configuration file of SciDAVis' Python    #
+# File                 : makhberrc.py                                     #
+# Project              : Makhber                                          #
+# Description          : default configuration file of Makhber' Python    #
 #                        environment                                       #
 # Copyright            : (C) 2006-2009 Knut Franke (knut.franke*gmx.de)    #
 #                        (C) 2007 Ion Vasilief (ion_vasilief*yahoo.fr)     #
@@ -35,7 +35,7 @@ def import_to_global(modname, attrs=None, math=False):
 	"""
 		import_to_global(modname, (a,b,c,...), math): like "from modname import a,b,c,...",
 		but imports to global namespace (__main__).
-		If math==True, also registers functions with SciDAVis' math function list.
+		If math==True, also registers functions with Makhber' math function list.
 	"""
 	mod = __import__(modname)
 	for submod in modname.split(".")[1:]:
@@ -45,8 +45,8 @@ def import_to_global(modname, attrs=None, math=False):
 		try:
 			f = getattr(mod, name)
 			setattr(__main__, name, f)
-			# make functions available in SciDAVis' math function list
-			if math and callable(f): __main__.scidavis.mathFunctions[name] = f
+			# make functions available in Makhber' math function list
+			if math and callable(f): __main__.makhber.mathFunctions[name] = f
 		except AttributeError:
 			# ignore non available (or renamed) functions
 			pass
@@ -54,9 +54,9 @@ def import_to_global(modname, attrs=None, math=False):
 # Import standard math functions and constants into global namespace.
 import_to_global("math", None, True)
 
-# make Qt API available (it gets imported in any case by the scidavis module)
+# make Qt API available (it gets imported in any case by the makhber module)
 global QtGui, QtCore, Qt
-if (scidavis.app.qtVersion() >= 0x050000):
+if (makhber.app.qtVersion() >= 0x050000):
 	global QtWidgets
 	from PyQt5 import QtGui, QtWidgets, QtCore
 	from PyQt5.QtCore import Qt
@@ -65,9 +65,9 @@ else:
 	from PyQt4.QtCore import Qt
 print("Using Qt", QtCore.QT_VERSION_STR)
 
-# import SciDAVis' classes to the global namespace (particularly useful for fits)
-for name in dir(__main__.scidavis):
-	setattr(__main__, name, getattr(__main__.scidavis, name))
+# import Makhber' classes to the global namespace (particularly useful for fits)
+for name in dir(__main__.makhber):
+	setattr(__main__, name, getattr(__main__.makhber, name))
 
 # import selected methods of ApplicationWindow into the global namespace
 appImports = (
@@ -81,7 +81,7 @@ appImports = (
 	"importImage"
 	)
 for name in appImports:
-	setattr(__main__,name,getattr(__main__.scidavis.app,name))
+	setattr(__main__,name,getattr(__main__.makhber.app,name))
 
 # make Y columns indexable (using lookup in corresponding X column)
 def __column_getitem(self, index):
@@ -102,7 +102,7 @@ def __column_getitem(self, index):
               return self.textAt(row)
           else:
               return self.dateTimeAt(row)
-__main__.scidavis.Column.__getitem__ = __column_getitem
+__main__.makhber.Column.__getitem__ = __column_getitem
 
 def __column_setitem(self, index, value):
   if self.plotDesignation() != "Y":
@@ -122,16 +122,16 @@ def __column_setitem(self, index, value):
               return self.setTextAt(row, value)
           else:
               return self.setDateTimeAt(row, value)
-__main__.scidavis.Column.__setitem__ = __column_setitem
+__main__.makhber.Column.__setitem__ = __column_setitem
 
 # import utility module
 import sys
 sys.path.append(".")
 try:
-	import_to_global("scidavisUtil")
-	print("scidavisUtil successfully imported")
+	import_to_global("makhberUtil")
+	print("makhberUtil successfully imported")
 except(ImportError): 
-	print("failed to import scidavisUtil")
+	print("failed to import makhberUtil")
 
 # Import selected parts of scipy.special (if available) into global namespace.
 # See www.scipy.org for information on SciPy and how to get it.

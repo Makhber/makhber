@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : CurveRangeDialog.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief
     Email (use @ for *)  : ion_vasilief*yahoo.fr

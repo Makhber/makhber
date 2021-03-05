@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Matrix.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Matrix worksheet class
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -527,7 +527,7 @@ void Matrix::customEvent(QEvent *e)
 void Matrix::closeEvent(QCloseEvent *e)
 {
     if (askOnClose) {
-        switch (QMessageBox::information(this, tr("SciDAVis"),
+        switch (QMessageBox::information(this, tr("Makhber"),
                                          tr("Do you want to hide or delete") + "<p><b>'"
                                                  + objectName() + "'</b> ?",
                                          tr("Delete"), tr("Hide"), tr("Cancel"), 0, 2)) {
@@ -568,7 +568,7 @@ void Matrix::print(const QString &fileName)
     printer.setColorMode(QPrinter::GrayScale);
 
     if (!fileName.isEmpty()) {
-        printer.setCreator("SciDAVis");
+        printer.setCreator("Makhber");
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setOutputFileName(fileName);
     } else {

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : NumericDateTimeBaseFilter.cpp
-        Project              : SciDAVis
+        Project              : Makhber
         --------------------------------------------------------------------
         Copyright            : (C) 2021 by Suthiro
         Email (use @ for *)  : soviet_man*list.ru

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : OpenProjectDialog.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke, Ion Vasilief
     Email (use @ for *)  : knut.franke*gmx.de, ion_vasilief*yahoo.fr
@@ -42,8 +42,8 @@ OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowF
     setWindowTitle(tr("Open Project"));
     setFileMode(ExistingFile);
     QStringList filters;
-    filters << tr("SciDAVis project") + " (*.sciprj)"
-            << tr("Compressed SciDAVis project") + " (*.sciprj.gz)"
+    filters << tr("Makhber project") + " (*.sciprj)"
+            << tr("Compressed Makhber project") + " (*.sciprj.gz)"
             << tr("QtiPlot project") + " (*.qti)"
             << tr("Compressed QtiPlot project") + " (*.qti.gz)"
 #ifdef ORIGIN_IMPORT

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : AbstractSimpleFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke, Tilman Benkert
     Email (use @ for *)  : knut.franke*gmx.de, thzs*gmx.net
@@ -67,10 +67,10 @@ class SimpleFilterColumn;
  * 03 {
  * 04	protected:
  * 05		virtual bool inputAcceptable(int, AbstractColumn *source) {
- * 06			return (source->dataType() == SciDAVis::TypeDouble);
+ * 06			return (source->dataType() == Makhber::TypeDouble);
  * 07		}
  * 08	public:
- * 09		virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeDouble; }
+ * 09		virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeDouble; }
  * 10
  * 11		virtual double valueAt(int row) const {
  * 12			if (!d_inputs.value(0)) return 0.0;
@@ -90,7 +90,7 @@ class SimpleFilterColumn;
  * fully-functional filter!
  *
  * Equivalently, you can write 1:1-filters for QString or QDateTime inputs by checking for
- * SciDAVis::TypeQString or SciDAVis::TypeQDateTime in line 6. You would then use
+ * Makhber::TypeQString or Makhber::TypeQDateTime in line 6. You would then use
  * AbstractColumn::textAt(row) or AbstractColumn::dateTimeAt(row) in line 13 to access the input
  * data. For QString output, you need to implement AbstractColumn::textAt(row). For QDateTime
  * output, you have to implement three methods: \code virtual QDateTime dateTimeAt(int row) const;
@@ -109,10 +109,10 @@ class SimpleFilterColumn;
  * 03 {
  * 04	protected:
  * 05		virtual bool inputAcceptable(int, AbstractColumn *source) {
- * 06			return (source->dataType() == SciDAVis::TypeDouble);
+ * 06			return (source->dataType() == Makhber::TypeDouble);
  * 07		}
  * 08	public:
- * 09		virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeDouble; }
+ * 09		virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeDouble; }
  * \endcode
  * Even rows (including row 0) get dropped, odd rows are renumbered:
  * \code
@@ -138,17 +138,17 @@ public:
     virtual AbstractColumn *output(int port);
     virtual const AbstractColumn *output(int port) const;
     //! Copy plot designation of input port 0.
-    virtual SciDAVis::PlotDesignation plotDesignation() const
+    virtual Makhber::PlotDesignation plotDesignation() const
     {
-        return d_inputs.value(0) ? d_inputs.at(0)->plotDesignation() : SciDAVis::noDesignation;
+        return d_inputs.value(0) ? d_inputs.at(0)->plotDesignation() : Makhber::noDesignation;
     }
     //! Return the data type of the input
-    virtual SciDAVis::ColumnDataType dataType() const
+    virtual Makhber::ColumnDataType dataType() const
     {
         // calling this function while d_input is empty is a sign of very bad code
         // nevertheless it will return some rather meaningless value to
         // avoid crashes
-        return d_inputs.value(0) ? d_inputs.at(0)->dataType() : SciDAVis::TypeQString;
+        return d_inputs.value(0) ? d_inputs.at(0)->dataType() : Makhber::TypeQString;
     }
     //! Return the column mode
     /**
@@ -156,12 +156,12 @@ public:
      * by plots. The column mode specifies how to interpret
      * the values in the column additional to the data type.
      */
-    virtual SciDAVis::ColumnMode columnMode() const
+    virtual Makhber::ColumnMode columnMode() const
     {
         // calling this function while d_input is empty is a sign of very bad code
         // nevertheless it will return some rather meaningless value to
         // avoid crashes
-        return d_inputs.value(0) ? d_inputs.at(0)->columnMode() : SciDAVis::ColumnMode::Text;
+        return d_inputs.value(0) ? d_inputs.at(0)->columnMode() : Makhber::ColumnMode::Text;
     }
     //! Return the content of row 'row'.
     /**
@@ -289,10 +289,10 @@ public:
     {
     }
 
-    virtual SciDAVis::ColumnDataType dataType() const { return d_owner->dataType(); }
-    virtual SciDAVis::ColumnMode columnMode() const { return d_owner->columnMode(); }
+    virtual Makhber::ColumnDataType dataType() const { return d_owner->dataType(); }
+    virtual Makhber::ColumnMode columnMode() const { return d_owner->columnMode(); }
     virtual int rowCount() const { return d_owner->rowCount(); }
-    virtual SciDAVis::PlotDesignation plotDesignation() const { return d_owner->plotDesignation(); }
+    virtual Makhber::PlotDesignation plotDesignation() const { return d_owner->plotDesignation(); }
     virtual bool isInvalid(int row) const { return d_owner->isInvalid(row); }
     virtual bool isInvalid(Interval<int> i) const { return d_owner->isInvalid(i); }
     virtual QList<Interval<int>> invalidIntervals() const { return d_owner->invalidIntervals(); }

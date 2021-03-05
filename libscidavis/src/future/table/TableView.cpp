@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : TableView.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : View class for Table
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)
@@ -265,11 +265,11 @@ void TableView::retranslateStrings()
     if (-1 == index)
         index = 0;
     ui.type_box->clear();
-    ui.type_box->addItem(tr("Numeric"), QVariant(int(SciDAVis::ColumnMode::Numeric)));
-    ui.type_box->addItem(tr("Text"), QVariant(int(SciDAVis::ColumnMode::Text)));
-    ui.type_box->addItem(tr("Month names"), QVariant(int(SciDAVis::ColumnMode::Month)));
-    ui.type_box->addItem(tr("Day names"), QVariant(int(SciDAVis::ColumnMode::Day)));
-    ui.type_box->addItem(tr("Date and time"), QVariant(int(SciDAVis::ColumnMode::DateTime)));
+    ui.type_box->addItem(tr("Numeric"), QVariant(int(Makhber::ColumnMode::Numeric)));
+    ui.type_box->addItem(tr("Text"), QVariant(int(Makhber::ColumnMode::Text)));
+    ui.type_box->addItem(tr("Month names"), QVariant(int(Makhber::ColumnMode::Month)));
+    ui.type_box->addItem(tr("Day names"), QVariant(int(Makhber::ColumnMode::Day)));
+    ui.type_box->addItem(tr("Date and time"), QVariant(int(Makhber::ColumnMode::DateTime)));
     ui.type_box->setCurrentIndex(index);
 
     // prevent losing current selection on retranslate
@@ -391,7 +391,7 @@ void TableView::setColumnForControlTabs(int col)
         ui.comment_box->document()->setPlainText(col_ptr->comment());
         ui.type_box->setCurrentIndex(ui.type_box->findData((int)col_ptr->columnMode()));
         switch (col_ptr->columnMode()) {
-        case SciDAVis::ColumnMode::Numeric: {
+        case Makhber::ColumnMode::Numeric: {
             Double2StringFilter *filter =
                     static_cast<Double2StringFilter *>(col_ptr->outputFilter());
             ui.format_box->setCurrentIndex(ui.format_box->findData(filter->numericFormat()));
@@ -402,9 +402,9 @@ void TableView::setColumnForControlTabs(int col)
             ui.date_time_0_label->setVisible(false);
             break;
         }
-        case SciDAVis::ColumnMode::Month:
-        case SciDAVis::ColumnMode::Day:
-        case SciDAVis::ColumnMode::DateTime: {
+        case Makhber::ColumnMode::Month:
+        case Makhber::ColumnMode::Day:
+        case Makhber::ColumnMode::DateTime: {
             DateTime2StringFilter *filter =
                     static_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
             ui.formatLineEdit->setText(filter->format());
@@ -471,8 +471,8 @@ void TableView::updateFormatBox()
     ui.formatLineEdit->setEnabled(false);
     ui.date_time_interval->setEnabled(false);
     ui.date_time_0->setEnabled(false);
-    switch (static_cast<SciDAVis::ColumnMode>(ui.type_box->itemData(type_index).toInt())) {
-    case SciDAVis::ColumnMode::Numeric:
+    switch (static_cast<Makhber::ColumnMode>(ui.type_box->itemData(type_index).toInt())) {
+    case Makhber::ColumnMode::Numeric:
         ui.digits_box->setEnabled(true);
         ui.format_box->addItem(tr("Decimal"), QVariant('f'));
         ui.format_box->addItem(tr("Scientific (e)"), QVariant('e'));
@@ -480,22 +480,22 @@ void TableView::updateFormatBox()
         ui.format_box->addItem(tr("Automatic (e)"), QVariant('g'));
         ui.format_box->addItem(tr("Automatic (E)"), QVariant('G'));
         break;
-    case SciDAVis::ColumnMode::Text:
+    case Makhber::ColumnMode::Text:
         ui.format_box->addItem(tr("Text"), QVariant());
         break;
-    case SciDAVis::ColumnMode::Month:
+    case Makhber::ColumnMode::Month:
         ui.format_box->addItem(tr("Number without leading zero"), QVariant("M"));
         ui.format_box->addItem(tr("Number with leading zero"), QVariant("MM"));
         ui.format_box->addItem(tr("Abbreviated month name"), QVariant("MMM"));
         ui.format_box->addItem(tr("Full month name"), QVariant("MMMM"));
         break;
-    case SciDAVis::ColumnMode::Day:
+    case Makhber::ColumnMode::Day:
         ui.format_box->addItem(tr("Number without leading zero"), QVariant("d"));
         ui.format_box->addItem(tr("Number with leading zero"), QVariant("dd"));
         ui.format_box->addItem(tr("Abbreviated day name"), QVariant("ddd"));
         ui.format_box->addItem(tr("Full day name"), QVariant("dddd"));
         break;
-    case SciDAVis::ColumnMode::DateTime: {
+    case Makhber::ColumnMode::DateTime: {
         // TODO: allow adding of the combo box entries here
         const char *date_strings[] = {
             "yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy", "dd/MM/yy", "dd.MM.yyyy",
@@ -546,45 +546,46 @@ void TableView::updateTypeInfo()
 
     QString str = tr("Selected column type:\n");
     if (format_index >= 0 && type_index >= 0) {
-        SciDAVis::ColumnMode type = static_cast<SciDAVis::ColumnMode>(ui.type_box->itemData(type_index).toInt());
+        Makhber::ColumnMode type =
+                static_cast<Makhber::ColumnMode>(ui.type_box->itemData(type_index).toInt());
         switch (type) {
-        case SciDAVis::ColumnMode::Numeric:
+        case Makhber::ColumnMode::Numeric:
             str += tr("Double precision\nfloating point values\n");
             ui.digits_box->setEnabled(true);
             break;
-        case SciDAVis::ColumnMode::Text:
+        case Makhber::ColumnMode::Text:
             str += tr("Text\n");
             break;
-        case SciDAVis::ColumnMode::Month:
+        case Makhber::ColumnMode::Month:
             str += tr("Month names\n");
             break;
-        case SciDAVis::ColumnMode::Day:
+        case Makhber::ColumnMode::Day:
             str += tr("Days of the week\n");
             break;
-        case SciDAVis::ColumnMode::DateTime:
+        case Makhber::ColumnMode::DateTime:
             str += tr("Dates and/or times\n");
             ui.formatLineEdit->setEnabled(true);
             break;
         }
         str += tr("Example: ");
         switch (type) {
-        case SciDAVis::ColumnMode::Numeric:
+        case Makhber::ColumnMode::Numeric:
             str += QString::number(123.1234567890123456,
                                    ui.format_box->itemData(format_index).toChar().toLatin1(),
                                    ui.digits_box->value());
             break;
-        case SciDAVis::ColumnMode::Text:
+        case Makhber::ColumnMode::Text:
             str += tr("Hello world!\n");
             break;
-        case SciDAVis::ColumnMode::Month:
+        case Makhber::ColumnMode::Month:
             str += QLocale().toString(QDate(1900, 1, 1),
                                       ui.format_box->itemData(format_index).toString());
             break;
-        case SciDAVis::ColumnMode::Day:
+        case Makhber::ColumnMode::Day:
             str += QLocale().toString(QDate(1900, 1, 1),
                                       ui.format_box->itemData(format_index).toString());
             break;
-        case SciDAVis::ColumnMode::DateTime:
+        case Makhber::ColumnMode::DateTime:
             ui.formatLineEdit->setText(ui.format_box->itemData(format_index).toString());
             ui.date_time_0->setDisplayFormat(ui.format_box->itemData(format_index).toString());
             str += QDateTime(QDate(1900, 1, 1), QTime(23, 59, 59, 999))
@@ -592,8 +593,8 @@ void TableView::updateTypeInfo()
             break;
         }
     } else if (format_index == -1 && type_index >= 0
-               && static_cast<SciDAVis::ColumnMode>(ui.type_box->itemData(type_index).toInt())
-                       == SciDAVis::ColumnMode::DateTime) {
+               && static_cast<Makhber::ColumnMode>(ui.type_box->itemData(type_index).toInt())
+                       == Makhber::ColumnMode::DateTime) {
         str += tr("Dates and/or times\n");
         ui.formatLineEdit->setEnabled(true);
         str += tr("Example: ");
@@ -617,8 +618,9 @@ void TableView::handleFormatLineEditChange()
     int type_index = ui.type_box->currentIndex();
 
     if (type_index >= 0) {
-        SciDAVis::ColumnMode type = static_cast<SciDAVis::ColumnMode>(ui.type_box->itemData(type_index).toInt());
-        if (type == SciDAVis::ColumnMode::DateTime) {
+        Makhber::ColumnMode type =
+                static_cast<Makhber::ColumnMode>(ui.type_box->itemData(type_index).toInt());
+        if (type == Makhber::ColumnMode::DateTime) {
             QString str = tr("Selected column type:\n");
             str += tr("Dates and/or times\n");
             str += tr("Example: ");
@@ -674,12 +676,12 @@ void TableView::applyType()
     if (format_index < 0 && type_index < 0)
         return;
 
-    SciDAVis::ColumnMode new_mode = (SciDAVis::ColumnMode)ui.type_box->itemData(type_index).toInt();
+    Makhber::ColumnMode new_mode = (Makhber::ColumnMode)ui.type_box->itemData(type_index).toInt();
     QList<Column *> list = selectedColumns();
     if ((0 == list.size()) && (nullptr != d_table->currentColumn()))
         list.append(d_table->currentColumn());
     switch (new_mode) {
-    case SciDAVis::ColumnMode::Numeric: {
+    case Makhber::ColumnMode::Numeric: {
         foreach (Column *col, list) {
             col->beginMacro(QObject::tr("%1: change column type").arg(col->name()));
             col->setColumnMode(new_mode);
@@ -692,13 +694,13 @@ void TableView::applyType()
         }
         break;
     }
-    case SciDAVis::ColumnMode::Text:
+    case Makhber::ColumnMode::Text:
         foreach (Column *col, list)
             col->setColumnMode(new_mode);
         break;
-    case SciDAVis::ColumnMode::Month:
-    case SciDAVis::ColumnMode::Day:
-    case SciDAVis::ColumnMode::DateTime:
+    case Makhber::ColumnMode::Month:
+    case Makhber::ColumnMode::Day:
+    case Makhber::ColumnMode::DateTime:
         QString format;
         if (ui.formatLineEdit->isEnabled())
             format = ui.formatLineEdit->text();
@@ -706,12 +708,12 @@ void TableView::applyType()
             format = ui.format_box->itemData(format_index).toString();
         foreach (Column *col, list) {
             col->beginMacro(QObject::tr("%1: change column type").arg(col->name()));
-            SciDAVis::ColumnMode old_mode = col->columnMode();
+            Makhber::ColumnMode old_mode = col->columnMode();
             AbstractFilter *converter = 0;
             switch (old_mode) {
-            case SciDAVis::ColumnMode::Numeric: // the mode is changed
-            case SciDAVis::ColumnMode::DateTime: // the mode is not changed, but numeric converter parameters is
-                                     // (possibly) changed
+            case Makhber::ColumnMode::Numeric: // the mode is changed
+            case Makhber::ColumnMode::DateTime: // the mode is not changed, but numeric converter
+                                                // parameters is (possibly) changed
                 if (ui.date_time_interval->isVisible()) {
                     Double2DateTimeFilter::UnitInterval unit =
                             (Double2DateTimeFilter::UnitInterval)ui.date_time_interval
@@ -721,7 +723,7 @@ void TableView::applyType()
                     converter = new Double2DateTimeFilter(unit, date_time_0);
                 }
                 break;
-            case SciDAVis::ColumnMode::Text:
+            case Makhber::ColumnMode::Text:
                 converter = new String2DateTimeFilter(format);
                 break;
             default:
@@ -762,7 +764,7 @@ int TableView::selectedColumnCount(bool full)
     return count;
 }
 
-int TableView::selectedColumnCount(SciDAVis::PlotDesignation pd)
+int TableView::selectedColumnCount(Makhber::PlotDesignation pd)
 {
     int count = 0;
     if (d_table) {

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Table.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Aspect providing a spreadsheet table with column logic
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -99,8 +99,8 @@ Table::Table(int rows, int columns, const QString &name)
     // set initial number of rows and columns
     QList<Column *> cols;
     for (int i = 0; i < columns; i++) {
-        Column *new_col = new Column(QString::number(i + 1), SciDAVis::ColumnMode::Numeric);
-        new_col->setPlotDesignation(i == 0 ? SciDAVis::X : SciDAVis::Y);
+        Column *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
+        new_col->setPlotDesignation(i == 0 ? Makhber::X : Makhber::Y);
         cols << new_col;
     }
     appendColumns(cols);
@@ -264,7 +264,7 @@ int Table::rowCount() const
     return d_table_private.rowCount();
 }
 
-int Table::columnCount(SciDAVis::PlotDesignation pd) const
+int Table::columnCount(Makhber::PlotDesignation pd) const
 {
     int count = 0;
     int cols = columnCount();
@@ -287,8 +287,8 @@ void Table::setColumnCount(int new_size)
     else {
         QList<Column *> cols;
         for (int i = 0; i < new_size - old_size; i++) {
-            Column *new_col = new Column(QString::number(i + 1), SciDAVis::ColumnMode::Numeric);
-            new_col->setPlotDesignation(SciDAVis::Y);
+            Column *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
+            new_col->setPlotDesignation(Makhber::Y);
             cols << new_col;
         }
         appendColumns(cols);
@@ -390,7 +390,7 @@ void Table::copySelection()
             if (d_view->isCellSelected(first_row + r, first_col + c)) {
                 if (d_view->formulaModeActive()) {
                     output_str += col_ptr->formula(first_row + r);
-                } else if (col_ptr->dataType() == SciDAVis::TypeDouble) {
+                } else if (col_ptr->dataType() == Makhber::TypeDouble) {
                     Double2StringFilter *out_fltr =
                             static_cast<Double2StringFilter *>(col_ptr->outputFilter());
                     // create a copy of current locale
@@ -475,8 +475,9 @@ void Table::pasteIntoSelection()
             if (last_col >= columnCount()) {
                 QList<Column *> cols;
                 for (int i = 0; i < last_col + 1 - columnCount(); i++) {
-                    Column *new_col = new Column(QString::number(i + 1), SciDAVis::ColumnMode::Numeric);
-                    new_col->setPlotDesignation(SciDAVis::Y);
+                    Column *new_col =
+                            new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
+                    new_col->setPlotDesignation(Makhber::Y);
                     cols << new_col;
                 }
                 appendColumns(cols);
@@ -521,12 +522,13 @@ void Table::pasteIntoSelection()
 
             for (int c = 0; c < cols && c < input_col_count; c++) {
                 Column *col_ptr = d_table_private.column(first_col + c);
-                if (convertToTextColumn && (col_ptr->columnMode() == SciDAVis::ColumnMode::Numeric)) {
+                if (convertToTextColumn
+                    && (col_ptr->columnMode() == Makhber::ColumnMode::Numeric)) {
                     auto filter = reinterpret_cast<String2DoubleFilter *>(col_ptr->inputFilter());
                     if (nullptr != filter)
                         for (const auto &value : cols_texts.at(c))
                             if (filter->isInvalid(value)) {
-                                col_ptr->setColumnMode(SciDAVis::ColumnMode::Text);
+                                col_ptr->setColumnMode(Makhber::ColumnMode::Text);
                                 break;
                             }
                 }
@@ -622,7 +624,7 @@ void Table::fillSelectedCellsWithRowNumbers()
     foreach (Column *col_ptr, d_view->selectedColumns()) {
         int col = columnIndex(col_ptr);
         switch (col_ptr->columnMode()) {
-        case SciDAVis::ColumnMode::Numeric: {
+        case Makhber::ColumnMode::Numeric: {
             QVector<qreal> results(last - first + 1);
             for (int row = first; row <= last; row++)
                 if (d_view->isCellSelected(row, col))
@@ -632,7 +634,7 @@ void Table::fillSelectedCellsWithRowNumbers()
             col_ptr->replaceValues(first, results);
             break;
         }
-        case SciDAVis::ColumnMode::Text: {
+        case Makhber::ColumnMode::Text: {
             QStringList results;
             for (int row = first; row <= last; row++)
                 if (d_view->isCellSelected(row, col))
@@ -671,7 +673,7 @@ void Table::fillSelectedCellsWithRandomNumbers()
     foreach (Column *col_ptr, d_view->selectedColumns()) {
         int col = columnIndex(col_ptr);
         switch (col_ptr->columnMode()) {
-        case SciDAVis::ColumnMode::Numeric: {
+        case Makhber::ColumnMode::Numeric: {
             QVector<qreal> results(last - first + 1);
             for (int row = first; row <= last; row++)
                 if (d_view->isCellSelected(row, col))
@@ -686,7 +688,7 @@ void Table::fillSelectedCellsWithRandomNumbers()
             col_ptr->replaceValues(first, results);
             break;
         }
-        case SciDAVis::ColumnMode::Text: {
+        case Makhber::ColumnMode::Text: {
             QStringList results;
             for (int row = first; row <= last; row++)
                 if (d_view->isCellSelected(row, col))
@@ -701,9 +703,9 @@ void Table::fillSelectedCellsWithRandomNumbers()
             col_ptr->replaceTexts(first, results);
             break;
         }
-        case SciDAVis::ColumnMode::DateTime:
-        case SciDAVis::ColumnMode::Month:
-        case SciDAVis::ColumnMode::Day: {
+        case Makhber::ColumnMode::DateTime:
+        case Makhber::ColumnMode::Month:
+        case Makhber::ColumnMode::Day: {
             QList<QDateTime> results;
             QDate earliestDate(1, 1, 1);
             QDate latestDate(2999, 12, 31);
@@ -763,8 +765,8 @@ void Table::insertEmptyColumns()
             current++;
         count = current - first;
         for (int i = 0; i < count; i++) {
-            Column *new_col = new Column(QString::number(i + 1), SciDAVis::ColumnMode::Numeric);
-            new_col->setPlotDesignation(SciDAVis::Y);
+            Column *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
+            new_col->setPlotDesignation(Makhber::Y);
             cols << new_col;
         }
         insertColumns(first, cols);
@@ -814,7 +816,7 @@ void Table::clearSelectedColumns()
     RESET_CURSOR;
 }
 
-void Table::setSelectionAs(SciDAVis::PlotDesignation pd)
+void Table::setSelectionAs(Makhber::PlotDesignation pd)
 {
     if (!d_view)
         return;
@@ -831,32 +833,32 @@ void Table::setSelectionAs(SciDAVis::PlotDesignation pd)
 
 void Table::setSelectedColumnsAsX()
 {
-    setSelectionAs(SciDAVis::X);
+    setSelectionAs(Makhber::X);
 }
 
 void Table::setSelectedColumnsAsY()
 {
-    setSelectionAs(SciDAVis::Y);
+    setSelectionAs(Makhber::Y);
 }
 
 void Table::setSelectedColumnsAsZ()
 {
-    setSelectionAs(SciDAVis::Z);
+    setSelectionAs(Makhber::Z);
 }
 
 void Table::setSelectedColumnsAsYError()
 {
-    setSelectionAs(SciDAVis::yErr);
+    setSelectionAs(Makhber::yErr);
 }
 
 void Table::setSelectedColumnsAsXError()
 {
-    setSelectionAs(SciDAVis::xErr);
+    setSelectionAs(Makhber::xErr);
 }
 
 void Table::setSelectedColumnsAsNone()
 {
-    setSelectionAs(SciDAVis::noDesignation);
+    setSelectionAs(Makhber::noDesignation);
 }
 
 void Table::normalizeColumns(QList<Column *> cols)
@@ -867,7 +869,7 @@ void Table::normalizeColumns(QList<Column *> cols)
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: normalize column(s)").arg(name()));
     foreach (Column *col, cols) {
-        if (col->dataType() == SciDAVis::TypeDouble) {
+        if (col->dataType() == Makhber::TypeDouble) {
             double max = 0.0;
             for (int row = 0; row < col->rowCount(); row++) {
                 if (col->valueAt(row) > max)
@@ -899,7 +901,7 @@ void Table::normalizeSelection()
     double max = 0.0;
     foreach (Column *col_ptr, d_view->selectedColumns()) {
         int col = columnIndex(col_ptr);
-        if (col_ptr->dataType() == SciDAVis::TypeDouble)
+        if (col_ptr->dataType() == Makhber::TypeDouble)
             for (int row = 0; row < col_ptr->rowCount(); row++)
                 if (d_view->isCellSelected(row, col) && col_ptr->valueAt(row) > max)
                     max = col_ptr->valueAt(row);
@@ -909,7 +911,7 @@ void Table::normalizeSelection()
     {
         foreach (Column *col_ptr, d_view->selectedColumns()) {
             int col = columnIndex(col_ptr);
-            if (col_ptr->dataType() == SciDAVis::TypeDouble) {
+            if (col_ptr->dataType() == Makhber::TypeDouble) {
                 QVector<qreal> results(rowCount());
                 for (int row = 0; row < col_ptr->rowCount(); row++)
                     if (d_view->isCellSelected(row, col))
@@ -1924,12 +1926,12 @@ void Table::copy(Table *other)
 int Table::colX(int col)
 {
     for (int i = col - 1; i >= 0; i--) {
-        if (column(i)->plotDesignation() == SciDAVis::X)
+        if (column(i)->plotDesignation() == Makhber::X)
             return i;
     }
     int cols = columnCount();
     for (int i = col + 1; i < cols; i++) {
-        if (column(i)->plotDesignation() == SciDAVis::X)
+        if (column(i)->plotDesignation() == Makhber::X)
             return i;
     }
     return -1;
@@ -1939,25 +1941,25 @@ int Table::colY(int col)
 {
     int cols = columnCount();
 
-    if (column(col)->plotDesignation() == SciDAVis::xErr
-        || column(col)->plotDesignation() == SciDAVis::yErr) {
+    if (column(col)->plotDesignation() == Makhber::xErr
+        || column(col)->plotDesignation() == Makhber::yErr) {
         // look to the left first
         for (int i = col - 1; i >= 0; i--) {
-            if (column(i)->plotDesignation() == SciDAVis::Y)
+            if (column(i)->plotDesignation() == Makhber::Y)
                 return i;
         }
         for (int i = col + 1; i < cols; i++) {
-            if (column(i)->plotDesignation() == SciDAVis::Y)
+            if (column(i)->plotDesignation() == Makhber::Y)
                 return i;
         }
     } else {
         // look to the right first
         for (int i = col + 1; i < cols; i++) {
-            if (column(i)->plotDesignation() == SciDAVis::Y)
+            if (column(i)->plotDesignation() == Makhber::Y)
                 return i;
         }
         for (int i = col - 1; i >= 0; i--) {
-            if (column(i)->plotDesignation() == SciDAVis::Y)
+            if (column(i)->plotDesignation() == Makhber::Y)
                 return i;
         }
     }
@@ -2026,7 +2028,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
         for (int i = 0; i < cols.size(); i++) {
             Column *col = cols.at(i);
 
-            if (col->dataType() == SciDAVis::TypeDouble) {
+            if (col->dataType() == Makhber::TypeDouble) {
                 int rows = col->rowCount();
                 QList<QPair<double, int>> map;
 
@@ -2051,7 +2053,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                 // copy the sorted column
                 col->copy(temp_col, 0, 0, rows);
                 delete temp_col;
-            } else if (col->dataType() == SciDAVis::TypeQString) {
+            } else if (col->dataType() == Makhber::TypeQString) {
                 int rows = col->rowCount();
                 QList<QPair<QString, int>> map;
 
@@ -2076,7 +2078,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                 // copy the sorted column
                 col->copy(temp_col, 0, 0, rows);
                 delete temp_col;
-            } else if (col->dataType() == SciDAVis::TypeQDateTime) {
+            } else if (col->dataType() == Makhber::TypeQDateTime) {
                 int rows = col->rowCount();
                 QList<QPair<QDateTime, int>> map;
 
@@ -2106,7 +2108,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
 
     } else // sort with leading column
     {
-        if (leading->dataType() == SciDAVis::TypeDouble) {
+        if (leading->dataType() == Makhber::TypeDouble) {
             QList<QPair<double, int>> map;
             int rows = leading->rowCount();
 
@@ -2133,7 +2135,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                 cols.at(i)->copy(temp_col, 0, 0, rows);
                 delete temp_col;
             }
-        } else if (leading->dataType() == SciDAVis::TypeQString) {
+        } else if (leading->dataType() == Makhber::TypeQString) {
             QList<QPair<QString, int>> map;
             int rows = leading->rowCount();
 
@@ -2160,7 +2162,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                 cols.at(i)->copy(temp_col, 0, 0, rows);
                 delete temp_col;
             }
-        } else if (leading->dataType() == SciDAVis::TypeQDateTime) {
+        } else if (leading->dataType() == Makhber::TypeQDateTime) {
             QList<QPair<QDateTime, int>> map;
             int rows = leading->rowCount();
 
@@ -2392,7 +2394,7 @@ bool Table::load(XmlStreamReader *reader)
                     if (!readCommentElement(reader))
                         return false;
                 } else if (reader->name() == "column") {
-                    Column *column = new Column(tr("Column %1").arg(1), SciDAVis::ColumnMode::Text);
+                    Column *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
                     if (!column->load(reader)) {
                         setColumnCount(0);
                         return false;
@@ -2631,7 +2633,7 @@ QString Table::Private::columnHeader(int col)
     return headerData(col, Qt::Horizontal, Qt::DisplayRole).toString();
 }
 
-int Table::Private::numColsWithPD(SciDAVis::PlotDesignation pd)
+int Table::Private::numColsWithPD(Makhber::PlotDesignation pd)
 {
     int count = 0;
 
@@ -2660,31 +2662,31 @@ void Table::Private::updateHorizontalHeader(int start_col, int end_col)
     while (d_horizontal_header_data.size() < d_column_count)
         d_horizontal_header_data << QString();
 
-    if (numColsWithPD(SciDAVis::X) > 1) {
+    if (numColsWithPD(Makhber::X) > 1) {
         int x_cols = 0;
         for (int i = 0; i < d_column_count; i++) {
-            if (d_columns.at(i)->plotDesignation() == SciDAVis::X)
+            if (d_columns.at(i)->plotDesignation() == Makhber::X)
                 composeColumnHeader(
                         i, d_columns.at(i)->name() + "[X" + QString::number(++x_cols) + "]");
-            else if (d_columns.at(i)->plotDesignation() == SciDAVis::Y) {
+            else if (d_columns.at(i)->plotDesignation() == Makhber::Y) {
                 if (x_cols > 0)
                     composeColumnHeader(
                             i, d_columns.at(i)->name() + "[Y" + QString::number(x_cols) + "]");
                 else
                     composeColumnHeader(i, d_columns.at(i)->name() + "[Y]");
-            } else if (d_columns.at(i)->plotDesignation() == SciDAVis::Z) {
+            } else if (d_columns.at(i)->plotDesignation() == Makhber::Z) {
                 if (x_cols > 0)
                     composeColumnHeader(
                             i, d_columns.at(i)->name() + "[Z" + QString::number(x_cols) + "]");
                 else
                     composeColumnHeader(i, d_columns.at(i)->name() + "[Z]");
-            } else if (d_columns.at(i)->plotDesignation() == SciDAVis::xErr) {
+            } else if (d_columns.at(i)->plotDesignation() == Makhber::xErr) {
                 if (x_cols > 0)
                     composeColumnHeader(
                             i, d_columns.at(i)->name() + "[xEr" + QString::number(x_cols) + "]");
                 else
                     composeColumnHeader(i, d_columns.at(i)->name() + "[xEr]");
-            } else if (d_columns.at(i)->plotDesignation() == SciDAVis::yErr) {
+            } else if (d_columns.at(i)->plotDesignation() == Makhber::yErr) {
                 if (x_cols > 0)
                     composeColumnHeader(
                             i, d_columns.at(i)->name() + "[yEr" + QString::number(x_cols) + "]");
@@ -2695,15 +2697,15 @@ void Table::Private::updateHorizontalHeader(int start_col, int end_col)
         }
     } else {
         for (int i = 0; i < d_column_count; i++) {
-            if (d_columns.at(i)->plotDesignation() == SciDAVis::X)
+            if (d_columns.at(i)->plotDesignation() == Makhber::X)
                 composeColumnHeader(i, d_columns.at(i)->name() + "[X]");
-            else if (d_columns.at(i)->plotDesignation() == SciDAVis::Y)
+            else if (d_columns.at(i)->plotDesignation() == Makhber::Y)
                 composeColumnHeader(i, d_columns.at(i)->name() + "[Y]");
-            else if (d_columns.at(i)->plotDesignation() == SciDAVis::Z)
+            else if (d_columns.at(i)->plotDesignation() == Makhber::Z)
                 composeColumnHeader(i, d_columns.at(i)->name() + "[Z]");
-            else if (d_columns.at(i)->plotDesignation() == SciDAVis::xErr)
+            else if (d_columns.at(i)->plotDesignation() == Makhber::xErr)
                 composeColumnHeader(i, d_columns.at(i)->name() + "[xEr]");
-            else if (d_columns.at(i)->plotDesignation() == SciDAVis::yErr)
+            else if (d_columns.at(i)->plotDesignation() == Makhber::yErr)
                 composeColumnHeader(i, d_columns.at(i)->name() + "[yEr]");
             else
                 composeColumnHeader(i, d_columns.at(i)->name());

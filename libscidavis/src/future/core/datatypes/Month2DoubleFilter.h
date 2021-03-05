@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : MonthDoubleFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke, Tilman Benkert
     Email (use @ for *)  : knut.franke*gmx.de, thzs@gmx.net
@@ -53,13 +53,13 @@ public:
     }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeDouble; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeDouble; }
 
 protected:
     //! Using typed ports: only date-time inputs are accepted.
     virtual bool inputAcceptable(int, const AbstractColumn *source)
     {
-        return source->dataType() == SciDAVis::TypeQDateTime;
+        return source->dataType() == Makhber::TypeQDateTime;
     }
 };
 

@@ -1,5 +1,5 @@
 
-const char *SciDAVis::scidavis_version = "@PROJECT_VERSION@";
-const char *SciDAVis::extra_version = "@PROJECT_VERSION_TWEAK@";
-const char *SciDAVis::release_date = "@PROJECT_RELEASE_DATE@";
-const int SciDAVis::scidavis_versionNo = @PROJECT_VERSION_NO@;
+const char *Makhber::makhber_version = "@PROJECT_VERSION@";
+const char *Makhber::extra_version = "@PROJECT_VERSION_TWEAK@";
+const char *Makhber::build_date = "@PROJECT_BUILD_DATE@";
+const int Makhber::makhber_versionNo = @PROJECT_VERSION_NO@;

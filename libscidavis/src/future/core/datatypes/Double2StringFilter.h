@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Double2StringFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke, Tilman Benkert
     Email (use @ for *)  : knut.franke*gmx.de, thzs@gmx.net
@@ -55,7 +55,7 @@ public:
     int numDigits() const { return d_digits; }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeQString; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQString; }
 
 signals:
     void formatChanged();
@@ -90,7 +90,7 @@ protected:
     //! Using typed ports: only double inputs are accepted.
     virtual bool inputAcceptable(int, const AbstractColumn *source)
     {
-        return source->dataType() == SciDAVis::TypeDouble;
+        return source->dataType() == Makhber::TypeDouble;
     }
 };
 

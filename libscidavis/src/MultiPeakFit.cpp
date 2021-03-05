@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : fitclasses.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -286,10 +286,13 @@ void MultiPeakFit::generateFitCurve(const vector<double> &par)
         QString label = d_explanation + " " + tr("fit of") + " " + d_curve->title().text();
 
         QList<Column *> columns;
-        columns << new Column(tr("1", "multipeak fit table first column name"), SciDAVis::ColumnMode::Numeric);
+        columns << new Column(tr("1", "multipeak fit table first column name"),
+                              Makhber::ColumnMode::Numeric);
         for (i = 0; i < peaks_aux; i++)
-            columns << new Column(tr("peak%1").arg(QString::number(i + 1)), SciDAVis::ColumnMode::Numeric);
-        columns << new Column(tr("2", "multipeak fit table last column name"), SciDAVis::ColumnMode::Numeric);
+            columns << new Column(tr("peak%1").arg(QString::number(i + 1)),
+                                  Makhber::ColumnMode::Numeric);
+        columns << new Column(tr("2", "multipeak fit table last column name"),
+                              Makhber::ColumnMode::Numeric);
         Table *t = app->newHiddenTable(tableName, label, columns);
 
         for (i = 0; i < d_points; i++) {

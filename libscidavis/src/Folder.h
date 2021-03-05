@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Folder.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -43,7 +43,7 @@
 #include <QMdiArea>
 
 #include "MyWidget.h"
-#include "SciDAVisObject.h"
+#include "MakhberObject.h"
 
 class FolderListItem;
 class FolderListView;
@@ -58,7 +58,7 @@ class QDragLeaveEvent;
 class QDropEvent;
 
 //! Folder for the project explorer
-class Folder : public SciDAVisObject<QObject>
+class Folder : public MakhberObject<QObject>
 {
     Q_OBJECT
 
@@ -222,7 +222,7 @@ protected:
  *
  *****************************************************************************/
 //! Folder list view class
-class FolderListView : public SciDAVisObject<QTreeWidget>
+class FolderListView : public MakhberObject<QTreeWidget>
 {
     Q_OBJECT
 

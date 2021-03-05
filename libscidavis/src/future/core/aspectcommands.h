@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : aspectcommands.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007-2009 by Knut Franke, Tilman Benkert
     Email (use @ for *)  : knut.franke*gmx.de, thzs*gmx.net

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : FindDialog.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -42,7 +42,7 @@
 
 FindDialog::FindDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {
-    setWindowTitle(tr("SciDAVis") + " - " + tr("Find"));
+    setWindowTitle(tr("Makhber") + " - " + tr("Find"));
     setSizeGripEnabled(true);
 
     QGridLayout *topLayout = new QGridLayout();

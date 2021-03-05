@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : importOPJ.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2010 Miquel Garriga (gbmiquel*gmail.com)
     Copyright            : (C) 2010 Knut Franke (knut.franke*gmx.de)
@@ -90,7 +90,7 @@ ImportOPJ::ImportOPJ(ApplicationWindow *app, const QString &filename, const QStr
         mw->setStatusBarText(QString("Import start ..."));
         OriginFile opj((const char *)filename.toLocal8Bit());
         parse_error = opj.parse();
-        mw->setStatusBarText(QString("... file parsed. Starting conversion to SciDAVis ..."));
+        mw->setStatusBarText(QString("... file parsed. Starting conversion to Makhber ..."));
         importTables(opj);
         importGraphs(opj);
         importNotes(opj);
@@ -186,30 +186,30 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
     return true;
 }
 
-int ImportOPJ::translateOrigin2ScidavisLineStyle(int linestyle)
+int ImportOPJ::translateOrigin2MakhberLineStyle(int linestyle)
 {
-    int scidavisstyle = 0;
+    int makhberstyle = 0;
     switch (linestyle) {
     case Origin::GraphCurve::Solid:
-        scidavisstyle = 0;
+        makhberstyle = 0;
         break;
     case Origin::GraphCurve::Dash:
     case Origin::GraphCurve::ShortDash:
-        scidavisstyle = 1;
+        makhberstyle = 1;
         break;
     case Origin::GraphCurve::Dot:
     case Origin::GraphCurve::ShortDot:
-        scidavisstyle = 2;
+        makhberstyle = 2;
         break;
     case Origin::GraphCurve::DashDot:
     case Origin::GraphCurve::ShortDashDot:
-        scidavisstyle = 3;
+        makhberstyle = 3;
         break;
     case Origin::GraphCurve::DashDotDot:
-        scidavisstyle = 4;
+        makhberstyle = 4;
         break;
     }
-    return scidavisstyle;
+    return makhberstyle;
 }
 
 // spreadsheets can be either in its own window or as a sheet in excels windows
@@ -217,8 +217,8 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
 {
     static int visible_count = 0;
     QLocale locale = mw->locale();
-    int SciDAVis_scaling_factor = 10; // in Origin width is measured in characters while in SciDAVis
-                                      // - pixels --- need to be accurate
+    int Makhber_scaling_factor = 10; // in Origin width is measured in characters while in Makhber
+                                     // - pixels --- need to be accurate
     int columnCount = spread.columns.size();
     int maxrows = spread.maxRows;
     if (!columnCount) // remove tables without cols
@@ -233,35 +233,35 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
     table->setWindowLabel(decodeMbcs(spread.label.c_str()));
     for (int j = 0; j < columnCount; ++j) {
         Origin::SpreadColumn column = spread.columns[j];
-        Column *scidavis_column = table->column(j);
+        Column *makhber_column = table->column(j);
 
         QString name(decodeMbcs(column.name.c_str()));
-        scidavis_column->setName(name.replace(QRegExp(".*_"), ""));
+        makhber_column->setName(name.replace(QRegExp(".*_"), ""));
         if (column.command.size() > 0)
-            scidavis_column->setFormula(Interval<int>(0, maxrows),
-                                        QString(decodeMbcs(column.command.c_str())));
-        scidavis_column->setComment(QString(decodeMbcs(column.comment.c_str())));
-        table->setColumnWidth(j, (int)column.width * SciDAVis_scaling_factor);
+            makhber_column->setFormula(Interval<int>(0, maxrows),
+                                       QString(decodeMbcs(column.command.c_str())));
+        makhber_column->setComment(QString(decodeMbcs(column.comment.c_str())));
+        table->setColumnWidth(j, (int)column.width * Makhber_scaling_factor);
 
         switch (column.type) {
         case Origin::SpreadColumn::X:
-            table->setColPlotDesignation(j, SciDAVis::X);
+            table->setColPlotDesignation(j, Makhber::X);
             break;
         case Origin::SpreadColumn::Y:
-            table->setColPlotDesignation(j, SciDAVis::Y);
+            table->setColPlotDesignation(j, Makhber::Y);
             break;
         case Origin::SpreadColumn::Z:
-            table->setColPlotDesignation(j, SciDAVis::Z);
+            table->setColPlotDesignation(j, Makhber::Z);
             break;
         case Origin::SpreadColumn::XErr:
-            table->setColPlotDesignation(j, SciDAVis::xErr);
+            table->setColPlotDesignation(j, Makhber::xErr);
             break;
         case Origin::SpreadColumn::YErr:
-            table->setColPlotDesignation(j, SciDAVis::yErr);
+            table->setColPlotDesignation(j, Makhber::yErr);
             break;
         case Origin::SpreadColumn::Label:
         default:
-            table->setColPlotDesignation(j, SciDAVis::noDesignation);
+            table->setColPlotDesignation(j, Makhber::noDesignation);
         }
 
         QString format;
@@ -270,7 +270,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
         case Origin::TextNumeric:
             /*
               A TextNumeric column in Origin is a column whose filled cells contain either a double
-              or a string. In SciDAVis there is no equivalent column type. Set the SciDAVis column
+              or a string. In Makhber there is no equivalent column type. Set the Makhber column
               type as 'Numeric' or 'Text' depending on the type of first element in column.
               TODO: Add a "per column" flag, settable at import dialog, to choose between both
               types.
@@ -278,7 +278,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             {
                 double datavalue;
                 bool setAsText = false;
-                table->column(j)->setColumnMode(SciDAVis::ColumnMode::Numeric);
+                table->column(j)->setColumnMode(Makhber::ColumnMode::Numeric);
                 for (int i = 0; i < std::min((int)column.data.size(), maxrows); ++i) {
                     Origin::variant value(column.data[i]);
                     if (value.type() == Origin::variant::V_DOUBLE) {
@@ -286,16 +286,16 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                         if (datavalue == _ONAN)
                             continue; // mark for empty cell
                         if (!setAsText) {
-                            scidavis_column->setValueAt(i, datavalue);
+                            makhber_column->setValueAt(i, datavalue);
                         } else { // convert double to string for Text columns
-                            scidavis_column->setTextAt(i, locale.toString(datavalue, 'g', 16));
+                            makhber_column->setTextAt(i, locale.toString(datavalue, 'g', 16));
                         }
                     } else { // string
                         if (!setAsText && i == 0) {
-                            table->column(j)->setColumnMode(SciDAVis::ColumnMode::Text);
+                            table->column(j)->setColumnMode(Makhber::ColumnMode::Text);
                             setAsText = true;
                         }
-                        scidavis_column->setTextAt(i, column.data[i].as_string());
+                        makhber_column->setTextAt(i, column.data[i].as_string());
                     }
                 }
                 int f = 0;
@@ -322,9 +322,9 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 break;
             }
         case Origin::Text:
-            table->column(j)->setColumnMode(SciDAVis::ColumnMode::Text);
+            table->column(j)->setColumnMode(Makhber::ColumnMode::Text);
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i) {
-                scidavis_column->setTextAt(i, column.data[i].as_string());
+                makhber_column->setTextAt(i, column.data[i].as_string());
             }
             break;
         case Origin::Date: {
@@ -380,10 +380,10 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 format = "dd.MM.yyyy";
             }
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
-                scidavis_column->setValueAt(i, column.data[i].as_double());
-            table->column(j)->setColumnMode(SciDAVis::ColumnMode::DateTime);
+                makhber_column->setValueAt(i, column.data[i].as_double());
+            table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
             DateTime2StringFilter *filter =
-                    static_cast<DateTime2StringFilter *>(scidavis_column->outputFilter());
+                    static_cast<DateTime2StringFilter *>(makhber_column->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -424,8 +424,8 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 break;
             }
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
-                scidavis_column->setValueAt(i, column.data[i].as_double());
-            table->column(j)->setColumnMode(SciDAVis::ColumnMode::DateTime);
+                makhber_column->setValueAt(i, column.data[i].as_double());
+            table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
             DateTime2StringFilter *filter =
                     static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
@@ -444,8 +444,8 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 break;
             }
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
-                scidavis_column->setValueAt(i, column.data[i].as_double());
-            table->column(j)->setColumnMode(SciDAVis::ColumnMode::Month);
+                makhber_column->setValueAt(i, column.data[i].as_double());
+            table->column(j)->setColumnMode(Makhber::ColumnMode::Month);
             DateTime2StringFilter *filter =
                     static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
@@ -464,8 +464,8 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 break;
             }
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
-                scidavis_column->setValueAt(i, column.data[i].as_double());
-            table->column(j)->setColumnMode(SciDAVis::ColumnMode::Day);
+                makhber_column->setValueAt(i, column.data[i].as_double());
+            table->column(j)->setColumnMode(Makhber::ColumnMode::Day);
             DateTime2StringFilter *filter =
                     static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
@@ -496,8 +496,8 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
 bool ImportOPJ::importTables(const OriginFile &opj)
 {
     static int visible_count = 0;
-    int SciDAVis_scaling_factor = 10; // in Origin width is measured in characters while in SciDAVis
-                                      // - pixels --- need to be accurate
+    int Makhber_scaling_factor = 10; // in Origin width is measured in characters while in Makhber
+                                     // - pixels --- need to be accurate
     for (unsigned int s = 0; s < opj.spreadCount(); ++s) {
         mw->setStatusBarText(QString("Spreadsheet %1 / %2").arg(s + 1).arg(opj.spreadCount()));
         Origin::SpreadSheet spread = opj.spread(s);
@@ -520,7 +520,7 @@ bool ImportOPJ::importTables(const OriginFile &opj)
             if (!columnCount) // remove tables without cols
                 continue;
             spread.name = excelwb.name;
-            // scidavis does not have windows with multiple sheets
+            // makhber does not have windows with multiple sheets
             if (j > 0) {
                 spread.name.append("@").append(std::to_string(j + 1));
             }
@@ -547,7 +547,7 @@ bool ImportOPJ::importTables(const OriginFile &opj)
                 return false;
             Matrix->setWindowLabel(decodeMbcs(matrix.label.c_str()));
             Matrix->setFormula(decodeMbcs(layer.command.c_str()));
-            Matrix->setColumnsWidth(layer.width * SciDAVis_scaling_factor);
+            Matrix->setColumnsWidth(layer.width * Makhber_scaling_factor);
 // TODO
 #if 0
 			Matrix->table()->blockSignals(true);
@@ -984,22 +984,22 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
             grid->setMajPenX(
                     QPen(ColorButton::color(layer.xAxis.majorGrid.color),
                          ceil(layer.xAxis.majorGrid.width),
-                         Graph::getPenStyle(translateOrigin2ScidavisLineStyle(
+                         Graph::getPenStyle(translateOrigin2MakhberLineStyle(
                                  (Origin::GraphCurve::LineStyle)layer.xAxis.majorGrid.style))));
             grid->setMinPenX(
                     QPen(ColorButton::color(layer.xAxis.minorGrid.color),
                          ceil(layer.xAxis.minorGrid.width),
-                         Graph::getPenStyle(translateOrigin2ScidavisLineStyle(
+                         Graph::getPenStyle(translateOrigin2MakhberLineStyle(
                                  (Origin::GraphCurve::LineStyle)layer.xAxis.minorGrid.style))));
             grid->setMajPenY(
                     QPen(ColorButton::color(layer.yAxis.majorGrid.color),
                          ceil(layer.yAxis.majorGrid.width),
-                         Graph::getPenStyle(translateOrigin2ScidavisLineStyle(
+                         Graph::getPenStyle(translateOrigin2MakhberLineStyle(
                                  (Origin::GraphCurve::LineStyle)layer.yAxis.majorGrid.style))));
             grid->setMinPenY(
                     QPen(ColorButton::color(layer.yAxis.minorGrid.color),
                          ceil(layer.yAxis.minorGrid.width),
-                         Graph::getPenStyle(translateOrigin2ScidavisLineStyle(
+                         Graph::getPenStyle(translateOrigin2MakhberLineStyle(
                                  (Origin::GraphCurve::LineStyle)layer.yAxis.minorGrid.style))));
 
             grid->setAxis(2, 0);

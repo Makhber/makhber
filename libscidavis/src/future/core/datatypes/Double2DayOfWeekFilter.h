@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Double2DayOfWeekFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke, Tilman Benkert
     Email (use @ for *)  : knut.franke*gmx.de, thzs@gmx.net
@@ -56,13 +56,13 @@ public:
     virtual QDateTime dateTimeAt(int row) const { return QDateTime(dateAt(row), timeAt(row)); }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
 
 protected:
     //! Using typed ports: only double inputs are accepted.
     virtual bool inputAcceptable(int, const AbstractColumn *source)
     {
-        return source->dataType() == SciDAVis::TypeDouble;
+        return source->dataType() == Makhber::TypeDouble;
     }
 };
 

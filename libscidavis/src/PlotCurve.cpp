@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : DataCurve.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Ion Vasilief
     Email (use @ for *)  : ion_vasilief*yahoo.fr
@@ -160,7 +160,7 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
         Column *col = cols[i];
 
         switch (col->columnMode()) {
-        case SciDAVis::ColumnMode::DateTime: {
+        case Makhber::ColumnMode::DateTime: {
             QDateTime datetime;
             QString format;
 
@@ -189,7 +189,7 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
                                            datetime.toString("yyyy-MM-ddThh:mm:ss") + ";" + format);
             break;
         }
-        case SciDAVis::ColumnMode::Text:
+        case Makhber::ColumnMode::Text:
             if (g)
                 g->setLabelsTextFormat(axes[i], col, d_start_row, end_row);
             reference_dates.push_back(QDate());
@@ -206,10 +206,10 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
     for (int i = 0; i < valid_rows.size(); i++)
         for (int j = 0; j < cols.size(); j++)
             switch (cols[j]->columnMode()) {
-            case SciDAVis::ColumnMode::Text:
+            case Makhber::ColumnMode::Text:
                 result[j][i] = static_cast<double>(valid_rows[i] + 1);
                 break;
-            case SciDAVis::ColumnMode::DateTime: {
+            case Makhber::ColumnMode::DateTime: {
                 QDateTime dt = cols[j]->dateTimeAt(valid_rows[i]);
                 result[j][i] = dt.toMSecsSinceEpoch() / 86400000. + 2440587.5;
                 break;

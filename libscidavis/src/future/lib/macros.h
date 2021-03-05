@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : macros.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Various preprocessor macros
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)

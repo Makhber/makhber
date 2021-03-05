@@ -1,6 +1,6 @@
 /***************************************************************************
    File                 : fitRational1.cpp
-   Project              : SciDAVis
+   Project              : Makhber
    Description          : Fit plugin for "A*t^2*x/(1+4*PI^2*t^2*x^2)"
    --------------------------------------------------------------------
    Copyright            : (C) 2005 Ion Vasilief (ion_vasilief*yahoo.fr)
@@ -144,7 +144,7 @@ extern "C" DLL_EXPORT int function_df(const gsl_vector *x, void *params, gsl_mat
 }
 
 extern "C" DLL_EXPORT int function_fdf(const gsl_vector *x, void *params, gsl_vector *f,
-                                      gsl_matrix *J)
+                                       gsl_matrix *J)
 {
     function_f(x, params, f);
     function_df(x, params, J);

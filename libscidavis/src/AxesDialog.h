@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : AxesDialog.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -35,7 +35,7 @@
 #include <QVector>
 #include <QTextEdit>
 #include <QTabWidget>
-#include "SciDAVisObject.h"
+#include "MakhberObject.h"
 #include "Graph.h"
 
 class QListWidget;
@@ -58,7 +58,7 @@ class TextFormatButtons;
 /**
  * Remark: Don't use this dialog as a non modal dialog!
  */
-class AxesDialog : public QDialog // SciDAVisObject<QDialog>
+class AxesDialog : public QDialog // MakhberObject<QDialog>
 {
     Q_OBJECT
 
@@ -192,12 +192,12 @@ private slots:
     void pageChanged(int);
 
 protected:
-    void showAxis(int, Graph::AxisType, const QString &, bool, int, int, bool, const QColor &, int, int, int,
-                  int, const QString &, const QColor &);
+    void showAxis(int, Graph::AxisType, const QString &, bool, int, int, bool, const QColor &, int,
+                  int, int, int, const QString &, const QColor &);
 
     QStringList tickLabelsOn, formatInfo;
     QStringList tablesList;
-    QList<int> majTicks, minTicks,  axesBaseline;
+    QList<int> majTicks, minTicks, axesBaseline;
     QList<Graph::AxisType> axesType;
     QFont xBottomFont, yLeftFont, xTopFont, yRightFont;
     bool xAxisOn, yAxisOn, topAxisOn, rightAxisOn;

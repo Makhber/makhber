@@ -107,6 +107,8 @@ set( HEADERS
   "src/TeXTableExportDialog.h"
   "src/PenWidget.h"
   "src/QStringStdString.h"
+  "src/MakhberObject.h"
+  "src/ColorBox.h"
   "src/future/core/AbstractAspect.h"
   "src/future/core/AbstractPart.h"
   "src/future/core/AspectPrivate.h"
@@ -267,6 +269,7 @@ set( SRCS
   "src/TeXTableSettingsWidget.cpp"
   "src/TeXTableExportDialog.cpp"
   "src/PenWidget.cpp"
+  "src/ColorBox.cpp"
   "src/future/core/AbstractAspect.cpp"
   "src/future/core/AbstractPart.cpp"
   "src/future/core/AspectPrivate.cpp"
@@ -305,27 +308,27 @@ set( SRCS
 
 ###################### FORMS ##############################################
 set( FORMS
-  "src/SciDAVisAbout.ui"
+  "src/MakhberAbout.ui"
   "src/future/matrix/matrixcontroltabs.ui"
   "src/future/core/ProjectConfigPage.ui"
   "src/future/table/controltabs.ui"
   "src/future/table/DimensionsDialog.ui"
   )
 
-if( SCIDAVIS_ORIGIN_IMPORT )
+if( MAKHBER_ORIGIN_IMPORT )
   list( APPEND HEADERS "src/importOPJ.h" )
   list( APPEND SRCS "src/importOPJ.cpp" )
 endif()
 
-add_library( libscidavis STATIC
+add_library( libmakhber STATIC
   ${SRCS}
   ${HEADERS}
   ${FORMS}
   )
 
-set_target_properties(libscidavis PROPERTIES OUTPUT_NAME scidavis)
+set_target_properties(libmakhber PROPERTIES OUTPUT_NAME makhber)
 
-target_link_libraries( libscidavis
+target_link_libraries( libmakhber
   ZLIB::ZLIB
   GSL::gsl
   GSL::gslcblas
@@ -342,68 +345,68 @@ target_link_libraries( libscidavis
   qwtplot3d
   )
 
-target_include_directories( libscidavis PUBLIC ${CMAKE_CURRENT_BINARY_DIR} )
+target_include_directories( libmakhber PUBLIC ${CMAKE_CURRENT_BINARY_DIR} )
 
-if( SCIDAVIS_SCRIPTING_PYTHON )
-  target_include_directories( libscidavis PUBLIC ${Python3_INCLUDE_DIRS} )
-  target_link_libraries( libscidavis  ${Python3_LIBRARIES} )
+if( MAKHBER_SCRIPTING_PYTHON )
+  target_include_directories( libmakhber PUBLIC ${Python3_INCLUDE_DIRS} )
+  target_link_libraries( libmakhber  ${Python3_LIBRARIES} )
 
   # add sip generated files' directory to include path
-  target_include_directories( libscidavis PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+  target_include_directories( libmakhber PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 endif()
 
-target_compile_definitions( libscidavis PUBLIC
+target_compile_definitions( libmakhber PUBLIC
   LEGACY_CODE_0_2_x
   SCRIPTING_CONSOLE
   SCRIPTING_DIALOG
   )
 
 if( WIN32 )
-  target_compile_definitions( libscidavis PUBLIC
+  target_compile_definitions( libmakhber PUBLIC
     TS_PATH="/translations"
     PLUGIN_PATH="/fitPlugins"
     )
 elseif( APPLE )
-  target_compile_definitions( libscidavis PUBLIC
+  target_compile_definitions( libmakhber PUBLIC
     TS_PATH="/../Resources/translations"
     PLUGIN_PATH="/../PlugIns/fitPlugins"
     )
 else()
-  target_compile_definitions( libscidavis PUBLIC
-    TS_PATH="/../share/scidavis/translations"
-    PLUGIN_PATH="/../lib/scidavis/plugins"
+  target_compile_definitions( libmakhber PUBLIC
+    TS_PATH="/../share/makhber/translations"
+    PLUGIN_PATH="/../lib/makhber/plugins"
     )
 endif()
 
 if( WIN32 )
-  target_compile_definitions( libscidavis PUBLIC
+  target_compile_definitions( libmakhber PUBLIC
     DYNAMIC_MANUAL_PATH
     DYNAMIC_PLUGIN_PATH
     )
 endif()
 
-if( SCIDAVIS_SEARCH_FOR_UPDATES )
-  target_compile_definitions( libscidavis PUBLIC SEARCH_FOR_UPDATES )
+if( MAKHBER_SEARCH_FOR_UPDATES )
+  target_compile_definitions( libmakhber PUBLIC SEARCH_FOR_UPDATES )
 endif()
 
-if( SCIDAVIS_DOWNLOAD_LINKS )
-  target_compile_definitions( libscidavis PUBLIC DOWNLOAD_LINKS )
+if( MAKHBER_DOWNLOAD_LINKS )
+  target_compile_definitions( libmakhber PUBLIC DOWNLOAD_LINKS )
 endif()
 
-if( SCIDAVIS_SCRIPTING_MUPARSER )
-  target_compile_definitions( libscidavis PUBLIC SCRIPTING_MUPARSER )
+if( MAKHBER_SCRIPTING_MUPARSER )
+  target_compile_definitions( libmakhber PUBLIC SCRIPTING_MUPARSER )
 endif()
 
-if( SCIDAVIS_ORIGIN_IMPORT )
-  target_compile_definitions( libscidavis PUBLIC ORIGIN_IMPORT )
-  target_link_libraries( libscidavis origin_static )
-  target_include_directories( libscidavis PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
+if( MAKHBER_ORIGIN_IMPORT )
+  target_compile_definitions( libmakhber PUBLIC ORIGIN_IMPORT )
+  target_link_libraries( libmakhber origin_static )
+  target_include_directories( libmakhber PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
 endif()
 
-if( SCIDAVIS_SCRIPTING_PYTHON )
-  target_compile_definitions( libscidavis PUBLIC
+if( MAKHBER_SCRIPTING_PYTHON )
+  target_compile_definitions( libmakhber PUBLIC
     PYTHON_CONFIG_PATH="${CMAKE_INSTALL_PREFIX}/etc"
-    PYTHON_UTIL_PATH="${CMAKE_INSTALL_PREFIX}/share/scidavis"
+    PYTHON_UTIL_PATH="${CMAKE_INSTALL_PREFIX}/share/makhber"
     SCRIPTING_PYTHON
     )
   if( MINGW )
@@ -419,118 +422,118 @@ if( SCIDAVIS_SCRIPTING_PYTHON )
   endif()
 endif()
 
-if( SCIDAVIS_SEARCH_FOR_UPDATE OR SCIDAVIS_DOWNLOAD_LINKS )
-  target_link_libraries( libscidavis Qt5::Network )
+if( MAKHBER_SEARCH_FOR_UPDATE OR MAKHBER_DOWNLOAD_LINKS )
+  target_link_libraries( libmakhber Qt5::Network )
 endif()
 
-target_include_directories( libscidavis PUBLIC
+target_include_directories( libmakhber PUBLIC
   "${CMAKE_CURRENT_SOURCE_DIR}/src"
   "${CMAKE_CURRENT_SOURCE_DIR}/src/future"
   )
 
-if( SCIDAVIS_SCRIPTING_PYTHON )
+if( MAKHBER_SCRIPTING_PYTHON )
 
-  set(scidavis_PyQt_HDR ${CMAKE_CURRENT_BINARY_DIR}/sipAPIscidavis.h)
+  set(makhber_PyQt_HDR ${CMAKE_CURRENT_BINARY_DIR}/sipAPImakhber.h)
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-    set( scidavis_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
+    set( makhber_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
   endif()
 
   set_source_files_properties(
-    ${scidavis_PyQt_HDR}
+    ${makhber_PyQt_HDR}
     PROPERTIES
     GENERATED ON
     )
 
-  set(scidavis_PyQt_SRC
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidaviscmodule.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisApplicationWindow.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisGraph.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisArrowMarker.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisImageMarker.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisLegend.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisMultiLayer.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisTable.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisMatrix.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisMyWidget.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisScriptEdit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisNote.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisPythonScript.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisPythonScripting.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisFolder.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisExponentialFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisTwoExpFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisThreeExpFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisSigmoidalFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisGaussAmpFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisLorentzFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisNonLinearFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisPluginFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisMultiPeakFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisPolynomialFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisLinearFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisGaussFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisFilter.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisDifferentiation.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisIntegration.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisInterpolation.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisSmoothFilter.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisFFTFilter.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisFFT.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisCorrelation.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisConvolution.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisDeconvolution.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisAbstractAspect.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisColumn.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisQwtSymbol.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisQwtPlotCurve.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisQwtPlot.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisGrid.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisQList0100QDateTime.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisQList0101Folder.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisQList0101MyWidget.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipscidavisQList0101QwtPlotCurve.cpp
+  set(makhber_PyQt_SRC
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhbercmodule.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberApplicationWindow.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGraph.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberArrowMarker.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberImageMarker.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberLegend.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMultiLayer.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberTable.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMatrix.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMyWidget.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberScriptEdit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberNote.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPythonScript.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPythonScripting.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFolder.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberExponentialFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberTwoExpFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberThreeExpFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberSigmoidalFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGaussAmpFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberLorentzFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberNonLinearFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPluginFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMultiPeakFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPolynomialFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberLinearFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGaussFit.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFilter.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberDifferentiation.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberIntegration.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberInterpolation.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberSmoothFilter.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFFTFilter.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFFT.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberCorrelation.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberConvolution.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberDeconvolution.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberAbstractAspect.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberColumn.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQwtSymbol.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQwtPlotCurve.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQwtPlot.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGrid.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0100QDateTime.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0101Folder.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0101MyWidget.cpp
+    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0101QwtPlotCurve.cpp
     )
 
   set_source_files_properties(
-    ${scidavis_PyQt_SRC}
+    ${makhber_PyQt_SRC}
     PROPERTIES
     GENERATED ON
     )
 
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
     add_custom_command(
-      OUTPUT ${scidavis_SIP_HDR}
-      COMMAND sip-module --sip-h ${CMAKE_CURRENT_SOURCE_DIR}/src/scidavis.sip
+      OUTPUT ${makhber_SIP_HDR}
+      COMMAND sip-module --sip-h ${CMAKE_CURRENT_SOURCE_DIR}/src/makhber.sip
       )
   endif()
 
   add_custom_command(
-    OUTPUT ${scidavis_PyQt_HDR} ${scidavis_PyQt_SRC}
+    OUTPUT ${makhber_PyQt_HDR} ${makhber_PyQt_SRC}
     COMMAND ${SIP_EXECUTABLE} -c . -I${PyQt_INCLUDE_DIRS} ${PyQt_FLAGS}
-      ${CMAKE_CURRENT_SOURCE_DIR}/src/scidavis.sip
-    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/scidavis.sip
+      ${CMAKE_CURRENT_SOURCE_DIR}/src/makhber.sip
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/makhber.sip
     )
 
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
     add_custom_target(generate_PyQt_source
-      DEPENDS ${scidavis_PyQt_HDR} ${scidavis_PyQt_SRC} ${scidavis_SIP_HDR}
+      DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRC} ${makhber_SIP_HDR}
       )
   else()
     add_custom_target(generate_PyQt_source
-      DEPENDS ${scidavis_PyQt_HDR} ${scidavis_PyQt_SRC}
+      DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRC}
       )
   endif()
 
-  target_sources( libscidavis PRIVATE
+  target_sources( libmakhber PRIVATE
     "src/PythonScript.h"
     "src/PythonScripting.h"
-    ${scidavis_PyQt_HDR}
+    ${makhber_PyQt_HDR}
     "src/PythonScript.cpp"
     "src/PythonScripting.cpp"
-    ${scidavis_PyQt_SRC}
+    ${makhber_PyQt_SRC}
     )
 
-  add_dependencies(libscidavis generate_PyQt_source)
+  add_dependencies(libmakhber generate_PyQt_source)
 
 endif()

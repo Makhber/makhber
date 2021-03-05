@@ -1,7 +1,7 @@
 /***************************************************************************
         File                 : ApplicationWindow.cpp
-        Project              : SciDAVis
-        Description          : SciDAVis's main window
+        Project              : Makhber
+        Description          : Makhber's main window
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Knut Franke (knut.franke*gmx.de)
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -29,11 +29,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#define HOMEPAGE_URI "http://scidavis.sourceforge.net"
+#define HOMEPAGE_URI "https://github.com/Makhber/makhber/discussion"
 #define MANUAL_URI "http://sourceforge.net/projects/scidavis/files/SciDAVis%20Documentation/0.1/"
-#define FORUM_URI "http://sourceforge.net/forum/?group_id=199120"
-#define BUGREPORT_URI "http://sourceforge.net/tracker/?group_id=199120&atid=968214"
-#define DOWNLOAD_URI "http://sourceforge.net/projects/scidavis/files/SciDAVis/"
+#define FORUM_URI "https://github.com/Makhber/makhber/discussions"
+#define BUGREPORT_URI "https://github.com/Makhber/makhber/issues"
+#define DOWNLOAD_URI "https://github.com/Makhber/makhber/releases"
 
 #include "globals.h"
 #include "ApplicationWindow.h"
@@ -214,7 +214,7 @@ ApplicationWindow::ApplicationWindow()
     setAttribute(Qt::WA_DeleteOnClose);
     QCoreApplication::setAttribute(Qt::AA_DontShowIconsInMenus, false);
 
-    setWindowTitle(tr("SciDAVis - untitled"));
+    setWindowTitle(tr("Makhber - untitled"));
 
     // Icons
     IconLoader::init();
@@ -710,7 +710,7 @@ void ApplicationWindow::lockToolbar(const bool status)
 void ApplicationWindow::insertTranslatedStrings()
 {
     if (projectname == "untitled")
-        setWindowTitle(tr("SciDAVis - untitled"));
+        setWindowTitle(tr("Makhber - untitled"));
 
     lv.headerItem()->setText(0, tr("Name"));
     lv.headerItem()->setText(1, tr("Type"));
@@ -1690,7 +1690,7 @@ void ApplicationWindow::add3DData()
     }
 
     // TODO: string list -> Column * list
-    QStringList zColumns = columnsList(SciDAVis::Z);
+    QStringList zColumns = columnsList(Makhber::Z);
     if ((int)zColumns.count() <= 0) {
         QMessageBox::critical(this, tr("Warning"),
                               tr("There are no available columns with plot designation set to Z!"));
@@ -1713,7 +1713,7 @@ void ApplicationWindow::change3DData()
 
     ad->setWindowTitle(tr("Choose data set"));
     // TODO: string list -> Column * list
-    ad->setCurveNames(columnsList(SciDAVis::Z));
+    ad->setCurveNames(columnsList(Makhber::Z));
     ad->exec();
 }
 
@@ -2848,13 +2848,13 @@ void ApplicationWindow::defineErrorBars(const QString &name, int type, const QSt
     if (xColName.isEmpty())
         return;
 
-    Column *errors = new Column("1", SciDAVis::ColumnMode::Numeric);
+    Column *errors = new Column("1", Makhber::ColumnMode::Numeric);
     Column *data;
     if (direction == QwtErrorPlotCurve::Horizontal) {
-        errors->setPlotDesignation(SciDAVis::xErr);
+        errors->setPlotDesignation(Makhber::xErr);
         data = w->d_future_table->column(xColName);
     } else {
-        errors->setPlotDesignation(SciDAVis::yErr);
+        errors->setPlotDesignation(Makhber::yErr);
         data = w->d_future_table->column(name);
     }
     if (!data)
@@ -2902,7 +2902,7 @@ void ApplicationWindow::defineErrorBars(const QString &curveName, const QString 
     }
 
     int errCol = errTable->colIndex(errColumnName);
-    if (errTable->d_future_table->column(errCol)->dataType() != SciDAVis::TypeDouble) {
+    if (errTable->d_future_table->column(errCol)->dataType() != Makhber::TypeDouble) {
         QMessageBox::critical(this, tr("Error"),
                               tr("You can only define error bars for numeric columns."));
         addErrorBars();
@@ -3261,7 +3261,7 @@ void ApplicationWindow::importASCII(const QStringList &files, int import_mode,
             || import_mode == ImportASCIIDialog::Overwrite) {
             if (local_convert_to_numeric) {
                 for (int col = 0; col < qMin(temp->columnCount(), table->columnCount()); col++)
-                    if (table->column(col)->columnMode() != SciDAVis::ColumnMode::Numeric) {
+                    if (table->column(col)->columnMode() != Makhber::ColumnMode::Numeric) {
                         QMessageBox::critical(this, tr("ASCII Import Failed"),
                                               tr("Numeric data cannot be imported into non-numeric "
                                                  "column \"%1\".")
@@ -3271,7 +3271,7 @@ void ApplicationWindow::importASCII(const QStringList &files, int import_mode,
                     }
             } else {
                 for (int col = 0; col < qMin(temp->columnCount(), table->columnCount()); col++)
-                    if (table->column(col)->columnMode() != SciDAVis::ColumnMode::Text) {
+                    if (table->column(col)->columnMode() != Makhber::ColumnMode::Text) {
                         QMessageBox::critical(this, tr("ASCII Import Failed"),
                                               tr("Non-numeric data cannot be imported into "
                                                  "non-text column \"%1\".")
@@ -3292,10 +3292,10 @@ void ApplicationWindow::importASCII(const QStringList &files, int import_mode,
         case ImportASCIIDialog::NewRows: {
             int missing_columns = temp->columnCount() - table->columnCount();
             for (int col = 0; col < missing_columns; col++) {
-                Column *new_col =
-                        new Column(tr("new_by_import") + QString::number(col + 1),
-                                   local_convert_to_numeric ? SciDAVis::ColumnMode::Numeric : SciDAVis::ColumnMode::Text);
-                new_col->setPlotDesignation(SciDAVis::Y);
+                Column *new_col = new Column(tr("new_by_import") + QString::number(col + 1),
+                                             local_convert_to_numeric ? Makhber::ColumnMode::Numeric
+                                                                      : Makhber::ColumnMode::Text);
+                new_col->setPlotDesignation(Makhber::Y);
                 table->d_future_table->addChild(new_col);
             }
             Q_ASSERT(table->columnCount() >= temp->columnCount());
@@ -3420,7 +3420,7 @@ ApplicationWindow *ApplicationWindow::open(const QString &fn, const QStringList 
     {
         QMessageBox::critical(
                 this, tr("File opening error"),
-                tr("SciDAVis currently does not support Origin import. If you are interested in "
+                tr("Makhber currently does not support Origin import. If you are interested in "
                    "reviving and maintaining an Origin import filter, contact the developers.")
                         .arg(fn));
         return 0;
@@ -3563,7 +3563,8 @@ bool ApplicationWindow::loadProject(const QString &fn)
 #else
     list = s.split(QRegExp("\\s"), QString::SkipEmptyParts);
 #endif
-    if (list.count() < 2 || (list[0] != "SciDAVis" && list[0] != "QtiPlot")) {
+    if (list.count() < 2
+        || (list[0] != "Makhber" && list[0] != "SciDAVis" && list[0] != "QtiPlot")) {
         if (QFile::exists(fn + "~")) {
             int choice = QMessageBox::question(
                     this, tr("File opening error"),
@@ -3599,7 +3600,7 @@ bool ApplicationWindow::loadProject(const QString &fn)
         d_file_version = 100 * (vl[0]).toInt() + 10 * (vl[1]).toInt() + (vl[2]).toInt();
         if (d_file_version > 90) {
             QMessageBox::critical(this, tr("File opening error"),
-                                  tr("SciDAVis does not support QtiPlot project files from "
+                                  tr("Makhber does not support QtiPlot project files from "
                                      "versions later than 0.9.0.")
                                           .arg(fn));
             return false;
@@ -3608,7 +3609,7 @@ bool ApplicationWindow::loadProject(const QString &fn)
         d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
 
     projectname = fn;
-    setWindowTitle(tr("SciDAVis") + " - " + fn);
+    setWindowTitle(tr("Makhber") + " - " + fn);
 
     QFileInfo fi(fn);
     QString baseName = fi.fileName();
@@ -3886,7 +3887,7 @@ void ApplicationWindow::scriptError(const QString &message, const QString &scrip
 {
     Q_UNUSED(scriptName)
     Q_UNUSED(lineNumber)
-    QMessageBox::critical(this, tr("SciDAVis") + " - " + tr("Script Error"), message);
+    QMessageBox::critical(this, tr("Makhber") + " - " + tr("Script Error"), message);
 }
 
 void ApplicationWindow::scriptPrint(const QString &text)
@@ -3954,10 +3955,10 @@ void ApplicationWindow::restartScriptingEnv()
 // TODO: rewrite the template system
 void ApplicationWindow::openTemplate()
 {
-    QString filter = "SciDAVis/QtiPlot 2D Graph Template (*.qpt);;";
-    filter += "SciDAVis/QtiPlot 3D Surface Template (*.qst);;";
-    filter += "SciDAVis/QtiPlot Table Template (*.qtt);;";
-    filter += "SciDAVis/QtiPlot Matrix Template (*.qmt)";
+    QString filter = "Makhber/QtiPlot 2D Graph Template (*.qpt);;";
+    filter += "Makhber/QtiPlot 3D Surface Template (*.qst);;";
+    filter += "Makhber/QtiPlot Table Template (*.qtt);;";
+    filter += "Makhber/QtiPlot Matrix Template (*.qmt)";
 
     QString fn = QFileDialog::getOpenFileName(this, tr("Open Template File"), templatesDir, filter);
     if (!fn.isEmpty()) {
@@ -3980,10 +3981,10 @@ void ApplicationWindow::openTemplate()
             QStringList l = t.readLine().split(QRegExp("\\s"), QString::SkipEmptyParts);
 #endif
             QString fileType = l[0];
-            if ((fileType != "SciDAVis") && (fileType != "QtiPlot")) {
+            if ((fileType != "Makhber") && (fileType != "QtiPlot")) {
                 QMessageBox::critical(
                         this, tr("File opening error"),
-                        tr("The file: <b> %1 </b> was not created using SciDAVis!").arg(fn));
+                        tr("The file: <b> %1 </b> was not created using Makhber!").arg(fn));
                 return;
             }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
@@ -3995,7 +3996,7 @@ void ApplicationWindow::openTemplate()
                 d_file_version = 100 * (vl[0]).toInt() + 10 * (vl[1]).toInt() + (vl[2]).toInt();
                 if (d_file_version > 90) {
                     QMessageBox::critical(this, tr("File opening error"),
-                                          tr("SciDAVis does not support QtiPlot template files "
+                                          tr("Makhber does not support QtiPlot template files "
                                              "from versions later than 0.9.0.")
                                                   .arg(fn));
                     return;
@@ -4108,7 +4109,7 @@ void ApplicationWindow::openTemplate()
         } else {
             QMessageBox::critical(
                     this, tr("File opening error"),
-                    tr("The file: <b>%1</b> is not a SciDAVis template file!").arg(fn));
+                    tr("The file: <b>%1</b> is not a Makhber template file!").arg(fn));
             return;
         }
     }
@@ -4208,7 +4209,7 @@ void ApplicationWindow::readSettings()
 #ifdef Q_OS_WIN
     QString defaultFitPluginsPath = qApp->applicationDirPath() + "fitPlugins";
 #else // defined Q_OS_WIN
-    QString defaultFitPluginsPath = "/usr/lib/scidavis/plugins";
+    QString defaultFitPluginsPath = "/usr/lib/makhber/plugins";
 #endif
 #endif // defined PLUGIN_PATH
 #ifdef DYNAMIC_PLUGIN_PATH
@@ -4966,7 +4967,7 @@ bool ApplicationWindow::saveProject()
     if (compress)
         file_compress(QFile::encodeName(fn).constData(), "wb9");
 
-    setWindowTitle("SciDAVis - " + projectname);
+    setWindowTitle("Makhber - " + projectname);
     savedProject();
     actionUndo->setEnabled(false);
     actionRedo->setEnabled(false);
@@ -4984,8 +4985,8 @@ bool ApplicationWindow::saveProject()
 
 void ApplicationWindow::saveProjectAs()
 {
-    QString filter = tr("SciDAVis project") + " (*.sciprj);;";
-    filter += tr("Compressed SciDAVis project") + " (*.sciprj.gz)";
+    QString filter = tr("Makhber project") + " (*.sciprj);;";
+    filter += tr("Compressed Makhber project") + " (*.sciprj.gz)";
 
     QString selectedFilter;
     QString fn = QFileDialog::getSaveFileName(this, tr("Save Project As"), workingDir, filter,
@@ -5031,13 +5032,13 @@ void ApplicationWindow::saveAsTemplate()
 
     QString filter;
     if (w->inherits("Matrix"))
-        filter = tr("SciDAVis/QtiPlot Matrix Template") + " (*.qmt)";
+        filter = tr("Makhber/QtiPlot Matrix Template") + " (*.qmt)";
     else if (w->inherits("MultiLayer"))
-        filter = tr("SciDAVis/QtiPlot 2D Graph Template") + " (*.qpt)";
+        filter = tr("Makhber/QtiPlot 2D Graph Template") + " (*.qpt)";
     else if (w->inherits("Table"))
-        filter = tr("SciDAVis/QtiPlot Table Template") + " (*.qtt)";
+        filter = tr("Makhber/QtiPlot Table Template") + " (*.qtt)";
     else if (w->inherits("Graph3D"))
-        filter = tr("SciDAVis/QtiPlot 3D Surface Template") + " (*.qst)";
+        filter = tr("Makhber/QtiPlot 3D Surface Template") + " (*.qst)";
 
     QString selectedFilter;
     QString fn =
@@ -5061,7 +5062,7 @@ void ApplicationWindow::saveAsTemplate()
             return;
         }
         QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-        QString text = SciDAVis::schemaVersion() + " template file\n";
+        QString text = Makhber::schemaVersion() + " template file\n";
         text += w->saveAsTemplate(windowGeometryInfo(w));
         QTextStream t(&f);
         t.setCodec(QTextCodec::codecForName("UTF-8"));
@@ -5143,7 +5144,7 @@ bool ApplicationWindow::renameWindow(MyWidget *w, const QString &text)
 }
 
 // TODO: string list -> Column * list
-QStringList ApplicationWindow::columnsList(SciDAVis::PlotDesignation plotType)
+QStringList ApplicationWindow::columnsList(Makhber::PlotDesignation plotType)
 {
     QList<MyWidget *> windows = windowsList();
     QStringList list;
@@ -6053,7 +6054,7 @@ void ApplicationWindow::removePoints()
         btnPointer->setChecked(true);
         return;
     } else {
-        switch (QMessageBox::warning(this, tr("SciDAVis"),
+        switch (QMessageBox::warning(this, tr("Makhber"),
                                      tr("This will modify the data in the worksheets!\nAre you "
                                         "sure you want to continue?"),
                                      tr("Continue"), tr("Cancel"), 0, 1)) {
@@ -6096,7 +6097,7 @@ void ApplicationWindow::movePoints()
         btnPointer->setChecked(true);
         return;
     } else {
-        switch (QMessageBox::warning(this, tr("SciDAVis"),
+        switch (QMessageBox::warning(this, tr("Makhber"),
                                      tr("This will modify the data in the worksheets!\nAre you "
                                         "sure you want to continue?"),
                                      tr("Continue"), tr("Cancel"), 0, 1)) {
@@ -7329,7 +7330,7 @@ void ApplicationWindow::closeWindow(MyWidget *window)
 
 void ApplicationWindow::about()
 {
-    SciDAVis::about();
+    Makhber::about();
 }
 
 void ApplicationWindow::windowsMenuAboutToShow()
@@ -7415,7 +7416,7 @@ QMenu *ApplicationWindow::showMarkerPopupMenuImpl()
 void ApplicationWindow::showMoreWindows()
 {
     if (explorerWindow.isVisible())
-        QMessageBox::information(this, "SciDAVis",
+        QMessageBox::information(this, "Makhber",
                                  tr("Please use the project explorer to select a window!"));
     else
         explorerWindow.show();
@@ -7539,7 +7540,7 @@ void ApplicationWindow::closeEvent(QCloseEvent *ce)
 {
     if (!saved) {
         QString s = tr("Save changes to project: <p><b> %1 </b> ?").arg(projectname);
-        switch (QMessageBox::information(this, tr("SciDAVis"), s, tr("Yes"), tr("No"), tr("Cancel"),
+        switch (QMessageBox::information(this, tr("Makhber"), s, tr("Yes"), tr("No"), tr("Cancel"),
                                          0, 2)) {
         case 0:
             if (!saveProject()) {
@@ -8067,19 +8068,19 @@ void ApplicationWindow::chooseHelpFolder()
             qApp->applicationDirPath() + QDir::toNativeSeparators("/manual/index.html");
 #else
     const QString locateDefaultHelp =
-            QDir::toNativeSeparators("/usr/share/doc/scidavis/manual/index.html");
+            QDir::toNativeSeparators("/usr/share/doc/makhber/manual/index.html");
 #endif
     if (QFile(locateDefaultHelp).exists()) {
         helpFilePath = locateDefaultHelp;
     } else {
         const QString dir = QFileDialog::getExistingDirectory(
-                this, tr("Choose the location of the SciDAVis help folder!"),
+                this, tr("Choose the location of the Makhber help folder!"),
                 qApp->applicationDirPath());
 
         if (!dir.isEmpty()) {
             const QFile helpFile(dir + QDir::toNativeSeparators("/index.html"));
             // TODO: Probably some kind of validity check to make sure that the
-            // index.html file belongs to sciDavis
+            // index.html file belongs to Makhber
             if (!helpFile.exists()) {
                 QMessageBox::information(
                         this, tr("index.html File Not Found!"),
@@ -8103,9 +8104,9 @@ void ApplicationWindow::showHelp()
                         + "<p><a href = \"" MANUAL_URI "\">" MANUAL_URI "</a></p>");
         chooseHelpFolder();
 #ifdef Q_OS_MAC
-        QSettings settings(QSettings::IniFormat, QSettings::UserScope, "SciDAVis", "SciDAVis");
+        QSettings settings(QSettings::IniFormat, QSettings::UserScope, "Makhber", "Makhber");
 #else
-        QSettings settings(QSettings::NativeFormat, QSettings::UserScope, "SciDAVis", "SciDAVis");
+        QSettings settings(QSettings::NativeFormat, QSettings::UserScope, "Makhber", "Makhber");
 #endif
         settings.beginGroup("/Paths");
         settings.setValue("/HelpFile", helpFilePath);
@@ -8892,7 +8893,7 @@ void ApplicationWindow::addLayer()
     MultiLayer *plot = (MultiLayer *)d_workspace.activeSubWindow();
     switch (QMessageBox::information(
             this, tr("Guess best origin for the new layer?"),
-            tr("Do you want SciDAVis to guess the best position for the new layer?\n Warning: this "
+            tr("Do you want Makhber to guess the best position for the new layer?\n Warning: this "
                "will rearrange existing layers!"),
             tr("&Guess"), tr("&Top-left corner"), tr("&Cancel"), 0, 2)) {
     case 0: {
@@ -9072,8 +9073,8 @@ Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
                 if (d_file_version >= 78)
                     w->importV0x0001XXHeader(fields);
                 else {
-                    w->setColPlotDesignation(list[4].toInt(), SciDAVis::X);
-                    w->setColPlotDesignation(list[6].toInt(), SciDAVis::Y);
+                    w->setColPlotDesignation(list[4].toInt(), Makhber::X);
+                    w->setColPlotDesignation(list[6].toInt(), Makhber::Y);
                     w->setHeader(fields);
                 }
             } else if (fields[0] == "ColWidth") {
@@ -9117,9 +9118,10 @@ Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
                     if (cell.isEmpty())
                         continue;
 
-                    if (d_file_version < 90 && w->columnType(col) == SciDAVis::ColumnMode::Numeric)
+                    if (d_file_version < 90 && w->columnType(col) == Makhber::ColumnMode::Numeric)
                         w->setCell(row, col, QLocale::c().toDouble(cell.replace(",", ".")));
-                    else if (d_file_version >= 0x000100 && w->columnType(col) == SciDAVis::ColumnMode::Numeric)
+                    else if (d_file_version >= 0x000100
+                             && w->columnType(col) == Makhber::ColumnMode::Numeric)
                         w->setCell(row, col, QLocale().toDouble(cell));
                     else
                         w->setText(row, col, cell);
@@ -9217,8 +9219,8 @@ TableStatistics *ApplicationWindow::openTableStatistics(const QStringList &flist
             if (d_file_version >= 78)
                 w->importV0x0001XXHeader(fields);
             else {
-                w->setColPlotDesignation(list[4].toInt(), SciDAVis::X);
-                w->setColPlotDesignation(list[6].toInt(), SciDAVis::Y);
+                w->setColPlotDesignation(list[4].toInt(), Makhber::X);
+                w->setColPlotDesignation(list[6].toInt(), Makhber::Y);
                 w->setHeader(fields);
             }
         } else if (fields[0] == "ColWidth") {
@@ -10633,7 +10635,7 @@ void ApplicationWindow::createActions()
     actionShowTitleDialog = new QAction(tr("&Title ..."), this);
     connect(actionShowTitleDialog, SIGNAL(triggered()), this, SLOT(showTitleDialog()));
 
-    actionAbout = new QAction(tr("&About SciDAVis"), this);
+    actionAbout = new QAction(tr("&About Makhber"), this);
     actionAbout->setShortcut(tr("F1"));
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
 
@@ -10779,10 +10781,10 @@ void ApplicationWindow::createActions()
     connect(actionCheckUpdates, SIGNAL(triggered()), this, SLOT(searchForUpdates()));
 #endif // defined SEARCH_FOR_UPDATES
 
-    actionHomePage = new QAction(tr("&SciDAVis Homepage"), this);
+    actionHomePage = new QAction(tr("&Makhber Homepage"), this);
     connect(actionHomePage, SIGNAL(triggered()), this, SLOT(showHomePage()));
 
-    actionHelpForums = new QAction(tr("SciDAVis &Forums"), this);
+    actionHelpForums = new QAction(tr("Makhber &Forums"), this);
     connect(actionHelpForums, SIGNAL(triggered()), this, SLOT(showForums()));
 
     actionHelpBugReports = new QAction(tr("Report a &Bug"), this);
@@ -11122,7 +11124,7 @@ void ApplicationWindow::translateActionsStrings()
     actionShowGridDialog->setText(tr("&Grid ..."));
     actionShowTitleDialog->setText(tr("&Title ..."));
 
-    actionAbout->setText(tr("&About SciDAVis"));
+    actionAbout->setText(tr("&About Makhber"));
     actionAbout->setShortcut(tr("F1"));
 
     actionShowHelp->setText(tr("&Help"));
@@ -11176,11 +11178,11 @@ void ApplicationWindow::translateActionsStrings()
 
     actionMultiPeakGauss->setText(tr("&Gaussian..."));
     actionMultiPeakLorentz->setText(tr("&Lorentzian..."));
-    actionHomePage->setText(tr("&SciDAVis Homepage"));
+    actionHomePage->setText(tr("&Makhber Homepage"));
 #ifdef SEARCH_FOR_UPDATES
     actionCheckUpdates->setText(tr("Search for &Updates"));
 #endif
-    actionHelpForums->setText(tr("Visit SciDAVis &Forums"));
+    actionHelpForums->setText(tr("Visit Makhber &Forums"));
     actionHelpBugReports->setText(tr("Report a &Bug"));
 #ifdef DOWNLOAD_LINKS
     actionDownloadManual->setText(tr("Download &Manual"));
@@ -11460,7 +11462,7 @@ ApplicationWindow *ApplicationWindow::importOPJ(const QString &filename [[maybe_
 
         ApplicationWindow *app = new ApplicationWindow();
         app->applyUserSettings();
-        app->setWindowTitle("SciDAVis - " + filename);
+        app->setWindowTitle("Makhber - " + filename);
         app->showMaximized();
         app->projectname = filename;
         app->recentProjects.removeAll(filename);
@@ -11704,28 +11706,28 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
                                      "other arguments!")
                                           .arg(str));
         } else if (str == "-v" || str == "--version") {
-            QString s = SciDAVis::versionString() + SciDAVis::extraVersion() + "\n";
-            s += QObject::tr("Released") + ": " + SciDAVis::releaseDateString() + "\n";
-            s += SciDAVis::copyrightString() + "\n";
+            QString s = Makhber::versionString() + Makhber::extraVersion() + "\n";
+            s += QObject::tr("Built") + ": " + Makhber::buildDateString() + "\n";
+            s += Makhber::copyrightString() + "\n";
 
 #ifdef Q_OS_WIN
             hide();
-            QMessageBox::information(this, tr("SciDAVis") + " - " + tr("Version"), s);
+            QMessageBox::information(this, tr("Makhber") + " - " + tr("Version"), s);
 #else
             std::cout << s.toStdString();
 #endif
             ::exit(0);
         } else if (str == "-h" || str == "--help") {
             QString s = "\n" + tr("Usage") + ": ";
-            s += "scidavis [" + tr("options") + "] [" + tr("file") + "_" + tr("name") + "]\n\n";
+            s += "makhber [" + tr("options") + "] [" + tr("file") + "_" + tr("name") + "]\n\n";
             s += tr("Valid options are") + ":\n";
             s += "-a " + tr("or") + " --about: " + tr("show about dialog and exit") + "\n";
             s += "-h " + tr("or") + " --help: " + tr("show command line options") + "\n";
-            s += "-l=XX " + tr("or") + " --lang=XX: " + tr("start SciDAVis in language")
+            s += "-l=XX " + tr("or") + " --lang=XX: " + tr("start Makhber in language")
                     + " XX ('en', 'fr', 'de', ...)\n";
-            s += "-m " + tr("or")
-                    + " --manual: " + tr("show SciDAVis manual in a standalone window") + "\n";
-            s += "-v " + tr("or") + " --version: " + tr("print SciDAVis version and release date")
+            s += "-m " + tr("or") + " --manual: " + tr("show Makhber manual in a standalone window")
+                    + "\n";
+            s += "-v " + tr("or") + " --version: " + tr("print Makhber version and release date")
                     + "\n";
             s += "-x " + tr("or") + " --execute: " + tr("execute the script file given as argument")
                     + "\n\n";
@@ -11740,7 +11742,7 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
 #endif
 #ifdef Q_OS_WIN
             hide();
-            QMessageBox::information(this, tr("SciDAVis - Help"), s);
+            QMessageBox::information(this, tr("Makhber - Help"), s);
 #else
             std::cout << s.toStdString();
 #endif
@@ -11761,7 +11763,7 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
             QMessageBox::critical(this, tr("Error"),
                                   tr("<b> %1 </b> unknown command line option!").arg(str) + "\n"
                                           + tr("Type %1 to see the list of the valid options.")
-                                                    .arg("'scidavis -h'"));
+                                                    .arg("'makhber -h'"));
         }
         if (str.startsWith("-"))
             scriptArg = i; // save last flag
@@ -11840,12 +11842,12 @@ void ApplicationWindow::createLanguagesList()
         slng = slng.left(2);
 
     QDir dir(qmPath);
-    QStringList fileNames = dir.entryList(QStringList("scidavis_*.qm"));
+    QStringList fileNames = dir.entryList(QStringList("makhber_*.qm"));
     if (fileNames.size() == 0) {
         // fall back to looking in the executable's directory
         qmPath = QFileInfo(QCoreApplication::applicationFilePath()).path() + "/translations";
         dir.setPath(qmPath);
-        fileNames = dir.entryList(QStringList("scidavis_*.qm"));
+        fileNames = dir.entryList(QStringList("makhber_*.qm"));
     }
     for (int i = 0; i < (int)fileNames.size(); i++) {
         QString locale = fileNames[i];
@@ -11857,12 +11859,12 @@ void ApplicationWindow::createLanguagesList()
     locales.sort();
 
     if (appLanguage != "en") {
-        if (!appTranslator->load("scidavis_" + appLanguage, qmPath))
-            if (!appTranslator->load("scidavis_" + appLanguage))
-                if (!appTranslator->load("scidavis_" + lng, qmPath))
-                    if (!appTranslator->load("scidavis_" + lng))
-                        if (!appTranslator->load("scidavis_" + slng, qmPath))
-                            appTranslator->load("scidavis_" + slng);
+        if (!appTranslator->load("makhber_" + appLanguage, qmPath))
+            if (!appTranslator->load("makhber_" + appLanguage))
+                if (!appTranslator->load("makhber_" + lng, qmPath))
+                    if (!appTranslator->load("makhber_" + lng))
+                        if (!appTranslator->load("makhber_" + slng, qmPath))
+                            appTranslator->load("makhber_" + slng);
         if (!qtTranslator->load("qt_" + appLanguage, qmPath + "/qt"))
             if (!qtTranslator->load("qt_" + appLanguage))
                 if (!qtTranslator->load("qt_" + lng, qmPath + "/qt"))
@@ -11894,8 +11896,8 @@ void ApplicationWindow::switchToLanguage(const QString &locale)
         qApp->installTranslator(appTranslator);
         qApp->installTranslator(qtTranslator);
     } else {
-        if (!appTranslator->load("scidavis_" + appLanguage, qmPath))
-            appTranslator->load("scidavis_" + appLanguage);
+        if (!appTranslator->load("makhber_" + appLanguage, qmPath))
+            appTranslator->load("makhber_" + appLanguage);
         if (!qtTranslator->load("qt_" + appLanguage, qmPath + "/qt"))
             qtTranslator->load("qt_" + appLanguage);
     }
@@ -11998,7 +12000,7 @@ void ApplicationWindow::appendProject(const QString &fn)
     } else {
         QMessageBox::critical(
                 this, tr("File opening error"),
-                tr("The file: <b>%1</b> is not a SciDAVis or Origin project file!").arg(fn));
+                tr("The file: <b>%1</b> is not a Makhber or Origin project file!").arg(fn));
         return;
     }
 
@@ -12047,7 +12049,7 @@ void ApplicationWindow::appendProject(const QString &fn)
     {
         QMessageBox::critical(
                 this, tr("File opening error"),
-                tr("SciDAVis currently does not support Origin import. If you are interested in "
+                tr("Makhber currently does not support Origin import. If you are interested in "
                    "reviving and maintaining an Origin import filter, contact the developers.")
                         .arg(fn));
         return;
@@ -12266,7 +12268,7 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
 
     QTextStream t(&f);
     t.setCodec(QTextCodec::codecForName("UTF-8"));
-    t << SciDAVis::schemaVersion() + " project file\n";
+    t << Makhber::schemaVersion() + " project file\n";
     t << "<scripting-lang>\t" + QString(scriptEnv->objectName()) + "\n";
     t << "<windows>\t" + QString::number(folder->windowCount(true)) + "\n";
     t.flush();
@@ -12330,8 +12332,8 @@ void ApplicationWindow::saveAsProject()
 
 void ApplicationWindow::saveFolderAsProject(Folder *f)
 {
-    QString filter = tr("SciDAVis project") + " (*.sciprj);;";
-    filter += tr("Compressed SciDAVis project") + " (*.sciprj.gz)";
+    QString filter = tr("Makhber project") + " (*.sciprj);;";
+    filter += tr("Compressed Makhber project") + " (*.sciprj.gz)";
 
     QString selectedFilter;
     QString fn = QFileDialog::getSaveFileName(this, tr("Save project as"), workingDir, filter,
@@ -13108,7 +13110,7 @@ void ApplicationWindow::dropFolderItems(QTreeWidgetItem *dest)
                 return;
 
             if (subfolders.contains(f->name())) {
-                QMessageBox::critical(this, tr("SciDAVis") + " - " + tr("Skipped moving folder"),
+                QMessageBox::critical(this, tr("Makhber") + " - " + tr("Skipped moving folder"),
                                       tr("The destination folder already contains a folder called "
                                          "'%1'! Folder skipped!")
                                               .arg(f->name()));
@@ -13197,16 +13199,15 @@ void ApplicationWindow::searchForUpdates()
 {
     int choice = QMessageBox::question(
             this, versionString(),
-            tr("SciDAVis will now try to determine whether a new version of SciDAVis is available. "
-               "Please modify your firewall settings in order to allow SciDAVis to connect to the "
+            tr("Makhber will now try to determine whether a new version of Makhber is available. "
+               "Please modify your firewall settings in order to allow Makhber to connect to the "
                "internet.")
                     + "\n" + tr("Do you wish to continue?"),
             QMessageBox::Yes | QMessageBox::Default, QMessageBox::No | QMessageBox::Escape);
 
     if (choice == QMessageBox::Yes) {
-        // http.get(QNetworkRequest(QUrl("http://scidavis.sourceforge.net/current_version.txt")));
-        http.get(QNetworkRequest(QUrl("https://raw.githubusercontent.com/highperformancecoder/"
-                                      "scidavis/master/libscidavis/src/version.cpp")));
+        http.get(QNetworkRequest(QUrl("https://raw.githubusercontent.com/Makhber/"
+                                      "makhber/master/libscidavis/src/version.h.in")));
     }
 }
 
@@ -13241,9 +13242,9 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
         }
 
         if (intok) {
-            if (available_version > SciDAVis::version()) {
+            if (available_version > Makhber::version()) {
                 if (QMessageBox::question(this, tr("Updates Available"),
-                                          tr("There is a newer version of SciDAVis (%1) available "
+                                          tr("There is a newer version of Makhber (%1) available "
                                              "for download. Would you like to download it now?")
                                                   .arg(available_versionString),
                                           QMessageBox::Yes | QMessageBox::Default,
@@ -13359,7 +13360,7 @@ ApplicationWindow::~ApplicationWindow()
 
 QString ApplicationWindow::versionString()
 {
-    return SciDAVis::versionString();
+    return Makhber::versionString();
 }
 
 unsigned int ApplicationWindow::convertOldToNewColorIndex(unsigned int cindex)
@@ -13573,7 +13574,7 @@ bool ApplicationWindow::validFor3DPlot(Table *table)
         return false;
     }
     if (table->firstSelectedColumn() < 0
-        || table->colPlotDesignation(table->firstSelectedColumn()) != SciDAVis::Z) {
+        || table->colPlotDesignation(table->firstSelectedColumn()) != Makhber::Z) {
         QMessageBox::critical(0, tr("Error"), tr("Please select a Z column for this operation!"));
         return false;
     }
@@ -13600,7 +13601,7 @@ bool ApplicationWindow::validFor2DPlot(Table *table, int type)
         }
         break;
     default:
-        if (table->selectedColumnCount(SciDAVis::Y) < 1) {
+        if (table->selectedColumnCount(Makhber::Y) < 1) {
             QMessageBox::warning(this, tr("Error"), tr("Please select a Y column to plot!"));
             return false;
         } else if (table->numCols() < 2) {
@@ -13717,13 +13718,13 @@ QStringList ApplicationWindow::tableWindows()
 QSettings &ApplicationWindow::getSettings()
 {
 #ifdef Q_OS_MAC // Mac
-    static QSettings d_settings(QSettings::IniFormat, QSettings::UserScope, "SciDAVis", "SciDAVis");
+    static QSettings d_settings(QSettings::IniFormat, QSettings::UserScope, "Makhber", "Makhber");
 #else
-    static QSettings d_settings(QSettings::NativeFormat, QSettings::UserScope, "SciDAVis",
-                                "SciDAVis");
+    static QSettings d_settings(QSettings::NativeFormat, QSettings::UserScope, "Makhber",
+                                "Makhber");
 #endif
     return d_settings;
 }
 
 // initialize singleton
-static auto &SciDavisSettingsSingleton = ApplicationWindow::getSettings();
+static auto &MakhberSettingsSingleton = ApplicationWindow::getSettings();

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : PlotWizard.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -233,7 +233,7 @@ void PlotWizard::addZCol()
     QString text = plotAssociations->currentItem()->text();
     if (text.contains("(xErr)") || text.contains("(yErr)"))
         QMessageBox::warning(this, tr("Error"),
-                             tr("This kind of curve is not handled by SciDAVis!"));
+                             tr("This kind of curve is not handled by Makhber!"));
     else if (!text.contains("(X)"))
         QMessageBox::warning(this, tr("Error"), tr("You must define a X column first!"));
     else if (text.contains("(Z)"))
@@ -252,7 +252,7 @@ void PlotWizard::addXErrCol()
     QString text = plotAssociations->currentItem()->text();
     if (text.contains("(Z)"))
         QMessageBox::warning(this, tr("Error"),
-                             tr("This kind of curve is not handled by SciDAVis!"));
+                             tr("This kind of curve is not handled by Makhber!"));
     else if (!text.contains("(X)"))
         QMessageBox::warning(this, tr("Error"), tr("You must define a X column first!"));
     else if (!text.contains("(Y)"))
@@ -274,7 +274,7 @@ void PlotWizard::addYErrCol()
     QString text = plotAssociations->currentItem()->text();
     if (text.contains("(Z)"))
         QMessageBox::warning(this, tr("Error"),
-                             tr("This kind of curve is not handled by SciDAVis!"));
+                             tr("This kind of curve is not handled by Makhber!"));
     else if (!text.contains("(X)"))
         QMessageBox::warning(this, tr("Error"), tr("You must define a X column first!"));
     else if (!text.contains("(Y)"))

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : ColumnPrivate.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Private data class of Column
     --------------------------------------------------------------------
     Copyright            : (C) 2007-2009 Tilman Benkert (thzs*gmx.net)
@@ -46,15 +46,15 @@ class Column::Private
 {
 public:
     //! Ctor
-    Private(Column *owner, SciDAVis::ColumnMode mode);
+    Private(Column *owner, Makhber::ColumnMode mode);
     //! Dtor
     ~Private();
     //! Special ctor (to be called from Column only!)
-    Private(Column *owner, SciDAVis::ColumnDataType type, SciDAVis::ColumnMode mode, void *data,
+    Private(Column *owner, Makhber::ColumnDataType type, Makhber::ColumnMode mode, void *data,
             IntervalAttribute<bool> validity);
 
     //! Return the data type of the column
-    SciDAVis::ColumnDataType dataType() const { return d_data_type; };
+    Makhber::ColumnDataType dataType() const { return d_data_type; };
     //! Return whether the object is read-only
     bool isReadOnly() const { return false; };
     //! Return the column mode
@@ -63,7 +63,7 @@ public:
      * by plots. The column mode specifies how to interpret
      * the values in the column additional to the data type.
      */
-    SciDAVis::ColumnMode columnMode() const { return d_column_mode; };
+    Makhber::ColumnMode columnMode() const { return d_column_mode; };
     //! Set the column mode
     /**
      * This sets the column mode and, if
@@ -71,7 +71,7 @@ public:
      * Remark: setting the mode back to undefined (the
      * initial value) is not supported.
      */
-    void setColumnMode(SciDAVis::ColumnMode mode, AbstractFilter *conversion_filter);
+    void setColumnMode(Makhber::ColumnMode mode, AbstractFilter *conversion_filter);
 
     //! Copy another column of the same type
     /**
@@ -137,9 +137,9 @@ public:
     //! Return the column comment
     QString comment() const;
     //! Return the column plot designation
-    SciDAVis::PlotDesignation plotDesignation() const { return d_plot_designation; };
+    Makhber::PlotDesignation plotDesignation() const { return d_plot_designation; };
     //! Set the column plot designation
-    void setPlotDesignation(SciDAVis::PlotDesignation pd);
+    void setPlotDesignation(Makhber::PlotDesignation pd);
     //! Clear the whole column
     void clear();
     //! Return the data pointer
@@ -152,7 +152,7 @@ public:
     /**
      * Replace column mode, data type, data pointer, validity and filters directly
      */
-    void replaceModeData(SciDAVis::ColumnMode mode, SciDAVis::ColumnDataType type, void *data,
+    void replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnDataType type, void *data,
                          AbstractSimpleFilter *in_filter, AbstractSimpleFilter *out_filter,
                          IntervalAttribute<bool> validity);
     //! Replace data pointer and validity
@@ -306,13 +306,13 @@ private:
     /**
      * double, QString, or QDateTime
      */
-    SciDAVis::ColumnDataType d_data_type;
+    Makhber::ColumnDataType d_data_type;
     //! The column mode
     /**
      * The column mode specifies how to interpret
      * the values in the column additional to the data type.
      */
-    SciDAVis::ColumnMode d_column_mode;
+    Makhber::ColumnMode d_column_mode;
     //! Pointer to the data vector
     /**
      * This will point to a QVector<double>, QStringList or
@@ -330,7 +330,7 @@ private:
     IntervalAttribute<bool> d_masking;
     IntervalAttribute<QString> d_formulas;
     //! The plot designation
-    SciDAVis::PlotDesignation d_plot_designation;
+    Makhber::PlotDesignation d_plot_designation;
     //! The owner column
     Column *d_owner;
     //@}

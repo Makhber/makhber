@@ -1,6 +1,6 @@
 /***************************************************************************
         File                 : NumericDateTimeBaseFilter.h
-        Project              : SciDAVis
+        Project              : Makhber
         --------------------------------------------------------------------
         Copyright            : (C) 2021 by Suthiro
         Email (use @ for *)  : soviet_man*list.ru
@@ -54,11 +54,11 @@ public:
         : m_unit_interval(unit),
           m_date_time_0((date_time_0.isValid())
                                 ? (date_time_0)
-                                : (zeroOffsetDate)){}; // default to zeroOffsetDate if invalid
-                                                       // datetime provided
+                                : (zeroOffsetDate)) {}; // default to zeroOffsetDate if invalid
+                                                        // datetime provided
 
     NumericDateTimeBaseFilter(const NumericDateTimeBaseFilter &other)
-        : m_unit_interval(other.m_unit_interval), m_date_time_0(other.m_date_time_0){};
+        : m_unit_interval(other.m_unit_interval), m_date_time_0(other.m_date_time_0) {};
 
     //! Save to XML
     void writeExtraAttributes(QXmlStreamWriter *writer) const override;

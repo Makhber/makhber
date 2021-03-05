@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : ScriptEdit.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief,
                            Tilman Benkert,
@@ -303,7 +303,7 @@ void ScriptEdit::exportPDF(const QString &fileName)
     QTextDocument *doc = document();
     QPrinter printer;
     printer.setColorMode(QPrinter::GrayScale);
-    printer.setCreator("SciDAVis");
+    printer.setCreator("Makhber");
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setOutputFileName(fileName);
     doc->print(&printer);

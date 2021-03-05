@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : MyWidget.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : MDI window widget
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Knut Franke (knut.franke*gmx.de)
@@ -40,7 +40,7 @@ class Folder;
 /**
  * \brief Base class of all MDI client windows.
  *
- * These are the main objects of every SciDAVis project.
+ * These are the main objects of every Makhber project.
  * All content (apart from the directory structure) is managed by subclasses of MyWidget.
  *
  * \section future_plans Future Plans

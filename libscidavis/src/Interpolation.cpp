@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Interpolation.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Ion Vasilief
     Email (use @ for *)  : ion_vasilief*yahoo.fr
@@ -52,7 +52,7 @@ Interpolation::Interpolation(ApplicationWindow *parent, Graph *g, const QString 
 void Interpolation::init(int m)
 {
     if (m < 0 || m > 2) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("Unknown interpolation method. Valid values are: 0 - Linear, 1 - "
                                  "Cubic, 2 - Akima."));
         d_init_err = true;
@@ -88,7 +88,7 @@ void Interpolation::setMethod(int m)
     }
     unsigned min_points = m + 3;
     if (d_n < min_points) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("You need at least %1 points in order to perform this operation!")
                                       .arg(min_points));
         d_init_err = true;
@@ -133,7 +133,7 @@ bool Interpolation::isDataAcceptable()
     for (unsigned i = 1; i < d_n; i++)
         if (d_x[i - 1] == d_x[i]) {
             QMessageBox::critical((ApplicationWindow *)parent(),
-                                  tr("SciDAVis") + " - " + tr("Error"),
+                                  tr("Makhber") + " - " + tr("Error"),
                                   tr("Several data points have the same x value causing divisions "
                                      "by zero, operation aborted!"));
             return false;

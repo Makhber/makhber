@@ -19,10 +19,10 @@ if( WIN32 )
     )
 elseif( APPLE )
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
-    LIBRARY DESTINATION scidavis.app/Contents/PlugIns/fitPlugins
+    LIBRARY DESTINATION makhber.app/Contents/PlugIns/fitPlugins
     )
 else()
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
-    LIBRARY DESTINATION lib/scidavis/plugins
+    LIBRARY DESTINATION lib/makhber/plugins
     )
 endif()

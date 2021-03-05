@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : AbstractPart.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Base class of Aspects with MDI windows as views.
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Knut Franke (knut.franke*gmx.de)

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : TranslateCurveTool.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006,2007 by Ion Vasilief,
                            Tilman Benkert, Knut Franke

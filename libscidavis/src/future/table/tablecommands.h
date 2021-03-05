@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : tablecommands.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Commands used in Table (part of the undo/redo framework)
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)

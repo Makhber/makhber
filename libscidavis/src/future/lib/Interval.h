@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Interval.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Tilman Benkert,
                            Knut Franke

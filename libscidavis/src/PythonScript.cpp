@@ -1,10 +1,10 @@
 /***************************************************************************
         File                 : PythonScript.cpp
-        Project              : SciDAVis
+        Project              : Makhber
 --------------------------------------------------------------------
         Copyright            : (C) 2006 by Knut Franke
         Email (use @ for *)  : knut.franke*gmx.de
-        Description          : Execute Python code from within SciDAVis
+        Description          : Execute Python code from within Makhber
 
  ***************************************************************************/
 

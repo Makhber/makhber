@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Matrix.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Aspect providing a spreadsheet to manage MxN matrix data
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -1533,7 +1533,7 @@ Matrix *Matrix::fromImage(const QImage &image)
 
     QProgressDialog progress;
     progress.setRange(0, cols);
-    progress.setWindowTitle(tr("SciDAVis") + " - " + tr("Import image..."));
+    progress.setWindowTitle(tr("Makhber") + " - " + tr("Import image..."));
     progress.raise();
 
     Matrix *matrix = new Matrix(0, rows, cols, tr("Matrix %1").arg(1));

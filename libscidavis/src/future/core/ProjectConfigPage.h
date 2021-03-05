@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : ProjectConfigPage.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert
     Email (use @ for *)  : thzs*gmx.net

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : SelectionMoveResizer.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke
     Email (use @ for *)  : knut.franke*gmx.de

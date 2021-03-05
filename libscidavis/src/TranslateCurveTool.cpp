@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : TranslateCurveTool.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006,2007 by Ion Vasilief,
                            Tilman Benkert, Knut Franke
@@ -121,7 +121,7 @@ void TranslateCurveTool::selectDestination(const QwtDoublePoint &point)
         if (!tab)
             return;
         int col = tab->colIndex(col_name);
-        if (tab->columnType(col) != SciDAVis::ColumnMode::Numeric) {
+        if (tab->columnType(col) != Makhber::ColumnMode::Numeric) {
             QMessageBox::warning(d_graph, tr("Warning"),
                                  tr("This operation cannot be performed on curves plotted from "
                                     "columns having a non-numerical format."));

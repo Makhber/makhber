@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : customevents.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief,
                            Tilman Benkert,

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Graph3D.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -1927,15 +1927,15 @@ void Graph3D::print()
 
     QPrintDialog dialog(&printer, this);
     if (dialog.exec()) {
-        if (IO::save(sp, "scidavis.png", "PNG")) {
+        if (IO::save(sp, "makhber.png", "PNG")) {
             QPixmap p;
-            p.load("scidavis.png", "PNG", Qt::ColorOnly);
+            p.load("makhber.png", "PNG", Qt::ColorOnly);
 
             QPainter paint(&printer);
             paint.drawPixmap(QPoint(0, 0), p);
             paint.end();
 
-            QFile f("scidavis.png");
+            QFile f("makhber.png");
             f.remove();
         } else
             QMessageBox::about(0, tr("IO Error"),
@@ -1946,7 +1946,7 @@ void Graph3D::print()
 void Graph3D::copyImage()
 {
     QApplication::clipboard()->setPixmap(QPixmap::fromImage(sp->grabFramebuffer()),
-                                          QClipboard::Clipboard);
+                                         QClipboard::Clipboard);
     sp->updateData();
 }
 

@@ -1,8 +1,8 @@
 /* vim: set filetype=cpp : */
 /* due to a limitation of sip, this file has to use Unix style line endings */
 /***************************************************************************
-	File                 : scidavis.sip
-	Project              : SciDAVis
+	File                 : makhber.sip
+	Project              : Makhber
 	Description          : Specifications for Python bindings
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Knut Franke (knut.franke*gmx.de)
@@ -31,7 +31,7 @@
  *                                                                         *
  ***************************************************************************/
 
-%Module scidavis
+%Module makhber
 %Import QtCore/QtCoremod.sip
 %Import QtGui/QtGuimod.sip
 
@@ -140,19 +140,19 @@ class Column: AbstractAspect
 		SIP_PYOBJECT dataType() const;
 %MethodCode
 		int mode = sipCpp->dataType();
-		sipRes = PYUNICODE_FromString(SciDAVis::enumValueToString(mode, "ColumnDataType").toUtf8().constData());
+		sipRes = PYUNICODE_FromString(Makhber::enumValueToString(mode, "ColumnDataType").toUtf8().constData());
 %End
 */
 		SIP_PYOBJECT columnMode() const;
 %MethodCode
 		int mode = static_cast<int>(sipCpp->columnMode());
-		sipRes = PYUNICODE_FromString(SciDAVis::enumValueToString(mode, "ColumnMode").toUtf8().constData());
+		sipRes = PYUNICODE_FromString(Makhber::enumValueToString(mode, "ColumnMode").toUtf8().constData());
 %End
 		void setColumnMode(QString mode);
 %MethodCode
-		int mode_code = SciDAVis::enumStringToValue(*a0, "ColumnMode");
+		int mode_code = Makhber::enumStringToValue(*a0, "ColumnMode");
 		if(mode_code != -1)
-			sipCpp->setColumnMode((SciDAVis::ColumnMode)mode_code);
+			sipCpp->setColumnMode((Makhber::ColumnMode)mode_code);
 %End
 		bool copy(const Column * other);
 		bool copy(const Column * source, int source_start, int dest_start, int num_rows);
@@ -178,13 +178,13 @@ class Column: AbstractAspect
 		SIP_PYOBJECT plotDesignation() const;
 %MethodCode
 		int pd = sipCpp->plotDesignation();
-		sipRes = PYUNICODE_FromString(SciDAVis::enumValueToString(pd, "PlotDesignation").toUtf8().constData());
+		sipRes = PYUNICODE_FromString(Makhber::enumValueToString(pd, "PlotDesignation").toUtf8().constData());
 %End
 		void setPlotDesignation(QString pd);
 %MethodCode
-		int mode_code = SciDAVis::enumStringToValue(*a0, "PlotDesignation");
+		int mode_code = Makhber::enumStringToValue(*a0, "PlotDesignation");
 		if(mode_code != -1)
-			sipCpp->setPlotDesignation((SciDAVis::PlotDesignation)mode_code);
+			sipCpp->setPlotDesignation((Makhber::PlotDesignation)mode_code);
 %End
 		void clear();
 		bool isInvalid(int row) const;
@@ -262,13 +262,13 @@ public:
   QString name();
   void setName(const QString& s);
 %MethodCode
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	if (app) app->renameWindow(sipCpp, *a0);
 %End
 
 	MyWidget *clone();
 %MethodCode
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	if (app) sipRes = app->clone(sipCpp);
 %End
 
@@ -952,7 +952,7 @@ public:
 	bool insertFunctionCurve(const QString &formula, double from=0, double to=1, int points=100,
 			const QString &title = QString());
 %MethodCode
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	if (app)
 		sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Normal, QStringList() << *a0, "x",
 				QList<double>() << a1 << a2, a3, *a4);
@@ -963,7 +963,7 @@ public:
 			double from=0, double to=2*M_PI, const QString &parameter="t", int points=100,
 			const QString &title = QString());
 %MethodCode
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	if (app)
 		sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Polar, QStringList() << *a0 << *a1,
 				*a4, QList<double>() << a2 << a3, a5, *a6);
@@ -974,7 +974,7 @@ public:
 			double from=0, double to=1, const QString &parameter="t", int points=100,
 			const QString &title =QString());
 %MethodCode
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	if (app)
 		sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Parametric, QStringList() << *a0 << *a1,
 				*a4, QList<double>() << a2 << a3, a5, *a6);
@@ -1079,7 +1079,7 @@ public:
 
 	QPointF pickPoint() const;
 %MethodCode
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	sipRes = new QPointF();
 	if (app)
 		*sipRes = DataPointPicker(const_cast<Graph*>(sipCpp), app).pick();
@@ -1103,7 +1103,7 @@ public:
   Graph* addLayer(int = 0, int = 0, int = 0, int = 0);
 %MethodCode
 	sipRes = sipCpp->addLayer(a0, a1, a2, a3);
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	if (app) app->setPreferences(sipRes);
 %End
 
@@ -1320,7 +1320,7 @@ public:
 
   void renameWindow(MyWidget *, const QString &) /Deprecated/;
 
-  // Prior to SciDAVis 0.2.4, it was necessary to call this on a layer created using
+  // Prior to Makhber 0.2.4, it was necessary to call this on a layer created using
   // Graph.addLayer() if you wanted the layer to be intialized correctly. This is now
   // done automatically as part of addLayer(); doing so again doesn't hurt, but is not necessary
   // any more.
@@ -1438,10 +1438,10 @@ if(sipRes)
 };
 
 %ModuleCode
-ApplicationWindow *sipscidavis_app()
+ApplicationWindow *sipmakhber_app()
 {
   int iserr = 0;
-  PyObject *me = PyImport_ImportModule("scidavis");
+  PyObject *me = PyImport_ImportModule("makhber");
   PyObject *mydict = PyModule_GetDict(me);
   PyObject *pyapp = PyDict_GetItemString(mydict,"app");
   Py_DECREF(me);
@@ -1453,9 +1453,9 @@ ApplicationWindow *sipscidavis_app()
 %End
 %ModuleHeaderCode
 class ApplicationWindow;
-ApplicationWindow *sipscidavis_app();
-#define SIPSCIDAVIS_APP(sipcppexpr)\
-ApplicationWindow *app = sipscidavis_app();\
+ApplicationWindow *sipmakhber_app();
+#define SIPMAKHBER_APP(sipcppexpr)\
+ApplicationWindow *app = sipmakhber_app();\
 if (app) sipCpp = sipcppexpr;\
 else { sipCpp = NULL; }
 %End
@@ -1470,11 +1470,11 @@ public:
   ExponentialFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double, bool=false);
   ExponentialFit(Graph *, const QString&, bool=false) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipExponentialFit(app, a0, *a1, a2))
+  SIPMAKHBER_APP(new sipExponentialFit(app, a0, *a1, a2))
 %End
   ExponentialFit(Graph *, const QString&, double, double, bool=false) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipExponentialFit(app, a0, *a1, a2, a3, a4))
+  SIPMAKHBER_APP(new sipExponentialFit(app, a0, *a1, a2, a3, a4))
 %End
 };
 
@@ -1488,11 +1488,11 @@ public:
   TwoExpFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   TwoExpFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipTwoExpFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipTwoExpFit(app, a0, *a1))
 %End
   TwoExpFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipTwoExpFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipTwoExpFit(app, a0, *a1, a2, a3))
 %End
 };
 
@@ -1506,11 +1506,11 @@ public:
   ThreeExpFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   ThreeExpFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipThreeExpFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipThreeExpFit(app, a0, *a1))
 %End
   ThreeExpFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipThreeExpFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipThreeExpFit(app, a0, *a1, a2, a3))
 %End
 };
 
@@ -1524,11 +1524,11 @@ public:
   SigmoidalFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   SigmoidalFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipSigmoidalFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipSigmoidalFit(app, a0, *a1))
 %End
   SigmoidalFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipSigmoidalFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipSigmoidalFit(app, a0, *a1, a2, a3))
 %End
 };
 
@@ -1542,11 +1542,11 @@ public:
   GaussAmpFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   GaussAmpFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipGaussAmpFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipGaussAmpFit(app, a0, *a1))
 %End
   GaussAmpFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipGaussAmpFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipGaussAmpFit(app, a0, *a1, a2, a3))
 %End
 };
 
@@ -1560,11 +1560,11 @@ public:
   NonLinearFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   NonLinearFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipNonLinearFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipNonLinearFit(app, a0, *a1))
 %End
   NonLinearFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipNonLinearFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipNonLinearFit(app, a0, *a1, a2, a3))
 %End
   void setParametersList(...) /PyName=setParameters/;
 %MethodCode
@@ -1591,11 +1591,11 @@ public:
   PluginFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   PluginFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipPluginFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipPluginFit(app, a0, *a1))
 %End
   PluginFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipPluginFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipPluginFit(app, a0, *a1, a2, a3))
 %End
   bool load(const QString&);
 };
@@ -1629,11 +1629,11 @@ public:
   LorentzFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   LorentzFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipLorentzFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipLorentzFit(app, a0, *a1))
 %End
   LorentzFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipLorentzFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipLorentzFit(app, a0, *a1, a2, a3))
 %End
 };
 
@@ -1647,11 +1647,11 @@ public:
   GaussFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   GaussFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipGaussFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipGaussFit(app, a0, *a1))
 %End
   GaussFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipGaussFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipGaussFit(app, a0, *a1, a2, a3))
 %End
 };
 
@@ -1665,11 +1665,11 @@ public:
   PolynomialFit(ApplicationWindow * /TransferThis/, Graph *, QString&, double, double, int=2, bool=false);
   PolynomialFit(Graph *, QString&, int=2, bool=false) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipPolynomialFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipPolynomialFit(app, a0, *a1, a2, a3))
 %End
   PolynomialFit(Graph *, QString&, double, double, int=2, bool=false) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipPolynomialFit(app, a0, *a1, a2, a3, a4, a5))
+  SIPMAKHBER_APP(new sipPolynomialFit(app, a0, *a1, a2, a3, a4, a5))
 %End
 
   virtual QString legendInfo();
@@ -1689,11 +1689,11 @@ public:
   LinearFit(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   LinearFit(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipLinearFit(app, a0, *a1))
+  SIPMAKHBER_APP(new sipLinearFit(app, a0, *a1))
 %End
   LinearFit(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipLinearFit(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipLinearFit(app, a0, *a1, a2, a3))
 %End
   void fit();
 };
@@ -1727,11 +1727,11 @@ public:
   Differentiation(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   Differentiation(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipDifferentiation(app, a0, *a1))
+  SIPMAKHBER_APP(new sipDifferentiation(app, a0, *a1))
 %End
   Differentiation(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipDifferentiation(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipDifferentiation(app, a0, *a1, a2, a3))
 %End
   bool run();
 };
@@ -1746,11 +1746,11 @@ public:
   Integration(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double);
   Integration(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipIntegration(app, a0, *a1))
+  SIPMAKHBER_APP(new sipIntegration(app, a0, *a1))
 %End
   Integration(Graph *, const QString&, double, double) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipIntegration(app, a0, *a1, a2, a3))
+  SIPMAKHBER_APP(new sipIntegration(app, a0, *a1, a2, a3))
 %End
 
 	enum InterpolationMethod{Linear, Cubic, Akima};
@@ -1774,11 +1774,11 @@ public:
   Interpolation(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double, int=0);
   Interpolation(Graph *, const QString&, int=0) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipInterpolation(app, a0, *a1, a2))
+  SIPMAKHBER_APP(new sipInterpolation(app, a0, *a1, a2))
 %End
   Interpolation(Graph *, const QString&, double, double, int=0) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipInterpolation(app, a0, *a1, a2, a3, a4))
+  SIPMAKHBER_APP(new sipInterpolation(app, a0, *a1, a2, a3, a4))
 %End
 
   void setMethod(int n);
@@ -1798,11 +1798,11 @@ public:
   SmoothFilter(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double, int=3);
   SmoothFilter(Graph *, const QString&, int=3) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipSmoothFilter(app, a0, *a1, a2))
+  SIPMAKHBER_APP(new sipSmoothFilter(app, a0, *a1, a2))
 %End
   SmoothFilter(Graph *, const QString&, double, double, int=3) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipSmoothFilter(app, a0, *a1, a2, a3, a4))
+  SIPMAKHBER_APP(new sipSmoothFilter(app, a0, *a1, a2, a3, a4))
 %End
 
   void setMethod(int);
@@ -1826,11 +1826,11 @@ public:
   FFTFilter(ApplicationWindow * /TransferThis/, Graph *, const QString&, double, double, int=1);
   FFTFilter(Graph *, const QString&, int=1) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipFFTFilter(app, a0, *a1, a2))
+  SIPMAKHBER_APP(new sipFFTFilter(app, a0, *a1, a2))
 %End
   FFTFilter(Graph *, const QString&, double, double, int=1) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipFFTFilter(app, a0, *a1, a2, a3, a4))
+  SIPMAKHBER_APP(new sipFFTFilter(app, a0, *a1, a2, a3, a4))
 %End
 
   void setFilterType(int);
@@ -1854,11 +1854,11 @@ public:
   FFT(ApplicationWindow * /TransferThis/, Graph *, const QString&);
   FFT(Table *, const QString&, const QString& = QString()) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipFFT(app, a0, *a1, *a2))
+  SIPMAKHBER_APP(new sipFFT(app, a0, *a1, *a2))
 %End
   FFT(Graph *, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipFFT(app, a0, *a1))
+  SIPMAKHBER_APP(new sipFFT(app, a0, *a1))
 %End
 
   void setInverseFFT(bool=true);
@@ -1879,7 +1879,7 @@ public:
   Correlation(ApplicationWindow * /TransferThis/, Table *, const QString&, const QString&);
   Correlation(Table *, const QString&, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipCorrelation(app, a0, *a1, *a2))
+  SIPMAKHBER_APP(new sipCorrelation(app, a0, *a1, *a2))
 %End
 
   void setDataFromTable(Table *, const QString&, const QString&);
@@ -1896,7 +1896,7 @@ public:
   Convolution(ApplicationWindow * /TransferThis/, Table *, const QString&, const QString&);
   Convolution(Table *, const QString&, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipConvolution(app, a0, *a1, *a2))
+  SIPMAKHBER_APP(new sipConvolution(app, a0, *a1, *a2))
 %End
 
   void setDataFromTable(Table *, const QString&, const QString&);
@@ -1913,7 +1913,7 @@ public:
   Deconvolution(ApplicationWindow * /TransferThis/, Table *, const QString&, const QString&);
   Deconvolution(Table *, const QString&, const QString&) /NoDerived/;
 %MethodCode
-  SIPSCIDAVIS_APP(new sipDeconvolution(app, a0, *a1, *a2))
+  SIPMAKHBER_APP(new sipDeconvolution(app, a0, *a1, *a2))
 %End
 
   void setDataFromTable(Table *, const QString&, const QString&);
@@ -1975,7 +1975,7 @@ public:
 
   void save(const QString &filename);
 %MethodCode
-	ApplicationWindow *app = sipscidavis_app();
+	ApplicationWindow *app = sipmakhber_app();
 	if (app)
 		app->saveFolder(sipCpp, *a0);
 %End
@@ -1989,13 +1989,13 @@ public:
 	if (a0->parent() == 0) { // adding newly constructed folder
 		a0->setParent(sipCpp);
 		a0->setObjectName(name);
-		ApplicationWindow *app = sipscidavis_app();
+		ApplicationWindow *app = sipmakhber_app();
 		if (app) {
 			app->addFolderListViewItem(a0);
 			a0->setFolderListItem(new FolderListItem(sipCpp->folderListItem(), a0));
 		}
 	} else { // moving existing folder
-		ApplicationWindow *app = sipscidavis_app();
+		ApplicationWindow *app = sipmakhber_app();
 		if (app)
 			app->moveFolder(a0->folderListItem(), sipCpp->folderListItem());
 	}

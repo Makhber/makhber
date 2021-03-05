@@ -1,12 +1,12 @@
 /***************************************************************************
     File                 : DateTime2DoubleFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Tilman Benkert,
                            Knut Franke
     Email (use @ for *)  : thzs*gmx.net, knut.franke*gmx.de
     Description          : Conversion filter QDateTime -> double (using Julian day).
-                           
+
  ***************************************************************************/
 
 /***************************************************************************
@@ -43,7 +43,7 @@ public:
     // DateTime2DoubleFilter(const UnitInterval unit = UnitInterval::Day, const QDateTime&
     // date_time_0 = zeroOffsetDate) :
     DateTime2DoubleFilter(const UnitInterval unit, const QDateTime &date_time_0)
-        : NumericDateTimeBaseFilter(unit, date_time_0){};
+        : NumericDateTimeBaseFilter(unit, date_time_0) {};
 
     virtual double valueAt(int row) const
     {
@@ -54,17 +54,17 @@ public:
     }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeDouble; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeDouble; }
 
     //! Explicit conversion from base class using conversion ctor
     explicit DateTime2DoubleFilter(const NumericDateTimeBaseFilter &numeric)
-        : NumericDateTimeBaseFilter(numeric){};
+        : NumericDateTimeBaseFilter(numeric) {};
 
 protected:
     //! Using typed ports: only DateTime inputs are accepted.
     virtual bool inputAcceptable(int, const AbstractColumn *source)
     {
-        return source->dataType() == SciDAVis::TypeQDateTime;
+        return source->dataType() == Makhber::TypeQDateTime;
     }
 };
 

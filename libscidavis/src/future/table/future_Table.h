@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Table.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Aspect providing a spreadsheet table with column logic
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -141,7 +141,7 @@ public:
     //! Return the total number of rows in the table
     int rowCount() const;
     //! Return the number of columns matching the given designation
-    int columnCount(SciDAVis::PlotDesignation pd) const;
+    int columnCount(Makhber::PlotDesignation pd) const;
     //! Return column number 'index'
     Column *column(int index) const;
     //! Return current (i.e. last clicked) column
@@ -219,7 +219,7 @@ public:
     static bool defaultCommentVisibility() { return d_default_comment_visibility; }
     //! Return the text displayed in the given cell
     QString text(int row, int col);
-    void setSelectionAs(SciDAVis::PlotDesignation pd);
+    void setSelectionAs(Makhber::PlotDesignation pd);
     using AbstractPart::copy;
     void copy(Table *other);
 
@@ -491,7 +491,7 @@ public:
     {
     public:
         Private(Table &owner)
-            : d_owner(owner), d_column_count(0), d_row_count(0), d_current_column{ -1 }
+            : d_owner(owner), d_column_count(0), d_row_count(0), d_current_column { -1 }
         {
         }
         //! Replace columns completely
@@ -533,7 +533,7 @@ public:
         //! Return the full column header string
         QString columnHeader(int col);
         //! Return the number of columns with a given plot designation
-        int numColsWithPD(SciDAVis::PlotDesignation pd);
+        int numColsWithPD(Makhber::PlotDesignation pd);
         //! Return column number 'index'
         Column *column(int index) const;
         //! Return current (i.e. last clicked) column

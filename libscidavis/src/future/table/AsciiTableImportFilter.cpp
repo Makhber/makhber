@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : AsciiTableImportFilter.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Knut Franke
     Email (use @ for *)  : Knut.Franke*gmx.net
@@ -50,14 +50,14 @@ QStringList AsciiTableImportFilter::fileExtensions() const
 
 namespace {
 // redirect to QIODevice's readLine so that we can override it to handle '\r' line terminators
-struct SciDaVisTextStream
+struct MakhberTextStream
 {
     QIODevice &input;
     bool good;
     operator bool() const { return good; }
     enum { none, simplify, trim } whiteSpaceTreatment;
     QString separator;
-    SciDaVisTextStream(QIODevice &inp, const QString &sep)
+    MakhberTextStream(QIODevice &inp, const QString &sep)
         : input(inp), good(true), whiteSpaceTreatment(none), separator(sep)
     {
     }
@@ -113,7 +113,7 @@ struct AP : public std::unique_ptr<T>
 };
 
 template<class C>
-void readCols(QList<Column *> &cols, SciDaVisTextStream &stream, bool readColNames)
+void readCols(QList<Column *> &cols, MakhberTextStream &stream, bool readColNames)
 {
     QStringList row, column_names;
     int i;
@@ -151,9 +151,9 @@ void readCols(QList<Column *> &cols, SciDaVisTextStream &stream, bool readColNam
         cols << new Column(std::move(column_names[i]), unique_ptr<C>(std::move(data[i])),
                            std::move(invalid_cells[i]));
         if (i == 0)
-            cols.back()->setPlotDesignation(SciDAVis::X);
+            cols.back()->setPlotDesignation(Makhber::X);
         else
-            cols.back()->setPlotDesignation(SciDAVis::Y);
+            cols.back()->setPlotDesignation(Makhber::Y);
     }
 }
 
@@ -161,11 +161,11 @@ void readCols(QList<Column *> &cols, SciDaVisTextStream &stream, bool readColNam
 
 AbstractAspect *AsciiTableImportFilter::importAspect(QIODevice &input)
 {
-    SciDaVisTextStream stream(input, d_separator);
+    MakhberTextStream stream(input, d_separator);
     if (d_simplify_whitespace)
-        stream.whiteSpaceTreatment = SciDaVisTextStream::simplify;
+        stream.whiteSpaceTreatment = MakhberTextStream::simplify;
     else if (d_trim_whitespace)
-        stream.whiteSpaceTreatment = SciDaVisTextStream::trim;
+        stream.whiteSpaceTreatment = MakhberTextStream::trim;
 
     // skip ignored lines
     for (int i = 0; i < d_ignored_lines; i++)

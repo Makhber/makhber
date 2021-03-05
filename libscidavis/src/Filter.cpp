@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Fit.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Ion Vasilief
     Email (use @ for *)  : ion_vasilief*yahoo.fr
@@ -77,7 +77,7 @@ void Filter::init()
 void Filter::setInterval(double from, double to)
 {
     if (!d_curve) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("Please assign a curve first!"));
         return;
     }
@@ -116,7 +116,7 @@ void Filter::setDataCurve(int curve, double start, double end)
 bool Filter::isDataAcceptable()
 {
     if (d_n < unsigned(d_min_points)) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " + tr("Error"),
+        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("You need at least %1 points in order to perform this operation!")
                                       .arg(d_min_points));
         return false;
@@ -206,7 +206,7 @@ bool Filter::run()
 
     //	if (d_n < 0)
     //	{
-    //		QMessageBox::critical((ApplicationWindow *)parent(), tr("SciDAVis") + " - " +
+    //		QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " +
     // tr("Error"), 				tr("You didn't specify a valid data set for this
     // operation!")); return false;
     //	}
@@ -296,10 +296,10 @@ QwtPlotCurve *Filter::addResultCurve(double *x, double *y)
 {
     ApplicationWindow *app = (ApplicationWindow *)parent();
     const QString tableName = app->generateUniqueName(this->objectName());
-    Column *xCol = new Column(tr("1", "filter table x column name"), SciDAVis::ColumnMode::Numeric);
-    Column *yCol = new Column(tr("2", "filter table y column name"), SciDAVis::ColumnMode::Numeric);
-    xCol->setPlotDesignation(SciDAVis::X);
-    yCol->setPlotDesignation(SciDAVis::Y);
+    Column *xCol = new Column(tr("1", "filter table x column name"), Makhber::ColumnMode::Numeric);
+    Column *yCol = new Column(tr("2", "filter table y column name"), Makhber::ColumnMode::Numeric);
+    xCol->setPlotDesignation(Makhber::X);
+    yCol->setPlotDesignation(Makhber::Y);
     for (int i = 0; i < d_points; i++) {
         xCol->setValueAt(i, x[i]);
         yCol->setValueAt(i, y[i]);

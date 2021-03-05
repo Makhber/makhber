@@ -1,10 +1,10 @@
 /***************************************************************************
     File                 : main.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
-    Description          : SciDAVis main function
+    Description          : Makhber main function
 
  ***************************************************************************/
 
@@ -36,22 +36,22 @@
 #include <typeinfo>
 
 // The following stuff is for the doxygen title page
-/*!  \mainpage SciDAVis - Scientific Data Analysis and Visualization - API documentation
+/*!  \mainpage Makhber - Scientific Data Analysis and Visualization - API documentation
 
   \section description Program description:
-SciDAVis is a user-friendly data analysis and visualization program primarily aimed at high-quality
+Makhber is a user-friendly data analysis and visualization program primarily aimed at high-quality
 plotting of scientific data. It strives to combine an intuitive, easy-to-use graphical user
 interface with powerful features such as Python scriptability.
 
- The SciDAVis web page can be found at<br>
- <a href="http://scidavis.sourceforge.net">http://scidavis.sourceforge.net</a><br>
+ The Makhber web page can be found at<br>
+ <a href="https://github.com/Makhber/makhber">https://github.com/Makhber/makhber</a><br>
 
 All suggestions and contributions are most welcome!<br>
 If you want to contribute code, please read the notes on \ref style "coding style" first.
 There is also a section with some notes about \ref future "future plans".
 <br>
 
-  \section libs SciDAVis uses the following libraries:
+  \section libs Makhber uses the following libraries:
   <a href="http://www.trolltech.com/products/qt/index.html">Qt</a>,
   <a href="http://qwt.sourceforge.net/index.html">Qwt</a>,
   <a href="http://qwtplot3d.sourceforge.net/">QwtPlot3D</a>,
@@ -63,7 +63,7 @@ There is also a section with some notes about \ref future "future plans".
 
   \page future Future Plans
 
-  - Make SciDAVis easier to extend and maintain by modularizing it and add
+  - Make Makhber easier to extend and maintain by modularizing it and add
     generic plug-in support, support for implementing extensions in Python.
         For example, ideally it should be possible to implement new plot or marker
     types without modifying existing classes.
@@ -160,8 +160,8 @@ int main(int argc, char **argv)
 {
 
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
-    QCoreApplication::setOrganizationName("SciDAVis");
-    QCoreApplication::setApplicationName("SciDAVis");
+    QCoreApplication::setOrganizationName("Makhber");
+    QCoreApplication::setApplicationName("Makhber");
 
     Application app(argc, argv);
 

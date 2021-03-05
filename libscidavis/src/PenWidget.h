@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : PenWidget.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2018 by Miquel Garriga
     Email (use @ for *)  : gbmiquel*gmail.com

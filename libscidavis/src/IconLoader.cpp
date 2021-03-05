@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : iconloader.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2016 by Arun Narayanankutty
     Email                : n.arun.lifescience@gmail.com

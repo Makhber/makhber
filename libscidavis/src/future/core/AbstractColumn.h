@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : AbstractColumn.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Interface definition for data with column logic
     --------------------------------------------------------------------
     Copyright            : (C) 2007-2009 Tilman Benkert (thzs*gmx.net)
@@ -89,7 +89,7 @@ public:
     virtual ~AbstractColumn() { aboutToBeDestroyed(this); }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const = 0;
+    virtual Makhber::ColumnDataType dataType() const = 0;
     //! Return whether the object is read-only
     virtual bool isReadOnly() const { return true; };
     //! Return the column mode
@@ -98,13 +98,13 @@ public:
      * by plots. The column mode specifies how to interpret
      * the values in the column additional to the data type.
      */
-    virtual SciDAVis::ColumnMode columnMode() const = 0;
+    virtual Makhber::ColumnMode columnMode() const = 0;
     //! Set the column mode
     /**
      * This sets the column mode and, if
      * necessary, converts it to another datatype.
      */
-    virtual void setColumnMode(SciDAVis::ColumnMode mode, AbstractFilter *conversion_filter = 0)
+    virtual void setColumnMode(Makhber::ColumnMode mode, AbstractFilter *conversion_filter = 0)
     {
         Q_UNUSED(mode);
         Q_UNUSED(conversion_filter);
@@ -155,9 +155,9 @@ public:
         Q_UNUSED(count)
     };
     //! Return the column plot designation
-    virtual SciDAVis::PlotDesignation plotDesignation() const = 0;
+    virtual Makhber::PlotDesignation plotDesignation() const = 0;
     //! Set the column plot designation
-    // virtual void setPlotDesignation(SciDAVis::PlotDesignation pd) { Q_UNUSED(pd) };
+    // virtual void setPlotDesignation(Makhber::PlotDesignation pd) { Q_UNUSED(pd) };
     //! Clear the whole column
     virtual void clear() {};
     //! This must be called before the column is replaced by another

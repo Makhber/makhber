@@ -1,6 +1,6 @@
 /***************************************************************************
         File                 : ScriptingLangDialog.cpp
-        Project              : SciDAVis
+        Project              : Makhber
 --------------------------------------------------------------------
         Copyright            : (C) 2006 by Knut Franke, Ion Vasilief
         Email (use @ for *)  : knut.franke*gmx.de, ion_vasilief*yahoo.fr

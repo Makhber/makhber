@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : String2MonthFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Knut Franke, Tilman Benkert
     Email (use @ for *)  : knut.franke*gmx.de, thzs*gmx.net
@@ -99,12 +99,12 @@ public:
     }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
 
 protected:
     virtual bool inputAcceptable(int, const AbstractColumn *source)
     {
-        return source->dataType() == SciDAVis::TypeQString;
+        return source->dataType() == Makhber::TypeQString;
     }
 };
 

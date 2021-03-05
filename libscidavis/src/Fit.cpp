@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Fit.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -399,16 +399,16 @@ Table *Fit::parametersTable(const QString &tableName)
     ApplicationWindow *app = (ApplicationWindow *)parent();
     Table *t = app->newTable(tableName, d_p, 3);
     t->setHeader(QStringList() << tr("Parameter") << tr("Value") << tr("Error"));
-    t->column(0)->setColumnMode(SciDAVis::ColumnMode::Text);
-    t->column(1)->setColumnMode(SciDAVis::ColumnMode::Numeric);
-    t->column(2)->setColumnMode(SciDAVis::ColumnMode::Numeric);
+    t->column(0)->setColumnMode(Makhber::ColumnMode::Text);
+    t->column(1)->setColumnMode(Makhber::ColumnMode::Numeric);
+    t->column(2)->setColumnMode(Makhber::ColumnMode::Numeric);
     for (unsigned i = 0; i < d_p; i++) {
         t->column(0)->setTextAt(i, d_param_names[i]);
         t->column(1)->setValueAt(i, d_results[i]);
         t->column(2)->setValueAt(i, sqrt(gsl_matrix_get(covar, i, i)));
     }
 
-    t->column(2)->setPlotDesignation(SciDAVis::yErr);
+    t->column(2)->setPlotDesignation(Makhber::yErr);
 // TODO: replace or remove this
 #if 0
 	for (int j=0; j<3; j++)

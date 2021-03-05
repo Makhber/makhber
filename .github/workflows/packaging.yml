@@ -71,11 +71,11 @@ jobs:
           mkdir build; cd build
           $Env:VCPKG_INSTALLATION_ROOT
           cmake .. `
-            -DSCIDAVIS_ORIGIN_IMPORT=ON `
-            -DSCIDAVIS_BUILD_TESTS=ON `
+            -DMAKHBER_ORIGIN_IMPORT=ON `
+            -DMAKHBER_BUILD_TESTS=ON `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin" `
-            -DCPACK_PACKAGE_FILE_NAME=scidavis
+            -DCPACK_PACKAGE_FILE_NAME=makhber
 
       - name: Building
         run: |
@@ -104,8 +104,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/scidavis.msi
-          asset_name: scidavis-${{ steps.packaging.outputs.version }}-win64.msi
+          asset_path: build/makhber.msi
+          asset_name: makhber-${{ steps.packaging.outputs.version }}-win64.msi
           asset_content_type: application/zip
 
       - name: Upload NSIS installer
@@ -115,8 +115,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/scidavis.exe
-          asset_name: scidavis-${{ steps.packaging.outputs.version }}-win64.exe
+          asset_path: build/makhber.exe
+          asset_name: makhber-${{ steps.packaging.outputs.version }}-win64.exe
           asset_content_type: application/zip
 
   macos:
@@ -150,9 +150,9 @@ jobs:
         run: |
           mkdir build && cd build
           cmake .. \
-            -DSCIDAVIS_ORIGIN_IMPORT=ON \
-            -DSCIDAVIS_BUILD_TESTS=ON \
-            -DCPACK_PACKAGE_FILE_NAME=scidavis
+            -DMAKHBER_ORIGIN_IMPORT=ON \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DCPACK_PACKAGE_FILE_NAME=makhber
 
       - name: Building
         run: |
@@ -180,6 +180,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/scidavis.dmg
-          asset_name: scidavis-${{ steps.packaging.outputs.version }}-macos.dmg
+          asset_path: build/makhber.dmg
+          asset_name: makhber-${{ steps.packaging.outputs.version }}-macos.dmg
           asset_content_type: application/zip

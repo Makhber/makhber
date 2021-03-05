@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : XmlStreamReader.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : XML stream parser that supports errors as well as warnings
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)

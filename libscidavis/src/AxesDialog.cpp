@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : AxesDialog.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -1307,7 +1307,8 @@ bool AxesDialog::updatePlot()
                     return false;
                 }
             }
-        } else if (format == Graph::AxisType::Time || format == Graph::AxisType::Date || format == Graph::AxisType::DateTime) {
+        } else if (format == Graph::AxisType::Time || format == Graph::AxisType::Date
+                   || format == Graph::AxisType::DateTime) {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
             QStringList lst = formatInfo[axis].split(";", Qt::KeepEmptyParts);
 #else
@@ -1650,7 +1651,8 @@ void AxesDialog::updateTickLabelsList(bool on)
     auto type = currentSelectedAxisType();
     if (type == Graph::AxisType::Day || type == Graph::AxisType::Month)
         formatInfo[axis] = QString::number(boxFormat->currentIndex());
-    else if (type == Graph::AxisType::Time || type == Graph::AxisType::Date || type == Graph::AxisType::DateTime) {
+    else if (type == Graph::AxisType::Time || type == Graph::AxisType::Date
+             || type == Graph::AxisType::DateTime) {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList lst = formatInfo[axis].split(";", Qt::SkipEmptyParts);
 #else
@@ -1736,7 +1738,8 @@ void AxesDialog::setLabelsNumericFormat(int)
             boxPrecision->setEnabled(true);
     } else if (type == Graph::AxisType::Day || type == Graph::AxisType::Month)
         formatInfo[axis] = QString::number(format);
-    else if (type == Graph::AxisType::Time || type == Graph::AxisType::Date || type == Graph::AxisType::DateTime) {
+    else if (type == Graph::AxisType::Time || type == Graph::AxisType::Date
+             || type == Graph::AxisType::DateTime) {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList lst = formatInfo[axis].split(";", Qt::KeepEmptyParts);
 #else

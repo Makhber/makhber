@@ -1,6 +1,6 @@
 /***************************************************************************
    File                 : exp_saturation.c
-   Project              : SciDAVis
+   Project              : Makhber
    Description          : Fit plugin for "b1*(1-exp(-b2*x))"
    --------------------------------------------------------------------
    Copyright            : (C) 2008 Knut Franke (knut.franke*gmx.de)
@@ -40,69 +40,78 @@
 #define DLL_EXPORT
 #endif
 
-struct data {
-	size_t n;
-	size_t p;
-	double * X;
-	double * Y;
-	double * sigma;
+struct data
+{
+    size_t n;
+    size_t p;
+    double *X;
+    double *Y;
+    double *sigma;
 };
 
-DLL_EXPORT char * name() { return "ExponentialSaturation"; }
-
-DLL_EXPORT char * function() { return "b1*(1-exp(-b2*x))"; }
-
-DLL_EXPORT char * parameters() { return "b1,b2"; }
-
-DLL_EXPORT double function_eval(double x, double * params)
+DLL_EXPORT char *name()
 {
-	return params[0]*(1-exp(-params[1]*x));
+    return "ExponentialSaturation";
 }
 
-DLL_EXPORT int function_f(const gsl_vector * params, void * void_data, gsl_vector * f)
+DLL_EXPORT char *function()
 {
-	struct data * d = (struct data*) void_data;
-	double b1 = gsl_vector_get(params, 0);
-	double b2 = gsl_vector_get(params, 1);
-	size_t i;
-	for (i=0; i<d->n; i++)
-		gsl_vector_set(f, i, (b1*(1-exp(-b2*d->X[i])) - d->Y[i])/d->sigma[i]);
-	return GSL_SUCCESS;
+    return "b1*(1-exp(-b2*x))";
 }
 
-DLL_EXPORT int function_df(const gsl_vector * params, void * void_data, gsl_matrix *J)
+DLL_EXPORT char *parameters()
 {
-	struct data * d = (struct data*) void_data;
-	double b1 = gsl_vector_get(params, 0);
-	double b2 = gsl_vector_get(params, 1);
-	size_t i;
-	for (i=0; i<d->n; i++) {
-		double x = d->X[i];
-		gsl_matrix_set(J, i, 0, (1-exp(-b2*x)));
-		gsl_matrix_set(J, i, 1, b1*x*exp(-b2*x));
-	}
-	return GSL_SUCCESS;
+    return "b1,b2";
 }
 
-DLL_EXPORT int function_fdf(const gsl_vector * params, void * void_data, gsl_vector * f, gsl_matrix * J)
+DLL_EXPORT double function_eval(double x, double *params)
 {
-	function_f(params, void_data, f);
-	function_df(params, void_data, J);
-	return GSL_SUCCESS;
+    return params[0] * (1 - exp(-params[1] * x));
 }
 
-DLL_EXPORT double function_d(const gsl_vector * params, void * void_data)
+DLL_EXPORT int function_f(const gsl_vector *params, void *void_data, gsl_vector *f)
 {
-	struct data * d = (struct data*) void_data;
-	gsl_vector * f = gsl_vector_alloc(d->n);
-	double result = 0;
-	size_t i;
-
-	function_f(params, void_data, f);
-	for (i=0; i<d->n; i++)
-		result += pow(gsl_vector_get(f, i), 2);
-
-	gsl_vector_free(f);
-	return result;
+    struct data *d = (struct data *)void_data;
+    double b1 = gsl_vector_get(params, 0);
+    double b2 = gsl_vector_get(params, 1);
+    size_t i;
+    for (i = 0; i < d->n; i++)
+        gsl_vector_set(f, i, (b1 * (1 - exp(-b2 * d->X[i])) - d->Y[i]) / d->sigma[i]);
+    return GSL_SUCCESS;
 }
 
+DLL_EXPORT int function_df(const gsl_vector *params, void *void_data, gsl_matrix *J)
+{
+    struct data *d = (struct data *)void_data;
+    double b1 = gsl_vector_get(params, 0);
+    double b2 = gsl_vector_get(params, 1);
+    size_t i;
+    for (i = 0; i < d->n; i++) {
+        double x = d->X[i];
+        gsl_matrix_set(J, i, 0, (1 - exp(-b2 * x)));
+        gsl_matrix_set(J, i, 1, b1 * x * exp(-b2 * x));
+    }
+    return GSL_SUCCESS;
+}
+
+DLL_EXPORT int function_fdf(const gsl_vector *params, void *void_data, gsl_vector *f, gsl_matrix *J)
+{
+    function_f(params, void_data, f);
+    function_df(params, void_data, J);
+    return GSL_SUCCESS;
+}
+
+DLL_EXPORT double function_d(const gsl_vector *params, void *void_data)
+{
+    struct data *d = (struct data *)void_data;
+    gsl_vector *f = gsl_vector_alloc(d->n);
+    double result = 0;
+    size_t i;
+
+    function_f(params, void_data, f);
+    for (i = 0; i < d->n; i++)
+        result += pow(gsl_vector_get(f, i), 2);
+
+    gsl_vector_free(f);
+    return result;
+}

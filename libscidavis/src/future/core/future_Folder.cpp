@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Folder.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Folder in a project
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)
@@ -130,7 +130,7 @@ bool Folder::readChildAspectElement(XmlStreamReader *reader)
         addChild(folder);
         loaded = true;
     } else if (element_name == "column") {
-        Column *column = new Column(tr("Column %1").arg(1), SciDAVis::ColumnMode::Text);
+        Column *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
         if (!column->load(reader)) {
             delete column;
             return false;

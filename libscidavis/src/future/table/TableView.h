@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : TableView.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : View class for Table
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)
@@ -117,7 +117,7 @@ public:
      */
     int selectedColumnCount(bool full = false);
     //! Return how many columns with the given plot designation are (at least partly) selected
-    int selectedColumnCount(SciDAVis::PlotDesignation pd);
+    int selectedColumnCount(Makhber::PlotDesignation pd);
     //! Returns true if column 'col' is selected; otherwise false
     /**
      * If full is true, this function only returns true if the whole

@@ -1,7 +1,7 @@
 /***************************************************************************
     File                 : ApplicationWindow.h
-    Project              : SciDAVis
-    Description          : SciDAVis's main window
+    Project              : Makhber
+    Description          : Makhber's main window
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Knut Franke (knut.franke*gmx.de)
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -55,7 +55,7 @@
 #include "Table.h"
 #include "ScriptingEnv.h"
 #include "Script.h"
-#include "SciDAVisObject.h"
+#include "MakhberObject.h"
 
 class QPixmap;
 class QCloseEvent;
@@ -96,7 +96,7 @@ class AxesDialog;
 #endif
 
 /**
- * \brief SciDAVis's main window.
+ * \brief Makhber's main window.
  *
  * This class contains the main part of the user interface as well as the central project management
  * facilities.
@@ -128,7 +128,7 @@ class AxesDialog;
  * is left in ApplicationWindow after the above reorganizations. Think about whether a Model/View
  * approach can be used for Project/ProjectExplorer.
  */
-class ApplicationWindow : public SciDAVisObject<QMainWindow>, public scripted
+class ApplicationWindow : public MakhberObject<QMainWindow>, public scripted
 {
     Q_OBJECT
 public:
@@ -437,7 +437,7 @@ public slots:
     void printAllPlots();
     //@}
 
-    QStringList columnsList(SciDAVis::PlotDesignation plotType);
+    QStringList columnsList(Makhber::PlotDesignation plotType);
     QStringList columnsList();
 
     void undo();
@@ -478,7 +478,7 @@ public slots:
 
     //! Show about dialog
     static void about();
-    //! Return a version string ("SciDAVis x.y.z")
+    //! Return a version string ("Makhber x.y.z")
     static QString versionString();
     static int qtVersion() { return QT_VERSION; }
     void windowsMenuAboutToShow();
@@ -767,11 +767,11 @@ public slots:
     void searchForUpdates();
 #endif
 
-    //! Open SciDAVis homepage in external browser
+    //! Open Makhber homepage in external browser
     void showHomePage();
-    //! Open forums page at SF.net in external browser
+    //! Open discussions page in external browser
     void showForums();
-    //! Open bug tracking system at SF.net in external browser
+    //! Open issues in external browser
     void showBugTracker();
 #ifdef DOWNLOAD_LINKS
     //! Show download page in external browser

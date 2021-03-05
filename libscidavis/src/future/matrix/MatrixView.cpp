@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : MatrixView.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : View class for Matrix
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)

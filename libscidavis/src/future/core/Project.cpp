@@ -1,7 +1,7 @@
 /***************************************************************************
     File                 : Project.cpp
-    Project              : SciDAVis
-    Description          : Represents a SciDAVis project.
+    Project              : Makhber
+    Description          : Represents a Makhber project.
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)
     Copyright            : (C) 2007 Knut Franke (knut.franke*gmx.de)
@@ -169,13 +169,13 @@ QString Project::fileName() const
 void Project::save(QXmlStreamWriter *writer) const
 {
     writer->writeStartDocument();
-    writer->writeStartElement("scidavis_project");
-    writer->writeAttribute("version", QString::number(SciDAVis::version()));
+    writer->writeStartElement("makhber_project");
+    writer->writeAttribute("version", QString::number(Makhber::version()));
     // TODO: write project attributes
     writer->writeStartElement("project_root");
     future::Folder::save(writer);
     writer->writeEndElement(); // "project_root"
-    writer->writeEndElement(); // "scidavis_project"
+    writer->writeEndElement(); // "makhber_project"
     writer->writeEndDocument();
 }
 
@@ -187,7 +187,7 @@ bool Project::load(XmlStreamReader *reader)
         if (!reader->skipToNextTag())
             return false;
 
-        if (reader->name() == "scidavis_project") {
+        if (reader->name() == "makhber_project") {
             bool ok;
             reader->readAttributeInt("version", &ok);
             if (!ok) {
@@ -222,7 +222,7 @@ bool Project::load(XmlStreamReader *reader)
                 }
             }
         } else // no project element
-            reader->raiseError(tr("no scidavis_project element found"));
+            reader->raiseError(tr("no makhber_project element found"));
     } else // no start document
         reader->raiseError(tr("no valid XML document found"));
 

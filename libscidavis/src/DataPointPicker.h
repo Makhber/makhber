@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : DataPointPicker.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2010 Knut Franke
     Email (use @ for *)  : Knut.Franke*gmx.net

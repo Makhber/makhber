@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : MatrixModel.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Model for the access to a Matrix
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)

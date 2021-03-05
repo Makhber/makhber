@@ -22,23 +22,23 @@ add_executable( unittest ${SRCS} )
 
 find_package( GTest REQUIRED )
 
-target_link_libraries( unittest libscidavis GTest::GTest )
+target_link_libraries( unittest libmakhber GTest::GTest )
 
 if( NOT WIN32 )
   target_link_libraries( unittest pthread )
 endif()
 
-if( SCIDAVIS_ORIGIN_IMPORT )
+if( MAKHBER_ORIGIN_IMPORT )
   target_compile_definitions( unittest PRIVATE ORIGIN_IMPORT )
 endif()
 
 if( MULTI_CONFIG )
   target_include_directories( unittest PRIVATE
-    "${CMAKE_BINARY_DIR}/libscidavis/libscidavis_autogen/include_$<CONFIG>"
+    "${CMAKE_BINARY_DIR}/libscidavis/libmakhber_autogen/include_$<CONFIG>"
     )
 else()
   target_include_directories( unittest PRIVATE
-    "${CMAKE_BINARY_DIR}/libscidavis/libscidavis_autogen/include"
+    "${CMAKE_BINARY_DIR}/libscidavis/libmakhber_autogen/include"
     )
 endif()
 
@@ -54,7 +54,7 @@ set( TestDataFiles
   )
 file( COPY ${TestDataFiles} DESTINATION . )
 
-if( NOT (SCIDAVIS_SEARCH_FOR_UPDATES OR SCIDAVIS_DOWNLOAD_LINKS) )
+if( NOT (MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS) )
 
   set( menu_files defaultMenus_en.menudat appWithGraphen.menudat )
 
@@ -66,10 +66,10 @@ if( NOT (SCIDAVIS_SEARCH_FOR_UPDATES OR SCIDAVIS_DOWNLOAD_LINKS) )
 
 endif()
 
-if( SCIDAVIS_SCRIPTING_PYTHON )
+if( MAKHBER_SCRIPTING_PYTHON )
 
   file( COPY pythonTests/ DESTINATION ./tmp )
-  file( COPY ${CMAKE_SOURCE_DIR}/scidavis/scidavisrc.py DESTINATION ./tmp )
+  file( COPY ${CMAKE_SOURCE_DIR}/scidavis/makhberrc.py DESTINATION ./tmp )
   file( COPY ../scidavis-logo.png DESTINATION ./tmp )
 
   file( GLOB pythonTests pythonTests/*.py )
@@ -81,7 +81,7 @@ if( SCIDAVIS_SCRIPTING_PYTHON )
   foreach( pythonTest ${pythonTests} )
     get_filename_component( test_name ${pythonTest} NAME_WLE )
     add_test( NAME python_${test_name}
-      COMMAND scidavis -l=en -x ${pythonTest}
+      COMMAND makhber -l=en -x ${pythonTest}
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/tmp
     )
   endforeach()

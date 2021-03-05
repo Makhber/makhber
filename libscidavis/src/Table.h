@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Table.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Table worksheet class
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -54,15 +54,15 @@ class Table : public TableView, public scripted
 public:
     QPointer<future::Table> d_future_table;
 
-  /*  enum ColType {
-        Numeric = 0,
-        Text = 1,
-        Date = 2,
-        Time = 3,
-        Month = 4,
-        Day = 5,
-        DateTime = 6
-    }; // TODO: remove this in favor of SciDAVis::columnMode*/
+    /*  enum ColType {
+          Numeric = 0,
+          Text = 1,
+          Date = 2,
+          Time = 3,
+          Month = 4,
+          Day = 5,
+          DateTime = 6
+      }; // TODO: remove this in favor of Makhber::columnMode*/
 
     Table(ScriptingEnv *env, const QString &fname, const QString &sep, int ignoredLines,
           bool renameCols, bool stripSpaces, bool simplifySpaces, bool convertToNumeric,
@@ -153,7 +153,7 @@ public slots:
     //! Return the value of the cell as a double
     /**
      * If one of the indices or the cell content is invalid, return 0.0. For the next non-bugfix
-     * SciDAVis release, indication of failure should be done by returning NaN (wherever
+     * Makhber release, indication of failure should be done by returning NaN (wherever
      * applicable).
      * TODO: Make sure we don't rely on zero-on-failure, and document the resulting change in the
      * Python API.
@@ -168,9 +168,9 @@ public slots:
     QString colLabel(int col);
     int colIndex(const QString &name);
 
-    SciDAVis::PlotDesignation colPlotDesignation(int col);
-    void setColPlotDesignation(int col, SciDAVis::PlotDesignation d);
-    void setPlotDesignation(SciDAVis::PlotDesignation pd);
+    Makhber::PlotDesignation colPlotDesignation(int col);
+    void setColPlotDesignation(int col, Makhber::PlotDesignation d);
+    void setPlotDesignation(Makhber::PlotDesignation pd);
     QList<int> plotDesignations();
 
     void setColName(int col, const QString &text);
@@ -192,7 +192,7 @@ public slots:
     void clearCol();
     void insertCol();
     void insertCols(int start, int count);
-    void addCol(SciDAVis::PlotDesignation pd = SciDAVis::Y);
+    void addCol(Makhber::PlotDesignation pd = Makhber::Y);
     void addColumns(int c);
     //@}
 
@@ -244,12 +244,12 @@ public slots:
 
     int numSelectedRows();
 
-    SciDAVis::ColumnMode columnType(int col);
+    Makhber::ColumnMode columnType(int col);
 
-    QList<SciDAVis::ColumnMode> columnTypes();
-    void setColumnTypes(QList<SciDAVis::ColumnMode> ctl);
+    QList<Makhber::ColumnMode> columnTypes();
+    void setColumnTypes(QList<Makhber::ColumnMode> ctl);
     void setColumnTypes(const QStringList &ctl);
-    void setColumnType(int col, SciDAVis::ColumnMode mode);
+    void setColumnType(int col, Makhber::ColumnMode mode);
 
     QString columnFormat(int col);
 

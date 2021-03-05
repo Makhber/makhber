@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : importOPJ.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2010 Miquel Garriga (gbmiquel*gmail.com)
     Copyright            : (C) 2006-2007 by Ion Vasilief (ion_vasilief*yahoo.fr)
@@ -51,7 +51,7 @@ public:
 private:
     bool setCodec(const QString &codecName);
     QString decodeMbcs(char const *const input) const;
-    int translateOrigin2ScidavisLineStyle(int linestyle);
+    int translateOrigin2MakhberLineStyle(int linestyle);
     QString parseOriginText(const QString &str);
     QString parseOriginTags(const QString &str);
     int parse_error;

@@ -1,7 +1,7 @@
 /***************************************************************************
     File                 : Project.h
-    Project              : SciDAVis
-    Description          : Represents a SciDAVis project.
+    Project              : Makhber
+    Description          : Represents a Makhber project.
     --------------------------------------------------------------------
     Copyright            : (C) 2007 Tilman Benkert (thzs*gmx.net)
     Copyright            : (C) 2007 Knut Franke (knut.franke*gmx.de)
@@ -38,7 +38,7 @@ class ProjectWindow;
 class QAction;
 class AbstractScriptingEngine;
 
-//! Represents a SciDAVis project.
+//! Represents a Makhber project.
 /**
  * Project manages an undo stack and is responsible for creating ProjectWindow instances
  * as views on itself.

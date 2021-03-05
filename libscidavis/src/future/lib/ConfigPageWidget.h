@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : ConfigPageWidget.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Widget for configuration pages that has an apply slot
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)

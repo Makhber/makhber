@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : ImportASCIIDialog.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006,2007 by Ion Vasilief,
                            Tilman Benkert, Knut Franke
@@ -55,7 +55,7 @@ public:
         NewTables, //!< create a new table for each file (default)
         NewColumns, //!< add each file as new columns to the current table
         NewRows, //!< add each file as new rows to the current table
-        Overwrite //!< replace content of current table with the selected file (like importing a single file in previous versions of SciDAVis)
+        Overwrite //!< replace content of current table with the selected file (like importing a single file in previous versions of Makhber)
     };
 
     //! Constructor

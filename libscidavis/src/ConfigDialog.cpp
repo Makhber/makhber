@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : ConfigDialog.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -1543,7 +1543,7 @@ void ConfigDialog::insertLanguagesList()
             languages.push_back("English");
         else {
             QTranslator translator;
-            translator.load("scidavis_" + locales[i], app->qmPath);
+            translator.load("makhber_" + locales[i], app->qmPath);
 
             QString language =
                     translator.translate("ApplicationWindow", "English",

@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : MuParserScript.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2009 Knut Franke
     Email (use @ for *)  : Knut.Franke*gmx.net

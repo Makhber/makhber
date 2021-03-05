@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : columncommands.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Commands to be called by Column to modify Column::Private
     --------------------------------------------------------------------
     Copyright            : (C) 2007-2009 Tilman Benkert (thzs*gmx.net)
@@ -44,7 +44,7 @@ class ColumnSetModeCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnSetModeCmd(Column::Private *col, SciDAVis::ColumnMode mode,
+    ColumnSetModeCmd(Column::Private *col, Makhber::ColumnMode mode,
                      AbstractFilter *conversion_filter, QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnSetModeCmd();
@@ -58,13 +58,13 @@ private:
     //! The private column data to modify
     Column::Private *d_col;
     //! The previous mode
-    SciDAVis::ColumnMode d_old_mode;
+    Makhber::ColumnMode d_old_mode;
     //! The new mode
-    SciDAVis::ColumnMode d_mode;
+    Makhber::ColumnMode d_mode;
     //! The old data type
-    SciDAVis::ColumnDataType d_old_type;
+    Makhber::ColumnDataType d_old_type;
     //! The new data type
-    SciDAVis::ColumnDataType d_new_type;
+    Makhber::ColumnDataType d_new_type;
     //! Pointer to old data
     void *d_old_data;
     //! Pointer to new data
@@ -267,7 +267,7 @@ class ColumnSetPlotDesignationCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnSetPlotDesignationCmd(Column::Private *col, SciDAVis::PlotDesignation pd,
+    ColumnSetPlotDesignationCmd(Column::Private *col, Makhber::PlotDesignation pd,
                                 QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnSetPlotDesignationCmd();
@@ -281,9 +281,9 @@ private:
     //! The private column data to modify
     Column::Private *d_col;
     //! New plot designation
-    SciDAVis::PlotDesignation d_new_pd;
+    Makhber::PlotDesignation d_new_pd;
     //! Old plot designation
-    SciDAVis::PlotDesignation d_old_pd;
+    Makhber::PlotDesignation d_old_pd;
 };
 ///////////////////////////////////////////////////////////////////////////
 // end of class ColumnSetPlotDesignationCmd
@@ -310,7 +310,7 @@ private:
     //! The private column data to modify
     Column::Private *d_col;
     //! The column's data type
-    SciDAVis::ColumnDataType d_type;
+    Makhber::ColumnDataType d_type;
     //! Pointer to the old data pointer
     void *d_data;
     //! Pointer to an empty data vector

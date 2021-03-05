@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : String2DateTimeFilter.h
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2007 by Tilman Benkert,
                            Knut Franke
@@ -62,7 +62,7 @@ public:
     QString format() const { return d_format; }
 
     //! Return the data type of the column
-    virtual SciDAVis::ColumnDataType dataType() const { return SciDAVis::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
 
     //! \name XML related functions
     //@{
@@ -117,7 +117,7 @@ protected:
     //! Using typed ports: only string inputs are accepted.
     virtual bool inputAcceptable(int, const AbstractColumn *source)
     {
-        return source->dataType() == SciDAVis::TypeQString;
+        return source->dataType() == Makhber::TypeQString;
     }
 };
 

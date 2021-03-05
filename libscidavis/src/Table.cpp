@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Table.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Table worksheet class
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)
@@ -233,7 +233,7 @@ void Table::print(const QString &fileName)
     printer.setColorMode(QPrinter::GrayScale);
 
     if (!fileName.isEmpty()) {
-        printer.setCreator("SciDAVis");
+        printer.setCreator("Makhber");
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setOutputFileName(fileName);
     } else {
@@ -332,7 +332,7 @@ int Table::colY(int col)
     return d_future_table ? d_future_table->colY(col) : 0;
 }
 
-void Table::setPlotDesignation(SciDAVis::PlotDesignation pd)
+void Table::setPlotDesignation(Makhber::PlotDesignation pd)
 {
     if (d_future_table)
         d_future_table->setSelectionAs(pd);
@@ -359,21 +359,21 @@ void Table::setColumnTypes(const QStringList &ctl)
         //	old enum: enum ColType{Numeric = 0, Text = 1, Date = 2, Time = 3, Month = 4, Day =
         // 5};
         case 0:
-            column(i)->setColumnMode(SciDAVis::ColumnMode::Numeric);
+            column(i)->setColumnMode(Makhber::ColumnMode::Numeric);
             break;
         case 1:
-            column(i)->setColumnMode(SciDAVis::ColumnMode::Text);
+            column(i)->setColumnMode(Makhber::ColumnMode::Text);
             break;
         case 2:
         case 3:
         case 6:
-            column(i)->setColumnMode(SciDAVis::ColumnMode::DateTime);
+            column(i)->setColumnMode(Makhber::ColumnMode::DateTime);
             break;
         case 4:
-            column(i)->setColumnMode(SciDAVis::ColumnMode::Month);
+            column(i)->setColumnMode(Makhber::ColumnMode::Month);
             break;
         case 5:
-            column(i)->setColumnMode(SciDAVis::ColumnMode::Day);
+            column(i)->setColumnMode(Makhber::ColumnMode::Day);
             break;
         }
     }
@@ -461,7 +461,7 @@ bool Table::recalculate(int col, bool only_selected_rows)
         int start_row = interval.start();
         int end_row = interval.end();
         switch (col_ptr->columnMode()) {
-        case SciDAVis::ColumnMode::Numeric: {
+        case Makhber::ColumnMode::Numeric: {
             QVector<qreal> results(end_row - start_row + 1);
             for (int i = start_row; i <= end_row; i++) {
                 colscript->setInt(i + 1, "i");
@@ -602,19 +602,19 @@ QString Table::saveHeader()
     QString s = "header";
     for (int j = 0; j < numCols(); j++) {
         switch (column(j)->plotDesignation()) {
-        case SciDAVis::X:
+        case Makhber::X:
             s += "\t" + colLabel(j) + "[X]";
             break;
-        case SciDAVis::Y:
+        case Makhber::Y:
             s += "\t" + colLabel(j) + "[Y]";
             break;
-        case SciDAVis::Z:
+        case Makhber::Z:
             s += "\t" + colLabel(j) + "[Z]";
             break;
-        case SciDAVis::xErr:
+        case Makhber::xErr:
             s += "\t" + colLabel(j) + "[xEr]";
             break;
-        case SciDAVis::yErr:
+        case Makhber::yErr:
             s += "\t" + colLabel(j) + "[yEr]";
             break;
         default:
@@ -627,7 +627,7 @@ QString Table::saveHeader()
 int Table::firstXCol()
 {
     for (int j = 0; j < numCols(); j++) {
-        if (column(j)->plotDesignation() == SciDAVis::X)
+        if (column(j)->plotDesignation() == Makhber::X)
             return j;
     }
     return -1;
@@ -662,7 +662,7 @@ QStringList Table::YColumns()
     // TODO for 0.3.0: Column * list
     QStringList names;
     for (int i = 0; i < numCols(); i++) {
-        if (column(i)->plotDesignation() == SciDAVis::Y)
+        if (column(i)->plotDesignation() == Makhber::Y)
             names << name() + "_" + column(i)->name();
     }
     return names;
@@ -673,7 +673,7 @@ QStringList Table::selectedYColumns()
     // TODO for 0.3.0: Column * list
     QStringList names;
     for (int i = 0; i < numCols(); i++) {
-        if (isColumnSelected(i) && column(i)->plotDesignation() == SciDAVis::Y)
+        if (isColumnSelected(i) && column(i)->plotDesignation() == Makhber::Y)
             names << name() + "_" + column(i)->name();
     }
     return names;
@@ -685,8 +685,8 @@ QStringList Table::selectedErrColumns()
     QStringList names;
     for (int i = 0; i < numCols(); i++) {
         if (isColumnSelected(i)
-            && (column(i)->plotDesignation() == SciDAVis::xErr
-                || column(i)->plotDesignation() == SciDAVis::yErr))
+            && (column(i)->plotDesignation() == Makhber::xErr
+                || column(i)->plotDesignation() == Makhber::yErr))
             names << name() + "_" + column(i)->name();
     }
     return names;
@@ -697,14 +697,14 @@ QStringList Table::drawableColumnSelection()
     // TODO for 0.3.0: Column * list
     QStringList names;
     for (int i = 0; i < numCols(); i++) {
-        if (isColumnSelected(i) && column(i)->plotDesignation() == SciDAVis::Y)
+        if (isColumnSelected(i) && column(i)->plotDesignation() == Makhber::Y)
             names << name() + "_" + column(i)->name();
     }
 
     for (int i = 0; i < numCols(); i++) {
         if (isColumnSelected(i)
-            && (column(i)->plotDesignation() == SciDAVis::xErr
-                || column(i)->plotDesignation() == SciDAVis::yErr))
+            && (column(i)->plotDesignation() == Makhber::xErr
+                || column(i)->plotDesignation() == Makhber::yErr))
             names << name() + "_" + column(i)->name();
     }
     return names;
@@ -715,7 +715,7 @@ QMap<int, QString> Table::selectedYLabels()
     // TODO for 0.3.0: Column * list
     QMap<int, QString> names;
     for (int i = 0; i < numCols(); i++) {
-        if (isColumnSelected(i) && column(i)->plotDesignation() == SciDAVis::Y)
+        if (isColumnSelected(i) && column(i)->plotDesignation() == Makhber::Y)
             names.insert(i, column(i)->name());
     }
     return names;
@@ -757,7 +757,7 @@ void Table::insertCols(int start, int count)
 
         QList<Column *> cols;
         for (int i = 0; i < count; i++)
-            cols << new Column(QString::number(i + 1), SciDAVis::ColumnMode::Numeric);
+            cols << new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
         d_future_table->insertColumns(start, cols);
     }
 }
@@ -774,12 +774,12 @@ void Table::insertRow()
         d_future_table->insertEmptyRows();
 }
 
-void Table::addCol(SciDAVis::PlotDesignation pd)
+void Table::addCol(Makhber::PlotDesignation pd)
 {
     if (d_future_table) {
         d_future_table->addColumn();
         column(d_future_table->columnCount() - 1)
-                ->setColumnMode(SciDAVis::ColumnMode::Numeric); // in case we ever change the default
+                ->setColumnMode(Makhber::ColumnMode::Numeric); // in case we ever change the default
         column(d_future_table->columnCount() - 1)->setPlotDesignation(pd);
     }
 }
@@ -789,7 +789,7 @@ void Table::addColumns(int c)
     if (d_future_table) {
         QList<Column *> cols;
         for (int i = 0; i < c; i++)
-            cols << new Column(QString::number(i + 1), SciDAVis::ColumnMode::Numeric);
+            cols << new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
         d_future_table->appendColumns(cols);
     }
 }
@@ -888,7 +888,7 @@ double Table::cell(int row, int col)
     if (!colPtr)
         return 0.0;
     if (!colPtr->isInvalid(row)) {
-        if (colPtr->columnMode() == SciDAVis::ColumnMode::Text) {
+        if (colPtr->columnMode() == Makhber::ColumnMode::Text) {
             QString yval = colPtr->textAt(row);
             bool valid_data = true;
             double dbval = QLocale().toDouble(yval, &valid_data);
@@ -924,7 +924,7 @@ void Table::importV0x0001XXHeader(QStringList header)
     if (!d_future_table)
         return;
     QStringList col_label = QStringList();
-    QList<SciDAVis::PlotDesignation> col_plot_type = QList<SciDAVis::PlotDesignation>();
+    QList<Makhber::PlotDesignation> col_plot_type = QList<Makhber::PlotDesignation>();
     for (int i = 0; i < header.count(); i++) {
         if (header[i].isEmpty())
             continue;
@@ -932,22 +932,22 @@ void Table::importV0x0001XXHeader(QStringList header)
         QString s = header[i].replace("_", "-");
         if (s.contains("[X]")) {
             col_label << s.remove("[X]");
-            col_plot_type << SciDAVis::X;
+            col_plot_type << Makhber::X;
         } else if (s.contains("[Y]")) {
             col_label << s.remove("[Y]");
-            col_plot_type << SciDAVis::Y;
+            col_plot_type << Makhber::Y;
         } else if (s.contains("[Z]")) {
             col_label << s.remove("[Z]");
-            col_plot_type << SciDAVis::Z;
+            col_plot_type << Makhber::Z;
         } else if (s.contains("[xEr]")) {
             col_label << s.remove("[xEr]");
-            col_plot_type << SciDAVis::xErr;
+            col_plot_type << Makhber::xErr;
         } else if (s.contains("[yEr]")) {
             col_label << s.remove("[yEr]");
-            col_plot_type << SciDAVis::yErr;
+            col_plot_type << Makhber::yErr;
         } else {
             col_label << s;
-            col_plot_type << SciDAVis::noDesignation;
+            col_plot_type << Makhber::noDesignation;
         }
     }
     QList<Column *> quarantine;
@@ -990,12 +990,12 @@ int Table::colIndex(const QString &name)
 
 bool Table::noXColumn()
 {
-    return d_future_table ? d_future_table->columnCount(SciDAVis::X) == 0 : true;
+    return d_future_table ? d_future_table->columnCount(Makhber::X) == 0 : true;
 }
 
 bool Table::noYColumn()
 {
-    return d_future_table ? d_future_table->columnCount(SciDAVis::Y) == 0 : true;
+    return d_future_table ? d_future_table->columnCount(Makhber::Y) == 0 : true;
 }
 
 bool Table::exportASCII(const QString &fname, const QString &separator, bool withLabels,
@@ -1101,7 +1101,7 @@ void Table::customEvent(QEvent *e)
 void Table::closeEvent(QCloseEvent *e)
 {
     if (askOnClose) {
-        switch (QMessageBox::information(this, tr("SciDAVis"),
+        switch (QMessageBox::information(this, tr("Makhber"),
                                          tr("Do you want to hide or delete") + "<p><b>'"
                                                  + objectName() + "'</b> ?",
                                          tr("Delete"), tr("Hide"), tr("Cancel"), 0, 2)) {
@@ -1228,12 +1228,12 @@ QString Table::colLabel(int col)
     return column(col)->name();
 }
 
-SciDAVis::PlotDesignation Table::colPlotDesignation(int col)
+Makhber::PlotDesignation Table::colPlotDesignation(int col)
 {
     return column(col)->plotDesignation();
 }
 
-void Table::setColPlotDesignation(int col, SciDAVis::PlotDesignation d)
+void Table::setColPlotDesignation(int col, Makhber::PlotDesignation d)
 {
     column(col)->setPlotDesignation(d);
 }
@@ -1247,21 +1247,21 @@ QList<int> Table::plotDesignations()
     return list;
 }
 
-QList<SciDAVis::ColumnMode> Table::columnTypes()
+QList<Makhber::ColumnMode> Table::columnTypes()
 {
-    QList<SciDAVis::ColumnMode> list;
+    QList<Makhber::ColumnMode> list;
     if (d_future_table)
         for (int i = 0; i < d_future_table->columnCount(); i++)
             list << column(i)->columnMode();
     return list;
 }
 
-SciDAVis::ColumnMode Table::columnType(int col)
+Makhber::ColumnMode Table::columnType(int col)
 {
     return column(col)->columnMode();
 }
 
-void Table::setColumnTypes(QList<SciDAVis::ColumnMode> ctl)
+void Table::setColumnTypes(QList<Makhber::ColumnMode> ctl)
 {
     if (!d_future_table)
         return;
@@ -1270,7 +1270,7 @@ void Table::setColumnTypes(QList<SciDAVis::ColumnMode> ctl)
         column(i)->setColumnMode(ctl.at(i));
 }
 
-void Table::setColumnType(int col, SciDAVis::ColumnMode mode)
+void Table::setColumnType(int col, Makhber::ColumnMode mode)
 {
     column(col)->setColumnMode(mode);
 }
@@ -1279,8 +1279,9 @@ QString Table::columnFormat(int col)
 {
     // TODO: obsolete, remove in 0.3.0
     Column *col_ptr = column(col);
-    if (col_ptr->columnMode() != SciDAVis::ColumnMode::DateTime && col_ptr->columnMode() != SciDAVis::ColumnMode::Month
-        && col_ptr->columnMode() != SciDAVis::ColumnMode::Day)
+    if (col_ptr->columnMode() != Makhber::ColumnMode::DateTime
+        && col_ptr->columnMode() != Makhber::ColumnMode::Month
+        && col_ptr->columnMode() != Makhber::ColumnMode::Day)
         return QString();
 
     DateTime2StringFilter *filter = static_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
@@ -1421,8 +1422,8 @@ void Table::importASCII(const QString &fname, const QString &sep, int ignoredLin
         String2DoubleFilter *filter = new String2DoubleFilter;
         for (int i = overwritten_cols; i < temp->columnCount(); i++) {
             filter->input(0, temp->column(i));
-            Column *new_col = new Column(temp->column(i)->name(), SciDAVis::ColumnMode::Numeric);
-            new_col->setPlotDesignation(SciDAVis::Y);
+            Column *new_col = new Column(temp->column(i)->name(), Makhber::ColumnMode::Numeric);
+            new_col->setPlotDesignation(Makhber::Y);
             new_col->copy(filter->output(0));
             d_future_table->addChild(new_col);
         }

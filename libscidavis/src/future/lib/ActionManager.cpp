@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : ActionManager.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Manages QActions and their shortcuts
     --------------------------------------------------------------------
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)

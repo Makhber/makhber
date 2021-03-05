@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : Matrix.h
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : Matrix worksheet class
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Tilman Benkert (thzs*gmx.net)

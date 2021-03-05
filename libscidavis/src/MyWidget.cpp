@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : MyWidget.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     Description          : MDI window widget
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Knut Franke (knut.franke*gmx.de)
@@ -75,7 +75,7 @@ void MyWidget::updateCaption()
 void MyWidget::closeEvent(QCloseEvent *e)
 {
     if (askOnClose) {
-        switch (QMessageBox::information(this, tr("SciDAVis"),
+        switch (QMessageBox::information(this, tr("Makhber"),
                                          tr("Do you want to hide or delete") + "<p><b>'"
                                                  + objectName() + "'</b> ?",
                                          tr("Delete"), tr("Hide"), tr("Cancel"), 0, 2)) {

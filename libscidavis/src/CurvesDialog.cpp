@@ -1,6 +1,6 @@
 /***************************************************************************
     File                 : CurvesDialog.cpp
-    Project              : SciDAVis
+    Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
@@ -514,14 +514,14 @@ void CurvesDialog::showCurrentFolder(bool currentFolder)
 
                 Table *t = (Table *)w;
                 for (int i = 0; i < t->numCols(); i++) {
-                    if (t->colPlotDesignation(i) == SciDAVis::Y)
+                    if (t->colPlotDesignation(i) == Makhber::Y)
                         columns << QString(t->name()) + "_" + t->colLabel(i);
                 }
             }
             available->addItems(columns);
         }
     } else
-        available->addItems(app->columnsList(SciDAVis::Y));
+        available->addItems(app->columnsList(Makhber::Y));
 }
 
 void CurvesDialog::closeEvent(QCloseEvent *e)
