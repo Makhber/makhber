@@ -23,7 +23,7 @@ set( TS_FILES
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_zh-cn.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_zh-tw.ts"
   )
-qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/libscidavis" ${TS_FILES} )
+qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/libmakhber" ${TS_FILES} )
 
 add_executable( makhber
   WIN32 MACOSX_BUNDLE
@@ -46,11 +46,11 @@ endif()
 
 if( MULTI_CONFIG )
   target_include_directories( makhber PRIVATE
-    "${CMAKE_BINARY_DIR}/libscidavis/libmakhber_autogen/include_$<CONFIG>"
+    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include_$<CONFIG>"
     )
 else()
   target_include_directories( makhber PRIVATE
-    "${CMAKE_BINARY_DIR}/libscidavis/libmakhber_autogen/include"
+    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include"
     )
 endif()
 
@@ -129,7 +129,7 @@ endif()
 # Icons
 
 if( UNIX AND NOT APPLE )
-  install( FILES icons/makhber.svg DESTINATION share/icons/hicolor/scalable/apps )
+  install( FILES icons/scidavis.svg DESTINATION share/icons/hicolor/scalable/apps )
 
   foreach( res IN ITEMS 16 22 32 48 64 128 )
     install( FILES icons/hicolor-${res}/scidavis.png
@@ -145,7 +145,7 @@ endif()
 # Application Files
 if( UNIX AND NOT APPLE )
   install( FILES makhber.desktop DESTINATION share/applications )
-  install( FILES makhber.xml DESTINATION share/mime/packages )
+  install( FILES scidavis.xml DESTINATION share/mime/packages )
   install( FILES makhber.1 DESTINATION share/man/man1 )
   install( FILES makhber.appdata.xml DESTINATION share/appdata )
   install( FILES x-sciprj.desktop DESTINATION share/mimelnk/application )

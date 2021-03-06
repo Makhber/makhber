@@ -4,17 +4,17 @@ set( CMAKE_AUTOUIC OFF )
 set( CMAKE_AUTORCC OFF )
 
 set( SRCS
-  "main.cpp"
   "applicationWindow.cpp"
-  "readWriteProject.cpp"
+  "arrowMarker.cpp"
   "fft.cpp"
   "menus.cpp"
-  "arrowMarker.cpp"
+  "readWriteProject.cpp"
+  "main.cpp"
   )
 if( NOT WIN32 )
   list( APPEND SRCS
-    "testPaintDevice.cpp"
     "3dplot.cpp"
+    "testPaintDevice.cpp"
     )
 endif()
 
@@ -34,11 +34,11 @@ endif()
 
 if( MULTI_CONFIG )
   target_include_directories( unittest PRIVATE
-    "${CMAKE_BINARY_DIR}/libscidavis/libmakhber_autogen/include_$<CONFIG>"
+    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include_$<CONFIG>"
     )
 else()
   target_include_directories( unittest PRIVATE
-    "${CMAKE_BINARY_DIR}/libscidavis/libmakhber_autogen/include"
+    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include"
     )
 endif()
 
@@ -69,7 +69,7 @@ endif()
 if( MAKHBER_SCRIPTING_PYTHON )
 
   file( COPY pythonTests/ DESTINATION ./tmp )
-  file( COPY ${CMAKE_SOURCE_DIR}/scidavis/makhberrc.py DESTINATION ./tmp )
+  file( COPY ${CMAKE_SOURCE_DIR}/makhber/makhberrc.py DESTINATION ./tmp )
   file( COPY ../scidavis-logo.png DESTINATION ./tmp )
 
   file( GLOB pythonTests pythonTests/*.py )

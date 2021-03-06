@@ -41,7 +41,7 @@
         <key>PYTHONHOME</key>
         <string>/Library/Frameworks/Python.framework/Versions/Current</string>
         <key>PYTHONPATH</key>
-        <string>/Applications/scidavis.app/Contents/Resources</string>
+        <string>/Applications/makhber.app/Contents/Resources</string>
     </dict>
 </dict>
 </plist>

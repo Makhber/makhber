@@ -107,9 +107,9 @@ find_package( muparser REQUIRED )
 
 add_subdirectory( 3rdparty )
 
-add_subdirectory( libscidavis )
+add_subdirectory( libmakhber )
 
-add_subdirectory( scidavis )
+add_subdirectory( makhber )
 
 add_subdirectory( fitPlugins )
 
@@ -158,10 +158,10 @@ set( CPACK_SOURCE_IGNORE_FILES "/build/;CMakeLists\.txt\.user*;/\.git/" )
 # WIX
 set( CPACK_WIX_UPGRADE_GUID "d6f4ef98-3744-47a2-b581-d789db8a4d63" )
 set( CPACK_WIX_LICENSE_RTF "${CMAKE_SOURCE_DIR}/license.rtf" )
-set( CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/scidavis/icons/scidavis.ico" )
+set( CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/makhber/icons/scidavis.ico" )
 
 # NSIS
-set( CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/scidavis/icons/scidavis.ico" )
+set( CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/makhber/icons/scidavis.ico" )
 set( CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON )
 set( CPACK_NSIS_EXECUTABLES_DIRECTORY . )
 
