@@ -37,7 +37,6 @@ jobs:
           cmake .. \
             -DMAKHBER_SEARCH_FOR_UPDATES=OFF \
             -DMAKHBER_DOWNLOAD_LINKS=OFF \
-            -DMAKHBER_ORIGIN_IMPORT=ON \
             -DMAKHBER_SCRIPTING_PYTHON=ON \
             -DMAKHBER_BUILD_TESTS=ON
 
@@ -96,7 +95,6 @@ jobs:
           mkdir build; cd build
           cmake .. `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
-            -DMAKHBER_ORIGIN_IMPORT=ON `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DMAKHBER_BUILD_TESTS=ON
 
@@ -143,7 +141,6 @@ jobs:
           mkdir build && cd build
           cmake .. \
             -DPython3_ROOT_DIR=$pythonLocation \
-            -DMAKHBER_ORIGIN_IMPORT=ON \
             -DMAKHBER_SCRIPTING_PYTHON=ON \
             -DMAKHBER_BUILD_TESTS=ON
 

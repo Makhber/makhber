@@ -12,38 +12,21 @@ set( SRCS
   "main.cpp"
   )
 if( NOT WIN32 )
-  list( APPEND SRCS
-    "3dplot.cpp"
-    "testPaintDevice.cpp"
-    )
+  list( APPEND SRCS "3dplot.cpp" "testPaintDevice.cpp" )
 endif()
 
-add_executable( unittest ${SRCS} )
+add_executable( unittests ${SRCS} )
 
 find_package( GTest REQUIRED )
 
-target_link_libraries( unittest libmakhber GTest::GTest )
+target_link_libraries( unittests libmakhber GTest::GTest )
 
 if( NOT WIN32 )
-  target_link_libraries( unittest pthread )
-endif()
-
-if( MAKHBER_ORIGIN_IMPORT )
-  target_compile_definitions( unittest PRIVATE ORIGIN_IMPORT )
-endif()
-
-if( MULTI_CONFIG )
-  target_include_directories( unittest PRIVATE
-    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include_$<CONFIG>"
-    )
-else()
-  target_include_directories( unittest PRIVATE
-    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include"
-    )
+  target_link_libraries( unittests pthread )
 endif()
 
 include(GoogleTest)
-gtest_discover_tests( unittest DISCOVERY_MODE PRE_TEST )
+gtest_discover_tests( unittests DISCOVERY_MODE PRE_TEST )
 
 set( TestDataFiles
   "3dplot.sciprj"
@@ -60,8 +43,10 @@ if( NOT (MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS) )
 
   foreach( menu ${menu_files} )
     get_filename_component( test_name ${menu} NAME_WLE )
-    add_test( NAME menuData_${test_name} COMMAND diff -q ${menu} ${CMAKE_CURRENT_SOURCE_DIR}/menuData/${menu} )
-    set_tests_properties( menuData_${test_name} PROPERTIES DEPENDS unittest )
+    add_test( NAME menuData_${test_name}
+      COMMAND diff -q ${menu} ${CMAKE_CURRENT_SOURCE_DIR}/menuData/${menu}
+      )
+    set_tests_properties( menuData_${test_name} PROPERTIES DEPENDS unittests )
   endforeach()
 
 endif()
@@ -83,7 +68,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     add_test( NAME python_${test_name}
       COMMAND makhber -l=en -x ${pythonTest}
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/tmp
-    )
+      )
   endforeach()
 
 endif()

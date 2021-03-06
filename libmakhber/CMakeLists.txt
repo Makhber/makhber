@@ -315,44 +315,45 @@ set( FORMS
   "src/future/table/controltabs.ui"
   )
 
-if( MAKHBER_ORIGIN_IMPORT )
-  list( APPEND HEADERS "src/importOPJ.h" )
-  list( APPEND SRCS "src/importOPJ.cpp" )
-endif()
-
 add_library( libmakhber STATIC
   ${SRCS}
   ${HEADERS}
   ${FORMS}
   )
 
-set_target_properties(libmakhber PROPERTIES OUTPUT_NAME makhber)
+set_target_properties( libmakhber PROPERTIES OUTPUT_NAME makhber )
 
 target_link_libraries( libmakhber
-  ZLIB::ZLIB
-  GSL::gsl
-  GSL::gslcblas
-  OpenGL::GL
-  OpenGL::GLU
-  muparser::muparser
   Qt5::Core
   Qt5::Gui
   Qt5::PrintSupport
   Qt5::OpenGL
   Qt5::Svg
+  OpenGL::GL
+  OpenGL::GLU
+  ZLIB::ZLIB
+  GSL::gsl
+  GSL::gslcblas
+  muparser::muparser
   minigzip
   qwt5-qt5
   qwtplot3d
   )
 
-target_include_directories( libmakhber PUBLIC ${CMAKE_CURRENT_BINARY_DIR} )
+target_include_directories( libmakhber PUBLIC
+  "${CMAKE_CURRENT_SOURCE_DIR}/src"
+  "${CMAKE_CURRENT_SOURCE_DIR}/src/future"
+  ${CMAKE_CURRENT_BINARY_DIR}
+  )
 
-if( MAKHBER_SCRIPTING_PYTHON )
-  target_include_directories( libmakhber PUBLIC ${Python3_INCLUDE_DIRS} )
-  target_link_libraries( libmakhber  ${Python3_LIBRARIES} )
-
-  # add sip generated files' directory to include path
-  target_include_directories( libmakhber PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+if( MULTI_CONFIG )
+  target_include_directories( libmakhber PUBLIC
+    "${CMAKE_CURRENT_BINARY_DIR}/libmakhber_autogen/include_$<CONFIG>"
+    )
+else()
+  target_include_directories( libmakhber PUBLIC
+    "${CMAKE_CURRENT_BINARY_DIR}/libmakhber_autogen/include"
+    )
 endif()
 
 target_compile_definitions( libmakhber PUBLIC
@@ -365,6 +366,8 @@ if( WIN32 )
   target_compile_definitions( libmakhber PUBLIC
     TS_PATH="/translations"
     PLUGIN_PATH="/fitPlugins"
+    DYNAMIC_MANUAL_PATH
+    DYNAMIC_PLUGIN_PATH
     )
 elseif( APPLE )
   target_compile_definitions( libmakhber PUBLIC
@@ -378,11 +381,8 @@ else()
     )
 endif()
 
-if( WIN32 )
-  target_compile_definitions( libmakhber PUBLIC
-    DYNAMIC_MANUAL_PATH
-    DYNAMIC_PLUGIN_PATH
-    )
+if( MAKHBER_SEARCH_FOR_UPDATE OR MAKHBER_DOWNLOAD_LINKS )
+  target_link_libraries( libmakhber Qt5::Network )
 endif()
 
 if( MAKHBER_SEARCH_FOR_UPDATES )
@@ -398,18 +398,28 @@ if( MAKHBER_SCRIPTING_MUPARSER )
 endif()
 
 if( MAKHBER_ORIGIN_IMPORT )
-  target_compile_definitions( libmakhber PUBLIC ORIGIN_IMPORT )
+  target_sources( libmakhber PRIVATE "src/importOPJ.h" "src/importOPJ.cpp" )
   target_link_libraries( libmakhber origin_static )
   target_include_directories( libmakhber PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
+  target_compile_definitions( libmakhber PUBLIC ORIGIN_IMPORT )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
+
+  target_link_libraries( libmakhber  ${Python3_LIBRARIES} )
+
+  target_include_directories( libmakhber PUBLIC
+    ${Python3_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    )
+
   set_property( SOURCE "src/PythonScripting.cpp"
     APPEND
     PROPERTY COMPILE_DEFINITIONS
       PYTHON_CONFIG_PATH="${CMAKE_INSTALL_PREFIX}/etc"
       PYTHON_UTIL_PATH="${CMAKE_INSTALL_PREFIX}/share/makhber"
     )
+
   set_property( SOURCE
     "src/PythonScripting.cpp"
     "src/Script.cpp"
@@ -418,6 +428,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     APPEND
     PROPERTY COMPILE_DEFINITIONS SCRIPTING_PYTHON
     )
+
   if( MINGW )
     get_filename_component( PYTHON_DIR ${Python3_EXECUTABLE} DIRECTORY )
     file( REAL_PATH "${PYTHON_DIR}/.." PYTHON_ROOT_DIR )
@@ -429,31 +440,16 @@ if( MAKHBER_SCRIPTING_PYTHON )
       PYTHONHOME=${PYTHONHOME}
       )
   endif()
-endif()
 
-if( MAKHBER_SEARCH_FOR_UPDATE OR MAKHBER_DOWNLOAD_LINKS )
-  target_link_libraries( libmakhber Qt5::Network )
-endif()
+  set( makhber_PyQt_HDR ${CMAKE_CURRENT_BINARY_DIR}/sipAPImakhber.h )
 
-target_include_directories( libmakhber PUBLIC
-  "${CMAKE_CURRENT_SOURCE_DIR}/src"
-  "${CMAKE_CURRENT_SOURCE_DIR}/src/future"
-  )
-
-if( MAKHBER_SCRIPTING_PYTHON )
-
-  set(makhber_PyQt_HDR ${CMAKE_CURRENT_BINARY_DIR}/sipAPImakhber.h)
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
     set( makhber_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
   endif()
 
-  set_source_files_properties(
-    ${makhber_PyQt_HDR}
-    PROPERTIES
-    GENERATED ON
-    )
+  set_source_files_properties( ${makhber_PyQt_HDR} PROPERTIES GENERATED ON )
 
-  set(makhber_PyQt_SRC
+  set( makhber_PyQt_SRC
     ${CMAKE_CURRENT_BINARY_DIR}/sipmakhbercmodule.cpp
     ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberApplicationWindow.cpp
     ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGraph.cpp
@@ -504,11 +500,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0101QwtPlotCurve.cpp
     )
 
-  set_source_files_properties(
-    ${makhber_PyQt_SRC}
-    PROPERTIES
-    GENERATED ON
-    )
+  set_source_files_properties( ${makhber_PyQt_SRC} PROPERTIES GENERATED ON )
 
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
     add_custom_command(

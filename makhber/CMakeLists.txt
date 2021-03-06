@@ -44,16 +44,6 @@ if( APPLE )
     )
 endif()
 
-if( MULTI_CONFIG )
-  target_include_directories( makhber PRIVATE
-    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include_$<CONFIG>"
-    )
-else()
-  target_include_directories( makhber PRIVATE
-    "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include"
-    )
-endif()
-
 if( MAKHBER_SCRIPTING_PYTHON )
 
   if( MULTI_CONFIG )

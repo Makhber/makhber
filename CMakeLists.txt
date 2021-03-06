@@ -22,27 +22,6 @@ set( CMAKE_C_STANDARD 11 )
 set( CMAKE_C_STANDARD_REQUIRED TRUE )
 set( CMAKE_C_EXTENSIONS OFF )
 
-get_property( MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG )
-
-set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
-
-find_package( Qt5
-  COMPONENTS
-  Core
-  Gui
-  Widgets
-  Svg
-  PrintSupport
-  Xml
-  OpenGL
-  LinguistTools
-  REQUIRED
-  )
-
-set( CMAKE_AUTOMOC ON )
-set( CMAKE_AUTOUIC ON )
-set( CMAKE_AUTORCC ON )
-
 if( MSVC )
   # /wd4456 /wd4457 /wd4458 Silent "declaration of %1 hides %2 ..."
   # /wd4251 Silent dll-related warnings
@@ -66,21 +45,46 @@ if( APPLE )
   add_compile_definitions( GL_SILENCE_DEPRECATION )
 endif()
 
-# Searching for updates
+get_property( MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG )
+
+set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
+
 option( MAKHBER_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
 
-# Download links
 option( MAKHBER_DOWNLOAD_LINKS "Enable Download links" ON )
 
-if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
-  find_package( Qt5 COMPONENTS Network REQUIRED )
-endif()
-
 option( MAKHBER_SCRIPTING_MUPARSER "Enable muParser Scripting" ON )
+
+option( MAKHBER_ORIGIN_IMPORT "Enable importing OriginLab project files" ON )
 
 option( MAKHBER_SCRIPTING_PYTHON "Enable Python Scripting" OFF )
 
 option( MAKHBER_BUILD_TESTS "Build tests" OFF )
+
+find_package( Qt5
+  COMPONENTS
+    Core
+    Gui
+    Widgets
+    Svg
+    PrintSupport
+    Xml
+    OpenGL
+    LinguistTools
+  REQUIRED
+  )
+
+find_package( GSL REQUIRED )
+
+find_package( ZLIB "1.2.11" REQUIRED )
+
+find_package( OpenGL COMPONENTS OpenGL REQUIRED )
+
+find_package( muparser REQUIRED )
+
+if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
+  find_package( Qt5 COMPONENTS Network REQUIRED )
+endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
   if( MINGW )
@@ -91,19 +95,9 @@ if( MAKHBER_SCRIPTING_PYTHON )
   find_package( PyQt REQUIRED )
 endif()
 
-option( MAKHBER_ORIGIN_IMPORT "Enable importing OriginLab project files" OFF )
-
-# GSL
-find_package( GSL REQUIRED )
-
-# ZLIB
-find_package( ZLIB "1.2.11" REQUIRED )
-
-# OpenGL
-find_package( OpenGL COMPONENTS OpenGL REQUIRED )
-
-# muParser
-find_package( muparser REQUIRED )
+set( CMAKE_AUTOMOC ON )
+set( CMAKE_AUTOUIC ON )
+set( CMAKE_AUTORCC ON )
 
 add_subdirectory( 3rdparty )
 
