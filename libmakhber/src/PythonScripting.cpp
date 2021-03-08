@@ -300,24 +300,17 @@ bool PythonScripting::initialize()
     }
     bool initialized;
     initialized = loadInitFile(QDir::homePath() + "/makhberrc");
+#ifdef PYTHONPATH
     if (!initialized)
-        initialized = loadInitFile(QDir::homePath() + "/.makhberrc");
-#ifdef PYTHON_CONFIG_PATH
-    if (!initialized)
-        initialized = loadInitFile(PYTHON_CONFIG_PATH "/makhberrc");
-    if (!initialized)
-        initialized = loadInitFile(PYTHON_CONFIG_PATH "/.makhberrc");
+        initialized = loadInitFile(qApp->applicationDirPath() + PYTHONPATH + "/makhberrc");
 #endif
     if (!initialized)
-        initialized = loadInitFile(QDir::rootPath() + "etc/makhberrc");
-    if (!initialized)
-        initialized =
-                loadInitFile(QCoreApplication::instance()->applicationDirPath() + "/makhberrc");
+        initialized = loadInitFile(qApp->applicationDirPath() + "/makhberrc");
     if (!initialized)
         initialized = loadInitFile("makhberrc");
 
     //	PyEval_ReleaseLock();
-    return true;
+    return initialized;
 }
 
 PythonScripting::~PythonScripting()
@@ -327,13 +320,9 @@ PythonScripting::~PythonScripting()
     Py_XDECREF(sys);
 }
 
-#ifndef PYTHON_UTIL_PATH
-#define PYTHON_UTIL_PATH "."
-#endif
-
 bool PythonScripting::loadInitFile(const QString &path)
 {
-    PyRun_SimpleString("import sys\nsys.path.append('" PYTHON_UTIL_PATH "')");
+    PyRun_SimpleString("import sys\nsys.path.append('" PYTHONPATH "')");
     QFileInfo pyFile(path + ".py"), pycFile(path + ".pyc");
     bool success = false;
     if (pycFile.isReadable() && (pycFile.lastModified() >= pyFile.lastModified())) {
@@ -367,16 +356,9 @@ bool PythonScripting::loadInitFile(const QString &path)
             fclose(f);
         } else {
             // fallback: just run pyFile
-            /*FILE *f = fopen(pyFile.filePath(), "r");
-            success = PyRun_SimpleFileEx(f, pyFile.filePath(), false) == 0;
-            fclose(f);*/
-            // TODO: code above crashes on Windows - bug in Python?
-            QFile f(pyFile.filePath());
-            if (f.open(QIODevice::ReadOnly | QIODevice::Text)) {
-                QByteArray data = f.readAll();
-                success = PyRun_SimpleString(data.data());
-                f.close();
-            }
+            FILE *f = fopen(pyFile.filePath().toLocal8Bit(), "r");
+            success = PyRun_SimpleFileEx(f, pyFile.filePath().toLocal8Bit(), false) == 0;
+            fclose(f);
         }
     }
     return success;

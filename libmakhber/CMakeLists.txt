@@ -413,11 +413,18 @@ if( MAKHBER_SCRIPTING_PYTHON )
     ${CMAKE_CURRENT_SOURCE_DIR}
     )
 
+  if( WIN32 )
+    set( PYTHONPATH "." )
+  elseif( APPLE )
+    set( PYTHONPATH "/../Resources" )
+  else()
+    set( PYTHONPATH "/../share/makhber" )
+  endif()
+
   set_property( SOURCE "src/PythonScripting.cpp"
     APPEND
     PROPERTY COMPILE_DEFINITIONS
-      PYTHON_CONFIG_PATH="${CMAKE_INSTALL_PREFIX}/etc"
-      PYTHON_UTIL_PATH="${CMAKE_INSTALL_PREFIX}/share/makhber"
+      PYTHONPATH="${PYTHONPATH}"
     )
 
   set_property( SOURCE
