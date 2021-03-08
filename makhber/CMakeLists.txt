@@ -46,27 +46,14 @@ endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
 
-  if( MULTI_CONFIG )
-    file( GENERATE OUTPUT $<CONFIG>/makhberrc.py INPUT makhberrc.py )
-    add_custom_command( OUTPUT makhberrc.pyc
-      COMMAND ${Python3_EXECUTABLE} -m compileall -b makhberrc.py
-      WORKING_DIRECTORY $<CONFIG>
-      COMMENT "Compiling python files"
-      )
-    add_custom_target( generate_pyc_files
-      DEPENDS $<CONFIG>/makhberrc.pyc
-      )
-  else()
-    file( COPY makhberrc.py DESTINATION ${CMAKE_CURRENT_BINARY_DIR} )
-    add_custom_command( OUTPUT makhberrc.pyc
-      COMMAND ${Python3_EXECUTABLE} -m compileall -b makhberrc.py
-      COMMENT "Compiling python files"
-      )
-    add_custom_target( generate_pyc_files
-      DEPENDS makhberrc.pyc
-      )
-  endif()
-
+  file( COPY makhberrc.py DESTINATION . )
+  add_custom_command( OUTPUT makhberrc.pyc
+    COMMAND ${Python3_EXECUTABLE} -m compileall -b makhberrc.py
+    COMMENT "Compiling python files"
+    )
+  add_custom_target( generate_pyc_files
+    DEPENDS makhberrc.pyc
+    )
   add_dependencies( makhber generate_pyc_files )
 
 endif()
@@ -83,7 +70,15 @@ else()
   install( FILES ${QM_FILES} DESTINATION share/makhber/translations )
 endif()
 
+
+if( WIN32 )
+  set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION . )
+  include(DeployQt)
+  windeployqt( makhber . )
+endif()
+
 if( RUNTIME_DIR )
+  file( TO_CMAKE_PATH ${RUNTIME_DIR} RUNTIME_DIR_CMAKE )
   set( EXCLUDE_DLL "system32/*" "shell32*" "kernel32*" )
   set( MAKHBER_DIR "." )
   set( MAKHBER_EXECUTABLE "${MAKHBER_DIR}/makhber.exe" )
@@ -93,9 +88,11 @@ if( RUNTIME_DIR )
       UNRESOLVED_DEPENDENCIES_VAR UNRESOLVED_DEPENDENCIES
       CONFLICTING_DEPENDENCIES_PREFIX CONFLICTING_DEPENDENCIES
       EXECUTABLES \"\${CMAKE_INSTALL_PREFIX}/${MAKHBER_EXECUTABLE}\"
-      DIRECTORIES \"${RUNTIME_DIR}\"
+      DIRECTORIES \"${RUNTIME_DIR_CMAKE}\" \"${Python3_RUNTIME_LIBRARY_DIRS}\"
       POST_EXCLUDE_REGEXES ${EXCLUDE_DLL}
       )
+    message( \"RESOLVED_DEPENDENCIES = \${RESOLVED_DEPENDENCIES}\" )
+    message( \"UNRESOLVED_DEPENDENCIES = \${UNRESOLVED_DEPENDENCIES}\" )
     foreach( lib \${RESOLVED_DEPENDENCIES} )
       execute_process(
         COMMAND \"${CMAKE_COMMAND}\" -E
@@ -108,12 +105,6 @@ endif()
 if( APPLE )
   include(DeployQt)
   macdeployqt(makhber)
-endif()
-
-if( WIN32 )
-  set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION . )
-  include(DeployQt)
-  windeployqt( makhber . )
 endif()
 
 # Icons
@@ -142,10 +133,41 @@ if( UNIX AND NOT APPLE )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
-  if( MULTI_CONFIG )
-    install( FILES makhberrc.py ${CMAKE_CURRENT_BINARY_DIR}/$<CONFIG>/makhberrc.pyc DESTINATION etc )
+  if( WIN32 )
+    install( FILES
+      makhberrc.py
+      makhberUtil.py
+      ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
+      DESTINATION .
+      )
+    install( CODE "
+      execute_process(   
+        COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
+        --target=\${CMAKE_INSTALL_PREFIX}
+        )
+      execute_process(
+        COMMAND \"${CMAKE_COMMAND}\" -E
+        copy \"${Python3_RUNTIME_LIBRARY_DIRS}/python3.dll\" \"\${CMAKE_INSTALL_PREFIX}/${MAKHBER_DIR}\"
+        )
+      ")
+  elseif( APPLE )
+    install( FILES
+      makhberrc.py
+      makhberUtil.py
+      ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
+      DESTINATION makhber.app/Contents/Resources
+      )
+    add_custom_command(TARGET makhber POST_BUILD
+      COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
+        --target="$<TARGET_BUNDLE_CONTENT_DIR:makhber>/Resources"
+      COMMENT "Install PyQt5..."
+      )
   else()
-    install( FILES makhberrc.py ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc DESTINATION etc )
+    install( FILES
+      makhberrc.py
+      ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
+      makhberUtil.py
+      DESTINATION share/makhber
+      )
   endif()
-  install( FILES makhberUtil.py DESTINATION share/makhber )
 endif()
