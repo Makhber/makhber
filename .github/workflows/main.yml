@@ -1,6 +1,10 @@
 name: CI Tests
 
-on: [pull_request,push]
+on: 
+  pull_request:
+  push:
+    branches:
+      - '*'
 
 jobs:
   Ubuntu:
@@ -119,28 +123,16 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1
-        with:
-          path: ../Qt
-          key: ${{ runner.os }}-QtCache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
       - name: Install prerequisties
         run: |
-          brew install muparser gsl gl2ps googletest
+          brew install qt@5 muparser gsl gl2ps googletest
           pip3 install sip==5.5.0 pyqt5 numpy
 
       - name: Configuring
         run: |
+          export PATH=/usr/local/opt/qt@5/bin:$PATH
           mkdir build && cd build
           cmake .. \
-            -DPython3_ROOT_DIR=$pythonLocation \
             -DMAKHBER_SCRIPTING_PYTHON=ON \
             -DMAKHBER_BUILD_TESTS=ON
 

@@ -12,17 +12,27 @@ jobs:
     runs-on: windows-latest
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
+      version: ${{ steps.version.outputs.version }}
 
     steps:
       - uses: actions/checkout@v2
+      
+      - name: Get Version
+        id: version
+        continue-on-error: true
+        run: |
+          $Env:version = (git describe --tags)
+          $Env:version
+          echo "::set-output name=version::$Env:version"
+
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          tag_name: ${{ steps.version.outputs.version }}
+          release_name: Release ${{ steps.version.outputs.version }}
           body_path: ./NEWS.md
           draft: false
           prerelease: false
@@ -69,7 +79,6 @@ jobs:
       - name: Configuring
         run: |
           mkdir build; cd build
-          $Env:VCPKG_INSTALLATION_ROOT
           cmake .. `
             -DMAKHBER_ORIGIN_IMPORT=ON `
             -DMAKHBER_BUILD_TESTS=ON `
@@ -87,12 +96,8 @@ jobs:
           ctest -C Release --output-on-failure
 
       - name: Packaging
-        id: packaging
         continue-on-error: true
         run: |
-          $Env:version = (git describe --tags)
-          $Env:version
-          echo "::set-output name=version::$Env:version"
           cd build
           cpack -G WIX
           cpack -G NSIS
@@ -105,7 +110,7 @@ jobs:
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/makhber.msi
-          asset_name: makhber-${{ steps.packaging.outputs.version }}-win64.msi
+          asset_name: makhber-${{ needs.Release.outputs.version }}-win64.msi
           asset_content_type: application/zip
 
       - name: Upload NSIS installer
@@ -116,7 +121,7 @@ jobs:
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/makhber.exe
-          asset_name: makhber-${{ steps.packaging.outputs.version }}-win64.exe
+          asset_name: makhber-${{ needs.Release.outputs.version }}-win64.exe
           asset_content_type: application/zip
 
   macos:
@@ -130,26 +135,16 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1
-        with:
-          path: ../Qt
-          key: ${{ runner.os }}-QtCache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
       - name: Install prerequisties
         run: |
-          brew install muparser gsl gl2ps googletest
+          brew install qt@5 muparser gsl gl2ps googletest
 
       - name: Configuring
         run: |
+          export PATH=/usr/local/opt/qt@5/bin:$PATH
           mkdir build && cd build
           cmake .. \
+            -DCMAKE_BUILD_TYPE=Release \
             -DMAKHBER_ORIGIN_IMPORT=ON \
             -DMAKHBER_BUILD_TESTS=ON \
             -DCPACK_PACKAGE_FILE_NAME=makhber
@@ -164,12 +159,8 @@ jobs:
           ctest --output-on-failure
 
       - name: Packaging
-        id: packaging
         continue-on-error: true
         run: |
-          export version=$(git describe --tags)
-          echo $version
-          echo "::set-output name=version::$version"
           cd build
           cpack -G DragNDrop
 
@@ -181,5 +172,5 @@ jobs:
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/makhber.dmg
-          asset_name: makhber-${{ steps.packaging.outputs.version }}-macos.dmg
+          asset_name: makhber-${{ needs.Release.outputs.version }}.dmg
           asset_content_type: application/zip
