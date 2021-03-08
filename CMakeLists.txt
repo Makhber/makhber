@@ -150,7 +150,7 @@ set( CPACK_STRIP_FILES ON )
 set( CPACK_SOURCE_IGNORE_FILES "/build/;CMakeLists\.txt\.user*;/\.git/" )
 
 # WIX
-set( CPACK_WIX_UPGRADE_GUID "d6f4ef98-3744-47a2-b581-d789db8a4d63" )
+set( CPACK_WIX_UPGRADE_GUID "58250F82-661E-451E-9191-4453EF1A5624" )
 set( CPACK_WIX_LICENSE_RTF "${CMAKE_SOURCE_DIR}/license.rtf" )
 set( CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/makhber/icons/scidavis.ico" )
 
