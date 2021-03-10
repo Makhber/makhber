@@ -1,4 +1,6 @@
-<TS language="pt_BR" version="2.1">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR">
 <context>
     <name>AbstractAspect</name>
     <message>
@@ -16,16 +18,16 @@
         <translation>nome do aspecto faltando ou vazio)</translation>
     </message>
     <message>
-        <source>Invalid creation time for '%1'. Using current time.</source>
-        <translation>Hora de criação inválida para '%1'. Usando hora atual.</translation>
+        <source>Invalid creation time for &apos;%1&apos;. Using current time.</source>
+        <translation>Hora de criação inválida para &apos;%1&apos;. Usando hora atual.</translation>
     </message>
     <message>
         <source>%1: add %2.</source>
         <translation>%1: adicionar %2.</translation>
     </message>
     <message>
-        <source>Renaming "%1" to "%2" in order to avoid name collision.</source>
-        <translation>Renomeando "%1" para "%2" para evitar conflito de nomes.</translation>
+        <source>Renaming &quot;%1&quot; to &quot;%2&quot; in order to avoid name collision.</source>
+        <translation>Renomeando &quot;%1&quot; para &quot;%2&quot; para evitar conflito de nomes.</translation>
     </message>
     <message>
         <source>%1: insert %2 at position %3.</source>
@@ -44,8 +46,8 @@
         <translation>Tabulação e quebras de linha em nomes de objetos não são suportados atualmente. Eles foram removidos.</translation>
     </message>
     <message>
-        <source>Intended name "%1" diverted to "%2" in order to avoid name collision.</source>
-        <translation>Nome pretendido "%1" alterado para "%2" para evitar conflito de nomes.</translation>
+        <source>Intended name &quot;%1&quot; diverted to &quot;%2&quot; in order to avoid name collision.</source>
+        <translation>Nome pretendido &quot;%1&quot; alterado para &quot;%2&quot; para evitar conflito de nomes.</translation>
     </message>
     <message>
         <source>%1: remove all children.</source>
@@ -74,8 +76,8 @@
         <translation>filtro incompatível</translation>
     </message>
     <message>
-        <source>unknown element '%1'</source>
-        <translation>elemento '%1' desconhecido</translation>
+        <source>unknown element &apos;%1&apos;</source>
+        <translation>elemento &apos;%1&apos; desconhecido</translation>
     </message>
     <message>
         <source>no simple filter element found</source>
@@ -83,9 +85,32 @@
     </message>
 </context>
 <context>
+    <name>Application</name>
+    <message>
+        <source>Error!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> sending event </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to object </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error &lt;unknown&gt; sending event</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ApplicationWindow</name>
     <message>
-        <source />
+        <source></source>
         <translation>Definir esquema</translation>
     </message>
     <message>
@@ -101,10 +126,6 @@
         <source>&amp;Previous</source>
         <comment>previous window</comment>
         <translation>&amp;Anterior</translation>
-    </message>
-    <message>
-        <source>SciDAVis - untitled</source>
-        <translation>SciDAVis - sem título</translation>
     </message>
     <message>
         <source>Project Explorer</source>
@@ -485,8 +506,8 @@
         <translation>Renomear janela</translation>
     </message>
     <message>
-        <source>The table '%1' already exists. It has been renamed '%2'.</source>
-        <translation>A tabela '%1' já existe. Foi renomeada '%2'.</translation>
+        <source>The table &apos;%1&apos; already exists. It has been renamed &apos;%2&apos;.</source>
+        <translation>A tabela &apos;%1&apos; já existe. Foi renomeada &apos;%2&apos;.</translation>
     </message>
     <message>
         <source>Notes</source>
@@ -529,12 +550,12 @@
         <translation>Falha ao importar ASCII</translation>
     </message>
     <message>
-        <source>Numeric data cannot be imported into non-numeric column "%1".</source>
-        <translation>Dados numéricos não podem ser importados para uma coluna não numérica "%1".</translation>
+        <source>Numeric data cannot be imported into non-numeric column &quot;%1&quot;.</source>
+        <translation>Dados numéricos não podem ser importados para uma coluna não numérica &quot;%1&quot;.</translation>
     </message>
     <message>
-        <source>Non-numeric data cannot be imported into non-text column "%1".</source>
-        <translation>Dados não numéricos não podem ser importados para uma uma coluna não texto "%1".</translation>
+        <source>Non-numeric data cannot be imported into non-text column &quot;%1&quot;.</source>
+        <translation>Dados não numéricos não podem ser importados para uma uma coluna não texto &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>new_by_import</source>
@@ -549,16 +570,12 @@
         <translation>O arquivo &lt;b&gt; %1 &lt;/b&gt; é o arquivo atual!</translation>
     </message>
     <message>
-        <source>The file: &lt;b&gt;%1&lt;/b&gt; doesn't exist!</source>
+        <source>The file: &lt;b&gt;%1&lt;/b&gt; doesn&apos;t exist!</source>
         <translation>O arquivo: &lt;b&gt; %1 &lt;/b&gt; não existe!</translation>
     </message>
     <message>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is not a valid project file.</source>
         <translation>O arquivo &lt;b&gt;%1&lt;/b&gt; não é um arquivo de projeto válido. </translation>
-    </message>
-    <message>
-        <source>SciDAVis currently does not support Origin import. If you are interested in reviving and maintaining an Origin import filter, contact the developers.</source>
-        <translation>Atualmente o SciDAVis não oferece suporte à importação do Origin. Se você tem interesse em reavivar e manter um filtro de importação do Origin contate os desenvolvedores.</translation>
     </message>
     <message>
         <source>File Open Error</source>
@@ -573,11 +590,11 @@
         <translation>O arquivo &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; é o arquivo atual!</translation>
     </message>
     <message>
-        <source>zlib can't open %1.</source>
+        <source>zlib can&apos;t open %1.</source>
         <translation>zlib não consegui abrir %1.</translation>
     </message>
     <message>
-        <source>Can't create temporary file for writing uncompressed copy of %1.</source>
+        <source>Can&apos;t create temporary file for writing uncompressed copy of %1.</source>
         <translation>Não foi possível criar um arquivo temporário para descompactar %1.</translation>
     </message>
     <message>
@@ -597,21 +614,13 @@
         <translation>O arquivo original (corrompido) não será alterado, no caso você querer recuperar os dados manualmente. Se você quiser continuar trabalhando com a cópia de segurança, recuperada automaticamente, terá que sobrescrever manualmente o arquivo original.</translation>
     </message>
     <message>
-        <source>SciDAVis does not support QtiPlot project files from versions later than 0.9.0.</source>
-        <translation>SciDAVis não suporta arquivos de projeto do Qtiplot de versões posteriores à 0.9.0. </translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
-        <source>The file "%1" was created using "%2" as scripting language.
+        <source>The file &quot;%1&quot; was created using &quot;%2&quot; as scripting language.
 
-Initializing support for this language FAILED; I'm using "%3" instead.
+Initializing support for this language FAILED; I&apos;m using &quot;%3&quot; instead.
 Various parts of this file may not be displayed as expected.</source>
-        <translation>O arquivo "%1" foi criado usando "%2" como linguagem de programação.
+        <translation>O arquivo &quot;%1&quot; foi criado usando &quot;%2&quot; como linguagem de programação.
 
-A inicialização do  suporte para esta linguagem FALHOU; Estou usando "%3" em seu lugar.
+A inicialização do  suporte para esta linguagem FALHOU; Estou usando &quot;%3&quot; em seu lugar.
 Varias partes deste arquivo podem não ser apresentadas como o esperado.</translation>
     </message>
     <message>
@@ -624,9 +633,9 @@ Varias partes deste arquivo podem não ser apresentadas como o esperado.</transl
     </message>
     <message>
         <source>Invalid WindowLabel line:
-'%1'
+&apos;%1&apos;
 in file %2.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Script Error</source>
@@ -637,28 +646,16 @@ in file %2.</source>
         <translation>Erro no script</translation>
     </message>
     <message>
-        <source>Scripting language "%1" failed to initialize.</source>
-        <translation>Falha na inicialização da linguagem de programação "%1".</translation>
+        <source>Scripting language &quot;%1&quot; failed to initialize.</source>
+        <translation>Falha na inicialização da linguagem de programação &quot;%1&quot;.</translation>
     </message>
     <message>
         <source>Open Template File</source>
         <translation>Abrir arquivo de modelo</translation>
     </message>
     <message>
-        <source>The file: &lt;b&gt; %1 &lt;/b&gt; was not created using SciDAVis!</source>
-        <translation>O arquivo &lt;b&gt; %1 &lt;/b&gt; não foi criado usando o SciDAVis!</translation>
-    </message>
-    <message>
-        <source>SciDAVis does not support QtiPlot template files from versions later than 0.9.0.</source>
-        <translation>SciDAVis não suporta modelos do Qtiplot de versões posteriores à 0.9.0.</translation>
-    </message>
-    <message>
         <source>Table1</source>
         <translation>Tabela1</translation>
-    </message>
-    <message>
-        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a SciDAVis template file!</source>
-        <translation>O arquivo: &lt;b&gt;%1&lt;/b&gt; não é um arquivo de modelo do SciDAVis!</translation>
     </message>
     <message>
         <source>Export Error</source>
@@ -721,32 +718,8 @@ in file %2.</source>
         <translation>Maximizada</translation>
     </message>
     <message>
-        <source>SciDAVis project</source>
-        <translation>Projeto do SciDAVis</translation>
-    </message>
-    <message>
-        <source>Compressed SciDAVis project</source>
-        <translation>Projeto do SciDAVis comprimido</translation>
-    </message>
-    <message>
         <source>Save Project As</source>
         <translation>Salvar projeto como</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot Matrix Template</source>
-        <translation>Modelo de matriz SciDAVis/QtiPlot</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot 2D Graph Template</source>
-        <translation>Modelo de gráfico 2D SciDAVis/QtiPlot</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot Table Template</source>
-        <translation>Modelo de tabela SciDAVis/QtiPlot</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot 3D Surface Template</source>
-        <translation>Modelo de superfície 3D SciDAVis/QtiPlot</translation>
     </message>
     <message>
         <source>Save Window As Template</source>
@@ -1101,10 +1074,6 @@ Tem certeza que quer continuar?</translation>
         <translation>Limpa&amp;r</translation>
     </message>
     <message>
-        <source>Choose the location of the SciDAVis help folder!</source>
-        <translation>Escolha a localização da pasta de ajuda do SciDAVis!</translation>
-    </message>
-    <message>
         <source>index.html File Not Found!</source>
         <translation>Não encontrado o arquivo index.html!</translation>
     </message>
@@ -1149,18 +1118,12 @@ Tem certeza que quer continuar?</translation>
         <translation>Erro ao importar imagem</translation>
     </message>
     <message>
-        <source>Import of image '%1' failed</source>
-        <translation>A importação da imagem '%1' falhou</translation>
+        <source>Import of image &apos;%1&apos; failed</source>
+        <translation>A importação da imagem &apos;%1&apos; falhou</translation>
     </message>
     <message>
         <source>Guess best origin for the new layer?</source>
         <translation>Encontrar a melhor origem para a nova camada?</translation>
-    </message>
-    <message>
-        <source>Do you want SciDAVis to guess the best position for the new layer?
- Warning: this will rearrange existing layers!</source>
-        <translation>Deseja que o SciDAVis encontre a melhor posição para a nova camada?
-Aviso: esta operação irá reorganizar as camadas existentes!</translation>
     </message>
     <message>
         <source>&amp;Guess</source>
@@ -1698,10 +1661,6 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>&amp;Título ...</translation>
     </message>
     <message>
-        <source>&amp;About SciDAVis</source>
-        <translation>&amp;Sobre o SciDAVis</translation>
-    </message>
-    <message>
         <source>F1</source>
         <translation>F1</translation>
     </message>
@@ -1860,14 +1819,6 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
     <message>
         <source>Search for &amp;Updates</source>
         <translation>Proc&amp;urar atualizações</translation>
-    </message>
-    <message>
-        <source>&amp;SciDAVis Homepage</source>
-        <translation>S&amp;ite do SciDAVis</translation>
-    </message>
-    <message>
-        <source>SciDAVis &amp;Forums</source>
-        <translation>&amp;Fórum do SciDAVis</translation>
     </message>
     <message>
         <source>Report a &amp;Bug</source>
@@ -2186,10 +2137,6 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Gráfico de caixas e barbas</translation>
     </message>
     <message>
-        <source>Visit SciDAVis &amp;Forums</source>
-        <translation>Visite os &amp;fóruns do SciDAVis</translation>
-    </message>
-    <message>
         <source>Disable &amp;tools</source>
         <translation>Desativar &amp;ferramentas</translation>
     </message>
@@ -2418,18 +2365,6 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Mostrar opções de linha de comando</translation>
     </message>
     <message>
-        <source>start SciDAVis in language</source>
-        <translation>Iniciar SciDAvis no idioma</translation>
-    </message>
-    <message>
-        <source>show SciDAVis manual in a standalone window</source>
-        <translation>Mostrar o manual do SciDAVis em uma janela separada</translation>
-    </message>
-    <message>
-        <source>print SciDAVis version and release date</source>
-        <translation>Imprimir versão e data de lançamento do SciDAVis</translation>
-    </message>
-    <message>
         <source>execute the script file given as argument</source>
         <translation>Execute o arquivo de script dado como argumento</translation>
     </message>
@@ -2440,10 +2375,6 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
     <message>
         <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
         <translation>pode ser qualquer arquivo .sciprj, .sciprj.gz, .qti, qti.gz, .py ou ASCII</translation>
-    </message>
-    <message>
-        <source>SciDAVis - Help</source>
-        <translation>SciDAVis - Ajuda</translation>
     </message>
     <message>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
@@ -2462,12 +2393,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>&lt;b&gt;%1&lt;/b&gt; é um diretório, por favor especifique um nome de arquivo!</translation>
     </message>
     <message>
-        <source>You don't have the permission to open this file: &lt;b&gt;%1&lt;/b&gt;</source>
+        <source>You don&apos;t have the permission to open this file: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Você não tem permissão para abrir este arquivo: &lt;b&gt;%1&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a SciDAVis or Origin project file!</source>
-        <translation>O arquivo &lt;b&gt; %1 &lt;/b&gt; não é um projeto do SciDAVis ou Origin!</translation>
     </message>
     <message>
         <source>File save error</source>
@@ -2475,7 +2402,7 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
     </message>
     <message>
         <source>The file: &lt;br&gt;&lt;b&gt;%1&lt;/b&gt; is opened in read-only mode</source>
-        <translation>O arquivo: &lt;br&gt;&lt;b&gt;%1&lt;/b&gt; está aberto no modo "apenas leitura"</translation>
+        <translation>O arquivo: &lt;br&gt;&lt;b&gt;%1&lt;/b&gt; está aberto no modo &quot;apenas leitura&quot;</translation>
     </message>
     <message>
         <source>Error writing data to disk</source>
@@ -2490,8 +2417,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Erro ao renomear arquivos de cópia de segurança</translation>
     </message>
     <message>
-        <source>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Data was written to &lt;em&gt;%2&lt;/em&gt;, but saving the original file as &lt;em&gt;%3&lt;/em&gt;					and moving the new file to &lt;em&gt;%4&lt;/em&gt; failed. In case you wonder why the original file hasn't					been simply replaced, see here:					&lt;a href="http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54"&gt;					http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&lt;/a&gt;.&lt;/html&gt;</source>
-        <translation>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Os dados foram gravados em &lt;em&gt;%2&lt;/em&gt;, mas ao salvar os arquivos originais em &lt;em&gt;%3&lt;/em&gt;	e movê-los para &lt;em&gt;%4&lt;/em&gt; ocorreu uma falha. Caso você saiba porque o arquivo original não 	foi simplesmente substituído veja:	&lt;a href="http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54"&gt;￼￼￼￼￼http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&lt;/a&gt;.&lt;/html&gt;</translation>
+        <source>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Data was written to &lt;em&gt;%2&lt;/em&gt;, but saving the original file as &lt;em&gt;%3&lt;/em&gt;					and moving the new file to &lt;em&gt;%4&lt;/em&gt; failed. In case you wonder why the original file hasn&apos;t					been simply replaced, see here:					&lt;a href=&quot;http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&quot;&gt;					http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&lt;/a&gt;.&lt;/html&gt;</source>
+        <translation>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Os dados foram gravados em &lt;em&gt;%2&lt;/em&gt;, mas ao salvar os arquivos originais em &lt;em&gt;%3&lt;/em&gt;	e movê-los para &lt;em&gt;%4&lt;/em&gt; ocorreu uma falha. Caso você saiba porque o arquivo original não 	foi simplesmente substituído veja:	&lt;a href=&quot;http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&quot;&gt;￼￼￼￼￼http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&lt;/a&gt;.&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Save project as</source>
@@ -2594,8 +2521,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Excluir a pasta?</translation>
     </message>
     <message>
-        <source>Delete folder '%1' and all the windows it contains?</source>
-        <translation>Excluir pasta '%1' e todas as janelas que ela contém?</translation>
+        <source>Delete folder &apos;%1&apos; and all the windows it contains?</source>
+        <translation>Excluir pasta &apos;%1&apos; e todas as janelas que ela contém?</translation>
     </message>
     <message>
         <source>Note</source>
@@ -2614,8 +2541,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Não foi encontrada nenhuma coincidência</translation>
     </message>
     <message>
-        <source>Sorry, no match found for string: '%1'</source>
-        <translation>Lamento, nenhuma coincidência encontrada para a cadeia de caracteres: '%1'</translation>
+        <source>Sorry, no match found for string: &apos;%1&apos;</source>
+        <translation>Lamento, nenhuma coincidência encontrada para a cadeia de caracteres: &apos;%1&apos;</translation>
     </message>
     <message>
         <source>Cannot move an object to itself!</source>
@@ -2630,12 +2557,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Omitido o movimento da pasta</translation>
     </message>
     <message>
-        <source>The destination folder already contains a folder called '%1'! Folder skipped!</source>
-        <translation>A pasta de destino já contém uma pasta chamada '%1'! Pasta omitida!</translation>
-    </message>
-    <message>
-        <source>SciDAVis will now try to determine whether a new version of SciDAVis is available. Please modify your firewall settings in order to allow SciDAVis to connect to the internet.</source>
-        <translation>O SciDAVis tentará agora ver se há uma nova versão do SciDAVis disponível. Por favor modifique a configuração de seu firewall para que o SciDAVis possa conectar-se à internet.</translation>
+        <source>The destination folder already contains a folder called &apos;%1&apos;! Folder skipped!</source>
+        <translation>A pasta de destino já contém uma pasta chamada &apos;%1&apos;! Pasta omitida!</translation>
     </message>
     <message>
         <source>Do you wish to continue?</source>
@@ -2654,10 +2577,6 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Atualizações disponíveis</translation>
     </message>
     <message>
-        <source>There is a newer version of SciDAVis (%1) available for download. Would you like to download it now?</source>
-        <translation>Existe uma nova versão do SciDAVis (%1) disponível para baixar. Deseja baixá-la agora?</translation>
-    </message>
-    <message>
         <source>No updates available. You are already running the latest version.</source>
         <translation>Não há atualizações disponíveis. Você já está usando a última versão.</translation>
     </message>
@@ -2666,8 +2585,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Versão de arquivo inválida</translation>
     </message>
     <message>
-        <source>The version file (contents: "%1") could not be decoded into a valid version number.</source>
-        <translation>O arquivo de versão (contido en: "%1") não pode ser decodificado em um número de versão válido.</translation>
+        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
+        <translation>O arquivo de versão (contido en: &quot;%1&quot;) não pode ser decodificado em um número de versão válido.</translation>
     </message>
     <message>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
@@ -2717,6 +2636,111 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <source>English</source>
         <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
         <translation>Português</translation>
+    </message>
+    <message>
+        <source>Makhber - untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber currently does not support Origin import. If you are interested in reviving and maintaining an Origin import filter, contact the developers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber does not support QtiPlot project files from versions later than 0.9.0.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file: &lt;b&gt; %1 &lt;/b&gt; was not created using Makhber!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber does not support QtiPlot template files from versions later than 0.9.0.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber template file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compressed Makhber project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot Matrix Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot 2D Graph Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot Table Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot 3D Surface Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose the location of the Makhber help folder!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want Makhber to guess the best position for the new layer?
+ Warning: this will rearrange existing layers!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;About Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Makhber Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber &amp;Forums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Makhber &amp;Forums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>start Makhber in language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>show Makhber manual in a standalone window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>print Makhber version and release date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber - Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber or Origin project file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber will now try to determine whether a new version of Makhber is available. Please modify your firewall settings in order to allow Makhber to connect to the internet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3081,8 +3105,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>Error na fórmula introduzida</translation>
     </message>
     <message>
-        <source>Valid variables are 'x' for Top/Bottom axes and 'y' for Left/Right axes!</source>
-        <translation>As variáveis válidas são 'x' para os eixos superior/inferior e 'y' para os eixos esquerdo/direito!</translation>
+        <source>Valid variables are &apos;x&apos; for Top/Bottom axes and &apos;y&apos; for Left/Right axes!</source>
+        <translation>As variáveis válidas são &apos;x&apos; para os eixos superior/inferior e &apos;y&apos; para os eixos esquerdo/direito!</translation>
     </message>
     <message>
         <source>millisec.</source>
@@ -3114,6 +3138,105 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
     <message>
         <source>enter your text here</source>
         <translation>introduza seu texto aqui</translation>
+    </message>
+</context>
+<context>
+    <name>ColorBox</name>
+    <message>
+        <source>black</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>red</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>green</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>blue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>cyan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>magenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>yellow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dark yellow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>navy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>purple</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>olive</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dark cyan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>royal</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>orange</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>violet</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>pink</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>white</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>light gray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>gray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>light yellow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>light cyan</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>light magenta</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>dark gray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3178,8 +3301,8 @@ Aviso: esta operação irá reorganizar as camadas existentes!</translation>
         <translation>coluna inválida para o gráfico designado</translation>
     </message>
     <message>
-        <source>unknown element '%1'</source>
-        <translation>elemento '%1' desconhecido</translation>
+        <source>unknown element &apos;%1&apos;</source>
+        <translation>elemento &apos;%1&apos; desconhecido</translation>
     </message>
     <message>
         <source>no column element found</source>
@@ -3476,12 +3599,12 @@ Os seguintes códigos podem ser usados:
         <translation>Formato numérico padrão</translation>
     </message>
     <message>
-        <source>Consider ',' and '.' interchangeable on input in numerical columns</source>
-        <translation type="unfinished" />
+        <source>Consider &apos;,&apos; and &apos;.&apos; interchangeable on input in numerical columns</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Convert numerical columns to text columns when pasting non-numeric values</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Decimal</source>
@@ -3769,56 +3892,56 @@ Os seguintes códigos podem ser usados:
         <translation>Tipo</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Apply new type and format to all selected columns&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Apply new type and format to all selected columns&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Aplicar novo tipo e formato para todas as colunas selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Aplicar novo tipo e formato para todas as colunas selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Type:</source>
         <translation>Tipo</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Select the column type&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the column type&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Selecione o tipo de coluna&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selecione o tipo de coluna&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Format:</source>
         <translation>Formato:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Choose the display format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Choose the display format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Escolha o formato a ser mostrado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Escolha o formato a ser mostrado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Decimal Digits:</source>
         <translation>Casas decimais</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Enter the number of displayed decimal digits&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enter the number of displayed decimal digits&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Insira o número de casas decimais que devem ser mostradas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insira o número de casas decimais que devem ser mostradas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Numbers are</source>
@@ -3829,14 +3952,14 @@ p, li { white-space: pre-wrap; }
         <translation>desde</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Information about the selected type and format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Information about the selected type and format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Informações sobre tipo e formato selecionado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Informações sobre tipo e formato selecionado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Formula</source>
@@ -3847,60 +3970,60 @@ p, li { white-space: pre-wrap; }
         <translation>Fórmula</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Apply the formula to all selected cells&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Apply the formula to all selected cells&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Aplicar fórmula em todas as células selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Aplicar fórmula em todas as células selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Select a column reference to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select a column reference to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Selecione uma coluna de referência para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selecione uma coluna de referência para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Insert the column reference into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insert the column reference into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Insira a coluna de referência na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insira a coluna de referência na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Add</source>
         <translation>Adicionar</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Select a function to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select a function to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Selecione uma função para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selecione uma função para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Bitstream Vera Sans'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"&gt;Insert the function into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd"&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Bitstream Vera Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Insert the function into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Bitstream Vera Sans'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Sans Serif';"&gt;Insira a função na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Bitstream Vera Sans&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:&apos;Sans Serif&apos;;&quot;&gt;Insira a função na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -3908,10 +4031,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Convolution</source>
         <translation>Convolução</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3926,12 +4045,12 @@ p, li { white-space: pre-wrap; }
         <translation>A resposta do conjunto de dados %1 não existe!</translation>
     </message>
     <message>
-        <source>The response dataset '%1' must be less then half the size of the signal dataset '%2'!</source>
-        <translation>Os dados da resposta '%1' devem ter tamanho menor que a metade dos de sinal '%2'!</translation>
+        <source>The response dataset &apos;%1&apos; must be less then half the size of the signal dataset &apos;%2&apos;!</source>
+        <translation>Os dados da resposta &apos;%1&apos; devem ter tamanho menor que a metade dos de sinal &apos;%2&apos;!</translation>
     </message>
     <message>
-        <source>The response dataset '%1' must contain an odd number of points!</source>
-        <translation>O conjunto resposta '%1' deve conter um número ímpar de pontos!</translation>
+        <source>The response dataset &apos;%1&apos; must contain an odd number of points!</source>
+        <translation>O conjunto resposta &apos;%1&apos; deve conter um número ímpar de pontos!</translation>
     </message>
     <message>
         <source>Could not allocate memory, operation aborted!</source>
@@ -3945,16 +4064,16 @@ p, li { white-space: pre-wrap; }
         <source>Plot</source>
         <translation>Gráfico</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Correlation</name>
     <message>
         <source>Correlation</source>
         <translation>Correlação</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
     </message>
     <message>
         <source>Error</source>
@@ -3979,6 +4098,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Plot</source>
         <translation>Gráfico</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4342,7 +4465,7 @@ p, li { white-space: pre-wrap; }
         <translation>Atenção</translation>
     </message>
     <message>
-        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn't exist anymore! Operation aborted!</source>
+        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>A curva &lt;b&gt;%1&lt;/b&gt; não existe mais! Operação abortada!</translation>
     </message>
 </context>
@@ -4454,10 +4577,6 @@ p, li { white-space: pre-wrap; }
         <translation>FFT</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
@@ -4496,6 +4615,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>s</source>
         <translation>s</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4572,10 +4695,6 @@ p, li { white-space: pre-wrap; }
         <translation>Filtrado</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
@@ -4611,13 +4730,13 @@ p, li { white-space: pre-wrap; }
         <source>Band Block FFT Filter</source>
         <translation>Filtro FFT recusa banda</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Filter</name>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
     <message>
         <source>Error</source>
         <translation>Erro</translation>
@@ -4643,8 +4762,8 @@ p, li { white-space: pre-wrap; }
         <translation>Erro no nome da cor</translation>
     </message>
     <message>
-        <source>The color name '%1' is not valid, a default color (red) will be used instead!</source>
-        <translation>O nome da cor '%1' não é válido , a cor padrão (vermelho) será usada!</translation>
+        <source>The color name &apos;%1&apos; is not valid, a default color (red) will be used instead!</source>
+        <translation>O nome da cor &apos;%1&apos; não é válido , a cor padrão (vermelho) será usada!</translation>
     </message>
     <message>
         <source>1</source>
@@ -4659,6 +4778,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>of</source>
         <translation>de </translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4727,10 +4850,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FindDialog</name>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Find</source>
         <translation>Procurar</translation>
     </message>
@@ -4777,6 +4896,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>&amp;Close</source>
         <translation>&amp;Fechar</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4882,7 +5005,7 @@ p, li { white-space: pre-wrap; }
         <translation>Erro ao ajustar</translation>
     </message>
     <message>
-        <source>You didn't specify a valid data set for this fit operation. Operation aborted!</source>
+        <source>You didn&apos;t specify a valid data set for this fit operation. Operation aborted!</source>
         <translation>Não foi especificado um conjunto de dados válido para esta operação de ajuste. Operação abortada!</translation>
     </message>
     <message>
@@ -5189,7 +5312,7 @@ p, li { white-space: pre-wrap; }
         <translation> é o nome de uma função incorporada&lt;p&gt;. É necessário escolher outro nome! </translation>
     </message>
     <message>
-        <source>You can't define functions recursevely!</source>
+        <source>You can&apos;t define functions recursevely!</source>
         <translation>Não é possível definir funções recursivamente!</translation>
     </message>
     <message>
@@ -5217,7 +5340,7 @@ p, li { white-space: pre-wrap; }
         <translation>Atenção</translation>
     </message>
     <message>
-        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn't exist anymore! Operation aborted!</source>
+        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>A curva &lt;b&gt;%1&lt;/b&gt; não existe mais! Operação abortada!</translation>
     </message>
     <message>
@@ -5424,15 +5547,11 @@ p, li { white-space: pre-wrap; }
         <translation>Erro interno</translation>
     </message>
     <message>
-        <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you're trying to open a corrupted project file; or there's some problem within SciDAVis. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href="https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&gt;"&gt;bug tracker: https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&lt;/a&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;Falha ao definir rótulos do eixo no Gráfico %1. Pode ser que você esteja tentando abrir  um projeto corrompido ou existe algum problema com o SciDAVis. Por favor, reporte isto como um bug (juntamente com instruções detalhadas de como reproduzir esta mensagem ou com o arquivo corrompido).&lt;p&gt;&lt;a href="https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214"&gt;bug tracker: https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&lt;/a&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
     <message>
-        <source>Couldn't change the axis type to the requested format!</source>
+        <source>Couldn&apos;t change the axis type to the requested format!</source>
         <translation>Não foi possível alterar o tipo de eixo para o formato solicitado!</translation>
     </message>
     <message>
@@ -5544,6 +5663,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>F</source>
         <translation>F</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&gt;&quot;&gt;bug tracker: https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&lt;/a&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -5887,15 +6010,15 @@ Os seguintes códigos podem ser usados:
         <source>By checking this option all white spaces will be 
 removed from the beginning and the end of 
 the lines in the ASCII file.</source>
-        <comment>when translating this check the what's this functions and tool tips to place the '
-'s correctly</comment>
+        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;
+&apos;s correctly</comment>
         <translation>Marcando esta opção todos os espaços serão 
 removidos do início e final das 
 linhas nos arquivos ASCII.</translation>
     </message>
     <message>
         <source>Warning: checking this option leads to column 
-overlaping if the columns in the ASCII file don't 
+overlaping if the columns in the ASCII file don&apos;t 
 have the same number of rows.</source>
         <translation>Aviso: a marcação desta opção conduz à 
 superposição de colunas se as colunas do arquivo 
@@ -5905,8 +6028,8 @@ ASCII não tiverem o mesmo número de linhas.</translation>
         <source>To avoid this problem you should precisely 
 define the column separator using TAB and 
 SPACE characters.</source>
-        <comment>when translating this check the what's this functions and tool tips to place the '
-'s correctly</comment>
+        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;
+&apos;s correctly</comment>
         <translation>Para evitar este problema é necessário 
 definir exatamente o separador de colunas 
 usando os caracteres TAB ou ESPAÇO.</translation>
@@ -5921,8 +6044,8 @@ removed from the beginning and the end of the
 lines and each sequence of internal 
 whitespaces (including the TAB character) will 
 be replaced with a single space.</source>
-        <comment>when translating this check the what's this functions and tool tips to place the '
-'s correctly</comment>
+        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;
+&apos;s correctly</comment>
         <translation>Marcando esta opção, todos os espaços em branco 
 serão eliminados do início e do final das linhas 
 e cada sequência de espaços internos (incluindo o caracter TAB) 
@@ -5930,10 +6053,10 @@ será substituída por um único espaço em branco.</translation>
     </message>
     <message>
         <source>Warning: checking this option leads to column 
-overlaping if the columns in the ASCII file don't 
+overlaping if the columns in the ASCII file don&apos;t 
 have the same number of rows.</source>
-        <comment>when translating this check the what's this functions and tool tips to place the '
-'s correctly</comment>
+        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;
+&apos;s correctly</comment>
         <translation>Aviso: a marcação desta opção conduz à 
 superposição de colunas se as colunas do arquivo 
 ASCII não tiverem o mesmo número de linhas.</translation>
@@ -5991,7 +6114,7 @@ ASCII não tiverem o mesmo número de linhas.</translation>
         <translation>Marcando esta opção todos os espaços em branco serão removidos do início e do final das linhas e cada sequência de espaços internos (incluindo o caractere TAB) serão substituídos por um único espaço em branco.</translation>
     </message>
     <message>
-        <source>Warning: using these two last options leads to column overlaping if the columns in the ASCII file don't have the same number of rows.</source>
+        <source>Warning: using these two last options leads to column overlaping if the columns in the ASCII file don&apos;t have the same number of rows.</source>
         <translation>Atenção: o uso destas duas últimas opções conduz à superposição de colunas se as colunas do arquivo ASCII não tiverem o mesmo número de linhas.</translation>
     </message>
     <message>
@@ -6050,15 +6173,11 @@ ASCII não tiverem o mesmo número de linhas.</translation>
         <translation>&amp;Fechar</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
     <message>
-        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn't exist anymore! Operation aborted!</source>
+        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>A curva &lt;b&gt;%1&lt;/b&gt; não existe mais! Operação abortada!</translation>
     </message>
     <message>
@@ -6117,16 +6236,16 @@ The limits must be within the range of x; If you do not know the maximum (minimu
 IMPORTANTE
 Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo (mínimo) de x, escreva max (min) nas caixas.</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Integration</name>
     <message>
         <source>Integration</source>
         <translation>Integração</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
     </message>
     <message>
         <source>Error</source>
@@ -6192,13 +6311,13 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <source>Area</source>
         <translation>área</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Interpolation</name>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
     <message>
         <source>Error</source>
         <translation>Erro</translation>
@@ -6238,6 +6357,10 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
     <message>
         <source>Several data points have the same x value causing divisions by zero, operation aborted!</source>
         <translation>Vários pontos tem o mesmo valor de x causando divisões por zero, integração abortada!</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6299,7 +6422,7 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <translation>Atenção</translation>
     </message>
     <message>
-        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn't exist anymore! Operation aborted!</source>
+        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>A curva &lt;b&gt;%1&lt;/b&gt; não existe mais! Operação abortada!</translation>
     </message>
     <message>
@@ -6458,7 +6581,7 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <translation>Erro nas colunas introduzidas</translation>
     </message>
     <message>
-        <source>The number of columns you've entered is greater than the number of graphs (%1)!</source>
+        <source>The number of columns you&apos;ve entered is greater than the number of graphs (%1)!</source>
         <translation>O número de colunas fornecido é maior que o número de gráficos (%1)!</translation>
     </message>
     <message>
@@ -6466,7 +6589,7 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <translation>Erro nas linhas introduzidas</translation>
     </message>
     <message>
-        <source>The number of rows you've entered is greater than the number of graphs (%1)!</source>
+        <source>The number of rows you&apos;ve entered is greater than the number of graphs (%1)!</source>
         <translation>O número de linhas fornecido é maior que o número de gráficos (%1)!</translation>
     </message>
 </context>
@@ -6627,6 +6750,29 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
     </message>
 </context>
 <context>
+    <name>MakhberAbout</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">Diálogo</translation>
+    </message>
+    <message>
+        <source>Makhber XX.XX.XX-betaXX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Released XXXX-XX-XX</source>
+        <translation type="unfinished">Atualizado em XXXX-XX-XX</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">Fechar</translation>
+    </message>
+    <message>
+        <source>Lib: Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Matrix</name>
     <message>
         <source>Error</source>
@@ -6639,10 +6785,6 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
     <message>
         <source>Inversion failed, the matrix is not square!</source>
         <translation>A inversão falhou, a matriz não é quadrada!</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
     </message>
     <message>
         <source>Do you want to hide or delete</source>
@@ -6667,6 +6809,10 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
     <message>
         <source>%1: apply formula to selection</source>
         <translation>%1: aplicar fórmula à seleção</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -6704,52 +6850,52 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <translation>Formato</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Apply new type and format to all selected columns&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Apply new type and format to all selected columns&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Aplicar novo tipo e formato para todas as colunas selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Aplicar novo tipo e formato para todas as colunas selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Format:</source>
         <translation>Formato:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Choose the display format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Choose the display format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Escolha o formato a ser mostrado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Escolha o formato a ser mostrado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Decimal Digits:</source>
         <translation>Casas decimais</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Enter the number of displayed decimal digits&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Enter the number of displayed decimal digits&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Insira o número de casas decimais que devem ser mostradas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insira o número de casas decimais que devem ser mostradas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Information about the selected type and format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Information about the selected type and format&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Informações sobre tipo e formato selecionado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Informações sobre tipo e formato selecionado&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Formula</source>
@@ -6760,58 +6906,58 @@ p, li { white-space: pre-wrap; }
         <translation>Fórmula</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Apply the formula to all selected cells&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Apply the formula to all selected cells&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Aplicar fórmula em todas as células selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Aplicar fórmula em todas as células selecionadas&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Select a column reference to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select a column reference to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Selecione uma coluna de referência para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selecione uma coluna de referência para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Insert the column reference into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insert the column reference into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Insira a coluna de referência na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insira a coluna de referência na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Add</source>
         <translation>Adicionar</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Select a function to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select a function to insert into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Selecione uma função para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Selecione uma função para inserir na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+        <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Inset the function into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name="qrichtext" content="1" /&gt;&lt;style type="text/css"&gt;
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Inset the function into the formula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=" font-family:'Sans Serif'; font-size:9pt; font-weight:400; font-style:normal;"&gt;
-&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"&gt;Insira a função na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Insira a função na fórmula&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -6857,7 +7003,7 @@ p, li { white-space: pre-wrap; }
         <translation>col() funciona somente em tabelas!</translation>
     </message>
     <message>
-        <source>There's no column %1 in table %2!</source>
+        <source>There&apos;s no column %1 in table %2!</source>
         <translation>Não existe a coluna %1 na tabela %2!</translation>
     </message>
     <message>
@@ -6865,19 +7011,19 @@ p, li { white-space: pre-wrap; }
         <translation>tablecol() funciona somente em tabelas!</translation>
     </message>
     <message>
-        <source>Couldn't find a table named %1.</source>
+        <source>Couldn&apos;t find a table named %1.</source>
         <translation>Não foi possível encontrar a tabela chamada %1.</translation>
     </message>
     <message>
         <source>cell() works only on tables and matrices!</source>
-        <translation>o uso de "cell()" só funciona com tabelas e matrizes!</translation>
+        <translation>o uso de &quot;cell()&quot; só funciona com tabelas e matrizes!</translation>
     </message>
     <message>
-        <source>There's no row %1 in matrix %2!</source>
+        <source>There&apos;s no row %1 in matrix %2!</source>
         <translation>Não existe a linha %1 na matriz %2!</translation>
     </message>
     <message>
-        <source>There's no column %1 in matrix %2!</source>
+        <source>There&apos;s no column %1 in matrix %2!</source>
         <translation>Não existe a coluna %1 na matriz %2!</translation>
     </message>
     <message>
@@ -6885,7 +7031,7 @@ p, li { white-space: pre-wrap; }
         <translation>O acesso a valores de tabelas (ainda) não é suportado neste contexto.</translation>
     </message>
     <message>
-        <source>There's no column named %1 in table %2!</source>
+        <source>There&apos;s no column named %1 in table %2!</source>
         <translation>Não existe uma coluna chamada %1 na tabela %2!</translation>
     </message>
     <message>
@@ -7074,7 +7220,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <source>(e1)?(e2):(e3):
  if e1 then e2 else e3.</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>ln(x):
@@ -7176,7 +7322,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <source>w0(x):
- Compute the principal branch of Lambert's W function, W_0(x).
+ Compute the principal branch of Lambert&apos;s W function, W_0(x).
  W is defined as a solution to the equation W(x)*exp(W(x))=x.
  For x&lt;0, there are two real-valued branches; this function computes the one where W&gt;-1 for x&lt;0 (also see wm1(x)).</source>
         <translation>w0(x):￼
@@ -7186,7 +7332,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <source>wm1(x):
- Compute the secondary branch of Lambert's W function, W_{-1}(x).
+ Compute the secondary branch of Lambert&apos;s W function, W_{-1}(x).
  W is defined as a solution to the equation W(x)*exp(W(x))=x.
  For x&lt;0, there are two real-valued branches; this function computes the one where W&lt;-1 for x&lt;0. (also see w0(x)).</source>
         <translation>wm1(x):￼
@@ -7200,10 +7346,6 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <source>Guess best layout?</source>
         <translation> Buscar a melhor organização?</translation>
-    </message>
-    <message>
-        <source>Do you want SciDAVis to rearrange the remaining layers?</source>
-        <translation>Você quer que SciDAVis reorganize as camadas restantes?</translation>
     </message>
     <message>
         <source>&amp;Yes</source>
@@ -7240,6 +7382,10 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <source>enter your text here</source>
         <translation>introduza seu texto aqui</translation>
+    </message>
+    <message>
+        <source>Do you want Makhber to rearrange the remaining layers?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7346,20 +7492,16 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
 <context>
     <name>MultiPeakFitTool</name>
     <message>
-        <source>Move cursor and click to select a point and double-click/press 'Enter' to set the position of a peak!</source>
-        <translation>Mova o cursor e clique para selecionar um ponto e dê um duplo clique ou tecle 'Enter' para determinar a posição do pico!</translation>
+        <source>Move cursor and click to select a point and double-click/press &apos;Enter&apos; to set the position of a peak!</source>
+        <translation>Mova o cursor e clique para selecionar um ponto e dê um duplo clique ou tecle &apos;Enter&apos; para determinar a posição do pico!</translation>
     </message>
     <message>
-        <source>Peak %1 selected! Click to select a point and double-click/press 'Enter' to set the position of the next peak!</source>
-        <translation>Pico %1 selecionado! Clique para selecionar um ponto e dê um duplo clique/'enter' para fixar a posição do pico seguinte!</translation>
+        <source>Peak %1 selected! Click to select a point and double-click/press &apos;Enter&apos; to set the position of the next peak!</source>
+        <translation>Pico %1 selecionado! Clique para selecionar um ponto e dê um duplo clique/&apos;enter&apos; para fixar a posição do pico seguinte!</translation>
     </message>
 </context>
 <context>
     <name>MyWidget</name>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
     <message>
         <source>Do you want to hide or delete</source>
         <translation>Você quer excluir ou ocultar</translation>
@@ -7391,6 +7533,10 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <source>Maximized</source>
         <translation>Maximizada</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7424,14 +7570,6 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <source>Open Project</source>
         <translation>Abrir projeto</translation>
-    </message>
-    <message>
-        <source>SciDAVis project</source>
-        <translation>Projeto do SciDAVis</translation>
-    </message>
-    <message>
-        <source>Compressed SciDAVis project</source>
-        <translation>Projeto do SciDAVis comprimido</translation>
     </message>
     <message>
         <source>QtiPlot project</source>
@@ -7483,7 +7621,15 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <source>Codepage</source>
-        <translation type="unfinished" />
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compressed Makhber project</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8636,10 +8782,6 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>Você já definiu uma coluna Y!</translation>
     </message>
     <message>
-        <source>This kind of curve is not handled by SciDAVis!</source>
-        <translation>Este tipo de curva não é suportada pelo SciDAVis!</translation>
-    </message>
-    <message>
         <source>You have already defined a Z column!</source>
         <translation>Já foi definida uma coluna Z!</translation>
     </message>
@@ -8654,6 +8796,10 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <source>You must add a new curve first!</source>
         <translation>É necessário adicionar uma nova curva primeiro!</translation>
+    </message>
+    <message>
+        <source>This kind of curve is not handled by Makhber!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8730,7 +8876,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>Atenção</translation>
     </message>
     <message>
-        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn't exist anymore! Operation aborted!</source>
+        <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>A curva &lt;b&gt;%1&lt;/b&gt; não existe mais! Operação abortada!</translation>
     </message>
 </context>
@@ -8764,16 +8910,16 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>versão do projeto inválida ou faltando</translation>
     </message>
     <message>
-        <source>unknown element '%1'</source>
-        <translation>elemento '%1' desconhecido</translation>
-    </message>
-    <message>
-        <source>no scidavis_project element found</source>
-        <translation>nenhum elemento do scidavis encontrado</translation>
+        <source>unknown element &apos;%1&apos;</source>
+        <translation>elemento &apos;%1&apos; desconhecido</translation>
     </message>
     <message>
         <source>no valid XML document found</source>
         <translation>nenhum documento XML válido foi encontrado</translation>
+    </message>
+    <message>
+        <source>no makhber_project element found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8802,20 +8948,16 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
 <context>
     <name>PythonScripting</name>
     <message>
-        <source>Failed to export SciDAVis API</source>
-        <translation>Falha ao exportar a API do SciDAVis</translation>
+        <source>Failed to export Makhber API</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Accessing SciDAVis functions or objects from Python code won't work.Probably your version of SIP differs from the one SciDAVis was compiled against;try updating SIP or recompiling SciDAVis.</source>
-        <translation>O acesso aos objetos e funções do SciDAVis via código em Python não funcionará. Provavelmente sua versão do SIP é diferente da versão com a qual o SciDAVis foi compilado; tente atualizar o SIP ou recompilar o SciDAVis.</translation>
+        <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against;try updating SIP or recompiling Makhber.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
-    <message>
-        <source>Released</source>
-        <translation>Atualizado em</translation>
-    </message>
     <message>
         <source>&amp;Remove</source>
         <translation>Remover</translation>
@@ -8941,12 +9083,12 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>definir formato de data e hora para %1</translation>
     </message>
     <message>
-        <source>%1: set numeric format to '%2'</source>
-        <translation>%1: definir formato numérico para '%2'</translation>
+        <source>%1: set numeric format to &apos;%2&apos;</source>
+        <translation>%1: definir formato numérico para &apos;%2&apos;</translation>
     </message>
     <message>
-        <source>set numeric format to '%1'</source>
-        <translation>definir formato numérico para '%1'</translation>
+        <source>set numeric format to &apos;%1&apos;</source>
+        <translation>definir formato numérico para &apos;%1&apos;</translation>
     </message>
     <message>
         <source>%1: set decimal digits to %2</source>
@@ -9100,14 +9242,12 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>%1: mover coluna %2 da posição %3 para a %4</translation>
     </message>
     <message>
-        <source>About SciDAVis</source>
-        <translation>Sobre o SciDAVis</translation>
+        <source>Built</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>
-Released</source>
-        <translation>
-Atualizado</translation>
+        <source>About Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9170,25 +9310,6 @@ Atualizado</translation>
     <message>
         <source>For internal consistency reasons the underscore character is replaced with a minus sign.</source>
         <translation>Por razões de consistência interna o caracter de sub-linha é substituído pelo sinal de menos.</translation>
-    </message>
-</context>
-<context>
-    <name>SciDAVisAbout</name>
-    <message>
-        <source>Dialog</source>
-        <translation>Diálogo</translation>
-    </message>
-    <message>
-        <source>SciDAVis XX.XX.XX-betaXX</source>
-        <translation>SciDAVis XX.XX.XX-betaXX</translation>
-    </message>
-    <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation>Atualizado em XXXX-XX-XX</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>Fechar</translation>
     </message>
 </context>
 <context>
@@ -9261,8 +9382,8 @@ Atualizado</translation>
         <translation>Erro ao abrir arquivo</translation>
     </message>
     <message>
-        <source>Could not open file "%1" for reading.</source>
-        <translation>Não foi possível abrir o arquivo "%1" para leitura.</translation>
+        <source>Could not open file &quot;%1&quot; for reading.</source>
+        <translation>Não foi possível abrir o arquivo &quot;%1&quot; para leitura.</translation>
     </message>
     <message>
         <source>Save Text to File</source>
@@ -9303,8 +9424,8 @@ Atualizado</translation>
         <translation>Erro no script</translation>
     </message>
     <message>
-        <source>Scripting language "%1" failed to initialize.</source>
-        <translation>Falha na inicialização da linguagem de programação "%1".</translation>
+        <source>Scripting language &quot;%1&quot; failed to initialize.</source>
+        <translation>Falha na inicialização da linguagem de programação &quot;%1&quot;.</translation>
     </message>
 </context>
 <context>
@@ -9376,10 +9497,6 @@ Atualizado</translation>
         <translation>Suavizado</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
@@ -9435,6 +9552,10 @@ Atualizado</translation>
     <message>
         <source>Setting polynomial order is only available for Savitzky-Golay smooth filters! Ignored option!</source>
         <translation>A seleção da ordem do polinômio só é possível para suavização com filtros de Savitzky-Golay! Opção ignorada!</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9617,10 +9738,6 @@ Atualizado</translation>
         <translation>&lt;/h4&gt;&lt;p&gt;Por favor, verifique se você tem permissão de escrita nestelocal!</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Do you want to hide or delete</source>
         <translation>Você quer excluir ou ocultar</translation>
     </message>
@@ -9639,6 +9756,21 @@ Atualizado</translation>
     <message>
         <source>%1: apply formula to column</source>
         <translation>%1: aplicar fórmula à coluna</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>TableConfigPage</name>
+    <message>
+        <source>Form</source>
+        <translation type="unfinished">A partir de</translation>
+    </message>
+    <message>
+        <source>TODO</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10062,8 +10194,8 @@ valores de ponto flutuante (float)
 <context>
     <name>TranslateCurveTool</name>
     <message>
-        <source>Curve selected! Move cursor and click to choose a point and double-click/press 'Enter' to finish!</source>
-        <translation>Curva selecionada! Mova o cursor e clique para escolher um ponto e dê um duplo clique/'enter' para finalisar</translation>
+        <source>Curve selected! Move cursor and click to choose a point and double-click/press &apos;Enter&apos; to finish!</source>
+        <translation>Curva selecionada! Mova o cursor e clique para escolher um ponto e dê um duplo clique/&apos;enter&apos; para finalisar</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -10108,8 +10240,8 @@ valores de ponto flutuante (float)
 <context>
     <name>future::Folder</name>
     <message>
-        <source>unknown element '%1'</source>
-        <translation>elemento '%1' desconhecido</translation>
+        <source>unknown element &apos;%1&apos;</source>
+        <translation>elemento &apos;%1&apos; desconhecido</translation>
     </message>
     <message>
         <source>no folder element found</source>
@@ -10124,12 +10256,12 @@ valores de ponto flutuante (float)
         <translation>Coluna %1</translation>
     </message>
     <message>
-        <source>creation of aspect from element '%1' failed</source>
-        <translation>A criação de aspecto a partir do elemento '%1' falhou</translation>
+        <source>creation of aspect from element &apos;%1&apos; failed</source>
+        <translation>A criação de aspecto a partir do elemento &apos;%1&apos; falhou</translation>
     </message>
     <message>
-        <source>no plugin to load element '%1' found</source>
-        <translation>Nenhum plugin para carregar o elemento '%1' foi encontrado</translation>
+        <source>no plugin to load element &apos;%1&apos; found</source>
+        <translation>Nenhum plugin para carregar o elemento &apos;%1&apos; foi encontrado</translation>
     </message>
 </context>
 <context>
@@ -10307,16 +10439,16 @@ valores de ponto flutuante (float)
         <translation>Erro ao importar imagem</translation>
     </message>
     <message>
-        <source>Import of image '%1' failed</source>
-        <translation>A importação da imagem '%1' falhou</translation>
+        <source>Import of image &apos;%1&apos; failed</source>
+        <translation>A importação da imagem &apos;%1&apos; falhou</translation>
     </message>
     <message>
         <source>invalid row or column count</source>
         <translation>Contagem de linhas ou colunas inválidas</translation>
     </message>
     <message>
-        <source>unknown element '%1'</source>
-        <translation>elemento '%1' desconhecido</translation>
+        <source>unknown element &apos;%1&apos;</source>
+        <translation>elemento &apos;%1&apos; desconhecido</translation>
     </message>
     <message>
         <source>no matrix element found</source>
@@ -10383,16 +10515,16 @@ valores de ponto flutuante (float)
         <translation>Matriz</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Import image...</source>
         <translation>Importar imagem...</translation>
     </message>
     <message>
         <source>Matrix %1</source>
         <translation>Matriz %1</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10727,8 +10859,8 @@ valores de ponto flutuante (float)
         <translation>Coluna %1</translation>
     </message>
     <message>
-        <source>unknown element '%1'</source>
-        <translation>elemento '%1' desconhecido</translation>
+        <source>unknown element &apos;%1&apos;</source>
+        <translation>elemento &apos;%1&apos; desconhecido</translation>
     </message>
     <message>
         <source>columns attribute and number of read columns do not match</source>

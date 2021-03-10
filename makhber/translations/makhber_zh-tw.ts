@@ -88,23 +88,23 @@
     <name>Application</name>
     <message>
         <source>Error!</source>
-        <translation type="vanished">錯誤！</translation>
+        <translation>錯誤！</translation>
     </message>
     <message>
         <source>Error </source>
-        <translation type="vanished">錯誤 </translation>
+        <translation>錯誤 </translation>
     </message>
     <message>
         <source> sending event </source>
-        <translation type="vanished"> 發送事件 </translation>
+        <translation> 發送事件 </translation>
     </message>
     <message>
         <source> to object </source>
-        <translation type="vanished"> 到 對象 </translation>
+        <translation> 到 對象 </translation>
     </message>
     <message>
         <source>Error &lt;unknown&gt; sending event</source>
-        <translation type="vanished">錯誤 &lt;未知&gt; 發送事件</translation>
+        <translation>錯誤 &lt;未知&gt; 發送事件</translation>
     </message>
 </context>
 <context>
@@ -122,10 +122,6 @@
         <source>&amp;Previous</source>
         <comment>previous window</comment>
         <translation>上一個(&amp;P)</translation>
-    </message>
-    <message>
-        <source>SciDAVis - untitled</source>
-        <translation>SciDAVis  - 無標題</translation>
     </message>
     <message>
         <source>Project Explorer</source>
@@ -578,10 +574,6 @@
         <translation>文件 &lt;b&gt;%1&lt;/b&gt; 不是一個有效的專案檔。</translation>
     </message>
     <message>
-        <source>SciDAVis currently does not support Origin import. If you are interested in reviving and maintaining an Origin import filter, contact the developers.</source>
-        <translation>SciDAVis 目前不支持 Origin 導入。如果你有興趣復活並維護一個 Origin 導入篩檢程式，請與開發者聯繫。</translation>
-    </message>
-    <message>
         <source>File Open Error</source>
         <translation>檔打開錯誤</translation>
     </message>
@@ -618,14 +610,6 @@
         <translation>原始（損壞）檔保持不變，以防您想嘗試手動挽救資料。 如果要繼續使用自動還原的備份副本，則必須顯式地覆蓋原始檔。</translation>
     </message>
     <message>
-        <source>SciDAVis does not support QtiPlot project files from versions later than 0.9.0.</source>
-        <translation>SciDAVis 不支持 0.9.0 之後版本的 QtiPlot 專案檔。</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>The file &quot;%1&quot; was created using &quot;%2&quot; as scripting language.
 
 Initializing support for this language FAILED; I&apos;m using &quot;%3&quot; instead.
@@ -660,20 +644,8 @@ Various parts of this file may not be displayed as expected.</source>
         <translation>打開範本檔</translation>
     </message>
     <message>
-        <source>The file: &lt;b&gt; %1 &lt;/b&gt; was not created using SciDAVis!</source>
-        <translation>文件：&lt;b&gt; %1 &lt;/b&gt; 不是使用 SciDAVis 創建的！</translation>
-    </message>
-    <message>
-        <source>SciDAVis does not support QtiPlot template files from versions later than 0.9.0.</source>
-        <translation>SciDAVis 不支援版本 0.9.0 之後的 QtiPlot 範本檔。</translation>
-    </message>
-    <message>
         <source>Table1</source>
         <translation>表格1</translation>
-    </message>
-    <message>
-        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a SciDAVis template file!</source>
-        <translation>文件 &lt;b&gt;%1&lt;/b&gt; 不是一個 SciDAVis 範本檔！</translation>
     </message>
     <message>
         <source>Export Error</source>
@@ -736,32 +708,8 @@ Various parts of this file may not be displayed as expected.</source>
         <translation>最大化的</translation>
     </message>
     <message>
-        <source>SciDAVis project</source>
-        <translation>SciDAVis 項目</translation>
-    </message>
-    <message>
-        <source>Compressed SciDAVis project</source>
-        <translation>壓縮的 SciDAVis 專案</translation>
-    </message>
-    <message>
         <source>Save Project As</source>
         <translation>項目另存為</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot Matrix Template</source>
-        <translation>SciDAVis/QtiPlot 矩陣範本</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot 2D Graph Template</source>
-        <translation>SciDAVis/QtiPlot 二維圖形範本</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot Table Template</source>
-        <translation>SciDAVis/QtiPlot 表格範本</translation>
-    </message>
-    <message>
-        <source>SciDAVis/QtiPlot 3D Surface Template</source>
-        <translation>SciDAVis/QtiPlot 三維表面範本</translation>
     </message>
     <message>
         <source>Save Window As Template</source>
@@ -1116,10 +1064,6 @@ Are you sure you want to continue?</source>
         <translation>清除(&amp;R)</translation>
     </message>
     <message>
-        <source>Choose the location of the SciDAVis help folder!</source>
-        <translation>選擇 SciDAVis 幫助檔夾的位置！</translation>
-    </message>
-    <message>
         <source>index.html File Not Found!</source>
         <translation>未找到文件 index.html ！</translation>
     </message>
@@ -1170,12 +1114,6 @@ Are you sure you want to continue?</source>
     <message>
         <source>Guess best origin for the new layer?</source>
         <translation>猜測新圖層的最佳原點？</translation>
-    </message>
-    <message>
-        <source>Do you want SciDAVis to guess the best position for the new layer?
- Warning: this will rearrange existing layers!</source>
-        <translation>你想讓 SciDAVis 猜測新圖層的最佳位置嗎？
-  警告：這將重新排列現有圖層！</translation>
     </message>
     <message>
         <source>&amp;Guess</source>
@@ -1712,10 +1650,6 @@ Are you sure you want to continue?</source>
         <translation>標題(&amp;T)...</translation>
     </message>
     <message>
-        <source>&amp;About SciDAVis</source>
-        <translation>關於SCiDAVis(&amp;A)</translation>
-    </message>
-    <message>
         <source>F1</source>
         <translation>F1</translation>
     </message>
@@ -1874,14 +1808,6 @@ Are you sure you want to continue?</source>
     <message>
         <source>Search for &amp;Updates</source>
         <translation>檢查更新(&amp;U)</translation>
-    </message>
-    <message>
-        <source>&amp;SciDAVis Homepage</source>
-        <translation>&amp;SciDAVis 主頁</translation>
-    </message>
-    <message>
-        <source>SciDAVis &amp;Forums</source>
-        <translation>SciDAVis 論壇(&amp;F)</translation>
     </message>
     <message>
         <source>Report a &amp;Bug</source>
@@ -2200,10 +2126,6 @@ Are you sure you want to continue?</source>
         <translation>箱須圖</translation>
     </message>
     <message>
-        <source>Visit SciDAVis &amp;Forums</source>
-        <translation>訪問 SciDAVis 論壇(&amp;F)</translation>
-    </message>
-    <message>
         <source>Disable &amp;tools</source>
         <translation>禁用工具(&amp;T)</translation>
     </message>
@@ -2432,18 +2354,6 @@ Are you sure you want to continue?</source>
         <translation>顯示命令行選項</translation>
     </message>
     <message>
-        <source>start SciDAVis in language</source>
-        <translation>用語言 啟動 SciDAVis</translation>
-    </message>
-    <message>
-        <source>show SciDAVis manual in a standalone window</source>
-        <translation>在獨立視窗中顯示 SciDAVis 用戶手冊</translation>
-    </message>
-    <message>
-        <source>print SciDAVis version and release date</source>
-        <translation>列印 SciDAVis 版本和發佈日期</translation>
-    </message>
-    <message>
         <source>execute the script file given as argument</source>
         <translation>執行作為參數給出的腳本檔</translation>
     </message>
@@ -2454,10 +2364,6 @@ Are you sure you want to continue?</source>
     <message>
         <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
         <translation>可以是任何 .sciprj, .sciprj.gz, .qti, qti.gz, .py 或 ASCII 文件</translation>
-    </message>
-    <message>
-        <source>SciDAVis - Help</source>
-        <translation>SciDAVis - 説明</translation>
     </message>
     <message>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
@@ -2477,10 +2383,6 @@ Are you sure you want to continue?</source>
     </message>
     <message>
         <source>You don&apos;t have the permission to open this file: &lt;b&gt;%1&lt;/b&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a SciDAVis or Origin project file!</source>
         <translation></translation>
     </message>
     <message>
@@ -2648,10 +2550,6 @@ Are you sure you want to continue?</source>
         <translation>目標檔夾已包含名為 &apos;%1&apos; 的文件夾！ 跳過文件夾！</translation>
     </message>
     <message>
-        <source>SciDAVis will now try to determine whether a new version of SciDAVis is available. Please modify your firewall settings in order to allow SciDAVis to connect to the internet.</source>
-        <translation>SciDAVis 現在將嘗試確定是否有新版本可用。 請修改您的防火牆設置，以便讓 SciDAVis 連接到互聯網。</translation>
-    </message>
-    <message>
         <source>Do you wish to continue?</source>
         <translation>你想繼續嗎？</translation>
     </message>
@@ -2666,10 +2564,6 @@ Are you sure you want to continue?</source>
     <message>
         <source>Updates Available</source>
         <translation>可用更新</translation>
-    </message>
-    <message>
-        <source>There is a newer version of SciDAVis (%1) available for download. Would you like to download it now?</source>
-        <translation>有更新版本的 SciDAVis（%1）可供下載。 你想現在下載嗎？</translation>
     </message>
     <message>
         <source>No updates available. You are already running the latest version.</source>
@@ -2737,6 +2631,111 @@ Are you sure you want to continue?</source>
         <source>Invalid WindowLabel line:
 &apos;%1&apos;
 in file %2.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber - untitled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber currently does not support Origin import. If you are interested in reviving and maintaining an Origin import filter, contact the developers.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber does not support QtiPlot project files from versions later than 0.9.0.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file: &lt;b&gt; %1 &lt;/b&gt; was not created using Makhber!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber does not support QtiPlot template files from versions later than 0.9.0.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber template file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compressed Makhber project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot Matrix Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot 2D Graph Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot Table Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber/QtiPlot 3D Surface Template</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Choose the location of the Makhber help folder!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want Makhber to guess the best position for the new layer?
+ Warning: this will rearrange existing layers!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;About Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&amp;Makhber Homepage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber &amp;Forums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Visit Makhber &amp;Forums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>start Makhber in language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>show Makhber manual in a standalone window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>print Makhber version and release date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber - Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber or Origin project file!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber will now try to determine whether a new version of Makhber is available. Please modify your firewall settings in order to allow Makhber to connect to the internet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3328,13 +3327,6 @@ in file %2.</source>
     <message>
         <source>as string</source>
         <translation type="unfinished">作為字串</translation>
-    </message>
-</context>
-<context>
-    <name>ColumnStringIO</name>
-    <message>
-        <source>as string</source>
-        <translation type="vanished">作為字串</translation>
     </message>
 </context>
 <context>
@@ -4037,10 +4029,6 @@ p, li { white-space: pre-wrap; }
         <translation>卷積</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -4072,16 +4060,16 @@ p, li { white-space: pre-wrap; }
         <source>Plot</source>
         <translation>繪圖</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Correlation</name>
     <message>
         <source>Correlation</source>
         <translation>關聯</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
     </message>
     <message>
         <source>Error</source>
@@ -4106,6 +4094,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Plot</source>
         <translation>繪圖</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4584,10 +4576,6 @@ p, li { white-space: pre-wrap; }
         <translation>FFT</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -4626,6 +4614,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>s</source>
         <translation>s</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4702,10 +4694,6 @@ p, li { white-space: pre-wrap; }
         <translation>濾波</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -4741,13 +4729,13 @@ p, li { white-space: pre-wrap; }
         <source>Band Block FFT Filter</source>
         <translation>帶阻 FFT 濾波器</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Filter</name>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
     <message>
         <source>Error</source>
         <translation>錯誤</translation>
@@ -4791,6 +4779,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>of</source>
         <translation>的</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4859,10 +4851,6 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FindDialog</name>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Find</source>
         <translation>查找</translation>
     </message>
@@ -4909,6 +4897,10 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>&amp;Close</source>
         <translation>大小寫敏感(&amp;S)</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4996,10 +4988,6 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Error</source>
         <translation>錯誤</translation>
-    </message>
-    <message>
-        <source>The column %1 has fewer points than the fitted data set. Please choose another column!</source>
-        <translation type="obsolete">列 %1 數據點少於擬合數據集。請選擇其他列！</translation>
     </message>
     <message>
         <source>Parameter</source>
@@ -5394,13 +5382,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>Folder</name>
-    <message>
-        <source>Couldn&apos;t find window named </source>
-        <translation type="obsolete">無法找到如下名稱的窗口 </translation>
-    </message>
-</context>
-<context>
     <name>FunctionCurve</name>
     <message>
         <source>Input function error</source>
@@ -5687,7 +5668,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within SciDAVis. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&gt;&quot;&gt;bug tracker: https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&lt;/a&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&gt;&quot;&gt;bug tracker: https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&lt;/a&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6029,45 +6010,14 @@ The following special codes can be used:
         <translation>移除行尾空格(&amp;R)</translation>
     </message>
     <message>
-        <source>By checking this option all white spaces will be 
-removed from the beginning and the end of 
-the lines in the ASCII file.</source>
-        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;\n&apos;s correctly</comment>
-        <translation type="vanished">勾選這個選項，則 ASCII 檔中所有行首和行尾的空白都會被移除。</translation>
-    </message>
-    <message>
         <source>Warning: checking this option leads to column 
 overlaping if the columns in the ASCII file don&apos;t 
 have the same number of rows.</source>
         <translation>警告：勾選這個選項會導致列重疊，如果ASCII檔中的各列行數不等。</translation>
     </message>
     <message>
-        <source>To avoid this problem you should precisely 
-define the column separator using TAB and 
-SPACE characters.</source>
-        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;\n&apos;s correctly</comment>
-        <translation type="vanished">為了避免這個問題，你應該精確地用 TAB 和 SPACE 定義列分隔符號。</translation>
-    </message>
-    <message>
         <source>&amp;Simplify white spaces</source>
         <translation>簡化空白(&amp;S)</translation>
-    </message>
-    <message>
-        <source>By checking this option all white spaces will be 
-removed from the beginning and the end of the 
-lines and each sequence of internal 
-whitespaces (including the TAB character) will 
-be replaced with a single space.</source>
-        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;\n&apos;s correctly</comment>
-        <translation type="vanished">選上這個選項，行首和行尾的空白都會被去掉，
-行內的連續空白(包括TAB)都會被替換為單個空格。</translation>
-    </message>
-    <message>
-        <source>Warning: checking this option leads to column 
-overlaping if the columns in the ASCII file don&apos;t 
-have the same number of rows.</source>
-        <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;\n&apos;s correctly</comment>
-        <translation type="vanished">警告：選上這個選項會導致列重疊，如果ASCII檔中的各列行數不等。</translation>
     </message>
     <message>
         <source>&amp;Numeric data</source>
@@ -6217,10 +6167,6 @@ have the same number of rows.</source>
         <translation>關閉(&amp;C)</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -6272,16 +6218,16 @@ have the same number of rows.</source>
 The limits must be within the range of x; If you do not know the maximum (minimum) value of x, type max (min) in the boxes.</source>
         <translation>曲線的積分包括以下五個步驟：1）選擇要整合的曲線；2）設置積分的順序，計算越精確越高；3）選擇迭代次數；4）選擇公差；5）選擇下限和上限。該代碼將曲線與迭代演算法集成在一起。容差確定求解器的終止條件。因為，有時我們要求太高的準確性，迭代次數確保求解器永遠不會工作。重要事項限制必須在 x 的範圍內；如果不知道x的最大（最小）值，請在框中鍵入 max（min）。</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Integration</name>
     <message>
         <source>Integration</source>
         <translation>積分</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
     </message>
     <message>
         <source>Error</source>
@@ -6347,6 +6293,10 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <source>Area</source>
         <translation>面積</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Interpolation</name>
@@ -6371,10 +6321,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation>Akima</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -6392,6 +6338,10 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     </message>
     <message>
         <source>You need at least %1 points in order to perform this operation!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6782,6 +6732,29 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     </message>
 </context>
 <context>
+    <name>MakhberAbout</name>
+    <message>
+        <source>Dialog</source>
+        <translation type="unfinished">對話方塊</translation>
+    </message>
+    <message>
+        <source>Makhber XX.XX.XX-betaXX</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Released XXXX-XX-XX</source>
+        <translation type="unfinished">發佈日期：XXXX-XX-XX</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation type="unfinished">關閉</translation>
+    </message>
+    <message>
+        <source>Lib: Version</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Matrix</name>
     <message>
         <source>Error</source>
@@ -6794,10 +6767,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     <message>
         <source>Inversion failed, the matrix is not square!</source>
         <translation>求逆失敗，矩陣不是方陣！</translation>
-    </message>
-    <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
     </message>
     <message>
         <source>Do you want to hide or delete</source>
@@ -6822,6 +6791,10 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     <message>
         <source>%1: apply formula to selection</source>
         <translation>%1: 應用公式進行選擇</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7228,12 +7201,6 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
 為正態分佈計算故障率函數 h(x)=erfz(x)/erfq(x)。</translation>
     </message>
     <message>
-        <source>if(e1, e2, e3):
- if e1 then e2 else e3.</source>
-        <translation type="vanished">if(e1, e2, e3):
- 如果 e1，則 e2，否則 e3。</translation>
-    </message>
-    <message>
         <source>ln(x):
  Calculate natural logarithm log_e.</source>
         <translation>ln(x):
@@ -7364,10 +7331,6 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <translation>猜測最優佈局？</translation>
     </message>
     <message>
-        <source>Do you want SciDAVis to rearrange the remaining layers?</source>
-        <translation>你希望 SciDAVis 重排現在的圖層嗎？</translation>
-    </message>
-    <message>
         <source>&amp;Yes</source>
         <translation>是(&amp;Y)</translation>
     </message>
@@ -7402,6 +7365,10 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     <message>
         <source>enter your text here</source>
         <translation>在這裏輸入你的文字</translation>
+    </message>
+    <message>
+        <source>Do you want Makhber to rearrange the remaining layers?</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -7521,10 +7488,6 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
 <context>
     <name>MyWidget</name>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Do you want to hide or delete</source>
         <translation>你想要隱藏還是刪除？</translation>
     </message>
@@ -7556,6 +7519,10 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <source>Maximized</source>
         <translation>最大化</translation>
     </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NonLinearFit</name>
@@ -7577,18 +7544,17 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     </message>
 </context>
 <context>
+    <name>NumericDateTimeBaseFilter</name>
+    <message>
+        <source>missing or invalid format attribute(s)</source>
+        <translation type="unfinished">格式屬性缺失或無效</translation>
+    </message>
+</context>
+<context>
     <name>OpenProjectDialog</name>
     <message>
         <source>Open Project</source>
         <translation>打開項目</translation>
-    </message>
-    <message>
-        <source>SciDAVis project</source>
-        <translation>SciSAVis 項目</translation>
-    </message>
-    <message>
-        <source>Compressed SciDAVis project</source>
-        <translation>壓縮的 SciDAVis 專案</translation>
     </message>
     <message>
         <source>QtiPlot project</source>
@@ -7637,6 +7603,18 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     <message>
         <source>New Folder</source>
         <translation>新建文件夾</translation>
+    </message>
+    <message>
+        <source>Makhber project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Compressed Makhber project</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Codepage</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8789,10 +8767,6 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <translation>你已經定義了一個 Y 列！</translation>
     </message>
     <message>
-        <source>This kind of curve is not handled by SciDAVis!</source>
-        <translation>SciDAVis 不能處理這種曲線！</translation>
-    </message>
-    <message>
         <source>You have already defined a Z column!</source>
         <translation>你已經定義了一個 Z 列！</translation>
     </message>
@@ -8807,6 +8781,10 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     <message>
         <source>You must add a new curve first!</source>
         <translation>你必須加先添加一條新的曲線！</translation>
+    </message>
+    <message>
+        <source>This kind of curve is not handled by Makhber!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8921,12 +8899,12 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <translation>未知元素 &apos;%1&apos;</translation>
     </message>
     <message>
-        <source>no scidavis_project element found</source>
-        <translation>未找到 SciDavis 專案元素</translation>
-    </message>
-    <message>
         <source>no valid XML document found</source>
         <translation>未找到有效的 XML 文檔</translation>
+    </message>
+    <message>
+        <source>no makhber_project element found</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -8955,20 +8933,16 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
 <context>
     <name>PythonScripting</name>
     <message>
-        <source>Failed to export SciDAVis API</source>
+        <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Accessing SciDAVis functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one SciDAVis was compiled against;try updating SIP or recompiling SciDAVis.</source>
+        <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against;try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
-    <message>
-        <source>Released</source>
-        <translation>釋放</translation>
-    </message>
     <message>
         <source>&amp;Remove</source>
         <translation>移除(&amp;R)</translation>
@@ -9253,17 +9227,12 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <translation>%1:將列 %2 從位置 %3 移動到 %4</translation>
     </message>
     <message>
-        <source>About SciDAVis</source>
-        <translation>關於 SciDAVis</translation>
+        <source>Built</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>
-Released</source>
-        <translation>發行</translation>
-    </message>
-    <message>
-        <source>No such object</source>
-        <translation type="obsolete">沒有此物件</translation>
+        <source>About Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9326,25 +9295,6 @@ Released</source>
     <message>
         <source>For internal consistency reasons the underscore character is replaced with a minus sign.</source>
         <translation>由於內部一致性原因，下劃線字元替換為減號。</translation>
-    </message>
-</context>
-<context>
-    <name>SciDAVisAbout</name>
-    <message>
-        <source>Dialog</source>
-        <translation>對話方塊</translation>
-    </message>
-    <message>
-        <source>SciDAVis XX.XX.XX-betaXX</source>
-        <translation>SciDAVis XX.XX.XX-betaXX</translation>
-    </message>
-    <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation>發佈日期：XXXX-XX-XX</translation>
-    </message>
-    <message>
-        <source>Close</source>
-        <translation>關閉</translation>
     </message>
 </context>
 <context>
@@ -9532,10 +9482,6 @@ Released</source>
         <translation>已平滑</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -9589,6 +9535,10 @@ Released</source>
     <message>
         <source>Setting polynomial order is only available for Savitzky-Golay smooth filters! Ignored option!</source>
         <translation>設置多項式階只對 Savitzky-Golay 平滑濾波有效！選項忽略！</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -9771,10 +9721,6 @@ Released</source>
         <translation>&lt;/h4&gt;&lt;p&gt;請確認你有權寫入此位置！</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Do you want to hide or delete</source>
         <translation>你想要隱藏或刪除</translation>
     </message>
@@ -9793,6 +9739,10 @@ Released</source>
     <message>
         <source>%1: apply formula to column</source>
         <translation>%1: 將公式應用於列</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -10545,16 +10495,16 @@ floating point values
         <translation>矩陣</translation>
     </message>
     <message>
-        <source>SciDAVis</source>
-        <translation>SciDAVis</translation>
-    </message>
-    <message>
         <source>Import image...</source>
         <translation>導入圖像...</translation>
     </message>
     <message>
         <source>Matrix %1</source>
         <translation>矩陣 %1</translation>
+    </message>
+    <message>
+        <source>Makhber</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

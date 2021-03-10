@@ -10,16 +10,15 @@ endif()
 # Translation Files
 file( COPY translations DESTINATION . )
 set( TS_FILES
+  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_cs.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_de.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_es.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_fr.ts"
-  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_ru.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_ja.ts"
-  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_sv.ts"
-  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_pt-br.ts"
-  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_cs.ts"
-  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_cs-alt.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_pl.ts"
+  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_pt-br.ts"
+  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_ru.ts"
+  "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_sv.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_zh-cn.ts"
   "${CMAKE_CURRENT_BINARY_DIR}/translations/makhber_zh-tw.ts"
   )
