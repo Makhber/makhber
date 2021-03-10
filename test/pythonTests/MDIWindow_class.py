@@ -22,7 +22,7 @@ for i in range(2,-1,-1):
 ## default captionPolicy is 2: show both name and label
 
 # t.folder() will return something like 
-# <scidavis.Folder object at 0xaec9c8e4>
+# <makhber.Folder object at 0xaec9c8e4>
 # But the expected output would be a folder name...
 
 # I don't know how to test "confirmClose(boolean)" because if I set it as True and try to

@@ -13207,7 +13207,7 @@ void ApplicationWindow::searchForUpdates()
 
     if (choice == QMessageBox::Yes) {
         http.get(QNetworkRequest(QUrl("https://raw.githubusercontent.com/Makhber/"
-                                      "makhber/master/libscidavis/src/version.h.in")));
+                                      "makhber/master/libmakhber/src/version.h.in")));
     }
 }
 

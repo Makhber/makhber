@@ -9,7 +9,7 @@ def gaussian_curve(x):
     A1 = 10.0
     w1 = 10.0
     xc1 = 50.0
-    return (y1 + A1*sqrt(2/pi)/w1*exp(-2*((x-xc1)/w1)**2)) #this is the default Gauss formula used by SciDAVis
+    return (y1 + A1*sqrt(2/pi)/w1*exp(-2*((x-xc1)/w1)**2)) #this is the default Gauss formula used by Makhber
 
 dp=0.003 #noise's stddev
     

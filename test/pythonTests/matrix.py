@@ -39,13 +39,13 @@ assert M.cell(1,1) == 0.0
 M.setCell(1,1,pi)
 assert M.cell(1,1) == pi
 
-# I guess that string support in matrices was disabled at some point in SciDAVis.
+# I guess that string support in matrices was disabled at some point in Makhber.
 # Of course, strings in matrices don't make sense for a data analysis software...
 # Then, the following will not be tested
 # text(row, col)
 # setText(row, col, string)
 
-assert M.xStart() == M.yStart() == 1 # 1 is the default start coordinate for matrices in SciDAVis
+assert M.xStart() == M.yStart() == 1 # 1 is the default start coordinate for matrices in Makhber
 assert M.xEnd() == M.yEnd() == 10 # 1 is the default end coordinate...
 M.setCoordinates(5.0,10.0,50.0,100.0)
 

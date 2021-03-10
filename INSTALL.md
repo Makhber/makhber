@@ -1,4 +1,4 @@
-# SciDAVis - Installation Notes
+# Makhber - Installation Notes
 
 
 ## Generic requirements

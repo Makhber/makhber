@@ -4,7 +4,7 @@ set( RESOURCES
   )
 
 if( WIN32 )
-  list( APPEND RESOURCES "scidavis.rc" )
+  list( APPEND RESOURCES "makhber.rc" )
 endif()
 
 # Translation Files
@@ -37,7 +37,7 @@ target_link_libraries( makhber libmakhber )
 if( APPLE )
   set( MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME} )
   set( MACOSX_BUNDLE_VERSION ${PROJECT_VERSION} )
-  set( MACOSX_BUNDLE_ICON_FILE "scidavis.icns" )
+  set( MACOSX_BUNDLE_ICON_FILE "makhber.icns" )
   set_target_properties( makhber PROPERTIES
     MACOSX_BUNDLE ON
     MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist.in
@@ -64,7 +64,7 @@ if( WIN32 )
 elseif( APPLE )
   install( TARGETS makhber BUNDLE DESTINATION . )
   install( FILES ${QM_FILES} DESTINATION makhber.app/Contents/Resources/translations )
-  install( FILES icons/scidavis.icns DESTINATION makhber.app/Contents/Resources )
+  install( FILES icons/makhber.icns DESTINATION makhber.app/Contents/Resources )
 else()
   install( TARGETS makhber RUNTIME DESTINATION bin )
   install( FILES ${QM_FILES} DESTINATION share/makhber/translations )
@@ -110,15 +110,15 @@ endif()
 # Icons
 
 if( UNIX AND NOT APPLE )
-  install( FILES icons/scidavis.svg DESTINATION share/icons/hicolor/scalable/apps )
+  install( FILES icons/makhber.svg DESTINATION share/icons/hicolor/scalable/apps )
 
   foreach( res IN ITEMS 16 22 32 48 64 128 )
-    install( FILES icons/hicolor-${res}/scidavis.png
+    install( FILES icons/hicolor-${res}/makhber.png
       DESTINATION share/icons/hicolor/${res}x${res}/apps )
   endforeach()
 
   foreach( res IN ITEMS 16 22 32 )
-    install( FILES icons/locolor-${res}/scidavis.png
+    install( FILES icons/locolor-${res}/makhber.png
       DESTINATION share/icons/locolor/${res}x${res}/apps )
   endforeach()
 endif()
@@ -126,7 +126,6 @@ endif()
 # Application Files
 if( UNIX AND NOT APPLE )
   install( FILES makhber.desktop DESTINATION share/applications )
-  install( FILES scidavis.xml DESTINATION share/mime/packages )
   install( FILES makhber.1 DESTINATION share/man/man1 )
   install( FILES makhber.appdata.xml DESTINATION share/appdata )
   install( FILES x-sciprj.desktop DESTINATION share/mimelnk/application )

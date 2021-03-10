@@ -1,7 +1,7 @@
 graph=newGraph()
 layer = graph.activeLayer()
-image = layer.addImage("scidavis-logo.png")
-assert image.fileName()=="scidavis-logo.png"
+image = layer.addImage("makhber-logo.png")
+assert image.fileName()=="makhber-logo.png"
 image.setSize(260,100)
 assert image.size()==QtCore.QSize(260,100)
 image.setCoordinates(200,800,330,850)
