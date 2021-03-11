@@ -29,11 +29,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#define HOMEPAGE_URI "https://github.com/Makhber/makhber/discussion"
+#define HOMEPAGE_URI "https://github.com/Makhber/makhber"
 #define MANUAL_URI "http://sourceforge.net/projects/scidavis/files/SciDAVis%20Documentation/0.1/"
 #define FORUM_URI "https://github.com/Makhber/makhber/discussions"
 #define BUGREPORT_URI "https://github.com/Makhber/makhber/issues"
-#define DOWNLOAD_URI "https://github.com/Makhber/makhber/releases"
+#define DOWNLOAD_URI "https://github.com/Makhber/makhber/releases/latest"
 
 #include "globals.h"
 #include "ApplicationWindow.h"
@@ -156,6 +156,7 @@
 #include <QScrollBar>
 #include <QMimeData>
 #include <QElapsedTimer>
+#include <QJsonDocument>
 
 #include <zlib.h>
 
@@ -13206,8 +13207,7 @@ void ApplicationWindow::searchForUpdates()
             QMessageBox::Yes | QMessageBox::Default, QMessageBox::No | QMessageBox::Escape);
 
     if (choice == QMessageBox::Yes) {
-        http.get(QNetworkRequest(QUrl("https://raw.githubusercontent.com/Makhber/"
-                                      "makhber/master/libmakhber/src/version.h.in")));
+        http.get(QNetworkRequest(QUrl("https://api.github.com/repos/Makhber/makhber/tags")));
     }
 }
 
@@ -13223,23 +13223,12 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
     version_buffer = netreply->readAll();
 
     if (version_buffer.size() > 0) {
-        QString available_versionString = QString();
-        int available_version = 0;
-        bool intok = false;
-        QTextStream t(version_buffer);
-        t.setCodec(QTextCodec::codecForName("UTF-8"));
-        QStringList version_lines = t.readAll().split('\n');
-
-        if (version_lines.count() == 1) {
-            QStringList list = version_lines.at(0).split(".");
-            if (list.count() > 2)
-                available_version = (list.at(0).toInt() << 16) + (list.at(1).toInt() << 8)
+        QJsonDocument json = QJsonDocument::fromJson(version_buffer);
+        QString available_versionString = json[0]["name"].toString();
+        QStringList list = available_versionString.split(".");
+        bool intok {};
+        int available_version = (list.at(0).toInt() << 16) + (list.at(1).toInt() << 8)
                         + list.at(2).toInt(&intok);
-            available_versionString = version_lines.at(0);
-        } else if (version_lines.count() > 2) {
-            available_version = version_lines.at(1).split('=').at(1).split(';').at(0).toInt(&intok);
-            available_versionString = version_lines.at(2).split('=').at(1).split('"').at(1);
-        }
 
         if (intok) {
             if (available_version > Makhber::version()) {
@@ -13254,13 +13243,14 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
             } else {
                 QMessageBox::information(
                         this, versionString(),
-                        tr("No updates available. You are already running the latest version."));
+                        tr("No updates available.\n"
+                           "You are already running the latest version: \"%1\"")
+                            .arg(available_versionString));
             }
         } else
             QMessageBox::information(this, tr("Invalid version file"),
-                                     tr("The version file (contents: \"%1\") could not be decoded "
-                                        "into a valid version number.")
-                                             .arg(version_lines.join("\n")));
+                                     tr("The version file could not be decoded "
+                                        "into a valid version number."));
         autoSearchUpdatesRequest = false;
     }
 }
