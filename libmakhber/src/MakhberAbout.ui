@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>350</width>
     <height>200</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>400</width>
+    <width>350</width>
     <height>200</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>400</width>
+    <width>350</width>
     <height>250</height>
    </size>
   </property>
@@ -50,12 +50,12 @@
     <string>Makhber XX.XX.XX-betaXX</string>
    </property>
   </widget>
-  <widget class="QLabel" name="release_date_label">
+  <widget class="QLabel" name="build_date_label">
    <property name="geometry">
     <rect>
      <x>150</x>
      <y>40</y>
-     <width>231</width>
+     <width>141</width>
      <height>21</height>
     </rect>
    </property>
@@ -65,7 +65,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Released XXXX-XX-XX</string>
+    <string>Built: XXXX-XX-XX</string>
    </property>
   </widget>
   <widget class="QPushButton" name="close_button">
@@ -97,9 +97,9 @@
   <widget class="QLabel" name="used_libraries">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>70</y>
-     <width>361</width>
+     <width>331</width>
      <height>121</height>
     </rect>
    </property>
@@ -109,9 +109,13 @@
     </font>
    </property>
    <property name="text">
-    <string>Lib: Version</string>
+    <string>Makhber was built with the fellowing libraries</string>
    </property>
   </widget>
+  <zorder>close_button</zorder>
+  <zorder>version_label</zorder>
+  <zorder>build_date_label</zorder>
+  <zorder>used_libraries</zorder>
  </widget>
  <resources>
   <include location="../../makhber/appicons.qrc"/>

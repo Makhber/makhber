@@ -95,7 +95,7 @@ void Makhber::about()
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setWindowTitle(QObject::tr("About Makhber"));
     ui.version_label->setText(versionString() + extraVersion());
-    ui.release_date_label->setText(QObject::tr("Built") + ": " + QString(Makhber::build_date));
+    ui.build_date_label->setText(QObject::tr("Built") + ": " + QString(Makhber::build_date));
     ui.used_libraries->setText(QString("Makhber was built with the fellowing libraries: ")
                                + "\nQt: " + QT_VERSION_STR + "\nQwt: " + QWT_VERSION_STR
 #ifdef SCRIPTING_PYTHON

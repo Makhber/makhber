@@ -1,6 +1,6 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-     <file alias="appicon">icons/hicolor-32/makhber.png</file>
+     <file alias="appicon">icons/makhber.png</file>
      <file alias="applogo">../makhber-logo.png</file>
 </qresource>
 </RCC>
