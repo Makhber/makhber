@@ -408,10 +408,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
 
   target_link_libraries( libmakhber  ${Python3_LIBRARIES} )
 
-  target_include_directories( libmakhber PUBLIC
-    ${Python3_INCLUDE_DIRS}
-    ${CMAKE_CURRENT_SOURCE_DIR}
-    )
+  target_include_directories( libmakhber PUBLIC ${Python3_INCLUDE_DIRS} )
 
   if( WIN32 )
     set( PYTHONPATH "." )
