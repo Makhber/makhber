@@ -51,7 +51,7 @@ jobs:
       - name: Testing
         run: |
           cd build
-          export PYTHONPATH=$PWD/makhber
+          export PYTHONPATH=$PWD/sip
           xvfb-run -a ctest --output-on-failure --repeat until-pass:3
 
   MSVC:
@@ -93,7 +93,7 @@ jobs:
           vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
 
       - name: Install Python packages
-        run: pip install sip==5.5.0 pyqt5 numpy
+        run: pip install sip pyqt5 pyqt-builder numpy
 
       - name: Configuring
         run: |
@@ -110,7 +110,7 @@ jobs:
       - name: Testing
         run: |
           cd build
-          $Env:PYTHONPATH = "$PWD\makhber\Release"
+          $Env:PYTHONPATH = "$PWD\sip\build\makhber\"
           ctest -C Release --output-on-failure --repeat until-pass:3
 
   macos:

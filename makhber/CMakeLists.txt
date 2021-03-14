@@ -103,7 +103,11 @@ endif()
 
 if( APPLE )
   include(DeployQt)
-  macdeployqt(makhber)
+  install( CODE "
+    execute_process(
+      COMMAND \${MACDEPLOYQT_EXECUTABLE} -always-overwrite \${CMAKE_INSTALL_PREFIX}/makhber.app/Contents/MacOS/makhber
+    )
+  ")
 endif()
 
 # Icons
@@ -132,7 +136,6 @@ endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
   if( WIN32 )
-    install( TARGETS makhber_sip LIBRARY DESTINATION . )
     install( FILES
       makhberrc.py
       makhberUtil.py
