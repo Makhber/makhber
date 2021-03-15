@@ -158,11 +158,7 @@ bool PythonScript::compile(bool for_eval)
         // for why there isn't an easier way to do this in Python.
         PyErr_Clear(); // silently ignore errors
         PyObject *key, *value;
-#if PY_VERSION_HEX >= 0x02050000
         Py_ssize_t i = 0;
-#else
-        int i = 0;
-#endif
         QString signature = "";
         while (PyDict_Next(topLevelLocal, &i, &key, &value))
             signature.append(PYUNICODE_AsUTF8(key)).append(",");
