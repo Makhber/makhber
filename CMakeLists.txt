@@ -103,6 +103,10 @@ add_subdirectory( 3rdparty )
 
 add_subdirectory( libmakhber )
 
+if( MAKHBER_SCRIPTING_PYTHON )
+  add_subdirectory( sip )
+endif()
+
 add_subdirectory( makhber )
 
 add_subdirectory( fitPlugins )

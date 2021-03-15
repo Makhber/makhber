@@ -406,9 +406,9 @@ endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
 
-  target_link_libraries( libmakhber  ${Python3_LIBRARIES} )
-
-  target_include_directories( libmakhber PUBLIC ${Python3_INCLUDE_DIRS} )
+  target_link_libraries( libmakhber Python3::Python )
+  add_dependencies( libmakhber generate_PyQt_source )
+  target_include_directories( libmakhber PRIVATE ${CMAKE_BINARY_DIR}/sip )
 
   if( WIN32 )
     set( PYTHONPATH "." )
@@ -445,100 +445,11 @@ if( MAKHBER_SCRIPTING_PYTHON )
       )
   endif()
 
-  set( makhber_PyQt_HDR ${CMAKE_CURRENT_BINARY_DIR}/sipAPImakhber.h )
-
-  if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-    set( makhber_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
-  endif()
-
-  set_source_files_properties( ${makhber_PyQt_HDR} PROPERTIES GENERATED ON )
-
-  set( makhber_PyQt_SRC
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhbercmodule.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberApplicationWindow.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGraph.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberArrowMarker.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberImageMarker.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberLegend.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMultiLayer.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberTable.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMatrix.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMyWidget.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberScriptEdit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberNote.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPythonScript.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPythonScripting.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFolder.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberExponentialFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberTwoExpFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberThreeExpFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberSigmoidalFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGaussAmpFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberLorentzFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberNonLinearFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPluginFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberMultiPeakFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberPolynomialFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberLinearFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGaussFit.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFilter.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberDifferentiation.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberIntegration.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberInterpolation.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberSmoothFilter.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFFTFilter.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberFFT.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberCorrelation.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberConvolution.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberDeconvolution.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberAbstractAspect.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberColumn.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQwtSymbol.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQwtPlotCurve.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQwtPlot.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberGrid.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0100QDateTime.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0101Folder.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0101MyWidget.cpp
-    ${CMAKE_CURRENT_BINARY_DIR}/sipmakhberQList0101QwtPlotCurve.cpp
-    )
-
-  set_source_files_properties( ${makhber_PyQt_SRC} PROPERTIES GENERATED ON )
-
-  if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-    add_custom_command(
-      OUTPUT ${makhber_SIP_HDR}
-      COMMAND sip-module --sip-h ${CMAKE_CURRENT_SOURCE_DIR}/src/makhber.sip
-      )
-  endif()
-
-  add_custom_command(
-    OUTPUT ${makhber_PyQt_HDR} ${makhber_PyQt_SRC}
-    COMMAND ${SIP_EXECUTABLE} -c . -I${PyQt_INCLUDE_DIRS} ${PyQt_FLAGS}
-      ${CMAKE_CURRENT_SOURCE_DIR}/src/makhber.sip
-    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/src/makhber.sip
-    )
-
-  if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-    add_custom_target(generate_PyQt_source
-      DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRC} ${makhber_SIP_HDR}
-      )
-  else()
-    add_custom_target(generate_PyQt_source
-      DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRC}
-      )
-  endif()
-
   target_sources( libmakhber PRIVATE
     "src/PythonScript.h"
     "src/PythonScripting.h"
-    ${makhber_PyQt_HDR}
     "src/PythonScript.cpp"
     "src/PythonScripting.cpp"
-    ${makhber_PyQt_SRC}
     )
-
-  add_dependencies(libmakhber generate_PyQt_source)
 
 endif()

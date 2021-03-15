@@ -19,7 +19,7 @@ add_executable( unittests ${SRCS} )
 
 find_package( GTest REQUIRED )
 
-target_link_libraries( unittests libmakhber GTest::GTest )
+target_link_libraries( unittests libmakhber GTest::GTest $<$<BOOL:MAKHBER_SCRIPTING_PYTHON>:makhber_sip> )
 
 if( NOT WIN32 )
   target_link_libraries( unittests pthread )
