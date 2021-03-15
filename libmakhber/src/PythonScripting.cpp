@@ -38,16 +38,6 @@
 
 #include <iostream>
 
-#if PY_VERSION_HEX < 0x020400A1
-typedef struct _traceback
-{
-    PyObject_HEAD struct _traceback *tb_next;
-    PyFrameObject *tb_frame;
-    int tb_lasti;
-    int tb_lineno;
-} PyTracebackObject;
-#endif
-
 #include "PythonScript.h"
 #include "PythonScripting.h"
 #include "ApplicationWindow.h"
@@ -65,22 +55,7 @@ typedef struct _traceback
 #define xstr(x) #x
 
 extern "C" {
-#if PY_MAJOR_VERSION < 3
-void initsip();
-void initQtCore();
-void initQtGui();
-void initmakhber();
-#define PYUNICODE_AsUTF8 PyString_AsString
-#define PYUNICODE_FromString PyString_FromString
-#define PYLong_AsLong PyInt_AsLong
-#define PYCodeObject_cast (PyCodeObject *)
-#else
 PyMODINIT_FUNC PyInit_makhber(void);
-#define PYUNICODE_AsUTF8 PyUnicode_AsUTF8
-#define PYUNICODE_FromString PyUnicode_FromString
-#define PYLong_AsLong PyLong_AsLong
-#define PYCodeObject_cast
-#endif
 }
 
 const char *PythonScripting::langName = "Python";
@@ -95,7 +70,7 @@ QString PythonScripting::toString(PyObject *object, bool decref)
         Py_DECREF(object);
     if (!repr)
         return "";
-    ret = PYUNICODE_AsUTF8(repr);
+    ret = PyUnicode_AsUTF8(repr);
     Py_DECREF(repr);
     return ret;
 }
@@ -110,7 +85,7 @@ PyObject *PythonScripting::eval(const QString &code, PyObject *argDict, const ch
     PyObject *ret = NULL;
     PyObject *co = Py_CompileString(code.toUtf8().constData(), name, Py_eval_input);
     if (co) {
-        ret = PyEval_EvalCode(PYCodeObject_cast co, globals, args);
+        ret = PyEval_EvalCode(co, globals, args);
         Py_DECREF(co);
     }
     return ret;
@@ -126,7 +101,7 @@ bool PythonScripting::exec(const QString &code, PyObject *argDict, const char *n
     PyObject *tmp = NULL;
     PyObject *co = Py_CompileString(code.toUtf8().constData(), name, Py_file_input);
     if (co) {
-        tmp = PyEval_EvalCode(PYCodeObject_cast co, globals, args);
+        tmp = PyEval_EvalCode(co, globals, args);
         Py_DECREF(co);
     }
     if (!tmp)
@@ -151,7 +126,7 @@ QString PythonScripting::errorMsg()
         QString text = toString(PyObject_GetAttrString(value, "text"), true);
         msg.append(text + "\n");
         PyObject *offset = PyObject_GetAttrString(value, "offset");
-        for (int i = 0; i < (PYLong_AsLong(offset) - 1); i++)
+        for (int i = 0; i < (PyLong_AsLong(offset) - 1); i++)
             if (text[i] == '\t')
                 msg.append("\t");
             else
@@ -175,10 +150,10 @@ QString PythonScripting::errorMsg()
         excit = (PyTracebackObject *)traceback;
         while (excit && (PyObject *)excit != Py_None) {
             frame = excit->tb_frame;
-            msg.append("at ").append(PYUNICODE_AsUTF8(frame->f_code->co_filename));
+            msg.append("at ").append(PyUnicode_AsUTF8(frame->f_code->co_filename));
             msg.append(":").append(QString::number(excit->tb_lineno));
             if (frame->f_code->co_name
-                && *(fname = PYUNICODE_AsUTF8(frame->f_code->co_name)) != '?')
+                && *(fname = PyUnicode_AsUTF8(frame->f_code->co_name)) != '?')
                 msg.append(" in ").append(fname);
             msg.append("\n");
             excit = excit->tb_next;
@@ -214,21 +189,11 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
         Py_SetPythonHome(Py_DecodeLocale(str(PYTHONHOME), NULL));
 #endif
         //		PyEval_InitThreads ();
-#if PY_MAJOR_VERSION >= 3
         PyImport_AppendInittab("makhber", &PyInit_makhber);
-#endif
         Py_Initialize();
         if (!Py_IsInitialized())
             return;
 
-#if PY_MAJOR_VERSION < 3
-#ifdef SIP_STATIC_MODULE
-        initsip();
-        initQtCore();
-        initQtGui();
-#endif
-        initmakhber();
-#endif
         mainmod = PyImport_AddModule("__main__");
         if (!mainmod) {
             //			PyEval_ReleaseLock();
@@ -337,8 +302,8 @@ bool PythonScripting::loadInitFile(const QString &path)
             PyObject *compile = PyDict_GetItemString(PyModule_GetDict(compileModule), "compile");
             if (compile) {
                 PyObject *tmp = PyObject_CallFunctionObjArgs(
-                        compile, PYUNICODE_FromString(pyFile.filePath().toUtf8().constData()),
-                        PYUNICODE_FromString(pycFile.filePath().toUtf8().constData()), NULL);
+                        compile, PyUnicode_FromString(pyFile.filePath().toUtf8().constData()),
+                        PyUnicode_FromString(pycFile.filePath().toUtf8().constData()), NULL);
                 if (tmp)
                     Py_DECREF(tmp);
                 else
@@ -426,14 +391,10 @@ const QStringList PythonScripting::mathFunctions() const
 {
     QStringList flist;
     PyObject *key, *value;
-#if PY_VERSION_HEX >= 0x02050000
     Py_ssize_t i = 0;
-#else
-    int i = 0;
-#endif
     while (PyDict_Next(math, &i, &key, &value))
         if (PyCallable_Check(value))
-            flist << PYUNICODE_AsUTF8(key);
+            flist << PyUnicode_AsUTF8(key);
     flist.sort();
     return flist;
 }
@@ -444,7 +405,7 @@ const QString PythonScripting::mathFunctionDoc(const QString &name) const
     if (!mathf)
         return "";
     PyObject *pydocstr = PyObject_GetAttrString(mathf, "__doc__"); // new
-    QString qdocstr = PYUNICODE_AsUTF8(pydocstr);
+    QString qdocstr = PyUnicode_AsUTF8(pydocstr);
     Py_XDECREF(pydocstr);
     return qdocstr;
 }
