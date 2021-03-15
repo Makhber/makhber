@@ -49,7 +49,7 @@
 #include <QCoreApplication>
 
 // includes sip.h, which undefines Qt's "slots" macro since SIP 4.6
-#include "sipAPImakhber.h"
+#include "sip.h"
 
 #define str(x) xstr(x)
 #define xstr(x) #x
@@ -343,11 +343,18 @@ bool PythonScripting::setQObject(QObject *val, const char *name, PyObject *dict)
     PyGILState_STATE state = PyGILState_Ensure();
 
     // sipWrapperType * klass = sipFindClass(val->className());
-    const sipTypeDef *klass = sipFindType(val->metaObject()->className());
+#if SIP_VERSION >= 0x050000
+    const sipAPIDef *PyQt5_sip_CAPI = (const sipAPIDef*)(PyCapsule_Import("PyQt5.sip._C_API",0));
+#else
+    const sipAPIDef *PyQt5_sip_CAPI = (const sipAPIDef*)(PyCapsule_Import("sip._C_API",0));
+#endif
+    if (!PyQt5_sip_CAPI)
+        return false;
+    const sipTypeDef *klass = PyQt5_sip_CAPI->api_find_type(val->metaObject()->className());
     if (!klass)
         return false;
     // pyobj = sipConvertFromInstance(val, klass, NULL);
-    pyobj = sipConvertFromType(val, klass, NULL);
+    pyobj = PyQt5_sip_CAPI->api_convert_from_type(val, klass, NULL);
     if (!pyobj)
         return false;
 

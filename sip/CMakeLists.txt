@@ -1,4 +1,14 @@
 
+if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
+  set( makhber_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
+  set_source_files_properties( ${makhber_SIP_HDR} PROPERTIES GENERATED ON )
+  add_custom_command(
+    OUTPUT ${makhber_SIP_HDR}
+    COMMAND sip-module --sip-h ${CMAKE_CURRENT_SOURCE_DIR}/makhber.sip
+    )
+  add_custom_target( generate_SIP_HDR DEPENDS ${makhber_SIP_HDR} )
+endif()
+
 set( makhber_PyQt_HDR ${CMAKE_CURRENT_BINARY_DIR}/sipAPImakhber.h )
 
 set( makhber_PyQt_SRCS
@@ -54,18 +64,6 @@ set( makhber_PyQt_SRCS
 
 set_source_files_properties( ${makhber_PyQt_SRCS} ${makhber_PyQt_HDR} PROPERTIES GENERATED ON )
 
-if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-  set( makhber_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
-  set_source_files_properties( ${makhber_SIP_HDR} PROPERTIES GENERATED ON )
-endif()
-
-if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-  add_custom_command(
-    OUTPUT ${makhber_SIP_HDR}
-    COMMAND sip-module --sip-h ${CMAKE_CURRENT_SOURCE_DIR}/makhber.sip
-    )
-endif()
-
 add_custom_command(
   OUTPUT ${makhber_PyQt_HDR} ${makhber_PyQt_SRCS}
   COMMAND ${SIP_EXECUTABLE} -c . -I${PyQt_INCLUDE_DIRS} ${PyQt_FLAGS}
@@ -73,15 +71,9 @@ add_custom_command(
   DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/makhber.sip
   )
 
-if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-  add_custom_target(generate_PyQt_source
-    DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRCS} ${makhber_SIP_HDR}
-    )
-else()
-  add_custom_target(generate_PyQt_source
-    DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRCS}
-    )
-endif()
+add_custom_target(generate_PyQt_source
+  DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRCS}
+  )
 
 add_library( makhber_sip STATIC
   ${makhber_PyQt_HDR}
@@ -89,6 +81,10 @@ add_library( makhber_sip STATIC
   )
 
 add_dependencies( makhber_sip generate_PyQt_source )
+
+if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
+  add_dependencies( makhber_sip generate_SIP_HDR )
+endif()
 
 target_link_libraries( makhber_sip libmakhber )
 

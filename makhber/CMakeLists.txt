@@ -31,7 +31,11 @@ add_executable( makhber
   "${QM_FILES}"
   )
 
-target_link_libraries( makhber libmakhber makhber_sip )
+target_link_libraries( makhber libmakhber )
+
+if( MAKHBER_SCRIPTING_PYTHON AND SIP_VERSION VERSION_LESS 6 )
+  target_link_libraries( makhber makhber_sip )
+endif()
 
 if( APPLE )
   set( MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME} )
