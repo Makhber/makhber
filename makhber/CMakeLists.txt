@@ -159,11 +159,12 @@ if( MAKHBER_SCRIPTING_PYTHON )
       ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
       DESTINATION makhber.app/Contents/Resources
       )
-    add_custom_command(TARGET makhber POST_BUILD
-      COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
-        --target="$<TARGET_BUNDLE_CONTENT_DIR:makhber>/Resources"
-      COMMENT "Install PyQt5..."
-      )
+    install( CODE "
+      execute_process(   
+        COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
+        --target=\${CMAKE_INSTALL_PREFIX}/makhber.app/Contents/Resources
+        )
+      ")
   else()
     install( FILES
       makhberrc.py
