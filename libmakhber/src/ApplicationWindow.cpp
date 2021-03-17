@@ -2437,6 +2437,7 @@ Table *ApplicationWindow::newTable(const QString &fname, const QString &sep, int
                          convertToNumeric, numericLocale, fname, &d_workspace);
     if (w) {
         w->setName(generateUniqueName(tr("Table")));
+        initTable(w);
         d_project->addChild(w->d_future_table);
     }
     return w;
@@ -2449,6 +2450,7 @@ Table *ApplicationWindow::newTable()
 {
     Table *w = new Table(scriptEnv, 30, 2, "", &d_workspace, 0);
     w->setName(generateUniqueName(tr("Table")));
+    initTable(w);
     d_project->addChild(w->d_future_table);
     return w;
 }
@@ -2460,6 +2462,7 @@ Table *ApplicationWindow::newTable(const QString &caption, int r, int c)
 {
     Table *w = new Table(scriptEnv, r, c, "", &d_workspace, 0);
     w->setName(caption);
+    initTable(w);
     d_project->addChild(w->d_future_table);
     if (w->name() != caption) // the table was renamed
     {
@@ -2477,6 +2480,7 @@ Table *ApplicationWindow::newTable(int r, int c, const QString &name, const QStr
 {
     Table *w = new Table(scriptEnv, r, c, legend, &d_workspace, 0);
     w->setName(name);
+    initTable(w);
     d_project->addChild(w->d_future_table);
     return w;
 }
@@ -2487,6 +2491,7 @@ Table *ApplicationWindow::newTable(const QString &name, const QString &legend,
     Table *w = new Table(scriptEnv, 0, 0, legend, &d_workspace, 0);
     w->d_future_table->appendColumns(columns);
     w->setName(name);
+    initTable(w);
     d_project->addChild(w->d_future_table);
     return w;
 }
@@ -2604,6 +2609,7 @@ Matrix *ApplicationWindow::newMatrix(int rows, int columns)
         caption = generateUniqueName(tr("Matrix"));
     }
     m->setName(caption);
+    initMatrix(m);
     d_project->addChild(m->d_future_matrix);
     return m;
 }
@@ -2616,6 +2622,7 @@ Matrix *ApplicationWindow::newMatrix(const QString &caption, int r, int c)
         name = generateUniqueName(caption);
     }
     w->setName(name);
+    initMatrix(w);
     d_project->addChild(w->d_future_matrix);
     if (w->name() != caption) // the matrix was renamed
         renamedTables << caption << w->name();
@@ -2667,6 +2674,7 @@ Table *ApplicationWindow::convertMatrixToTable()
     }
 
     w->setName(generateUniqueName(tr("Table")));
+    initTable(w);
     d_project->addChild(w->d_future_table);
     w->setWindowLabel(m->windowLabel());
     w->setCaptionPolicy(m->captionPolicy());
@@ -2719,6 +2727,7 @@ Matrix *ApplicationWindow::convertTableToMatrix()
 
     QString caption = generateUniqueName(m->name());
     w->setName(caption);
+    initMatrix(w);
     d_project->addChild(w->d_future_matrix);
 
     w->setCaptionPolicy(m->captionPolicy());
@@ -3233,6 +3242,7 @@ void ApplicationWindow::importASCII(const QStringList &files, int import_mode,
                                 local_convert_to_numeric, local_numeric_locale);
             if (!w)
                 continue;
+            initTable(w);
             w->setCaptionPolicy(MyWidget::Both);
             setListViewLabel(w->name(), sorted_files[i]);
             if (i == 0) {
@@ -13644,12 +13654,12 @@ void ApplicationWindow::handleAspectAdded(const AbstractAspect *parent, int inde
     AbstractAspect *aspect = parent->child(index);
     ::future::Matrix *matrix = qobject_cast<::future::Matrix *>(aspect);
     if (matrix) {
-        initMatrix(static_cast<Matrix *>(matrix->view()));
+        // initMatrix(static_cast<Matrix *>(matrix->view()));
         return;
     }
     ::future::Table *table = qobject_cast<::future::Table *>(aspect);
     if (table) {
-        initTable(static_cast<Table *>(table->view()));
+        // initTable(static_cast<Table *>(table->view()));
         return;
     }
 }

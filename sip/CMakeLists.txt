@@ -75,10 +75,15 @@ add_custom_target(generate_PyQt_source
   DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRCS}
   )
 
-add_library( makhber_sip STATIC
+add_library( makhber_sip
   ${makhber_PyQt_HDR}
   ${makhber_PyQt_SRCS}
   )
+if( BUILD_SHARED_LIBS )
+  set_target_properties( makhber_sip PROPERTIES
+    RUNTIME_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:makhber>
+  )
+endif()
 
 add_dependencies( makhber_sip generate_PyQt_source )
 

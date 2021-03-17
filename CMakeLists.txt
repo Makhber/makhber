@@ -1,5 +1,6 @@
 cmake_minimum_required( VERSION 3.16 )
 
+cmake_policy(SET CMP0083 NEW)
 cmake_policy(SET CMP0091 NEW)
 
 project( makhber
@@ -44,6 +45,8 @@ endif()
 if( APPLE )
   add_compile_definitions( GL_SILENCE_DEPRECATION )
 endif()
+
+set( CMAKE_POSITION_INDEPENDENT_CODE TRUE )
 
 get_property( MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG )
 
