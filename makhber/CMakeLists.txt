@@ -33,10 +33,6 @@ add_executable( makhber
 
 target_link_libraries( makhber libmakhber )
 
-if( MAKHBER_SCRIPTING_PYTHON AND SIP_VERSION VERSION_LESS 6 )
-  target_link_libraries( makhber makhber_sip )
-endif()
-
 if( APPLE )
   set( MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME} )
   set( MACOSX_BUNDLE_VERSION ${PROJECT_VERSION} )
@@ -136,6 +132,7 @@ endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
   if( WIN32 )
+    install( TARGETS makhber_sip LIBRARY DESTINATION . )
     install( FILES
       makhberrc.py
       makhberUtil.py

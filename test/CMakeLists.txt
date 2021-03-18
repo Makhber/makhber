@@ -21,16 +21,6 @@ find_package( GTest REQUIRED )
 
 target_link_libraries( unittests libmakhber GTest::GTest )
 
-if( MAKHBER_SCRIPTING_PYTHON AND SIP_VERSION VERSION_LESS 6 )
-  target_link_libraries( unittests makhber_sip )
-  if( BUILD_SHARED_LIBS )
-    add_custom_command( TARGET unittests POST_BUILD
-      COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:makhber_sip> $<TARGET_FILE_DIR:unittests>
-      COMMENT "Copying makhber_sip library to Test Folder"
-    )
-  endif()
-endif()
-
 if( NOT WIN32 )
   target_link_libraries( unittests pthread )
 endif()

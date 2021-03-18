@@ -105,6 +105,7 @@ private:
     PyObject *globals; // PyDict of global environment
     PyObject *math; // PyDict of math functions
     PyObject *sys; // PyDict of sys module
+    PyObject *sip; // PyDict of sip module
 };
 
 #endif

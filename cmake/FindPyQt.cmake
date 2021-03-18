@@ -22,7 +22,7 @@
 #   The directory containing PyQt sip files.
 
 execute_process(
-  COMMAND ${Python3_EXECUTABLE} -c "import sys; sys.stdout.write(sys.prefix)"
+  COMMAND ${Python3_EXECUTABLE} -c "import sys; print(sys.prefix)"
   OUTPUT_VARIABLE _Python3_PREFIX
   OUTPUT_STRIP_TRAILING_WHITESPACE
   )
@@ -40,13 +40,13 @@ find_path( PyQt_INCLUDE_DIR
   )
 
 execute_process(
-  COMMAND ${Python3_EXECUTABLE} -c "from PyQt5.QtCore import PYQT_CONFIGURATION;import sys;sys.stdout.write(PYQT_CONFIGURATION['sip_flags'].replace(' ',';'))"
+  COMMAND ${Python3_EXECUTABLE} -c "from PyQt5.QtCore import PYQT_CONFIGURATION; print(PYQT_CONFIGURATION['sip_flags'].replace(' ',';'))"
   OUTPUT_VARIABLE PyQt_FLAGS
   OUTPUT_STRIP_TRAILING_WHITESPACE
   )
 
 execute_process(
-  COMMAND ${Python3_EXECUTABLE} -c "from PyQt5.QtCore import PYQT_VERSION_STR;import sys;sys.stdout.write(PYQT_VERSION_STR)"
+  COMMAND ${Python3_EXECUTABLE} -c "from PyQt5.QtCore import PYQT_VERSION_STR; print(PYQT_VERSION_STR)"
   OUTPUT_VARIABLE PyQt_VERSION
   OUTPUT_STRIP_TRAILING_WHITESPACE
   )

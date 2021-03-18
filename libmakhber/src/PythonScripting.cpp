@@ -54,10 +54,6 @@
 #define str(x) xstr(x)
 #define xstr(x) #x
 
-extern "C" {
-PyMODINIT_FUNC PyInit_makhber(void);
-}
-
 const char *PythonScripting::langName = "Python";
 
 QString PythonScripting::toString(PyObject *object, bool decref)
@@ -168,7 +164,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     : ScriptingEnv(parent, langName)
 {
     Q_UNUSED(batch)
-    PyObject *mainmod = NULL, *makhbermod = NULL, *sysmod = NULL;
+    PyObject *mainmod = NULL, *makhbermod = NULL, *sysmod = NULL, *sipmod = NULL;
     math = NULL;
     sys = NULL;
     d_initialized = false;
@@ -189,7 +185,6 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
         Py_SetPythonHome(Py_DecodeLocale(str(PYTHONHOME), NULL));
 #endif
         //		PyEval_InitThreads ();
-        PyImport_AppendInittab("makhber", &PyInit_makhber);
         Py_Initialize();
         if (!Py_IsInitialized())
             return;
@@ -212,6 +207,16 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
 
     math = PyDict_New();
     if (!math)
+        PyErr_Print();
+#if SIP_VERSION >= 0x050000
+    sipmod = PyImport_ImportModule("PyQt5.sip");
+#else
+    sipmod = PyImport_ImportModule("sip");
+#endif
+    if (sipmod) {
+        sip = PyModule_GetDict(sipmod);
+        Py_INCREF(sip);
+    } else
         PyErr_Print();
 
     makhbermod = PyImport_ImportModule("makhber");

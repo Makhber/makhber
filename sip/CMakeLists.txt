@@ -75,15 +75,30 @@ add_custom_target(generate_PyQt_source
   DEPENDS ${makhber_PyQt_HDR} ${makhber_PyQt_SRCS}
   )
 
-add_library( makhber_sip
+python3_add_library( makhber_sip
   ${makhber_PyQt_HDR}
   ${makhber_PyQt_SRCS}
   )
-if( BUILD_SHARED_LIBS )
+
+execute_process( COMMAND ${Python3_EXECUTABLE} -c "import sysconfig; print(sysconfig.get_config_var('EXT_SUFFIX'))"
+  OUTPUT_VARIABLE _Python3_EXT_SUFFIX
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+)
+if( APPLE )
   set_target_properties( makhber_sip PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:makhber>
+    LIBRARY_OUTPUT_DIRECTORY $<TARGET_BUNDLE_CONTENT_DIR:makhber>/Resources
+  )
+else()
+  set_target_properties( makhber_sip PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY $<TARGET_FILE_DIR:makhber>
   )
 endif()
+
+set_target_properties( makhber_sip PROPERTIES
+  OUTPUT_NAME "makhber"
+  PREFIX ""
+  SUFFIX ${_Python3_EXT_SUFFIX}
+)
 
 add_dependencies( makhber_sip generate_PyQt_source )
 
@@ -91,7 +106,7 @@ if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
   add_dependencies( makhber_sip generate_SIP_HDR )
 endif()
 
-target_link_libraries( makhber_sip libmakhber )
+target_link_libraries( makhber_sip PRIVATE libmakhber )
 
 if( MULTI_CONFIG )
   target_include_directories( makhber_sip PUBLIC "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include_$<CONFIG>" )
