@@ -2437,8 +2437,8 @@ Table *ApplicationWindow::newTable(const QString &fname, const QString &sep, int
                          convertToNumeric, numericLocale, fname, &d_workspace);
     if (w) {
         w->setName(generateUniqueName(tr("Table")));
-        initTable(w);
         d_project->addChild(w->d_future_table);
+        initTable(w);
     }
     return w;
 }
@@ -2450,8 +2450,8 @@ Table *ApplicationWindow::newTable()
 {
     Table *w = new Table(scriptEnv, 30, 2, "", &d_workspace, 0);
     w->setName(generateUniqueName(tr("Table")));
-    initTable(w);
     d_project->addChild(w->d_future_table);
+    initTable(w);
     return w;
 }
 
@@ -2462,7 +2462,6 @@ Table *ApplicationWindow::newTable(const QString &caption, int r, int c)
 {
     Table *w = new Table(scriptEnv, r, c, "", &d_workspace, 0);
     w->setName(caption);
-    initTable(w);
     d_project->addChild(w->d_future_table);
     if (w->name() != caption) // the table was renamed
     {
@@ -2473,6 +2472,7 @@ Table *ApplicationWindow::newTable(const QString &caption, int r, int c)
                                      .arg(caption)
                                      .arg(w->name()));
     }
+    initTable(w);
     return w;
 }
 
@@ -2480,8 +2480,8 @@ Table *ApplicationWindow::newTable(int r, int c, const QString &name, const QStr
 {
     Table *w = new Table(scriptEnv, r, c, legend, &d_workspace, 0);
     w->setName(name);
-    initTable(w);
     d_project->addChild(w->d_future_table);
+    initTable(w);
     return w;
 }
 
@@ -2491,8 +2491,8 @@ Table *ApplicationWindow::newTable(const QString &name, const QString &legend,
     Table *w = new Table(scriptEnv, 0, 0, legend, &d_workspace, 0);
     w->d_future_table->appendColumns(columns);
     w->setName(name);
-    initTable(w);
     d_project->addChild(w->d_future_table);
+    initTable(w);
     return w;
 }
 
@@ -2603,30 +2603,30 @@ void ApplicationWindow::initNote(Note *m, const QString &caption)
 
 Matrix *ApplicationWindow::newMatrix(int rows, int columns)
 {
-    Matrix *m = new Matrix(scriptEnv, rows, columns, "", 0, 0);
+    Matrix *m = new Matrix(scriptEnv, rows, columns, "", &d_workspace, 0);
     QString caption = generateUniqueName(tr("Matrix"));
     while (alreadyUsedName(caption)) {
         caption = generateUniqueName(tr("Matrix"));
     }
     m->setName(caption);
-    initMatrix(m);
     d_project->addChild(m->d_future_matrix);
+    initMatrix(m);
     return m;
 }
 
 Matrix *ApplicationWindow::newMatrix(const QString &caption, int r, int c)
 {
-    Matrix *w = new Matrix(scriptEnv, r, c, "", 0, 0);
+    Matrix *w = new Matrix(scriptEnv, r, c, "", &d_workspace, 0);
     QString name = caption;
     while (alreadyUsedName(name)) {
         name = generateUniqueName(caption);
     }
     w->setName(name);
-    initMatrix(w);
     d_project->addChild(w->d_future_matrix);
     if (w->name() != caption) // the matrix was renamed
         renamedTables << caption << w->name();
 
+    initMatrix(w);
     return w;
 }
 
@@ -2674,11 +2674,11 @@ Table *ApplicationWindow::convertMatrixToTable()
     }
 
     w->setName(generateUniqueName(tr("Table")));
-    initTable(w);
     d_project->addChild(w->d_future_table);
     w->setWindowLabel(m->windowLabel());
     w->setCaptionPolicy(m->captionPolicy());
     w->resize(m->size());
+    initTable(w);
     w->showNormal();
 
     QApplication::restoreOverrideCursor();
@@ -2719,7 +2719,7 @@ Matrix *ApplicationWindow::convertTableToMatrix()
     int rows = m->numRows();
     int cols = m->numCols();
 
-    Matrix *w = new Matrix(scriptEnv, rows, cols, "", 0, 0);
+    Matrix *w = new Matrix(scriptEnv, rows, cols, "", &d_workspace, 0);
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++)
             w->setText(i, j, m->text(i, j));
@@ -2727,11 +2727,11 @@ Matrix *ApplicationWindow::convertTableToMatrix()
 
     QString caption = generateUniqueName(m->name());
     w->setName(caption);
-    initMatrix(w);
     d_project->addChild(w->d_future_matrix);
 
     w->setCaptionPolicy(m->captionPolicy());
     w->resize(m->size());
+    initMatrix(w);
     w->showNormal();
 
     QApplication::restoreOverrideCursor();
@@ -3242,8 +3242,8 @@ void ApplicationWindow::importASCII(const QStringList &files, int import_mode,
                                 local_convert_to_numeric, local_numeric_locale);
             if (!w)
                 continue;
-            initTable(w);
             w->setCaptionPolicy(MyWidget::Both);
+            initTable(w);
             setListViewLabel(w->name(), sorted_files[i]);
             if (i == 0) {
                 dx = w->verticalHeaderWidth();
