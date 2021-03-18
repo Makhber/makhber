@@ -51,6 +51,7 @@ jobs:
       - name: Testing
         run: |
           cd build
+          export PYTHONPATH=$PWD/makhber
           xvfb-run -a ctest --output-on-failure
 
   MSVC:
@@ -109,6 +110,7 @@ jobs:
       - name: Testing
         run: |
           cd build
+          $Env:PYTHONPATH = "$PWD\makhber\Release"
           ctest -C Release --output-on-failure
 
   macos:
@@ -143,4 +145,5 @@ jobs:
       - name: Testing
         run: |
           cd build
+          export PYTHONPATH=$PWD/makhber/makhber.app/Contents/Resources
           ctest --output-on-failure
