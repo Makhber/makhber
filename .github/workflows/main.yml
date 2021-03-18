@@ -128,14 +128,12 @@ jobs:
       - name: Install prerequisties
         run: |
           brew install qt@5 muparser gsl gl2ps googletest
-          pip3 install sip==5.5.0 pyqt5 numpy
 
       - name: Configuring
         run: |
           export PATH=/usr/local/opt/qt@5/bin:$PATH
           mkdir build && cd build
           cmake .. \
-            -DMAKHBER_SCRIPTING_PYTHON=ON \
             -DMAKHBER_BUILD_TESTS=ON
 
       - name: Building
@@ -144,7 +142,5 @@ jobs:
 
       - name: Testing
         run: |
-          echo $PATH
           cd build
-          export PYTHONPATH=$PWD/makhber/makhber.app/Contents/Resources
           ctest --output-on-failure --repeat until-pass:3
