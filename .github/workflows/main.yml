@@ -52,7 +52,7 @@ jobs:
         run: |
           cd build
           export PYTHONPATH=$PWD/makhber
-          xvfb-run -a ctest --output-on-failure
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
 
   MSVC:
     name: Windows MSVC
@@ -111,7 +111,7 @@ jobs:
         run: |
           cd build
           $Env:PYTHONPATH = "$PWD\makhber\Release"
-          ctest -C Release --output-on-failure
+          ctest -C Release --output-on-failure --repeat until-pass:3
 
   macos:
 
@@ -144,6 +144,7 @@ jobs:
 
       - name: Testing
         run: |
+          echo $PATH
           cd build
           export PYTHONPATH=$PWD/makhber/makhber.app/Contents/Resources
-          ctest --output-on-failure
+          ctest --output-on-failure --repeat until-pass:3
