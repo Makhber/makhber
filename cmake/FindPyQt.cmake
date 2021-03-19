@@ -1,25 +1,27 @@
-# FindPyQt
-# -------
+#[[
+FindPyQt
+-------
 
-# Result Variables
-# ^^^^^^^^^^^^^^^^
+Result Variables
+^^^^^^^^^^^^^^^^
 
-# This will define the following variables:
+This will define the following variables:
 
-# ``PyQt_FOUND``
-#   True if the system has PyQt sip files.
-# ``PyQt_INCLUDE_DIRS``
-#   The directory containing PyQt sip files.
-# ``PyQt_FLAGS``
-#   The required flags to compile generated c++ files.
+``PyQt_FOUND``
+  True if the system has PyQt sip files.
+``PyQt_INCLUDE_DIRS``
+  The directory containing PyQt sip files.
+``PyQt_FLAGS``
+  The required flags to compile generated c++ files.
 
-# Cache Variables
-# ^^^^^^^^^^^^^^^
+Cache Variables
+^^^^^^^^^^^^^^^
 
-# The following cache variables may also be set:
+The following cache variables may also be set:
 
-# ``PyQt_INCLUDE_DIR``
-#   The directory containing PyQt sip files.
+``PyQt_INCLUDE_DIR``
+  The directory containing PyQt sip files.
+]]
 
 execute_process(
   COMMAND ${Python3_EXECUTABLE} -c "import sys; print(sys.prefix)"
@@ -27,16 +29,23 @@ execute_process(
   OUTPUT_STRIP_TRAILING_WHITESPACE
   )
 
-set( _PyQt_HINTS 
+execute_process(
+  COMMAND ${Python3_EXECUTABLE} -c "import PyQt5; print(PyQt5.__path__[0])"
+  OUTPUT_VARIABLE _PyQt_PATH
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+  )
+
+set( _PyQt_HINTS
   "${_Python3_PREFIX}/share/python3-sip"
   "${_Python3_PREFIX}/share/sip"
   "${Python3_SITELIB}"
   )
-  
+
 find_path( PyQt_INCLUDE_DIR
   NAMES "QtCore/QtCoremod.sip"
+  PATHS "${_PyQt_PATH}"
   HINTS ${_PyQt_HINTS}
-  PATH_SUFFIXES "PyQt5" "PyQt5/bindings"
+  PATH_SUFFIXES "PyQt5" "PyQt5/bindings" "bindings"
   )
 
 execute_process(
@@ -52,8 +61,7 @@ execute_process(
   )
 
 include(FindPackageHandleStandardArgs)
-find_package_handle_standard_args(PyQt
-  FOUND_VAR PyQt_FOUND
+find_package_handle_standard_args( PyQt
   REQUIRED_VARS
     PyQt_INCLUDE_DIR
     PyQt_FLAGS
