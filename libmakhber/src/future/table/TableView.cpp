@@ -175,8 +175,8 @@ void TableView::init()
             SLOT(handleAspectDescriptionChanged(const AbstractAspect *)));
     connect(d_table, SIGNAL(aspectAdded(const AbstractAspect *)), this,
             SLOT(handleAspectAdded(const AbstractAspect *)));
-    connect(d_table, SIGNAL(aspectAboutToBeRemoved(const AbstractAspect *, int)), this,
-            SLOT(handleAspectAboutToBeRemoved(const AbstractAspect *, int)));
+    connect(d_table, SIGNAL(aspectChildAboutToBeRemoved(const AbstractAspect *, int)), this,
+            SLOT(handleAspectChildAboutToBeRemoved(const AbstractAspect *, int)));
 
     this->setWidget(d_main_widget);
     rereadSectionSizes();
@@ -384,9 +384,6 @@ void TableView::setColumnForControlTabs(int col)
             return;
         Column *col_ptr = d_table->column(col);
 
-        QString str =
-                tr("Current column:\nName: %1\nPosition: %2").arg(col_ptr->name()).arg(col + 1);
-
         ui.name_edit->setText(col_ptr->name());
         ui.comment_box->document()->setPlainText(col_ptr->comment());
         ui.type_box->setCurrentIndex(ui.type_box->findData((int)col_ptr->columnMode()));
@@ -448,7 +445,7 @@ void TableView::handleAspectAdded(const AbstractAspect *aspect)
     }
 }
 
-void TableView::handleAspectAboutToBeRemoved(const AbstractAspect *parent, int index)
+void TableView::handleAspectChildAboutToBeRemoved(const AbstractAspect *parent, int index)
 {
     if (parent != d_table)
         return;
@@ -514,7 +511,7 @@ void TableView::updateFormatBox()
         for (i = 0; date_strings[i] != 0; i++)
             for (j = 0; time_strings[j] != 0; j++)
                 ui.format_box->addItem(
-                        QString("%1 %2").arg(date_strings[i]).arg(time_strings[j]),
+                        QString("%1 %2").arg(date_strings[i], time_strings[j]),
                         QVariant(QString(date_strings[i]) + " " + QString(time_strings[j])));
         ui.formatLineEdit->setEnabled(true);
         ui.date_time_interval->setEnabled(true);

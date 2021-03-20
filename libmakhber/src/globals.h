@@ -41,9 +41,6 @@
 class Makhber : public QObject
 {
     Q_OBJECT
-    Q_ENUMS(PlotDesignation)
-    Q_ENUMS(ColumnMode)
-    Q_ENUMS(ColumnDataType)
 
 private:
     Makhber() { } // don't allow instancing
@@ -59,6 +56,7 @@ public:
         xErr = 4, //!< x errors
         yErr = 5 //!< y errors
     };
+    Q_ENUM(PlotDesignation)
 
     //! The column mode (defines output and input filter for table columns)
     enum class ColumnMode : int {
@@ -69,9 +67,11 @@ public:
         DateTime = 6, //!< column contains dates and/or times
         // 2 and 3 are skipped to avoid problems with old obsolete values
     };
+    Q_ENUM(ColumnMode)
 
     //! Column data type
     enum ColumnDataType { TypeDouble = 1, TypeQString = 2, TypeQDateTime = 3 };
+    Q_ENUM(ColumnDataType)
 
     //! Return the Makhber version number
     static int version();

@@ -80,6 +80,8 @@ QList<Column *> FFT::fftTable()
     if (!amp || !wavetable || !workspace) {
         QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
+        if (amp)
+            delete[] amp;
         d_init_err = true;
         return QList<Column *>();
     }

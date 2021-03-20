@@ -122,8 +122,7 @@ TableMoveColumnCmd::TableMoveColumnCmd(future::Table::Private &private_obj, int 
     : QUndoCommand(parent), d_private_obj(private_obj), d_from(from), d_to(to)
 {
     setText(QObject::tr("%1: move column %2 from position %3 to %4")
-                    .arg(d_private_obj.name())
-                    .arg(d_private_obj.column(from)->name())
+                    .arg(d_private_obj.name(), d_private_obj.column(from)->name())
                     .arg(d_from + 1)
                     .arg(d_to + 1));
 }

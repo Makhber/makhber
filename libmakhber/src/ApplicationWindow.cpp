@@ -225,10 +225,10 @@ ApplicationWindow::ApplicationWindow()
     QPixmapCache::setCacheLimit(20 * QPixmapCache::cacheLimit());
 
     d_project = new Project();
-    connect(d_project, SIGNAL(aspectAdded(const AbstractAspect *, int)), this,
+    connect(d_project, SIGNAL(aspectChildAdded(const AbstractAspect *, int)), this,
             SLOT(handleAspectAdded(const AbstractAspect *, int)));
-    connect(d_project, SIGNAL(aspectAboutToBeRemoved(const AbstractAspect *, int)), this,
-            SLOT(handleAspectAboutToBeRemoved(const AbstractAspect *, int)));
+    connect(d_project, SIGNAL(aspectChildAboutToBeRemoved(const AbstractAspect *, int)), this,
+            SLOT(handleAspectChildAboutToBeRemoved(const AbstractAspect *, int)));
 
     explorerWindow.setWindowTitle(tr("Project Explorer"));
     explorerWindow.setObjectName(
@@ -413,7 +413,6 @@ void ApplicationWindow::applyUserSettings()
 void ApplicationWindow::initToolBars()
 {
     setWindowIcon(QIcon(":/appicon"));
-    QPixmap openIcon, saveIcon;
 
     file_tools = new QToolBar(tr("File"), this);
     file_tools->setObjectName("file_tools"); // this is needed for QMainWindow::restoreState()
@@ -2469,8 +2468,7 @@ Table *ApplicationWindow::newTable(const QString &caption, int r, int c)
 
         QMessageBox::warning(this, tr("Renamed Window"),
                              tr("The table '%1' already exists. It has been renamed '%2'.")
-                                     .arg(caption)
-                                     .arg(w->name()));
+                                     .arg(caption, w->name()));
     }
     initTable(w);
     return w;
@@ -3641,9 +3639,7 @@ bool ApplicationWindow::loadProject(const QString &fn)
                     tr("The file \"%1\" was created using \"%2\" as scripting language.\n\n"
                        "Initializing support for this language FAILED; I'm using \"%3\" instead.\n"
                        "Various parts of this file may not be displayed as expected.")
-                            .arg(fn)
-                            .arg(list[1])
-                            .arg(scriptEnv->objectName()));
+                            .arg(fn, list[1], scriptEnv->objectName()));
 
         s = t.readLine();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
@@ -3782,8 +3778,7 @@ bool ApplicationWindow::loadProject(const QString &fn)
                 } else {
                     QMessageBox::warning(this, tr("File opening error"),
                                          tr("Invalid WindowLabel line:\n'%1'\nin file %2.")
-                                                 .arg(lst.join(" "))
-                                                 .arg(fn));
+                                                 .arg(lst.join(" "), fn));
                     plot->setCaptionPolicy(MyWidget::CaptionPolicy::Name);
                     // Partial fix for sf #403
                     t.readLine();
@@ -6754,7 +6749,7 @@ void ApplicationWindow::showImageDialog()
 
         ImageDialog *id = new ImageDialog(this);
         id->setAttribute(Qt::WA_DeleteOnClose);
-        connect(id, SIGNAL(setGeometry(int, int, int, int)), g,
+        connect(id, SIGNAL(setImageGeometry(int, int, int, int)), g,
                 SLOT(updateImageMarker(int, int, int, int)));
         id->setWindowIcon(QPixmap(":/appicon"));
         id->setOrigin(im->origin());
@@ -6791,7 +6786,7 @@ void ApplicationWindow::showPlotGeometryDialog()
     if (g) {
         ImageDialog *id = new ImageDialog(this);
         id->setAttribute(Qt::WA_DeleteOnClose);
-        connect(id, SIGNAL(setGeometry(int, int, int, int)), plot,
+        connect(id, SIGNAL(setImageGeometry(int, int, int, int)), plot,
                 SLOT(setGraphGeometry(int, int, int, int)));
         id->setWindowIcon(QPixmap(":/appicon"));
         id->setWindowTitle(tr("Layer Geometry"));
@@ -7189,7 +7184,7 @@ void ApplicationWindow::resizeActiveWindow()
 
     ImageDialog *id = new ImageDialog(this);
     id->setAttribute(Qt::WA_DeleteOnClose);
-    connect(id, SIGNAL(setGeometry(int, int, int, int)), this,
+    connect(id, SIGNAL(setImageGeometry(int, int, int, int)), this,
             SLOT(setWindowGeometry(int, int, int, int)));
 
     id->setWindowTitle(tr("Window Geometry"));
@@ -7208,7 +7203,7 @@ void ApplicationWindow::resizeWindow()
 
     ImageDialog *id = new ImageDialog(this);
     id->setAttribute(Qt::WA_DeleteOnClose);
-    connect(id, SIGNAL(setGeometry(int, int, int, int)), this,
+    connect(id, SIGNAL(setImageGeometry(int, int, int, int)), this,
             SLOT(setWindowGeometry(int, int, int, int)));
 
     id->setWindowTitle(tr("Window Geometry"));
@@ -7291,7 +7286,6 @@ void ApplicationWindow::removeWindowFromLists(MyWidget *w)
     if (!w)
         return;
 
-    QString caption = w->name();
     if (w->inherits("Table")) {
         Table *m = (Table *)w;
         for (int i = 0; i < m->numCols(); i++) {
@@ -9095,7 +9089,7 @@ Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
                 w->setCommands(*line);
             } else if (fields[0] == "<com>") {
                 for (line++; line != flist.end() && *line != "</com>"; line++) {
-                    int col = (*line).mid(9, (*line).length() - 11).toInt();
+                    int col = (*line).midRef(9, (*line).length() - 11).toInt();
                     QString formula;
                     for (line++; line != flist.end() && *line != "</col>"; line++)
                         formula += *line + "\n";
@@ -9241,7 +9235,7 @@ TableStatistics *ApplicationWindow::openTableStatistics(const QStringList &flist
             w->setCommands(*line);
         } else if (fields[0] == "<com>") {
             for (line++; line != flist.end() && *line != "</com>"; line++) {
-                int col = (*line).mid(9, (*line).length() - 11).toInt();
+                int col = (*line).midRef(9, (*line).length() - 11).toInt();
                 QString formula;
                 for (line++; line != flist.end() && *line != "</col>"; line++)
                     formula += *line + "\n";
@@ -9268,7 +9262,17 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
 {
     Graph *ag = 0;
     int curveID = 0;
-    for (int j = 0; j < (int)list.count() - 1; j++) {
+    QString s = list[0];
+    if (s.contains("ggeometry")) {
+        QStringList fList = s.split("\t");
+        ag = (Graph *)plot->addLayer(fList[1].toInt(), fList[2].toInt(), fList[3].toInt(),
+                                     fList[4].toInt());
+    }
+    if (!ag)
+        return 0;
+    ag->blockSignals(true);
+    ag->enableAutoscaling(autoscale2DPlots);
+    for (int j = 1; j < (int)list.count() - 1; j++) {
         QString s = list[j];
         if (s.contains("ggeometry")) {
             QStringList fList = s.split("\t");
@@ -9699,7 +9703,7 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
             fnt.setUnderline(fList[5].toInt());
             fnt.setStrikeOut(fList[6].toInt());
 
-            int axis = (fList[0].right(1)).toInt();
+            int axis = (fList[0].rightRef(1)).toInt();
             ag->setAxisTitleFont(axis, fnt);
         } else if (s.contains("AxisFont")) {
             QStringList fList = s.split("\t");
@@ -9707,14 +9711,14 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
             fnt.setUnderline(fList[5].toInt());
             fnt.setStrikeOut(fList[6].toInt());
 
-            int axis = (fList[0].right(1)).toInt();
+            int axis = (fList[0].rightRef(1)).toInt();
             ag->setAxisFont(axis, fnt);
         } else if (s.contains("AxesFormulas")) {
             QStringList fList = s.split("\t");
             fList.removeAll(fList.first());
             ag->setAxesFormulas(fList);
         } else if (s.startsWith("<AxisFormula ")) {
-            int pos = s.mid(18, s.length() - 20).toInt();
+            int pos = s.midRef(18, s.length() - 20).toInt();
             QString formula;
             for (j++; j < (int)list.count() && list[j] != "</AxisFormula>"; j++)
                 formula += list[j] + "\n";
@@ -10063,7 +10067,7 @@ void ApplicationWindow::analyzeCurve(Graph *g, const QString &whichFit, const QS
         else if (whichFit == "fitLorentz")
             fitter = new LorentzFit(this, g);
 
-        if (fitter->setDataFromCurve(curveTitle)) {
+        if (fitter && fitter->setDataFromCurve(curveTitle)) {
             if (whichFit != "fitLinear")
                 fitter->guessInitialValues();
 
@@ -10170,7 +10174,7 @@ void ApplicationWindow::connectMultilayerPlot(MultiLayer *g)
     connect(g, SIGNAL(showTextDialog()), this, SLOT(showTextDialog()));
     connect(g, SIGNAL(showPlotDialog(int)), this, SLOT(showPlotDialog(int)));
     connect(g, SIGNAL(showScaleDialog(int)), this, SLOT(showScalePageFromAxisDialog(int)));
-    connect(g, SIGNAL(showAxisDialog(int)), this, SLOT(showAxisPageFromAxisDialog(int)));
+    connect(g, SIGNAL(showSelectedAxisDialog(int)), this, SLOT(showAxisPageFromAxisDialog(int)));
     connect(g, SIGNAL(showCurveContextMenu(int)), this, SLOT(showCurveContextMenu(int)));
     connect(g, SIGNAL(showWindowContextMenu()), this, SLOT(showWindowContextMenu()));
     connect(g, SIGNAL(showCurvesDialog()), this, SLOT(showCurvesDialog()));
@@ -12300,8 +12304,7 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
                 this, tr("Error writing data to disk"),
                 tr("<html>%1<br><br>Your data may or may not have ended up in <em>%2</em> (%3). \
 					If there already was a version of this project on disk, it has not been touched.</html>")
-                        .arg(QString::fromLocal8Bit(strerror(errno)))
-                        .arg(fn + ".new")
+                        .arg(QString::fromLocal8Bit(strerror(errno)), fn + ".new")
                         .arg(f.handle()));
         f.close();
         return;
@@ -12326,10 +12329,7 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
 					been simply replaced, see here:\
 					<a href=\"http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54\">\
 					http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54</a>.</html>")
-                        .arg(QString::fromLocal8Bit(strerror(errno)))
-                        .arg(fn + ".new")
-                        .arg(fn + "~")
-                        .arg(fn));
+                        .arg(QString::fromLocal8Bit(strerror(errno)), fn + ".new", fn + "~", fn));
         return;
     }
 
@@ -13556,6 +13556,7 @@ QMenu *ApplicationWindow::showWindowMenuImpl(MyWidget *widget)
         }
     }
 
+    delete depend_menu;
     return cm;
 }
 
@@ -13664,7 +13665,7 @@ void ApplicationWindow::handleAspectAdded(const AbstractAspect *parent, int inde
     }
 }
 
-void ApplicationWindow::handleAspectAboutToBeRemoved(const AbstractAspect *parent, int index)
+void ApplicationWindow::handleAspectChildAboutToBeRemoved(const AbstractAspect *parent, int index)
 {
     AbstractAspect *aspect = parent->child(index);
     ::future::Matrix *matrix = qobject_cast<::future::Matrix *>(aspect);

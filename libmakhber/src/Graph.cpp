@@ -1219,7 +1219,7 @@ void Graph::updateSecondaryAxis(int axis)
     else if (se->transformation()->type() == QwtScaleTransformation::Linear)
         sc_engine = new QwtLinearScaleEngine();
 
-    if (se->testAttribute(QwtScaleEngine::Inverted))
+    if (sc_engine && se->testAttribute(QwtScaleEngine::Inverted))
         sc_engine->setAttribute(QwtScaleEngine::Inverted);
 
     d_plot->setAxisScaleEngine(axis, sc_engine);
@@ -2057,7 +2057,6 @@ QString Graph::saveScale()
         s += "scale\t" + QString::number(i) + "\t";
 
         const QwtScaleDiv *scDiv = d_plot->axisScaleDiv(i);
-        QwtValueList lst = scDiv->ticks(QwtScaleDiv::MajorTick);
 
 #if QWT_VERSION >= 0x050200
         s += QString::number(qMin(scDiv->lowerBound(), scDiv->upperBound()), 'g', 15) + "\t";
@@ -2260,45 +2259,46 @@ QString Graph::savePieCurveLayout()
 
 QString Graph::saveCurveLayout(int index)
 {
-    QString s;
+    QString s = {};
     int style = c_type[index];
     QwtPlotCurve *c = (QwtPlotCurve *)curve(index);
-    if (c) {
-        s += QString::number(style) + "\t";
-        if (style == Spline)
-            s += "5\t";
-        else if (style == VerticalSteps)
-            s += "6\t";
-        else
-            s += QString::number(c->style()) + "\t";
-        s += COLORNAME(c->pen().color()) + "\t";
-        s += QString::number(c->pen().style() - 1) + "\t";
-        s += QString::number(c->pen().width()) + "\t";
+    if (!c)
+        return s;
 
-        const QwtSymbol symbol = c->symbol();
-        s += QString::number(symbol.size().width()) + "\t";
-        s += QString::number(SymbolBox::symbolIndex(symbol.style())) + "\t";
-        s += COLORNAME(symbol.pen().color()) + "\t";
-        if (symbol.brush().style() != Qt::NoBrush)
-            s += COLORNAME(symbol.brush().color()) + "\t";
-        else
-            s += QString::number(-1) + "\t";
+    s += QString::number(style) + "\t";
+    if (style == Spline)
+        s += "5\t";
+    else if (style == VerticalSteps)
+        s += "6\t";
+    else
+        s += QString::number(c->style()) + "\t";
+    s += COLORNAME(c->pen().color()) + "\t";
+    s += QString::number(c->pen().style() - 1) + "\t";
+    s += QString::number(c->pen().width()) + "\t";
 
-        bool filled = c->brush().style() == Qt::NoBrush ? false : true;
-        s += QString::number(filled) + "\t";
+    const QwtSymbol symbol = c->symbol();
+    s += QString::number(symbol.size().width()) + "\t";
+    s += QString::number(SymbolBox::symbolIndex(symbol.style())) + "\t";
+    s += COLORNAME(symbol.pen().color()) + "\t";
+    if (symbol.brush().style() != Qt::NoBrush)
+        s += COLORNAME(symbol.brush().color()) + "\t";
+    else
+        s += QString::number(-1) + "\t";
 
-        s += COLORNAME(c->brush().color()) + "\t";
-        s += QString::number(PatternBox::patternIndex(c->brush().style())) + "\t";
-        if (style <= LineSymbols || style == Box)
-            s += QString::number(symbol.pen().width()) + "\t";
-        // extension for custom dash pattern
-        s += QString::number(static_cast<int>(c->pen().capStyle())) + "\t";
-        s += QString::number(static_cast<int>(c->pen().joinStyle())) + "\t";
-        QStringList customDash;
-        for (auto v : c->pen().dashPattern())
-            customDash << QString::number(v);
-        s += customDash.join(" ") + "\t";
-    }
+    bool filled = c->brush().style() == Qt::NoBrush ? false : true;
+    s += QString::number(filled) + "\t";
+
+    s += COLORNAME(c->brush().color()) + "\t";
+    s += QString::number(PatternBox::patternIndex(c->brush().style())) + "\t";
+    if (style <= LineSymbols || style == Box)
+        s += QString::number(symbol.pen().width()) + "\t";
+    // extension for custom dash pattern
+    s += QString::number(static_cast<int>(c->pen().capStyle())) + "\t";
+    s += QString::number(static_cast<int>(c->pen().joinStyle())) + "\t";
+    QStringList customDash;
+    for (auto v : c->pen().dashPattern())
+        customDash << QString::number(v);
+    s += customDash.join(" ") + "\t";
 
     if (style == VerticalBars || style == HorizontalBars || style == Histogram) {
         QwtBarCurve *b = (QwtBarCurve *)c;
@@ -4371,7 +4371,7 @@ void Graph::showAxisContextMenu(int axis)
 
 void Graph::showAxisDialog()
 {
-    emit showAxisDialog(selectedAxis);
+    emit showSelectedAxisDialog(selectedAxis);
 }
 
 void Graph::showScaleDialog()
@@ -4613,7 +4613,6 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
         d_plot->setAxisMaxMinor(i, minorTicks);
 
         const QwtScaleDiv *sd = plot->axisScaleDiv(i);
-        QwtValueList lst = sd->ticks(QwtScaleDiv::MajorTick);
 
         d_user_step[i] = g->axisStep(i);
 
@@ -4835,7 +4834,7 @@ bool Graph::enableRangeSelectors(const QObject *status_target, const char *statu
     // disable other tools, otherwise it's undefined what tool should handle mouse clicks
     disableTools();
     d_range_selector = new RangeSelectorTool(this, status_target, status_slot);
-    connect(d_range_selector, SIGNAL(changed()), this, SIGNAL(dataRangeChanged()));
+    connect(d_range_selector, SIGNAL(rangeSelectorChanged()), this, SIGNAL(dataRangeChanged()));
     return true;
 }
 
@@ -4912,7 +4911,6 @@ void Graph::addFitCurve(QwtPlotCurve *c)
 
 void Graph::deleteFitCurves()
 {
-    QList<int> keys = d_plot->curveKeys();
     foreach (QwtPlotCurve *c, d_fit_curves)
         removeCurve(curveIndex(c));
 

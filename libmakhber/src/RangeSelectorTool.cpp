@@ -142,7 +142,7 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
         d_active_marker.setValue(d_selected_curve->x(d_active_point),
                                  d_selected_curve->y(d_active_point));
         emitStatusText();
-        emit changed();
+        emit rangeSelectorChanged();
     }
     d_graph->plotWidget()->replot();
 }
@@ -159,7 +159,7 @@ void RangeSelectorTool::setSelectedCurve(QwtPlotCurve *curve)
     d_inactive_marker.setValue(d_selected_curve->x(d_inactive_point),
                                d_selected_curve->y(d_inactive_point));
     emitStatusText();
-    emit changed();
+    emit rangeSelectorChanged();
 }
 
 void RangeSelectorTool::setActivePoint(int point)
@@ -170,7 +170,7 @@ void RangeSelectorTool::setActivePoint(int point)
     d_active_marker.setValue(d_selected_curve->x(d_active_point),
                              d_selected_curve->y(d_active_point));
     emitStatusText();
-    emit changed();
+    emit rangeSelectorChanged();
 }
 
 void RangeSelectorTool::emitStatusText()
@@ -179,11 +179,11 @@ void RangeSelectorTool::emitStatusText()
         emit statusText(
                 QString("%1 <=> %2[%3]: x=%4; y=%5")
                         .arg(d_active_marker.xValue() > d_inactive_marker.xValue() ? tr("Right")
-                                                                                   : tr("Left"))
-                        .arg(d_selected_curve->title().text())
+                                                                                   : tr("Left"),
+                             d_selected_curve->title().text())
                         .arg(d_active_point + 1)
-                        .arg(QLocale().toString(d_selected_curve->x(d_active_point), 'G', 15))
-                        .arg(QLocale().toString(d_selected_curve->y(d_active_point), 'G', 15)));
+                        .arg(QLocale().toString(d_selected_curve->x(d_active_point), 'G', 15),
+                             QLocale().toString(d_selected_curve->y(d_active_point), 'G', 15)));
     } else {
         Table *t = ((DataCurve *)d_selected_curve)->table();
         if (!t)
@@ -194,12 +194,12 @@ void RangeSelectorTool::emitStatusText()
         emit statusText(
                 QString("%1 <=> %2[%3]: x=%4; y=%5")
                         .arg(d_active_marker.xValue() > d_inactive_marker.xValue() ? tr("Right")
-                                                                                   : tr("Left"))
-                        .arg(d_selected_curve->title().text())
+                                                                                   : tr("Left"),
+                             d_selected_curve->title().text())
                         .arg(row + 1)
                         .arg(t->text(row,
-                                     t->colIndex(((DataCurve *)d_selected_curve)->xColumnName())))
-                        .arg(t->text(row, t->colIndex(d_selected_curve->title().text()))));
+                                     t->colIndex(((DataCurve *)d_selected_curve)->xColumnName())),
+                             t->text(row, t->colIndex(d_selected_curve->title().text()))));
     }
 }
 

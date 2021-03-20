@@ -272,7 +272,7 @@ public slots:
 
     QString colorMap() { return color_map; };
     void setDataColorMap(const QString &fileName);
-    bool openColorMap(ColorVector &cv, QString fname);
+    bool openColorMap(Qwt3D::ColorVector &cv, QString fname);
 
     void setColors(const QStringList &colors);
     void setColors(const QColor &meshColor, const QColor &axesColor, const QColor &numColor,
@@ -333,7 +333,7 @@ public slots:
     void setConesOptions(double rad, int quality);
     void setConesMesh();
 
-    PointStyle pointType() { return pointStyle; };
+    Graph3D::PointStyle pointType() { return pointStyle; };
     void setPointOptions(double size, bool s);
     //@}
 

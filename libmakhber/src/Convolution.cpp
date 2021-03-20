@@ -81,8 +81,7 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
         QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
                              tr("The response dataset '%1' must be less then half the size of the "
                                 "signal dataset '%2'!")
-                                     .arg(responseColName)
-                                     .arg(signalColName));
+                                     .arg(responseColName, signalColName));
         d_init_err = true;
         return;
     } else if (d_n_response % 2 == 0) {

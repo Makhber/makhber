@@ -33,12 +33,14 @@
 #include <algorithm>
 
 const QColor ColorBox::colors[] = {
-    QColor(Qt::black),    QColor(Qt::red),         QColor(Qt::green),     QColor(Qt::blue),
-    QColor(Qt::cyan),     QColor(Qt::magenta),     QColor(Qt::yellow),    QColor(Qt::darkYellow),
-    QColor(Qt::darkBlue), QColor(Qt::darkMagenta), QColor(Qt::darkRed),   QColor(Qt::darkGreen),
-    QColor(Qt::darkCyan), QColor("#0000A0"),       QColor("#FF8000"),     QColor("#8000FF"),
-    QColor("#FF0080"),    QColor(Qt::white),       QColor(Qt::lightGray), QColor(Qt::gray),
-    QColor("#FFFF80"),    QColor("#80FFFF"),       QColor("#FF80FF"),     QColor(Qt::darkGray),
+    QColor(Qt::black),        QColor(Qt::red),          QColor(Qt::green),
+    QColor(Qt::blue),         QColor(Qt::cyan),         QColor(Qt::magenta),
+    QColor(Qt::yellow),       QColor(Qt::darkYellow),   QColor(Qt::darkBlue),
+    QColor(Qt::darkMagenta),  QColor(Qt::darkRed),      QColor(Qt::darkGreen),
+    QColor(Qt::darkCyan),     QColor(0x00, 0x00, 0xA0), QColor(0xFF, 0x80, 0x00),
+    QColor(0x80, 0x00, 0xFF), QColor(0xFF, 0x00, 0x80), QColor(Qt::white),
+    QColor(Qt::lightGray),    QColor(Qt::gray),         QColor(0xFF, 0xFF, 0x80),
+    QColor(0x80, 0xFF, 0xFF), QColor(0xFF, 0x80, 0xFF), QColor(Qt::darkGray),
 };
 
 const int ColorBox::colors_count = sizeof(colors) / sizeof(colors[0]);

@@ -900,7 +900,7 @@ void Matrix::goToCell()
 void Matrix::copy(Matrix *other)
 {
     WAIT_CURSOR;
-    beginMacro(QObject::tr("%1: copy %2").arg(name()).arg(other->name()));
+    beginMacro(QObject::tr("%1: copy %2").arg(name(), other->name()));
     int rows = other->rowCount();
     int columns = other->columnCount();
     setDimensions(rows, columns);

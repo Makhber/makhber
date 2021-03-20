@@ -192,7 +192,7 @@ public slots:
 signals:
     void showTextDialog();
     void showPlotDialog(int);
-    void showAxisDialog(int);
+    void showSelectedAxisDialog(int);
     void showScaleDialog(int);
     void showGraphContextMenu();
     void showLayerButtonContextMenu();
@@ -259,7 +259,7 @@ protected:
 
 signals:
     void showCurvesDialog();
-    void clicked(LayerButton *);
+    void layerButtonclicked(LayerButton *);
     void showContextMenu();
 };
 

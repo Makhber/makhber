@@ -38,7 +38,7 @@ public:
     AspectNameChangeCmd(AbstractAspect::Private *target, const QString &new_name)
         : d_target(target), d_other_name(new_name)
     {
-        setText(QObject::tr("%1: rename to %2").arg(d_target->name()).arg(new_name));
+        setText(QObject::tr("%1: rename to %2").arg(d_target->name(), new_name));
     }
 
     virtual void redo()
@@ -130,7 +130,7 @@ public:
     AspectChildRemoveCmd(AbstractAspect::Private *target, AbstractAspect *child, bool detach)
         : d_target(target), d_child(child), d_index(-1), d_removed(false), d_detach(detach)
     {
-        setText(QObject::tr("%1: remove %2").arg(d_target->name()).arg(d_child->name()));
+        setText(QObject::tr("%1: remove %2").arg(d_target->name(), d_child->name()));
     }
     ~AspectChildRemoveCmd()
     {
@@ -166,7 +166,7 @@ public:
     AspectChildAddCmd(AbstractAspect::Private *target, AbstractAspect *child, int index)
         : AspectChildRemoveCmd(target, child, false)
     {
-        setText(QObject::tr("%1: add %2").arg(d_target->name()).arg(d_child->name()));
+        setText(QObject::tr("%1: add %2").arg(d_target->name(), d_child->name()));
         d_index = index;
     }
 
@@ -220,9 +220,7 @@ public:
           d_new_index(new_index)
     {
         setText(QObject::tr("%1: move %2 to %3.")
-                        .arg(d_target->name())
-                        .arg(d_child->name())
-                        .arg(d_new_parent->name()));
+                        .arg(d_target->name(), d_child->name(), d_new_parent->name()));
     }
     ~AspectChildReparentCmd() { }
 

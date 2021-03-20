@@ -465,8 +465,7 @@ Column *MuParserScript::resolveColumnPath(const QString &path)
     result = table->d_future_table->column(columnName, false);
     if (!result)
         throw MuException(tr("There's no column named %1 in table %2!")
-                                  .arg(columnName)
-                                  .arg(table->d_future_table->path()));
+                                  .arg(columnName, table->d_future_table->path()));
 
     return result;
 }

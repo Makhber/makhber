@@ -43,8 +43,7 @@ DateTime2StringFilterSetFormatCmd::DateTime2StringFilterSetFormatCmd(DateTime2St
 {
     if (d_target->parentAspect())
         setText(QObject::tr("%1: set date-time format to %2")
-                        .arg(d_target->parentAspect()->name())
-                        .arg(new_format));
+                        .arg(d_target->parentAspect()->name(), new_format));
     else
         setText(QObject::tr("set date-time format to %1").arg(new_format));
 }

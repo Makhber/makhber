@@ -1534,7 +1534,6 @@ void ConfigDialog::switchToLanguage(int param)
 void ConfigDialog::insertLanguagesList()
 {
     ApplicationWindow *app = (ApplicationWindow *)parentWidget();
-    QDir dir(app->qmPath);
     QStringList locales = app->locales;
     QStringList languages;
     int lang = 0;

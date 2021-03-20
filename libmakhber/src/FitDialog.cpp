@@ -1085,6 +1085,8 @@ void FitDialog::accept()
     } else
         n = rows;
 
+    if (rows < 1 || n == 0)
+        return;
     QStringList parameters;
     double *paramsInit = new double[n];
     QString formula;
@@ -1096,7 +1098,7 @@ void FitDialog::accept()
         for (i = 0; i < d_user_function_names.count(); i++)
             if (boxFunction->toPlainText().contains(d_user_function_names[i])) {
                 QStringList l = d_user_functions[i].split("=");
-                formula += QString("%1=%2\n").arg(d_user_function_names[i]).arg(l[1]);
+                formula += QString("%1=%2\n").arg(d_user_function_names[i], l[1]);
                 found_uf = true;
             }
     } while (found_uf);
@@ -1105,9 +1107,8 @@ void FitDialog::accept()
     // define variables for builtin functions used in formula
     for (i = 0; i < d_built_in_function_names.count(); i++)
         if (formula.contains(d_built_in_function_names[i]))
-            formula.prepend(QString("%1=%2\n")
-                                    .arg(d_built_in_function_names[i])
-                                    .arg(d_built_in_functions[i]));
+            formula.prepend(
+                    QString("%1=%2\n").arg(d_built_in_function_names[i], d_built_in_functions[i]));
 
     if (!boxParams->isColumnHidden(2)) {
         int j = 0;
@@ -1118,9 +1119,8 @@ void FitDialog::accept()
                 parameters << boxParams->item(i, 0)->text();
                 j++;
             } else
-                formula.prepend(QString("%1=%2\n")
-                                        .arg(boxParams->item(i, 0)->text())
-                                        .arg(CONFS(boxParams->item(i, 1)->text())));
+                formula.prepend(QString("%1=%2\n").arg(boxParams->item(i, 0)->text(),
+                                                       CONFS(boxParams->item(i, 1)->text())));
         }
     } else {
         for (i = 0; i < n; i++) {
@@ -1142,6 +1142,7 @@ void FitDialog::accept()
         d_fitter = new PluginFit(app, d_graph);
         if (!((PluginFit *)d_fitter)->load(d_plugin_files_list[funcBox->currentRow()])) {
             d_fitter = 0;
+            delete[] paramsInit;
             return;
         }
         d_fitter->setInitialGuesses(paramsInit);
@@ -1153,14 +1154,18 @@ void FitDialog::accept()
     }
     delete[] paramsInit;
 
-    if (!d_fitter->setDataFromCurve(curve, start, end)
-        || !d_fitter->setYErrorSource((Fit::ErrorSource)boxYErrorSource->currentIndex(),
-                                      tableNamesBox->currentText() + "_"
-                                              + colNamesBox->currentText())) {
+    if (d_fitter
+        && (!d_fitter->setDataFromCurve(curve, start, end)
+            || !d_fitter->setYErrorSource((Fit::ErrorSource)boxYErrorSource->currentIndex(),
+                                          tableNamesBox->currentText() + "_"
+                                                  + colNamesBox->currentText()))) {
         delete d_fitter;
         d_fitter = 0;
         return;
     }
+
+    if (!d_fitter)
+        return;
 
     d_fitter->setTolerance(eps);
     d_fitter->setAlgorithm((Fit::Algorithm)boxAlgorithm->currentIndex());
@@ -1219,7 +1224,7 @@ void FitDialog::fitBuiltInFunction(const QString &function, double *initVal)
     else if (function == "Polynomial")
         d_fitter = new PolynomialFit(app, d_graph, polynomOrderBox->value());
 
-    if (function != "Polynomial")
+    if (d_fitter && function != "Polynomial")
         d_fitter->setInitialGuesses(initVal);
 }
 

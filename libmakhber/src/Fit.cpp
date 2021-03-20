@@ -478,7 +478,7 @@ void Fit::fit()
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    int status, iterations;
+    int status {}, iterations;
     vector<double> par;
     d_script.reset(scriptEnv->newScript(d_formula, this, metaObject()->className()));
     connect(d_script.get(), SIGNAL(error(const QString &, const QString &, int)), this,

@@ -208,7 +208,7 @@ protected slots:
     void handleFormatLineEditChange();
     void handleAspectDescriptionChanged(const AbstractAspect *aspect);
     void handleAspectAdded(const AbstractAspect *aspect);
-    void handleAspectAboutToBeRemoved(const AbstractAspect *aspect, int index);
+    void handleAspectChildAboutToBeRemoved(const AbstractAspect *aspect, int index);
     void updateTypeInfo();
     void updateFormatBox();
     void handleHeaderDataChanged(Qt::Orientation orientation, int first, int last);

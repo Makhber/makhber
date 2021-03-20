@@ -80,7 +80,7 @@ signals:
      */
     void statusText(const QString &);
     //! Emitted whenever the selected curve and/or range have changed.
-    void changed();
+    void rangeSelectorChanged();
 
 protected:
     virtual void append(const QPoint &point) { pointSelected(point); }

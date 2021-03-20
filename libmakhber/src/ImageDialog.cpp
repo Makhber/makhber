@@ -135,7 +135,7 @@ void ImageDialog::adjustWidth(int height)
 
 void ImageDialog::update()
 {
-    emit setGeometry(boxX->value(), boxY->value(), boxWidth->value(), boxHeight->value());
+    emit setImageGeometry(boxX->value(), boxY->value(), boxWidth->value(), boxHeight->value());
 }
 
 void ImageDialog::accept()

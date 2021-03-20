@@ -257,7 +257,6 @@ bool FunctionDialog::acceptFunction()
 {
     QString from = boxFrom->text().toLower();
     QString to = boxTo->text().toLower();
-    QString points = boxPoints->text().toLower();
 
     double start, end;
     try {
@@ -317,7 +316,6 @@ bool FunctionDialog::acceptParametric()
 {
     QString from = boxParFrom->text().toLower();
     QString to = boxParTo->text().toLower();
-    QString points = boxParPoints->text().toLower();
 
     double start, end;
     try {
@@ -382,7 +380,6 @@ bool FunctionDialog::acceptPolar()
 {
     QString from = boxPolarFrom->text().toLower();
     QString to = boxPolarTo->text().toLower();
-    QString points = boxPolarPoints->text().toLower();
 
     double start, end;
     try {

@@ -73,7 +73,7 @@ LayerButton::LayerButton(const QString &text, QWidget *parent) : QPushButton(tex
 void LayerButton::mousePressEvent(QMouseEvent *event)
 {
     if (!isChecked())
-        emit clicked(this);
+        emit layerButtonclicked(this);
     if (event->button() == Qt::RightButton)
         emit showContextMenu();
 }
@@ -158,7 +158,7 @@ LayerButton *MultiLayer::addLayerButton()
     }
 
     LayerButton *button = new LayerButton(QString::number(++graphs));
-    connect(button, SIGNAL(clicked(LayerButton *)), this, SLOT(activateGraph(LayerButton *)));
+    connect(button, SIGNAL(layerButtonclicked(LayerButton *)), this, SLOT(activateGraph(LayerButton *)));
     connect(button, SIGNAL(showContextMenu()), this, SIGNAL(showLayerButtonContextMenu()));
     connect(button, SIGNAL(showCurvesDialog()), this, SIGNAL(showCurvesDialog()));
 
@@ -889,7 +889,7 @@ void MultiLayer::connectLayer(Graph *g)
     connect(g, SIGNAL(viewLineDialog()), this, SIGNAL(showLineDialog()));
     connect(g, SIGNAL(showContextMenu()), this, SIGNAL(showGraphContextMenu()));
     connect(g, SIGNAL(showLayerButtonContextMenu()), this, SIGNAL(showLayerButtonContextMenu()));
-    connect(g, SIGNAL(showAxisDialog(int)), this, SIGNAL(showAxisDialog(int)));
+    connect(g, SIGNAL(showSelectedAxisDialog(int)), this, SIGNAL(showSelectedAxisDialog(int)));
     connect(g, SIGNAL(axisDblClicked(int)), this, SIGNAL(showScaleDialog(int)));
     connect(g, SIGNAL(xAxisTitleDblClicked()), this, SIGNAL(showXAxisTitleDialog()));
     connect(g, SIGNAL(yAxisTitleDblClicked()), this, SIGNAL(showYAxisTitleDialog()));

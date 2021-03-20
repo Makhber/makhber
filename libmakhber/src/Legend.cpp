@@ -489,7 +489,7 @@ QString Legend::parse(const QString &str) const
     if (s.contains("%(")) { // curve name specification
         int pos = s.indexOf("%(", 0);
         int pos2 = s.indexOf(")", pos);
-        int cv = s.mid(pos + 2, pos2 - pos - 2).toInt() - 1;
+        int cv = s.midRef(pos + 2, pos2 - pos - 2).toInt() - 1;
         if (cv >= 0) {
             Graph *g = (Graph *)d_plot->parent();
             if (g) {

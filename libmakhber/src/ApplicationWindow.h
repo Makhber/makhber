@@ -1240,7 +1240,7 @@ private slots:
     void selectPlotType(int type);
 
     void handleAspectAdded(const AbstractAspect *aspect, int index);
-    void handleAspectAboutToBeRemoved(const AbstractAspect *aspect, int index);
+    void handleAspectChildAboutToBeRemoved(const AbstractAspect *aspect, int index);
 protected slots:
     void lockToolbar(const bool status);
 };

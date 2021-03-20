@@ -63,10 +63,6 @@
 
 AxesDialog::AxesDialog()
 {
-    QPixmap image4(":/image4.xpm");
-    QPixmap image5(":/image5.xpm");
-    QPixmap image6(":/image6.xpm");
-    QPixmap image7(":/image7.xpm");
     setWindowTitle(tr("General Plot Options"));
 
     initScalesPage();
@@ -820,7 +816,7 @@ void AxesDialog::showAxisFormatOptions(int format)
         for (i = 0; date_strings[i] != 0; i++)
             for (j = 0; time_strings[j] != 0; j++)
                 boxFormat->addItem(
-                        QString("%1 %2").arg(date_strings[i]).arg(time_strings[j]),
+                        QString("%1 %2").arg(date_strings[i], time_strings[j]),
                         QVariant(QString(date_strings[i]) + " " + QString(time_strings[j])));
     } break;
 

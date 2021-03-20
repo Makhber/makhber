@@ -1882,8 +1882,7 @@ void Table::dimensionsDialog()
 void Table::moveColumn(int from, int to)
 {
     beginMacro(tr("%1: move column %2 from position %3 to %4.")
-                       .arg(name())
-                       .arg(d_table_private.column(from)->name())
+                       .arg(name(), d_table_private.column(from)->name())
                        .arg(from + 1)
                        .arg(to + 1));
     moveChild(from, to);
@@ -1894,7 +1893,7 @@ void Table::moveColumn(int from, int to)
 void Table::copy(Table *other)
 {
     WAIT_CURSOR;
-    beginMacro(QObject::tr("%1: copy %2").arg(name()).arg(other->name()));
+    beginMacro(QObject::tr("%1: copy %2").arg(name(), other->name()));
 
     removeColumns(0, columnCount());
     QList<Column *> columns;

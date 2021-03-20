@@ -224,6 +224,8 @@ void ExpDecayDialog::fit()
                              boxYOffset->text().toDouble() };
         fitter = new ExponentialFit(app, graph, slopes == -1);
         fitter->setInitialGuesses(x_init);
+    } else {
+        return;
     }
 
     if (fitter->setDataFromCurve(boxName->currentText(), boxStart->text().toDouble(),

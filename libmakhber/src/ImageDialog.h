@@ -53,7 +53,7 @@ protected slots:
     void adjustWidth(int height);
 
 signals:
-    void setGeometry(int, int, int, int);
+    void setImageGeometry(int, int, int, int);
 
 protected:
     double aspect_ratio;

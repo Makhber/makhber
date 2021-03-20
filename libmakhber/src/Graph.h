@@ -256,13 +256,13 @@ public slots:
 
     int curveType(int curveIndex);
     //! Test whether curve can be converted to type using setCurveType().
-    static bool canConvertTo(QwtPlotCurve *curve, CurveType type);
+    static bool canConvertTo(QwtPlotCurve *curve, Graph::CurveType type);
     //! Change the type of the given curve.
     /**
      * The option to disable updating is provided so as not to break the project opening code
      * (ApplicationWindow::openGraph()).
      */
-    void setCurveType(int curve, CurveType type, bool update = true);
+    void setCurveType(int curve, Graph::CurveType type, bool update = true);
     void setCurveFullRange(int curveIndex);
 
     //! \name Output: Copy/Export/Print
@@ -465,12 +465,12 @@ public slots:
     bool markerSelected();
     //! Reset any selection states on markers.
     void deselectMarker();
-    MarkerType copiedMarkerType() { return selectedMarkerType; };
+    Graph::MarkerType copiedMarkerType() { return selectedMarkerType; };
     //@}
 
     //! \name Axes
     //@{
-    QList<AxisType> axesType();
+    QList<Graph::AxisType> axesType();
 
     QStringList scalesTitles();
     void setXAxisTitle(const QString &text);
@@ -513,9 +513,9 @@ public slots:
     QStringList axesNumColors();
     void setAxesNumColors(const QStringList &colors);
 
-    void showAxis(int axis, AxisType type, const QString &formatInfo, Table *table, bool axisOn,
-                  int majTicksType, int minTicksType, bool labelsOn, const QColor &c, int format,
-                  int prec, int rotation, int baselineDist, const QString &formula,
+    void showAxis(int axis, Graph::AxisType type, const QString &formatInfo, Table *table,
+                  bool axisOn, int majTicksType, int minTicksType, bool labelsOn, const QColor &c,
+                  int format, int prec, int rotation, int baselineDist, const QString &formula,
                   const QColor &labelsColor);
 
     void enableAxis(int axis, bool on = true);
@@ -559,7 +559,7 @@ public slots:
     void setLabelsNumericFormat(int axis, const QStringList &l);
     void setLabelsNumericFormat(int axis, int format, int prec = 6,
                                 const QString &formula = QString());
-    void setLabelsDateTimeFormat(int axis, AxisType type, const QString &formatInfo);
+    void setLabelsDateTimeFormat(int axis, Graph::AxisType type, const QString &formatInfo);
     void setLabelsDayFormat(int axis, int format);
     void setLabelsMonthFormat(int axis, int format);
 
@@ -733,7 +733,7 @@ public slots:
     void showScaleDialog();
 
     //! Add a spectrogram to the graph
-    void plotSpectrogram(Matrix *m, CurveType type);
+    void plotSpectrogram(Matrix *m, Graph::CurveType type);
     //! Restores a spectrogram. Used when opening a project file.
     void restoreSpectrogram(ApplicationWindow *app, const QStringList &lst);
 
@@ -765,7 +765,7 @@ signals:
     void showCurveContextMenu(int);
     void showMarkerPopupMenu();
 
-    void showAxisDialog(int);
+    void showSelectedAxisDialog(int);
     void axisDblClicked(int);
     void xAxisTitleDblClicked();
     void yAxisTitleDblClicked();

@@ -272,7 +272,7 @@ int Filter::curveData(QwtPlotCurve *c, double start, double end, double **x, dou
         return 0;
 
     int datasize = c->dataSize();
-    int i_start = 0, i_end = c->dataSize();
+    int i_start = 0, i_end = 0;
     for (i_start = 0; i_start < datasize; i_start++)
         if (c->x(i_start) >= start)
             break;

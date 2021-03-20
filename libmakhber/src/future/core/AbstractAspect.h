@@ -282,11 +282,11 @@ signals:
     //! Emit this from a newly added aspect
     void aspectAdded(const AbstractAspect *aspect);
     //! Emit this from a parent after adding a new child to it
-    void aspectAdded(const AbstractAspect *parent, int index);
+    void aspectChildAdded(const AbstractAspect *parent, int index);
     //! Emit this from an aspect about to be removed from its parent's children
     void aspectAboutToBeRemoved(const AbstractAspect *aspect);
     //! Emit this from a parent before removing its child
-    void aspectAboutToBeRemoved(const AbstractAspect *parent, int index);
+    void aspectChildAboutToBeRemoved(const AbstractAspect *parent, int index);
     //! Emit this from the parent after removing a child
     void aspectRemoved(const AbstractAspect *parent, int index);
     //! Emit this to give status information to the user.

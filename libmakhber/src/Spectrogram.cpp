@@ -51,12 +51,11 @@ Spectrogram::Spectrogram(Matrix *m)
       color_map(QwtLinearColorMap())
 {
     setData(MatrixData(m));
-    double step = fabs(data().range().maxValue() - data().range().minValue()) / 5.0;
+    double step = fabs(data().range().maxValue() - data().range().minValue()) / 5;
 
     QwtValueList contourLevels;
-    for (double level = data().range().minValue() + step; level < data().range().maxValue();
-         level += step)
-        contourLevels += level;
+    for (size_t i = 1; i < 5; i++)
+        contourLevels += data().range().minValue() + i * step;
 
     setContourLevels(contourLevels);
 }
@@ -83,12 +82,11 @@ void Spectrogram::updateData(Matrix *m)
 
 void Spectrogram::setLevelsNumber(int levels)
 {
-    double step = fabs(data().range().maxValue() - data().range().minValue()) / (double)levels;
+    double step = fabs(data().range().maxValue() - data().range().minValue()) / levels;
 
     QwtValueList contourLevels;
-    for (double level = data().range().minValue() + step; level < data().range().maxValue();
-         level += step)
-        contourLevels += level;
+    for (size_t i = 1; i < static_cast<size_t>(levels); i++)
+        contourLevels += data().range().minValue() + i * step;
 
     setContourLevels(contourLevels);
 }

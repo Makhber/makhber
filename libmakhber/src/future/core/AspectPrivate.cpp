@@ -69,10 +69,10 @@ void AbstractAspect::Private::insertChild(int index, AbstractAspect *child)
             SIGNAL(aspectDescriptionChanged(const AbstractAspect *)));
     connect(child, SIGNAL(aspectAboutToBeAdded(const AbstractAspect *, int)), d_owner,
             SIGNAL(aspectAboutToBeAdded(const AbstractAspect *, int)));
-    connect(child, SIGNAL(aspectAboutToBeRemoved(const AbstractAspect *, int)), d_owner,
-            SIGNAL(aspectAboutToBeRemoved(const AbstractAspect *, int)));
-    connect(child, SIGNAL(aspectAdded(const AbstractAspect *, int)), d_owner,
-            SIGNAL(aspectAdded(const AbstractAspect *, int)));
+    connect(child, SIGNAL(aspectChildAboutToBeRemoved(const AbstractAspect *, int)), d_owner,
+            SIGNAL(aspectChildAboutToBeRemoved(const AbstractAspect *, int)));
+    connect(child, SIGNAL(aspectChildAdded(const AbstractAspect *, int)), d_owner,
+            SIGNAL(aspectChildAdded(const AbstractAspect *, int)));
     connect(child, SIGNAL(aspectRemoved(const AbstractAspect *, int)), d_owner,
             SIGNAL(aspectRemoved(const AbstractAspect *, int)));
     connect(child, SIGNAL(aspectAboutToBeRemoved(const AbstractAspect *)), d_owner,
@@ -81,7 +81,7 @@ void AbstractAspect::Private::insertChild(int index, AbstractAspect *child)
             SIGNAL(aspectAdded(const AbstractAspect *)));
     connect(child, SIGNAL(statusInfo(const QString &)), d_owner,
             SIGNAL(statusInfo(const QString &)));
-    emit d_owner->aspectAdded(d_owner, index);
+    emit d_owner->aspectChildAdded(d_owner, index);
     emit child->aspectAdded(child);
 }
 
@@ -97,7 +97,7 @@ int AbstractAspect::Private::removeChild(AbstractAspect *child)
 {
     int index = indexOfChild(child);
     Q_ASSERT(index != -1);
-    emit d_owner->aspectAboutToBeRemoved(d_owner, index);
+    emit d_owner->aspectChildAboutToBeRemoved(d_owner, index);
     emit child->aspectAboutToBeRemoved(child);
     d_children.removeAll(child);
     QObject::disconnect(child, 0, d_owner, 0);
@@ -226,7 +226,7 @@ QString AbstractAspect::Private::uniqueNameFor(const QString &current_name) cons
     if (last_non_digit >= 0 && base[last_non_digit].category() != QChar::Separator_Space)
         base.append(" ");
 
-    int new_nr = current_name.right(current_name.size() - base.size()).toInt();
+    int new_nr = current_name.rightRef(current_name.size() - base.size()).toInt();
     QString new_name;
     do
         new_name = base + QString::number(++new_nr);

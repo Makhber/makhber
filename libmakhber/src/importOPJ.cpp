@@ -299,9 +299,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                     }
                 }
                 int f = 0;
-                if (column.numericDisplayType == 0) {
-                    f = 0;
-                } else {
+                if (column.numericDisplayType != 0) {
                     switch (column.valueTypeSpecification) {
                     case 0: // Decimal 1000
                         f = 1;
@@ -1024,7 +1022,6 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                 QString tableName = data.right(data.length() - 2) + "_"
                         + decodeMbcs(ticks[i].columnName.c_str());
 
-                QString formatInfo;
                 int format = 0;
                 Graph::AxisType type;
                 int prec = ticks[i].decimalPlaces;
@@ -1133,7 +1130,6 @@ QString ImportOPJ::parseOriginTags(const QString &str)
     QString line = str;
     // replace \l(...) and %(...) tags
     QRegExp rxline("\\\\\\s*l\\s*\\(\\s*\\d+\\s*\\)");
-    QRegExp rxcol("\\%\\(\\d+\\)");
     int pos = rxline.indexIn(line);
     while (pos > -1) {
         QString value = rxline.cap(0);

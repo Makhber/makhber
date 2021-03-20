@@ -131,8 +131,8 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
                                 .arg(d_selected_curve->title().text())
                                 .arg(d_selected_point + 1)
                                 .arg(QLocale().toString(d_selected_curve->x(d_selected_point), 'G',
-                                                        d_app->d_decimal_digits))
-                                .arg(QLocale().toString(d_selected_curve->y(d_selected_point), 'G',
+                                                        d_app->d_decimal_digits),
+                                     QLocale().toString(d_selected_curve->y(d_selected_point), 'G',
                                                         d_app->d_decimal_digits)));
     } else {
         int row = ((DataCurve *)d_selected_curve)->tableRow(d_selected_point);
@@ -144,8 +144,7 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
         emit statusText(QString("%1[%2]: x=%3; y=%4")
                                 .arg(d_selected_curve->title().text())
                                 .arg(row + 1)
-                                .arg(t->text(row, xCol))
-                                .arg(t->text(row, yCol)));
+                                .arg(t->text(row, xCol), t->text(row, yCol)));
     }
 
     QwtDoublePoint selected_point_value(d_selected_curve->x(d_selected_point),
@@ -365,8 +364,8 @@ void DataPickerTool::move(const QPoint &point)
         emit statusText(QString("%1[%2]: x=%3; y=%4")
                                 .arg(d_selected_curve->title().text())
                                 .arg(row + 1)
-                                .arg(QLocale().toString(new_x_val, 'G', d_app->d_decimal_digits))
-                                .arg(QLocale().toString(new_y_val, 'G', d_app->d_decimal_digits)));
+                                .arg(QLocale().toString(new_x_val, 'G', d_app->d_decimal_digits),
+                                     QLocale().toString(new_y_val, 'G', d_app->d_decimal_digits)));
     }
 
     QwtPlotPicker::move(d_move_target_pos);
