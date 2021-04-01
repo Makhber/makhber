@@ -332,13 +332,21 @@ target_link_libraries( libmakhber
   OpenGL::GL
   OpenGL::GLU
   ZLIB::ZLIB
-  GSL::gsl
-  GSL::gslcblas
   muparser::muparser
   minigzip
   qwt5-qt5
   qwtplot3d
   )
+
+if( MINGW AND CMAKE_GENERATOR STREQUAL "Ninja")
+  target_link_libraries( libmakhber ${GSL_LIBRARIES} )
+  target_include_directories( libmakhber PUBLIC ${GSL_INCLUDE_DIRS} )
+else()
+  target_link_libraries( libmakhber
+    GSL::gsl
+    GSL::gslcblas
+  )
+endif()
 
 target_include_directories( libmakhber PUBLIC
   "${CMAKE_CURRENT_SOURCE_DIR}/src"
