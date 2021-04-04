@@ -270,4 +270,12 @@ else()
     add_dependencies( makhber_sip pyproject_toml )
   endif()
 
+  if( WIN32 )
+    install( FILES ${module_file} DESTINATION . )
+  elseif( APPLE )
+    install( FILES ${module_file} DESTINATION makhber.app/Contents/Resources )
+  else()
+    install( FILES ${module_file} DESTINATION share/makhber )
+  endif()
+
 endif()
