@@ -212,3 +212,30 @@ jobs:
           asset_path: build/makhber.dmg
           asset_name: makhber-${{ needs.Release.outputs.version }}.dmg
           asset_content_type: application/zip
+
+  ubuntu-snap:
+    runs-on: ubuntu-20.04
+    name: Ubuntu snap
+    needs: Release
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - uses: snapcore/action-build@v1
+        id: snap_build
+        with:
+          snapcraft-args: --enable-experimental-extensions
+
+      - name: Upload Ubuntu snap
+        continue-on-error: true
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.Release.outputs.upload_url }}
+          asset_path: ${{ steps.snap_build.outputs.snap }}
+          asset_name: makhber-${{ needs.Release.outputs.version }}.snap
+          asset_content_type: application/zip
