@@ -105,7 +105,7 @@ if( APPLE )
   include(DeployQt)
   install( CODE "
     execute_process(
-      COMMAND \${MACDEPLOYQT_EXECUTABLE} -always-overwrite \${CMAKE_INSTALL_PREFIX}/makhber.app/Contents/MacOS/makhber
+      COMMAND ${MACDEPLOYQT_EXECUTABLE} \${CMAKE_INSTALL_PREFIX}/makhber.app -always-overwrite
     )
   ")
 endif()
