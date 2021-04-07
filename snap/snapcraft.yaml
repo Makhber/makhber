@@ -1,0 +1,50 @@
+name: makhber
+summary: Makhber
+description: |
+  Application for Visualization and Analysis of Scientific Data
+base: core20
+compression: lzo
+grade: stable
+confinement: strict
+adopt-info: makhber
+architectures:
+  - build-on: amd64 
+
+apps:
+  makhber:
+    common-id: com.github.makhber.makhber
+    command: usr/bin/makhber
+    extensions:
+      - kde-neon
+    plugs:
+      - home
+      - network
+      - removable-media
+      - unity7
+
+parts:
+  makhber:
+    source-type: local
+    source: .
+    parse-info: [usr/share/appdata/makhber.appdata.xml]
+    plugin: cmake
+    cmake-parameters: 
+      - "-DCMAKE_INSTALL_PREFIX=/usr"
+      - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
+    build-packages:
+      - g++
+      - make
+      - libmuparser-dev
+      - libgsl-dev
+      - zlib1g-dev
+      - libglu1-mesa
+      - git
+    stage-packages:
+      - libmuparser2v5
+      - libgsl23
+      - libgslcblas0
+      - zlib1g
+    override-pull: |
+      snapcraftctl pull
+      snapcraftctl set-version "$(git describe --tags)"
