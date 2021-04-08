@@ -1,8 +1,22 @@
 # Changelog
 
+## Makhber 0.9.1
+
+Released: 08-04-2021
+
+### General
+
+- makhber is now avalaible as a snap package (beta channel) from snap store.
+
+### Core
+
+- Drop Python2
+- Support SIP >= 5
+
+
 ## Makhber 0.9.0
 
-Released: 10-03-2020
+Released: 10-03-2021
 
 ### General
 
