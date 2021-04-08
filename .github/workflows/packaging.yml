@@ -138,7 +138,7 @@ jobs:
           asset_name: makhber-${{ needs.Release.outputs.version }}-win64.exe
           asset_content_type: application/zip
 
-      - name: Upload MSI installer
+      - name: Upload MSI installer (with Python)
         if: matrix.python == 'ON'
         continue-on-error: true
         uses: actions/upload-release-asset@v1
@@ -150,7 +150,7 @@ jobs:
           asset_name: makhber-${{ needs.Release.outputs.version }}-python-win64.msi
           asset_content_type: application/zip
 
-      - name: Upload NSIS installer
+      - name: Upload NSIS installer (with Python)
         if: matrix.python == 'ON'
         continue-on-error: true
         uses: actions/upload-release-asset@v1
