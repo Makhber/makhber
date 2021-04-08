@@ -19,21 +19,48 @@ jobs:
         with:
           submodules: true
 
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{ runner.os }}-QtCache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: 5.15.2
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
       - name: Install prerequisties
         run: |
           sudo apt update
           sudo apt install -y --no-install-recommends \
-            qtbase5-dev \
-            qttools5-dev \
-            libqt5svg5-dev \
-            libqt5opengl5-dev \
+            libglu1-mesa-dev \
+            libxcb-util1 \
+            libxcb-glx0 \
+            libxcb-icccm4 \
+            libxcb-image0 \
+            libxcb-keysyms1 \
+            libxcb-randr0 \
+            libxcb-render-util0 \
+            libxcb-render0 \
+            libxcb-shape0 \
+            libxcb-shm0 \
+            libxcb-sync1 \
+            libxcb-xfixes0 \
+            libxcb-xinerama0 \
+            libxcb-xinput0 \
+            libxcb-xkb1 \
+            libxcb1 \
             libmuparser-dev \
             libgsl-dev \
-            pyqt5-dev \
-            python3-pyqt5 \
             libgtest-dev \
-            python3-numpy \
             xvfb
+
+      - name: Install Python packages
+        run: |
+          pip3 install sip pyqt5 pyqt-builder numpy
 
       - name: Configuring
         run: |
@@ -51,7 +78,7 @@ jobs:
       - name: Testing
         run: |
           cd build
-          export PYTHONPATH=$PWD/sip
+          export PYTHONPATH=$PWD/sip/build/makhber
           xvfb-run -a ctest --output-on-failure --repeat until-pass:3
 
   MSVC:
