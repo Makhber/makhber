@@ -116,7 +116,6 @@ jobs:
 
       - name: Upload MSI installer
         if: matrix.python == 'OFF'
-        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -128,7 +127,6 @@ jobs:
 
       - name: Upload NSIS installer
         if: matrix.python == 'OFF'
-        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -140,7 +138,6 @@ jobs:
 
       - name: Upload MSI installer (with Python)
         if: matrix.python == 'ON'
-        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -152,7 +149,6 @@ jobs:
 
       - name: Upload NSIS installer (with Python)
         if: matrix.python == 'ON'
-        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -203,7 +199,6 @@ jobs:
           cpack -G DragNDrop
 
       - name: Upload MacOS package
-        continue-on-error: true
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -213,9 +208,9 @@ jobs:
           asset_name: makhber-${{ needs.Release.outputs.version }}.dmg
           asset_content_type: application/zip
 
-  ubuntu-snap:
+  Snap:
     runs-on: ubuntu-20.04
-    name: Ubuntu snap
+    name: Snap
     needs: Release
 
     steps:
@@ -235,8 +230,7 @@ jobs:
           snap: ${{ steps.snap_build.outputs.snap }}
           release: beta
 
-      - name: Upload Ubuntu snap
-        continue-on-error: true
+      - name: Upload Snap
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -244,4 +238,55 @@ jobs:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: ${{ steps.snap_build.outputs.snap }}
           asset_name: makhber-${{ needs.Release.outputs.version }}.snap
+          asset_content_type: application/zip
+
+  Flatpak:
+    runs-on: ubuntu-20.04
+    name: Flatpak
+    needs: Release
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends \
+            flatpak-builder \
+            elfutils
+          flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+
+      - name: Building
+        run: |
+          mkdir build 
+          cd build
+          flatpak-builder \
+            --repo=repo \
+            --install-deps-from=flathub \
+            --user \
+            --force-clean \
+            ./build \
+            ../flatpak/com.github.makhber.Makhber.yaml
+
+      - name: Packaging
+        run: |
+          cd build
+          flatpak \
+            build-bundle \
+            --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo \
+            repo \
+            makhber.flatpak \
+            com.github.makhber.Makhber
+
+      - name: Upload Flatpak
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.Release.outputs.upload_url }}
+          asset_path: build/makhber.flatpak
+          asset_name: makhber-${{ needs.Release.outputs.version }}.flatpak
           asset_content_type: application/zip

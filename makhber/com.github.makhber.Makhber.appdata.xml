@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Copyright 2021 Mehdi Chinoune <mehdi.chinoune _at_ hotmail.com> -->
 <component type="desktop-application">
-  <id>com.github.makhber</id>
+  <id>com.github.makhber.Makhber</id>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Makhber</name>
@@ -28,7 +28,7 @@
     <category>NumericalAnalysis</category>
   </categories>
 
-  <launchable type="desktop-id">makhber.desktop</launchable>
+  <launchable type="desktop-id">com.github.makhber.Makhber.desktop</launchable>
 
   <screenshots>
     <screenshot type="default">

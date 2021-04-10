@@ -113,24 +113,24 @@ endif()
 # Icons
 
 if( UNIX AND NOT APPLE )
-  install( FILES icons/makhber.svg DESTINATION share/icons/hicolor/scalable/apps )
+  install( FILES icons/com.github.makhber.Makhber.svg DESTINATION share/icons/hicolor/scalable/apps )
 
   foreach( res IN ITEMS 16 22 32 48 64 128 )
-    install( FILES icons/hicolor-${res}/makhber.png
+    install( FILES icons/hicolor-${res}/com.github.makhber.Makhber.png
       DESTINATION share/icons/hicolor/${res}x${res}/apps )
   endforeach()
 
   foreach( res IN ITEMS 16 22 32 )
-    install( FILES icons/locolor-${res}/makhber.png
+    install( FILES icons/locolor-${res}/com.github.makhber.Makhber.png
       DESTINATION share/icons/locolor/${res}x${res}/apps )
   endforeach()
 endif()
 
 # Application Files
 if( UNIX AND NOT APPLE )
-  install( FILES makhber.desktop DESTINATION share/applications )
+  install( FILES com.github.makhber.Makhber.desktop DESTINATION share/applications )
   install( FILES makhber.1 DESTINATION share/man/man1 )
-  install( FILES makhber.appdata.xml DESTINATION share/appdata )
+  install( FILES com.github.makhber.Makhber.appdata.xml DESTINATION share/appdata )
   install( FILES x-sciprj.desktop DESTINATION share/mimelnk/application )
 endif()
 
