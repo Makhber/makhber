@@ -12,7 +12,7 @@ architectures:
 
 apps:
   makhber:
-    common-id: com.github.makhber.makhber
+    common-id: com.github.makhber.Makhber
     command: usr/bin/makhber
     extensions:
       - kde-neon
@@ -26,7 +26,7 @@ parts:
   makhber:
     source-type: local
     source: .
-    parse-info: [usr/share/appdata/makhber.appdata.xml]
+    parse-info: [usr/share/appdata/com.github.makhber.Makhber.appdata.xml]
     plugin: cmake
     cmake-parameters: 
       - "-DCMAKE_INSTALL_PREFIX=/usr"

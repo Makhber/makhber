@@ -224,12 +224,6 @@ jobs:
         with:
           snapcraft-args: --enable-experimental-extensions
 
-      - uses: snapcore/action-publish@v1
-        with:
-          store_login: ${{ secrets.SNAP_STORE_LOGIN }}
-          snap: ${{ steps.snap_build.outputs.snap }}
-          release: beta
-
       - name: Upload Snap
         uses: actions/upload-release-asset@v1
         env:
@@ -239,6 +233,12 @@ jobs:
           asset_path: ${{ steps.snap_build.outputs.snap }}
           asset_name: makhber-${{ needs.Release.outputs.version }}.snap
           asset_content_type: application/zip
+
+      - uses: snapcore/action-publish@v1
+        with:
+          store_login: ${{ secrets.SNAP_STORE_LOGIN }}
+          snap: ${{ steps.snap_build.outputs.snap }}
+          release: beta
 
   Flatpak:
     runs-on: ubuntu-20.04

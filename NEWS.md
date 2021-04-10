@@ -7,3 +7,4 @@ Released: dd-mm-yyyy
 ### General
 
 - makhber is now available as a flatpak file (To be published to flatpak store).
+- Some fixes for the snap package.
