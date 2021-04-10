@@ -4,7 +4,7 @@ cmake_policy(SET CMP0083 NEW)
 cmake_policy(SET CMP0091 NEW)
 
 project( makhber
-  VERSION 0.9.1
+  VERSION 0.9.2
   DESCRIPTION "Makhber is a free application for Analysis and Visualization of Scientific Data."
   HOMEPAGE_URL "https://github.com/Makhber/makhber"
   LANGUAGES CXX C

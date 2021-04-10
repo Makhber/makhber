@@ -2,7 +2,7 @@
 
 ## Makhber 0.9.2
 
-Released: dd-mm-yyyy
+Released: 10-04-2021
 
 ### General
 
