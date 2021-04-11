@@ -290,3 +290,100 @@ jobs:
           asset_path: build/makhber.flatpak
           asset_name: makhber-${{ needs.Release.outputs.version }}.flatpak
           asset_content_type: application/zip
+
+  AppImage:
+    runs-on: ubuntu-18.04
+    name: AppImage
+    needs: Release
+    env:
+      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{ runner.os }}-QtCache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: 5.15.2
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+      - name: Install prerequisties
+        run: |
+          sudo apt install -y --no-install-recommends \
+            libglu1-mesa-dev \
+            libxcb-util1 \
+            libxcb-glx0 \
+            libxcb-icccm4 \
+            libxcb-image0 \
+            libxcb-keysyms1 \
+            libxcb-randr0 \
+            libxcb-render-util0 \
+            libxcb-render0 \
+            libxcb-shape0 \
+            libxcb-shm0 \
+            libxcb-sync1 \
+            libxcb-xfixes0 \
+            libxcb-xinerama0 \
+            libxcb-xinput0 \
+            libxcb-xkb1 \
+            libxcb1 \
+            xvfb \
+            wget
+
+      - name: Setup NuGet Credentials
+        run: |
+          mono `vcpkg fetch nuget | tail -n 1` sources add \
+            -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+            -storepasswordincleartext \
+            -name "GitHub" \
+            -username ${{ github.repository_owner }} \
+            -password "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: vcpkg package restore
+        run: |
+          vcpkg install gsl muparser
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -DMAKHBER_SEARCH_FOR_UPDATES=OFF \
+            -DMAKHBER_DOWNLOAD_LINKS=OFF \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DOpenGL_GL_PREFERENCE=LEGACY \
+            -DCMAKE_TOOLCHAIN_FILE=$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake
+
+      - name: Building
+        run: |
+          xvfb-run make -j$(nproc) -C build
+
+      - name: Packaging
+        run: |
+          cd build
+          make install DESTDIR=AppDir
+          wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+          wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          chmod +x linuxdeploy*.AppImage
+          export VERSION=${{ needs.Release.outputs.version }}
+          ./linuxdeploy-x86_64.AppImage --appdir ./AppDir --plugin qt --output appimage
+
+      - name: Upload AppImage
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ needs.Release.outputs.upload_url }}
+          asset_path: build/Makhber-${{ needs.Release.outputs.version }}-x86_64.AppImage
+          asset_name: makhber-${{ needs.Release.outputs.version }}.AppImage
+          asset_content_type: application/zip

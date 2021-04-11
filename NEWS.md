@@ -7,3 +7,4 @@ Released: DD-MM-2021
 ### General
 
 - makhber is now available from Flathub.
+- makhber is now available as an AppImage.
