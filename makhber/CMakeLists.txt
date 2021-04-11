@@ -135,42 +135,28 @@ if( UNIX AND NOT APPLE )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
-  if( WIN32 )
-    install( FILES
-      makhberrc.py
-      makhberUtil.py
-      ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
-      DESTINATION .
-      )
+
+  install( FILES
+    makhberrc.py
+    makhberUtil.py
+    ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
+    DESTINATION ${PYTHON_INSTALL_PATH}
+  )
+
+  if( MAKHBER_BUNDLE_PYQT5 )
     install( CODE "
       execute_process(   
         COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
-        --target=\${CMAKE_INSTALL_PREFIX}
-        )
+        --target=\${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_PATH}
+      )")
+  endif()
+
+  if( WIN32 )
+    install( CODE "
       execute_process(
         COMMAND \"${CMAKE_COMMAND}\" -E
-        copy \"${Python3_RUNTIME_LIBRARY_DIRS}/python3.dll\" \"\${CMAKE_INSTALL_PREFIX}/${MAKHBER_DIR}\"
-        )
-      ")
-  elseif( APPLE )
-    install( FILES
-      makhberrc.py
-      makhberUtil.py
-      ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
-      DESTINATION makhber.app/Contents/Resources
-      )
-    install( CODE "
-      execute_process(   
-        COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
-        --target=\${CMAKE_INSTALL_PREFIX}/makhber.app/Contents/Resources
-        )
-      ")
-  else()
-    install( FILES
-      makhberrc.py
-      ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
-      makhberUtil.py
-      DESTINATION share/makhber
-      )
+        copy \"${Python3_RUNTIME_LIBRARY_DIRS}/python3.dll\" \"\${CMAKE_INSTALL_PREFIX}/\"
+      )")
   endif()
+
 endif()

@@ -62,6 +62,12 @@ option( MAKHBER_ORIGIN_IMPORT "Enable importing OriginLab project files" ON )
 
 option( MAKHBER_SCRIPTING_PYTHON "Enable Python Scripting" OFF )
 
+if( WIN32 OR APPLE )
+  option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" ON )
+else()
+  option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" OFF )
+endif()
+
 option( MAKHBER_BUILD_TESTS "Build tests" OFF )
 
 find_package( Qt5
@@ -90,12 +96,23 @@ if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
+
   if( MINGW )
     set( Python3_FIND_REGISTRY LAST )
   endif()
+
   find_package( Python3 COMPONENTS Interpreter Development REQUIRED )
   find_package( SIP REQUIRED )
   find_package( PyQt REQUIRED )
+
+  if( WIN32 )
+    set( PYTHON_INSTALL_PATH  "." )
+  elseif( APPLE )
+    set( PYTHON_INSTALL_PATH  "makhber.app/Contents/Resources" )
+  else()
+    set( PYTHON_INSTALL_PATH  "share/makhber" )
+  endif()
+
 endif()
 
 set( CMAKE_AUTOMOC ON )
