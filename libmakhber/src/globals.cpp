@@ -95,7 +95,7 @@ void Makhber::about()
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setWindowTitle(QObject::tr("About Makhber"));
     ui.version_label->setText(versionString() + extraVersion());
-    ui.build_date_label->setText(QObject::tr("Built") + ": " + QString(Makhber::build_date));
+    ui.release_date_label->setText(QObject::tr("Released") + ": " + QString(Makhber::release_date));
     ui.used_libraries->setText(QString("Makhber was built with the fellowing libraries: ")
                                + "\nQt: " + QT_VERSION_STR + "\nQwt: " + QWT_VERSION_STR
 #ifdef SCRIPTING_PYTHON
@@ -115,9 +115,9 @@ QString Makhber::copyrightString()
     return copyright_string;
 }
 
-QString Makhber::buildDateString()
+QString Makhber::releaseDateString()
 {
-    return build_date;
+    return release_date;
 }
 
 QString Makhber::enumValueToString(int key, const QString &enum_name)

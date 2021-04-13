@@ -11718,7 +11718,7 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
                                           .arg(str));
         } else if (str == "-v" || str == "--version") {
             QString s = Makhber::versionString() + Makhber::extraVersion() + "\n";
-            s += QObject::tr("Built") + ": " + Makhber::buildDateString() + "\n";
+            s += QObject::tr("Released") + ": " + Makhber::releaseDateString() + "\n";
             s += Makhber::copyrightString() + "\n";
 
 #ifdef Q_OS_WIN

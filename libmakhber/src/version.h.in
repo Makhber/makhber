@@ -1,5 +1,5 @@
 
 const char *Makhber::makhber_version = "@PROJECT_VERSION@";
 const char *Makhber::extra_version = "@PROJECT_VERSION_TWEAK@";
-const char *Makhber::build_date = "@PROJECT_BUILD_DATE@";
+const char *Makhber::release_date = "@PROJECT_RELEASE_DATE@";
 const int Makhber::makhber_versionNo = @PROJECT_VERSION_NO@;

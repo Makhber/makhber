@@ -37,8 +37,8 @@
     <rect>
      <x>150</x>
      <y>10</y>
-     <width>241</width>
-     <height>31</height>
+     <width>240</width>
+     <height>30</height>
     </rect>
    </property>
    <property name="font">
@@ -50,13 +50,13 @@
     <string>Makhber XX.XX.XX-betaXX</string>
    </property>
   </widget>
-  <widget class="QLabel" name="build_date_label">
+  <widget class="QLabel" name="release_date_label">
    <property name="geometry">
     <rect>
      <x>150</x>
      <y>40</y>
-     <width>161</width>
-     <height>21</height>
+     <width>190</width>
+     <height>20</height>
     </rect>
    </property>
    <property name="font">
@@ -65,7 +65,7 @@
     </font>
    </property>
    <property name="text">
-    <string>Built: MMM, DD YYYY</string>
+    <string>Released: MMM, DD YYYY</string>
    </property>
   </widget>
   <widget class="QPushButton" name="close_button">
@@ -73,8 +73,8 @@
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>131</width>
-     <height>51</height>
+     <width>130</width>
+     <height>50</height>
     </rect>
    </property>
    <property name="toolTip">
@@ -99,8 +99,8 @@
     <rect>
      <x>10</x>
      <y>70</y>
-     <width>381</width>
-     <height>121</height>
+     <width>380</width>
+     <height>120</height>
     </rect>
    </property>
    <property name="font">
@@ -112,9 +112,9 @@
     <string>Makhber was built with the fellowing libraries</string>
    </property>
   </widget>
+  <zorder>release_date_label</zorder>
   <zorder>close_button</zorder>
   <zorder>version_label</zorder>
-  <zorder>build_date_label</zorder>
   <zorder>used_libraries</zorder>
  </widget>
  <resources>

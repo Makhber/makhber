@@ -91,7 +91,7 @@ public:
     static QString copyrightString();
 
     //! Return the release date as a string
-    static QString buildDateString();
+    static QString releaseDateString();
 
     //! Show about dialog
     static void about();
@@ -112,7 +112,7 @@ private:
     //! Copyright string containing the author names etc.
     static const QString copyright_string;
     //! Release date as a string
-    static const char *build_date;
+    static const char *release_date;
 };
 
 #endif
