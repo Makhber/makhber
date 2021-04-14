@@ -14,6 +14,8 @@ apps:
   makhber:
     common-id: com.github.makhber.Makhber
     command: usr/bin/makhber
+    environment:
+      PYTHONPATH: $SNAP/lib/python3.8/site-packages:$SNAP/usr/share/makhber
     extensions:
       - kde-neon
     plugs:
@@ -33,17 +35,27 @@ parts:
       - "-DCMAKE_BUILD_TYPE=Release"
       - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
       - "-DCMAKE_PREFIX_PATH=$SNAPCRAFT_STAGE/usr"
+      - "-DMAKHBER_SCRIPTING_PYTHON=ON"
+      - "-DPyQt_INCLUDE_DIR=$SNAPCRAFT_STAGE/lib/python3.8/site-packages/PyQt5/bindings"
+    build-environment:
+      - PATH: $HOME/.local/bin:$PATH
+      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
+      - PYTHONPATH: $SNAPCRAFT_STAGE/lib/python3.8/site-packages
     build-packages:
       - g++
       - make
       - libglu1-mesa
       - git
+    stage-packages:
+      - libpython3.8
     override-pull: |
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags)"
     after:
       - gsl
       - muparser
+      - pyqt5
+      - pyqt5-sip
   gsl:
     source-type: tar
     source: https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
@@ -73,3 +85,72 @@ parts:
     prime:
       - -usr/include
       - -usr/lib/x86_64-linux-gnu/pkgconfig
+  pyqt5:
+    source-type: tar
+    source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz
+    source-checksum: sha256/2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be
+    plugin: make
+    build-packages:
+      - g++
+      - libgl-dev
+      - python3-pip
+    build-environment:
+      - PATH: $HOME/.local/bin:$PATH
+      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
+    override-build: |
+      pip3 install sip pyqt-builder
+      cd $SNAPCRAFT_PART_SRC
+      sip-build --confirm-license \
+        --build-dir ../build \
+        --target-dir $SNAPCRAFT_PART_INSTALL/lib/python3.8/site-packages \
+        --qmake=/snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/qt5/bin/qmake \
+        --api-dir=$SNAPCRAFT_PART_INSTALL/usr/share/qt5/qsci/api/python \
+        --concatenate 1 \
+        --no-make \
+        --no-designer-plugin \
+        --no-qml-plugin \
+        --no-tools \
+        --disable QtQml \
+        --disable QtBluetooth \
+        --disable QtDBus \
+        --disable QtDesigner \
+        --disable QtHelp \
+        --disable QtMultimedia \
+        --disable QtMultimediaWidgets \
+        --disable QtNfc \
+        --disable QtPositioning \
+        --disable QtLocation \
+        --disable QtQuick \
+        --disable QtQuickWidgets \
+        --disable QtSensors \
+        --disable QtSerialPort \
+        --disable QtSql \
+        --disable QtTest \
+        --disable QtWebChannel \
+        --disable QtWebKit \
+        --disable QtWebKitWidgets \
+        --disable QtWebSockets \
+        --disable QtX11Extras \
+        --disable QtXml \
+        --disable QtXmlPatterns \
+        --disable _QOpenGLFunctions_2_0 \
+        --disable _QOpenGLFunctions_2_1 \
+        --disable _QOpenGLFunctions_4_1_Core \
+        --disable pylupdate \
+        --disable pyrcc \
+        --verbose
+      cd $SNAPCRAFT_PART_BUILD
+      snapcraftctl build
+  pyqt5-sip:
+    source-type: tar
+    source: https://pypi.python.org/packages/source/P/PyQt5_sip/PyQt5_sip-12.8.1.tar.gz
+    source-checksum: sha256/30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd
+    plugin: python
+    prime:
+      - -bin/
+      - -lib/python3.8/site-packages/_distutils*
+      - -lib/python3.8/site-packages/pip*
+      - -lib/python3.8/site-packages/pkg_resources*
+      - -lib/python3.8/site-packages/wheel*
+      - -lib/python3.8/site-packages/setuptools*
+      - -share/python-wheels
