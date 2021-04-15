@@ -2,7 +2,7 @@ app-id: com.github.makhber.Makhber
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
 runtime-version: '5.15'
-command: makhber
+command: makhber.sh
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -50,12 +50,82 @@ modules:
       - /lib/*.la
       - /lib/pkgconfig
 
+  - python3-pyqt-builder.json
+
+  - name: pyqt5-sip
+    buildsystem: simple
+    build-commands:
+      - python3 setup.py install --prefix=/app
+    sources:
+      - type: archive
+        url: https://pypi.python.org/packages/source/P/PyQt5_sip/PyQt5_sip-12.8.1.tar.gz
+        sha256: 30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd
+
+  - name: pyqt5
+    buildsystem: simple
+    build-commands:
+      - pwd
+      - sip-build --confirm-license
+        --build-dir ./build
+        --target-dir /app/lib/python3.8/site-packages
+        --api-dir /app/share/qt5/qsci/api/python
+        --concatenate 1
+        --no-make
+        --no-designer-plugin
+        --no-qml-plugin
+        --no-tools
+        --disable QtQml
+        --disable QtBluetooth
+        --disable QtDBus
+        --disable QtDesigner
+        --disable QtHelp
+        --disable QtMultimedia
+        --disable QtMultimediaWidgets
+        --disable QtNfc
+        --disable QtPositioning
+        --disable QtLocation
+        --disable QtQuick
+        --disable QtQuickWidgets
+        --disable QtSensors
+        --disable QtSerialPort
+        --disable QtSql
+        --disable QtTest
+        --disable QtTextToSpeech
+        --disable QtWebChannel
+        --disable QtWebKit
+        --disable QtWebKitWidgets
+        --disable QtWebSockets
+        --disable QtX11Extras
+        --disable QtXml
+        --disable QtXmlPatterns
+        --disable _QOpenGLFunctions_2_0
+        --disable _QOpenGLFunctions_2_1
+        --disable _QOpenGLFunctions_4_1_Core
+        --verbose
+      - make -j$(nproc) -C build
+      - make install -C build
+    sources:
+      - type: archive
+        url: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz
+        sha256: 2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be
+
+  - name: makhber-launcher
+    buildsystem: simple
+    build-commands:
+      - mv makhber.sh /app/bin
+      - chmod +x /app/bin/makhber.sh
+    sources:
+      - type: file
+        path: makhber.sh
+        sha256: 8adf483905e51d8c2c9ed4afa4e7e45b08ea2d0a9c10fdf09e093c23fdfcd5a9
+
   - name: makhber
     buildsystem: cmake-ninja
     config-opts:
       - -DCMAKE_BUILD_TYPE=Release
       - -DMAKHBER_SEARCH_FOR_UPDATES=OFF
       - -DMAKHBER_DOWNLOAD_LINKS=OFF
+      - -DMAKHBER_SCRIPTING_PYTHON=ON
     sources:
       - type: dir
         path: ..
