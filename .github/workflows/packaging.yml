@@ -33,8 +33,7 @@ jobs:
         with:
           tag_name: ${{ steps.version.outputs.version }}
           release_name: Release ${{ steps.version.outputs.version }}
-          body_path: ./NEWS.md
-          draft: false
+          draft: true
           prerelease: false
 
   MSVC:
