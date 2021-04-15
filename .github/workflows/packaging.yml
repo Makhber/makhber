@@ -268,7 +268,7 @@ jobs:
             --user \
             --force-clean \
             ./build \
-            ../flatpak/com.github.makhber.Makhber.yaml
+            ../packaging/flatpak/com.github.makhber.Makhber.yaml
 
       - name: Packaging
         run: |
@@ -338,6 +338,7 @@ jobs:
             libxcb1 \
             xvfb \
             wget
+          pip3 install pyqt5 sip pyqt-builder
 
       - name: Setup NuGet Credentials
         run: |
@@ -358,6 +359,7 @@ jobs:
           cmake .. \
             -DMAKHBER_SEARCH_FOR_UPDATES=OFF \
             -DMAKHBER_DOWNLOAD_LINKS=OFF \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
             -DCMAKE_INSTALL_PREFIX=/usr \
             -DCMAKE_BUILD_TYPE=Release \
             -DOpenGL_GL_PREFERENCE=LEGACY \
@@ -373,9 +375,12 @@ jobs:
           make install DESTDIR=AppDir
           wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
-          chmod +x linuxdeploy*.AppImage
+          wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
+          chmod +x linuxdeploy*
           export VERSION=${{ needs.Release.outputs.version }}
-          ./linuxdeploy-x86_64.AppImage --appdir ./AppDir --plugin qt --output appimage
+          export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
+          export CONDA_PYTHON_VERSION=3.9
+          ./linuxdeploy-x86_64.AppImage --appdir ./AppDir --plugin qt --plugin conda --output appimage --custom-apprun=../packaging/appimage/AppRun
 
       - name: Upload AppImage
         uses: actions/upload-release-asset@v1

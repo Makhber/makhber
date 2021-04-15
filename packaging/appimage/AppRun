@@ -1,0 +1,8 @@
+# Current Directory
+HERE="$(dirname "$(readlink -f "${0}")")"
+
+# Export Python Home and Path
+export PYTHONHOME=$HERE/usr/conda
+export PYTHONPATH=$HERE/usr/share/makhber
+
+"$HERE/usr/bin/makhber"

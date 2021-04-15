@@ -128,4 +128,4 @@ modules:
       - -DMAKHBER_SCRIPTING_PYTHON=ON
     sources:
       - type: dir
-        path: ..
+        path: ../..
