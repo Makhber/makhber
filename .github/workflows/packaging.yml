@@ -36,16 +36,12 @@ jobs:
           draft: true
           prerelease: false
 
-  MSVC:
-    name: MSVC
+  Windows:
+    name: Windows
     runs-on: windows-latest
     needs: Release
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
-    strategy:
-      fail-fast: false
-      matrix:
-        python: [ON, OFF]
 
     steps:
       - name: Checkout
@@ -80,7 +76,6 @@ jobs:
           vcpkg install zlib gsl muparser opengl gl2ps --triplet x64-windows
 
       - name: Install Python packages
-        if: matrix.python == 'ON'
         run: |
           pip3 install pyqt5 sip pyqt-builder numpy
 
@@ -89,8 +84,7 @@ jobs:
           mkdir build; cd build
           cmake .. `
             -DCMAKE_BUILD_TYPE=Release `
-            -DMAKHBER_ORIGIN_IMPORT=ON `
-            -DMAKHBER_SCRIPTING_PYTHON=${{ matrix.python }} `
+            -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin" `
             -DCPACK_PACKAGE_FILE_NAME=makhber
@@ -100,14 +94,12 @@ jobs:
           cmake --build build --config Release -- -maxCpuCount
 
       - name: Packaging
-        continue-on-error: true
         run: |
           cd build
           cpack -G WIX
           cpack -G NSIS
 
       - name: Upload MSI installer
-        if: matrix.python == 'OFF'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -118,7 +110,6 @@ jobs:
           asset_content_type: application/zip
 
       - name: Upload NSIS installer
-        if: matrix.python == 'OFF'
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -126,28 +117,6 @@ jobs:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/makhber.exe
           asset_name: makhber-${{ needs.Release.outputs.version }}-win64.exe
-          asset_content_type: application/zip
-
-      - name: Upload MSI installer (with Python)
-        if: matrix.python == 'ON'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/makhber.msi
-          asset_name: makhber-${{ needs.Release.outputs.version }}-python-win64.msi
-          asset_content_type: application/zip
-
-      - name: Upload NSIS installer (with Python)
-        if: matrix.python == 'ON'
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/makhber.exe
-          asset_name: makhber-${{ needs.Release.outputs.version }}-python-win64.exe
           asset_content_type: application/zip
 
   macos:

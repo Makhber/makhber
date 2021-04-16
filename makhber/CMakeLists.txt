@@ -153,10 +153,16 @@ if( MAKHBER_SCRIPTING_PYTHON )
 
   if( WIN32 )
     install( CODE "
-      execute_process(
-        COMMAND \"${CMAKE_COMMAND}\" -E
-        copy \"${Python3_RUNTIME_LIBRARY_DIRS}/python3.dll\" \"\${CMAKE_INSTALL_PREFIX}/\"
-      )")
+      file( DOWNLOAD
+        https://www.python.org/ftp/python/${Python3_VERSION}/python-${Python3_VERSION}-embed-amd64.zip
+        python_embed.zip
+      )
+      file( ARCHIVE_EXTRACT
+        INPUT python_embed.zip
+        DESTINATION \${CMAKE_INSTALL_PREFIX}
+        VERBOSE
+      )
+      ")
   endif()
 
 endif()
