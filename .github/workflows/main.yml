@@ -154,7 +154,7 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          brew install qt@5 muparser gsl gl2ps googletest
+          brew install --display-times qt@5 muparser gsl gl2ps googletest
 
       - name: Configuring
         run: |

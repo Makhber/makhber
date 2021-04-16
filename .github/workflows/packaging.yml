@@ -163,7 +163,7 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          brew install qt@5 muparser gsl gl2ps
+          brew install --display-times qt@5 muparser gsl gl2ps
 
       - name: Configuring
         run: |
@@ -191,7 +191,7 @@ jobs:
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/makhber.dmg
-          asset_name: makhber-${{ needs.Release.outputs.version }}.dmg
+          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.dmg
           asset_content_type: application/zip
 
   Snap:
@@ -217,7 +217,7 @@ jobs:
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: ${{ steps.snap_build.outputs.snap }}
-          asset_name: makhber-${{ needs.Release.outputs.version }}.snap
+          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.snap
           asset_content_type: application/zip
 
       - uses: snapcore/action-publish@v1
@@ -274,7 +274,7 @@ jobs:
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/makhber.flatpak
-          asset_name: makhber-${{ needs.Release.outputs.version }}.flatpak
+          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.flatpak
           asset_content_type: application/zip
 
   AppImage:
@@ -376,5 +376,5 @@ jobs:
         with:
           upload_url: ${{ needs.Release.outputs.upload_url }}
           asset_path: build/Makhber-${{ needs.Release.outputs.version }}-x86_64.AppImage
-          asset_name: makhber-${{ needs.Release.outputs.version }}.AppImage
+          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.AppImage
           asset_content_type: application/zip
