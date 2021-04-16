@@ -2,12 +2,14 @@
 
 ## Makhber 0.9.3
 
-Released: DD-MM-2021
+Released: 16-04-2021
 
 ### General
 
-- makhber is now available from Flathub.
+- makhber is now available from [Flathub](https://flathub.org/apps/details/com.github.makhber.Makhber).
 - makhber is now available as an AppImage.
+- Enable Python scripting with all Linux packages (Snap, Flatpak and AppImage).
+- Python is now embedded in the Windows Installer, No need to install Python on the user machine.
 
 ## Makhber 0.9.2
 
