@@ -5,9 +5,11 @@ runtime-version: '5.15'
 command: makhber.sh
 finish-args:
   - --share=ipc
-  - --socket=x11
   - --socket=wayland
-  - --filesystem=host
+  - --socket=fallback-x11
+  - --filesystem=home
+  - --filesystem=/media
+  - --filesystem=/run/media
   - --device=dri
 
 modules:
