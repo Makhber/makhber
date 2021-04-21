@@ -153,6 +153,8 @@ jobs:
           submodules: true
 
       - name: Install prerequisties
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
           brew install --display-times qt@5 muparser gsl gl2ps googletest
 
