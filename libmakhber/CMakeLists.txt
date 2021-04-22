@@ -389,7 +389,7 @@ else()
     )
 endif()
 
-if( MAKHBER_SEARCH_FOR_UPDATE OR MAKHBER_DOWNLOAD_LINKS )
+if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
   target_link_libraries( libmakhber Qt5::Network )
 endif()
 
