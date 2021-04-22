@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: true
 
       - name: Get Version
         id: version
@@ -35,6 +37,32 @@ jobs:
           release_name: Release ${{ steps.version.outputs.version }}
           draft: true
           prerelease: false
+
+      - name: Archive source files
+        run: |
+          pip3 install git-archive-all
+          git-archive-all makhber-${{ steps.version.outputs.version }}-src.zip
+          git-archive-all makhber-${{ steps.version.outputs.version }}-src.tar.xz
+
+      - name: Upload ZIP File
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: makhber-${{ steps.version.outputs.version }}-src.zip
+          asset_name: makhber-${{ steps.version.outputs.version }}-src.zip
+          asset_content_type: application/zip
+
+      - name: Upload TARXZ File
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: makhber-${{ steps.version.outputs.version }}-src.tar.xz
+          asset_name: makhber-${{ steps.version.outputs.version }}-src.tar.xz
+          asset_content_type: application/zip
 
   Windows:
     name: Windows
