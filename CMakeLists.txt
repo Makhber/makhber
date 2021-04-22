@@ -54,7 +54,7 @@ set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
 
 option( MAKHBER_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
 
-option( MAKHBER_DOWNLOAD_LINKS "Enable Download links" ON )
+option( MAKHBER_DOWNLOAD_LINKS "Enable Download links" OFF )
 
 option( MAKHBER_SCRIPTING_MUPARSER "Enable muParser Scripting" ON )
 
