@@ -4687,7 +4687,7 @@ void Graph::plotBoxDiagram(Table *w, const QStringList &names, int startRow, int
 
     for (int j = 0; j < (int)names.count(); j++) {
         auto *c = new BoxCurve(w, names[j], startRow, endRow);
-        c->setData(QwtSingleArrayData(double(j + 1), QwtArray<double>(), 0));
+        c->setData(QwtSingleArrayData(double(j + 1), QVector<double>(), 0));
         c->loadData();
 
         c_keys.resize(++n_curves);
@@ -4785,8 +4785,8 @@ void Graph::openBoxDiagram(Table *w, const QStringList &l, int fileVersion)
     }
 
     auto *c = new BoxCurve(w, l[2], startRow, endRow);
-    c->setData(QwtSingleArrayData(l[1].toDouble(), QwtArray<double>(), 0));
-    c->setData(QwtSingleArrayData(l[1].toDouble(), QwtArray<double>(), 0));
+    c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
+    c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
     c->loadData();
 
     c_keys.resize(++n_curves);

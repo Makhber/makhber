@@ -62,7 +62,7 @@ public:
     QString vectorEndXAColName() { return d_end_x_a; };
     QString vectorEndYMColName() { return d_end_y_m; };
     void setVectorEnd(const QString &xColName, const QString &yColName);
-    void setVectorEnd(const QwtArray<double> &x, const QwtArray<double> &y);
+    void setVectorEnd(const QVector<double> &x, const QVector<double> &y);
 
     int width();
     void setWidth(int w);

@@ -255,7 +255,7 @@ QString Spectrogram::saveToString()
         s += "\t\t<Mode>" + QString::number(color_map.mode()) + "</Mode>\n";
         s += "\t\t<MinColor>" + COLORNAME(color_map.color1()) + "</MinColor>\n";
         s += "\t\t<MaxColor>" + COLORNAME(color_map.color2()) + "</MaxColor>\n";
-        QwtArray<double> colors = color_map.colorStops();
+        QVector<double> colors = color_map.colorStops();
         int stops = (int)colors.size();
         s += "\t\t<ColorStops>" + QString::number(stops - 2) + "</ColorStops>\n";
         for (int i = 1; i < stops - 1; i++) {

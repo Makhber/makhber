@@ -71,7 +71,7 @@ void Legend::draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
     const int symbolLineLength = symbolsMaxLineLength();
 
     int width = 0, height = 0;
-    QwtArray<long> heights = itemsHeight(map.deviceToLayoutY(y), symbolLineLength, width, height);
+    QVector<long> heights = itemsHeight(map.deviceToLayoutY(y), symbolLineLength, width, height);
 
     QRect rs = QRect(map.deviceToLayout(QPoint(x, y)), QSize(width, height));
 
@@ -252,7 +252,7 @@ void Legend::drawVector(QPainter *p, int x, int y, int l, int curveIndex) const
     p->restore();
 }
 
-void Legend::drawSymbols(QPainter *p, const QRect &rect, QwtArray<long> height,
+void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
                          int symbolLineLength) const
 {
     auto *g = dynamic_cast<Graph *>(d_plot->parent());
@@ -340,7 +340,7 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QwtArray<long> height,
     }
 }
 
-void Legend::drawLegends(QPainter *p, const QRect &rect, QwtArray<long> height,
+void Legend::drawLegends(QPainter *p, const QRect &rect, QVector<long> height,
                          int symbolLineLength) const
 {
     int w = rect.x() + left_margin;
@@ -378,7 +378,7 @@ void Legend::drawLegends(QPainter *p, const QRect &rect, QwtArray<long> height,
     }
 }
 
-QwtArray<long> Legend::itemsHeight(int y, int symbolLineLength, int &width, int &height) const
+QVector<long> Legend::itemsHeight(int y, int symbolLineLength, int &width, int &height) const
 {
     int maxL = 0;
 
@@ -392,7 +392,7 @@ QwtArray<long> Legend::itemsHeight(int y, int symbolLineLength, int &width, int 
     QStringList titles = text.split("\n", QString::KeepEmptyParts);
 #endif
     int n = (int)titles.count();
-    QwtArray<long> heights(n);
+    QVector<long> heights(n);
 
     int h = top_margin;
 

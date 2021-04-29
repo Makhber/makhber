@@ -46,8 +46,8 @@ public:
     QRectF boundingRect() const;
 
     double errorValue(int i);
-    QwtArray<double> errors() { return err; };
-    void setErrors(const QwtArray<double> &data) { err = data; };
+    QVector<double> errors() { return err; };
+    void setErrors(const QVector<double> &data) { err = data; };
 
     int capLength() { return cap; };
     void setCapLength(int t) { cap = t; };
@@ -93,7 +93,7 @@ private:
                        int from, int to) const;
 
     //! Stores the error bar values
-    QwtArray<double> err;
+    QVector<double> err;
 
     //! Orientation of the bars: Horizontal or Vertical
     int type;

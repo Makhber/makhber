@@ -111,7 +111,7 @@ void ColorMapEditor::setColorMap(const QwtLinearColorMap &map)
 {
     scaleColorsBox->setChecked(map.mode() == QwtLinearColorMap::ScaledColors);
 
-    QwtArray<double> colors = map.colorStops();
+    QVector<double> colors = map.colorStops();
     int rows = (int)colors.size();
     table->setRowCount(rows);
     table->blockSignals(true);
@@ -244,7 +244,7 @@ void ColorMapEditor::validateLevel(int row, int col)
     QwtDoubleInterval range = QwtDoubleInterval(min_val, max_val);
     double val = table->item(row, 0)->text().replace(",", ".").toDouble();
     if (!range.contains(val) || user_input_error) {
-        QwtArray<double> colors = color_map.colorStops();
+        QVector<double> colors = color_map.colorStops();
         val = min_val + colors[row] * range.width();
         table->blockSignals(true);
         table->item(row, 0)->setText(QString::number(val));

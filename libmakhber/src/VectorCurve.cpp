@@ -183,7 +183,7 @@ void VectorCurve::setVectorEnd(const QString &xColName, const QString &yColName)
     loadData();
 }
 
-void VectorCurve::setVectorEnd(const QwtArray<double> &x, const QwtArray<double> &y)
+void VectorCurve::setVectorEnd(const QVector<double> &x, const QVector<double> &y)
 {
     vectorEnd = new QwtArrayData(x, y);
 }

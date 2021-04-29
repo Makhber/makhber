@@ -33,7 +33,6 @@
 #include <qpen.h>
 
 #include <qwt_plot.h>
-#include <qwt_array.h>
 #include <qwt_text.h>
 
 #include "Graph.h"
@@ -96,13 +95,13 @@ private:
     void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap, const QRect &r) const;
 
     void drawFrame(QPainter *p, int type, const QRect &rect) const;
-    void drawSymbols(QPainter *p, const QRect &rect, QwtArray<long> height,
+    void drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
                      int symbolLineLength) const;
-    void drawLegends(QPainter *p, const QRect &rect, QwtArray<long> height,
+    void drawLegends(QPainter *p, const QRect &rect, QVector<long> height,
                      int symbolLineLength) const;
     void drawVector(QPainter *p, int x, int y, int l, int curveIndex) const;
 
-    QwtArray<long> itemsHeight(int y, int symbolLineLength, int &width, int &height) const;
+    QVector<long> itemsHeight(int y, int symbolLineLength, int &width, int &height) const;
     int symbolsMaxLineLength() const;
     QString parse(const QString &str) const;
 
