@@ -29,7 +29,7 @@
 #include "ScriptingEnv.h"
 #include "Script.h"
 
-#include <string.h>
+#include <cstring>
 
 #ifdef SCRIPTING_MUPARSER
 #include "MuParserScript.h"
@@ -41,7 +41,7 @@
 #endif
 
 ScriptingEnv::ScriptingEnv(ApplicationWindow *parent, const char *langName)
-    : QObject(0), d_parent(parent)
+    : QObject(nullptr), d_parent(parent)
 {
     setObjectName(langName);
     d_initialized = false;

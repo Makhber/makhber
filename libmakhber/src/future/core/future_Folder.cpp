@@ -42,7 +42,7 @@
 namespace future {
 Folder::Folder(const QString &name) : AbstractAspect(name) { }
 
-Folder::~Folder() { }
+Folder::~Folder() = default;
 
 QIcon Folder::icon() const
 {
@@ -56,7 +56,7 @@ QMenu *Folder::createContextMenu() const
 {
     if (project())
         return project()->createFolderContextMenu(this);
-    return 0;
+    return nullptr;
 }
 
 void Folder::save(QXmlStreamWriter *writer) const
@@ -122,7 +122,7 @@ bool Folder::readChildAspectElement(XmlStreamReader *reader)
         return true; // empty element tag
     QString element_name = reader->name().toString();
     if (element_name == "folder") {
-        Folder *folder = new Folder(tr("Folder %1").arg(1));
+        auto *folder = new Folder(tr("Folder %1").arg(1));
         if (!folder->load(reader)) {
             delete folder;
             return false;
@@ -130,7 +130,7 @@ bool Folder::readChildAspectElement(XmlStreamReader *reader)
         addChild(folder);
         loaded = true;
     } else if (element_name == "column") {
-        Column *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
+        auto *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
         if (!column->load(reader)) {
             delete column;
             return false;

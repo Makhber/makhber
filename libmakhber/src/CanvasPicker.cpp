@@ -42,7 +42,7 @@
 CanvasPicker::CanvasPicker(Graph *graph) : QObject(graph)
 {
     pointSelected = false;
-    d_editing_marker = 0;
+    d_editing_marker = nullptr;
 
     plotWidget = graph->plotWidget();
 
@@ -63,7 +63,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
     case QEvent::MouseButtonPress: {
         emit selectPlot();
 
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
 
         if (me->button() == Qt::LeftButton && (plot()->drawLineActive())) {
             startLinePoint = me->pos();
@@ -83,7 +83,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
 
         if (d_editing_marker) {
             d_editing_marker->setEditable(false);
-            d_editing_marker = 0;
+            d_editing_marker = nullptr;
         }
 
         if (plot()->markerSelected())
@@ -110,7 +110,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
             emit showPlotDialog(plot()->curveKey(0));
             return true;
         } else {
-            const QMouseEvent *me = (const QMouseEvent *)e;
+            const auto *me = (const QMouseEvent *)e;
             int dist, point;
             int curveKey = plotWidget->closestCurve(me->pos().x(), me->pos().y(), dist, point);
             if (dist < 10)
@@ -122,7 +122,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
     } break;
 
     case QEvent::MouseMove: {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         if (me->buttons() != Qt::LeftButton)
             return true;
 
@@ -137,7 +137,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
     } break;
 
     case QEvent::MouseButtonRelease: {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         Graph *g = plot();
 
         if (g->drawLineActive()) {
@@ -192,7 +192,7 @@ void CanvasPicker::disableEditing()
 {
     if (d_editing_marker) {
         d_editing_marker->setEditable(false);
-        d_editing_marker = 0;
+        d_editing_marker = nullptr;
     }
 }
 
@@ -237,33 +237,33 @@ bool CanvasPicker::selectMarker(const QMouseEvent *e)
 {
     const QPoint point = e->pos();
     foreach (long i, plot()->textMarkerKeys()) {
-        Legend *m = (Legend *)plotWidget->marker(i);
+        auto *m = (Legend *)plotWidget->marker(i);
         if (!m)
             return false;
         if (m->rect().contains(point)) {
             if (d_editing_marker) {
                 d_editing_marker->setEditable(false);
-                d_editing_marker = 0;
+                d_editing_marker = nullptr;
             }
             plot()->setSelectedMarker(i, e->modifiers() & Qt::ShiftModifier);
             return true;
         }
     }
     foreach (long i, plot()->imageMarkerKeys()) {
-        ImageMarker *m = (ImageMarker *)plotWidget->marker(i);
+        auto *m = (ImageMarker *)plotWidget->marker(i);
         if (!m)
             return false;
         if (m->rect().contains(point)) {
             if (d_editing_marker) {
                 d_editing_marker->setEditable(false);
-                d_editing_marker = 0;
+                d_editing_marker = nullptr;
             }
             plot()->setSelectedMarker(i, e->modifiers() & Qt::ShiftModifier);
             return true;
         }
     }
     foreach (long i, plot()->lineMarkerKeys()) {
-        ArrowMarker *mrkL = (ArrowMarker *)plotWidget->marker(i);
+        auto *mrkL = (ArrowMarker *)plotWidget->marker(i);
         if (!mrkL)
             return false;
         int d = mrkL->width()
@@ -272,7 +272,7 @@ bool CanvasPicker::selectMarker(const QMouseEvent *e)
         if (dist <= d) {
             if (d_editing_marker) {
                 d_editing_marker->setEditable(false);
-                d_editing_marker = 0;
+                d_editing_marker = nullptr;
             }
             if (e->modifiers() & Qt::ShiftModifier) {
                 plot()->setSelectedMarker(i, true);

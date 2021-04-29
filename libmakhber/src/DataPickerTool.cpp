@@ -54,7 +54,7 @@ DataPickerTool::DataPickerTool(Graph *graph, ApplicationWindow *app, Mode mode,
       d_mode(mode),
       d_move_mode(Free)
 {
-    d_selected_curve = NULL;
+    d_selected_curve = nullptr;
 
     d_selection_marker.setSymbol(QwtSymbol(QwtSymbol::Ellipse, QBrush(QColor(255, 255, 0, 128)),
                                            QPen(Qt::black, 2), QSize(20, 20)));
@@ -96,7 +96,7 @@ void DataPickerTool::append(const QPoint &pos)
     int dist, point_index;
     const int curve = d_graph->plotWidget()->closestCurve(pos.x(), pos.y(), dist, point_index);
     if (curve <= 0 || dist >= 5) { // 5 pixels tolerance
-        setSelection(NULL, 0);
+        setSelection(nullptr, 0);
         return;
     }
     setSelection((QwtPlotCurve *)d_graph->plotWidget()->curve(curve), point_index);
@@ -150,7 +150,7 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
     QwtDoublePoint selected_point_value(d_selected_curve->x(d_selected_point),
                                         d_selected_curve->y(d_selected_point));
     d_selection_marker.setValue(selected_point_value);
-    if (d_selection_marker.plot() == NULL)
+    if (d_selection_marker.plot() == nullptr)
         d_selection_marker.attach(d_graph->plotWidget());
     d_graph->plotWidget()->replot();
 }
@@ -334,7 +334,7 @@ void DataPickerTool::removePoint()
     d_selection_marker.detach();
     d_graph->plotWidget()->replot();
     d_graph->setFocus();
-    d_selected_curve = NULL;
+    d_selected_curve = nullptr;
 }
 
 void DataPickerTool::move(const QPoint &point)
@@ -356,7 +356,7 @@ void DataPickerTool::move(const QPoint &point)
         double new_y_val = d_graph->plotWidget()->invTransform(d_selected_curve->yAxis(),
                                                                d_move_target_pos.y());
         d_selection_marker.setValue(new_x_val, new_y_val);
-        if (d_selection_marker.plot() == NULL)
+        if (d_selection_marker.plot() == nullptr)
             d_selection_marker.attach(d_graph->plotWidget());
         d_graph->replot();
 

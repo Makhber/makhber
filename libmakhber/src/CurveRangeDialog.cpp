@@ -42,8 +42,8 @@ CurveRangeDialog::CurveRangeDialog(QWidget *parent, Qt::WindowFlags fl) : QDialo
 {
     setWindowTitle(tr("Plot range"));
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("Data set: ")), 0, 0);
 
     boxName = new QLabel();
@@ -64,12 +64,12 @@ CurveRangeDialog::CurveRangeDialog(QWidget *parent, Qt::WindowFlags fl) : QDialo
     buttonOK->setDefault(true);
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QHBoxLayout *hl = new QHBoxLayout();
+    auto *hl = new QHBoxLayout();
     hl->addStretch();
     hl->addWidget(buttonOK);
     hl->addWidget(buttonCancel);
 
-    QVBoxLayout *vb = new QVBoxLayout(this);
+    auto *vb = new QVBoxLayout(this);
     vb->addWidget(gb1);
     vb->addLayout(hl);
 

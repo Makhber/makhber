@@ -135,19 +135,19 @@ struct Application : public QApplication
     Application(int &argc, char **argv) : QApplication(argc, argv) { }
 
     // catch exception, and display their contents as modal dialogue
-    bool notify(QObject *receiver, QEvent *event)
+    bool notify(QObject *receiver, QEvent *event) override
     {
         try {
             return QApplication::notify(receiver, event);
         } catch (const std::exception &e) {
-            QMessageBox::critical(0, tr("Error!"),
+            QMessageBox::critical(nullptr, tr("Error!"),
                                   tr("Error ") + e.what() + tr(" sending event ")
                                           + typeid(*event).name() + tr(" to object ")
                                           + qPrintable(receiver->objectName()) + " \""
                                           + typeid(*receiver).name() + "\"");
         } catch (...) // shouldn't happen...
         {
-            QMessageBox::critical(0, tr("Error!"),
+            QMessageBox::critical(nullptr, tr("Error!"),
                                   tr("Error <unknown> sending event") + typeid(*event).name()
                                           + tr(" to object ") + qPrintable(receiver->objectName())
                                           + " \"" + typeid(*receiver).name() + "\"");
@@ -172,7 +172,7 @@ int main(int argc, char **argv)
         ApplicationWindow::about();
         exit(0);
     } else {
-        ApplicationWindow *mw = new ApplicationWindow;
+        auto *mw = new ApplicationWindow;
         mw->applyUserSettings();
         mw->newTable();
         mw->activateSubWindow();

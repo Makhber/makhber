@@ -1004,7 +1004,7 @@ bool Table::exportASCII(const QString &fname, const QString &separator, bool wit
     QFile file(fname);
     if (!file.open(QIODevice::WriteOnly)) {
         QApplication::restoreOverrideCursor();
-        QMessageBox::critical(0, tr("ASCII Export Error"),
+        QMessageBox::critical(nullptr, tr("ASCII Export Error"),
                               tr("Could not write to file: <br><h4>") + fname
                                       + tr("</h4><p>Please verify that you have the right to write "
                                            "to this location!"));
@@ -1284,7 +1284,7 @@ QString Table::columnFormat(int col)
         && col_ptr->columnMode() != Makhber::ColumnMode::Day)
         return QString();
 
-    DateTime2StringFilter *filter = static_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
+    auto *filter = static_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
     return filter->format();
 }
 
@@ -1359,7 +1359,7 @@ void Table::updateFunctionDoc()
 
 void Table::handleAspectDescriptionAboutToChange(const AbstractAspect *aspect)
 {
-    const Column *col = qobject_cast<const Column *>(aspect);
+    const auto *col = qobject_cast<const Column *>(aspect);
     if (col && d_future_table && d_future_table->columnIndex(col) != -1) {
         d_stored_column_labels[col] = aspect->name();
     }
@@ -1372,7 +1372,7 @@ void Table::handleAspectDescriptionChange(const AbstractAspect *aspect)
         updateCaption();
         return;
     }
-    const Column *col = qobject_cast<const Column *>(aspect);
+    const auto *col = qobject_cast<const Column *>(aspect);
     if (col && d_future_table && d_future_table->columnIndex(col) != -1
         && d_stored_column_labels.contains(col)) {
         QString old_name = d_stored_column_labels.value(col);
@@ -1407,7 +1407,7 @@ void Table::importASCII(const QString &fname, const QString &sep, int ignoredLin
 
     QFile file(fname);
     if (file.open(QIODevice::ReadOnly)) {
-        future::Table *temp = static_cast<future::Table *>(filter.importAspect(file));
+        auto *temp = static_cast<future::Table *>(filter.importAspect(file));
         if (!temp)
             return;
         int preexisting_cols = columnCount();
@@ -1419,10 +1419,10 @@ void Table::importASCII(const QString &fname, const QString &sep, int ignoredLin
         }
         for (int i = overwritten_cols; i < preexisting_cols; i++)
             column(overwritten_cols)->remove();
-        String2DoubleFilter *filter = new String2DoubleFilter;
+        auto *filter = new String2DoubleFilter;
         for (int i = overwritten_cols; i < temp->columnCount(); i++) {
             filter->input(0, temp->column(i));
-            Column *new_col = new Column(temp->column(i)->name(), Makhber::ColumnMode::Numeric);
+            auto *new_col = new Column(temp->column(i)->name(), Makhber::ColumnMode::Numeric);
             new_col->setPlotDesignation(Makhber::Y);
             new_col->copy(filter->output(0));
             d_future_table->addChild(new_col);

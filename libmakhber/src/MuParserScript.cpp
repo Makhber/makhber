@@ -37,7 +37,7 @@
 #include "Table.h"
 #include "Matrix.h"
 #include "Folder.h"
-#include <math.h>
+#include <cmath>
 #include <QtCore/QByteArray>
 #include <QtCore/QRegExp>
 
@@ -134,7 +134,7 @@
  * \sa tableColumnFunction(), tableColumn_Function(), tableColumn__Function(), tableCellFunction()
  * \sa tableCell_Function(), matrixCellFunction()
  */
-MuParserScript *MuParserScript::s_currentInstance = 0;
+MuParserScript *MuParserScript::s_currentInstance = nullptr;
 
 MuParserScript::MuParserScript(ScriptingEnv *environment, const QString &code, QObject *context,
                                const QString &name)
@@ -160,11 +160,11 @@ MuParserScript::MuParserScript(ScriptingEnv *environment, const QString &code, Q
 
     // tell parser about mathematical functions
     for (const MuParserScripting::mathFunction *i = MuParserScripting::math_functions; i->name; i++)
-        if (i->numargs == 1 && i->fun1 != NULL)
+        if (i->numargs == 1 && i->fun1 != nullptr)
             m_parser.DefineFun(i->name, i->fun1);
-        else if (i->numargs == 2 && i->fun2 != NULL)
+        else if (i->numargs == 2 && i->fun2 != nullptr)
             m_parser.DefineFun(i->name, i->fun2);
-        else if (i->numargs == 3 && i->fun3 != NULL)
+        else if (i->numargs == 3 && i->fun3 != nullptr)
             m_parser.DefineFun(i->name, i->fun3);
 
     // tell parser about table/matrix access functions
@@ -187,7 +187,7 @@ MuParserScript::MuParserScript(ScriptingEnv *environment, const QString &code, Q
  */
 double *MuParserScript::variableFactory(const mu::string_type::value_type *name, void *self)
 {
-    MuParserScript *me = static_cast<MuParserScript *>(self);
+    auto *me = static_cast<MuParserScript *>(self);
     return me->m_variables.insert(QStringFromString(name), NAN).operator->();
 }
 
@@ -254,7 +254,7 @@ double MuParserScript::tableColumnFunction(const mu::string_type::value_type *co
  */
 double MuParserScript::tableColumn_Function(double columnIndex)
 {
-    Table *thisTable = qobject_cast<Table *>(s_currentInstance->Context);
+    auto *thisTable = qobject_cast<Table *>(s_currentInstance->Context);
     if (!thisTable)
         // improving the error message would break translations
         // TODO: change col() to column() for next minor release
@@ -288,7 +288,7 @@ double MuParserScript::tableColumn_Function(double columnIndex)
 double MuParserScript::tableColumn__Function(const mu::string_type::value_type *tableName,
                                              double columnIndex)
 {
-    Table *thisTable = qobject_cast<Table *>(s_currentInstance->Context);
+    auto *thisTable = qobject_cast<Table *>(s_currentInstance->Context);
     if (!thisTable)
         // improving the error message would break translations
         // TODO: change tablecol() to column() for next minor release
@@ -340,7 +340,7 @@ double MuParserScript::tableCellFunction(const mu::string_type::value_type *colu
  */
 double MuParserScript::tableCell_Function(double columnIndex, double rowIndex)
 {
-    Table *thisTable = qobject_cast<Table *>(s_currentInstance->Context);
+    auto *thisTable = qobject_cast<Table *>(s_currentInstance->Context);
     if (!thisTable)
         throw MuException(tr("cell() works only on tables and matrices!"));
     Column *column = thisTable->d_future_table->column(qRound(columnIndex) - 1);
@@ -362,7 +362,7 @@ double MuParserScript::tableCell_Function(double columnIndex, double rowIndex)
  */
 double MuParserScript::matrixCellFunction(double rowIndex, double columnIndex)
 {
-    Matrix *thisMatrix = qobject_cast<Matrix *>(s_currentInstance->Context);
+    auto *thisMatrix = qobject_cast<Matrix *>(s_currentInstance->Context);
     if (!thisMatrix)
         throw MuException(tr("cell() works only on tables and matrices!"));
     int row = qRound(rowIndex) - 1;
@@ -392,7 +392,7 @@ double MuParserScript::matrixCellFunction(double rowIndex, double columnIndex)
  */
 Column *MuParserScript::resolveColumnPath(const QString &path)
 {
-    Column *result = 0;
+    Column *result = nullptr;
 
     // Split path into components.
     // While escape handling would be possible using a regular expression, it would require
@@ -416,7 +416,7 @@ Column *MuParserScript::resolveColumnPath(const QString &path)
         }
     QString columnName = current;
 
-    Table *table = 0;
+    Table *table = nullptr;
     if (pathComponents.isEmpty()) {
         // only column name specified, read from this table
         table = qobject_cast<Table *>(Context);
@@ -424,7 +424,7 @@ Column *MuParserScript::resolveColumnPath(const QString &path)
             throw MuException(tr("Accessing table values is not (yet) supported in this context."));
     } else {
         // look up the table containing the column
-        MyWidget *myContext = qobject_cast<MyWidget *>(Context);
+        auto *myContext = qobject_cast<MyWidget *>(Context);
         if (!myContext)
             throw MuException(tr("Accessing table values is not (yet) supported in this context."));
         QString tableName = pathComponents.takeLast();
@@ -489,7 +489,7 @@ Column *MuParserScript::resolveColumnPath(const QString &path)
  */
 bool MuParserScript::translateLegacyFunctions(QString &input)
 {
-    QRegExp legacyFunction("(\\W||^)(col|tablecol|cell)\\s*\\(");
+    QRegExp legacyFunction(R"((\W||^)(col|tablecol|cell)\s*\()");
 
     int functionStart = legacyFunction.indexIn(input, 0);
     while (functionStart != -1) {
@@ -542,7 +542,7 @@ bool MuParserScript::translateLegacyFunctions(QString &input)
         arguments << currentArgument;
 
         // select replacement function call
-        Table *table = qobject_cast<Table *>(Context);
+        auto *table = qobject_cast<Table *>(Context);
         if (legacyFunction.cap(2) == "col") {
             QString columnArgument;
             bool numericColumn = false;

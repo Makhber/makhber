@@ -57,11 +57,11 @@ OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowF
     setNameFilters(filters);
 
     d_advanced_options = new QWidget();
-    QVBoxLayout *advanced_layout = new QVBoxLayout();
+    auto *advanced_layout = new QVBoxLayout();
     d_advanced_options->setLayout(advanced_layout);
 
     // Open As options
-    QHBoxLayout *openAs_layout = new QHBoxLayout();
+    auto *openAs_layout = new QHBoxLayout();
     advanced_layout->addLayout(openAs_layout);
     openAs_layout->addWidget(new QLabel(tr("Open As")));
     d_open_mode = new QComboBox();
@@ -71,7 +71,7 @@ OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowF
     d_open_mode->addItem(tr("New Folder"));
 
     // Origin codepage options
-    QHBoxLayout *codec_layout = new QHBoxLayout();
+    auto *codec_layout = new QHBoxLayout();
     codec_layout->addWidget(new QLabel(tr("Codepage")));
     d_open_codec = new QComboBox();
     for (const int id : QTextCodec::availableMibs())
@@ -111,7 +111,7 @@ void OpenProjectDialog::updateAdvancedOptions(const QString &filter)
 void OpenProjectDialog::closeEvent(QCloseEvent *e)
 {
     if (isExtendable()) {
-        ApplicationWindow *app = (ApplicationWindow *)this->parent();
+        auto *app = (ApplicationWindow *)this->parent();
         if (app)
             app->d_extended_open_dialog = this->isExtended();
     }

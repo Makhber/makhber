@@ -47,7 +47,7 @@ TableCommentsHeaderModel::TableCommentsHeaderModel(TableModel *table_model, QObj
             SIGNAL(columnsRemoved(const QModelIndex &, int, int)));
 }
 
-TableCommentsHeaderModel::~TableCommentsHeaderModel() { }
+TableCommentsHeaderModel::~TableCommentsHeaderModel() = default;
 
 Qt::ItemFlags TableCommentsHeaderModel::flags(const QModelIndex &index) const
 {

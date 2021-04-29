@@ -45,8 +45,8 @@ InterpolationDialog::InterpolationDialog(QWidget *parent, Qt::WindowFlags fl) : 
 {
     setWindowTitle(tr("Interpolation Options"));
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("Make curve from")), 0, 0);
 
     boxName = new QComboBox();
@@ -86,12 +86,12 @@ InterpolationDialog::InterpolationDialog(QWidget *parent, Qt::WindowFlags fl) : 
     buttonFit->setDefault(true);
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addWidget(buttonFit);
     vl->addWidget(buttonCancel);
     vl->addStretch();
 
-    QHBoxLayout *hb = new QHBoxLayout(this);
+    auto *hb = new QHBoxLayout(this);
     hb->addWidget(gb1);
     hb->addLayout(vl);
 
@@ -142,8 +142,8 @@ void InterpolationDialog::interpolate()
         return;
     }
 
-    Interpolation *i = new Interpolation((ApplicationWindow *)this->parent(), graph, curve, from,
-                                         to, boxMethod->currentIndex());
+    auto *i = new Interpolation((ApplicationWindow *)this->parent(), graph, curve, from, to,
+                                boxMethod->currentIndex());
     i->setOutputPoints(boxPoints->value());
     i->setColor(btnColor->color());
     i->run();
@@ -173,7 +173,7 @@ void InterpolationDialog::activateCurve(const QString &curveName)
     if (!c)
         return;
 
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (!app)
         return;
 
@@ -185,7 +185,7 @@ void InterpolationDialog::activateCurve(const QString &curveName)
 
 void InterpolationDialog::changeDataRange()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (!app)
         return;
 

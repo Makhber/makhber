@@ -120,12 +120,12 @@ void AbstractSimpleFilter::inputRowsRemoved(const AbstractColumn *source, int fi
 
 AbstractColumn *AbstractSimpleFilter::output(int port)
 {
-    return port == 0 ? static_cast<AbstractColumn *>(d_output_column) : 0;
+    return port == 0 ? static_cast<AbstractColumn *>(d_output_column) : nullptr;
 }
 
 const AbstractColumn *AbstractSimpleFilter::output(int port) const
 {
-    return port == 0 ? static_cast<const AbstractColumn *>(d_output_column) : 0;
+    return port == 0 ? static_cast<const AbstractColumn *>(d_output_column) : nullptr;
 }
 
 void AbstractSimpleFilter::save(QXmlStreamWriter *writer) const

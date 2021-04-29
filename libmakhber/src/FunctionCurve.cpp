@@ -85,13 +85,13 @@ bool FunctionCurve::loadData(int points)
     if (!points)
         points = dataSize();
 
-    double *X = new double[points];
-    double *Y = new double[points];
+    auto *X = new double[points];
+    auto *Y = new double[points];
     double step = (d_to - d_from) / (double)(points - 1);
 
     switch (d_function_type) {
     case Normal: {
-        Script *script = scriptEnv->newScript(d_formulas[0], 0, title().text());
+        Script *script = scriptEnv->newScript(d_formulas[0], nullptr, title().text());
         QObject::connect(script, SIGNAL(error(const QString &, const QString &, int)), this,
                          SLOT(scriptError(const QString &, const QString &, int)));
         int i;
@@ -111,8 +111,8 @@ bool FunctionCurve::loadData(int points)
     }
     case Parametric:
     case Polar: {
-        Script *script_x = scriptEnv->newScript(d_formulas[0], 0, title().text());
-        Script *script_y = scriptEnv->newScript(d_formulas[1], 0, title().text());
+        Script *script_x = scriptEnv->newScript(d_formulas[0], nullptr, title().text());
+        Script *script_y = scriptEnv->newScript(d_formulas[1], nullptr, title().text());
         int i;
         double par;
         for (i = 0, par = d_from; i < points; i++, par += step) {
@@ -144,6 +144,6 @@ bool FunctionCurve::loadData(int points)
 
 void FunctionCurve::scriptError(const QString &message, const QString &scriptName, int lineNumber)
 {
-    QMessageBox::critical(0, tr("Input function error"),
+    QMessageBox::critical(nullptr, tr("Input function error"),
                           QString("%1:%2\n\n%3").arg(scriptName).arg(lineNumber).arg(message));
 }

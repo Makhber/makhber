@@ -73,7 +73,7 @@ ColorMapEditor::ColorMapEditor(QWidget *parent)
     deleteBtn->setEnabled(false);
     connect(deleteBtn, SIGNAL(clicked()), this, SLOT(deleteLevel()));
 
-    QHBoxLayout *hb = new QHBoxLayout();
+    auto *hb = new QHBoxLayout();
     hb->addWidget(insertBtn);
     hb->addWidget(deleteBtn);
 
@@ -81,7 +81,7 @@ ColorMapEditor::ColorMapEditor(QWidget *parent)
     scaleColorsBox->setChecked(true);
     connect(scaleColorsBox, SIGNAL(toggled(bool)), this, SLOT(setScaledColors(bool)));
 
-    QVBoxLayout *vl = new QVBoxLayout(this);
+    auto *vl = new QVBoxLayout(this);
     vl->setSpacing(0);
     vl->addWidget(table);
     vl->addLayout(hb);
@@ -120,7 +120,7 @@ void ColorMapEditor::setColorMap(const QwtLinearColorMap &map)
         QwtDoubleInterval range = QwtDoubleInterval(min_val, max_val);
         double val = min_val + colors[i] * range.width();
 
-        QTableWidgetItem *it = new QTableWidgetItem(QString::number(val));
+        auto *it = new QTableWidgetItem(QString::number(val));
         table->setItem(i, 0, it);
 
         QColor c = QColor(map.rgb(QwtDoubleInterval(0, 1), colors[i]));
@@ -154,7 +154,7 @@ void ColorMapEditor::insertLevel()
     table->blockSignals(true);
     table->insertRow(row);
 
-    QTableWidgetItem *it = new QTableWidgetItem(QString::number(val));
+    auto *it = new QTableWidgetItem(QString::number(val));
     table->setItem(row, 0, it);
 
     it = new QTableWidgetItem(c.name());
@@ -195,7 +195,7 @@ void ColorMapEditor::showColorDialog(int row, int col)
 bool ColorMapEditor::eventFilter(QObject *object, QEvent *e)
 {
     if (e->type() == QEvent::MouseMove && object == table->viewport()) {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         QPoint pos = table->viewport()->mapToParent(me->pos());
         int row = table->rowAt(pos.y() - table->horizontalHeader()->height());
         if (table->columnAt(pos.x()) == 1 && row >= 0 && row < table->rowCount())
@@ -207,7 +207,7 @@ bool ColorMapEditor::eventFilter(QObject *object, QEvent *e)
         setCursor(QCursor(Qt::ArrowCursor));
         return true;
     } else if (e->type() == QEvent::KeyPress && object == table) {
-        QKeyEvent *ke = (QKeyEvent *)e;
+        auto *ke = (QKeyEvent *)e;
         if (ke->key() == Qt::Key_Return && table->currentColumn() == 1) {
             showColorDialog(table->currentRow(), 1);
             return true;

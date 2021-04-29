@@ -41,7 +41,7 @@ int main(int argc, char **argv)
     return RUN_ALL_TESTS();
 }
 
-typedef QMessageBox::StandardButton StandardButton;
+using StandardButton = QMessageBox::StandardButton;
 unsigned numInfos = 0, numWarnings = 0;
 
 #ifndef _WIN32

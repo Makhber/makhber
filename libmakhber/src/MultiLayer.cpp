@@ -108,15 +108,15 @@ MultiLayer::MultiLayer(const QString &label, QWidget *parent, const QString name
     lastSize = QSize(-1, -1);
     hor_align = HCenter;
     vert_align = VCenter;
-    active_graph = 0;
+    active_graph = nullptr;
     addTextOn = false;
     d_scale_on_print = true;
     d_print_cropmarks = false;
 
     layerButtonsBox = new QHBoxLayout();
-    QHBoxLayout *hbox = new QHBoxLayout();
+    auto *hbox = new QHBoxLayout();
     // add a zero width widget to reserve space for the layer's buttons
-    QWidget *strut = new QWidget();
+    auto *strut = new QWidget();
     strut->setFixedSize(0, LayerButton::btnSize());
     hbox->addWidget(strut);
     hbox->addLayout(layerButtonsBox);
@@ -125,8 +125,8 @@ MultiLayer::MultiLayer(const QString &label, QWidget *parent, const QString name
     canvas = new QWidget();
     canvas->installEventFilter(this);
 
-    QWidget *d_main_widget = new QWidget();
-    QVBoxLayout *layout = new QVBoxLayout();
+    auto *d_main_widget = new QWidget();
+    auto *layout = new QVBoxLayout();
     d_main_widget->setLayout(layout);
     layout->addLayout(hbox);
     layout->addWidget(canvas, 1);
@@ -153,11 +153,11 @@ Graph *MultiLayer::layer(int num)
 LayerButton *MultiLayer::addLayerButton()
 {
     for (int i = 0; i < buttonsList.count(); i++) {
-        LayerButton *btn = (LayerButton *)buttonsList.at(i);
+        auto *btn = (LayerButton *)buttonsList.at(i);
         btn->setChecked(false);
     }
 
-    LayerButton *button = new LayerButton(QString::number(++graphs));
+    auto *button = new LayerButton(QString::number(++graphs));
     connect(button, SIGNAL(layerButtonclicked(LayerButton *)), this, SLOT(activateGraph(LayerButton *)));
     connect(button, SIGNAL(showContextMenu()), this, SIGNAL(showLayerButtonContextMenu()));
     connect(button, SIGNAL(showCurvesDialog()), this, SIGNAL(showCurvesDialog()));
@@ -175,7 +175,7 @@ Graph *MultiLayer::addLayer(int x, int y, int width, int height)
         height = graph_height;
     }
 
-    Graph *g = new Graph(canvas);
+    auto *g = new Graph(canvas);
     g->setAttribute(Qt::WA_DeleteOnClose);
     g->setGeometry(x, y, width, height);
     g->plotWidget()->resize(QSize(width, height));
@@ -190,7 +190,7 @@ Graph *MultiLayer::addLayer(int x, int y, int width, int height)
 void MultiLayer::activateGraph(LayerButton *button)
 {
     for (int i = 0; i < buttonsList.count(); i++) {
-        LayerButton *btn = (LayerButton *)buttonsList.at(i);
+        auto *btn = (LayerButton *)buttonsList.at(i);
         if (btn->isChecked())
             btn->setChecked(false);
 
@@ -217,8 +217,8 @@ void MultiLayer::setActiveGraph(Graph *g)
     active_graph->raise(); // raise layer on top of the layers stack
 
     for (int i = 0; i < (int)graphsList.count(); i++) {
-        Graph *gr = (Graph *)graphsList.at(i);
-        LayerButton *btn = (LayerButton *)buttonsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
+        auto *btn = (LayerButton *)buttonsList.at(i);
         if (gr == g)
             btn->setChecked(true);
         else
@@ -260,7 +260,7 @@ void MultiLayer::resizeLayers(const QSize &size, const QSize &oldSize, bool scal
     double h_ratio = (double)(size.height()) / (double)(oldSize.height());
 
     for (int i = 0; i < graphsList.count(); i++) {
-        Graph *gr = (Graph *)graphsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
         if (gr && !gr->ignoresResizeEvents()) {
             int gx = qRound(gr->x() * w_ratio);
             int gy = qRound(gr->y() * h_ratio);
@@ -308,7 +308,7 @@ void MultiLayer::confirmRemoveLayer()
 void MultiLayer::removeLayer()
 {
     // remove corresponding button
-    LayerButton *btn = 0;
+    LayerButton *btn = nullptr;
     int i;
     for (i = 0; i < buttonsList.count(); i++) {
         btn = (LayerButton *)buttonsList.at(i);
@@ -336,16 +336,16 @@ void MultiLayer::removeLayer()
         index--;
 
     if (graphs == 0) {
-        active_graph = 0;
+        active_graph = nullptr;
         return;
     }
 
     active_graph = (Graph *)graphsList.at(index);
 
     for (i = 0; i < (int)graphsList.count(); i++) {
-        Graph *gr = (Graph *)graphsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
         if (gr == active_graph) {
-            LayerButton *button = (LayerButton *)buttonsList.at(i);
+            auto *button = (LayerButton *)buttonsList.at(i);
             button->setChecked(true);
             break;
         }
@@ -383,15 +383,15 @@ QSize MultiLayer::arrangeLayers(bool userSize)
     int i;
     for (i = 0; i < graphs; i++) { // calculate scales/canvas dimensions reports for each layer and
                                    // stores them in the above vectors
-        Graph *gr = (Graph *)graphsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
         QwtPlot *plot = gr->plotWidget();
         QwtPlotLayout *plotLayout = plot->plotLayout();
         QRect cRect = plotLayout->canvasRect();
-        double ch = (double)cRect.height();
-        double cw = (double)cRect.width();
+        auto ch = (double)cRect.height();
+        auto cw = (double)cRect.width();
 
         QRect tRect = plotLayout->titleRect();
-        QwtScaleWidget *scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::xTop);
+        auto *scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::xTop);
 
         int topHeight = 0;
         if (!tRect.isNull())
@@ -507,7 +507,7 @@ QSize MultiLayer::arrangeLayers(bool userSize)
                         - gsl_vector_get(xBottomR, i)));
 
         // resizes and moves layers
-        Graph *gr = (Graph *)graphsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
         bool autoscaleFonts = false;
         if (!userSize) { // When the user specifies the layer canvas size, the window is resized
             // and the fonts must be scaled accordingly. If the size is calculated
@@ -596,7 +596,7 @@ void MultiLayer::arrangeLayers(bool fit, bool userSize)
     if (userSize) { // resize window
         bool ignoreResize = active_graph->ignoresResizeEvents();
         for (int i = 0; i < (int)graphsList.count(); i++) {
-            Graph *gr = (Graph *)graphsList.at(i);
+            auto *gr = (Graph *)graphsList.at(i);
             gr->setIgnoreResizeEvents(true);
         }
 
@@ -606,7 +606,7 @@ void MultiLayer::arrangeLayers(bool fit, bool userSize)
                            size.height() + bottom_margin + LayerButton::btnSize()));
 
         for (int i = 0; i < (int)graphsList.count(); i++) {
-            Graph *gr = (Graph *)graphsList.at(i);
+            auto *gr = (Graph *)graphsList.at(i);
             gr->setIgnoreResizeEvents(ignoreResize);
         }
     }
@@ -630,7 +630,7 @@ void MultiLayer::setRows(int r)
 void MultiLayer::exportToFile(const QString &fileName)
 {
     if (fileName.isEmpty()) {
-        QMessageBox::critical(0, tr("Error"), tr("Please provide a valid file name!"));
+        QMessageBox::critical(nullptr, tr("Error"), tr("Please provide a valid file name!"));
         return;
     }
 
@@ -656,7 +656,7 @@ void MultiLayer::exportImage(const QString &fileName, int quality)
 {
     QImage image(canvas->size(), QImage::Format_ARGB32);
     exportPainter(image);
-    image.save(fileName, 0, quality);
+    image.save(fileName, nullptr, quality);
 }
 
 void MultiLayer::exportPDF(const QString &fname)
@@ -742,7 +742,7 @@ void MultiLayer::exportPainter(QPainter &painter, bool keepAspect, QRect rect, Q
     painter.fillRect(rect, widget()->palette().brush(backgroundRole()));
 
     for (int i = 0; i < (int)graphsList.count(); i++) {
-        Graph *gr = (Graph *)graphsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
         Plot *myPlot = (Plot *)gr->plotWidget();
 
         QPoint pos = QPoint(gr->pos().x(), gr->pos().y());
@@ -791,7 +791,7 @@ void MultiLayer::printAllLayers(QPainter *painter)
     if (!painter)
         return;
 
-    QPrinter *printer = (QPrinter *)painter->device();
+    auto *printer = (QPrinter *)painter->device();
     QRect canvasRect = canvas->rect();
     QRect pageRect = printer->pageLayout().fullRectPixels(printer->resolution());
     QRect cr = canvasRect; // cropmarks rectangle
@@ -810,7 +810,7 @@ void MultiLayer::printAllLayers(QPainter *painter)
         }
 
         for (int i = 0; i < (int)graphsList.count(); i++) {
-            Graph *gr = (Graph *)graphsList.at(i);
+            auto *gr = (Graph *)graphsList.at(i);
             Plot *myPlot = gr->plotWidget();
 
             QPoint pos = gr->pos();
@@ -830,7 +830,7 @@ void MultiLayer::printAllLayers(QPainter *painter)
             cr.moveTo(x_margin, y_margin);
 
         for (int i = 0; i < (int)graphsList.count(); i++) {
-            Graph *gr = (Graph *)graphsList.at(i);
+            auto *gr = (Graph *)graphsList.at(i);
             Plot *myPlot = (Plot *)gr->plotWidget();
 
             QPoint pos = gr->pos();
@@ -854,7 +854,7 @@ void MultiLayer::setFonts(const QFont &titleFnt, const QFont &scaleFnt, const QF
                           const QFont &legendFnt)
 {
     for (int i = 0; i < (int)graphsList.count(); i++) {
-        Graph *gr = (Graph *)graphsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
         QwtPlot *plot = gr->plotWidget();
 
         QwtText text = plot->title();
@@ -869,8 +869,8 @@ void MultiLayer::setFonts(const QFont &titleFnt, const QFont &scaleFnt, const QF
         }
 
         QVector<int> keys = gr->textMarkerKeys();
-        for (int k = 0; k < (int)keys.size(); k++) {
-            Legend *mrk = (Legend *)gr->textMarker(keys[k]);
+        for (int key : keys) {
+            auto *mrk = (Legend *)gr->textMarker(key);
             if (mrk)
                 mrk->setFont(legendFnt);
         }
@@ -947,7 +947,7 @@ void MultiLayer::addTextLayer(const QPoint &pos)
 bool MultiLayer::eventFilter(QObject *object, QEvent *e)
 {
     if (e->type() == QEvent::MouseButtonPress && object == (QObject *)canvas) {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         if (me->button() == Qt::LeftButton && addTextOn)
             addTextLayer(me->pos());
 
@@ -966,7 +966,7 @@ void MultiLayer::keyPressEvent(QKeyEvent *e)
         int index = graphsList.indexOf((QWidget *)active_graph) + 1;
         if (index >= graphsList.size())
             index = 0;
-        Graph *g = (Graph *)graphsList.at(index);
+        auto *g = (Graph *)graphsList.at(index);
         if (g)
             setActiveGraph(g);
         return;
@@ -978,7 +978,7 @@ void MultiLayer::keyPressEvent(QKeyEvent *e)
         int index = graphsList.indexOf((QWidget *)active_graph) - 1;
         if (index < 0)
             index = graphsList.size() - 1;
-        Graph *g = (Graph *)graphsList.at(index);
+        auto *g = (Graph *)graphsList.at(index);
         if (g)
             setActiveGraph(g);
         return;
@@ -997,7 +997,7 @@ void MultiLayer::wheelEvent(QWheelEvent *e)
     bool resize = false;
     QPoint aux;
     QSize intSize;
-    Graph *resize_graph = 0;
+    Graph *resize_graph = nullptr;
     // Get the position of the mouse
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     int xMouse = e->position().x();
@@ -1007,7 +1007,7 @@ void MultiLayer::wheelEvent(QWheelEvent *e)
     int yMouse = e->y();
 #endif
     for (int i = 0; i < (int)graphsList.count(); i++) {
-        Graph *gr = (Graph *)graphsList.at(i);
+        auto *gr = (Graph *)graphsList.at(i);
         intSize = gr->plotWidget()->size();
         aux = gr->pos();
         if (xMouse > aux.x() && xMouse < (aux.x() + intSize.width())) {
@@ -1082,7 +1082,7 @@ QString MultiLayer::saveToString(const QString &geometry)
     s += "Alignement\t" + QString::number(hor_align) + "\t" + QString::number(vert_align) + "\n";
 
     for (int i = 0; i < (int)graphsList.count(); i++) {
-        Graph *ag = (Graph *)graphsList.at(i);
+        auto *ag = (Graph *)graphsList.at(i);
         s += ag->saveToString();
     }
     return s + "</multiLayer>\n";
@@ -1102,7 +1102,7 @@ QString MultiLayer::saveAsTemplate(const QString &geometryInfo)
     s += "Alignement\t" + QString::number(hor_align) + "\t" + QString::number(vert_align) + "\n";
 
     for (int i = 0; i < (int)graphsList.count(); i++) {
-        Graph *ag = (Graph *)graphsList.at(i);
+        auto *ag = (Graph *)graphsList.at(i);
         s += ag->saveToString(true);
     }
     return s + "</multiLayer>\n";
@@ -1197,13 +1197,13 @@ void MultiLayer::setLayersNumber(int n)
     int dn = graphs - n;
     if (dn > 0) {
         for (int i = 0; i < dn; i++) { // remove layer buttons
-            LayerButton *btn = (LayerButton *)buttonsList.last();
+            auto *btn = (LayerButton *)buttonsList.last();
             if (btn) {
                 btn->close();
                 buttonsList.removeLast();
             }
 
-            Graph *g = (Graph *)graphsList.last();
+            auto *g = (Graph *)graphsList.last();
             if (g) { // remove layers
                 if (g->zoomOn() || g->activeTool())
                     setPointerCursor();
@@ -1214,7 +1214,7 @@ void MultiLayer::setLayersNumber(int n)
         }
         graphs = n;
         if (!graphs) {
-            active_graph = 0;
+            active_graph = nullptr;
             return;
         }
 
@@ -1222,9 +1222,9 @@ void MultiLayer::setLayersNumber(int n)
         if (graphsList.indexOf(active_graph) == -1)
             active_graph = (Graph *)graphsList.last();
         for (int j = 0; j < (int)graphsList.count(); j++) {
-            Graph *gr = (Graph *)graphsList.at(j);
+            auto *gr = (Graph *)graphsList.at(j);
             if (gr == active_graph) {
-                LayerButton *button = (LayerButton *)buttonsList.at(j);
+                auto *button = (LayerButton *)buttonsList.at(j);
                 button->setChecked(true);
                 break;
             }
@@ -1248,7 +1248,7 @@ void MultiLayer::copy(ApplicationWindow *parent, MultiLayer *ml)
 
     QWidgetList graphsList = ml->graphPtrs();
     for (int i = 0; i < graphsList.count(); i++) {
-        Graph *g = (Graph *)graphsList.at(i);
+        auto *g = (Graph *)graphsList.at(i);
         Graph *g2 = addLayer(g->pos().x(), g->pos().y(), g->width(), g->height());
         g2->copy(parent, g);
         g2->setIgnoreResizeEvents(g->ignoresResizeEvents());

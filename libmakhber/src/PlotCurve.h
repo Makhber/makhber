@@ -52,7 +52,7 @@ class DataCurve : public PlotCurve
 {
 
 public:
-    DataCurve(Table *t, const QString &xColName, const QString &name, int startRow = 0,
+    DataCurve(Table *t, QString xColName, const QString &name, int startRow = 0,
               int endRow = -1);
 
     QString xColumnName() { return d_x_column; };

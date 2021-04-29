@@ -82,11 +82,11 @@ ImageExportDialog::ImageExportDialog(QWidget *parent, bool vector_options, bool 
 
 void ImageExportDialog::initAdvancedOptions()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     d_advanced_options = new QStackedWidget();
 
     d_vector_options = new QGroupBox();
-    QGridLayout *vector_layout = new QGridLayout(d_vector_options);
+    auto *vector_layout = new QGridLayout(d_vector_options);
     d_advanced_options->addWidget(d_vector_options);
 
     vector_layout->addWidget(new QLabel(tr("Resolution (DPI)")), 1, 0);
@@ -162,7 +162,7 @@ void ImageExportDialog::initAdvancedOptions()
     vector_layout->addWidget(d_keep_aspect, 6, 0, 1, 2);
 
     d_raster_options = new QGroupBox();
-    QGridLayout *raster_layout = new QGridLayout(d_raster_options);
+    auto *raster_layout = new QGridLayout(d_raster_options);
     d_advanced_options->addWidget(d_raster_options);
 
     raster_layout->addWidget(new QLabel(tr("Image quality")), 1, 0);
@@ -189,7 +189,7 @@ void ImageExportDialog::updateAdvancedOptions(const QString &filter)
 
 void ImageExportDialog::closeEvent(QCloseEvent *e)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (app) {
         app->d_extended_export_dialog = this->isExtended();
         app->d_image_export_filter = this->selectedNameFilter();

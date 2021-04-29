@@ -32,11 +32,15 @@
 #include "core/datatypes/DateTime2StringFilter.h"
 #include <QDateTime>
 #include <QMessageBox>
+#include <utility>
 #include <qwt_symbol.h>
 
-DataCurve::DataCurve(Table *t, const QString &xColName, const QString &name, int startRow,
-                     int endRow)
-    : PlotCurve(name), d_table(t), d_x_column(xColName), d_start_row(startRow), d_end_row(endRow)
+DataCurve::DataCurve(Table *t, QString xColName, const QString &name, int startRow, int endRow)
+    : PlotCurve(name),
+      d_table(t),
+      d_x_column(std::move(xColName)),
+      d_start_row(startRow),
+      d_end_row(endRow)
 {
     if (t && d_end_row < 0)
         d_end_row = t->numRows() - 1;
@@ -123,7 +127,7 @@ bool DataCurve::updateData(Table *t, const QString &colName)
 QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
                                               const QList<int> &axes) const
 {
-    Graph *g = 0;
+    Graph *g = nullptr;
     if (plot())
         g = static_cast<Graph *>(plot()->parent());
 
@@ -272,7 +276,7 @@ void DataCurve::remove()
 {
     if (!plot())
         return;
-    Graph *g = (Graph *)plot()->parent();
+    auto *g = (Graph *)plot()->parent();
     if (!g)
         return;
 

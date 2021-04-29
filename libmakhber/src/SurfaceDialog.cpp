@@ -46,11 +46,11 @@ SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pare
     boxFunction = new QComboBox();
     boxFunction->setEditable(true);
 
-    QBoxLayout *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl1->addWidget(new QLabel(tr("f(x,y)=")), 1);
     bl1->addWidget(boxFunction, 10);
 
-    QGroupBox *gb1 = new QGroupBox(tr("X - axis"));
+    auto *gb1 = new QGroupBox(tr("X - axis"));
 
     boxXFrom = new QLineEdit();
     boxXFrom->setText(tr("-1"));
@@ -58,7 +58,7 @@ SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pare
     boxXTo = new QLineEdit();
     boxXTo->setText(tr("1"));
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("From")), 0, 0);
     gl1->addWidget(boxXFrom, 0, 1);
     gl1->addWidget(new QLabel(tr("To")), 1, 0);
@@ -66,14 +66,14 @@ SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pare
     gl1->setRowStretch(2, 1);
     gb1->setLayout(gl1);
 
-    QGroupBox *gb2 = new QGroupBox(tr("Y - axis"));
+    auto *gb2 = new QGroupBox(tr("Y - axis"));
     boxYFrom = new QLineEdit();
     boxYFrom->setText(tr("-1"));
 
     boxYTo = new QLineEdit();
     boxYTo->setText(tr("1"));
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("From")), 0, 0);
     gl2->addWidget(boxYFrom, 0, 1);
     gl2->addWidget(new QLabel(tr("To")), 1, 0);
@@ -81,14 +81,14 @@ SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pare
     gl2->setRowStretch(2, 1);
     gb2->setLayout(gl2);
 
-    QGroupBox *gb3 = new QGroupBox(tr("Z - axis"));
+    auto *gb3 = new QGroupBox(tr("Z - axis"));
     boxZFrom = new QLineEdit();
     boxZFrom->setText(tr("-1"));
 
     boxZTo = new QLineEdit();
     boxZTo->setText(tr("1"));
 
-    QGridLayout *gl3 = new QGridLayout();
+    auto *gl3 = new QGridLayout();
     gl3->addWidget(new QLabel(tr("From")), 0, 0);
     gl3->addWidget(boxZFrom, 0, 1);
     gl3->addWidget(new QLabel(tr("To")), 1, 0);
@@ -96,7 +96,7 @@ SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pare
     gl3->setRowStretch(2, 1);
     gb3->setLayout(gl3);
 
-    QBoxLayout *bl3 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl3 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl3->addWidget(gb1);
     bl3->addWidget(gb2);
     bl3->addWidget(gb3);
@@ -106,14 +106,14 @@ SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pare
     buttonOk->setDefault(true);
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QBoxLayout *bl2 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl2 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl2->addStretch();
     bl2->addWidget(buttonOk);
     bl2->addWidget(buttonClear);
     bl2->addWidget(buttonCancel);
     bl2->addStretch();
 
-    QVBoxLayout *vl = new QVBoxLayout(this);
+    auto *vl = new QVBoxLayout(this);
     vl->addLayout(bl1);
     vl->addLayout(bl3);
     vl->addLayout(bl2);
@@ -162,7 +162,7 @@ void SurfaceDialog::accept()
         parser.SetExpr(Xfrom);
         fromX = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("X Start limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("X Start limit error"), QStringFromString(e.GetMsg()));
         boxXFrom->setFocus();
         return;
     }
@@ -171,7 +171,7 @@ void SurfaceDialog::accept()
         parser.SetExpr(Xto);
         toX = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("X End limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("X End limit error"), QStringFromString(e.GetMsg()));
         boxXTo->setFocus();
         return;
     }
@@ -181,7 +181,7 @@ void SurfaceDialog::accept()
         parser.SetExpr(Yfrom);
         fromY = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Y Start limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Y Start limit error"), QStringFromString(e.GetMsg()));
         boxYFrom->setFocus();
         return;
     }
@@ -190,7 +190,7 @@ void SurfaceDialog::accept()
         parser.SetExpr(Yto);
         toY = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Y End limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Y End limit error"), QStringFromString(e.GetMsg()));
         boxYTo->setFocus();
         return;
     }
@@ -199,7 +199,7 @@ void SurfaceDialog::accept()
         parser.SetExpr(Zfrom);
         fromZ = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Z Start limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Z Start limit error"), QStringFromString(e.GetMsg()));
         boxZFrom->setFocus();
         return;
     }
@@ -208,13 +208,13 @@ void SurfaceDialog::accept()
         parser.SetExpr(Zto);
         toZ = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Z End limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Z End limit error"), QStringFromString(e.GetMsg()));
         boxZTo->setFocus();
         return;
     }
 
     if (fromX >= toX || fromY >= toY || fromZ >= toZ) {
-        QMessageBox::critical(0, tr("Input error"),
+        QMessageBox::critical(nullptr, tr("Input error"),
                               tr("Please enter limits that satisfy: from < end!"));
         boxXTo->setFocus();
         return;
@@ -236,7 +236,7 @@ void SurfaceDialog::accept()
         y = toY;
         parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Input function error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Input function error"), QStringFromString(e.GetMsg()));
         boxFunction->setFocus();
         error = true;
     }
@@ -245,7 +245,7 @@ void SurfaceDialog::accept()
         emit options(boxFunction->currentText(), fromX, toX, fromY, toY, fromZ, toZ);
         emit custom3DToolBar();
 
-        ApplicationWindow *app = (ApplicationWindow *)this->parent();
+        auto *app = (ApplicationWindow *)this->parent();
         app->updateSurfaceFuncList(boxFunction->currentText());
         close();
     }
@@ -256,4 +256,4 @@ void SurfaceDialog::insertFunctionsList(const QStringList &list)
     boxFunction->insertItems(1, list);
 }
 
-SurfaceDialog::~SurfaceDialog() { }
+SurfaceDialog::~SurfaceDialog() = default;

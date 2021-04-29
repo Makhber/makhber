@@ -31,10 +31,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <math.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stddef.h>
+#include <cmath>
+#include <cstdlib>
+#include <cstdio>
+#include <cstddef>
 
 #include <qmessagebox.h>
 
@@ -382,9 +382,9 @@ int gauss_multi_peak_f(const gsl_vector *x, void *params, gsl_vector *f)
     double *sigma = ((struct FitData *)params)->sigma;
 
     size_t peaks = (p - 1) / 3;
-    double *a = new double[peaks];
-    double *xc = new double[peaks];
-    double *w2 = new double[peaks];
+    auto *a = new double[peaks];
+    auto *xc = new double[peaks];
+    auto *w2 = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
     size_t i, j;
@@ -417,9 +417,9 @@ double gauss_multi_peak_d(const gsl_vector *x, void *params)
     double *sigma = ((struct FitData *)params)->sigma;
 
     size_t peaks = (p - 1) / 3;
-    double *a = new double[peaks];
-    double *xc = new double[peaks];
-    double *w2 = new double[peaks];
+    auto *a = new double[peaks];
+    auto *xc = new double[peaks];
+    auto *w2 = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
     size_t i, j;
@@ -454,9 +454,9 @@ int gauss_multi_peak_df(const gsl_vector *x, void *params, gsl_matrix *J)
     double *sigma = ((struct FitData *)params)->sigma;
 
     size_t peaks = (p - 1) / 3;
-    double *a = new double[peaks];
-    double *xc = new double[peaks];
-    double *w = new double[peaks];
+    auto *a = new double[peaks];
+    auto *xc = new double[peaks];
+    auto *w = new double[peaks];
 
     size_t i, j;
     for (i = 0; i < peaks; i++) {
@@ -499,9 +499,9 @@ int lorentz_multi_peak_f(const gsl_vector *x, void *params, gsl_vector *f)
     double *sigma = ((struct FitData *)params)->sigma;
 
     size_t peaks = (p - 1) / 3;
-    double *a = new double[peaks];
-    double *xc = new double[peaks];
-    double *w = new double[peaks];
+    auto *a = new double[peaks];
+    auto *xc = new double[peaks];
+    auto *w = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
     size_t i, j;
@@ -533,9 +533,9 @@ double lorentz_multi_peak_d(const gsl_vector *x, void *params)
     double *sigma = ((struct FitData *)params)->sigma;
 
     size_t peaks = (p - 1) / 3;
-    double *a = new double[peaks];
-    double *xc = new double[peaks];
-    double *w = new double[peaks];
+    auto *a = new double[peaks];
+    auto *xc = new double[peaks];
+    auto *w = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
     size_t i, j;
@@ -568,9 +568,9 @@ int lorentz_multi_peak_df(const gsl_vector *x, void *params, gsl_matrix *J)
     double *sigma = ((struct FitData *)params)->sigma;
 
     size_t peaks = (p - 1) / 3;
-    double *a = new double[peaks];
-    double *xc = new double[peaks];
-    double *w = new double[peaks];
+    auto *a = new double[peaks];
+    auto *xc = new double[peaks];
+    auto *w = new double[peaks];
 
     size_t i, j;
     for (i = 0; i < peaks; i++) {

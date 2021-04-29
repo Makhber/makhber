@@ -109,8 +109,8 @@ bool PluginFit::load(const QString &pluginName)
     if (!f_eval)
         return false;
 
-    typedef char *(*fitFunc)();
-    fitFunc fitFunction = (fitFunc)lib.resolve("parameters");
+    using fitFunc = char *(*)();
+    auto fitFunction = (fitFunc)lib.resolve("parameters");
     if (fitFunction) {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         d_param_names = QString(fitFunction()).split(",", Qt::SkipEmptyParts);
@@ -125,7 +125,7 @@ bool PluginFit::load(const QString &pluginName)
     } else
         return false;
 
-    fitFunc fitExplain = (fitFunc)lib.resolve("explanations");
+    auto fitExplain = (fitFunc)lib.resolve("explanations");
     if (fitExplain)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         d_param_explain = QString(fitExplain()).split(",", Qt::SkipEmptyParts);

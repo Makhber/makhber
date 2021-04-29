@@ -40,7 +40,7 @@ bool AbstractFilter::input(int port, const AbstractColumn *source)
     if (source == old_input)
         return true;
     if (old_input) {
-        disconnect(old_input, 0, this, 0);
+        disconnect(old_input, nullptr, this, nullptr);
         // replace input, notifying the filter implementation of the changes
         inputDescriptionAboutToChange(old_input);
         inputPlotDesignationAboutToChange(old_input);

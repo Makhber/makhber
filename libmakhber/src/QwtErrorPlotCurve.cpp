@@ -37,7 +37,7 @@
 #include <QLocale>
 
 QwtErrorPlotCurve::QwtErrorPlotCurve(int orientation, Table *t, const QString &name)
-    : DataCurve(t, QString(), name), d_master_curve(NULL)
+    : DataCurve(t, QString(), name), d_master_curve(nullptr)
 {
     cap = 10;
     type = orientation;
@@ -48,7 +48,7 @@ QwtErrorPlotCurve::QwtErrorPlotCurve(int orientation, Table *t, const QString &n
 }
 
 QwtErrorPlotCurve::QwtErrorPlotCurve(Table *t, const QString &name)
-    : DataCurve(t, QString(), name), d_master_curve(NULL)
+    : DataCurve(t, QString(), name), d_master_curve(nullptr)
 {
     cap = 10;
     type = Vertical;

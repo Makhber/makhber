@@ -53,7 +53,7 @@ using namespace std;
 
 Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owner)
 {
-    Q_ASSERT(owner != 0); // a Column::Private without owner is not allowed
+    Q_ASSERT(owner != nullptr); // a Column::Private without owner is not allowed
                           // because the owner must become the parent aspect of the input and output
                           // filters
     d_column_mode = mode;

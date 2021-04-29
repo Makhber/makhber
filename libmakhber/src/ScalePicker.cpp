@@ -42,8 +42,8 @@ ScalePicker::ScalePicker(QwtPlot *plot)
     : QObject(plot),
       d_title_selected(false),
       d_labels_selected(false),
-      d_selected_axis(NULL),
-      d_current_axis(NULL)
+      d_selected_axis(nullptr),
+      d_current_axis(nullptr)
 {
     refresh();
 }
@@ -53,7 +53,7 @@ bool ScalePicker::eventFilter(QObject *object, QEvent *e)
     if (!object->inherits("QwtScaleWidget"))
         return QObject::eventFilter(object, e);
 
-    QwtScaleWidget *scale = (QwtScaleWidget *)object;
+    auto *scale = (QwtScaleWidget *)object;
     d_current_axis = scale;
 
     if (e->type() == QEvent::MouseButtonDblClick) {
@@ -62,7 +62,7 @@ bool ScalePicker::eventFilter(QObject *object, QEvent *e)
     }
 
     if (e->type() == QEvent::MouseButtonPress) {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         QPoint pos = me->pos();
         if (me->button() == Qt::LeftButton) {
             scale->setFocus();
@@ -156,7 +156,7 @@ QRect ScalePicker::scaleRect(const QwtScaleWidget *scale) const
 void ScalePicker::refresh()
 {
     for (uint i = 0; i < QwtPlot::axisCnt; i++) {
-        QwtScaleWidget *scale = (QwtScaleWidget *)plot()->axisWidget(i);
+        auto *scale = (QwtScaleWidget *)plot()->axisWidget(i);
         if (scale)
             scale->installEventFilter(this);
     }
@@ -276,5 +276,5 @@ void ScalePicker::deselect()
             sc_draw->setSelected(false);
     */
     d_selected_axis->repaint();
-    d_selected_axis = NULL;
+    d_selected_axis = nullptr;
 }

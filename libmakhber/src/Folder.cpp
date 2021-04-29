@@ -47,7 +47,7 @@
 #include <QMouseEvent>
 #include <QDrag>
 
-Folder::Folder(const QString &name) : d_active_window(0)
+Folder::Folder(const QString &name) : d_active_window(nullptr)
 {
     QObject::setObjectName(name);
     birthdate = QLocale().toString(QDateTime::currentDateTime());
@@ -79,7 +79,7 @@ QStringList Folder::subfolders()
 QString Folder::path()
 {
     QString s = "/" + QString(name()) + "/";
-    Folder *parentFolder = (Folder *)parent();
+    auto *parentFolder = (Folder *)parent();
     while (parentFolder) {
         s.prepend("/" + QString(parentFolder->name()));
         parentFolder = (Folder *)parentFolder->parent();
@@ -109,7 +109,7 @@ Folder *Folder::findSubfolder(const QString &s, bool caseSensitive, bool partial
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 MyWidget *Folder::findWindow(const QString &s, bool windowNames, bool labels, bool caseSensitive,
@@ -146,7 +146,7 @@ MyWidget *Folder::findWindow(const QString &s, bool windowNames, bool labels, bo
             }
         }
     }
-    return 0;
+    return nullptr;
 }
 
 MyWidget *Folder::window(const QString &name, const char *cls, bool recursive)
@@ -155,13 +155,13 @@ MyWidget *Folder::window(const QString &name, const char *cls, bool recursive)
         if (w->inherits(cls) && name == w->name().mid(0, w->name().indexOf("@")))
             return w;
     if (!recursive)
-        return NULL;
+        return nullptr;
     foreach (QObject *f, children()) {
         MyWidget *w = ((Folder *)f)->window(name, cls, true);
         if (w)
             return w;
     }
-    return NULL;
+    return nullptr;
 }
 
 Folder *Folder::rootFolder()
@@ -211,7 +211,7 @@ void FolderListItem::setActive(bool o)
 
 bool FolderListItem::isChildOf(FolderListItem *src)
 {
-    FolderListItem *parent = (FolderListItem *)this->parent();
+    auto *parent = (FolderListItem *)this->parent();
     while (parent) {
         if (parent == src)
             return true;
@@ -224,7 +224,7 @@ bool FolderListItem::isChildOf(FolderListItem *src)
 int FolderListItem::depth()
 {
     int c = 0;
-    FolderListItem *parent = (FolderListItem *)this->parent();
+    auto *parent = (FolderListItem *)this->parent();
     while (parent) {
         c++;
         parent = (FolderListItem *)parent->parent();
@@ -272,7 +272,7 @@ void FolderListView::startDrag(Qt::DropActions supportedActions)
     else
         pix = item->icon(0).pixmap(QSize());
 
-    QDrag *drag = new QDrag(viewport());
+    auto *drag = new QDrag(viewport());
     drag->setPixmap(pix);
     drag->setHotSpot(QPoint(pix.width() / 2, pix.height() / 2));
 

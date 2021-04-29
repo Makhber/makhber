@@ -166,7 +166,7 @@ void PolynomialFit::fit()
     gsl_vector_free(c);
     gsl_vector_free(weights);
 
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (app->writeFitResultsToLog)
         app->updateLog(logFitInfo(d_results, 0, 0, d_graph->parentPlotName()));
 
@@ -178,7 +178,7 @@ void PolynomialFit::fit()
 
 QString PolynomialFit::legendInfo()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     QString legend = "";
     if (show_legend) {
         legend = "Y=" + QLocale().toString(d_results[0], 'g', d_prec);
@@ -264,7 +264,7 @@ void LinearFit::fit()
 
     double c0, c1, cov00, cov01, cov11;
 
-    double *weights = new double[d_n];
+    auto *weights = new double[d_n];
     for (unsigned i = 0; i < d_n; i++)
         weights[i] = 1.0 / pow(d_y_errors[i], 2);
 
@@ -283,7 +283,7 @@ void LinearFit::fit()
     gsl_matrix_set(covar, 1, 1, cov11);
     gsl_matrix_set(covar, 1, 0, cov01);
 
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (app->writeFitResultsToLog)
         app->updateLog(logFitInfo(d_results, 0, 0, d_graph->parentPlotName()));
 

@@ -37,6 +37,7 @@
 #include <QStringList>
 #include <QLocale>
 
+#include <utility>
 #include <vector>
 #include <iostream>
 using namespace std;
@@ -57,8 +58,8 @@ struct MakhberTextStream
     operator bool() const { return good; }
     enum { none, simplify, trim } whiteSpaceTreatment;
     QString separator;
-    MakhberTextStream(QIODevice &inp, const QString &sep)
-        : input(inp), good(true), whiteSpaceTreatment(none), separator(sep)
+    MakhberTextStream(QIODevice &inp, QString sep)
+        : input(inp), good(true), whiteSpaceTreatment(none), separator(std::move(sep))
     {
     }
 
@@ -179,7 +180,7 @@ AbstractAspect *AsciiTableImportFilter::importAspect(QIODevice &input)
         readCols<QStringList>(cols, stream, d_first_row_names_columns);
 
     // renaming will be done by the kernel
-    future::Table *result = new future::Table(0, 0, tr("Table"));
+    auto *result = new future::Table(0, 0, tr("Table"));
     result->appendColumns(cols);
     return result;
 }

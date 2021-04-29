@@ -89,7 +89,7 @@ void Makhber::about()
 #if QT_VERSION >= 0x040500
     flags |= Qt::WindowCloseButtonHint;
 #endif
-    QDialog *dialog = new QDialog(0, flags);
+    auto *dialog = new QDialog(nullptr, flags);
     Ui::MakhberAbout ui;
     ui.setupUi(dialog);
     dialog->setAttribute(Qt::WA_DeleteOnClose);

@@ -128,7 +128,7 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
 QwtDoubleRect QwtBarCurve::boundingRect() const
 {
     QwtDoubleRect rect = QwtPlotCurve::boundingRect();
-    double n = (double)dataSize();
+    auto n = (double)dataSize();
 
     if (bar_style == Vertical) {
         double dx = (rect.right() - rect.left()) / n;

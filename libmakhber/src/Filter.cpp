@@ -64,14 +64,14 @@ void Filter::init()
     d_tolerance = 1e-4;
     d_points = 100;
     d_max_iterations = 1000;
-    d_curve = 0;
+    d_curve = nullptr;
     d_prec = ((ApplicationWindow *)parent())->fit_output_precision;
     d_init_err = false;
     d_sort_data = false;
     d_min_points = 2;
     d_explanation = objectName();
-    d_graph = 0;
-    d_table = 0;
+    d_graph = nullptr;
+    d_table = nullptr;
 }
 
 void Filter::setInterval(double from, double to)
@@ -294,10 +294,10 @@ int Filter::curveData(QwtPlotCurve *c, double start, double end, double **x, dou
 
 QwtPlotCurve *Filter::addResultCurve(double *x, double *y)
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     const QString tableName = app->generateUniqueName(this->objectName());
-    Column *xCol = new Column(tr("1", "filter table x column name"), Makhber::ColumnMode::Numeric);
-    Column *yCol = new Column(tr("2", "filter table y column name"), Makhber::ColumnMode::Numeric);
+    auto *xCol = new Column(tr("1", "filter table x column name"), Makhber::ColumnMode::Numeric);
+    auto *yCol = new Column(tr("2", "filter table y column name"), Makhber::ColumnMode::Numeric);
     xCol->setPlotDesignation(Makhber::X);
     yCol->setPlotDesignation(Makhber::Y);
     for (int i = 0; i < d_points; i++) {
@@ -310,7 +310,7 @@ QwtPlotCurve *Filter::addResultCurve(double *x, double *y)
                                    d_explanation + " " + tr("of") + " " + d_curve->title().text(),
                                    QList<Column *>() << xCol << yCol);
 
-    DataCurve *c = new DataCurve(t, tableName + "_" + xCol->name(), tableName + "_" + yCol->name());
+    auto *c = new DataCurve(t, tableName + "_" + xCol->name(), tableName + "_" + yCol->name());
     c->setData(x, y, d_points);
     c->setPen(QPen(d_curveColor, 1));
     d_graph->insertPlotItem(c, Graph::Line);

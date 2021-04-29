@@ -62,7 +62,7 @@
 ConfigDialog::ConfigDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {
     // get current values from app window
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     plot3DColors = app->plot3DColors;
     plot3DTitleFont = app->plot3DTitleFont;
     plot3DNumbersFont = app->plot3DNumbersFont;
@@ -96,7 +96,7 @@ ConfigDialog::ConfigDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     generalDialog->addWidget(plots3D);
     generalDialog->addWidget(fitPage);
 
-    QVBoxLayout *rightLayout = new QVBoxLayout();
+    auto *rightLayout = new QVBoxLayout();
     lblPageHeader = new QLabel();
     QFont fnt = this->font();
     fnt.setPointSize(fnt.pointSize() + 3);
@@ -110,13 +110,13 @@ ConfigDialog::ConfigDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     rightLayout->addWidget(lblPageHeader);
     rightLayout->addWidget(generalDialog);
 
-    QHBoxLayout *topLayout = new QHBoxLayout();
+    auto *topLayout = new QHBoxLayout();
     topLayout->setSpacing(5);
     topLayout->setMargin(5);
     topLayout->addWidget(itemsList);
     topLayout->addLayout(rightLayout);
 
-    QHBoxLayout *bottomButtons = new QHBoxLayout();
+    auto *bottomButtons = new QHBoxLayout();
     bottomButtons->addStretch();
     buttonApply = new QPushButton();
     buttonApply->setAutoDefault(true);
@@ -131,7 +131,7 @@ ConfigDialog::ConfigDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     buttonCancel->setAutoDefault(true);
     bottomButtons->addWidget(buttonCancel);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(topLayout);
     mainLayout->addLayout(bottomButtons);
 
@@ -160,10 +160,10 @@ void ConfigDialog::setCurrentPage(int index)
 
 void ConfigDialog::initTablesPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     tables = new QWidget();
 
-    QHBoxLayout *topLayout = new QHBoxLayout();
+    auto *topLayout = new QHBoxLayout();
     topLayout->setSpacing(5);
 
     lblSeparator = new QLabel();
@@ -182,7 +182,7 @@ void ConfigDialog::initTablesPage()
     lblSeparator->setToolTip(help);
 
     groupBoxTableCol = new QGroupBox();
-    QGridLayout *colorsLayout = new QGridLayout(groupBoxTableCol);
+    auto *colorsLayout = new QGridLayout(groupBoxTableCol);
 
     lblTableBackground = new QLabel();
     colorsLayout->addWidget(lblTableBackground, 0, 0);
@@ -203,7 +203,7 @@ void ConfigDialog::initTablesPage()
     colorsLayout->addWidget(buttonHeader, 2, 1);
 
     groupBoxTableFonts = new QGroupBox();
-    QHBoxLayout *bottomLayout = new QHBoxLayout(groupBoxTableFonts);
+    auto *bottomLayout = new QHBoxLayout(groupBoxTableFonts);
 
     buttonTextFont = new QPushButton();
     bottomLayout->addWidget(buttonTextFont);
@@ -214,7 +214,7 @@ void ConfigDialog::initTablesPage()
     boxTableComments->setChecked(app->d_show_table_comments);
 
     // Set table row height
-    QHBoxLayout *tableRowHeightLayout = new QHBoxLayout();
+    auto *tableRowHeightLayout = new QHBoxLayout();
     lblTableRowHeight = new QLabel();
     lblTableRowHeight->setText(tr("Default Row Height"));
     tableRowHeightLayout->addWidget(lblTableRowHeight);
@@ -227,7 +227,7 @@ void ConfigDialog::initTablesPage()
     boxTableRowHeight->setValue(settings.value("DefaultRowHeight", 20).toInt());
     settings.endGroup();
 
-    QVBoxLayout *tablesPageLayout = new QVBoxLayout(tables);
+    auto *tablesPageLayout = new QVBoxLayout(tables);
     tablesPageLayout->addWidget(boxTableComments);
     tablesPageLayout->addLayout(tableRowHeightLayout, 1);
     tablesPageLayout->addLayout(topLayout, 1);
@@ -238,18 +238,18 @@ void ConfigDialog::initTablesPage()
 
 void ConfigDialog::initPlotsPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
 
     plotsTabWidget = new QTabWidget();
     plotOptions = new QWidget();
 
-    QVBoxLayout *optionsTabLayout = new QVBoxLayout(plotOptions);
+    auto *optionsTabLayout = new QVBoxLayout(plotOptions);
     optionsTabLayout->setSpacing(5);
 
-    QGroupBox *groupBoxOptions = new QGroupBox();
+    auto *groupBoxOptions = new QGroupBox();
     optionsTabLayout->addWidget(groupBoxOptions);
 
-    QGridLayout *optionsLayout = new QGridLayout(groupBoxOptions);
+    auto *optionsLayout = new QGridLayout(groupBoxOptions);
 
     boxAutoscaling = new QCheckBox();
     boxAutoscaling->setChecked(app->autoscale2DPlots);
@@ -321,10 +321,10 @@ void ConfigDialog::initPlotsPage()
     plotsTabWidget->addTab(curves, QString());
 
     plotTicks = new QWidget();
-    QVBoxLayout *plotTicksLayout = new QVBoxLayout(plotTicks);
+    auto *plotTicksLayout = new QVBoxLayout(plotTicks);
 
-    QGroupBox *ticksGroupBox = new QGroupBox();
-    QGridLayout *ticksLayout = new QGridLayout(ticksGroupBox);
+    auto *ticksGroupBox = new QGroupBox();
+    auto *ticksLayout = new QGridLayout(ticksGroupBox);
     plotTicksLayout->addWidget(ticksGroupBox);
 
     lblMajTicks = new QLabel();
@@ -356,11 +356,11 @@ void ConfigDialog::initPlotsPage()
     plotsTabWidget->addTab(plotTicks, QString());
 
     plotFonts = new QWidget();
-    QVBoxLayout *plotFontsLayout = new QVBoxLayout(plotFonts);
+    auto *plotFontsLayout = new QVBoxLayout(plotFonts);
 
-    QGroupBox *groupBox2DFonts = new QGroupBox();
+    auto *groupBox2DFonts = new QGroupBox();
     plotFontsLayout->addWidget(groupBox2DFonts);
-    QVBoxLayout *fontsLayout = new QVBoxLayout(groupBox2DFonts);
+    auto *fontsLayout = new QVBoxLayout(groupBox2DFonts);
     buttonTitleFont = new QPushButton();
     fontsLayout->addWidget(buttonTitleFont);
     buttonLegendFont = new QPushButton();
@@ -374,7 +374,7 @@ void ConfigDialog::initPlotsPage()
     plotsTabWidget->addTab(plotFonts, QString());
 
     plotPrint = new QWidget();
-    QVBoxLayout *printLayout = new QVBoxLayout(plotPrint);
+    auto *printLayout = new QVBoxLayout(plotPrint);
 
     boxScaleLayersOnPrint = new QCheckBox();
     boxScaleLayersOnPrint->setChecked(app->d_scale_plots_on_print);
@@ -415,11 +415,11 @@ void ConfigDialog::showFrameWidth(bool ok)
 
 void ConfigDialog::initPlots3DPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     plots3D = new QWidget();
 
-    QGroupBox *topBox = new QGroupBox();
-    QGridLayout *topLayout = new QGridLayout(topBox);
+    auto *topBox = new QGroupBox();
+    auto *topLayout = new QGridLayout(topBox);
     topLayout->setSpacing(5);
 
     lblResolution = new QLabel();
@@ -450,7 +450,7 @@ void ConfigDialog::initPlots3DPage()
     topLayout->addWidget(boxAutoscale3DPlots, 3, 0);
 
     groupBox3DCol = new QGroupBox();
-    QGridLayout *middleLayout = new QGridLayout(groupBox3DCol);
+    auto *middleLayout = new QGridLayout(groupBox3DCol);
 
     btnFromColor = new QPushButton();
     middleLayout->addWidget(btnFromColor, 0, 0);
@@ -470,7 +470,7 @@ void ConfigDialog::initPlots3DPage()
     middleLayout->addWidget(btnBackground3D, 1, 3);
 
     groupBox3DFonts = new QGroupBox();
-    QHBoxLayout *bottomLayout = new QHBoxLayout(groupBox3DFonts);
+    auto *bottomLayout = new QHBoxLayout(groupBox3DFonts);
 
     btnTitleFnt = new QPushButton();
     bottomLayout->addWidget(btnTitleFnt);
@@ -479,7 +479,7 @@ void ConfigDialog::initPlots3DPage()
     btnNumFnt = new QPushButton();
     bottomLayout->addWidget(btnNumFnt);
 
-    QVBoxLayout *plots3DPageLayout = new QVBoxLayout(plots3D);
+    auto *plots3DPageLayout = new QVBoxLayout(plots3D);
     plots3DPageLayout->addWidget(topBox);
     plots3DPageLayout->addWidget(groupBox3DCol);
     plots3DPageLayout->addWidget(groupBox3DFonts);
@@ -501,15 +501,15 @@ void ConfigDialog::initPlots3DPage()
 
 void ConfigDialog::initAppPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
 
     appTabWidget = new QTabWidget(generalDialog);
 
     application = new QWidget();
-    QVBoxLayout *applicationLayout = new QVBoxLayout(application);
-    QGroupBox *groupBoxApp = new QGroupBox();
+    auto *applicationLayout = new QVBoxLayout(application);
+    auto *groupBoxApp = new QGroupBox();
     applicationLayout->addWidget(groupBoxApp);
-    QGridLayout *topBoxLayout = new QGridLayout(groupBoxApp);
+    auto *topBoxLayout = new QGridLayout(groupBoxApp);
 
     lblLanguage = new QLabel();
     topBoxLayout->addWidget(lblLanguage, 0, 0);
@@ -571,10 +571,10 @@ void ConfigDialog::initAppPage()
     appTabWidget->addTab(confirm, QString());
 
     appColors = new QWidget();
-    QVBoxLayout *appColorsLayout = new QVBoxLayout(appColors);
-    QGroupBox *groupBoxAppCol = new QGroupBox();
+    auto *appColorsLayout = new QVBoxLayout(appColors);
+    auto *groupBoxAppCol = new QGroupBox();
     appColorsLayout->addWidget(groupBoxAppCol);
-    QGridLayout *colorsBoxLayout = new QGridLayout(groupBoxAppCol);
+    auto *colorsBoxLayout = new QGridLayout(groupBoxAppCol);
 
     lblWorkspace = new QLabel();
     colorsBoxLayout->addWidget(lblWorkspace, 0, 0);
@@ -599,10 +599,10 @@ void ConfigDialog::initAppPage()
     appTabWidget->addTab(appColors, QString());
 
     numericFormatPage = new QWidget();
-    QVBoxLayout *numLayout = new QVBoxLayout(numericFormatPage);
-    QGroupBox *numericFormatBox = new QGroupBox();
+    auto *numLayout = new QVBoxLayout(numericFormatPage);
+    auto *numericFormatBox = new QGroupBox();
     numLayout->addWidget(numericFormatBox);
-    QGridLayout *numericFormatLayout = new QGridLayout(numericFormatBox);
+    auto *numericFormatLayout = new QGridLayout(numericFormatBox);
 
     lblAppPrecision = new QLabel();
     numericFormatLayout->addWidget(lblAppPrecision, 0, 0);
@@ -665,11 +665,11 @@ void ConfigDialog::initAppPage()
 
 void ConfigDialog::initFittingPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     fitPage = new QWidget();
 
     groupBoxFittingCurve = new QGroupBox();
-    QGridLayout *fittingCurveLayout = new QGridLayout(groupBoxFittingCurve);
+    auto *fittingCurveLayout = new QGridLayout(groupBoxFittingCurve);
     fittingCurveLayout->setSpacing(5);
 
     generatePointsBtn = new QRadioButton();
@@ -698,7 +698,7 @@ void ConfigDialog::initFittingPage()
     groupBoxMultiPeak->setCheckable(true);
     groupBoxMultiPeak->setChecked(app->generatePeakCurves);
 
-    QHBoxLayout *multiPeakLayout = new QHBoxLayout(groupBoxMultiPeak);
+    auto *multiPeakLayout = new QHBoxLayout(groupBoxMultiPeak);
 
     lblPeaksColor = new QLabel();
     multiPeakLayout->addWidget(lblPeaksColor);
@@ -707,7 +707,7 @@ void ConfigDialog::initFittingPage()
     multiPeakLayout->addWidget(boxPeaksColor);
 
     groupBoxFitParameters = new QGroupBox();
-    QGridLayout *fitParamsLayout = new QGridLayout(groupBoxFitParameters);
+    auto *fitParamsLayout = new QGridLayout(groupBoxFitParameters);
 
     lblPrecision = new QLabel();
     fitParamsLayout->addWidget(lblPrecision, 0, 0);
@@ -727,7 +727,7 @@ void ConfigDialog::initFittingPage()
     fitParamsLayout->addWidget(scaleErrorsBox, 3, 0);
     scaleErrorsBox->setChecked(app->fit_scale_errors);
 
-    QVBoxLayout *fitPageLayout = new QVBoxLayout(fitPage);
+    auto *fitPageLayout = new QVBoxLayout(fitPage);
     fitPageLayout->addWidget(groupBoxFittingCurve);
     fitPageLayout->addWidget(groupBoxMultiPeak);
     fitPageLayout->addWidget(groupBoxFitParameters);
@@ -739,12 +739,12 @@ void ConfigDialog::initFittingPage()
 
 void ConfigDialog::initCurvesPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
 
     curves = new QWidget();
 
-    QGroupBox *curvesGroupBox = new QGroupBox();
-    QGridLayout *curvesBoxLayout = new QGridLayout(curvesGroupBox);
+    auto *curvesGroupBox = new QGroupBox();
+    auto *curvesBoxLayout = new QGridLayout(curvesGroupBox);
 
     lblCurveStyle = new QLabel();
     curvesBoxLayout->addWidget(lblCurveStyle, 0, 0);
@@ -767,17 +767,17 @@ void ConfigDialog::initCurvesPage()
 
     curvesBoxLayout->setRowStretch(3, 1);
 
-    QHBoxLayout *curvesPageLayout = new QHBoxLayout(curves);
+    auto *curvesPageLayout = new QHBoxLayout(curves);
     curvesPageLayout->addWidget(curvesGroupBox);
 }
 
 void ConfigDialog::initConfirmationsPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     confirm = new QWidget();
 
     groupBoxConfirm = new QGroupBox();
-    QVBoxLayout *layout = new QVBoxLayout(groupBoxConfirm);
+    auto *layout = new QVBoxLayout(groupBoxConfirm);
 
     boxFolders = new QCheckBox();
     boxFolders->setChecked(app->confirmCloseFolder);
@@ -805,14 +805,14 @@ void ConfigDialog::initConfirmationsPage()
 
     layout->addStretch();
 
-    QHBoxLayout *confirmPageLayout = new QHBoxLayout(confirm);
+    auto *confirmPageLayout = new QHBoxLayout(confirm);
     confirmPageLayout->addWidget(groupBoxConfirm);
 }
 
 void ConfigDialog::languageChange()
 {
     setWindowTitle(tr("Preferences"));
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
 
     // pages list
     itemsList->clear();
@@ -1072,7 +1072,7 @@ void ConfigDialog::accept()
 
 void ConfigDialog::apply()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     if (!app)
         return;
 
@@ -1085,7 +1085,7 @@ void ConfigDialog::apply()
 
     if (sep.contains(QRegExp("[0-9.eE+-]")) != 0) {
         QMessageBox::warning(
-                0, tr("Import options error"),
+                nullptr, tr("Import options error"),
                 tr("The separator must not contain the following characters: 0-9eE.+-"));
         return;
     }
@@ -1526,14 +1526,14 @@ void ConfigDialog::setColumnSeparator(const QString &sep)
 
 void ConfigDialog::switchToLanguage(int param)
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     app->switchToLanguage(param);
     languageChange();
 }
 
 void ConfigDialog::insertLanguagesList()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     QStringList locales = app->locales;
     QStringList languages;
     int lang = 0;

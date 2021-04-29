@@ -45,14 +45,14 @@ DataSetDialog::DataSetDialog(const QString &text, QWidget *parent, Qt::WindowFla
     setWindowTitle(tr("Select data set"));
 
     operation = QString();
-    d_graph = 0;
+    d_graph = nullptr;
 
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    QHBoxLayout *bottomLayout = new QHBoxLayout();
+    auto *mainLayout = new QVBoxLayout(this);
+    auto *bottomLayout = new QHBoxLayout();
     bottomLayout->addStretch();
 
     groupBox1 = new QGroupBox();
-    QHBoxLayout *topLayout = new QHBoxLayout(groupBox1);
+    auto *topLayout = new QHBoxLayout(groupBox1);
 
     topLayout->addWidget(new QLabel(text));
     boxName = new QComboBox();
@@ -79,7 +79,7 @@ void DataSetDialog::accept()
     if (operation.isEmpty())
         emit options(boxName->currentText());
     else if (d_graph) {
-        ApplicationWindow *app = (ApplicationWindow *)this->parent();
+        auto *app = (ApplicationWindow *)this->parent();
         if (app)
             app->analyzeCurve(d_graph, operation, boxName->currentText());
     }

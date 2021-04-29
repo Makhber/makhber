@@ -43,9 +43,9 @@
 #include <QFileDialog>
 #include <QProgressDialog>
 
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cmath>
+#include <cstdio>
 
 #include <gsl/gsl_linalg.h>
 #include <gsl/gsl_math.h>
@@ -62,7 +62,8 @@ int Matrix::default_row_height = 20;
 Matrix::Matrix(AbstractScriptingEngine *engine, int rows, int cols, const QString &name)
     : AbstractPart(name), d_plot_menu(0), scripted(engine)
 #else
-Matrix::Matrix(void *, int rows, int cols, const QString &name) : AbstractPart(name), d_plot_menu(0)
+Matrix::Matrix(void *, int rows, int cols, const QString &name)
+    : AbstractPart(name), d_plot_menu(nullptr)
 #endif
 {
     d_matrix_private = new Private(this);
@@ -70,7 +71,7 @@ Matrix::Matrix(void *, int rows, int cols, const QString &name) : AbstractPart(n
     appendColumns(cols);
     appendRows(rows);
 
-    d_view = NULL;
+    d_view = nullptr;
     createActions();
     connectActions();
 }
@@ -81,14 +82,11 @@ Matrix::Matrix() : AbstractPart("temp"), scripted(0)
 Matrix::Matrix() : AbstractPart("temp")
 #endif
 {
-    d_view = NULL;
+    d_view = nullptr;
     createActions();
 }
 
-Matrix::~Matrix()
-{
-    //  delete d_view.data();
-}
+Matrix::~Matrix() = default;
 
 void Matrix::setView(MatrixView *view)
 {
@@ -109,7 +107,7 @@ QWidget *Matrix::view()
         adjustTabBarAction(true);
     }
 #else
-    Q_ASSERT(d_view != NULL);
+    Q_ASSERT(d_view != nullptr);
 #endif
     return d_view;
 }
@@ -282,7 +280,7 @@ void Matrix::pasteIntoSelection()
     if (mimeData->hasText()) {
         QString input_str = QString(clipboard->text());
         QList<QStringList> cell_texts;
-        QStringList input_rows(input_str.split(QRegExp("\\n|\\r\\n|\\r")));
+        QStringList input_rows(input_str.split(QRegExp(R"(\n|\r\n|\r)")));
         input_row_count = input_rows.count();
         input_col_count = 0;
         for (int i = 0; i < input_row_count; i++) {
@@ -885,12 +883,13 @@ void Matrix::goToCell()
         return;
     bool ok;
 
-    int col = QInputDialog::getInt(0, tr("Go to Cell"), tr("Enter column"), 1, 1, columnCount(), 1,
-                                   &ok);
+    int col = QInputDialog::getInt(nullptr, tr("Go to Cell"), tr("Enter column"), 1, 1,
+                                   columnCount(), 1, &ok);
     if (!ok)
         return;
 
-    int row = QInputDialog::getInt(0, tr("Go to Cell"), tr("Enter row"), 1, 1, rowCount(), 1, &ok);
+    int row = QInputDialog::getInt(nullptr, tr("Go to Cell"), tr("Enter row"), 1, 1, rowCount(), 1,
+                                   &ok);
     if (!ok)
         return;
 
@@ -968,13 +967,13 @@ void Matrix::dimensionsDialog()
 {
     bool ok;
 
-    int cols = QInputDialog::getInt(0, tr("Set Matrix Dimensions"), tr("Enter number of columns"),
-                                    columnCount(), 1, 1e9, 1, &ok);
+    int cols = QInputDialog::getInt(nullptr, tr("Set Matrix Dimensions"),
+                                    tr("Enter number of columns"), columnCount(), 1, 1e9, 1, &ok);
     if (!ok)
         return;
 
-    int rows = QInputDialog::getInt(0, tr("Set Matrix Dimensions"), tr("Enter number of rows"),
-                                    rowCount(), 1, 1e9, 1, &ok);
+    int rows = QInputDialog::getInt(nullptr, tr("Set Matrix Dimensions"),
+                                    tr("Enter number of rows"), rowCount(), 1, 1e9, 1, &ok);
     if (!ok)
         return;
 
@@ -992,21 +991,21 @@ void Matrix::importImageDialog()
         filter += " *." + formats.at(i) + " (*." + formats.at(i) + ");;";
 
     QString images_path = global("images_path").toString();
-    QString file_name =
-            QFileDialog::getOpenFileName(0, tr("Import image from file"), images_path, filter);
+    QString file_name = QFileDialog::getOpenFileName(nullptr, tr("Import image from file"),
+                                                     images_path, filter);
     if (!file_name.isEmpty()) {
         QFileInfo file_info(file_name);
         images_path = file_info.canonicalPath();
         setGlobal("images_path", images_path);
         QImage image(file_name);
-        Matrix *matrix = NULL;
+        Matrix *matrix = nullptr;
         if (!image.isNull())
             matrix = Matrix::fromImage(image);
         if (matrix) {
             copy(matrix);
             delete matrix;
         } else
-            QMessageBox::information(0, tr("Error importing image"),
+            QMessageBox::information(nullptr, tr("Error importing image"),
                                      tr("Import of image '%1' failed").arg(file_name));
     }
 }
@@ -1506,7 +1505,7 @@ void Matrix::recalculateSelectedCells()
 }
 
 /* ========================= static methods ======================= */
-ActionManager *Matrix::action_manager = 0;
+ActionManager *Matrix::action_manager = nullptr;
 
 ActionManager *Matrix::actionManager()
 {
@@ -1536,7 +1535,7 @@ Matrix *Matrix::fromImage(const QImage &image)
     progress.setWindowTitle(tr("Makhber") + " - " + tr("Import image..."));
     progress.raise();
 
-    Matrix *matrix = new Matrix(0, rows, cols, tr("Matrix %1").arg(1));
+    auto *matrix = new Matrix(nullptr, rows, cols, tr("Matrix %1").arg(1));
 
     QVector<qreal> values;
     values.resize(rows);
@@ -1558,7 +1557,7 @@ Matrix *Matrix::fromImage(const QImage &image)
 
     if (progress.wasCanceled()) {
         delete matrix;
-        return NULL;
+        return nullptr;
     }
     return matrix;
 }

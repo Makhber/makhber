@@ -43,9 +43,9 @@ SortDialog::SortDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     setWindowTitle(tr("Sorting Options"));
     setSizeGripEnabled(true);
 
-    QGroupBox *group_box1 = new QGroupBox();
-    QGridLayout *top_layout = new QGridLayout(group_box1);
-    QHBoxLayout *hl = new QHBoxLayout();
+    auto *group_box1 = new QGroupBox();
+    auto *top_layout = new QGridLayout(group_box1);
+    auto *hl = new QHBoxLayout();
     hl->addStretch();
 
     top_layout->addWidget(new QLabel(tr("Sort columns")), 0, 0);
@@ -73,7 +73,7 @@ SortDialog::SortDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     ui.button_close = new QPushButton(tr("&Close"));
     hl->addWidget(ui.button_close);
 
-    QVBoxLayout *mainlayout = new QVBoxLayout(this);
+    auto *mainlayout = new QVBoxLayout(this);
     mainlayout->addWidget(group_box1);
     mainlayout->addLayout(hl);
 
@@ -88,7 +88,7 @@ void SortDialog::accept()
     if (ui.box_type->currentIndex() == Together)
         leading = d_columns_list.at(ui.columns_list->currentIndex());
     else
-        leading = 0;
+        leading = nullptr;
     emit sort(leading, d_columns_list, ui.box_order->currentIndex() == Ascending);
 }
 
@@ -96,8 +96,8 @@ void SortDialog::setColumnsList(QList<Column *> list)
 {
     d_columns_list = list;
 
-    for (int i = 0; i < list.size(); i++)
-        ui.columns_list->addItem(list.at(i)->name());
+    for (auto i : list)
+        ui.columns_list->addItem(i->name());
     ui.columns_list->setCurrentIndex(0);
 }
 

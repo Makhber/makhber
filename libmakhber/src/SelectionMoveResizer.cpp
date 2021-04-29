@@ -329,7 +329,7 @@ void SelectionMoveResizer::operateOnTargets()
         i->setGeometry(operateOn(i->geometry()));
         // ugly hack
         // see Graph::setIgnoreResizeEvents() and Graph::resizeEvent()
-        Graph *g = qobject_cast<Graph *>(i);
+        auto *g = qobject_cast<Graph *>(i);
         if (g)
             g->plotWidget()->resize(i->size());
     }

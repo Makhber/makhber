@@ -66,12 +66,12 @@ QPointF DataPointPicker::pick()
 {
     if (m_graph->isPiePlot() || !m_graph->validCurvesDataSize())
         return m_result;
-    DataPickerTool *tool = new DataPickerTool(m_graph, m_app, DataPickerTool::Display);
+    auto *tool = new DataPickerTool(m_graph, m_app, DataPickerTool::Display);
     connect(tool, SIGNAL(selected(QwtPlotCurve *, int)), this,
             SLOT(pointSelected(QwtPlotCurve *, int)));
     m_graph->setActiveTool(tool);
     m_picking_loop.exec();
-    m_graph->setActiveTool(0);
+    m_graph->setActiveTool(nullptr);
     return m_result;
 }
 

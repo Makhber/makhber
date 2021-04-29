@@ -44,8 +44,8 @@ LayerDialog::LayerDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
 {
     setWindowTitle(tr("Arrange Layers"));
 
-    QGroupBox *gb1 = new QGroupBox(tr("Layers"));
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gb1 = new QGroupBox(tr("Layers"));
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("Number")), 0, 0);
     layersBox = new QSpinBox();
     layersBox->setRange(0, 100);
@@ -56,8 +56,8 @@ LayerDialog::LayerDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     gl1->addWidget(fitBox, 1, 1);
     gl1->setRowStretch(2, 1);
 
-    QGroupBox *gb2 = new QGroupBox(tr("Alignement"));
-    QGridLayout *gl2 = new QGridLayout(gb2);
+    auto *gb2 = new QGroupBox(tr("Alignement"));
+    auto *gl2 = new QGridLayout(gb2);
     gl2->addWidget(new QLabel(tr("Horizontal")), 0, 0);
 
     alignHorBox = new QComboBox();
@@ -75,7 +75,7 @@ LayerDialog::LayerDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     gl2->setRowStretch(2, 1);
 
     GroupGrid = new QGroupBox(tr("Grid"));
-    QGridLayout *gl3 = new QGridLayout(GroupGrid);
+    auto *gl3 = new QGridLayout(GroupGrid);
     gl3->addWidget(new QLabel(tr("Columns")), 0, 0);
     boxX = new QSpinBox();
     boxX->setRange(1, 100);
@@ -89,7 +89,7 @@ LayerDialog::LayerDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     GroupCanvasSize->setCheckable(true);
     GroupCanvasSize->setChecked(false);
 
-    QGridLayout *gl5 = new QGridLayout(GroupCanvasSize);
+    auto *gl5 = new QGridLayout(GroupCanvasSize);
     gl5->addWidget(new QLabel(tr("Width")), 0, 0);
     boxCanvasWidth = new QSpinBox();
     boxCanvasWidth->setRange(0, 10000);
@@ -103,8 +103,8 @@ LayerDialog::LayerDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     boxCanvasHeight->setSuffix(tr(" pixels"));
     gl5->addWidget(boxCanvasHeight, 1, 1);
 
-    QGroupBox *gb4 = new QGroupBox(tr("Spacing"));
-    QGridLayout *gl4 = new QGridLayout(gb4);
+    auto *gb4 = new QGroupBox(tr("Spacing"));
+    auto *gl4 = new QGridLayout(gb4);
     gl4->addWidget(new QLabel(tr("Columns gap")), 0, 0);
     boxColsGap = new QSpinBox();
     boxColsGap->setRange(0, 1000);
@@ -142,7 +142,7 @@ LayerDialog::LayerDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     boxBottomSpace->setSuffix(tr(" pixels"));
     gl4->addWidget(boxBottomSpace, 5, 1);
 
-    QVBoxLayout *vbox1 = new QVBoxLayout();
+    auto *vbox1 = new QVBoxLayout();
     vbox1->addWidget(GroupGrid);
     vbox1->addWidget(GroupCanvasSize);
 
@@ -150,20 +150,20 @@ LayerDialog::LayerDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     buttonOk = new QPushButton(tr("&OK"));
     buttonCancel = new QPushButton(tr("&Cancel"));
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
     hbox1->addStretch();
     hbox1->addWidget(buttonApply);
     hbox1->addWidget(buttonOk);
     hbox1->addWidget(buttonCancel);
 
-    QGridLayout *gl6 = new QGridLayout();
+    auto *gl6 = new QGridLayout();
     gl6->addWidget(gb1, 0, 0);
     gl6->addWidget(gb2, 0, 1);
     gl6->addLayout(vbox1, 1, 0);
     gl6->addWidget(gb4, 1, 1);
     gl6->setRowStretch(2, 1);
 
-    QVBoxLayout *vbox2 = new QVBoxLayout(this);
+    auto *vbox2 = new QVBoxLayout(this);
     vbox2->addLayout(gl6);
     vbox2->addLayout(hbox1);
 
@@ -204,7 +204,7 @@ void LayerDialog::update()
     int old_graphs = multi_layer->layers();
     int dn = multi_layer->layers() - graphs;
     if (dn > 0
-        && QMessageBox::question(0, tr("Delete Layers?"),
+        && QMessageBox::question(nullptr, tr("Delete Layers?"),
                                  tr("You are about to delete %1 existing layers.").arg(dn) + "\n"
                                          + tr("Are you sure you want to continue this operation?"),
                                  tr("&Continue"), tr("&Cancel"), QString(), 0, 1))
@@ -216,7 +216,7 @@ void LayerDialog::update()
         return;
 
     if (dn < 0) { // Customize new layers with user default settings
-        ApplicationWindow *app = (ApplicationWindow *)this->parent();
+        auto *app = (ApplicationWindow *)this->parent();
         for (int i = old_graphs + 1; i <= graphs; i++)
             app->setPreferences(multi_layer->layer(i));
     }
@@ -225,7 +225,7 @@ void LayerDialog::update()
     int rows = boxY->value();
 
     if (cols > graphs && !fitBox->isChecked()) {
-        QMessageBox::about(0, tr("Columns input error"),
+        QMessageBox::about(nullptr, tr("Columns input error"),
                            tr("The number of columns you've entered is greater than the number of "
                               "graphs (%1)!")
                                    .arg(graphs));
@@ -235,7 +235,7 @@ void LayerDialog::update()
 
     if (rows > graphs && !fitBox->isChecked()) {
         QMessageBox::about(
-                0, tr("Rows input error"),
+                nullptr, tr("Rows input error"),
                 tr("The number of rows you've entered is greater than the number of graphs (%1)!")
                         .arg(graphs));
         boxY->setFocus();

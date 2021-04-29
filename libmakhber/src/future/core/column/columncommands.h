@@ -458,7 +458,7 @@ class ColumnSetFormulaCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnSetFormulaCmd(Column::Private *col, Interval<int> interval, const QString &formula,
+    ColumnSetFormulaCmd(Column::Private *col, Interval<int> interval, QString formula,
                         QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnSetFormulaCmd();
@@ -521,7 +521,7 @@ class ColumnSetTextCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnSetTextCmd(Column::Private *col, int row, const QString &new_value,
+    ColumnSetTextCmd(Column::Private *col, int row, QString new_value,
                      QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnSetTextCmd();
@@ -592,7 +592,7 @@ class ColumnSetDateTimeCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnSetDateTimeCmd(Column::Private *col, int row, const QDateTime &new_value,
+    ColumnSetDateTimeCmd(Column::Private *col, int row, QDateTime new_value,
                          QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnSetDateTimeCmd();

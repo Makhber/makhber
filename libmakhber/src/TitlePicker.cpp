@@ -55,7 +55,7 @@ bool TitlePicker::eventFilter(QObject *object, QEvent *e)
     }
 
     if (object->inherits("QwtTextLabel") && e->type() == QEvent::MouseButtonPress) {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         emit clicked();
 
         if (me->button() == Qt::RightButton)

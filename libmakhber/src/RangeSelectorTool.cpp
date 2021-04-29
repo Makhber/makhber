@@ -44,13 +44,13 @@ RangeSelectorTool::RangeSelectorTool(Graph *graph, const QObject *status_target,
                                      const char *status_slot)
     : QwtPlotPicker(graph->plotWidget()->canvas()), PlotToolInterface(graph)
 {
-    d_selected_curve = NULL;
+    d_selected_curve = nullptr;
     for (int i = d_graph->curves(); i >= 0; --i) {
         d_selected_curve = d_graph->curve(i);
         if (d_selected_curve && d_selected_curve->rtti() == QwtPlotItem::Rtti_PlotCurve
             && d_selected_curve->dataSize() > 0)
             break;
-        d_selected_curve = NULL;
+        d_selected_curve = nullptr;
     }
     if (!d_selected_curve) {
         QMessageBox::critical(d_graph, tr("Warning"), tr("All the curves on this plot are empty!"));
@@ -107,7 +107,7 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
     const int curve_key = d_graph->plotWidget()->closestCurve(pos.x(), pos.y(), dist, point);
     if (curve_key < 0 || dist >= 5) // 5 pixels tolerance
         return;
-    QwtPlotCurve *curve = (QwtPlotCurve *)d_graph->plotWidget()->curve(curve_key);
+    auto *curve = (QwtPlotCurve *)d_graph->plotWidget()->curve(curve_key);
     if (!curve)
         return;
 

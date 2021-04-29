@@ -36,7 +36,7 @@
 #include <QPixmap>
 
 TableModel::TableModel(future::Table *table)
-    : QAbstractItemModel(0),
+    : QAbstractItemModel(nullptr),
       d_table(table),
       d_formula_mode(false)
 #ifdef LEGACY_CODE_0_2_x
@@ -63,7 +63,7 @@ TableModel::TableModel(future::Table *table)
             SIGNAL(headerDataChanged(Qt::Orientation, int, int)));
 }
 
-TableModel::~TableModel() { }
+TableModel::~TableModel() = default;
 
 Qt::ItemFlags TableModel::flags(const QModelIndex &index) const
 {

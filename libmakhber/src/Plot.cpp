@@ -70,7 +70,7 @@ Plot::Plot(QWidget *parent, QString) : QwtPlot(parent)
 
     // custom scale
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
-        QwtScaleWidget *scale = (QwtScaleWidget *)axisWidget(i);
+        auto *scale = (QwtScaleWidget *)axisWidget(i);
         if (scale) {
             scale->setMargin(0);
 
@@ -84,7 +84,7 @@ Plot::Plot(QWidget *parent, QString) : QwtPlot(parent)
             pal.setColor(QPalette::WindowText, QColor(Qt::black));
             scale->setPalette(pal);
 
-            ScaleDraw *sd = new ScaleDraw();
+            auto *sd = new ScaleDraw();
             sd->setTickLength(QwtScaleDiv::MinorTick, minTickLength);
             sd->setTickLength(QwtScaleDiv::MediumTick, minTickLength);
             sd->setTickLength(QwtScaleDiv::MajorTick, majTickLength);
@@ -107,7 +107,7 @@ Plot::Plot(QWidget *parent, QString) : QwtPlot(parent)
     plCanvas->setPaintAttribute(QwtPlotCanvas::PaintCached, false);
     plCanvas->setPaintAttribute(QwtPlotCanvas::PaintPacked, false);
 
-    QColor background = QColor(Qt::white);
+    auto background = QColor(Qt::white);
     background.setAlpha(255);
 
     QPalette cg;
@@ -159,7 +159,7 @@ void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map
         if (!axisEnabled(i))
             continue;
 
-        ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(i);
+        auto *sd = (ScaleDraw *)axisScaleDraw(i);
         int majorTicksType = sd->majorTicksStyle();
         int minorTicksType = sd->minorTicksStyle();
 
@@ -197,7 +197,7 @@ void Plot::drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleM
     painter->save();
     painter->setPen(QPen(color, axesLinewidth(), Qt::SolidLine));
 
-    QwtScaleDiv *scDiv = (QwtScaleDiv *)axisScaleDiv(axis);
+    auto *scDiv = (QwtScaleDiv *)axisScaleDiv(axis);
     const QwtValueList minTickList = scDiv->ticks(QwtScaleDiv::MinorTick);
     int minTicks = (int)minTickList.count();
 
@@ -336,7 +336,7 @@ void Plot::drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleM
 void Plot::setAxesLinewidth(int width)
 {
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
-        QwtScaleWidget *scale = (QwtScaleWidget *)this->axisWidget(i);
+        auto *scale = (QwtScaleWidget *)this->axisWidget(i);
         if (scale) {
             scale->setPenWidth(width);
             scale->repaint();
@@ -387,7 +387,7 @@ QwtPlotCurve *Plot::curve(int index)
     if (it && it->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
         return (QwtPlotCurve *)it;
     else
-        return 0;
+        return nullptr;
 }
 
 int Plot::closestCurve(int xpos, int ypos, int &dist, int &point)
@@ -400,12 +400,12 @@ int Plot::closestCurve(int xpos, int ypos, int &dist, int &point)
     int key = -1;
     for (QMap<int, QwtPlotItem *>::iterator iter = d_curves.begin(); iter != d_curves.end();
          ++iter) {
-        QwtPlotItem *item = (QwtPlotItem *)iter.value();
+        auto *item = (QwtPlotItem *)iter.value();
         if (!item)
             continue;
 
         if (item->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
-            PlotCurve *c = (PlotCurve *)item;
+            auto *c = (PlotCurve *)item;
             for (int i = 0; i < c->dataSize(); i++) {
                 double cx = map[c->xAxis()].xTransform(c->x(i)) - double(xpos);
                 double cy = map[c->yAxis()].xTransform(c->y(i)) - double(ypos);
@@ -461,7 +461,7 @@ void Plot::removeCurve(int index)
         return;
 
     if (c->rtti() == QwtPlotItem::Rtti_PlotSpectrogram) {
-        Spectrogram *sp = (Spectrogram *)c;
+        auto *sp = (Spectrogram *)c;
         QwtScaleWidget *colorAxis = axisWidget(sp->colorScaleAxis());
         if (colorAxis)
             colorAxis->setColorBarEnabled(false);
@@ -476,7 +476,7 @@ QList<int> Plot::getMajorTicksType()
     QList<int> majorTicksType;
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
         if (axisEnabled(axis)) {
-            ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+            auto *sd = (ScaleDraw *)axisScaleDraw(axis);
             majorTicksType << sd->majorTicksStyle();
         } else
             majorTicksType << ScaleDraw::Out;
@@ -486,7 +486,7 @@ QList<int> Plot::getMajorTicksType()
 
 void Plot::setMajorTicksType(int axis, int type)
 {
-    ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+    auto *sd = (ScaleDraw *)axisScaleDraw(axis);
     if (sd)
         sd->setMajorTicksStyle((ScaleDraw::TicksStyle)type);
 }
@@ -496,7 +496,7 @@ QList<int> Plot::getMinorTicksType()
     QList<int> minorTicksType;
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
         if (axisEnabled(axis)) {
-            ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+            auto *sd = (ScaleDraw *)axisScaleDraw(axis);
             minorTicksType << sd->minorTicksStyle();
         } else
             minorTicksType << ScaleDraw::Out;
@@ -506,7 +506,7 @@ QList<int> Plot::getMinorTicksType()
 
 void Plot::setMinorTicksType(int axis, int type)
 {
-    ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+    auto *sd = (ScaleDraw *)axisScaleDraw(axis);
     if (sd)
         sd->setMinorTicksStyle((ScaleDraw::TicksStyle)type);
 }
@@ -517,7 +517,7 @@ int Plot::axisLabelFormat(int axis)
         int prec;
         char format;
 
-        ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
         sd->labelFormat(format, prec);
 
         if (format == 'g')
@@ -536,7 +536,7 @@ int Plot::axisLabelFormat(int axis)
 int Plot::axisLabelPrecision(int axis)
 {
     if (axisValid(axis)) {
-        ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
         return sd->labelNumericPrecision();
     }
 
@@ -553,7 +553,7 @@ int Plot::axisLabelPrecision(int axis)
 void Plot::axisLabelFormat(int axis, char &f, int &prec) const
 {
     if (axisValid(axis)) {
-        ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
         sd->labelFormat(f, prec);
     } else {
         // for a bad call we return the default values
@@ -571,7 +571,7 @@ void Plot::axisLabelFormat(int axis, char &f, int &prec) const
 void Plot::setAxisLabelFormat(int axis, char f, int prec)
 {
     if (axisValid(axis)) {
-        ScaleDraw *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
         sd->setLabelFormat(f, prec);
     }
 }

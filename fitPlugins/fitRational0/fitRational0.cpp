@@ -30,10 +30,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <math.h>
-#include <stdlib.h>
-#include <stdio.h>
-#include <stddef.h>
+#include <cmath>
+#include <cstdlib>
+#include <cstdio>
+#include <cstddef>
 
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_blas.h>
@@ -84,8 +84,7 @@ extern "C" DLL_EXPORT int function_f(const gsl_vector *x, void *params, gsl_vect
     double b = gsl_vector_get(x, 1);
     double c = gsl_vector_get(x, 2);
 
-    size_t i;
-    for (i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         double Yi = (b + c * X[i]) / (1 + a * X[i]);
         gsl_vector_set(f, i, (Yi - Y[i]) / sigma[i]);
     }
@@ -103,9 +102,8 @@ extern "C" DLL_EXPORT double function_d(const gsl_vector *x, void *params)
     double b = gsl_vector_get(x, 1);
     double c = gsl_vector_get(x, 2);
 
-    size_t i;
     double val = 0;
-    for (i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         double dYi = (((b + c * X[i]) / (1 + a * X[i])) - Y[i]) / sigma[i];
         val += dYi * dYi;
     }
@@ -123,8 +121,7 @@ extern "C" DLL_EXPORT int function_df(const gsl_vector *x, void *params, gsl_mat
     double b = gsl_vector_get(x, 1);
     double c = gsl_vector_get(x, 2);
 
-    size_t i;
-    for (i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         /* Jacobian matrix J(i,j) = dfi / dxj,
            where fi = (Yi - Y[i])/sigma[i],
            Yi = (b + c*X[i])/(1 + a*X[i])

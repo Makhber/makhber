@@ -48,8 +48,8 @@ ExpDecayDialog::ExpDecayDialog(int type, QWidget *parent, Qt::WindowFlags fl) : 
 
     setWindowTitle(tr("Verify initial guesses"));
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("Exponential Fit of")), 0, 0);
 
     boxName = new QComboBox();
@@ -119,12 +119,12 @@ ExpDecayDialog::ExpDecayDialog(int type, QWidget *parent, Qt::WindowFlags fl) : 
 
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QBoxLayout *bl1 = new QBoxLayout(QBoxLayout::TopToBottom);
+    auto *bl1 = new QBoxLayout(QBoxLayout::TopToBottom);
     bl1->addWidget(buttonFit);
     bl1->addWidget(buttonCancel);
     bl1->addStretch();
 
-    QHBoxLayout *hlayout = new QHBoxLayout();
+    auto *hlayout = new QHBoxLayout();
     hlayout->addWidget(gb1);
     hlayout->addLayout(bl1);
     setLayout(hlayout);
@@ -139,7 +139,7 @@ void ExpDecayDialog::setGraph(Graph *g)
     if (!g)
         return;
 
-    fitter = 0;
+    fitter = nullptr;
     graph = g;
 
     boxName->addItems(graph->analysableCurvesList());
@@ -161,7 +161,7 @@ void ExpDecayDialog::activateCurve(const QString &curveName)
     if (!c)
         return;
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return;
 
@@ -195,7 +195,7 @@ void ExpDecayDialog::fit()
         return;
     }
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return;
 
@@ -255,7 +255,7 @@ void ExpDecayDialog::fit()
 void ExpDecayDialog::closeEvent(QCloseEvent *e)
 {
     if (fitter) {
-        ApplicationWindow *app = (ApplicationWindow *)this->parent();
+        auto *app = (ApplicationWindow *)this->parent();
         if (app && app->pasteFitResultsToPlot)
             fitter->showLegend();
 

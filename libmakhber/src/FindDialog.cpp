@@ -45,8 +45,8 @@ FindDialog::FindDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     setWindowTitle(tr("Makhber") + " - " + tr("Find"));
     setSizeGripEnabled(true);
 
-    QGridLayout *topLayout = new QGridLayout();
-    QGridLayout *bottomLayout = new QGridLayout();
+    auto *topLayout = new QGridLayout();
+    auto *bottomLayout = new QGridLayout();
 
     topLayout->addWidget(new QLabel(tr("Start From")), 0, 0);
     labelStart = new QLabel();
@@ -64,8 +64,8 @@ FindDialog::FindDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     boxFind->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
     topLayout->addWidget(boxFind, 1, 1, 1, 4);
 
-    QGroupBox *groupBox = new QGroupBox(tr("Search in"));
-    QVBoxLayout *groupBoxLayout = new QVBoxLayout(groupBox);
+    auto *groupBox = new QGroupBox(tr("Search in"));
+    auto *groupBoxLayout = new QVBoxLayout(groupBox);
 
     boxWindowNames = new QCheckBox(tr("&Window Names"));
     boxWindowNames->setChecked(true);
@@ -102,7 +102,7 @@ FindDialog::FindDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     buttonCancel = new QPushButton(tr("&Close"));
     bottomLayout->addWidget(buttonCancel, 2, 2);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->addLayout(topLayout);
     mainLayout->addLayout(bottomLayout);
 
@@ -116,13 +116,13 @@ FindDialog::FindDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
 
 void FindDialog::setStartPath()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     labelStart->setText(app->current_folder->path());
 }
 
 void FindDialog::accept()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     app->find(boxFind->currentText(), boxWindowNames->isChecked(), boxWindowLabels->isChecked(),
               boxFolderNames->isChecked(), boxCaseSensitive->isChecked(),
               boxPartialMatch->isChecked(), boxSubfolders->isChecked());
@@ -137,4 +137,4 @@ void FindDialog::accept()
     }
 }
 
-FindDialog::~FindDialog() { }
+FindDialog::~FindDialog() = default;

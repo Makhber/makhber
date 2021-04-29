@@ -73,11 +73,10 @@ DLL_EXPORT int function_f(const gsl_vector *params, void *void_data, gsl_vector 
 {
     struct data *d = (struct data *)void_data;
     double p[3];
-    size_t i;
-    for (i = 0; i < d->p; i++)
+    for (size_t i = 0; i < d->p; i++)
         p[i] = gsl_vector_get(params, i);
 
-    for (i = 0; i < d->n; i++)
+    for (size_t i = 0; i < d->n; i++)
         gsl_vector_set(f, i, (function_eval(d->X[i], p) - d->Y[i]) / d->sigma[i]);
 
     return GSL_SUCCESS;
@@ -88,10 +87,9 @@ DLL_EXPORT double function_d(const gsl_vector *params, void *void_data)
     struct data *d = (struct data *)void_data;
     gsl_vector *f = gsl_vector_alloc(d->n);
     double result = 0;
-    size_t i;
 
     function_f(params, void_data, f);
-    for (i = 0; i < d->n; i++)
+    for (size_t i = 0; i < d->n; i++)
         result += pow(gsl_vector_get(f, i), 2);
 
     gsl_vector_free(f);
@@ -104,8 +102,7 @@ DLL_EXPORT int function_df(const gsl_vector *params, void *void_data, gsl_matrix
     double b1 = gsl_vector_get(params, 0);
     double b2 = gsl_vector_get(params, 1);
     double b3 = gsl_vector_get(params, 2);
-    size_t i;
-    for (i = 0; i < d->n; i++) {
+    for (size_t i = 0; i < d->n; i++) {
         double x = d->X[i];
         double l = b2 + b3 * x;
         double f = (-1) * exp(-b1 * x) / (l * d->sigma[i]);

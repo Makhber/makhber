@@ -53,8 +53,8 @@ LineDialog::LineDialog(ArrowMarker *line, QWidget *parent, Qt::WindowFlags fl) :
 
     lm = line;
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout();
 
     penWidget = new PenWidget(this, lm->linePen());
     penWidget->setPen(lm->linePen());
@@ -72,7 +72,7 @@ LineDialog::LineDialog(ArrowMarker *line, QWidget *parent, Qt::WindowFlags fl) :
 
     gb1->setLayout(gl1);
 
-    QHBoxLayout *hl1 = new QHBoxLayout();
+    auto *hl1 = new QHBoxLayout();
     hl1->addWidget(gb1);
 
     options = new QWidget();
@@ -81,8 +81,8 @@ LineDialog::LineDialog(ArrowMarker *line, QWidget *parent, Qt::WindowFlags fl) :
     tw = new QTabWidget();
     tw->addTab(options, tr("Opti&ons"));
 
-    QGroupBox *gb2 = new QGroupBox();
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gb2 = new QGroupBox();
+    auto *gl2 = new QGridLayout();
 
     gl2->addWidget(new QLabel(tr("Length")), 0, 0);
     boxHeadLength = new QSpinBox();
@@ -103,7 +103,7 @@ LineDialog::LineDialog(ArrowMarker *line, QWidget *parent, Qt::WindowFlags fl) :
 
     gb2->setLayout(gl2);
 
-    QHBoxLayout *hl2 = new QHBoxLayout();
+    auto *hl2 = new QHBoxLayout();
     hl2->addWidget(gb2);
 
     head = new QWidget();
@@ -117,13 +117,13 @@ LineDialog::LineDialog(ArrowMarker *line, QWidget *parent, Qt::WindowFlags fl) :
     btnOk = new QPushButton(tr("&Ok"));
     btnOk->setDefault(true);
 
-    QBoxLayout *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl1->addStretch();
     bl1->addWidget(buttonDefault);
     bl1->addWidget(btnApply);
     bl1->addWidget(btnOk);
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addWidget(tw);
     vl->addLayout(bl1);
     setLayout(vl);
@@ -142,37 +142,37 @@ void LineDialog::initGeometryTab()
     unitBox->addItem(tr("Scale Coordinates"));
     unitBox->addItem(tr("Pixels"));
 
-    QBoxLayout *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl1->addWidget(new QLabel(tr("Unit")));
     bl1->addWidget(unitBox);
 
-    QGroupBox *gb1 = new QGroupBox(tr("Start Point"));
+    auto *gb1 = new QGroupBox(tr("Start Point"));
     xStartBox = new QLineEdit();
     yStartBox = new QLineEdit();
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("X")), 0, 0);
     gl1->addWidget(xStartBox, 0, 1);
     gl1->addWidget(new QLabel(tr("Y")), 1, 0);
     gl1->addWidget(yStartBox, 1, 1);
     gb1->setLayout(gl1);
 
-    QGroupBox *gb2 = new QGroupBox(tr("End Point"));
+    auto *gb2 = new QGroupBox(tr("End Point"));
     xEndBox = new QLineEdit();
     yEndBox = new QLineEdit();
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("X")), 0, 0);
     gl2->addWidget(xEndBox, 0, 1);
     gl2->addWidget(new QLabel(tr("Y")), 1, 0);
     gl2->addWidget(yEndBox, 1, 1);
     gb2->setLayout(gl2);
 
-    QBoxLayout *bl2 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl2 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl2->addWidget(gb1);
     bl2->addWidget(gb2);
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addLayout(bl1);
     vl->addLayout(bl2);
 
@@ -238,7 +238,7 @@ void LineDialog::apply()
         setCoordinates(unitBox->currentIndex());
 
     QwtPlot *plot = lm->plot();
-    Graph *g = (Graph *)plot->parent();
+    auto *g = (Graph *)plot->parent();
     plot->replot();
     g->notifyChanges();
 
@@ -261,7 +261,7 @@ void LineDialog::enableHeadTab()
 
 void LineDialog::setDefaultValues()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return;
 

@@ -42,8 +42,8 @@ class ScaleDraw : public QwtScaleDraw
 public:
     enum TicksStyle { None = 0, Out = 1, Both = 2, In = 3 };
 
-    ScaleDraw(const QString &s = {});
-    ScaleDraw(const ScaleDraw &other, const QString &s = {});
+    ScaleDraw(QString s = {});
+    ScaleDraw(const ScaleDraw &other, QString s = {});
     virtual ~ScaleDraw() {};
 
     QString formulaString() { return formula_string; };
@@ -100,7 +100,7 @@ private:
 class TimeScaleDraw : public ScaleDraw
 {
 public:
-    TimeScaleDraw(const QTime &t, const QString &format);
+    TimeScaleDraw(const QTime &t, QString format);
     TimeScaleDraw(const ScaleDraw &other, const QTime &t, const QString &format)
         : ScaleDraw(other), t_origin(t), t_format(format)
     {
@@ -120,7 +120,7 @@ private:
 class DateScaleDraw : public ScaleDraw
 {
 public:
-    DateScaleDraw(const QDate &t, const QString &format);
+    DateScaleDraw(const QDate &t, QString format);
     DateScaleDraw(const ScaleDraw &other, const QDate &t, const QString &format)
         : ScaleDraw(other), t_origin(t), t_format(format)
     {
@@ -140,7 +140,7 @@ private:
 class DateTimeScaleDraw : public ScaleDraw
 {
 public:
-    DateTimeScaleDraw(const QDateTime &origin, const QString &format);
+    DateTimeScaleDraw(QDateTime origin, QString format);
     DateTimeScaleDraw(const ScaleDraw &other, const QDateTime &origin, const QString &format)
         : ScaleDraw(other), d_origin(origin), d_format(format)
     {

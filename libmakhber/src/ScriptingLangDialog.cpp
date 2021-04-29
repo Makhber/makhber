@@ -46,12 +46,12 @@ ScriptingLangDialog::ScriptingLangDialog(ScriptingEnv *env, ApplicationWindow *p
     btnOK = new QPushButton(tr("OK"));
     btnCancel = new QPushButton(tr("Cancel"));
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
     hbox1->addStretch();
     hbox1->addWidget(btnOK);
     hbox1->addWidget(btnCancel);
 
-    QVBoxLayout *vl = new QVBoxLayout(this);
+    auto *vl = new QVBoxLayout(this);
     vl->addWidget(langList);
     vl->addLayout(hbox1);
 
@@ -74,7 +74,7 @@ void ScriptingLangDialog::updateLangList()
 
 void ScriptingLangDialog::accept()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (app->setScriptingLang(langList->currentItem()->text()))
         close();
     else

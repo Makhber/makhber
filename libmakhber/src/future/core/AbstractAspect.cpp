@@ -111,7 +111,7 @@ void AbstractAspect::addChild(AbstractAspect *child)
     QString new_name = d_aspect_private->uniqueNameFor(child->name());
     beginMacro(tr("%1: add %2.").arg(name(), new_name));
     if (new_name != child->name()) {
-        info(tr("Renaming \"%1\" to \"%2\" in order to avoid name collision.")
+        info(tr(R"(Renaming "%1" to "%2" in order to avoid name collision.)")
                      .arg(child->name(), new_name));
         child->setName(new_name);
     }
@@ -126,7 +126,7 @@ void AbstractAspect::insertChild(AbstractAspect *child, int index)
     QString new_name = d_aspect_private->uniqueNameFor(child->name());
     beginMacro(tr("%1: insert %2 at position %3.").arg(name(), new_name).arg(index + 1));
     if (new_name != child->name()) {
-        info(tr("Renaming \"%1\" to \"%2\" in order to avoid name collision.")
+        info(tr(R"(Renaming "%1" to "%2" in order to avoid name collision.)")
                      .arg(child->name(), new_name));
         child->setName(new_name);
     }
@@ -146,7 +146,7 @@ void AbstractAspect::removeChild(AbstractAspect *child, bool detach)
 
 void AbstractAspect::reparentChild(AbstractAspect *new_parent, AbstractAspect *child)
 {
-    Q_ASSERT(new_parent != NULL);
+    Q_ASSERT(new_parent != nullptr);
     reparentChild(new_parent, child, new_parent->childCount());
 }
 
@@ -154,11 +154,11 @@ void AbstractAspect::reparentChild(AbstractAspect *new_parent, AbstractAspect *c
 {
     Q_ASSERT(indexOfChild(child) != -1);
     Q_ASSERT(new_index > 0 && new_index <= new_parent->childCount());
-    Q_ASSERT(new_parent != NULL);
+    Q_ASSERT(new_parent != nullptr);
     QString new_name = new_parent->d_aspect_private->uniqueNameFor(child->name());
     beginMacro(tr("%1: move %2 to %3.").arg(name(), child->name(), new_parent->name()));
     if (new_name != child->name()) {
-        info(tr("Renaming \"%1\" to \"%2\" in order to avoid name collision.")
+        info(tr(R"(Renaming "%1" to "%2" in order to avoid name collision.)")
                      .arg(child->name(), new_name));
         child->setName(new_name);
     }
@@ -251,7 +251,7 @@ void AbstractAspect::setName(const QString &value)
     if (d_aspect_private->parent()) {
         QString new_name = d_aspect_private->parent()->uniqueNameFor(sanitized_value);
         if (new_name != sanitized_value)
-            info(tr("Intended name \"%1\" diverted to \"%2\" in order to avoid name collision.")
+            info(tr(R"(Intended name "%1" diverted to "%2" in order to avoid name collision.)")
                          .arg(sanitized_value, new_name));
         exec(new AspectNameChangeCmd(d_aspect_private, new_name));
     } else
@@ -306,7 +306,7 @@ QIcon AbstractAspect::icon() const
 
 QMenu *AbstractAspect::createContextMenu() const
 {
-    QMenu *menu = new QMenu();
+    auto *menu = new QMenu();
 
     const QStyle *widget_style = qApp->style();
     QAction *action_temp;

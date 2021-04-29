@@ -27,7 +27,7 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include <math.h>
+#include <cmath>
 #include <qwt3d_color.h>
 #include <qwt3d_plot.h>
 #include "Cone3D.h"
@@ -56,11 +56,11 @@ Cone3D::Cone3D(double rad, unsigned quality)
     configure(rad, quality);
 }
 
-Cone3D::~Cone3D() { }
+Cone3D::~Cone3D() = default;
 
 void Cone3D::configure(double rad, unsigned quality)
 {
-    plot = 0;
+    plot = nullptr;
     radius_ = rad;
     quality_ = quality;
     oldstate_ = GL_FALSE;

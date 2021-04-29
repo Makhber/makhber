@@ -349,7 +349,7 @@ bool PythonScripting::setQObject(QObject *val, const char *name, PyObject *dict)
 
     // sipWrapperType * klass = sipFindClass(val->className());
 #if SIP_VERSION >= 0x050000
-    const sipAPIDef *PyQt5_sip_CAPI = (const sipAPIDef*)(PyCapsule_Import("PyQt5.sip._C_API",0));
+    auto *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt5.sip._C_API", 0));
 #else
     const sipAPIDef *PyQt5_sip_CAPI = (const sipAPIDef*)(PyCapsule_Import("sip._C_API",0));
 #endif

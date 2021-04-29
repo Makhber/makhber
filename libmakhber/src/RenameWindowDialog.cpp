@@ -45,8 +45,8 @@ RenameWindowDialog::RenameWindowDialog(QWidget *parent, Qt::WindowFlags fl) : QD
 {
     setWindowTitle(tr("Rename Window"));
 
-    QGridLayout *leftLayout = new QGridLayout();
-    QVBoxLayout *rightLayout = new QVBoxLayout();
+    auto *leftLayout = new QGridLayout();
+    auto *rightLayout = new QVBoxLayout();
 
     groupBox1 = new QGroupBox(tr("Window Title"));
     groupBox1->setLayout(leftLayout);
@@ -82,7 +82,7 @@ RenameWindowDialog::RenameWindowDialog(QWidget *parent, Qt::WindowFlags fl) : QD
     rightLayout->addWidget(buttonCancel);
     rightLayout->addStretch();
 
-    QHBoxLayout *mainLayout = new QHBoxLayout(this);
+    auto *mainLayout = new QHBoxLayout(this);
     mainLayout->addWidget(groupBox1);
     mainLayout->addLayout(rightLayout);
 
@@ -132,7 +132,7 @@ void RenameWindowDialog::accept()
     if (text == name && label == window->windowLabel() && window->captionPolicy() == policy)
         close();
 
-    ApplicationWindow *app = (ApplicationWindow *)parentWidget();
+    auto *app = (ApplicationWindow *)parentWidget();
     if (!app)
         return;
 

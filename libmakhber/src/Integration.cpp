@@ -153,7 +153,7 @@ QString Integration::logInfo()
     logInfo += "\n" + tr("Numerical integration of") + ": " + d_curve->title().text()
             + tr(" using ") + method_name + tr("Interpolation") + "\n";
 
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     int prec = app->d_decimal_digits;
     logInfo += tr("Points") + ": " + QString::number(d_n) + " " + tr("from")
             + " x = " + QLocale().toString(d_from, 'g', prec) + " ";
@@ -167,7 +167,7 @@ QString Integration::logInfo()
     gsl_vector_free(aux);
 
     // calculate result
-    d_result = gsl_interp_eval_integ(interpolation, d_x, d_y, d_from, d_to, 0);
+    d_result = gsl_interp_eval_integ(interpolation, d_x, d_y, d_from, d_to, nullptr);
 
     logInfo += tr("Peak at") + " x = " + QLocale().toString(d_x[maxID], 'g', prec) + "\t";
     logInfo += "y = " + QLocale().toString(d_y[maxID], 'g', prec) + "\n";

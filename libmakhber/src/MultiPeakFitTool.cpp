@@ -41,7 +41,7 @@ MultiPeakFitTool::MultiPeakFitTool(Graph *graph, ApplicationWindow *app,
     : PlotToolInterface(graph), d_profile(profile), d_num_peaks(num_peaks)
 {
     d_selected_peaks = 0;
-    d_curve = 0;
+    d_curve = nullptr;
 
     d_fit = new MultiPeakFit(app, d_graph, d_profile, d_num_peaks);
     d_fit->enablePeakCurves(app->generatePeakCurves);
@@ -78,7 +78,7 @@ void MultiPeakFitTool::selectPeak(QwtPlotCurve *curve, int point_index)
     d_fit->setInitialGuess(3 * d_selected_peaks, curve->y(point_index));
     d_fit->setInitialGuess(3 * d_selected_peaks + 1, curve->x(point_index));
 
-    QwtPlotMarker *m = new QwtPlotMarker();
+    auto *m = new QwtPlotMarker();
     m->setLineStyle(QwtPlotMarker::VLine);
     m->setLinePen(QPen(Qt::green, 2, Qt::DashLine));
     m->setXValue(curve->x(point_index));
@@ -97,14 +97,14 @@ void MultiPeakFitTool::selectPeak(QwtPlotCurve *curve, int point_index)
 void MultiPeakFitTool::finalize()
 {
     delete d_picker_tool;
-    d_picker_tool = NULL;
+    d_picker_tool = nullptr;
     d_graph->plotWidget()->canvas()->releaseMouse();
 
     if (d_fit->setDataFromCurve(d_curve->title().text())) {
         QApplication::setOverrideCursor(Qt::WaitCursor);
         d_fit->fit();
         delete d_fit;
-        d_fit = NULL;
+        d_fit = nullptr;
         QApplication::restoreOverrideCursor();
     }
 
@@ -116,6 +116,6 @@ void MultiPeakFitTool::finalize()
 
     d_graph->plotWidget()->replot();
 
-    d_graph->setActiveTool(NULL);
+    d_graph->setActiveTool(nullptr);
     // attention: I'm now deleted. Maybe there is a cleaner solution...
 }

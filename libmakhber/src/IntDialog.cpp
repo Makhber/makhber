@@ -48,8 +48,8 @@ IntDialog::IntDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     setWindowTitle(tr("Integration Options"));
     setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("Integration of")), 0, 0);
     boxName = new QComboBox();
     gl1->addWidget(boxName, 0, 1);
@@ -75,13 +75,13 @@ IntDialog::IntDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     buttonHelp = new QPushButton(tr("&Help"));
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addWidget(buttonOk);
     vl->addWidget(buttonHelp);
     vl->addWidget(buttonCancel);
     vl->addStretch();
 
-    QHBoxLayout *hb = new QHBoxLayout(this);
+    auto *hb = new QHBoxLayout(this);
     hb->addWidget(gb1);
     hb->addLayout(vl);
 
@@ -193,8 +193,8 @@ void IntDialog::accept()
         }
     }
 
-    Integration *i = new Integration((ApplicationWindow *)this->parent(), graph, curveName,
-                                     boxStart->text().toDouble(), boxEnd->text().toDouble());
+    auto *i = new Integration((ApplicationWindow *)this->parent(), graph, curveName,
+                              boxStart->text().toDouble(), boxEnd->text().toDouble());
     i->setMethod((Integration::InterpolationMethod)boxMethod->currentIndex());
     i->run();
     delete i;
@@ -218,7 +218,7 @@ void IntDialog::setGraph(Graph *g)
 
 void IntDialog::activateCurve(const QString &curveName)
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (!app)
         return;
 
@@ -234,7 +234,7 @@ void IntDialog::activateCurve(const QString &curveName)
 
 void IntDialog::changeDataRange()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (!app)
         return;
 

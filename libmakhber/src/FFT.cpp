@@ -51,7 +51,7 @@ FFT::FFT(ApplicationWindow *parent, Graph *g, const QString &curveTitle) : Filte
     init();
     setDataFromCurve(curveTitle);
     // intersperse 0 imaginary components
-    double *tmp = new double[2 * d_n];
+    auto *tmp = new double[2 * d_n];
     memset(tmp, 0, 2 * d_n * sizeof(double));
     for (size_t i = 0; i < d_n; ++i)
         tmp[2 * i] = d_y[i];
@@ -72,7 +72,7 @@ void FFT::init()
 
 QList<Column *> FFT::fftTable()
 {
-    double *amp = new double[d_n];
+    auto *amp = new double[d_n];
 
     gsl_fft_complex_wavetable *wavetable = gsl_fft_complex_wavetable_alloc(d_n);
     gsl_fft_complex_workspace *workspace = gsl_fft_complex_workspace_alloc(d_n);
@@ -158,7 +158,7 @@ void FFT::output()
 
 void FFT::output(QList<Column *> columns)
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     QString tableName = app->generateUniqueName(objectName());
     Table *t = app->newHiddenTable(tableName, d_explanation, columns);
     MultiLayer *ml = app->multilayerPlot(t, QStringList() << tableName + "_" + tr("Amplitude"), 0);

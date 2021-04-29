@@ -124,7 +124,7 @@ void Correlation::output()
 
 void Correlation::addResultCurve()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (!app)
         return;
 
@@ -160,7 +160,7 @@ void Correlation::addResultCurve()
     if (!ml)
         return;
 
-    DataCurve *c = new DataCurve(d_table, d_table->colName(cols), d_table->colName(cols2));
+    auto *c = new DataCurve(d_table, d_table->colName(cols), d_table->colName(cols2));
     c->setData(&x_temp[0], &y_temp[0], rows);
     c->setPen(QPen(d_curveColor, 1));
     ml->activeGraph()->insertPlotItem(c, Graph::Line);

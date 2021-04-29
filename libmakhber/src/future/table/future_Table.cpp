@@ -93,20 +93,20 @@ Table::Table(AbstractScriptingEngine *engine, int rows, int columns, const QStri
     : AbstractPart(name), d_plot_menu(0), scripted(engine), d_table_private(*this)
 #else
 Table::Table(int rows, int columns, const QString &name)
-    : AbstractPart(name), d_plot_menu(0), d_table_private(*this)
+    : AbstractPart(name), d_plot_menu(nullptr), d_table_private(*this)
 #endif
 {
     // set initial number of rows and columns
     QList<Column *> cols;
     for (int i = 0; i < columns; i++) {
-        Column *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
+        auto *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
         new_col->setPlotDesignation(i == 0 ? Makhber::X : Makhber::Y);
         cols << new_col;
     }
     appendColumns(cols);
     setRowCount(rows);
 
-    d_view = NULL;
+    d_view = nullptr;
     createActions();
     connectActions();
 }
@@ -117,11 +117,11 @@ Table::Table() : AbstractPart("temp"), scripted(0)
 Table::Table() : AbstractPart("temp"), d_table_private(*this)
 #endif
 {
-    d_view = NULL;
+    d_view = nullptr;
     createActions();
 }
 
-Table::~Table() { }
+Table::~Table() = default;
 
 Column *Table::column(int index) const
 {
@@ -149,7 +149,7 @@ Column *Table::column(const QString &name, bool legacy_kludge) const
             return col;
     }
 
-    return NULL;
+    return nullptr;
 }
 
 void Table::setView(TableView *view)
@@ -166,7 +166,7 @@ QWidget *Table::view()
     if (!d_view)
         setView(new TableView(this));
 #else
-    Q_ASSERT(d_view != NULL);
+    Q_ASSERT(d_view != nullptr);
 #endif
     return d_view;
 }
@@ -287,7 +287,7 @@ void Table::setColumnCount(int new_size)
     else {
         QList<Column *> cols;
         for (int i = 0; i < new_size - old_size; i++) {
-            Column *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
+            auto *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
             new_col->setPlotDesignation(Makhber::Y);
             cols << new_col;
         }
@@ -391,8 +391,7 @@ void Table::copySelection()
                 if (d_view->formulaModeActive()) {
                     output_str += col_ptr->formula(first_row + r);
                 } else if (col_ptr->dataType() == Makhber::TypeDouble) {
-                    Double2StringFilter *out_fltr =
-                            static_cast<Double2StringFilter *>(col_ptr->outputFilter());
+                    auto *out_fltr = static_cast<Double2StringFilter *>(col_ptr->outputFilter());
                     // create a copy of current locale
                     QLocale noSeparators;
                     // we do not need separators on output!
@@ -440,7 +439,7 @@ void Table::pasteIntoSelection()
     if (mimeData->hasText()) {
         QString input_str = clipboard->text().trimmed();
         QList<QStringList> cell_texts;
-        QStringList input_rows(input_str.split(QRegExp("\\n|\\r\\n|\\r")));
+        QStringList input_rows(input_str.split(QRegExp(R"(\n|\r\n|\r)")));
         input_row_count = input_rows.count();
         input_col_count = 0;
         for (int i = 0; i < input_row_count; i++) {
@@ -475,7 +474,7 @@ void Table::pasteIntoSelection()
             if (last_col >= columnCount()) {
                 QList<Column *> cols;
                 for (int i = 0; i < last_col + 1 - columnCount(); i++) {
-                    Column *new_col =
+                    auto *new_col =
                             new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
                     new_col->setPlotDesignation(Makhber::Y);
                     cols << new_col;
@@ -765,7 +764,7 @@ void Table::insertEmptyColumns()
             current++;
         count = current - first;
         for (int i = 0; i < count; i++) {
-            Column *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
+            auto *new_col = new Column(QString::number(i + 1), Makhber::ColumnMode::Numeric);
             new_col->setPlotDesignation(Makhber::Y);
             cols << new_col;
         }
@@ -1054,7 +1053,7 @@ bool Table::fillProjectMenu(QMenu *menu)
 {
     menu->setTitle(tr("&Table"));
 
-    QMenu *submenu = new QMenu(tr("S&et Column(s) As"));
+    auto *submenu = new QMenu(tr("S&et Column(s) As"));
     submenu->addAction(action_set_as_x);
     submenu->addAction(action_set_as_y);
     submenu->addAction(action_set_as_z);
@@ -1641,7 +1640,7 @@ bool Table::export_to_TeX(QString fileName, TeXTableSettings &tex_settings)
 
     if (!file.open(QIODevice::WriteOnly)) {
         QApplication::restoreOverrideCursor();
-        QMessageBox::critical(0, tr("TeX Export Error"),
+        QMessageBox::critical(nullptr, tr("TeX Export Error"),
                               tr("Could not write to file: <br><h4>%1</h4><p>Please verify that "
                                  "you have the right to write to this location!")
                                       .arg(fileName));
@@ -1727,7 +1726,7 @@ QMenu *Table::createSelectionMenu(QMenu *append_to)
     if (!menu)
         menu = new QMenu();
 
-    QMenu *submenu = new QMenu(tr("Fi&ll Selection with"));
+    auto *submenu = new QMenu(tr("Fi&ll Selection with"));
     submenu->addAction(action_fill_row_numbers);
     submenu->addAction(action_fill_random);
     menu->addMenu(submenu);
@@ -1758,7 +1757,7 @@ QMenu *Table::createColumnMenu(QMenu *append_to)
     if (!menu)
         menu = new QMenu();
 
-    QMenu *submenu = new QMenu(tr("S&et Column(s) As"));
+    auto *submenu = new QMenu(tr("S&et Column(s) As"));
     submenu->addAction(action_set_as_x);
     submenu->addAction(action_set_as_y);
     submenu->addAction(action_set_as_z);
@@ -1834,7 +1833,7 @@ QMenu *Table::createRowMenu(QMenu *append_to)
     menu->addAction(action_clear_rows);
     menu->addAction(action_add_rows);
     menu->addSeparator();
-    QMenu *submenu = new QMenu(tr("Fi&ll Selection with"));
+    auto *submenu = new QMenu(tr("Fi&ll Selection with"));
     submenu->addAction(action_fill_row_numbers);
     submenu->addAction(action_fill_random);
     menu->addMenu(submenu);
@@ -1850,12 +1849,13 @@ void Table::goToCell()
         return;
     bool ok;
 
-    int col = QInputDialog::getInt(0, tr("Go to Cell"), tr("Enter column"), 1, 1, columnCount(), 1,
-                                   &ok);
+    int col = QInputDialog::getInt(nullptr, tr("Go to Cell"), tr("Enter column"), 1, 1,
+                                   columnCount(), 1, &ok);
     if (!ok)
         return;
 
-    int row = QInputDialog::getInt(0, tr("Go to Cell"), tr("Enter row"), 1, 1, rowCount(), 1, &ok);
+    int row = QInputDialog::getInt(nullptr, tr("Go to Cell"), tr("Enter row"), 1, 1, rowCount(), 1,
+                                   &ok);
     if (!ok)
         return;
 
@@ -1899,7 +1899,7 @@ void Table::copy(Table *other)
     QList<Column *> columns;
     for (int i = 0; i < other->columnCount(); i++) {
         Column *src_col = other->column(i);
-        Column *new_col = new Column(src_col->name(), src_col->columnMode());
+        auto *new_col = new Column(src_col->name(), src_col->columnMode());
         new_col->copy(src_col);
         new_col->setPlotDesignation(src_col->plotDesignation());
         QList<Interval<int>> masks = src_col->maskedIntervals();
@@ -1975,7 +1975,7 @@ void Table::sortDialog(QList<Column *> cols)
     if (cols.isEmpty())
         return;
 
-    SortDialog *sortd = new future::SortDialog();
+    auto *sortd = new future::SortDialog();
     sortd->setAttribute(Qt::WA_DeleteOnClose);
     connect(sortd, SIGNAL(sort(Column *, QList<Column *>, bool)), this,
             SLOT(sortColumns(Column *, QList<Column *>, bool)));
@@ -2022,11 +2022,9 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
     WAIT_CURSOR;
     beginMacro(tr("%1: sort column(s)").arg(name()));
 
-    if (leading == 0) // sort separately
+    if (leading == nullptr) // sort separately
     {
-        for (int i = 0; i < cols.size(); i++) {
-            Column *col = cols.at(i);
-
+        for (auto col : cols) {
             if (col->dataType() == Makhber::TypeDouble) {
                 int rows = col->rowCount();
                 QList<QPair<double, int>> map;
@@ -2040,7 +2038,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                     std::stable_sort(map.begin(), map.end(), CompareFunctions::doubleGreater);
 
                 QListIterator<QPair<double, int>> it(map);
-                Column *temp_col = new Column("temp", col->columnMode());
+                auto *temp_col = new Column("temp", col->columnMode());
 
                 int k = 0;
                 // put the values in the right order into temp_col
@@ -2065,7 +2063,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                     std::stable_sort(map.begin(), map.end(), CompareFunctions::QStringGreater);
 
                 QListIterator<QPair<QString, int>> it(map);
-                Column *temp_col = new Column("temp", col->columnMode());
+                auto *temp_col = new Column("temp", col->columnMode());
 
                 int k = 0;
                 // put the values in the right order into temp_col
@@ -2090,7 +2088,7 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                     std::stable_sort(map.begin(), map.end(), CompareFunctions::QDateTimeGreater);
 
                 QListIterator<QPair<QDateTime, int>> it(map);
-                Column *temp_col = new Column("temp", col->columnMode());
+                auto *temp_col = new Column("temp", col->columnMode());
 
                 int k = 0;
                 // put the values in the right order into temp_col
@@ -2120,18 +2118,18 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                 std::stable_sort(map.begin(), map.end(), CompareFunctions::doubleGreater);
             QListIterator<QPair<double, int>> it(map);
 
-            for (int i = 0; i < cols.size(); i++) {
-                Column *temp_col = new Column("temp", cols.at(i)->columnMode());
+            for (auto col : cols) {
+                auto *temp_col = new Column("temp", col->columnMode());
                 it.toFront();
                 int j = 0;
                 // put the values in the right order into temp_col
                 while (it.hasNext()) {
-                    temp_col->copy(cols.at(i), it.peekNext().second, j, 1);
-                    temp_col->setMasked(cols.at(i)->isMasked(it.next().second));
+                    temp_col->copy(col, it.peekNext().second, j, 1);
+                    temp_col->setMasked(col->isMasked(it.next().second));
                     j++;
                 }
                 // copy the sorted column
-                cols.at(i)->copy(temp_col, 0, 0, rows);
+                col->copy(temp_col, 0, 0, rows);
                 delete temp_col;
             }
         } else if (leading->dataType() == Makhber::TypeQString) {
@@ -2147,18 +2145,18 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                 std::stable_sort(map.begin(), map.end(), CompareFunctions::QStringGreater);
             QListIterator<QPair<QString, int>> it(map);
 
-            for (int i = 0; i < cols.size(); i++) {
-                Column *temp_col = new Column("temp", cols.at(i)->columnMode());
+            for (auto col : cols) {
+                auto *temp_col = new Column("temp", col->columnMode());
                 it.toFront();
                 int j = 0;
                 // put the values in the right order into temp_col
                 while (it.hasNext()) {
-                    temp_col->copy(cols.at(i), it.peekNext().second, j, 1);
-                    temp_col->setMasked(cols.at(i)->isMasked(it.next().second));
+                    temp_col->copy(col, it.peekNext().second, j, 1);
+                    temp_col->setMasked(col->isMasked(it.next().second));
                     j++;
                 }
                 // copy the sorted column
-                cols.at(i)->copy(temp_col, 0, 0, rows);
+                col->copy(temp_col, 0, 0, rows);
                 delete temp_col;
             }
         } else if (leading->dataType() == Makhber::TypeQDateTime) {
@@ -2174,18 +2172,18 @@ void Table::sortColumns(Column *leading, QList<Column *> cols, bool ascending)
                 std::stable_sort(map.begin(), map.end(), CompareFunctions::QDateTimeGreater);
             QListIterator<QPair<QDateTime, int>> it(map);
 
-            for (int i = 0; i < cols.size(); i++) {
-                Column *temp_col = new Column("temp", cols.at(i)->columnMode());
+            for (auto col : cols) {
+                auto *temp_col = new Column("temp", col->columnMode());
                 it.toFront();
                 int j = 0;
                 // put the values in the right order into temp_col
                 while (it.hasNext()) {
-                    temp_col->copy(cols.at(i), it.peekNext().second, j, 1);
-                    temp_col->setMasked(cols.at(i)->isMasked(it.next().second));
+                    temp_col->copy(col, it.peekNext().second, j, 1);
+                    temp_col->setMasked(col->isMasked(it.next().second));
                     j++;
                 }
                 // copy the sorted column
-                cols.at(i)->copy(temp_col, 0, 0, rows);
+                col->copy(temp_col, 0, 0, rows);
                 delete temp_col;
             }
         }
@@ -2310,7 +2308,7 @@ void Table::connectColumn(const Column *col)
 
 void Table::disconnectColumn(const Column *col)
 {
-    disconnect(col, 0, this, 0);
+    disconnect(col, nullptr, this, nullptr);
 }
 
 QVariant Table::headerData(int section, Qt::Orientation orientation, int role) const
@@ -2320,7 +2318,7 @@ QVariant Table::headerData(int section, Qt::Orientation orientation, int role) c
 
 void Table::completeAspectInsertion(AbstractAspect *aspect, int index)
 {
-    Column *column = qobject_cast<Column *>(aspect);
+    auto *column = qobject_cast<Column *>(aspect);
     if (!column)
         return;
     QList<Column *> cols;
@@ -2330,7 +2328,7 @@ void Table::completeAspectInsertion(AbstractAspect *aspect, int index)
 
 void Table::prepareAspectRemoval(AbstractAspect *aspect)
 {
-    Column *column = qobject_cast<Column *>(aspect);
+    auto *column = qobject_cast<Column *>(aspect);
     if (!column)
         return;
     int first = columnIndex(column);
@@ -2393,7 +2391,7 @@ bool Table::load(XmlStreamReader *reader)
                     if (!readCommentElement(reader))
                         return false;
                 } else if (reader->name() == "column") {
-                    Column *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
+                    auto *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
                     if (!column->load(reader)) {
                         setColumnCount(0);
                         return false;
@@ -2472,7 +2470,7 @@ int Table::columnWidth(int col) const
 }
 
 /* ========================= static methods ======================= */
-ActionManager *Table::action_manager = 0;
+ActionManager *Table::action_manager = nullptr;
 
 ActionManager *Table::actionManager()
 {

@@ -115,7 +115,7 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
     tree<Origin::ProjectNode>::iterator root = projectTree->begin(projectTree->begin());
     if (!root.node)
         return false;
-    FolderListItem *item = (FolderListItem *)mw->folders.topLevelItem(0);
+    auto *item = (FolderListItem *)mw->folders.topLevelItem(0);
     item->setText(0, decodeMbcs(root->name.c_str()));
     item->folder()->setName(decodeMbcs(root->name.c_str()));
     Folder *projectFolder = mw->projectFolder();
@@ -125,8 +125,8 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
          sib != projectTree->end(root); ++sib) {
         if (sib->type == Origin::ProjectNode::Folder) {
 
-            Folder &f = parent.value(projectTree->parent(sib))
-                                ->addChild<Folder>(decodeMbcs(sib->name.c_str()));
+            auto &f = parent.value(projectTree->parent(sib))
+                              ->addChild<Folder>(decodeMbcs(sib->name.c_str()));
             parent[sib] = &f;
             f.setBirthDate(posixTimeToString(sib->creationDate));
             f.setModificationDate(posixTimeToString(sib->modificationDate));
@@ -135,7 +135,7 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
         } else {
             QString name = decodeMbcs(sib->name.c_str());
             if (sib->type == Origin::ProjectNode::Note) {
-                QRegExp rx("^@\\((\\S+)\\)$");
+                QRegExp rx(R"(^@\((\S+)\)$)");
                 if (rx.indexIn(name) == 0)
                     name = rx.cap(1);
             }
@@ -312,7 +312,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                         f = 0;
                         break;
                     }
-                    Double2StringFilter *filter =
+                    auto *filter =
                             static_cast<Double2StringFilter *>(table->column(j)->outputFilter());
                     filter->setNumericFormat(f);
                     filter->setNumDigits(column.decimalPlaces);
@@ -380,8 +380,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
-            DateTime2StringFilter *filter =
-                    static_cast<DateTime2StringFilter *>(makhber_column->outputFilter());
+            auto *filter = static_cast<DateTime2StringFilter *>(makhber_column->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -424,8 +423,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
-            DateTime2StringFilter *filter =
-                    static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
+            auto *filter = static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -444,8 +442,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::Month);
-            DateTime2StringFilter *filter =
-                    static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
+            auto *filter = static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -464,8 +461,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::Day);
-            DateTime2StringFilter *filter =
-                    static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
+            auto *filter = static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -657,8 +653,8 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                 graph->newLegend(parseOriginText(decodeMbcs(layer.legend.text.c_str())));
             }
             // add texts
-            for (unsigned int i = 0; i < layer.texts.size(); ++i) {
-                graph->newLegend(parseOriginText(decodeMbcs(layer.texts[i].text.c_str())));
+            for (auto &text_ : layer.texts) {
+                graph->newLegend(parseOriginText(decodeMbcs(text_.text.c_str())));
             }
             int auto_color = 0;
             int style = 0;
@@ -926,11 +922,11 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
 
                 graph->updateCurveLayout(c, &cl);
                 if (style == Graph::VerticalBars || style == Graph::HorizontalBars) {
-                    QwtBarCurve *b = (QwtBarCurve *)graph->curve(c);
+                    auto *b = (QwtBarCurve *)graph->curve(c);
                     if (b)
                         b->setGap(qRound(100 - _curve.symbolSize * 10));
                 } else if (style == Graph::Histogram) {
-                    QwtHistogram *h = (QwtHistogram *)graph->curve(c);
+                    auto *h = (QwtHistogram *)graph->curve(c);
                     if (h) {
                         h->setBinning(false, layer.histogramBin, layer.histogramBegin,
                                       layer.histogramEnd);
@@ -1001,8 +997,8 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                                  (Origin::GraphCurve::LineStyle)layer.yAxis.minorGrid.style))));
 
             grid->setAxis(2, 0);
-            grid->enableZeroLineX(0);
-            grid->enableZeroLineY(0);
+            grid->enableZeroLineX(false);
+            grid->enableZeroLineY(false);
 
             vector<Origin::GraphAxisFormat> formats;
             formats.push_back(layer.yAxis.formatAxis[0]); // left
@@ -1129,7 +1125,7 @@ QString ImportOPJ::parseOriginTags(const QString &str)
 {
     QString line = str;
     // replace \l(...) and %(...) tags
-    QRegExp rxline("\\\\\\s*l\\s*\\(\\s*\\d+\\s*\\)");
+    QRegExp rxline(R"(\\\s*l\s*\(\s*\d+\s*\))");
     int pos = rxline.indexIn(line);
     while (pos > -1) {
         QString value = rxline.cap(0);
@@ -1140,8 +1136,8 @@ QString ImportOPJ::parseOriginTags(const QString &str)
         pos = rxline.indexIn(line);
     }
     // Lookbehind conditions are not supported - so need to reverse string
-    QRegExp rx("\\)[^\\)\\(]*\\((?!\\s*[buig\\+\\-]\\s*\\\\)");
-    QRegExp rxfont("\\)[^\\)\\(]*\\((?![^\\:]*\\:f\\s*\\\\)");
+    QRegExp rx(R"(\)[^\)\(]*\((?!\s*[buig\+\-]\s*\\))");
+    QRegExp rxfont(R"(\)[^\)\(]*\((?![^\:]*\:f\s*\\))");
     QString linerev = strreverse(line);
     QString lBracket = strreverse("&lbracket;");
     QString rBracket = strreverse("&rbracket;");
@@ -1177,9 +1173,9 @@ QString ImportOPJ::parseOriginTags(const QString &str)
     line = strreverse(linerev);
 
     // replace \b(...), \i(...), \u(...), \g(...), \+(...), \-(...), \f:font(...) tags
-    QString rxstr[] = { "\\\\\\s*b\\s*\\(",      "\\\\\\s*i\\s*\\(",   "\\\\\\s*u\\s*\\(",
-                        "\\\\\\s*g\\s*\\(",      "\\\\\\s*\\+\\s*\\(", "\\\\\\s*\\-\\s*\\(",
-                        "\\\\\\s*f\\:[^\\(]*\\(" };
+    QString rxstr[] = { R"(\\\s*b\s*\()",     R"(\\\s*i\s*\()",  R"(\\\s*u\s*\()",
+                        R"(\\\s*g\s*\()",     R"(\\\s*\+\s*\()", R"(\\\s*\-\s*\()",
+                        R"(\\\s*f\:[^\(]*\()" };
     int postag[] = { 0, 0, 0, 0, 0, 0, 0 };
     QString ltag[] = {
         "<b>", "<i>", "<u>", "<font face=Symbol>", "<sup>", "<sub>", "<font face=%1>"
@@ -1187,7 +1183,7 @@ QString ImportOPJ::parseOriginTags(const QString &str)
     QString rtag[] = { "</b>", "</i>", "</u>", "</font>", "</sup>", "</sub>", "</font>" };
     QRegExp rxtags[7];
     for (int i = 0; i < 7; ++i)
-        rxtags[i].setPattern(rxstr[i] + "[^\\(\\)]*\\)");
+        rxtags[i].setPattern(rxstr[i] + R"([^\(\)]*\))");
 
     bool flag = true;
     while (flag) {
@@ -1209,8 +1205,8 @@ QString ImportOPJ::parseOriginTags(const QString &str)
             }
         }
         flag = false;
-        for (int i = 0; i < 7; ++i) {
-            if (rxtags[i].indexIn(line) > -1) {
+        for (const auto &rxtag : rxtags) {
+            if (rxtag.indexIn(line) > -1) {
                 flag = true;
                 break;
             }

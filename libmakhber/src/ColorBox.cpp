@@ -197,8 +197,8 @@ QColor ColorBox::color(unsigned int colorIndex)
 
 bool ColorBox::isValidColor(const QColor &color)
 {
-    for (int i = 0; i < colors_count; i++) {
-        if (color == colors[i])
+    for (const auto &i : colors) {
+        if (color == i)
             return true;
     }
     return false;

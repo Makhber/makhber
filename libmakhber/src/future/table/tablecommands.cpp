@@ -34,13 +34,14 @@
 #include "core/datatypes/Double2StringFilter.h"
 #include <QObject>
 #include <QtDebug>
+#include <utility>
 
 ///////////////////////////////////////////////////////////////////////////
 // class TableInsertColumnsCmd
 ///////////////////////////////////////////////////////////////////////////
 TableInsertColumnsCmd::TableInsertColumnsCmd(future::Table::Private &private_obj, int before,
                                              QList<Column *> cols, QUndoCommand *parent)
-    : QUndoCommand(parent), d_private_obj(private_obj), d_before(before), d_cols(cols)
+    : QUndoCommand(parent), d_private_obj(private_obj), d_before(before), d_cols(std::move(cols))
 {
     setText(QObject::tr("%1: insert %2 column(s)").arg(d_private_obj.name()).arg(d_cols.size()));
 }
@@ -95,7 +96,7 @@ TableRemoveColumnsCmd::TableRemoveColumnsCmd(future::Table::Private &private_obj
       d_private_obj(private_obj),
       d_first(first),
       d_count(count),
-      d_old_cols(cols)
+      d_old_cols(std::move(cols))
 {
     setText(QObject::tr("%1: remove %2 column(s)").arg(d_private_obj.name()).arg(count));
 }

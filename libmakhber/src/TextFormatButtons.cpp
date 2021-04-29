@@ -38,7 +38,7 @@ TextFormatButtons::TextFormatButtons(QTextEdit *textEdit, QWidget *parent) : QWi
 {
     connectedTextEdit = textEdit;
 
-    QHBoxLayout *layout = new QHBoxLayout(this);
+    auto *layout = new QHBoxLayout(this);
     layout->setMargin(0);
     layout->setSpacing(0);
     layout->addStretch();
@@ -126,7 +126,7 @@ TextFormatButtons::TextFormatButtons(QTextEdit *textEdit, QWidget *parent) : QWi
 
 void TextFormatButtons::showLowerGreek()
 {
-    SymbolDialog *greekLetters = new SymbolDialog(SymbolDialog::lowerGreek, this, Qt::Tool);
+    auto *greekLetters = new SymbolDialog(SymbolDialog::lowerGreek, this, Qt::Tool);
     greekLetters->setAttribute(Qt::WA_DeleteOnClose);
     QFont f = connectedTextEdit->font();
     if (f.pointSize() < 14)
@@ -140,7 +140,7 @@ void TextFormatButtons::showLowerGreek()
 
 void TextFormatButtons::showUpperGreek()
 {
-    SymbolDialog *greekLetters = new SymbolDialog(SymbolDialog::upperGreek, this, Qt::Tool);
+    auto *greekLetters = new SymbolDialog(SymbolDialog::upperGreek, this, Qt::Tool);
     greekLetters->setAttribute(Qt::WA_DeleteOnClose);
     QFont f = connectedTextEdit->font();
     if (f.pointSize() < 14)
@@ -154,7 +154,7 @@ void TextFormatButtons::showUpperGreek()
 
 void TextFormatButtons::showMathSymbols()
 {
-    SymbolDialog *mathSymbols = new SymbolDialog(SymbolDialog::mathSymbols, this, Qt::Tool);
+    auto *mathSymbols = new SymbolDialog(SymbolDialog::mathSymbols, this, Qt::Tool);
     mathSymbols->setAttribute(Qt::WA_DeleteOnClose);
     QFont f = connectedTextEdit->font();
     if (f.pointSize() < 14)
@@ -168,7 +168,7 @@ void TextFormatButtons::showMathSymbols()
 
 void TextFormatButtons::showArrowSymbols()
 {
-    SymbolDialog *arrowSymbols = new SymbolDialog(SymbolDialog::arrowSymbols, this, Qt::Tool);
+    auto *arrowSymbols = new SymbolDialog(SymbolDialog::arrowSymbols, this, Qt::Tool);
     arrowSymbols->setAttribute(Qt::WA_DeleteOnClose);
     arrowSymbols->setFont(connectedTextEdit->font());
     QFont f = connectedTextEdit->font();

@@ -47,8 +47,8 @@ PolynomFitDialog::PolynomFitDialog(QWidget *parent, Qt::WindowFlags fl) : QDialo
     setWindowTitle(tr("Polynomial Fit Options"));
     setSizeGripEnabled(true);
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("Polynomial Fit of")), 0, 0);
 
     boxName = new QComboBox();
@@ -83,12 +83,12 @@ PolynomFitDialog::PolynomFitDialog(QWidget *parent, Qt::WindowFlags fl) : QDialo
 
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addWidget(buttonFit);
     vl->addWidget(buttonCancel);
     vl->addStretch();
 
-    QHBoxLayout *hlayout = new QHBoxLayout(this);
+    auto *hlayout = new QHBoxLayout(this);
     hlayout->addWidget(gb1);
     hlayout->addLayout(vl);
 
@@ -111,8 +111,8 @@ void PolynomFitDialog::fit()
         return;
     }
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
-    PolynomialFit *fitter =
+    auto *app = (ApplicationWindow *)this->parent();
+    auto *fitter =
             new PolynomialFit(app, graph, boxOrder->value(), boxShowFormula->isChecked());
     if (fitter->setDataFromCurve(curveName, boxStart->text().toDouble(),
                                  boxEnd->text().toDouble())) {

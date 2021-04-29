@@ -123,7 +123,7 @@ void Convolution::output()
 
 void Convolution::addResultCurve()
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (!app)
         return;
 
@@ -153,7 +153,7 @@ void Convolution::addResultCurve()
     if (!ml)
         return;
 
-    DataCurve *c = new DataCurve(d_table, d_table->colName(cols), d_table->colName(cols2));
+    auto *c = new DataCurve(d_table, d_table->colName(cols), d_table->colName(cols2));
     c->setData(x_temp.data(), d_x, d_n);
     c->setPen(QPen(d_curveColor, 1));
     ml->activeGraph()->insertPlotItem(c, Graph::Line);
@@ -162,7 +162,7 @@ void Convolution::addResultCurve()
 
 void Convolution::convlv(double *sig, int n, double *dres, int m, int sign)
 {
-    double *res = new double[n];
+    auto *res = new double[n];
     memset(res, 0, n * sizeof(double));
     int i, m2 = m / 2;
     for (i = 0; i < m2; i++) { // store the response in wrap around order, see Numerical Recipes doc

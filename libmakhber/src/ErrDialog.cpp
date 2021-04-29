@@ -48,10 +48,10 @@ ErrDialog::ErrDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     setFocusPolicy(Qt::StrongFocus);
     setSizeGripEnabled(true);
 
-    QVBoxLayout *vbox1 = new QVBoxLayout();
+    auto *vbox1 = new QVBoxLayout();
     vbox1->setSpacing(5);
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
     vbox1->addLayout(hbox1);
 
     textLabel1 = new QLabel();
@@ -61,7 +61,7 @@ ErrDialog::ErrDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     hbox1->addWidget(nameLabel);
 
     groupBox1 = new QGroupBox(QString(tr("Source of errors")));
-    QGridLayout *gridLayout = new QGridLayout(groupBox1);
+    auto *gridLayout = new QGridLayout(groupBox1);
     vbox1->addWidget(groupBox1);
 
     buttonGroup1 = new QButtonGroup();
@@ -75,7 +75,7 @@ ErrDialog::ErrDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     colNamesBox = new QComboBox();
     tableNamesBox = new QComboBox();
 
-    QHBoxLayout *comboBoxes = new QHBoxLayout();
+    auto *comboBoxes = new QHBoxLayout();
     comboBoxes->addWidget(tableNamesBox);
     comboBoxes->addWidget(colNamesBox);
 
@@ -96,7 +96,7 @@ ErrDialog::ErrDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 
     groupBox3 = new QGroupBox(QString());
     vbox1->addWidget(groupBox3);
-    QHBoxLayout *hbox2 = new QHBoxLayout(groupBox3);
+    auto *hbox2 = new QHBoxLayout(groupBox3);
 
     buttonGroup2 = new QButtonGroup();
     buttonGroup2->setExclusive(true);
@@ -110,7 +110,7 @@ ErrDialog::ErrDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     hbox2->addWidget(yErrBox);
     yErrBox->setChecked(true);
 
-    QVBoxLayout *vbox2 = new QVBoxLayout();
+    auto *vbox2 = new QVBoxLayout();
     buttonAdd = new QPushButton();
     buttonAdd->setDefault(true);
     vbox2->addWidget(buttonAdd);
@@ -120,7 +120,7 @@ ErrDialog::ErrDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 
     vbox2->addStretch(1);
 
-    QHBoxLayout *hlayout1 = new QHBoxLayout(this);
+    auto *hlayout1 = new QHBoxLayout(this);
     hlayout1->addLayout(vbox1);
     hlayout1->addLayout(vbox2);
 
@@ -189,7 +189,7 @@ void ErrDialog::add()
     }
 }
 
-ErrDialog::~ErrDialog() { }
+ErrDialog::~ErrDialog() = default;
 
 void ErrDialog::languageChange()
 {

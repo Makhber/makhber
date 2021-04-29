@@ -395,7 +395,7 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
 {
     switch (e->type()) {
     case QEvent::MouseButtonPress: {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         if (me->button() != Qt::LeftButton)
             return false;
         QRect handler = QRect(QPoint(0, 0), QSize(10, 10));
@@ -421,7 +421,7 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
         return false;
     }
     case QEvent::MouseMove: {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         switch (d_op) {
         case MoveStart:
             setStartPoint(me->pos());
@@ -441,7 +441,7 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
         }
     }
     case QEvent::MouseButtonRelease: {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         switch (d_op) {
         case MoveStart:
             setStartPoint(me->pos());
@@ -469,10 +469,10 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
         }
     }
     case QEvent::MouseButtonDblClick: {
-        const QMouseEvent *me = (const QMouseEvent *)e;
+        const auto *me = (const QMouseEvent *)e;
         if (me->button() != Qt::LeftButton)
             return false;
-        LineDialog *ld = new LineDialog(this, plot()->window());
+        auto *ld = new LineDialog(this, plot()->window());
         ld->setAttribute(Qt::WA_DeleteOnClose);
         ld->exec();
         return true;

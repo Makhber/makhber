@@ -61,7 +61,7 @@ ImportASCIIDialog::ImportASCIIDialog(bool import_mode_enabled, QWidget *parent, 
     setExtensionWidget(d_advanced_options);
 
     // get rembered option values
-    ApplicationWindow *app = (ApplicationWindow *)parent;
+    auto *app = (ApplicationWindow *)parent;
     d_strip_spaces->setChecked(app->strip_spaces);
     d_simplify_spaces->setChecked(app->simplify_spaces);
     d_ignored_lines->setValue(app->ignoredLines);
@@ -83,8 +83,8 @@ ImportASCIIDialog::ImportASCIIDialog(bool import_mode_enabled, QWidget *parent, 
 void ImportASCIIDialog::initAdvancedOptions()
 {
     d_advanced_options = new QGroupBox();
-    QVBoxLayout *main_layout = new QVBoxLayout(d_advanced_options);
-    QGridLayout *advanced_layout = new QGridLayout();
+    auto *main_layout = new QVBoxLayout(d_advanced_options);
+    auto *advanced_layout = new QGridLayout();
     main_layout->addLayout(advanced_layout);
 
     advanced_layout->addWidget(new QLabel(tr("Import each file as: ")), 0, 0);
@@ -96,7 +96,7 @@ void ImportASCIIDialog::initAdvancedOptions()
     d_import_mode->addItem(tr("Overwrite Current Table"));
     advanced_layout->addWidget(d_import_mode, 0, 1);
 
-    QLabel *label_column_separator = new QLabel(tr("Separator:"));
+    auto *label_column_separator = new QLabel(tr("Separator:"));
     advanced_layout->addWidget(label_column_separator, 1, 0);
     d_column_separator = new QComboBox();
     d_column_separator->addItem(tr("TAB"));
@@ -121,7 +121,7 @@ void ImportASCIIDialog::initAdvancedOptions()
     d_column_separator->setToolTip(help_column_separator);
     label_column_separator->setWhatsThis(help_column_separator);
 
-    QLabel *label_ignore_lines = new QLabel(tr("Ignore first"));
+    auto *label_ignore_lines = new QLabel(tr("Ignore first"));
     advanced_layout->addWidget(label_ignore_lines, 2, 0);
     d_ignored_lines = new QSpinBox();
     d_ignored_lines->setRange(0, 10000);
@@ -186,7 +186,7 @@ void ImportASCIIDialog::initAdvancedOptions()
             SLOT(setEnabled(bool)));
     advanced_layout->addWidget(boxDecimalSeparator, 3, 2);
 
-    QHBoxLayout *meta_options_layout = new QHBoxLayout();
+    auto *meta_options_layout = new QHBoxLayout();
     d_remember_options = new QCheckBox(tr("Re&member the above options"));
     meta_options_layout->addWidget(d_remember_options);
     d_help_button = new QPushButton(tr("&Help"));
@@ -279,7 +279,7 @@ void ImportASCIIDialog::updateImportMode(int mode)
 
 void ImportASCIIDialog::closeEvent(QCloseEvent *e)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (app) {
         app->d_extended_import_ASCII_dialog = this->isExtended();
         app->d_ASCII_file_filter = this->selectedNameFilter();

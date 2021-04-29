@@ -52,7 +52,7 @@ Bar::Bar(double rad)
 
 void Bar::configure(double rad)
 {
-    plot = 0;
+    plot = nullptr;
     radius_ = rad;
 }
 

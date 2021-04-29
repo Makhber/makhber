@@ -46,8 +46,8 @@ FilterDialog::FilterDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDia
     setWindowTitle(tr("Filter options"));
     filter_type = type;
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("Filter curve: ")), 0, 0);
 
     boxName = new QComboBox();
@@ -92,12 +92,12 @@ FilterDialog::FilterDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDia
     buttonFilter->setDefault(true);
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addWidget(buttonFilter);
     vl->addWidget(buttonCancel);
     vl->addStretch();
 
-    QHBoxLayout *hb = new QHBoxLayout(this);
+    auto *hb = new QHBoxLayout(this);
     hb->addWidget(gb1);
     hb->addLayout(vl);
 
@@ -152,7 +152,7 @@ void FilterDialog::filter()
         }
     }
 
-    FFTFilter *f = new FFTFilter((ApplicationWindow *)this->parent(), graph, boxName->currentText(),
+    auto *f = new FFTFilter((ApplicationWindow *)this->parent(), graph, boxName->currentText(),
                                  filter_type);
     if (filter_type == FFTFilter::BandPass) {
         f->setBand(from, to);

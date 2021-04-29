@@ -87,10 +87,10 @@ void LineProfileTool::calculateLineProfile(const QPoint &start, const QPoint &en
         y2 = int(y2 * ratioY);
     }
 
-    Column *pixelCol = new Column(tr("pixel"), Makhber::ColumnMode::Numeric);
-    Column *xCol = new Column(tr("x"), Makhber::ColumnMode::Numeric);
-    Column *yCol = new Column(tr("y"), Makhber::ColumnMode::Numeric);
-    Column *intCol = new Column(tr("intensity"), Makhber::ColumnMode::Numeric);
+    auto *pixelCol = new Column(tr("pixel"), Makhber::ColumnMode::Numeric);
+    auto *xCol = new Column(tr("x"), Makhber::ColumnMode::Numeric);
+    auto *yCol = new Column(tr("y"), Makhber::ColumnMode::Numeric);
+    auto *intCol = new Column(tr("intensity"), Makhber::ColumnMode::Numeric);
     pixelCol->setPlotDesignation(Makhber::X);
     xCol->setPlotDesignation(Makhber::Y);
     yCol->setPlotDesignation(Makhber::Y);
@@ -170,7 +170,7 @@ int LineProfileTool::averageImagePixel(const QImage &image, int px, int py, bool
 
 void LineProfileTool::addLineMarker(const QPoint &start, const QPoint &end)
 {
-    ArrowMarker *mrk = new ArrowMarker();
+    auto *mrk = new ArrowMarker();
     mrk->attach(d_graph->plotWidget());
 
     mrk->setStartPoint(start);
@@ -212,6 +212,6 @@ void LineProfileTool::mouseReleaseEvent(QMouseEvent *e)
 {
     calculateLineProfile(d_op_start, e->pos());
     addLineMarker(d_op_start, e->pos());
-    d_graph->setActiveTool(NULL);
+    d_graph->setActiveTool(nullptr);
     // attention: I'm now deleted
 }

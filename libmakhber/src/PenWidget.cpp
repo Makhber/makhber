@@ -97,7 +97,7 @@ void PenWidget::createWidgets()
     dashLineEdit = new QLineEdit(this);
     dashLineEdit->setText(d_custom_dash);
     // # https://snorfalorpagus.net/blog/2014/08/09/validating-user-input-in-pyqt4-using-qvalidator/
-    QRegExp rx("^(\\d+\\s+\\d+\\b\\s*)*$");
+    QRegExp rx(R"(^(\d+\s+\d+\b\s*)*$)");
     dashValidator = new QRegExpValidator(rx, this);
     // dashLineEdit->setValidator(validator);
 
@@ -120,7 +120,7 @@ void PenWidget::createWidgets()
 
 void PenWidget::createLayout()
 {
-    QGridLayout *gl1 = new QGridLayout(this);
+    auto *gl1 = new QGridLayout(this);
     gl1->setColumnMinimumWidth(0, 90);
     gl1->addWidget(new QLabel(tr("Color")), 0, 0);
     gl1->addWidget(colorButton, 0, 1, Qt::AlignLeft);

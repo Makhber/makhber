@@ -97,7 +97,7 @@ void ColorButton::init()
 {
     // transpose colors in the 6x8 basic colour grid.
     constexpr int rows = 8, cols = 6;
-    static_assert(rows * cols <= sizeof(colors) / sizeof(colors[0]), "");
+    static_assert(rows * cols <= sizeof(colors) / sizeof(colors[0]));
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             QColorDialog::setStandardColor(j + cols * i, colors[i + rows * j].rgb());
@@ -116,7 +116,7 @@ void ColorButton::init()
     display->setAutoFillBackground(true);
     setColor(QColor(Qt::white));
 
-    QHBoxLayout *l = new QHBoxLayout(this);
+    auto *l = new QHBoxLayout(this);
     l->setMargin(0);
     l->addWidget(display);
     l->addWidget(selectButton);

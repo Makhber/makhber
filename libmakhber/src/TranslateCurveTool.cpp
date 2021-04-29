@@ -86,7 +86,7 @@ void TranslateCurveTool::selectDestination(const QwtDoublePoint &point)
             QMessageBox::warning(d_graph, tr("Warning"),
                                  tr("This operation cannot be performed on function curves."));
         } else {
-            FunctionCurve *func = (FunctionCurve *)d_selected_curve;
+            auto *func = (FunctionCurve *)d_selected_curve;
             if (func->functionType() == FunctionCurve::Normal) {
                 QString formula = func->formulas().first();
                 double d = point.y() - d_curve_point.y();
@@ -97,10 +97,10 @@ void TranslateCurveTool::selectDestination(const QwtDoublePoint &point)
                 func->loadData();
             }
         }
-        d_graph->setActiveTool(NULL);
+        d_graph->setActiveTool(nullptr);
         return;
     } else {
-        DataCurve *c = (DataCurve *)d_selected_curve;
+        auto *c = (DataCurve *)d_selected_curve;
         double d;
         QString col_name;
         switch (d_dir) {
@@ -139,7 +139,7 @@ void TranslateCurveTool::selectDestination(const QwtDoublePoint &point)
         }
         d_app->updateCurves(tab, col_name);
         d_app->modifiedProject();
-        d_graph->setActiveTool(NULL);
+        d_graph->setActiveTool(nullptr);
         // attention: I'm now deleted. Maybe there is a cleaner solution...*/
     }
 }

@@ -55,8 +55,8 @@ MultiPeakFit::MultiPeakFit(ApplicationWindow *parent, Graph *g, PeakProfile prof
         d_fsimplex = lorentz_multi_peak_d;
     }
 
-    d_param_init = NULL;
-    covar = NULL;
+    d_param_init = nullptr;
+    covar = nullptr;
 
     setNumPeaks(peaks);
 
@@ -207,8 +207,7 @@ void MultiPeakFit::insertPeakFunctionCurve(double *x, double *y, int peak)
     }
     QString title = tr("Peak") + QString::number(++index);
 
-    FunctionCurve *c =
-            new FunctionCurve((ApplicationWindow *)parent(), FunctionCurve::Normal, title);
+    auto *c = new FunctionCurve((ApplicationWindow *)parent(), FunctionCurve::Normal, title);
     c->setPen(QPen(d_peaks_color, 1));
     c->setData(x, y, d_points);
     c->setRange(d_x[0], d_x[d_n - 1]);
@@ -229,7 +228,7 @@ void MultiPeakFit::insertPeakFunctionCurve(double *x, double *y, int peak)
 
 void MultiPeakFit::generateFitCurve(const vector<double> &par)
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (!d_gen_function)
         d_points = d_n;
 
@@ -240,8 +239,8 @@ void MultiPeakFit::generateFitCurve(const vector<double> &par)
         return;
     }
 
-    double *X = new double[d_points];
-    double *Y = new double[d_points];
+    auto *X = new double[d_points];
+    auto *Y = new double[d_points];
     int i, j;
     int peaks_aux = d_peaks;
     if (d_peaks == 1)
@@ -320,7 +319,7 @@ void MultiPeakFit::generateFitCurve(const vector<double> &par)
         }
 
         label = tableName + "_2";
-        DataCurve *c = new DataCurve(t, tableName + "_" + columns.at(0)->name(), label);
+        auto *c = new DataCurve(t, tableName + "_" + columns.at(0)->name(), label);
         if (d_peaks > 1)
             c->setPen(QPen(d_curveColor, 2));
         else

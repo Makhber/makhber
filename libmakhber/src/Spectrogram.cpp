@@ -28,7 +28,7 @@
 
 #include "Spectrogram.h"
 #include "ColorButton.h"
-#include <math.h>
+#include <cmath>
 #include <qpen.h>
 #include <qmessagebox.h>
 
@@ -36,7 +36,7 @@
 
 Spectrogram::Spectrogram()
     : QwtPlotSpectrogram(),
-      d_matrix(0),
+      d_matrix(nullptr),
       color_axis(QwtPlot::yRight),
       color_map_policy(Default),
       color_map(QwtLinearColorMap())
@@ -176,7 +176,7 @@ void Spectrogram::setColorBarWidth(int width)
 
 Spectrogram *Spectrogram::copy()
 {
-    Spectrogram *new_s = new Spectrogram(matrix());
+    auto *new_s = new Spectrogram(matrix());
     new_s->setDisplayMode(QwtPlotSpectrogram::ImageMode,
                           testDisplayMode(QwtPlotSpectrogram::ImageMode));
     new_s->setDisplayMode(QwtPlotSpectrogram::ContourMode,

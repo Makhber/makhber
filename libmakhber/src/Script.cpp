@@ -29,7 +29,7 @@
 #include "ScriptingEnv.h"
 #include "Script.h"
 
-#include <string.h>
+#include <cstring>
 
 #ifdef SCRIPTING_MUPARSER
 #include "MuParserScript.h"

@@ -220,11 +220,11 @@ void Legend::drawFrame(QPainter *p, int type, const QRect &rect) const
 
 void Legend::drawVector(QPainter *p, int x, int y, int l, int curveIndex) const
 {
-    Graph *g = (Graph *)d_plot->parent();
+    auto *g = (Graph *)d_plot->parent();
     if (!g)
         return;
 
-    VectorCurve *v = (VectorCurve *)g->curve(curveIndex);
+    auto *v = (VectorCurve *)g->curve(curveIndex);
     if (!v)
         return;
 
@@ -255,7 +255,7 @@ void Legend::drawVector(QPainter *p, int x, int y, int l, int curveIndex) const
 void Legend::drawSymbols(QPainter *p, const QRect &rect, QwtArray<long> height,
                          int symbolLineLength) const
 {
-    Graph *g = (Graph *)d_plot->parent();
+    auto *g = (Graph *)d_plot->parent();
 
     int w = rect.x() + left_margin;
     int l = symbolLineLength + 2 * left_margin;
@@ -321,9 +321,9 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QwtArray<long> height,
 
             int id = aux.toInt();
 
-            Graph *g = (Graph *)d_plot->parent();
+            auto *g = (Graph *)d_plot->parent();
             if (g->isPiePlot()) {
-                QwtPieCurve *curve = (QwtPieCurve *)d_plot->curve(1);
+                auto *curve = (QwtPieCurve *)d_plot->curve(1);
                 if (curve) {
                     const QBrush br = QBrush(curve->color(id - 1), curve->pattern());
                     QPen pen = curve->pen();
@@ -491,7 +491,7 @@ QString Legend::parse(const QString &str) const
         int pos2 = s.indexOf(")", pos);
         int cv = s.midRef(pos + 2, pos2 - pos - 2).toInt() - 1;
         if (cv >= 0) {
-            Graph *g = (Graph *)d_plot->parent();
+            auto *g = (Graph *)d_plot->parent();
             if (g) {
                 const QwtPlotCurve *c = (QwtPlotCurve *)g->curve(cv);
                 if (c)

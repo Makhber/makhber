@@ -126,7 +126,7 @@ void ScriptEdit::contextMenuEvent(QContextMenuEvent *e)
 
     if (parent()->inherits("Note")) {
         Note *sp = (Note *)parent();
-        QAction *actionAutoexec = new QAction(tr("Auto&exec"), menu);
+        auto *actionAutoexec = new QAction(tr("Auto&exec"), menu);
         actionAutoexec->setCheckable(true);
         actionAutoexec->setChecked(sp->autoexec());
         connect(actionAutoexec, SIGNAL(toggled(bool)), sp, SLOT(setAutoexec(bool)));
@@ -136,7 +136,7 @@ void ScriptEdit::contextMenuEvent(QContextMenuEvent *e)
     functionsMenu->clear();
     functionsMenu->setTearOffEnabled(true);
     QStringList flist = scriptEnv->mathFunctions();
-    QMenu *submenu = NULL;
+    QMenu *submenu = nullptr;
     for (int i = 0; i < flist.size(); i++) {
         QAction *newAction;
         QString menupart;
@@ -328,7 +328,8 @@ QString ScriptEdit::importASCII(const QString &filename)
 
     QString f;
     if (filename.isEmpty())
-        f = QFileDialog::getOpenFileName(this, tr("Import Text From File"), QString(), filter, 0);
+        f = QFileDialog::getOpenFileName(this, tr("Import Text From File"), QString(), filter,
+                                         nullptr);
     else
         f = filename;
     if (f.isEmpty())
@@ -373,7 +374,7 @@ QString ScriptEdit::exportASCII(const QString &filename)
 
         QFile f(fn);
         if (!f.open(QIODevice::WriteOnly)) {
-            QMessageBox::critical(0, tr("File Save Error"),
+            QMessageBox::critical(nullptr, tr("File Save Error"),
                                   tr("Could not write to file: <br><h4> %1 </h4><p>Please verify "
                                      "that you have the right to write to this location!")
                                           .arg(fn));

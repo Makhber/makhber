@@ -55,7 +55,7 @@ TextDialog::TextDialog(TextType type, QWidget *parent, Qt::WindowFlags fl) : QDi
     groupBox1 = new QGroupBox(QString());
 
     // grid layout for top groupbox
-    QGridLayout *topLayout = new QGridLayout(groupBox1);
+    auto *topLayout = new QGridLayout(groupBox1);
     // add text color label
     topLayout->addWidget(new QLabel(tr("Text Color")), 0, 0);
 
@@ -168,7 +168,7 @@ TextDialog::TextDialog(TextType type, QWidget *parent, Qt::WindowFlags fl) : QDi
     setFocusProxy(textEditBox);
 
     // put everything together
-    QVBoxLayout *mainLayout = new QVBoxLayout();
+    auto *mainLayout = new QVBoxLayout();
     mainLayout->addWidget(groupBox1);
     mainLayout->addWidget(formatButtons);
     mainLayout->addWidget(textEditBox);
@@ -197,7 +197,7 @@ void TextDialog::apply()
 
 void TextDialog::setDefaultValues()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return;
 

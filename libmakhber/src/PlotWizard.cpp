@@ -52,7 +52,7 @@ PlotWizard::PlotWizard(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     // top part starts here
     groupBox1 = new QGroupBox();
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     buttonX = new QPushButton("<->" + tr("&X"));
     buttonX->setAutoDefault(false);
     gl1->addWidget(buttonX, 0, 0);
@@ -74,7 +74,7 @@ PlotWizard::PlotWizard(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     gl1->addWidget(buttonZ, 2, 0);
     gl1->setRowStretch(3, 1);
 
-    QHBoxLayout *hl2 = new QHBoxLayout();
+    auto *hl2 = new QHBoxLayout();
     buttonNew = new QPushButton(tr("&New curve"));
     buttonNew->setDefault(true);
     buttonNew->setAutoDefault(true);
@@ -84,12 +84,12 @@ PlotWizard::PlotWizard(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     buttonDelete->setAutoDefault(false);
     hl2->addWidget(buttonDelete);
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addLayout(gl1);
     vl->addStretch();
     vl->addLayout(hl2);
 
-    QGridLayout *gl2 = new QGridLayout(groupBox1);
+    auto *gl2 = new QGridLayout(groupBox1);
     gl2->addWidget(new QLabel(tr("Worksheet")), 0, 0);
     boxTables = new QComboBox();
     gl2->addWidget(boxTables, 0, 1);
@@ -101,7 +101,7 @@ PlotWizard::PlotWizard(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     plotAssociations = new QListWidget();
 
     // bottom part starts here
-    QHBoxLayout *bottomLayout = new QHBoxLayout();
+    auto *bottomLayout = new QHBoxLayout();
     bottomLayout->addStretch();
 
     buttonOk = new QPushButton(tr("&Plot"));
@@ -112,7 +112,7 @@ PlotWizard::PlotWizard(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
     buttonCancel->setAutoDefault(false);
     bottomLayout->addWidget(buttonCancel);
 
-    QVBoxLayout *vlayout = new QVBoxLayout(this);
+    auto *vlayout = new QVBoxLayout(this);
     vlayout->addWidget(groupBox1);
     vlayout->addWidget(plotAssociations);
     vlayout->addLayout(bottomLayout);
@@ -319,7 +319,7 @@ void PlotWizard::setColumnsList(const QStringList &cols)
 bool PlotWizard::noCurves()
 {
     if (plotAssociations->count() == 0) {
-        QMessageBox::warning(0, tr("Error"), tr("You must add a new curve first!"));
+        QMessageBox::warning(nullptr, tr("Error"), tr("You must add a new curve first!"));
         return true;
     } else
         return false;
@@ -327,7 +327,7 @@ bool PlotWizard::noCurves()
 
 void PlotWizard::plot3DRibbon(const QStringList &lst)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return;
 
@@ -358,7 +358,7 @@ void PlotWizard::plot3DRibbon(const QStringList &lst)
 
 void PlotWizard::plot3D(const QStringList &lst)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return;
 
@@ -396,4 +396,4 @@ void PlotWizard::plot3D(const QStringList &lst)
     QApplication::restoreOverrideCursor();
 }
 
-PlotWizard::~PlotWizard() { }
+PlotWizard::~PlotWizard() = default;

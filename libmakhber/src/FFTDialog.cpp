@@ -52,22 +52,22 @@ FFTDialog::FFTDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
 {
     setWindowTitle(tr("FFT Options"));
 
-    d_table = 0;
-    graph = 0;
+    d_table = nullptr;
+    graph = nullptr;
     d_type = type;
 
     forwardBtn = new QRadioButton(tr("&Forward"));
     forwardBtn->setChecked(true);
     backwardBtn = new QRadioButton(tr("&Inverse"));
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
     hbox1->addWidget(forwardBtn);
     hbox1->addWidget(backwardBtn);
 
-    QGroupBox *gb1 = new QGroupBox();
+    auto *gb1 = new QGroupBox();
     gb1->setLayout(hbox1);
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     if (d_type == onGraph)
         gl1->addWidget(new QLabel(tr("Curve")), 0, 0);
     else
@@ -92,7 +92,7 @@ FFTDialog::FFTDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
         gl1->addWidget(new QLabel(tr("Sampling Interval")), 1, 0);
         gl1->addWidget(boxSampling, 1, 1);
     }
-    QGroupBox *gb2 = new QGroupBox();
+    auto *gb2 = new QGroupBox();
     gb2->setLayout(gl1);
 
     boxNormalize = new QCheckBox(tr("&Normalize Amplitude"));
@@ -101,7 +101,7 @@ FFTDialog::FFTDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     boxOrder = new QCheckBox(tr("&Shift Results"));
     boxOrder->setChecked(true);
 
-    QVBoxLayout *vbox1 = new QVBoxLayout();
+    auto *vbox1 = new QVBoxLayout();
     vbox1->addWidget(gb1);
     vbox1->addWidget(gb2);
     vbox1->addWidget(boxNormalize);
@@ -112,12 +112,12 @@ FFTDialog::FFTDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     buttonOK->setDefault(true);
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QVBoxLayout *vbox2 = new QVBoxLayout();
+    auto *vbox2 = new QVBoxLayout();
     vbox2->addWidget(buttonOK);
     vbox2->addWidget(buttonCancel);
     vbox2->addStretch();
 
-    QHBoxLayout *hbox2 = new QHBoxLayout(this);
+    auto *hbox2 = new QHBoxLayout(this);
     hbox2->addLayout(vbox1);
     hbox2->addLayout(vbox2);
 
@@ -143,10 +143,10 @@ void FFTDialog::accept()
         return;
     }
 
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     unique_ptr<FFT> fft;
     if (graph) {
-        fft.reset(new FFT(app, graph, boxName->currentText()));
+        fft = std::make_unique<FFT>(app, graph, boxName->currentText());
     } else if (d_table) {
         if (boxReal->currentText().isEmpty()) {
             QMessageBox::critical(this, tr("Error"),
@@ -154,7 +154,8 @@ void FFTDialog::accept()
             boxReal->setFocus();
             return;
         }
-        fft.reset(new FFT(app, d_table, boxReal->currentText(), boxImaginary->currentText()));
+        fft = std::make_unique<FFT>(app, d_table, boxReal->currentText(),
+                                    boxImaginary->currentText());
     }
     if (fft) {
         fft->setInverseFFT(backwardBtn->isChecked());

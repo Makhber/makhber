@@ -33,7 +33,7 @@
 ExtensibleFileDialog::ExtensibleFileDialog(QWidget *parent, bool extended, Qt::WindowFlags flags)
     : QFileDialog(parent, flags)
 {
-    d_extension = 0;
+    d_extension = nullptr;
 
 #if QT_VERSION >= 0x050000
     // needed to extend the Qt5 QFileDialog
@@ -46,7 +46,7 @@ ExtensibleFileDialog::ExtensibleFileDialog(QWidget *parent, bool extended, Qt::W
         d_extension_toggle->toggle();
     d_extension_toggle->hide(); // show only for d_extension != 0
 
-    QGridLayout *main_layout = qobject_cast<QGridLayout *>(layout());
+    auto *main_layout = qobject_cast<QGridLayout *>(layout());
     if (main_layout) {
         d_extension_row = main_layout->rowCount();
         main_layout->addWidget(d_extension_toggle, d_extension_row, main_layout->columnCount() - 1);
@@ -78,7 +78,7 @@ void ExtensibleFileDialog::setExtensionWidget(QWidget *extension)
     }
     d_extension_toggle->show();
 
-    QGridLayout *main_layout = qobject_cast<QGridLayout *>(layout());
+    auto *main_layout = qobject_cast<QGridLayout *>(layout());
     if (main_layout)
         main_layout->addWidget(d_extension, d_extension_row, 0, 2, main_layout->columnCount() - 1);
     else

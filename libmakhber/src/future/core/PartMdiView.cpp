@@ -36,7 +36,7 @@
 #include <QMdiArea>
 
 PartMdiView::PartMdiView(AbstractPart *part, QWidget *embedded_view)
-    : QMdiSubWindow(0), d_part(part), d_closing(false), d_status(Closed)
+    : QMdiSubWindow(nullptr), d_part(part), d_closing(false), d_status(Closed)
 {
     setWindowIcon(d_part->icon());
     handleAspectDescriptionChanged(d_part);
@@ -54,7 +54,7 @@ void PartMdiView::contextMenuEvent(QContextMenuEvent *event)
     delete menu;
 }
 
-PartMdiView::~PartMdiView() { }
+PartMdiView::~PartMdiView() = default;
 
 void PartMdiView::handleAspectDescriptionChanged(const AbstractAspect *aspect)
 {

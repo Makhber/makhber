@@ -86,7 +86,7 @@ AxesDialog::AxesDialog()
     buttonCancel->setText(tr("&Cancel"));
     bottomButtons->addWidget(buttonCancel);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    auto *mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(&generalDialog);
     mainLayout->addLayout(bottomButtons);
 
@@ -102,8 +102,8 @@ void AxesDialog::initScalesPage()
 {
     scalesPage = new QWidget();
 
-    QGroupBox *middleBox = new QGroupBox(QString());
-    QGridLayout *middleLayout = new QGridLayout(middleBox);
+    auto *middleBox = new QGroupBox(QString());
+    auto *middleLayout = new QGridLayout(middleBox);
 
     middleLayout->addWidget(new QLabel(tr("From")), 0, 0);
     boxStart = new QLineEdit();
@@ -127,10 +127,10 @@ void AxesDialog::initScalesPage()
 
     middleLayout->setRowStretch(4, 1);
 
-    QGroupBox *rightBox = new QGroupBox(QString());
-    QGridLayout *rightLayout = new QGridLayout(rightBox);
-    QWidget *stepWidget = new QWidget();
-    QVBoxLayout *stepWidgetLayout = new QVBoxLayout(stepWidget);
+    auto *rightBox = new QGroupBox(QString());
+    auto *rightLayout = new QGridLayout(rightBox);
+    auto *stepWidget = new QWidget();
+    auto *stepWidgetLayout = new QVBoxLayout(stepWidget);
 
     btnStep = new QRadioButton(rightBox);
     btnStep->setText(tr("Step"));
@@ -199,7 +199,7 @@ void AxesDialog::initScalesPage()
     // resize the list to the maximum width
     axesList->resize(axesList->maximumWidth(), axesList->height());
 
-    QHBoxLayout *mainLayout = new QHBoxLayout(scalesPage);
+    auto *mainLayout = new QHBoxLayout(scalesPage);
     mainLayout->addWidget(axesList);
     mainLayout->addWidget(middleBox);
     mainLayout->addWidget(rightBox);
@@ -219,8 +219,8 @@ void AxesDialog::initGridPage()
 {
     gridPage = new QWidget();
 
-    QGroupBox *rightBox = new QGroupBox(QString());
-    QGridLayout *rightLayout = new QGridLayout(rightBox);
+    auto *rightBox = new QGroupBox(QString());
+    auto *rightLayout = new QGridLayout(rightBox);
 
     boxMajorGrid = new QCheckBox();
     boxMajorGrid->setText(tr("Major Grids"));
@@ -325,7 +325,7 @@ void AxesDialog::initGridPage()
     // resize the list to the maximum width
     axesGridList->resize(axesGridList->maximumWidth(), axesGridList->height());
 
-    QHBoxLayout *mainLayout2 = new QHBoxLayout(gridPage);
+    auto *mainLayout2 = new QHBoxLayout(gridPage);
     mainLayout2->addWidget(axesGridList);
     mainLayout2->addWidget(rightBox);
 
@@ -393,7 +393,7 @@ void AxesDialog::initAxesPage()
     // resize the list to the maximum width
     axesTitlesList->resize(axesTitlesList->maximumWidth(), axesTitlesList->height());
 
-    QHBoxLayout *topLayout = new QHBoxLayout();
+    auto *topLayout = new QHBoxLayout();
 
     boxShowAxis = new QCheckBox(tr("Show"));
     boxShowAxis->setChecked(true);
@@ -402,7 +402,7 @@ void AxesDialog::initAxesPage()
     labelBox = new QGroupBox(tr("Title"));
     topLayout->addWidget(labelBox);
 
-    QVBoxLayout *labelBoxLayout = new QVBoxLayout(labelBox);
+    auto *labelBoxLayout = new QVBoxLayout(labelBox);
     labelBoxLayout->setSpacing(2);
 
     boxTitle = new QTextEdit();
@@ -411,7 +411,7 @@ void AxesDialog::initAxesPage()
     boxTitle->setMaximumHeight(3 * metrics.height());
     labelBoxLayout->addWidget(boxTitle);
 
-    QHBoxLayout *hl = new QHBoxLayout();
+    auto *hl = new QHBoxLayout();
     hl->setMargin(0);
     hl->setSpacing(2);
     buttonLabelFont = new QPushButton(tr("&Font"));
@@ -425,11 +425,11 @@ void AxesDialog::initAxesPage()
     boxTitle->setMaximumWidth(buttonLabelFont->width() + formatButtons->width());
     labelBoxLayout->addLayout(hl);
 
-    QHBoxLayout *bottomLayout = new QHBoxLayout();
+    auto *bottomLayout = new QHBoxLayout();
 
-    QGroupBox *leftBox = new QGroupBox(QString());
+    auto *leftBox = new QGroupBox(QString());
     bottomLayout->addWidget(leftBox);
-    QGridLayout *leftBoxLayout = new QGridLayout(leftBox);
+    auto *leftBoxLayout = new QGridLayout(leftBox);
 
     leftBoxLayout->addWidget(new QLabel(tr("Type")), 0, 0);
 
@@ -473,7 +473,7 @@ void AxesDialog::initAxesPage()
     boxShowLabels->setChecked(true);
 
     bottomLayout->addWidget(boxShowLabels);
-    QGridLayout *rightBoxLayout = new QGridLayout(boxShowLabels);
+    auto *rightBoxLayout = new QGridLayout(boxShowLabels);
 
     label1 = new QLabel(tr("Column"));
     rightBoxLayout->addWidget(label1, 0, 0);
@@ -521,12 +521,12 @@ void AxesDialog::initAxesPage()
     rightBoxLayout->addWidget(boxFormula, 6, 1);
     rightBoxLayout->setRowStretch(7, 1);
 
-    QVBoxLayout *rightLayout = new QVBoxLayout();
+    auto *rightLayout = new QVBoxLayout();
     rightLayout->addLayout(topLayout);
     rightLayout->addLayout(bottomLayout);
     rightLayout->addStretch(1);
 
-    QHBoxLayout *mainLayout3 = new QHBoxLayout(axesPage);
+    auto *mainLayout3 = new QHBoxLayout(axesPage);
     mainLayout3->addWidget(axesTitlesList);
     mainLayout3->addLayout(rightLayout);
 
@@ -567,7 +567,7 @@ void AxesDialog::initFramePage()
     boxFramed = new QGroupBox(tr("Canvas frame"));
     boxFramed->setCheckable(true);
 
-    QGridLayout *boxFramedLayout = new QGridLayout(boxFramed);
+    auto *boxFramedLayout = new QGridLayout(boxFramed);
     boxFramedLayout->addWidget(new QLabel(tr("Color")), 0, 0);
     boxFrameColor = new ColorButton(boxFramed);
     boxFramedLayout->addWidget(boxFrameColor, 0, 1);
@@ -579,8 +579,8 @@ void AxesDialog::initFramePage()
 
     boxFramedLayout->setRowStretch(2, 1);
 
-    QGroupBox *boxAxes = new QGroupBox(tr("Axes"));
-    QGridLayout *boxAxesLayout = new QGridLayout(boxAxes);
+    auto *boxAxes = new QGroupBox(tr("Axes"));
+    auto *boxAxesLayout = new QGridLayout(boxAxes);
     boxBackbones = new QCheckBox();
     boxBackbones->setText(tr("Draw backbones"));
     boxAxesLayout->addWidget(boxBackbones, 0, 0);
@@ -602,7 +602,7 @@ void AxesDialog::initFramePage()
 
     boxAxesLayout->setRowStretch(4, 1);
 
-    QHBoxLayout *mainLayout = new QHBoxLayout(frame);
+    auto *mainLayout = new QHBoxLayout(frame);
     mainLayout->addWidget(boxFramed);
     mainLayout->addWidget(boxAxes);
 
@@ -803,18 +803,16 @@ void AxesDialog::showAxisFormatOptions(int format)
             boxFormat->setItemText(boxFormat->currentIndex(), lst[1]);
         }
 
-        const char *date_strings[] = {
-            "yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy", "dd/MM/yy", "dd.MM.yyyy",
-            "dd.MM.yy",   "MM/yyyy",    "dd.MM.",     "yyyyMMdd", 0
-        };
+        const char *date_strings[] = { "yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy", "dd/MM/yy",
+                                       "dd.MM.yyyy", "dd.MM.yy",   "MM/yyyy",    "dd.MM.",
+                                       "yyyyMMdd",   nullptr };
 
-        const char *time_strings[] = {
-            "hh",           "hh ap",        "hh:mm",     "hh:mm ap", "hh:mm:ss",
-            "hh:mm:ss.zzz", "hh:mm:ss:zzz", "mm:ss.zzz", "hhmmss",   0
-        };
+        const char *time_strings[] = { "hh",       "hh ap",        "hh:mm",        "hh:mm ap",
+                                       "hh:mm:ss", "hh:mm:ss.zzz", "hh:mm:ss:zzz", "mm:ss.zzz",
+                                       "hhmmss",   nullptr };
         int j, i;
-        for (i = 0; date_strings[i] != 0; i++)
-            for (j = 0; time_strings[j] != 0; j++)
+        for (i = 0; date_strings[i] != nullptr; i++)
+            for (j = 0; time_strings[j] != nullptr; j++)
                 boxFormat->addItem(
                         QString("%1 %2").arg(date_strings[i], time_strings[j]),
                         QVariant(QString(date_strings[i]) + " " + QString(time_strings[j])));
@@ -1192,7 +1190,7 @@ bool AxesDialog::updatePlot()
             parser.SetExpr(from);
             start = parser.Eval();
         } catch (mu::ParserError &e) {
-            QMessageBox::critical(0, tr("Start limit error"), QStringFromString(e.GetMsg()));
+            QMessageBox::critical(nullptr, tr("Start limit error"), QStringFromString(e.GetMsg()));
             boxStart->setFocus();
             return false;
         }
@@ -1201,7 +1199,7 @@ bool AxesDialog::updatePlot()
             parser.SetExpr(to);
             end = parser.Eval();
         } catch (mu::ParserError &e) {
-            QMessageBox::critical(0, tr("End limit error"), QStringFromString(e.GetMsg()));
+            QMessageBox::critical(nullptr, tr("End limit error"), QStringFromString(e.GetMsg()));
             boxEnd->setFocus();
             return false;
         }
@@ -1211,13 +1209,14 @@ bool AxesDialog::updatePlot()
                 parser.SetExpr(step.toUtf8().constData());
                 stp = parser.Eval();
             } catch (mu::ParserError &e) {
-                QMessageBox::critical(0, tr("Step input error"), QStringFromString(e.GetMsg()));
+                QMessageBox::critical(nullptr, tr("Step input error"),
+                                      QStringFromString(e.GetMsg()));
                 boxStep->setFocus();
                 return false;
             }
 
             if (stp <= 0) {
-                QMessageBox::critical(0, tr("Step input error"),
+                QMessageBox::critical(nullptr, tr("Step input error"),
                                       tr("Please enter a positive step value!"));
                 boxStep->setFocus();
                 return false;
@@ -1295,7 +1294,7 @@ bool AxesDialog::updatePlot()
                     parser.SetExpr(formula.toUtf8().constData());
                     parser.Eval();
                 } catch (mu::ParserError &e) {
-                    QMessageBox::critical(0, tr("Formula input error"),
+                    QMessageBox::critical(nullptr, tr("Formula input error"),
                                           QStringFromString(e.GetMsg()) + "\n"
                                                   + tr("Valid variables are 'x' for Top/Bottom "
                                                        "axes and 'y' for Left/Right axes!"));
@@ -1359,7 +1358,7 @@ bool AxesDialog::updatePlot()
 
 void AxesDialog::setGraph(Graph *g)
 {
-    ApplicationWindow *app = qobject_cast<ApplicationWindow *>(parent());
+    auto *app = qobject_cast<ApplicationWindow *>(parent());
 
     if (!app || !g)
         return;
@@ -1884,7 +1883,7 @@ void AxesDialog::showAxis(int axis, Graph::AxisType type, const QString &labelsC
                           int format, int prec, int rotation, int baselineDist,
                           const QString &formula, const QColor &labelsColor)
 {
-    ApplicationWindow *app = qobject_cast<ApplicationWindow *>(parent());
+    auto *app = qobject_cast<ApplicationWindow *>(parent());
     if (!app)
         return;
 

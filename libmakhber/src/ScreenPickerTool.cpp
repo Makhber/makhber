@@ -67,7 +67,7 @@ void ScreenPickerTool::append(const QPoint &point)
     emit statusText(trackerText(pos).text());
 
     d_selection_marker.setValue(pos);
-    if (d_selection_marker.plot() == NULL)
+    if (d_selection_marker.plot() == nullptr)
         d_selection_marker.attach(d_graph->plotWidget());
     d_graph->plotWidget()->replot();
 }
@@ -79,7 +79,7 @@ bool ScreenPickerTool::eventFilter(QObject *obj, QEvent *event)
         emit selected(d_selection_marker.value());
         return true;
     case QEvent::KeyPress: {
-        QKeyEvent *ke = (QKeyEvent *)event;
+        auto *ke = (QKeyEvent *)event;
         switch (ke->key()) {
         case Qt::Key_Enter:
         case Qt::Key_Return:

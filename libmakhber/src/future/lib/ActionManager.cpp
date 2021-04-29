@@ -30,7 +30,7 @@
 #include "ActionManager.h"
 #include <QMutableMapIterator>
 
-ActionManager::ActionManager() { }
+ActionManager::ActionManager() = default;
 
 ActionManager::~ActionManager()
 {
@@ -45,7 +45,7 @@ void ActionManager::addAction(QAction *action, const QString &internal_name)
         return;
     if (!d_action_registry.contains(internal_name)) // new internal name
     {
-        QList<QAction *> *list = new QList<QAction *>();
+        auto *list = new QList<QAction *>();
         list->append(action);
         d_action_registry.insert(internal_name, list);
         d_action_shortcuts.insert(internal_name, action->shortcuts());
@@ -74,7 +74,7 @@ void ActionManager::setShortcuts(const QString &internal_name, const QList<QKeyS
 {
     if (!d_action_registry.contains(internal_name)) // new internal name
     {
-        QList<QAction *> *list = new QList<QAction *>();
+        auto *list = new QList<QAction *>();
         d_action_registry.insert(internal_name, list);
         d_action_shortcuts.insert(internal_name, sequences);
     } else {

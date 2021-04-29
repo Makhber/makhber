@@ -34,7 +34,7 @@
 #include <QBrush>
 #include <QColor>
 
-MatrixModel::MatrixModel(future::Matrix *matrix) : QAbstractItemModel(0), d_matrix(matrix)
+MatrixModel::MatrixModel(future::Matrix *matrix) : QAbstractItemModel(nullptr), d_matrix(matrix)
 {
     connect(d_matrix, SIGNAL(columnsAboutToBeInserted(int, int)), this,
             SLOT(handleColumnsAboutToBeInserted(int, int)));
@@ -55,7 +55,7 @@ MatrixModel::MatrixModel(future::Matrix *matrix) : QAbstractItemModel(0), d_matr
     connect(d_matrix, SIGNAL(formatChanged()), this, SLOT(handleFormatChanged()));
 }
 
-MatrixModel::~MatrixModel() { }
+MatrixModel::~MatrixModel() = default;
 
 Qt::ItemFlags MatrixModel::flags(const QModelIndex &index) const
 {

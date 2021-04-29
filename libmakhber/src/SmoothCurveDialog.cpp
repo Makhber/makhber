@@ -48,8 +48,8 @@ SmoothCurveDialog::SmoothCurveDialog(int method, QWidget *parent, Qt::WindowFlag
 
     setWindowTitle(tr("Smoothing Options"));
 
-    QGroupBox *gb1 = new QGroupBox();
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gb1 = new QGroupBox();
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("Curve")), 0, 0);
 
     boxName = new QComboBox();
@@ -98,12 +98,12 @@ SmoothCurveDialog::SmoothCurveDialog(int method, QWidget *parent, Qt::WindowFlag
     btnSmooth->setDefault(true);
     buttonCancel = new QPushButton(tr("&Close"));
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addWidget(btnSmooth);
     vl->addWidget(buttonCancel);
     vl->addStretch();
 
-    QHBoxLayout *hb = new QHBoxLayout(this);
+    auto *hb = new QHBoxLayout(this);
     hb->addWidget(gb1);
     hb->addLayout(vl);
 
@@ -115,7 +115,7 @@ SmoothCurveDialog::SmoothCurveDialog(int method, QWidget *parent, Qt::WindowFlag
 
 void SmoothCurveDialog::smooth()
 {
-    SmoothFilter *sf = new SmoothFilter((ApplicationWindow *)this->parent(), graph,
+    auto *sf = new SmoothFilter((ApplicationWindow *)this->parent(), graph,
                                         boxName->currentText(), smooth_method);
     if (smooth_method == SmoothFilter::SavitzkyGolay) {
         sf->setSmoothPoints(boxPointsLeft->value(), boxPointsRight->value());

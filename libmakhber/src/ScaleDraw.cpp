@@ -31,18 +31,19 @@
 
 #include <QDateTime>
 #include <QMessageBox>
+#include <utility>
 
 #include <qwt_painter.h>
 #include <qwt_text.h>
 
-ScaleDraw::ScaleDraw(const QString &s)
-    : formula_string(s), d_fmt('g'), d_prec(4), d_minTicks(Out), d_majTicks(Out)
+ScaleDraw::ScaleDraw(QString s)
+    : formula_string(std::move(s)), d_fmt('g'), d_prec(4), d_minTicks(Out), d_majTicks(Out)
 {
 }
 
-ScaleDraw::ScaleDraw(const ScaleDraw &other, const QString &s)
+ScaleDraw::ScaleDraw(const ScaleDraw &other, QString s)
     : QwtScaleDraw(other),
-      formula_string(s),
+      formula_string(std::move(s)),
       d_minTicks(other.majorTicksStyle()),
       d_majTicks(other.minorTicksStyle())
 {
@@ -153,9 +154,7 @@ QwtText QwtTextScaleDraw::label(double value) const
  *
  *****************************************************************************/
 
-TimeScaleDraw::TimeScaleDraw(const QTime &t, const QString &format) : t_origin(t), t_format(format)
-{
-}
+TimeScaleDraw::TimeScaleDraw(const QTime &t, QString format) : t_origin(t), t_format(std::move(format)) { }
 
 QString TimeScaleDraw::origin()
 {
@@ -174,9 +173,7 @@ QwtText TimeScaleDraw::label(double value) const
  *
  *****************************************************************************/
 
-DateScaleDraw::DateScaleDraw(const QDate &t, const QString &format) : t_origin(t), t_format(format)
-{
-}
+DateScaleDraw::DateScaleDraw(const QDate &t, QString format) : t_origin(t), t_format(std::move(format)) { }
 
 QString DateScaleDraw::origin()
 {
@@ -199,8 +196,8 @@ QwtText DateScaleDraw::label(double value) const
  *
  *****************************************************************************/
 
-DateTimeScaleDraw::DateTimeScaleDraw(const QDateTime &origin, const QString &format)
-    : d_origin(origin), d_format(format)
+DateTimeScaleDraw::DateTimeScaleDraw(QDateTime origin, QString format)
+    : d_origin(std::move(origin)), d_format(std::move(format))
 {
 }
 

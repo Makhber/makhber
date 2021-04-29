@@ -75,12 +75,12 @@ double UserFunction::operator()(double x, double y)
         parser.SetExpr(formula);
         result = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, "Input function error", QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, "Input function error", QStringFromString(e.GetMsg()));
     }
     return result;
 }
 
-UserFunction::~UserFunction() { }
+UserFunction::~UserFunction() = default;
 
 Graph3D::Graph3D(const QString &label, QWidget *parent, const char *name, Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)
@@ -90,8 +90,8 @@ Graph3D::Graph3D(const QString &label, QWidget *parent, const char *name, Qt::Wi
 
 void Graph3D::initPlot()
 {
-    worksheet = 0;
-    d_matrix = 0;
+    worksheet = nullptr;
+    d_matrix = nullptr;
     plotAssociation = QString();
 
     QDateTime dt = QDateTime::currentDateTime();
@@ -103,7 +103,7 @@ void Graph3D::initPlot()
     connect(d_timer, SIGNAL(timeout()), this, SLOT(rotate()));
     ignoreFonts = false;
 
-    QWidget *d_main_widget = new QWidget();
+    auto *d_main_widget = new QWidget();
     sp = new SurfacePlot(d_main_widget);
     sp->resize(500, 400);
     sp->installEventFilter(this);
@@ -138,7 +138,7 @@ void Graph3D::initPlot()
     fromColor = QColor(Qt::red);
     toColor = QColor(Qt::blue);
 
-    col_ = 0;
+    col_ = nullptr;
 
     legendOn = false;
     legendMajorTicks = 5;
@@ -153,7 +153,7 @@ void Graph3D::initPlot()
         scaleType[j] = 0;
 
     pointStyle = None;
-    func = 0;
+    func = nullptr;
     alpha = 1.0;
     barsRad = 0.007;
     pointSize = 5;
@@ -751,7 +751,7 @@ UserFunction *Graph3D::userFunction()
     if (func)
         return func;
     else
-        return 0;
+        return nullptr;
 }
 
 void Graph3D::update()
@@ -1243,13 +1243,13 @@ void Graph3D::updateScale(int axis, const QStringList &options)
 
     newMaj = options[2].toInt();
     if (majors != newMaj)
-        for (int i = 0; i < 4; i++)
-            targetAxes[i]->setMajors(newMaj);
+        for (auto &targetAxe : targetAxes)
+            targetAxe->setMajors(newMaj);
 
     newMin = options[3].toInt();
     if (minors != newMin)
-        for (int i = 0; i < 4; i++)
-            targetAxes[i]->setMinors(newMin);
+        for (auto &targetAxe : targetAxes)
+            targetAxe->setMinors(newMin);
 
     update();
     emit modified();
@@ -1787,17 +1787,17 @@ void Graph3D::setCrossMesh()
 void Graph3D::clearData()
 {
     if (d_matrix)
-        d_matrix = 0;
+        d_matrix = nullptr;
     else if (worksheet)
-        worksheet = 0;
+        worksheet = nullptr;
     else if (func) {
         delete func;
-        func = 0;
+        func = nullptr;
     }
     plotAssociation = QString();
 
     sp->makeCurrent();
-    sp->loadFromData(0, 0, 0, false, false);
+    sp->loadFromData(nullptr, 0, 0, false, false);
     sp->updateData();
     sp->update();
 }
@@ -1938,7 +1938,7 @@ void Graph3D::print()
             QFile f("makhber.png");
             f.remove();
         } else
-            QMessageBox::about(0, tr("IO Error"),
+            QMessageBox::about(nullptr, tr("IO Error"),
                                tr("Could not print: <h4>") + QString(name()) + "</h4>.");
     }
 }
@@ -1962,7 +1962,7 @@ void Graph3D::exportImage(const QString &fileName, int quality, bool transparent
         p.begin(&mask);
         p.setPen(Qt::color0);
 
-        QColor background = QColor(Qt::white);
+        auto background = QColor(Qt::white);
         QRgb backgroundPixel = background.rgb();
         QImage image = pic.toImage();
         for (int y = 0; y < image.height(); y++) {
@@ -1974,7 +1974,7 @@ void Graph3D::exportImage(const QString &fileName, int quality, bool transparent
         }
         p.end();
         pic.setMask(mask);
-        pic.save(fileName, 0, quality);
+        pic.save(fileName, nullptr, quality);
     } else {
         QImage im = sp->grabFramebuffer();
         QImageWriter iw(fileName);
@@ -1991,14 +1991,14 @@ void Graph3D::exportPDF(const QString &fileName)
 void Graph3D::exportVector(const QString &fileName, const QString &fileType)
 {
     if (fileName.isEmpty()) {
-        QMessageBox::critical(0, tr("Error"), tr("Please provide a valid file name!"));
+        QMessageBox::critical(nullptr, tr("Error"), tr("Please provide a valid file name!"));
         return;
     }
 
     QString format = fileType;
     format = format.toUpper();
 
-    VectorWriter *gl2ps = (VectorWriter *)IO::outputHandler(format);
+    auto *gl2ps = (VectorWriter *)IO::outputHandler(format);
     if (gl2ps) {
         gl2ps->setTextMode(VectorWriter::NATIVE);
     }
@@ -2615,7 +2615,7 @@ void Graph3D::setOptions(bool legend, int r, int dist)
 
 Qwt3D::Triple **Graph3D::allocateData(int columns, int rows)
 {
-    Qwt3D::Triple **data = new Qwt3D::Triple *[columns];
+    auto **data = new Qwt3D::Triple *[columns];
 
     for (int i = 0; i < columns; ++i) {
         data[i] = new Qwt3D::Triple[rows];
@@ -2696,7 +2696,7 @@ void Graph3D::changeTransparency(double t)
 
     alpha = t;
 
-    Qwt3D::StandardColor *color = (StandardColor *)sp->dataColor();
+    auto *color = (StandardColor *)sp->dataColor();
     color->setAlpha(t);
 
     sp->showColorLegend(legendOn);
@@ -2712,7 +2712,7 @@ void Graph3D::setTransparency(double t)
 
     alpha = t;
 
-    Qwt3D::StandardColor *color = (StandardColor *)sp->dataColor();
+    auto *color = (StandardColor *)sp->dataColor();
     color->setAlpha(t);
 }
 

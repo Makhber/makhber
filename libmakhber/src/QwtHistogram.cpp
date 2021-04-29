@@ -157,7 +157,7 @@ bool QwtHistogram::loadData()
         if (!h)
             return false;
 
-        double *range = new double[n + 2];
+        auto *range = new double[n + 2];
         for (int i = 0; i <= n + 1; i++)
             range[i] = d_begin + i * d_bin_size;
 

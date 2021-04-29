@@ -29,7 +29,7 @@
 
 #include "TeXTableSettings.h"
 
-TeXTableSettings::TeXTableSettings(void)
+TeXTableSettings::TeXTableSettings()
 {
     table_caption = false;
     table_labels = false;

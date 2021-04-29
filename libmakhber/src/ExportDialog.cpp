@@ -40,7 +40,7 @@ ExportDialog::ExportDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     setWindowTitle(tr("Export ASCII"));
     setSizeGripEnabled(true);
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("Table")), 0, 0);
     boxTable = new QComboBox();
     boxTable->setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed));
@@ -50,7 +50,7 @@ ExportDialog::ExportDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     boxAllTables->setChecked(false);
     gl1->addWidget(boxAllTables, 0, 2);
 
-    QLabel *sepText = new QLabel(tr("Separator"));
+    auto *sepText = new QLabel(tr("Separator"));
     gl1->addWidget(sepText, 1, 0);
 
     boxSeparator = new QComboBox();
@@ -81,12 +81,12 @@ ExportDialog::ExportDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     boxSelection = new QCheckBox(tr("Export &Selection"));
     boxSelection->setChecked(false);
 
-    QVBoxLayout *vl1 = new QVBoxLayout();
+    auto *vl1 = new QVBoxLayout();
     vl1->addLayout(gl1);
     vl1->addWidget(boxNames);
     vl1->addWidget(boxSelection);
 
-    QHBoxLayout *hbox3 = new QHBoxLayout();
+    auto *hbox3 = new QHBoxLayout();
     buttonOk = new QPushButton(tr("&OK"));
     buttonOk->setDefault(true);
     hbox3->addWidget(buttonOk);
@@ -96,7 +96,7 @@ ExportDialog::ExportDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     hbox3->addWidget(buttonHelp);
     hbox3->addStretch();
 
-    QVBoxLayout *vl = new QVBoxLayout(this);
+    auto *vl = new QVBoxLayout(this);
     vl->addLayout(vl1);
     vl->addStretch();
     vl->addLayout(hbox3);
@@ -113,7 +113,7 @@ void ExportDialog::help()
     QString s = tr("The column separator can be customized. The following special codes can be "
                    "used:\n\\t for a TAB character \n\\s for a SPACE");
     s += "\n" + tr("The separator must not contain the following characters: 0-9eE.+-");
-    QMessageBox::about(0, tr("Help"), s);
+    QMessageBox::about(nullptr, tr("Help"), s);
 }
 
 void ExportDialog::setTableNames(const QStringList &names)
@@ -141,7 +141,7 @@ void ExportDialog::accept()
 
     if (sep.contains(QRegExp("[0-9.eE+-]"))) {
         QMessageBox::warning(
-                0, tr("Import options error"),
+                nullptr, tr("Import options error"),
                 tr("The separator must not contain the following characters: 0-9eE.+-"));
         return;
     }
@@ -179,4 +179,4 @@ void ExportDialog::setColumnSeparator(const QString &sep)
     }
 }
 
-ExportDialog::~ExportDialog() { }
+ExportDialog::~ExportDialog() = default;

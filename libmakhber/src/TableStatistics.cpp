@@ -38,12 +38,13 @@
 #include <QList>
 #include <QMenu>
 #include <QContextMenuEvent>
+#include <utility>
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_statistics.h>
 
 TableStatistics::TableStatistics(ScriptingEnv *env, QWidget *parent, Table *base, Type t,
                                  QList<int> targets)
-    : Table(env, 1, 1, "", parent, ""), d_base(base), d_type(t), d_targets(targets)
+    : Table(env, 1, 1, "", parent, ""), d_base(base), d_type(t), d_targets(std::move(targets))
 {
 #ifdef LEGACY_CODE_0_2_x
     static_cast<TableModel *>(d_view_widget->model())->setReadOnly(true);
@@ -98,17 +99,16 @@ TableStatistics::TableStatistics(ScriptingEnv *env, QWidget *parent, Table *base
         for (int i = 0; i < 9; i++)
             setColumnType(i, Makhber::ColumnMode::Numeric);
 
-        Double2StringFilter *pFilter =
-                qobject_cast<Double2StringFilter *>(column(0)->outputFilter());
-        Q_ASSERT(pFilter != NULL);
+        auto *pFilter = qobject_cast<Double2StringFilter *>(column(0)->outputFilter());
+        Q_ASSERT(pFilter != nullptr);
         pFilter->setNumDigits(0);
         pFilter->setNumericFormat('f');
         pFilter = qobject_cast<Double2StringFilter *>(column(1)->outputFilter());
-        Q_ASSERT(pFilter != NULL);
+        Q_ASSERT(pFilter != nullptr);
         pFilter->setNumDigits(0);
         pFilter->setNumericFormat('f');
         pFilter = qobject_cast<Double2StringFilter *>(column(8)->outputFilter());
-        Q_ASSERT(pFilter != NULL);
+        Q_ASSERT(pFilter != nullptr);
         pFilter->setNumDigits(0);
         pFilter->setNumericFormat('f');
 
@@ -136,22 +136,21 @@ TableStatistics::TableStatistics(ScriptingEnv *env, QWidget *parent, Table *base
         for (int i = 2; i < 11; i++)
             setColumnType(i, Makhber::ColumnMode::Numeric);
 
-        Double2StringFilter *pFilter =
-                qobject_cast<Double2StringFilter *>(column(6)->outputFilter());
-        Q_ASSERT(pFilter != NULL);
+        auto *pFilter = qobject_cast<Double2StringFilter *>(column(6)->outputFilter());
+        Q_ASSERT(pFilter != nullptr);
         pFilter->setNumDigits(0);
         pFilter->setNumericFormat('f');
         pFilter = qobject_cast<Double2StringFilter *>(column(8)->outputFilter());
-        Q_ASSERT(pFilter != NULL);
+        Q_ASSERT(pFilter != nullptr);
         pFilter->setNumDigits(0);
         pFilter->setNumericFormat('f');
         pFilter = qobject_cast<Double2StringFilter *>(column(10)->outputFilter());
-        Q_ASSERT(pFilter != NULL);
+        Q_ASSERT(pFilter != nullptr);
         pFilter->setNumDigits(0);
         pFilter->setNumericFormat('f');
 
-        for (int i = 0; i < d_targets.size(); i++)
-            update(d_base, d_base->colName(d_targets.at(i)));
+        for (int d_target : d_targets)
+            update(d_base, d_base->colName(d_target));
     }
     setColPlotDesignation(0, Makhber::X);
 }
@@ -179,7 +178,7 @@ void TableStatistics::update(Table *t, const QString &colName)
                 column(0)->setValueAt(destRow, srcRow + 1);
                 column(1)->setValueAt(destRow, columns);
                 if (validCells.count() > 0) {
-                    double *data = new double[validCells.count()];
+                    auto *data = new double[validCells.count()];
                     gsl_vector *y = gsl_vector_alloc(validCells.count());
 
                     int index = 0;
@@ -230,7 +229,7 @@ void TableStatistics::update(Table *t, const QString &colName)
                 if (validCells.count() == 0)
                     return;
 
-                double *data = new double[validCells.count()];
+                auto *data = new double[validCells.count()];
                 gsl_vector *y = gsl_vector_alloc(validCells.count());
 
                 int minIndex = validCells.at(0);
@@ -313,8 +312,8 @@ QString TableStatistics::saveToString(const QString &geometry)
     s += QString(d_type == StatRow ? "row" : "col") + "\t";
     s += birthDate() + "\n";
     s += "Targets";
-    for (QList<int>::iterator i = d_targets.begin(); i != d_targets.end(); ++i)
-        s += "\t" + QString::number(*i);
+    for (int &d_target : d_targets)
+        s += "\t" + QString::number(d_target);
     s += "\n";
     s += geometry;
     s += saveHeader();
@@ -332,7 +331,7 @@ bool TableStatistics::eventFilter(QObject *watched, QEvent *event)
     QHeaderView *v_header = d_view_widget->verticalHeader();
 
     if (event->type() == QEvent::ContextMenu) {
-        QContextMenuEvent *cm_event = static_cast<QContextMenuEvent *>(event);
+        auto *cm_event = static_cast<QContextMenuEvent *>(event);
         QPoint global_pos = cm_event->globalPos();
         if (watched == v_header) {
             // no enabled actions for rows
@@ -344,7 +343,7 @@ bool TableStatistics::eventFilter(QObject *watched, QEvent *event)
                 context_menu.addSeparator();
             }
 
-            QMenu *submenu = new QMenu(tr("S&et Column(s) As"));
+            auto *submenu = new QMenu(tr("S&et Column(s) As"));
             submenu->addAction(d_future_table->action_set_as_x);
             submenu->addAction(d_future_table->action_set_as_y);
             submenu->addAction(d_future_table->action_set_as_z);

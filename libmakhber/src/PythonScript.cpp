@@ -59,7 +59,7 @@ PythonScript::PythonScript(PythonScripting *env, const QString &code, QObject *c
                            const QString &name)
     : Script(env, code, context, name)
 {
-    PyCode = NULL;
+    PyCode = nullptr;
     PyGILState_STATE state = PyGILState_Ensure();
     // Old: All scripts share a global namespace, and module top-level has its own nonstandard local
     // namespace
@@ -176,14 +176,14 @@ bool PythonScript::compile(bool for_eval)
             Py_XINCREF(PyCode);
             Py_DECREF(tmp);
         }
-        success = PyCode != NULL;
+        success = PyCode != nullptr;
     } else {
         // Code contains statements (or errors), but we do not need to get
         // a return value.
         PyErr_Clear(); // silently ignore errors
         PyCode = Py_CompileString(Code.toUtf8().constData(), Name.toUtf8().constData(),
                                   Py_file_input);
-        success = PyCode != NULL;
+        success = PyCode != nullptr;
     }
     if (!success) {
         compiled = compileErr;

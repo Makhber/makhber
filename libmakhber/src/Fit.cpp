@@ -60,7 +60,7 @@ Fit::Fit(ApplicationWindow *parent, Graph *g, QString name)
     d_gen_function = true;
     d_points = 100;
     d_max_iterations = 1000;
-    d_curve = 0;
+    d_curve = nullptr;
     d_formula = QString();
     d_explanation = QString();
     d_y_error_source = UnknownErrors;
@@ -337,7 +337,7 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
     } break;
     case AssociatedErrors: {
         bool error = true;
-        QwtErrorPlotCurve *er = 0;
+        QwtErrorPlotCurve *er = nullptr;
         if (d_curve && ((PlotCurve *)d_curve)->type() != Graph::Function) {
             QList<DataCurve *> lst = ((DataCurve *)d_curve)->errorBarsList();
             foreach (DataCurve *c, lst) {
@@ -396,7 +396,7 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
 
 Table *Fit::parametersTable(const QString &tableName)
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     Table *t = app->newTable(tableName, d_p, 3);
     t->setHeader(QStringList() << tr("Parameter") << tr("Value") << tr("Error"));
     t->column(0)->setColumnMode(Makhber::ColumnMode::Text);
@@ -420,7 +420,7 @@ Table *Fit::parametersTable(const QString &tableName)
 
 Matrix *Fit::covarianceMatrix(const QString &matrixName)
 {
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     Matrix *m = app->newMatrix(matrixName, d_p, d_p);
     for (unsigned i = 0; i < d_p; i++) {
         for (unsigned j = 0; j < d_p; j++)
@@ -493,7 +493,7 @@ void Fit::fit()
     if (status == GSL_SUCCESS)
         generateFitCurve(par);
 
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     if (app->writeFitResultsToLog)
         app->updateLog(logFitInfo(d_results, iterations, status, d_graph->parentPlotName()));
 
@@ -536,16 +536,16 @@ double Fit::evaluate_d(const gsl_vector *x)
     return result;
 }
 
-typedef struct
+using DiffData = struct
 {
     Script *script;
     QString param;
     bool success;
-} DiffData;
+};
 
 double Fit::evaluate_df_helper(double x, void *params)
 {
-    DiffData *data = static_cast<DiffData *>(params);
+    auto *data = static_cast<DiffData *>(params);
     data->script->setDouble(x, (data->param).toUtf8());
     bool success;
     double result = data->script->eval().toDouble(&success);
@@ -585,8 +585,8 @@ void Fit::generateFitCurve(const vector<double> &par)
     if (!d_gen_function)
         d_points = d_n;
 
-    double *X = new double[d_points];
-    double *Y = new double[d_points];
+    auto *X = new double[d_points];
+    auto *Y = new double[d_points];
 
     calculateFitCurveData(par, X, Y);
 
@@ -602,7 +602,7 @@ void Fit::generateFitCurve(const vector<double> &par)
 void Fit::insertFitFunctionCurve(const QString &name, double *x, double *y, int penWidth)
 {
     QString title = d_graph->generateFunctionName(name);
-    FunctionCurve *c =
+    auto *c =
             new FunctionCurve((ApplicationWindow *)parent(), FunctionCurve::Normal, title);
     c->setPen(QPen(d_curveColor, penWidth));
     c->setData(x, y, d_points);

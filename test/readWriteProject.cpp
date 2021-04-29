@@ -79,7 +79,7 @@ TEST_F(ApplicationWindowTest, convertMatrix)
             EXPECT_TRUE(table == app->d_workspace.activeSubWindow());
             app->convertTableToMatrix();
             // active window should switch to a matrix
-            Matrix *matrix = dynamic_cast<Matrix *>(app->d_workspace.activeSubWindow());
+            auto *matrix = dynamic_cast<Matrix *>(app->d_workspace.activeSubWindow());
             EXPECT_TRUE(matrix);
             EXPECT_EQ(matrix->numRows(), table->numRows());
             EXPECT_EQ(matrix->numCols(), table->numCols());

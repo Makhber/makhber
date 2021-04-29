@@ -61,9 +61,9 @@ void Differentiation::init()
 
 void Differentiation::output()
 {
-    Column *xCol =
+    auto *xCol =
             new Column(tr("1", "differention table x column name"), Makhber::ColumnMode::Numeric);
-    Column *yCol =
+    auto *yCol =
             new Column(tr("2", "differention table y column name"), Makhber::ColumnMode::Numeric);
     xCol->setPlotDesignation(Makhber::X);
     yCol->setPlotDesignation(Makhber::Y);
@@ -75,7 +75,7 @@ void Differentiation::output()
                                     + (d_y[i] - d_y[i - 1]) / (d_x[i] - d_x[i - 1])));
     }
 
-    ApplicationWindow *app = (ApplicationWindow *)parent();
+    auto *app = (ApplicationWindow *)parent();
     QString tableName = app->generateUniqueName(objectName());
     QString curveTitle = d_curve->title().text();
     Table *t = app->newHiddenTable(

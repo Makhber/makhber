@@ -39,7 +39,7 @@ AbstractAspect::Private::Private(AbstractAspect *owner, const QString &name)
     : d_name(name.isEmpty() ? "1" : name),
       d_caption_spec("%n%C{ - }%c"),
       d_owner(owner),
-      d_parent(0)
+      d_parent(nullptr)
 {
     d_creation_time = QDateTime::currentDateTime();
 }
@@ -61,7 +61,7 @@ void AbstractAspect::Private::insertChild(int index, AbstractAspect *child)
     d_children.insert(index, child);
     // Always remove from any previous parent before adding to a new one!
     // Can't handle this case here since two undo commands have to be created.
-    Q_ASSERT(child->d_aspect_private->d_parent == 0);
+    Q_ASSERT(child->d_aspect_private->d_parent == nullptr);
     child->d_aspect_private->d_parent = d_owner;
     connect(child, SIGNAL(aspectDescriptionAboutToChange(const AbstractAspect *)), d_owner,
             SIGNAL(aspectDescriptionAboutToChange(const AbstractAspect *)));
@@ -100,8 +100,8 @@ int AbstractAspect::Private::removeChild(AbstractAspect *child)
     emit d_owner->aspectChildAboutToBeRemoved(d_owner, index);
     emit child->aspectAboutToBeRemoved(child);
     d_children.removeAll(child);
-    QObject::disconnect(child, 0, d_owner, 0);
-    child->d_aspect_private->d_parent = 0;
+    QObject::disconnect(child, nullptr, d_owner, nullptr);
+    child->d_aspect_private->d_parent = nullptr;
     emit d_owner->aspectRemoved(d_owner, index);
     return index;
 }

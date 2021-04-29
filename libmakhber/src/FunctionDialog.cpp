@@ -48,7 +48,7 @@ FunctionDialog::FunctionDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     setWindowTitle(tr("Add function curve"));
     setSizeGripEnabled(true);
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
     hbox1->addWidget(new QLabel(tr("Curve type ")));
     boxType = new QComboBox();
     boxType->addItem(tr("Function"));
@@ -60,7 +60,7 @@ FunctionDialog::FunctionDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     optionStack->setFrameShape(QFrame::StyledPanel);
     optionStack->setFrameShadow(QStackedWidget::Plain);
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("f(x)= ")), 0, 0);
     boxFunction = new QTextEdit();
     boxFunction->setMinimumWidth(350);
@@ -84,7 +84,7 @@ FunctionDialog::FunctionDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     functionPage->setLayout(gl1);
     optionStack->addWidget(functionPage);
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("Parameter")), 0, 0);
     boxParameter = new QLineEdit();
     boxParameter->setText("m");
@@ -116,7 +116,7 @@ FunctionDialog::FunctionDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     parametricPage->setLayout(gl2);
     optionStack->addWidget(parametricPage);
 
-    QGridLayout *gl3 = new QGridLayout();
+    auto *gl3 = new QGridLayout();
     gl3->addWidget(new QLabel(tr("Parameter")), 0, 0);
     boxPolarParameter = new QLineEdit();
     boxPolarParameter->setText("t");
@@ -154,14 +154,14 @@ FunctionDialog::FunctionDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     buttonOk->setDefault(true);
     buttonCancel = new QPushButton(tr("Close"));
 
-    QHBoxLayout *hbox2 = new QHBoxLayout();
+    auto *hbox2 = new QHBoxLayout();
     hbox2->addWidget(buttonApply);
     hbox2->addStretch();
     hbox2->addWidget(buttonClear);
     hbox2->addWidget(buttonOk);
     hbox2->addWidget(buttonCancel);
 
-    QVBoxLayout *vbox1 = new QVBoxLayout();
+    auto *vbox1 = new QVBoxLayout();
     vbox1->addLayout(hbox1);
     vbox1->addWidget(optionStack);
     vbox1->addLayout(hbox2);
@@ -176,7 +176,7 @@ FunctionDialog::FunctionDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
     connect(buttonClear, SIGNAL(clicked()), this, SLOT(clearList()));
 
     curveID = -1;
-    graph = 0;
+    graph = nullptr;
 }
 
 void FunctionDialog::raiseWidget(int index)
@@ -196,7 +196,7 @@ void FunctionDialog::setCurveToModify(Graph *g, int curve)
 
     graph = g;
 
-    FunctionCurve *c = (FunctionCurve *)graph->curve(curve);
+    auto *c = (FunctionCurve *)graph->curve(curve);
     if (!c)
         return;
 
@@ -264,7 +264,7 @@ bool FunctionDialog::acceptFunction()
         parser.SetExpr(from);
         start = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Start limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Start limit error"), QStringFromString(e.GetMsg()));
         boxFrom->setFocus();
         return false;
     }
@@ -273,13 +273,13 @@ bool FunctionDialog::acceptFunction()
         parser.SetExpr(to);
         end = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("End limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("End limit error"), QStringFromString(e.GetMsg()));
         boxTo->setFocus();
         return false;
     }
 
     if (start >= end) {
-        QMessageBox::critical(0, tr("Input error"),
+        QMessageBox::critical(nullptr, tr("Input error"),
                               tr("Please enter x limits that satisfy: from < end!"));
         boxTo->setFocus();
         return false;
@@ -296,7 +296,7 @@ bool FunctionDialog::acceptFunction()
     ranges += end;
 
     bool result;
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     app->updateFunctionLists(type, formulas);
     if (!graph)
         result = app->newFunctionPlot(type, formulas, "x", ranges, boxPoints->value());
@@ -323,7 +323,7 @@ bool FunctionDialog::acceptParametric()
         parser.SetExpr(from);
         start = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Start limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Start limit error"), QStringFromString(e.GetMsg()));
         boxParFrom->setFocus();
         return false;
     }
@@ -333,13 +333,13 @@ bool FunctionDialog::acceptParametric()
         parser.SetExpr(to);
         end = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("End limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("End limit error"), QStringFromString(e.GetMsg()));
         boxParTo->setFocus();
         return false;
     }
 
     if (start >= end) {
-        QMessageBox::critical(0, tr("Input error"),
+        QMessageBox::critical(nullptr, tr("Input error"),
                               tr("Please enter parameter limits that satisfy: from < end!"));
         boxParTo->setFocus();
         return false;
@@ -358,7 +358,7 @@ bool FunctionDialog::acceptParametric()
     ranges += end;
 
     bool result;
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     app->updateFunctionLists(type, formulas);
     if (!graph)
         result = app->newFunctionPlot(type, formulas, boxParameter->text(), ranges,
@@ -387,7 +387,7 @@ bool FunctionDialog::acceptPolar()
         parser.SetExpr(from);
         start = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Start limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Start limit error"), QStringFromString(e.GetMsg()));
         boxPolarFrom->setFocus();
         return false;
     }
@@ -397,13 +397,13 @@ bool FunctionDialog::acceptPolar()
         parser.SetExpr(to);
         end = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("End limit error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("End limit error"), QStringFromString(e.GetMsg()));
         boxPolarTo->setFocus();
         return false;
     }
 
     if (start >= end) {
-        QMessageBox::critical(0, tr("Input error"),
+        QMessageBox::critical(nullptr, tr("Input error"),
                               tr("Please enter parameter limits that satisfy: from < end!"));
         boxPolarTo->setFocus();
         return false;
@@ -422,7 +422,7 @@ bool FunctionDialog::acceptPolar()
     ranges += end;
 
     bool result;
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     app->updateFunctionLists(type, formulas);
 
     if (!graph)

@@ -59,7 +59,7 @@
 #include <QGroupBox>
 #include <QLibrary>
 #include <QLocale>
-#include <stdio.h>
+#include <cstdio>
 
 #define CONFS(string) QString::number(QLocale().toDouble(string), 'g', boxPrecision->value())
 
@@ -72,7 +72,7 @@ FitDialog::FitDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     d_user_functions = QStringList();
     d_user_function_params = QStringList();
 
-    d_fitter = 0;
+    d_fitter = nullptr;
 
     tw = new QStackedWidget();
 
@@ -80,7 +80,7 @@ FitDialog::FitDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
     initFitPage();
     initAdvancedPage();
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addWidget(tw);
     setLayout(vl);
 
@@ -95,7 +95,7 @@ FitDialog::FitDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 
 void FitDialog::initFitPage()
 {
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("Curve")), 0, 0);
     boxCurve = new QComboBox();
     gl1->addWidget(boxCurve, 0, 1);
@@ -143,20 +143,20 @@ void FitDialog::initFitPage()
     btnColor->setColor(QColor(Qt::red));
     gl1->addWidget(btnColor, 5, 1);
 
-    QGroupBox *gb1 = new QGroupBox();
+    auto *gb1 = new QGroupBox();
     gb1->setLayout(gl1);
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("From x=")), 0, 0);
     boxFrom = new QLineEdit();
     gl2->addWidget(boxFrom, 0, 1);
     gl2->addWidget(new QLabel(tr("To x=")), 1, 0);
     boxTo = new QLineEdit();
     gl2->addWidget(boxTo, 1, 1);
-    QGroupBox *gb2 = new QGroupBox();
+    auto *gb2 = new QGroupBox();
     gb2->setLayout(gl2);
 
-    QGridLayout *gl3 = new QGridLayout();
+    auto *gl3 = new QGridLayout();
     gl3->addWidget(new QLabel(tr("Iterations")), 0, 0);
     boxPoints = new QSpinBox();
     boxPoints->setRange(10, 10000);
@@ -166,14 +166,14 @@ void FitDialog::initFitPage()
     gl3->addWidget(new QLabel(tr("Tolerance")), 1, 0);
     boxTolerance = new QLineEdit("1e-4");
     gl3->addWidget(boxTolerance, 1, 1);
-    QGroupBox *gb3 = new QGroupBox();
+    auto *gb3 = new QGroupBox();
     gb3->setLayout(gl3);
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
     hbox1->addWidget(gb2);
     hbox1->addWidget(gb3);
 
-    QHBoxLayout *hbox2 = new QHBoxLayout();
+    auto *hbox2 = new QHBoxLayout();
     hbox2->addWidget(new QLabel(tr("Y Error Source")));
     boxYErrorSource = new QComboBox();
     boxYErrorSource->addItem(tr("Errors Unknown"));
@@ -181,7 +181,7 @@ void FitDialog::initFitPage()
     boxYErrorSource->addItem(tr("Statistical (Poisson)"));
     boxYErrorSource->addItem(tr("Arbitrary Dataset"));
     hbox2->addWidget(boxYErrorSource);
-    QGroupBox *gb4 = new QGroupBox();
+    auto *gb4 = new QGroupBox();
     gb4->setLayout(hbox2);
 
     tableNamesBox = new QComboBox();
@@ -191,7 +191,7 @@ void FitDialog::initFitPage()
     colNamesBox->setEnabled(false);
     hbox2->addWidget(colNamesBox);
 
-    QHBoxLayout *hbox3 = new QHBoxLayout();
+    auto *hbox3 = new QHBoxLayout();
     buttonEdit = new QPushButton(tr("<< &Edit function"));
     hbox3->addWidget(buttonEdit);
     btnDeleteFitCurves = new QPushButton(tr("&Delete Fit Curves"));
@@ -205,7 +205,7 @@ void FitDialog::initFitPage()
     hbox3->addWidget(buttonAdvanced);
     hbox3->addStretch();
 
-    QVBoxLayout *vbox1 = new QVBoxLayout();
+    auto *vbox1 = new QVBoxLayout();
     vbox1->addWidget(gb1);
     vbox1->addLayout(hbox1);
     vbox1->addWidget(gb4);
@@ -230,7 +230,7 @@ void FitDialog::initFitPage()
 
 void FitDialog::initEditPage()
 {
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("Category")), 0, 0);
     gl1->addWidget(new QLabel(tr("Function")), 0, 1);
     gl1->addWidget(new QLabel(tr("Expression")), 0, 2);
@@ -252,7 +252,7 @@ void FitDialog::initEditPage()
     boxUseBuiltIn->setText(tr("Fit with &built-in function"));
     boxUseBuiltIn->hide();
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
     hbox1->addWidget(boxUseBuiltIn);
     hbox1->addStretch();
 
@@ -275,7 +275,7 @@ void FitDialog::initEditPage()
     hbox1->addWidget(buttonClearUsrList);
     buttonClearUsrList->hide();
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("Name")), 0, 0);
     boxName = new QLineEdit(tr("user1"));
     gl2->addWidget(boxName, 0, 1);
@@ -287,14 +287,14 @@ void FitDialog::initEditPage()
     btnDelFunc = new QPushButton(tr("&Remove"));
     gl2->addWidget(btnDelFunc, 1, 2);
 
-    QGroupBox *gb = new QGroupBox();
+    auto *gb = new QGroupBox();
     gb->setLayout(gl2);
 
     editBox = new QTextEdit();
     editBox->setAcceptRichText(false);
     editBox->setFocus();
 
-    QVBoxLayout *vbox1 = new QVBoxLayout();
+    auto *vbox1 = new QVBoxLayout();
     btnAddTxt = new QPushButton(tr("Add &expression"));
     vbox1->addWidget(btnAddTxt);
     btnAddName = new QPushButton(tr("Add &name"));
@@ -307,11 +307,11 @@ void FitDialog::initEditPage()
     vbox1->addWidget(btnContinue);
     vbox1->addStretch();
 
-    QHBoxLayout *hbox2 = new QHBoxLayout();
+    auto *hbox2 = new QHBoxLayout();
     hbox2->addWidget(editBox);
     hbox2->addLayout(vbox1);
 
-    QVBoxLayout *vbox2 = new QVBoxLayout();
+    auto *vbox2 = new QVBoxLayout();
     vbox2->addLayout(gl1);
     vbox2->addLayout(hbox1);
     vbox2->addWidget(gb);
@@ -337,13 +337,13 @@ void FitDialog::initEditPage()
 
 void FitDialog::initAdvancedPage()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
 
     generatePointsBtn = new QRadioButton(tr("&Uniform X Function"));
     generatePointsBtn->setChecked(app->generateUniformFitPoints);
     connect(generatePointsBtn, SIGNAL(clicked()), this, SLOT(enableApplyChanges()));
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(generatePointsBtn, 0, 0);
 
     lblPoints = new QLabel(tr("Points"));
@@ -355,7 +355,7 @@ void FitDialog::initAdvancedPage()
     connect(generatePointsBox, SIGNAL(valueChanged(int)), this, SLOT(enableApplyChanges(int)));
     showPointsBox(!app->generateUniformFitPoints);
 
-    QHBoxLayout *hb = new QHBoxLayout();
+    auto *hb = new QHBoxLayout();
     hb->addStretch();
     hb->addWidget(lblPoints);
     hb->addWidget(generatePointsBox);
@@ -366,10 +366,10 @@ void FitDialog::initAdvancedPage()
     samePointsBtn->setChecked(!app->generateUniformFitPoints);
     connect(samePointsBtn, SIGNAL(clicked()), this, SLOT(enableApplyChanges()));
 
-    QGroupBox *gb1 = new QGroupBox(tr("Generated Fit Curve"));
+    auto *gb1 = new QGroupBox(tr("Generated Fit Curve"));
     gb1->setLayout(gl1);
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("Significant Digits")), 0, 1);
     boxPrecision = new QSpinBox();
     boxPrecision->setRange(0, 15);
@@ -391,7 +391,7 @@ void FitDialog::initAdvancedPage()
     scaleErrorsBox->setChecked(app->fit_scale_errors);
     connect(scaleErrorsBox, SIGNAL(stateChanged(int)), this, SLOT(enableApplyChanges(int)));
 
-    QGroupBox *gb2 = new QGroupBox(tr("Parameters Output"));
+    auto *gb2 = new QGroupBox(tr("Parameters Output"));
     gb2->setLayout(gl2);
 
     logBox = new QCheckBox(tr("&Write Parameters to Result Log"));
@@ -402,7 +402,7 @@ void FitDialog::initAdvancedPage()
     plotLabelBox->setChecked(app->pasteFitResultsToPlot);
     connect(plotLabelBox, SIGNAL(stateChanged(int)), this, SLOT(enableApplyChanges(int)));
 
-    QHBoxLayout *hbox1 = new QHBoxLayout();
+    auto *hbox1 = new QHBoxLayout();
 
     btnBack = new QPushButton(tr("<< &Fit"));
     connect(btnBack, SIGNAL(clicked()), this, SLOT(showFitPage()));
@@ -418,7 +418,7 @@ void FitDialog::initAdvancedPage()
     hbox1->addWidget(buttonCancel3);
     hbox1->addStretch();
 
-    QVBoxLayout *vbox1 = new QVBoxLayout();
+    auto *vbox1 = new QVBoxLayout();
     vbox1->addWidget(gb1);
     vbox1->addWidget(gb2);
     vbox1->addWidget(scaleErrorsBox);
@@ -440,7 +440,7 @@ void FitDialog::initAdvancedPage()
 
 void FitDialog::applyChanges()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     app->fit_output_precision = boxPrecision->value();
     app->pasteFitResultsToPlot = plotLabelBox->isChecked();
     app->writeFitResultsToLog = logBox->isChecked();
@@ -465,7 +465,7 @@ void FitDialog::showParametersTable()
         return;
     }
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     tableName = app->generateUniqueName(tableName, false);
     d_fitter->parametersTable(tableName);
 }
@@ -484,7 +484,7 @@ void FitDialog::showCovarianceMatrix()
         return;
     }
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     matrixName = app->generateUniqueName(matrixName, false);
     d_fitter->covarianceMatrix(matrixName);
 }
@@ -643,7 +643,7 @@ void FitDialog::showFitPage()
     boxParams->setMinimumHeight(4 + (parameters + 1) * boxParams->horizontalHeader()->height());
 
     for (int i = param_table_rows; i < paramList.count(); i++) {
-        QTableWidgetItem *it = new QTableWidgetItem(paramList[i]);
+        auto *it = new QTableWidgetItem(paramList[i]);
         it->setFlags(Qt::ItemFlags(Qt::NoItemFlags));
         it->setBackground(QBrush(Qt::lightGray));
         it->setForeground(QBrush(Qt::darkRed));
@@ -666,12 +666,12 @@ void FitDialog::showFitPage()
         boxParams->showColumn(2);
 
         for (int i = 0; i < boxParams->rowCount(); i++) {
-            QTableWidgetItem *it = new QTableWidgetItem();
+            auto *it = new QTableWidgetItem();
             it->setFlags(Qt::ItemFlags(Qt::NoItemFlags));
             it->setBackground(QBrush(Qt::lightGray));
             boxParams->setItem(i, 2, it);
 
-            QCheckBox *cb = new QCheckBox();
+            auto *cb = new QCheckBox();
             boxParams->setCellWidget(i, 2, cb);
         }
     }
@@ -856,7 +856,7 @@ void FitDialog::showFunctionsList(int category)
 
 void FitDialog::choosePluginsFolder()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     QString dir = QFileDialog::getExistingDirectory(this, tr("Choose the plugins folder"),
                                                     QDir::currentPath(), QFileDialog::ShowDirsOnly);
     if (!dir.isEmpty()) {
@@ -882,9 +882,9 @@ void FitDialog::choosePluginsFolder()
 
 void FitDialog::loadPlugins()
 {
-    typedef char *(*fitFunc)();
+    using fitFunc = char *(*)();
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     QString path = app->fitPluginsPath + "/";
     QDir dir(path);
     QStringList lst = dir.entryList(QDir::Files | QDir::NoSymLinks);
@@ -892,9 +892,9 @@ void FitDialog::loadPlugins()
     for (int i = 0; i < lst.count(); i++) {
         QLibrary lib(path + lst[i]);
 
-        fitFunc name = (fitFunc)lib.resolve("name");
-        fitFunc function = (fitFunc)lib.resolve("function");
-        fitFunc params = (fitFunc)lib.resolve("parameters");
+        auto name = (fitFunc)lib.resolve("name");
+        auto function = (fitFunc)lib.resolve("function");
+        auto params = (fitFunc)lib.resolve("parameters");
 
         if (name && function && params) {
             d_plugin_function_names << QString(name());
@@ -1052,7 +1052,7 @@ void FitDialog::accept()
     }
 
     if (start >= end) {
-        QMessageBox::critical(0, tr("Input error"),
+        QMessageBox::critical(nullptr, tr("Input error"),
                               tr("Please enter x limits that satisfy: from < end!"));
         boxTo->setFocus();
         return;
@@ -1063,13 +1063,13 @@ void FitDialog::accept()
         parser.SetExpr(CONFS(tolerance));
         eps = parser.Eval();
     } catch (mu::ParserError &e) {
-        QMessageBox::critical(0, tr("Tolerance input error"), QStringFromString(e.GetMsg()));
+        QMessageBox::critical(nullptr, tr("Tolerance input error"), QStringFromString(e.GetMsg()));
         boxTolerance->setFocus();
         return;
     }
 
     if (eps < 0 || eps >= 1) {
-        QMessageBox::critical(0, tr("Tolerance input error"),
+        QMessageBox::critical(nullptr, tr("Tolerance input error"),
                               tr("The tolerance value must be positive and less than 1!"));
         boxTolerance->setFocus();
         return;
@@ -1078,7 +1078,7 @@ void FitDialog::accept()
     int i, n = 0, rows = boxParams->rowCount();
     if (!boxParams->isColumnHidden(2)) {
         for (i = 0; i < rows; i++) { // count the non-constant parameters
-            QCheckBox *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
+            auto *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
             if (!cb->isChecked())
                 n++;
         }
@@ -1088,7 +1088,7 @@ void FitDialog::accept()
     if (rows < 1 || n == 0)
         return;
     QStringList parameters;
-    double *paramsInit = new double[n];
+    auto *paramsInit = new double[n];
     QString formula;
 
     // recursively define variables for user functions used in formula
@@ -1113,7 +1113,7 @@ void FitDialog::accept()
     if (!boxParams->isColumnHidden(2)) {
         int j = 0;
         for (i = 0; i < rows; i++) {
-            QCheckBox *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
+            auto *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
             if (!cb->isChecked()) {
                 paramsInit[j] = QLocale().toDouble(boxParams->item(i, 1)->text());
                 parameters << boxParams->item(i, 0)->text();
@@ -1129,11 +1129,11 @@ void FitDialog::accept()
         }
     }
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
 
     if (d_fitter) {
         delete d_fitter;
-        d_fitter = 0;
+        d_fitter = nullptr;
     }
 
     if (boxUseBuiltIn->isChecked() && categoryBox->currentRow() == 1)
@@ -1141,7 +1141,7 @@ void FitDialog::accept()
     else if (boxUseBuiltIn->isChecked() && categoryBox->currentRow() == 3) {
         d_fitter = new PluginFit(app, d_graph);
         if (!((PluginFit *)d_fitter)->load(d_plugin_files_list[funcBox->currentRow()])) {
-            d_fitter = 0;
+            d_fitter = nullptr;
             delete[] paramsInit;
             return;
         }
@@ -1160,7 +1160,7 @@ void FitDialog::accept()
                                           tableNamesBox->currentText() + "_"
                                                   + colNamesBox->currentText()))) {
         delete d_fitter;
-        d_fitter = 0;
+        d_fitter = nullptr;
         return;
     }
 
@@ -1184,7 +1184,7 @@ void FitDialog::accept()
     if (!boxParams->isColumnHidden(2)) {
         int j = 0;
         for (i = 0; i < rows; i++) {
-            QCheckBox *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
+            auto *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
             if (!cb->isChecked())
                 boxParams->item(i, 1)->setText(
                         QLocale().toString(res[j++], 'g', boxPrecision->value()));
@@ -1197,7 +1197,7 @@ void FitDialog::accept()
 
 void FitDialog::fitBuiltInFunction(const QString &function, double *initVal)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (function == "ExpDecay1") {
         initVal[1] = 1 / initVal[1];
         d_fitter = new ExponentialFit(app, d_graph);
@@ -1241,7 +1241,7 @@ bool FitDialog::validInitialValues()
 {
     for (int i = 0; i < boxParams->rowCount(); i++) {
         if (boxParams->item(i, 1)->text().isEmpty()) {
-            QMessageBox::critical(0, tr("Input error"),
+            QMessageBox::critical(nullptr, tr("Input error"),
                                   tr("Please enter initial guesses for your parameters!"));
             boxParams->setCurrentCell(i, 1);
             return false;
@@ -1252,7 +1252,7 @@ bool FitDialog::validInitialValues()
             parser.SetExpr(CONFS(boxParams->item(i, 1)->text()));
             parser.Eval();
         } catch (mu::ParserError &e) {
-            QMessageBox::critical(0, tr("Start limit error"), QStringFromString(e.GetMsg()));
+            QMessageBox::critical(nullptr, tr("Start limit error"), QStringFromString(e.GetMsg()));
             boxParams->setCurrentCell(i, 1);
             return false;
         }
@@ -1296,7 +1296,7 @@ void FitDialog::selectSrcTable(int tabnr)
     colNamesBox->clear();
 
     if (tabnr >= 0 && tabnr < d_src_table->count()) {
-        Table *t = (Table *)d_src_table->at(tabnr);
+        auto *t = (Table *)d_src_table->at(tabnr);
         if (t)
             colNamesBox->addItems(t->colNames());
     }

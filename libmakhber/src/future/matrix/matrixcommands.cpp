@@ -29,6 +29,8 @@
 
 #include "matrixcommands.h"
 
+#include <utility>
+
 ///////////////////////////////////////////////////////////////////////////
 // class MatrixInsertColumnsCmd
 ///////////////////////////////////////////////////////////////////////////
@@ -39,7 +41,7 @@ MatrixInsertColumnsCmd::MatrixInsertColumnsCmd(future::Matrix::Private *private_
     setText(QObject::tr("%1: insert %2 column(s)").arg(d_private_obj->name()).arg(d_count));
 }
 
-MatrixInsertColumnsCmd::~MatrixInsertColumnsCmd() { }
+MatrixInsertColumnsCmd::~MatrixInsertColumnsCmd() = default;
 
 void MatrixInsertColumnsCmd::redo()
 {
@@ -64,7 +66,7 @@ MatrixInsertRowsCmd::MatrixInsertRowsCmd(future::Matrix::Private *private_obj, i
     setText(QObject::tr("%1: insert %2 row(s)").arg(d_private_obj->name()).arg(d_count));
 }
 
-MatrixInsertRowsCmd::~MatrixInsertRowsCmd() { }
+MatrixInsertRowsCmd::~MatrixInsertRowsCmd() = default;
 
 void MatrixInsertRowsCmd::redo()
 {
@@ -89,7 +91,7 @@ MatrixRemoveColumnsCmd::MatrixRemoveColumnsCmd(future::Matrix::Private *private_
     setText(QObject::tr("%1: remove %2 column(s)").arg(d_private_obj->name()).arg(d_count));
 }
 
-MatrixRemoveColumnsCmd::~MatrixRemoveColumnsCmd() { }
+MatrixRemoveColumnsCmd::~MatrixRemoveColumnsCmd() = default;
 
 void MatrixRemoveColumnsCmd::redo()
 {
@@ -122,7 +124,7 @@ MatrixRemoveRowsCmd::MatrixRemoveRowsCmd(future::Matrix::Private *private_obj, i
     setText(QObject::tr("%1: remove %2 row(s)").arg(d_private_obj->name()).arg(d_count));
 }
 
-MatrixRemoveRowsCmd::~MatrixRemoveRowsCmd() { }
+MatrixRemoveRowsCmd::~MatrixRemoveRowsCmd() = default;
 
 void MatrixRemoveRowsCmd::redo()
 {
@@ -154,7 +156,7 @@ MatrixClearCmd::MatrixClearCmd(future::Matrix::Private *private_obj, QUndoComman
     setText(QObject::tr("%1: clear").arg(d_private_obj->name()));
 }
 
-MatrixClearCmd::~MatrixClearCmd() { }
+MatrixClearCmd::~MatrixClearCmd() = default;
 
 void MatrixClearCmd::redo()
 {
@@ -187,7 +189,7 @@ MatrixClearColumnCmd::MatrixClearColumnCmd(future::Matrix::Private *private_obj,
     setText(QObject::tr("%1: clear column %2").arg(d_private_obj->name()).arg(d_col + 1));
 }
 
-MatrixClearColumnCmd::~MatrixClearColumnCmd() { }
+MatrixClearColumnCmd::~MatrixClearColumnCmd() = default;
 
 void MatrixClearColumnCmd::redo()
 {
@@ -216,7 +218,7 @@ MatrixSetCellValueCmd::MatrixSetCellValueCmd(future::Matrix::Private *private_ob
     setText(QObject::tr("%1: set cell value").arg(d_private_obj->name()));
 }
 
-MatrixSetCellValueCmd::~MatrixSetCellValueCmd() { }
+MatrixSetCellValueCmd::~MatrixSetCellValueCmd() = default;
 
 void MatrixSetCellValueCmd::redo()
 {
@@ -248,7 +250,7 @@ MatrixSetCoordinatesCmd::MatrixSetCoordinatesCmd(future::Matrix::Private *privat
     setText(QObject::tr("%1: set matrix coordinates").arg(d_private_obj->name()));
 }
 
-MatrixSetCoordinatesCmd::~MatrixSetCoordinatesCmd() { }
+MatrixSetCoordinatesCmd::~MatrixSetCoordinatesCmd() = default;
 
 void MatrixSetCoordinatesCmd::redo()
 {
@@ -330,7 +332,7 @@ void MatrixSetDigitsCmd::undo()
 // class MatrixSetFormulaCmd
 ///////////////////////////////////////////////////////////////////////////
 MatrixSetFormulaCmd::MatrixSetFormulaCmd(future::Matrix::Private *private_obj, QString formula)
-    : d_private_obj(private_obj), d_other_formula(formula)
+    : d_private_obj(private_obj), d_other_formula(std::move(formula))
 {
     setText(QObject::tr("%1: set formula").arg(d_private_obj->name()));
 }
@@ -367,7 +369,7 @@ MatrixSetColumnCellsCmd::MatrixSetColumnCellsCmd(future::Matrix::Private *privat
     setText(QObject::tr("%1: set cell values").arg(d_private_obj->name()));
 }
 
-MatrixSetColumnCellsCmd::~MatrixSetColumnCellsCmd() { }
+MatrixSetColumnCellsCmd::~MatrixSetColumnCellsCmd() = default;
 
 void MatrixSetColumnCellsCmd::redo()
 {
@@ -400,7 +402,7 @@ MatrixSetRowCellsCmd::MatrixSetRowCellsCmd(future::Matrix::Private *private_obj,
     setText(QObject::tr("%1: set cell values").arg(d_private_obj->name()));
 }
 
-MatrixSetRowCellsCmd::~MatrixSetRowCellsCmd() { }
+MatrixSetRowCellsCmd::~MatrixSetRowCellsCmd() = default;
 
 void MatrixSetRowCellsCmd::redo()
 {
@@ -426,7 +428,7 @@ MatrixTransposeCmd::MatrixTransposeCmd(future::Matrix::Private *private_obj, QUn
     setText(QObject::tr("%1: transpose").arg(d_private_obj->name()));
 }
 
-MatrixTransposeCmd::~MatrixTransposeCmd() { }
+MatrixTransposeCmd::~MatrixTransposeCmd() = default;
 
 void MatrixTransposeCmd::redo()
 {
@@ -471,7 +473,7 @@ MatrixMirrorHorizontallyCmd::MatrixMirrorHorizontallyCmd(future::Matrix::Private
     setText(QObject::tr("%1: mirror horizontally").arg(d_private_obj->name()));
 }
 
-MatrixMirrorHorizontallyCmd::~MatrixMirrorHorizontallyCmd() { }
+MatrixMirrorHorizontallyCmd::~MatrixMirrorHorizontallyCmd() = default;
 
 void MatrixMirrorHorizontallyCmd::redo()
 {
@@ -507,7 +509,7 @@ MatrixMirrorVerticallyCmd::MatrixMirrorVerticallyCmd(future::Matrix::Private *pr
     setText(QObject::tr("%1: mirror vertically").arg(d_private_obj->name()));
 }
 
-MatrixMirrorVerticallyCmd::~MatrixMirrorVerticallyCmd() { }
+MatrixMirrorVerticallyCmd::~MatrixMirrorVerticallyCmd() = default;
 
 void MatrixMirrorVerticallyCmd::redo()
 {

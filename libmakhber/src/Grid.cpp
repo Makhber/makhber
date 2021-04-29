@@ -179,7 +179,7 @@ void Grid::enableZeroLineX(bool enable)
         return;
 
     if (mrkX < 0 && enable) {
-        QwtPlotMarker *m = new QwtPlotMarker();
+        auto *m = new QwtPlotMarker();
         mrkX = d_plot->insertMarker(m);
         m->setRenderHint(QwtPlotItem::RenderAntialiased, false);
         m->setAxis(xAxis(), yAxis());
@@ -206,7 +206,7 @@ void Grid::enableZeroLineY(bool enable)
         return;
 
     if (mrkY < 0 && enable) {
-        QwtPlotMarker *m = new QwtPlotMarker();
+        auto *m = new QwtPlotMarker();
         mrkY = d_plot->insertMarker(m);
         m->setRenderHint(QwtPlotItem::RenderAntialiased, false);
         m->setAxis(xAxis(), yAxis());

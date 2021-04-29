@@ -42,7 +42,7 @@ TeXTableExportDialog::TeXTableExportDialog(QWidget *parent) : ExtensibleFileDial
     setExtensionWidget(tex_settings_Widget);
 }
 
-TeXTableSettings TeXTableExportDialog::tex_TableSettings(void)
+TeXTableSettings TeXTableExportDialog::tex_TableSettings()
 {
     return tex_settings_Widget->settings();
 }

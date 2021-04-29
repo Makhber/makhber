@@ -36,7 +36,7 @@ ImageDialog::ImageDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
 {
     setWindowTitle(tr("Image Geometry"));
 
-    QGroupBox *gb1 = new QGroupBox(tr("Origin"));
+    auto *gb1 = new QGroupBox(tr("Origin"));
     boxX = new QSpinBox();
     boxX->setRange(0, 2000);
     boxX->setSuffix(tr(" pixels"));
@@ -45,14 +45,14 @@ ImageDialog::ImageDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     boxY->setRange(0, 2000);
     boxY->setSuffix(tr(" pixels"));
 
-    QGridLayout *gl1 = new QGridLayout(gb1);
+    auto *gl1 = new QGridLayout(gb1);
     gl1->addWidget(new QLabel(tr("X= ")), 0, 0);
     gl1->addWidget(boxX, 0, 1);
     gl1->addWidget(new QLabel(tr("Y= ")), 1, 0);
     gl1->addWidget(boxY, 1, 1);
     gl1->setRowStretch(2, 1);
 
-    QGroupBox *gb2 = new QGroupBox(tr("Size"));
+    auto *gb2 = new QGroupBox(tr("Size"));
     boxWidth = new QSpinBox();
     boxWidth->setRange(0, 2000);
     boxWidth->setSuffix(tr(" pixels"));
@@ -61,7 +61,7 @@ ImageDialog::ImageDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     boxHeight->setRange(0, 2000);
     boxHeight->setSuffix(tr(" pixels"));
 
-    QGridLayout *gl2 = new QGridLayout(gb2);
+    auto *gl2 = new QGridLayout(gb2);
     gl2->addWidget(new QLabel(tr("width= ")), 0, 0);
     gl2->addWidget(boxWidth, 0, 1);
 
@@ -74,7 +74,7 @@ ImageDialog::ImageDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
 
     gl2->setRowStretch(4, 1);
 
-    QBoxLayout *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl1 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl1->addWidget(gb1);
     bl1->addWidget(gb2);
 
@@ -82,13 +82,13 @@ ImageDialog::ImageDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, 
     buttonOk = new QPushButton(tr("&Ok"));
     buttonCancel = new QPushButton(tr("&Cancel"));
 
-    QBoxLayout *bl2 = new QBoxLayout(QBoxLayout::LeftToRight);
+    auto *bl2 = new QBoxLayout(QBoxLayout::LeftToRight);
     bl2->addStretch();
     bl2->addWidget(buttonApply);
     bl2->addWidget(buttonOk);
     bl2->addWidget(buttonCancel);
 
-    QVBoxLayout *vl = new QVBoxLayout(this);
+    auto *vl = new QVBoxLayout(this);
     vl->addLayout(bl1);
     vl->addLayout(bl2);
 

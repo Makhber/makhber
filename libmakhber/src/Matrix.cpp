@@ -53,9 +53,9 @@
 #include <QXmlStreamWriter>
 #include <QtDebug>
 
-#include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
+#include <cstdlib>
+#include <cmath>
+#include <cstdio>
 
 #include <gsl/gsl_linalg.h>
 #include <gsl/gsl_math.h>
@@ -64,7 +64,7 @@ Matrix::Matrix(ScriptingEnv *env, int r, int c, const QString &label, QWidget *p
                const char *name, Qt::WindowFlags f)
     : MatrixView(label, parent, name, f), scripted(env)
 {
-    d_future_matrix = new future::Matrix(0, r, c, label);
+    d_future_matrix = new future::Matrix(nullptr, r, c, label);
     init(r, c);
 }
 
@@ -83,7 +83,7 @@ void Matrix::init(int, int)
     d_future_matrix->setNumericFormat('f');
     d_future_matrix->setDisplayedDigits(6);
     d_future_matrix->setCoordinates(1.0, 10.0, 1.0, 10.0);
-    dMatrix = 0;
+    dMatrix = nullptr;
 
     birthdate = QLocale().toString(d_future_matrix->creationTime());
 
@@ -121,7 +121,7 @@ void Matrix::init(int, int)
             SLOT(handleAspectDescriptionChange(const AbstractAspect *)));
 }
 
-Matrix::~Matrix() { }
+Matrix::~Matrix() = default;
 
 void Matrix::handleChange()
 {
@@ -305,7 +305,8 @@ double Matrix::determinant()
     int cols = numCols();
 
     if (rows != cols) {
-        QMessageBox::critical(0, tr("Error"), tr("Calculation failed, the matrix is not square!"));
+        QMessageBox::critical(nullptr, tr("Error"),
+                              tr("Calculation failed, the matrix is not square!"));
         return GSL_POSINF;
     }
 
@@ -335,7 +336,8 @@ void Matrix::invert()
     int cols = numCols();
 
     if (rows != cols) {
-        QMessageBox::critical(0, tr("Error"), tr("Inversion failed, the matrix is not square!"));
+        QMessageBox::critical(nullptr, tr("Error"),
+                              tr("Inversion failed, the matrix is not square!"));
         return;
     }
 
@@ -387,7 +389,7 @@ void Matrix::saveCellsToMemory()
 void Matrix::forgetSavedCells()
 {
     freeMatrixData(dMatrix, numRows());
-    dMatrix = 0;
+    dMatrix = nullptr;
 }
 
 bool Matrix::recalculate()
@@ -678,7 +680,7 @@ void Matrix::range(double *min, double *max)
 
 double **Matrix::allocateMatrixData(int rows, int columns)
 {
-    double **data = new double *[rows];
+    auto **data = new double *[rows];
     for (int i = 0; i < rows; ++i)
         data[i] = new double[columns];
 
@@ -710,7 +712,7 @@ Matrix *Matrix::fromImage(const QImage &image, ScriptingEnv *env)
 {
     future::Matrix *fm = future::Matrix::fromImage(image);
     if (!fm)
-        return NULL;
+        return nullptr;
     return new Matrix(fm, env, image.height(), image.width(), tr("Matrix %1").arg(1));
 }
 

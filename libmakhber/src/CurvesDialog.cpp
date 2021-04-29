@@ -55,7 +55,7 @@ CurvesDialog::CurvesDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     setSizeGripEnabled(true);
     setFocus();
 
-    QHBoxLayout *hl = new QHBoxLayout();
+    auto *hl = new QHBoxLayout();
 
     hl->addWidget(new QLabel(tr("New curves style")));
     boxStyle = new QComboBox();
@@ -79,7 +79,7 @@ CurvesDialog::CurvesDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     hl->addWidget(boxMatrixStyle);
     hl->addStretch();
 
-    QGridLayout *gl = new QGridLayout();
+    auto *gl = new QGridLayout();
     gl->addWidget(new QLabel(tr("Available data")), 0, 0);
     gl->addWidget(new QLabel(tr("Graph contents")), 0, 2);
 
@@ -87,7 +87,7 @@ CurvesDialog::CurvesDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     available->setSelectionMode(QAbstractItemView::ExtendedSelection);
     gl->addWidget(available, 1, 0);
 
-    QVBoxLayout *vl1 = new QVBoxLayout();
+    auto *vl1 = new QVBoxLayout();
     btnAdd = new QPushButton();
     btnAdd->setIcon(QIcon(QPixmap(":/next.xpm")));
     btnAdd->setFixedWidth(35);
@@ -106,7 +106,7 @@ CurvesDialog::CurvesDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     contents->setSelectionMode(QAbstractItemView::ExtendedSelection);
     gl->addWidget(contents, 1, 2);
 
-    QVBoxLayout *vl2 = new QVBoxLayout();
+    auto *vl2 = new QVBoxLayout();
     btnAssociations = new QPushButton(tr("&Plot Associations..."));
     btnAssociations->setEnabled(false);
     vl2->addWidget(btnAssociations);
@@ -132,7 +132,7 @@ CurvesDialog::CurvesDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     vl2->addStretch();
     gl->addLayout(vl2, 1, 3);
 
-    QVBoxLayout *vl3 = new QVBoxLayout(this);
+    auto *vl3 = new QVBoxLayout(this);
     vl3->addLayout(hl);
     vl3->addLayout(gl);
 
@@ -154,7 +154,7 @@ CurvesDialog::CurvesDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     connect(contents, SIGNAL(itemSelectionChanged()), this, SLOT(enableRemoveBtn()));
     connect(available, SIGNAL(itemSelectionChanged()), this, SLOT(enableAddBtn()));
 
-    QShortcut *shortcut = new QShortcut(QKeySequence(Qt::Key_Delete), this);
+    auto *shortcut = new QShortcut(QKeySequence(Qt::Key_Delete), this);
     connect(shortcut, SIGNAL(activated()), this, SLOT(removeCurves()));
     shortcut = new QShortcut(QKeySequence("-"), this);
     connect(shortcut, SIGNAL(activated()), this, SLOT(removeCurves()));
@@ -173,7 +173,7 @@ void CurvesDialog::showCurveBtn(int)
     bool range = false;
 
     if (it->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
-        PlotCurve *c = (PlotCurve *)it;
+        auto *c = (PlotCurve *)it;
         if (c->type() == Graph::Function)
             function = true;
         else {
@@ -194,7 +194,7 @@ void CurvesDialog::showCurveRangeDialog()
     if (curve < 0)
         curve = 0;
 
-    ApplicationWindow *app = dynamic_cast<ApplicationWindow *>(this->parent());
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (app) {
         app->showCurveRangeDialog(d_graph, curve);
         updateCurveRange();
@@ -207,7 +207,7 @@ void CurvesDialog::showPlotAssociations()
     if (curve < 0)
         curve = 0;
 
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
 #if QT_VERSION >= 0x050000
     close();
 #endif
@@ -221,7 +221,7 @@ void CurvesDialog::showPlotAssociations()
 
 void CurvesDialog::showFunctionDialog()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     int currentRow = contents->currentRow();
     close();
 
@@ -265,7 +265,7 @@ void CurvesDialog::contextMenuEvent(QContextMenuEvent *e)
 
 void CurvesDialog::init()
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (app) {
         bool currentFolderOnly = app->d_show_current_folder;
         boxShowCurrentFolder->setChecked(currentFolderOnly);
@@ -316,8 +316,8 @@ void CurvesDialog::addCurves()
 {
     QStringList emptyColumns;
     QList<QListWidgetItem *> lst = available->selectedItems();
-    for (int i = 0; i < lst.size(); ++i) {
-        QString text = lst.at(i)->text();
+    for (auto i : lst) {
+        QString text = i->text();
         if (contents->findItems(text, Qt::MatchExactly).isEmpty()) {
             if (!addCurve(text))
                 emptyColumns << text;
@@ -331,7 +331,7 @@ void CurvesDialog::addCurves()
 
 bool CurvesDialog::addCurve(const QString &name)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return false;
 
@@ -401,8 +401,7 @@ bool CurvesDialog::addCurve(const QString &name)
 void CurvesDialog::removeCurves()
 {
     QList<QListWidgetItem *> lst = contents->selectedItems();
-    for (int i = 0; i < lst.size(); ++i) {
-        QListWidgetItem *it = lst.at(i);
+    for (auto it : lst) {
         QString s = it->text();
         if (boxShowRange->isChecked()) {
             QStringList lst = s.split("[");
@@ -476,7 +475,7 @@ void CurvesDialog::showCurveRange(bool on)
 
             if (it->rtti() == QwtPlotItem::Rtti_PlotCurve
                 && ((PlotCurve *)it)->type() != Graph::Function) {
-                DataCurve *c = (DataCurve *)it;
+                auto *c = (DataCurve *)it;
                 lst << c->title().text() + "[" + QString::number(c->startRow() + 1) + ":"
                                 + QString::number(c->endRow() + 1) + "]";
             } else
@@ -497,7 +496,7 @@ void CurvesDialog::updateCurveRange()
 
 void CurvesDialog::showCurrentFolder(bool currentFolder)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (!app)
         return;
 
@@ -512,7 +511,7 @@ void CurvesDialog::showCurrentFolder(bool currentFolder)
                 if (!w->inherits("Table"))
                     continue;
 
-                Table *t = (Table *)w;
+                auto *t = (Table *)w;
                 for (int i = 0; i < t->numCols(); i++) {
                     if (t->colPlotDesignation(i) == Makhber::Y)
                         columns << QString(t->name()) + "_" + t->colLabel(i);
@@ -526,7 +525,7 @@ void CurvesDialog::showCurrentFolder(bool currentFolder)
 
 void CurvesDialog::closeEvent(QCloseEvent *e)
 {
-    ApplicationWindow *app = (ApplicationWindow *)this->parent();
+    auto *app = (ApplicationWindow *)this->parent();
     if (app)
         app->d_add_curves_dialog_size = this->size();
 

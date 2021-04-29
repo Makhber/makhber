@@ -57,10 +57,10 @@ Plot3DDialog::Plot3DDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
 {
     setWindowTitle(tr("Surface Plot Options"));
 
-    bars = 0;
-    points = 0;
+    bars = nullptr;
+    points = nullptr;
 
-    QHBoxLayout *hbox = new QHBoxLayout();
+    auto *hbox = new QHBoxLayout();
     hbox->addStretch();
     btnTable = new QPushButton();
     btnTable->hide();
@@ -81,7 +81,7 @@ Plot3DDialog::Plot3DDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     initColorsPage();
     initGeneralPage();
 
-    QVBoxLayout *vl = new QVBoxLayout(this);
+    auto *vl = new QVBoxLayout(this);
     vl->addWidget(generalDialog);
     vl->addLayout(hbox);
 
@@ -100,7 +100,7 @@ void Plot3DDialog::initScalesPage()
     axesList->setFixedWidth(50);
     axesList->setCurrentRow(0);
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("From")), 0, 0);
     boxFrom = new QLineEdit();
     boxFrom->setMaximumWidth(150);
@@ -117,10 +117,10 @@ void Plot3DDialog::initScalesPage()
     gl1->addWidget(boxType, 2, 1);
     gl1->setRowStretch(3, 1);
 
-    QGroupBox *gb1 = new QGroupBox();
+    auto *gb1 = new QGroupBox();
     gb1->setLayout(gl1);
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("Major Ticks")), 0, 0);
     boxMajors = new QSpinBox();
     gl2->addWidget(boxMajors, 0, 1);
@@ -132,7 +132,7 @@ void Plot3DDialog::initScalesPage()
     TicksGroupBox = new QGroupBox();
     TicksGroupBox->setLayout(gl2);
 
-    QHBoxLayout *hb = new QHBoxLayout();
+    auto *hb = new QHBoxLayout();
     hb->addWidget(axesList);
     hb->addWidget(gb1);
     hb->addWidget(TicksGroupBox);
@@ -151,13 +151,13 @@ void Plot3DDialog::initAxesPage()
     axesList2->setFixedWidth(50);
     axesList2->setCurrentRow(0);
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("Title")), 0, 0);
     boxLabel = new QLineEdit();
     gl1->addWidget(boxLabel, 0, 1);
     gl1->addWidget(new QLabel(tr("Axis Font")), 1, 0);
 
-    QHBoxLayout *hb1 = new QHBoxLayout();
+    auto *hb1 = new QHBoxLayout();
     btnLabelFont = new QPushButton(tr("&Choose font"));
     hb1->addWidget(btnLabelFont);
     buttonAxisLowerGreek = new QPushButton(QChar(0x3B1));
@@ -175,10 +175,10 @@ void Plot3DDialog::initAxesPage()
     gl1->addWidget(boxMinorLength, 3, 1);
     gl1->setRowStretch(4, 1);
 
-    QGroupBox *gb1 = new QGroupBox();
+    auto *gb1 = new QGroupBox();
     gb1->setLayout(gl1);
 
-    QHBoxLayout *hb2 = new QHBoxLayout();
+    auto *hb2 = new QHBoxLayout();
     hb2->addWidget(axesList2);
     hb2->addWidget(gb1);
 
@@ -195,7 +195,7 @@ void Plot3DDialog::initAxesPage()
 
 void Plot3DDialog::initTitlePage()
 {
-    QHBoxLayout *hb1 = new QHBoxLayout();
+    auto *hb1 = new QHBoxLayout();
     hb1->addStretch();
     buttonLowerGreek = new QPushButton(QChar(0x3B1));
     hb1->addWidget(buttonLowerGreek);
@@ -207,7 +207,7 @@ void Plot3DDialog::initTitlePage()
     hb1->addWidget(btnTitleFont);
     hb1->addStretch();
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     boxTitle = new QLineEdit();
     vl->addWidget(boxTitle);
     vl->addLayout(hb1);
@@ -225,7 +225,7 @@ void Plot3DDialog::initTitlePage()
 
 void Plot3DDialog::initColorsPage()
 {
-    QVBoxLayout *vl1 = new QVBoxLayout();
+    auto *vl1 = new QVBoxLayout();
     btnFromColor = new QPushButton(tr("Ma&x"));
     vl1->addWidget(btnFromColor);
     btnToColor = new QPushButton(tr("&Min"));
@@ -234,20 +234,20 @@ void Plot3DDialog::initColorsPage()
     vl1->addWidget(btnColorMap);
     vl1->addStretch();
 
-    QGroupBox *gb1 = new QGroupBox(tr("Data"));
+    auto *gb1 = new QGroupBox(tr("Data"));
     gb1->setLayout(vl1);
 
-    QVBoxLayout *vl2 = new QVBoxLayout();
+    auto *vl2 = new QVBoxLayout();
     btnMesh = new QPushButton(tr("&Line"));
     vl2->addWidget(btnMesh);
     btnBackground = new QPushButton(tr("&Background"));
     vl2->addWidget(btnBackground);
     vl2->addStretch();
 
-    QGroupBox *gb2 = new QGroupBox(tr("General"));
+    auto *gb2 = new QGroupBox(tr("General"));
     gb2->setLayout(vl2);
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     btnAxes = new QPushButton(tr("&Axes"));
     gl1->addWidget(btnAxes, 0, 0);
     btnLabels = new QPushButton(tr("Lab&els"));
@@ -261,12 +261,12 @@ void Plot3DDialog::initColorsPage()
     AxesColorGroupBox = new QGroupBox(tr("Coordinate System"));
     AxesColorGroupBox->setLayout(gl1);
 
-    QHBoxLayout *hb1 = new QHBoxLayout();
+    auto *hb1 = new QHBoxLayout();
     hb1->addWidget(gb1);
     hb1->addWidget(gb2);
     hb1->addWidget(AxesColorGroupBox);
 
-    QHBoxLayout *hb2 = new QHBoxLayout();
+    auto *hb2 = new QHBoxLayout();
     hb2->addStretch();
     hb2->addWidget(new QLabel(tr("Opacity")));
     boxTransparency = new QSpinBox();
@@ -274,7 +274,7 @@ void Plot3DDialog::initColorsPage()
     boxTransparency->setSingleStep(5);
     hb2->addWidget(boxTransparency);
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addLayout(hb2);
     vl->addLayout(hb1);
 
@@ -296,7 +296,7 @@ void Plot3DDialog::initColorsPage()
 
 void Plot3DDialog::initGeneralPage()
 {
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     boxLegend = new QCheckBox(tr("Show Legend"));
     gl1->addWidget(boxLegend, 0, 0);
     boxOrthogonal = new QCheckBox(tr("Orthogonal"));
@@ -324,10 +324,10 @@ void Plot3DDialog::initGeneralPage()
     gl1->addWidget(boxDistance, 4, 1);
     gl1->setRowStretch(5, 1);
 
-    QGroupBox *gb1 = new QGroupBox();
+    auto *gb1 = new QGroupBox();
     gb1->setLayout(gl1);
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("Zoom (%)")), 0, 0);
     boxZoom = new QDoubleSpinBox();
     boxZoom->setMinimum(0);
@@ -357,10 +357,10 @@ void Plot3DDialog::initGeneralPage()
     gl2->addWidget(boxZScale, 3, 1);
     gl2->setRowStretch(4, 1);
 
-    QGroupBox *gb2 = new QGroupBox();
+    auto *gb2 = new QGroupBox();
     gb2->setLayout(gl2);
 
-    QHBoxLayout *hl = new QHBoxLayout();
+    auto *hl = new QHBoxLayout();
     hl->addWidget(gb1);
     hl->addWidget(gb2);
 
@@ -382,7 +382,7 @@ void Plot3DDialog::initGeneralPage()
 
 void Plot3DDialog::initPointsOptionsStack()
 {
-    QHBoxLayout *hl1 = new QHBoxLayout();
+    auto *hl1 = new QHBoxLayout();
     hl1->addStretch();
     hl1->addWidget(new QLabel(tr("Style")));
     boxPointStyle = new QComboBox();
@@ -395,7 +395,7 @@ void Plot3DDialog::initPointsOptionsStack()
     optionStack->setFrameShape(QFrame::StyledPanel);
     optionStack->setFrameShadow(QStackedWidget::Plain);
 
-    QGridLayout *gl1 = new QGridLayout();
+    auto *gl1 = new QGridLayout();
     gl1->addWidget(new QLabel(tr("Width")), 0, 0);
     boxSize = new QLineEdit("5");
     gl1->addWidget(boxSize, 0, 1);
@@ -409,7 +409,7 @@ void Plot3DDialog::initPointsOptionsStack()
     dotsPage->setLayout(gl1);
     optionStack->addWidget(dotsPage);
 
-    QGridLayout *gl2 = new QGridLayout();
+    auto *gl2 = new QGridLayout();
     gl2->addWidget(new QLabel(tr("Radius")), 0, 0);
     boxCrossRad = new QLineEdit("0.01");
     gl2->addWidget(boxCrossRad, 0, 1);
@@ -429,7 +429,7 @@ void Plot3DDialog::initPointsOptionsStack()
     crossPage->setLayout(gl2);
     optionStack->addWidget(crossPage);
 
-    QGridLayout *gl3 = new QGridLayout();
+    auto *gl3 = new QGridLayout();
     gl3->addWidget(new QLabel(tr("Width")), 0, 0);
     boxConesRad = new QLineEdit("0.5");
     gl3->addWidget(boxConesRad, 0, 1);
@@ -443,7 +443,7 @@ void Plot3DDialog::initPointsOptionsStack()
     conesPage->setLayout(gl3);
     optionStack->addWidget(conesPage);
 
-    QVBoxLayout *vl = new QVBoxLayout();
+    auto *vl = new QVBoxLayout();
     vl->addLayout(hl1);
     vl->addWidget(optionStack);
 
@@ -456,7 +456,7 @@ void Plot3DDialog::initPointsOptionsStack()
 
 void Plot3DDialog::showLowerGreek()
 {
-    SymbolDialog *greekLetters = new SymbolDialog(SymbolDialog::lowerGreek, this, Qt::Tool);
+    auto *greekLetters = new SymbolDialog(SymbolDialog::lowerGreek, this, Qt::Tool);
     greekLetters->setAttribute(Qt::WA_DeleteOnClose);
     connect(greekLetters, SIGNAL(addLetter(const QString &)), this,
             SLOT(addSymbol(const QString &)));
@@ -466,7 +466,7 @@ void Plot3DDialog::showLowerGreek()
 
 void Plot3DDialog::showUpperGreek()
 {
-    SymbolDialog *greekLetters = new SymbolDialog(SymbolDialog::upperGreek, this, Qt::Tool);
+    auto *greekLetters = new SymbolDialog(SymbolDialog::upperGreek, this, Qt::Tool);
     greekLetters->setAttribute(Qt::WA_DeleteOnClose);
     connect(greekLetters, SIGNAL(addLetter(const QString &)), this,
             SLOT(addSymbol(const QString &)));
@@ -513,7 +513,7 @@ void Plot3DDialog::disableAxesOptions()
 void Plot3DDialog::showBarsTab(double rad)
 {
     bars = new QWidget(generalDialog);
-    QHBoxLayout *bars_layout = new QHBoxLayout();
+    auto *bars_layout = new QHBoxLayout();
     bars->setLayout(bars_layout);
 
     bars_layout->addWidget(new QLabel(tr("Width")));
@@ -835,7 +835,7 @@ bool Plot3DDialog::updatePlot()
             parser.SetExpr(from);
             start = parser.Eval();
         } catch (mu::ParserError &e) {
-            QMessageBox::critical(0, tr("Start limit error"), QStringFromString(e.GetMsg()));
+            QMessageBox::critical(nullptr, tr("Start limit error"), QStringFromString(e.GetMsg()));
             boxFrom->setFocus();
             error = true;
             return false;
@@ -845,14 +845,14 @@ bool Plot3DDialog::updatePlot()
             parser.SetExpr(to);
             end = parser.Eval();
         } catch (mu::ParserError &e) {
-            QMessageBox::critical(0, tr("End limit error"), QStringFromString(e.GetMsg()));
+            QMessageBox::critical(nullptr, tr("End limit error"), QStringFromString(e.GetMsg()));
             boxTo->setFocus();
             error = true;
             return false;
         }
 
         if (start >= end) {
-            QMessageBox::critical(0, tr("Input error"),
+            QMessageBox::critical(nullptr, tr("Input error"),
                                   tr("Please enter scale limits that satisfy: from < to!"));
             boxTo->setFocus();
             return false;
@@ -990,4 +990,4 @@ void Plot3DDialog::showAxisTab()
     generalDialog->setCurrentIndex(1);
 }
 
-Plot3DDialog::~Plot3DDialog() { }
+Plot3DDialog::~Plot3DDialog() = default;

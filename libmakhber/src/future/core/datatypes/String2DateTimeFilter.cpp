@@ -41,12 +41,13 @@ const char *String2DateTimeFilter::date_formats[] = {
     "d.M.yyyy", // German style
     "d.M.yy", "M/yyyy",
     "d.M.", // German form w/o year
-    "yyyyMMdd", 0
+    "yyyyMMdd", nullptr
 };
 
-const char *String2DateTimeFilter::time_formats[] = {
-    "h", "h ap", "h:mm", "h:mm ap", "h:mm:ss", "h:mm:ss.zzz", "h:mm:ss:zzz", "mm:ss.zzz", "hmmss", 0
-};
+const char *String2DateTimeFilter::time_formats[] = { "h",           "h ap",      "h:mm",
+                                                      "h:mm ap",     "h:mm:ss",   "h:mm:ss.zzz",
+                                                      "h:mm:ss:zzz", "mm:ss.zzz", "hmmss",
+                                                      nullptr };
 
 QDateTime String2DateTimeFilter::dateTimeAt(int row) const
 {
@@ -88,13 +89,13 @@ QDateTime String2DateTimeFilter::dateTimeAt(int row) const
         time_string = date_string;
 
     // try to find a valid date
-    for (const char **format = date_formats; *format != 0; format++) {
+    for (const char **format = date_formats; *format != nullptr; format++) {
         date_result = QDate::fromString(date_string, *format);
         if (date_result.isValid())
             break;
     }
     // try to find a valid time
-    for (const char **format = time_formats; *format != 0; format++) {
+    for (const char **format = time_formats; *format != nullptr; format++) {
         time_result = QTime::fromString(time_string, *format);
         if (time_result.isValid())
             break;

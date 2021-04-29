@@ -27,7 +27,7 @@
  ***************************************************************************/
 
 #include "NumericDateTimeBaseFilter.h"
-#include <math.h>
+#include <cmath>
 
 const QDateTime NumericDateTimeBaseFilter::zeroOffsetDate =
         QDateTime(QDate::fromJulianDay(0), QTime(12, 0, 0, 0));

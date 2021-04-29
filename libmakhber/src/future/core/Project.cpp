@@ -53,25 +53,22 @@ class Project::Private
 public:
     Private()
         : mdi_window_visibility(static_cast<MdiWindowVisibility>(
-                Project::global("default_mdi_window_visibility").toInt())),
-          primary_view(0),
-          scripting_engine(0)
+                Project::global("default_mdi_window_visibility").toInt()))
     {
     }
-    ~Private()
-    {
 #ifndef LEGACY_CODE_0_2_x
-        delete primary_view;
+    ~Private() { delete primary_view; }
+#else
+    ~Private() = default;
 #endif
-    }
     QUndoStack undo_stack;
     MdiWindowVisibility mdi_window_visibility;
 #ifndef LEGACY_CODE_0_2_x
     ProjectWindow *primary_view;
 #else
-    void *primary_view;
+    void *primary_view { nullptr };
 #endif
-    AbstractScriptingEngine *scripting_engine;
+    AbstractScriptingEngine *scripting_engine { nullptr };
     QString file_name;
 };
 
@@ -104,7 +101,7 @@ ProjectWindow *Project::view()
 #else
 void *Project::view()
 {
-    return NULL;
+    return nullptr;
 #endif
 }
 
@@ -113,7 +110,7 @@ QMenu *Project::createContextMenu() const
 #ifndef LEGACY_CODE_0_2_x
     return const_cast<Project *>(this)->view()->createContextMenu();
 #else
-    return NULL;
+    return nullptr;
 #endif
 }
 
@@ -123,7 +120,7 @@ QMenu *Project::createFolderContextMenu(const future::Folder *folder) const
     return const_cast<Project *>(this)->view()->createFolderContextMenu(folder);
 #else
     Q_UNUSED(folder)
-    return NULL;
+    return nullptr;
 #endif
 }
 

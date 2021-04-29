@@ -126,9 +126,9 @@ void SmoothFilter::smoothFFT(double *x, double *y)
 void SmoothFilter::smoothAverage(double *, double *y)
 {
     int p2 = d_right_points / 2;
-    double m = double(2 * p2 + 1);
+    auto m = double(2 * p2 + 1);
     double aux = 0.0;
-    double *s = new double[d_n];
+    auto *s = new double[d_n];
 
     s[0] = y[0];
     for (int i = 1; i < p2; i++) {

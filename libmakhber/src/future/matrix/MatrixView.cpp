@@ -64,7 +64,7 @@ MatrixView::MatrixView(const QString &label, QWidget *parent, const QString name
     d_model = new MatrixModel(matrix);
     init();
 #else
-    d_model = NULL;
+    d_model = nullptr;
 #endif
 }
 
@@ -82,7 +82,7 @@ void MatrixView::setMatrix(future::Matrix *matrix)
 
 void MatrixView::init()
 {
-    QWidget *d_main_widget = new QWidget();
+    auto *d_main_widget = new QWidget();
     d_main_layout = new QHBoxLayout();
     d_main_widget->setLayout(d_main_layout);
     d_main_layout->setSpacing(0);
@@ -378,7 +378,7 @@ bool MatrixView::eventFilter(QObject *watched, QEvent *event)
     QHeaderView *h_header = d_view_widget->horizontalHeader();
 
     if (d_matrix && event->type() == QEvent::ContextMenu) {
-        QContextMenuEvent *cm_event = static_cast<QContextMenuEvent *>(event);
+        auto *cm_event = static_cast<QContextMenuEvent *>(event);
         QPoint global_pos = cm_event->globalPos();
         if (watched == v_header)
             d_matrix->showMatrixViewRowContextMenu(global_pos);

@@ -71,11 +71,11 @@ QIcon IconLoader::load(const QString &name)
     (lumen_ < 100) ? filename = icon_path_.at(Dark) : filename = icon_path_.at(Light);
 
     const QString locate(filename + "/%1/%2.svg");
-    for (int i = 0; i < sizes_.size(); i++) {
-        QString filename_custom(locate.arg(sizes_.at(i)).arg(name));
+    for (int size : sizes_) {
+        QString filename_custom(locate.arg(size).arg(name));
 
         if (QFile::exists(filename_custom)) {
-            ret.addFile(filename_custom, QSize(sizes_.at(i), sizes_.at(i)));
+            ret.addFile(filename_custom, QSize(size, size));
         }
     }
 
