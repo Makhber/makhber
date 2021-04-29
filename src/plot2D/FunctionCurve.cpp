@@ -138,7 +138,7 @@ bool FunctionCurve::loadData(int points)
         break;
     }
     }
-    setData(X, Y, points);
+    setSamples(X, Y, points);
     delete[] X;
     delete[] Y;
     return true;

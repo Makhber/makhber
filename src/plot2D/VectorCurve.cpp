@@ -368,9 +368,9 @@ bool VectorCurve::loadData()
     Y.resize(size);
     X2.resize(size);
     Y2.resize(size);
-    setData(X.data(), Y.data(), size);
+    setSamples(X.data(), Y.data(), size);
     for (DataCurve *c : d_error_bars)
-        c->setData(X.data(), Y.data(), size);
+        c->setSamples(X.data(), Y.data(), size);
     setVectorEnd(X2, Y2);
 
     return true;

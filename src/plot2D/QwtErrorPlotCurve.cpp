@@ -303,7 +303,7 @@ bool QwtErrorPlotCurve::loadData()
         return false;
     }
 
-    setData(data[0].data(), data[1].data(), data[0].size());
+    setSamples(data[0].data(), data[1].data(), data[0].size());
     setErrors(data[2]);
 
     return true;

@@ -250,9 +250,9 @@ bool DataCurve::loadData()
         return false;
     }
 
-    setData(points[0].data(), points[1].data(), points[0].size());
+    setSamples(points[0].data(), points[1].data(), points[0].size());
     for (DataCurve *c : d_error_bars)
-        c->setData(points[0].data(), points[1].data(), points[0].size());
+        c->setSamples(points[0].data(), points[1].data(), points[0].size());
 
     return true;
 }

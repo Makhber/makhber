@@ -135,7 +135,7 @@ bool QwtPieCurve::loadData()
         }
     }
     Y.resize(size);
-    setData(Y.data(), Y.data(), size);
+    setSamples(Y.data(), Y.data(), size);
 
     return true;
 }

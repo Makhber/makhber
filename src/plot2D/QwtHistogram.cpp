@@ -181,7 +181,7 @@ bool QwtHistogram::loadData()
         gsl_histogram_get_range(h, i, &lower, &upper);
         X[i] = lower;
     }
-    setData(X.data(), Y.data(), n);
+    setSamples(X.data(), Y.data(), n);
 
     d_mean = gsl_histogram_mean(h);
     d_standard_deviation = gsl_histogram_sigma(h);
@@ -201,7 +201,7 @@ void QwtHistogram::initData(const QVector<double> &Y, int size)
             y[i] = 0;
             x[i] = 0;
         }
-        setData(x.data(), y.data(), 2);
+        setSamples(x.data(), y.data(), 2);
         return;
     }
 
@@ -235,7 +235,7 @@ void QwtHistogram::initData(const QVector<double> &Y, int size)
         x[i] = lower;
     }
 
-    setData(x.data(), y.data(), n);
+    setSamples(x.data(), y.data(), n);
 
     d_bin_size = (d_end - d_begin) / (double)n;
     d_autoBin = true;

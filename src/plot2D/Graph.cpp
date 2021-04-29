@@ -3105,7 +3105,7 @@ void Graph::plotPie(Table *w, const QString &name, int startRow, int endRow)
     Y.resize(size);
 
     auto *pieCurve = new QwtPieCurve(w, name, startRow, endRow);
-    pieCurve->setData(Y.data(), Y.data(), size);
+    pieCurve->setSamples(Y.data(), Y.data(), size);
 
     c_keys.resize(++n_curves);
     c_keys[n_curves - 1] = d_plot->insertCurve(pieCurve);
@@ -4535,7 +4535,7 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             c_type[i] = g->curveType(i);
 
             if (c_type[i] != Box && c_type[i] != ErrorBars)
-                c->setData(x.data(), y.data(), n);
+                c->setSamples(x.data(), y.data(), n);
 
             c->setPen(cv->pen());
             c->setBrush(cv->brush());

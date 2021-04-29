@@ -163,7 +163,7 @@ void Convolution::addResultCurve()
         return;
 
     auto *c = new DataCurve(d_table, d_table->colName(cols), d_table->colName(cols2));
-    c->setData(x_temp.data(), d_x, d_n);
+    c->setSamples(x_temp.data(), d_x, d_n);
     c->setPen(QPen(d_curveColor, 1));
     ml->activeGraph()->insertPlotItem(c, Graph::Line);
     ml->activeGraph()->updatePlot();

@@ -608,7 +608,7 @@ void Fit::insertFitFunctionCurve(const QString &name, double *x, double *y, int 
     auto *c = new FunctionCurve(dynamic_cast<ApplicationWindow *>(parent()), FunctionCurve::Normal,
                                 title);
     c->setPen(QPen(d_curveColor, penWidth));
-    c->setData(x, y, d_points);
+    c->setSamples(x, y, d_points);
     c->setRange(d_x[0], d_x[d_n - 1]);
 
     QString formula;
