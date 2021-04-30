@@ -29,6 +29,7 @@
 #include "SurfaceDialog.h"
 #include "MyParser.h"
 #include "ApplicationWindow.h"
+#include <cmath>
 
 #include <QMessageBox>
 #include <QLayout>
@@ -156,7 +157,7 @@ void SurfaceDialog::accept()
     QString Zfrom = boxZFrom->text().toLower();
     QString Zto = boxZTo->text().toLower();
 
-    double fromX, toX, fromY, toY, fromZ, toZ;
+    double fromX = NAN, toX = NAN, fromY = NAN, toY = NAN, fromZ = NAN, toZ = NAN;
     try {
         MyParser parser;
         parser.SetExpr(Xfrom);
@@ -220,7 +221,7 @@ void SurfaceDialog::accept()
         return;
     }
 
-    double x, y;
+    double x = NAN, y = NAN;
     QString formula = boxFunction->currentText();
     bool error = false;
     try {
@@ -245,7 +246,7 @@ void SurfaceDialog::accept()
         emit options(boxFunction->currentText(), fromX, toX, fromY, toY, fromZ, toZ);
         emit custom3DToolBar();
 
-        auto *app = (ApplicationWindow *)this->parent();
+        auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
         app->updateSurfaceFuncList(boxFunction->currentText());
         close();
     }

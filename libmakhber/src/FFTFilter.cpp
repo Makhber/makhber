@@ -63,7 +63,8 @@ void FFTFilter::init(int m)
 void FFTFilter::setFilterType(int type)
 {
     if (type < 1 || type > 4) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Unknown filter type. Valid values are: 1 - Low pass, 2 - High "
                                  "Pass, 3 - Band Pass, 4 - Band block."));
         d_init_err = true;
@@ -85,7 +86,7 @@ void FFTFilter::setBand(double lowFreq, double highFreq)
     if (d_filter_type < 3)
         return;
     else if (lowFreq == highFreq) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
                               tr("Please enter different values for the band limits."));
         d_init_err = true;
         return;

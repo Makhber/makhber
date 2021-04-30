@@ -64,14 +64,14 @@ Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owne
 
         auto &settings = ApplicationWindow::getSettings();
         settings.beginGroup("/General");
-        static_cast<Double2StringFilter *>(d_output_filter)
+        dynamic_cast<Double2StringFilter *>(d_output_filter)
                 ->setNumDigits(settings.value("/DecimalDigits", 14).toInt());
-        static_cast<Double2StringFilter *>(d_output_filter)
+        dynamic_cast<Double2StringFilter *>(d_output_filter)
                 ->setNumericFormat(
                         settings.value("/DefaultNumericFormat", 'f').toChar().toLatin1());
         settings.endGroup(); // possible bug since there was no closing endGroup()
 
-        connect(static_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         d_data_type = Makhber::TypeDouble;
         d_data = new QVector<double>();
@@ -88,7 +88,7 @@ Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owne
         d_input_filter = new String2DateTimeFilter();
         d_output_filter = new DateTime2StringFilter();
         d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
-        connect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         d_data_type = Makhber::TypeQDateTime;
         d_data = new QList<QDateTime>();
@@ -97,8 +97,8 @@ Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owne
     case Makhber::ColumnMode::Month: {
         d_input_filter = new String2MonthFilter();
         d_output_filter = new DateTime2StringFilter();
-        static_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("MMMM");
-        connect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("MMMM");
+        connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         d_data_type = Makhber::TypeQDateTime;
         d_data = new QList<QDateTime>();
@@ -107,8 +107,8 @@ Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owne
     case Makhber::ColumnMode::Day: {
         d_input_filter = new String2DayOfWeekFilter();
         d_output_filter = new DateTime2StringFilter();
-        static_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("dddd");
-        connect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("dddd");
+        connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         d_data_type = Makhber::TypeQDateTime;
         d_data = new QList<QDateTime>();
@@ -137,13 +137,13 @@ Column::Private::Private(Column *owner, Makhber::ColumnDataType type, Makhber::C
 
         auto &settings = ApplicationWindow::getSettings();
         settings.beginGroup("/General");
-        static_cast<Double2StringFilter *>(d_output_filter)
+        dynamic_cast<Double2StringFilter *>(d_output_filter)
                 ->setNumDigits(settings.value("/DecimalDigits", 14).toInt());
-        static_cast<Double2StringFilter *>(d_output_filter)
+        dynamic_cast<Double2StringFilter *>(d_output_filter)
                 ->setNumericFormat(
                         settings.value("/DefaultNumericFormat", 'f').toChar().toLatin1());
 
-        connect(static_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         break;
     }
@@ -156,23 +156,23 @@ Column::Private::Private(Column *owner, Makhber::ColumnDataType type, Makhber::C
         d_input_filter = new String2DateTimeFilter();
         d_output_filter = new DateTime2StringFilter();
         d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
-        connect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         break;
     }
     case Makhber::ColumnMode::Month: {
         d_input_filter = new String2MonthFilter();
         d_output_filter = new DateTime2StringFilter();
-        static_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("MMMM");
-        connect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("MMMM");
+        connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         break;
     }
     case Makhber::ColumnMode::Day: {
         d_input_filter = new String2DayOfWeekFilter();
         d_output_filter = new DateTime2StringFilter();
-        static_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("dddd");
-        connect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("dddd");
+        connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         break;
     }
@@ -211,7 +211,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
     void *old_data = d_data;
     // remark: the deletion of the old data will be done in the dtor of a command
 
-    AbstractSimpleFilter *new_in_filter, *new_out_filter;
+    AbstractSimpleFilter *new_in_filter = nullptr, *new_out_filter = nullptr;
     bool filter_is_temporary {
         true
     }; // it can also become outputFilter(), which we may not delete here
@@ -230,13 +230,13 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
         new_out_filter = new Double2StringFilter();
         auto &settings = ApplicationWindow::getSettings();
         settings.beginGroup("/General");
-        static_cast<Double2StringFilter *>(new_out_filter)
+        dynamic_cast<Double2StringFilter *>(new_out_filter)
                 ->setNumDigits(settings.value("/DecimalDigits", 14).toInt());
-        static_cast<Double2StringFilter *>(new_out_filter)
+        dynamic_cast<Double2StringFilter *>(new_out_filter)
                 ->setNumericFormat(
                         settings.value("/DefaultNumericFormat", 'f').toChar().toLatin1());
         settings.endGroup();
-        connect(static_cast<Double2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<Double2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         // if converter is not provided
         if (nullptr == converter) {
@@ -280,7 +280,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
             d_data = new QList<QDateTime>();
             d_data_type = Makhber::TypeQDateTime;
         }
-        connect(static_cast<DateTime2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<DateTime2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         if (nullptr == converter) {
             switch (old_mode) {
@@ -318,8 +318,8 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
             d_data = new QList<QDateTime>();
             d_data_type = Makhber::TypeQDateTime;
         }
-        static_cast<DateTime2StringFilter *>(new_out_filter)->setFormat("MMMM");
-        connect(static_cast<DateTime2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
+        dynamic_cast<DateTime2StringFilter *>(new_out_filter)->setFormat("MMMM");
+        connect(dynamic_cast<DateTime2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         if (nullptr == converter) {
             switch (old_mode) {
@@ -347,8 +347,8 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
             d_data = new QList<QDateTime>();
             d_data_type = Makhber::TypeQDateTime;
         }
-        static_cast<DateTime2StringFilter *>(new_out_filter)->setFormat("dddd");
-        connect(static_cast<DateTime2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
+        dynamic_cast<DateTime2StringFilter *>(new_out_filter)->setFormat("dddd");
+        connect(dynamic_cast<DateTime2StringFilter *>(new_out_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         if (nullptr == converter) {
             switch (old_mode) {
@@ -381,7 +381,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
     // prepare temporary data
     switch (old_mode) {
     case Makhber::ColumnMode::Numeric: {
-        disconnect(static_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        disconnect(dynamic_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                    d_owner, SLOT(notifyDisplayChange()));
         temp_col.reset(
                 new Column("temp_col", *(static_cast<QVector<qreal> *>(old_data)), d_validity));
@@ -394,7 +394,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
     case Makhber::ColumnMode::DateTime: // fallthrough intended
     case Makhber::ColumnMode::Month:
     case Makhber::ColumnMode::Day: {
-        disconnect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        disconnect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                    d_owner, SLOT(notifyDisplayChange()));
         if ((Makhber::ColumnMode::DateTime != new_mode) && (Makhber::ColumnMode::Month != new_mode)
             && (Makhber::ColumnMode::Day != new_mode))
@@ -433,13 +433,13 @@ void Column::Private::replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnD
     // disconnect formatChanged()
     switch (d_column_mode) {
     case Makhber::ColumnMode::Numeric:
-        disconnect(static_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        disconnect(dynamic_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                    d_owner, SLOT(notifyDisplayChange()));
         break;
     case Makhber::ColumnMode::DateTime:
     case Makhber::ColumnMode::Month:
     case Makhber::ColumnMode::Day:
-        disconnect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        disconnect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                    d_owner, SLOT(notifyDisplayChange()));
         break;
     default:
@@ -460,13 +460,13 @@ void Column::Private::replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnD
     // connect formatChanged()
     switch (d_column_mode) {
     case Makhber::ColumnMode::Numeric:
-        connect(static_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<Double2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         break;
     case Makhber::ColumnMode::DateTime:
     case Makhber::ColumnMode::Month:
     case Makhber::ColumnMode::Day:
-        connect(static_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
+        connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
         break;
     default:

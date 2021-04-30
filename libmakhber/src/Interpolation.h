@@ -55,7 +55,7 @@ private:
     void calculateOutputData(double *x, double *y);
 
     //! the interpolation method
-    int d_method;
+    int d_method{};
 };
 
 #endif

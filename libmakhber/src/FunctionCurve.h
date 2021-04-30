@@ -73,7 +73,7 @@ private:
     FunctionType d_function_type;
     QString d_variable;
     QStringList d_formulas;
-    double d_from, d_to;
+    double d_from {}, d_to {};
 };
 
 #endif

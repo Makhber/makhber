@@ -78,7 +78,7 @@ void Cone3D::draw(Qwt3D::Triple const &pos)
     RGBA rgba = (*plot->dataColor())(pos);
     glColor4d(rgba.r, rgba.g, rgba.b, rgba.a);
 
-    GLint mode;
+    GLint mode = 0;
     glGetIntegerv(GL_MATRIX_MODE, &mode);
     glMatrixMode(GL_MODELVIEW);
     glPushMatrix();

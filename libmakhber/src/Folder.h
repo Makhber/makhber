@@ -157,7 +157,7 @@ public:
 protected:
     QString birthdate, modifDate;
     QList<MyWidget *> lstWindows;
-    FolderListItem *myFolderListItem;
+    FolderListItem *myFolderListItem {};
 
     //! Pointer to the active window in the folder
     MyWidget *d_active_window;

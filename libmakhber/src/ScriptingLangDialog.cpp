@@ -74,7 +74,7 @@ void ScriptingLangDialog::updateLangList()
 
 void ScriptingLangDialog::accept()
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (app->setScriptingLang(langList->currentItem()->text()))
         close();
     else

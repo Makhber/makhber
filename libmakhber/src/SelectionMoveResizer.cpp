@@ -140,7 +140,7 @@ void SelectionMoveResizer::add(QWidget *target)
 
 QRect SelectionMoveResizer::boundingRectOf(QwtPlotMarker *target) const
 {
-    return ((PlotEnrichement *)target)->rect();
+    return (dynamic_cast<PlotEnrichement *>(target))->rect();
 }
 
 int SelectionMoveResizer::removeAll(Legend *target)
@@ -492,12 +492,12 @@ bool SelectionMoveResizer::eventFilter(QObject *o, QEvent *e)
 {
     switch (e->type()) {
     case QEvent::Resize:
-        if ((QWidget *)o == parentWidget())
+        if (dynamic_cast<QWidget *>(o) == parentWidget())
             setGeometry(0, 0, parentWidget()->width(), parentWidget()->height());
         recalcBoundingRect();
         return false;
     case QEvent::Move:
-        if ((QWidget *)o != parentWidget())
+        if (dynamic_cast<QWidget *>(o) != parentWidget())
             recalcBoundingRect();
         return false;
     default:

@@ -313,7 +313,7 @@ double Matrix::determinant()
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
     gsl_matrix *A = gsl_matrix_alloc(rows, cols);
-    int i;
+    int i = 0;
     for (i = 0; i < rows; i++)
         for (int j = 0; j < cols; j++)
             gsl_matrix_set(A, i, j, cell(i, j));
@@ -344,7 +344,7 @@ void Matrix::invert()
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
     gsl_matrix *A = gsl_matrix_alloc(rows, cols);
-    int i;
+    int i = 0;
     for (i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++)
             gsl_matrix_set(A, i, j, cell(i, j));
@@ -523,7 +523,7 @@ void Matrix::pasteSelection()
 void Matrix::customEvent(QEvent *e)
 {
     if (e->type() == SCRIPTING_CHANGE_EVENT)
-        scriptingChangeEvent((ScriptingChangeEvent *)e);
+        scriptingChangeEvent(dynamic_cast<ScriptingChangeEvent *>(e));
 }
 
 void Matrix::closeEvent(QCloseEvent *e)
@@ -591,7 +591,7 @@ void Matrix::print(const QString &fileName)
     int rows = numRows();
     int cols = numCols();
     int height = margin;
-    int i, vertHeaderWidth = vHeader->width();
+    int i = 0, vertHeaderWidth = vHeader->width();
     int right = margin + vertHeaderWidth;
 
     // print header
@@ -730,7 +730,7 @@ void Matrix::applyFormula()
 
 void Matrix::addFunction()
 {
-    static_cast<ScriptEdit *>(ui.formula_box)
+    dynamic_cast<ScriptEdit *>(ui.formula_box)
             ->insertFunction(ui.add_function_combobox->currentText());
 }
 

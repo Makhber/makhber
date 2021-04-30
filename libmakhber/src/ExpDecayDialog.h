@@ -64,8 +64,8 @@ signals:
 private:
     void closeEvent(QCloseEvent *);
 
-    Fit *fitter;
-    Graph *graph;
+    Fit *fitter {};
+    Graph *graph {};
     int slopes;
 
     QPushButton *buttonFit;

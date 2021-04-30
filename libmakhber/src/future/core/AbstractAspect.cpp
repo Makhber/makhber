@@ -309,7 +309,7 @@ QMenu *AbstractAspect::createContextMenu() const
     auto *menu = new QMenu();
 
     const QStyle *widget_style = qApp->style();
-    QAction *action_temp;
+    QAction *action_temp = nullptr;
 
     action_temp = menu->addAction(QObject::tr("&Remove"), this, SLOT(remove()));
     action_temp->setIcon(widget_style->standardIcon(QStyle::SP_TrashIcon));
@@ -320,11 +320,11 @@ QMenu *AbstractAspect::createContextMenu() const
 future::Folder *AbstractAspect::folder()
 {
     if (inherits("future::Folder"))
-        return static_cast<future::Folder *>(this);
+        return dynamic_cast<future::Folder *>(this);
     AbstractAspect *parent_aspect = parentAspect();
     while (parent_aspect && !parent_aspect->inherits("future::Folder"))
         parent_aspect = parent_aspect->parentAspect();
-    return static_cast<future::Folder *>(parent_aspect);
+    return dynamic_cast<future::Folder *>(parent_aspect);
 }
 
 bool AbstractAspect::isDescendantOf(AbstractAspect *other)

@@ -161,7 +161,7 @@ public:
     };
 
     Plot *d_plot;
-    QwtPlotZoomer *d_zoomer[2];
+    QwtPlotZoomer *d_zoomer[2] {};
     TitlePicker *titlePicker;
     ScalePicker *scalePicker;
     CanvasPicker *cp;
@@ -784,7 +784,7 @@ private:
     bool autoScaleFonts;
     QSize hidden_size;
     bool d_scale_on_print, d_print_cropmarks;
-    int selectedAxis;
+    int selectedAxis {};
     QStringList axesFormulas;
     //! Stores columns used for axes with text labels or time/date format info
     QStringList axesFormatInfo;
@@ -815,12 +815,12 @@ private:
     int n_curves;
     int widthLine, defaultMarkerFrame;
     QColor defaultTextMarkerColor, defaultTextMarkerBackground;
-    int auxMrkAngle, auxMrkBkg, auxMrkWidth;
-    int auxArrowHeadLength, auxArrowHeadAngle;
+    int auxMrkAngle {}, auxMrkBkg {}, auxMrkWidth {};
+    int auxArrowHeadLength {}, auxArrowHeadAngle {};
     long selectedMarker, legendMarkerID;
-    bool startArrowOn, endArrowOn, drawTextOn, drawLineOn, drawArrowOn;
+    bool startArrowOn {}, endArrowOn {}, drawTextOn, drawLineOn, drawArrowOn;
 
-    bool auxFilledArrowHead, ignoreResize;
+    bool auxFilledArrowHead {}, ignoreResize;
     bool drawAxesBackbone, m_autoscale;
 
     QColor defaultArrowColor;

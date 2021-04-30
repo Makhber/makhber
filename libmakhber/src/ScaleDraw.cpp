@@ -293,8 +293,8 @@ QwtSupersciptsScaleDraw::QwtSupersciptsScaleDraw(const QString &s)
 
 QwtText QwtSupersciptsScaleDraw::label(double value) const
 {
-    char f;
-    int prec;
+    char f = 0;
+    int prec = 0;
     labelFormat(f, prec);
 
     QString txt = QLocale().toString(transformValue(value), 'e', prec);

@@ -32,6 +32,7 @@
 #include "ApplicationWindow.h"
 #include "Fit.h"
 #include "ExponentialFit.h"
+#include <cmath>
 
 #include <QMessageBox>
 #include <QLayout>
@@ -161,12 +162,12 @@ void ExpDecayDialog::activateCurve(const QString &curveName)
     if (!c)
         return;
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
     int precision = app->fit_output_precision;
-    double start, end;
+    double start = NAN, end = NAN;
     graph->range(graph->curveIndex(curveName), &start, &end);
     boxStart->setText(QString::number(qMin(start, end)));
     boxYOffset->setText(QString::number(c->minYValue(), 'g', precision));
@@ -195,7 +196,7 @@ void ExpDecayDialog::fit()
         return;
     }
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
@@ -255,7 +256,7 @@ void ExpDecayDialog::fit()
 void ExpDecayDialog::closeEvent(QCloseEvent *e)
 {
     if (fitter) {
-        auto *app = (ApplicationWindow *)this->parent();
+        auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
         if (app && app->pasteFitResultsToPlot)
             fitter->showLegend();
 

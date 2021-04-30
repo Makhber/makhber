@@ -152,7 +152,7 @@ bool MatrixModel::setData(const QModelIndex &index, const QVariant &value, int r
     int column = index.column();
 
     if (role == Qt::EditRole) {
-        static_cast<::Matrix *>(d_matrix->view())->setText(row, column, value.toString());
+        dynamic_cast<::Matrix *>(d_matrix->view())->setText(row, column, value.toString());
         return true;
     }
     return false;

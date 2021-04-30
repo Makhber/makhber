@@ -169,7 +169,7 @@ void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map
         if (min || maj)
             drawInwardTicks(painter, rect, map[i], i, min, maj);
     }
-    if (((Graph *)parent())->axesBackbones()) {
+    if ((dynamic_cast<Graph *>(parent()))->axesBackbones()) {
         int apw2 = axesLinewidth() / 2;
         bool clp = painter->hasClipping();
         painter->save();
@@ -207,7 +207,7 @@ void Plot::drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleM
     const QwtValueList majTickList = scDiv->ticks(QwtScaleDiv::MajorTick);
     int majTicks = (int)majTickList.count();
 
-    int j, x, y, low, high;
+    int j = 0, x = 0, y = 0, low = 0, high = 0;
     switch (axis) {
     case QwtPlot::yLeft:
         x = x1;
@@ -385,7 +385,7 @@ QwtPlotCurve *Plot::curve(int index)
 {
     QwtPlotItem *it = d_curves.value(index);
     if (it && it->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
-        return (QwtPlotCurve *)it;
+        return dynamic_cast<QwtPlotCurve *>(it);
     else
         return nullptr;
 }
@@ -405,7 +405,7 @@ int Plot::closestCurve(int xpos, int ypos, int &dist, int &point)
             continue;
 
         if (item->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
-            auto *c = (PlotCurve *)item;
+            auto *c = dynamic_cast<PlotCurve *>(item);
             for (int i = 0; i < c->dataSize(); i++) {
                 double cx = map[c->xAxis()].xTransform(c->x(i)) - double(xpos);
                 double cy = map[c->yAxis()].xTransform(c->y(i)) - double(ypos);
@@ -436,7 +436,8 @@ int Plot::insertMarker(QwtPlotMarker *m)
     marker_key++;
     if (!d_markers.contains(marker_key))
         d_markers.insert(marker_key, m);
-    m->setRenderHint(QwtPlotItem::RenderAntialiased, ((Graph *)parent())->antialiasing());
+    m->setRenderHint(QwtPlotItem::RenderAntialiased,
+                     (dynamic_cast<Graph *>(parent()))->antialiasing());
     m->attach(((QwtPlot *)this));
     return marker_key;
 }
@@ -447,9 +448,9 @@ int Plot::insertCurve(QwtPlotItem *c)
     if (!d_curves.contains(curve_key))
         d_curves.insert(curve_key, c);
     if (c->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
-        ((QwtPlotCurve *)c)->setPaintAttribute(QwtPlotCurve::PaintFiltered);
+        (dynamic_cast<QwtPlotCurve *>(c))->setPaintAttribute(QwtPlotCurve::PaintFiltered);
 
-    c->setRenderHint(QwtPlotItem::RenderAntialiased, ((Graph *)parent())->antialiasing());
+    c->setRenderHint(QwtPlotItem::RenderAntialiased, (dynamic_cast<Graph *>(parent()))->antialiasing());
     c->attach(this);
     return curve_key;
 }
@@ -461,7 +462,7 @@ void Plot::removeCurve(int index)
         return;
 
     if (c->rtti() == QwtPlotItem::Rtti_PlotSpectrogram) {
-        auto *sp = (Spectrogram *)c;
+        auto *sp = dynamic_cast<Spectrogram *>(c);
         QwtScaleWidget *colorAxis = axisWidget(sp->colorScaleAxis());
         if (colorAxis)
             colorAxis->setColorBarEnabled(false);
@@ -476,7 +477,7 @@ QList<int> Plot::getMajorTicksType()
     QList<int> majorTicksType;
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
         if (axisEnabled(axis)) {
-            auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+            auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
             majorTicksType << sd->majorTicksStyle();
         } else
             majorTicksType << ScaleDraw::Out;
@@ -486,7 +487,7 @@ QList<int> Plot::getMajorTicksType()
 
 void Plot::setMajorTicksType(int axis, int type)
 {
-    auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+    auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
     if (sd)
         sd->setMajorTicksStyle((ScaleDraw::TicksStyle)type);
 }
@@ -496,7 +497,7 @@ QList<int> Plot::getMinorTicksType()
     QList<int> minorTicksType;
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
         if (axisEnabled(axis)) {
-            auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+            auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
             minorTicksType << sd->minorTicksStyle();
         } else
             minorTicksType << ScaleDraw::Out;
@@ -506,7 +507,7 @@ QList<int> Plot::getMinorTicksType()
 
 void Plot::setMinorTicksType(int axis, int type)
 {
-    auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+    auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
     if (sd)
         sd->setMinorTicksStyle((ScaleDraw::TicksStyle)type);
 }
@@ -514,10 +515,10 @@ void Plot::setMinorTicksType(int axis, int type)
 int Plot::axisLabelFormat(int axis)
 {
     if (axisValid(axis)) {
-        int prec;
-        char format;
+        int prec = 0;
+        char format = 0;
 
-        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
         sd->labelFormat(format, prec);
 
         if (format == 'g')
@@ -536,7 +537,7 @@ int Plot::axisLabelFormat(int axis)
 int Plot::axisLabelPrecision(int axis)
 {
     if (axisValid(axis)) {
-        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
         return sd->labelNumericPrecision();
     }
 
@@ -571,7 +572,7 @@ void Plot::axisLabelFormat(int axis, char &f, int &prec) const
 void Plot::setAxisLabelFormat(int axis, char f, int prec)
 {
     if (axisValid(axis)) {
-        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
         sd->setLabelFormat(f, prec);
     }
 }

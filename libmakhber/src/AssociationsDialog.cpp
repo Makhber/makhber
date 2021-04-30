@@ -125,7 +125,7 @@ void AssociationsDialog::updateCurves()
 
 void AssociationsDialog::changePlotAssociation(int curve, const QString &text)
 {
-    auto *c = (DataCurve *)graph->curve(dataCurvesList[curve]); // c_keys[curve]);
+    auto *c = dynamic_cast<DataCurve *>(graph->curve(dataCurvesList[curve])); // c_keys[curve]);
     if (!c || c->type() == Graph::Function)
         return;
 
@@ -142,7 +142,7 @@ void AssociationsDialog::changePlotAssociation(int curve, const QString &text)
         c->setTitle(lst[1].remove("(Y)"));
         c->loadData();
     } else if (lst.count() == 3) { // curve with error bars
-        auto *er = (QwtErrorPlotCurve *)c;
+        auto *er = dynamic_cast<QwtErrorPlotCurve *>(c);
         QString xColName = lst[0].remove("(X)");
         QString yColName = lst[1].remove("(Y)");
         QString erColName = lst[2].remove("(xErr)").remove("(yErr)");
@@ -160,7 +160,7 @@ void AssociationsDialog::changePlotAssociation(int curve, const QString &text)
         else
             er->loadData();
     } else if (lst.count() == 4) {
-        auto *v = (VectorCurve *)c;
+        auto *v = dynamic_cast<VectorCurve *>(c);
         v->setXColumnName(lst[0].remove("(X)"));
         v->setTitle(lst[1].remove("(Y)"));
 
@@ -213,7 +213,7 @@ Table *AssociationsDialog::findTable(int index)
 #endif
     for (int i = 0; i < (int)tables->count(); i++) {
         if (tables->at(i)->objectName() == lst[0])
-            return (Table *)tables->at(i);
+            return dynamic_cast<Table *>(tables->at(i));
     }
     return nullptr;
 }
@@ -275,13 +275,13 @@ void AssociationsDialog::updateColumnTypes()
 
     QCheckBox *it = nullptr;
     for (int i = 0; i < table->rowCount(); i++) {
-        it = (QCheckBox *)table->cellWidget(i, 1);
+        it = dynamic_cast<QCheckBox *>(table->cellWidget(i, 1));
         if (table->item(i, 0)->text() == xColName)
             it->setChecked(true);
         else
             it->setChecked(false);
 
-        it = (QCheckBox *)table->cellWidget(i, 2);
+        it = dynamic_cast<QCheckBox *>(table->cellWidget(i, 2));
         if (table->item(i, 0)->text() == yColName)
             it->setChecked(true);
         else
@@ -321,7 +321,7 @@ void AssociationsDialog::updateColumnTypes()
     }
 
     for (int i = 0; i < table->rowCount(); i++) {
-        it = (QCheckBox *)table->cellWidget(i, 3);
+        it = dynamic_cast<QCheckBox *>(table->cellWidget(i, 3));
         if (xerr || vectors) {
             if (table->item(i, 0)->text() == errColName || table->item(i, 0)->text() == xEndColName)
                 it->setChecked(true);
@@ -330,7 +330,7 @@ void AssociationsDialog::updateColumnTypes()
         } else
             it->setChecked(false);
 
-        it = (QCheckBox *)table->cellWidget(i, 4);
+        it = dynamic_cast<QCheckBox *>(table->cellWidget(i, 4));
         if (yerr || vectors) {
             if (table->item(i, 0)->text() == errColName || table->item(i, 0)->text() == yEndColName)
                 it->setChecked(true);
@@ -344,7 +344,7 @@ void AssociationsDialog::updateColumnTypes()
 void AssociationsDialog::uncheckCol(int col)
 {
     for (int i = 0; i < table->rowCount(); i++) {
-        auto *it = (QCheckBox *)table->cellWidget(i, col);
+        auto *it = dynamic_cast<QCheckBox *>(table->cellWidget(i, col));
         if (it)
             it->setChecked(false);
     }
@@ -438,19 +438,19 @@ void AssociationsDialog::updatePlotAssociation(int row, int col)
 
 bool AssociationsDialog::eventFilter(QObject *object, QEvent *e)
 {
-    auto *it = (QTableWidgetItem *)object;
+    auto *it = dynamic_cast<QTableWidgetItem *>(object);
     if (!it)
         return false;
 
     if (e->type() == QEvent::MouseButtonPress) {
-        if (((QCheckBox *)it)->isChecked())
+        if ((dynamic_cast<QCheckBox *>(it))->isChecked())
             return true;
 
         int col = 0, row = 0;
         for (int j = 1; j < table->columnCount(); j++) {
             for (int i = 0; i < table->rowCount(); i++) {
-                auto *cb = (QCheckBox *)table->cellWidget(i, j);
-                if (cb == (QCheckBox *)object) {
+                auto *cb = dynamic_cast<QCheckBox *>(table->cellWidget(i, j));
+                if (cb == dynamic_cast<QCheckBox *>(object)) {
                     row = i;
                     col = j;
                     break;
@@ -459,7 +459,7 @@ bool AssociationsDialog::eventFilter(QObject *object, QEvent *e)
         }
 
         uncheckCol(col);
-        ((QCheckBox *)it)->setChecked(true);
+        (dynamic_cast<QCheckBox *>(it))->setChecked(true);
 
         updatePlotAssociation(row, col);
         return true;

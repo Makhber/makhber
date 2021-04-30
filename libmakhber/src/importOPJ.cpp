@@ -47,6 +47,7 @@
 #include "Folder.h"
 #include "QwtHistogram.h"
 #include "Grid.h"
+#include <cmath>
 
 #define OBJECTXOFFSET 200
 
@@ -115,7 +116,7 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
     tree<Origin::ProjectNode>::iterator root = projectTree->begin(projectTree->begin());
     if (!root.node)
         return false;
-    auto *item = (FolderListItem *)mw->folders.topLevelItem(0);
+    auto *item = dynamic_cast<FolderListItem *>(mw->folders.topLevelItem(0));
     item->setText(0, decodeMbcs(root->name.c_str()));
     item->folder()->setName(decodeMbcs(root->name.c_str()));
     Folder *projectFolder = mw->projectFolder();
@@ -139,7 +140,7 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
                 if (rx.indexIn(name) == 0)
                     name = rx.cap(1);
             }
-            const char *nodetype;
+            const char *nodetype = nullptr;
             switch (sib->type) {
             case Origin::ProjectNode::SpreadSheet:
                 nodetype = "Table";
@@ -276,7 +277,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
               types.
             */
             {
-                double datavalue;
+                double datavalue = NAN;
                 bool setAsText = false;
                 table->column(j)->setColumnMode(Makhber::ColumnMode::Numeric);
                 for (int i = 0; i < std::min((int)column.data.size(), maxrows); ++i) {
@@ -313,7 +314,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                         break;
                     }
                     auto *filter =
-                            static_cast<Double2StringFilter *>(table->column(j)->outputFilter());
+                            dynamic_cast<Double2StringFilter *>(table->column(j)->outputFilter());
                     filter->setNumericFormat(f);
                     filter->setNumDigits(column.decimalPlaces);
                 }
@@ -380,7 +381,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
-            auto *filter = static_cast<DateTime2StringFilter *>(makhber_column->outputFilter());
+            auto *filter = dynamic_cast<DateTime2StringFilter *>(makhber_column->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -423,7 +424,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
-            auto *filter = static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
+            auto *filter = dynamic_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -442,7 +443,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::Month);
-            auto *filter = static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
+            auto *filter = dynamic_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -461,7 +462,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::Day);
-            auto *filter = static_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
+            auto *filter = dynamic_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
             filter->setFormat(format);
             break;
         }
@@ -658,7 +659,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
             }
             int auto_color = 0;
             int style = 0;
-            for (unsigned int c = 0; c < layer.curves.size(); ++c) {
+            for (int c = 0; c < static_cast<int>(layer.curves.size()); ++c) {
                 Origin::GraphCurve &_curve = layer.curves[c];
                 QString data(decodeMbcs(_curve.dataName.c_str()));
                 int color = 0;
@@ -732,7 +733,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                     int s = opj.functionIndex(data.right(data.length() - 2).toStdString().c_str());
                     function = opj.function(s);
 
-                    int type;
+                    int type = 0;
                     if (function.type == Origin::Function::Polar) {
                         type = 2;
                         formulas << decodeMbcs(function.formula.c_str()) << "x";
@@ -879,7 +880,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                         cl.aStyle = 3;
                         break;
                     }
-                    Origin::Color color;
+                    Origin::Color color {};
                     color = (cl.aStyle == 0 ? _curve.fillAreaColor : _curve.fillAreaPatternColor);
                     cl.aCol = (color.type == Origin::Color::Automatic
                                        ? 0
@@ -922,11 +923,11 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
 
                 graph->updateCurveLayout(c, &cl);
                 if (style == Graph::VerticalBars || style == Graph::HorizontalBars) {
-                    auto *b = (QwtBarCurve *)graph->curve(c);
+                    auto *b = dynamic_cast<QwtBarCurve *>(graph->curve(c));
                     if (b)
                         b->setGap(qRound(100 - _curve.symbolSize * 10));
                 } else if (style == Graph::Histogram) {
-                    auto *h = (QwtHistogram *)graph->curve(c);
+                    auto *h = dynamic_cast<QwtHistogram *>(graph->curve(c));
                     if (h) {
                         h->setBinning(false, layer.histogramBin, layer.histogramBegin,
                                       layer.histogramEnd);

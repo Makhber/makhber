@@ -66,7 +66,7 @@ private:
     //! The method for computing the interpolation used for integrating.
     InterpolationMethod d_method;
 
-    double d_result;
+    double d_result{};
 };
 
 #endif

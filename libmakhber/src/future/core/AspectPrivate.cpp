@@ -172,7 +172,7 @@ QString AbstractAspect::Private::caption() const
     QRegExp magic("%(.)");
     for (int pos = magic.indexIn(result, 0); pos >= 0; pos = magic.indexIn(result, pos)) {
         QString replacement;
-        int length;
+        int length = 0;
         switch (magic.cap(1).at(0).toLatin1()) {
         case '%':
             replacement = "%";
@@ -218,7 +218,7 @@ QString AbstractAspect::Private::uniqueNameFor(const QString &current_name) cons
         return current_name;
 
     QString base = current_name;
-    int last_non_digit;
+    int last_non_digit = 0;
     for (last_non_digit = base.size() - 1;
          last_non_digit >= 0 && base[last_non_digit].category() == QChar::Number_DecimalDigit;
          --last_non_digit)

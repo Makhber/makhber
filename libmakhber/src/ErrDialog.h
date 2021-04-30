@@ -59,7 +59,7 @@ public:
 private:
     QLabel *textLabel1;
     QComboBox *nameLabel, *tableNamesBox, *colNamesBox;
-    QGroupBox *groupBox2;
+    QGroupBox *groupBox2 {};
     QGroupBox *groupBox1, *groupBox3;
     QButtonGroup *buttonGroup1, *buttonGroup2;
     QRadioButton *standardBox, *columnBox;
@@ -69,7 +69,7 @@ private:
     QRadioButton *yErrBox;
     QPushButton *buttonAdd;
     QPushButton *buttonCancel;
-    QList<MyWidget *> *srcTables;
+    QList<MyWidget *> *srcTables{};
 
 protected slots:
     //! Set all string in the current language

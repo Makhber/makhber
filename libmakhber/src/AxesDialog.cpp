@@ -34,6 +34,8 @@
 #include "MyParser.h"
 #include "ColorButton.h"
 #include "TextFormatButtons.h"
+#include <cmath>
+#include <array>
 
 #include <QColorDialog>
 #include <QCheckBox>
@@ -184,7 +186,7 @@ void AxesDialog::initScalesPage()
     // calculate a sensible width for the items list
     // (default QListWidget size is 256 which looks too big)
     QFontMetrics fm(axesList->font());
-    int width = 32, i;
+    int width = 32, i = 0;
     for (i = 0; i < axesList->count(); i++) {
 #if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
         auto newWidth = fm.width(axesList->item(i)->text());
@@ -311,7 +313,7 @@ void AxesDialog::initGridPage()
     // calculate a sensible width for the items list
     // (default QListWidget size is 256 which looks too big)
     QFontMetrics fm(axesGridList->font());
-    int width = 32, i;
+    int width = 32, i = 0;
     for (i = 0; i < axesGridList->count(); i++) {
 #if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
         auto newWidth = fm.width(axesGridList->item(i)->text());
@@ -379,7 +381,7 @@ void AxesDialog::initAxesPage()
     // calculate a sensible width for the items list
     // (default QListWidget size is 256 which looks too big)
     QFontMetrics fm(axesTitlesList->font());
-    int width = 32, i;
+    int width = 32, i = 0;
     for (i = 0; i < axesTitlesList->count(); i++) {
 #if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
         auto newWidth = fm.width(axesTitlesList->item(i)->text());
@@ -803,19 +805,17 @@ void AxesDialog::showAxisFormatOptions(int format)
             boxFormat->setItemText(boxFormat->currentIndex(), lst[1]);
         }
 
-        const char *date_strings[] = { "yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy", "dd/MM/yy",
-                                       "dd.MM.yyyy", "dd.MM.yy",   "MM/yyyy",    "dd.MM.",
-                                       "yyyyMMdd",   nullptr };
+        std::array<const char *, 9> date_strings = { "yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy",
+                                                     "dd/MM/yy",   "dd.MM.yyyy", "dd.MM.yy",
+                                                     "MM/yyyy",    "dd.MM.",     "yyyyMMdd" };
 
-        const char *time_strings[] = { "hh",       "hh ap",        "hh:mm",        "hh:mm ap",
-                                       "hh:mm:ss", "hh:mm:ss.zzz", "hh:mm:ss:zzz", "mm:ss.zzz",
-                                       "hhmmss",   nullptr };
-        int j, i;
-        for (i = 0; date_strings[i] != nullptr; i++)
-            for (j = 0; time_strings[j] != nullptr; j++)
-                boxFormat->addItem(
-                        QString("%1 %2").arg(date_strings[i], time_strings[j]),
-                        QVariant(QString(date_strings[i]) + " " + QString(time_strings[j])));
+        std::array<const char *, 9> time_strings = { "hh",           "hh ap",     "hh:mm",
+                                                     "hh:mm ap",     "hh:mm:ss",  "hh:mm:ss.zzz",
+                                                     "hh:mm:ss:zzz", "mm:ss.zzz", "hhmmss" };
+        for (auto date_string : date_strings)
+            for (auto time_string : time_strings)
+                boxFormat->addItem(QString("%1 %2").arg(date_string, time_string),
+                                   QVariant(QString(date_string) + " " + QString(time_string)));
     } break;
 
     case Graph::AxisType::ColHeader: {
@@ -958,7 +958,7 @@ void AxesDialog::updateShowBox(int axis)
 
 void AxesDialog::customAxisFont()
 {
-    bool okF;
+    bool okF = false;
     int axis = -1;
     QFont fnt;
     switch (axesTitlesList->currentRow()) {
@@ -1184,7 +1184,7 @@ bool AxesDialog::updatePlot()
         }
         }
 
-        double start, end, stp = 0;
+        double start = NAN, end = NAN, stp = 0;
         try {
             MyParser parser;
             parser.SetExpr(from);
@@ -1826,7 +1826,7 @@ void AxesDialog::showFormulaBox()
 void AxesDialog::customAxisLabelFont()
 {
     int axis = mapToQwtAxisId();
-    bool okF;
+    bool okF = false;
     QFont oldFont = d_graph->axisTitleFont(axis);
     QFont fnt = QFontDialog::getFont(&okF, oldFont, this);
     if (okF && fnt != oldFont)

@@ -122,49 +122,49 @@ protected:
     };
 
     //! The graph where the result curve should be displayed
-    Graph *d_graph;
+    Graph *d_graph {};
 
     //! A table source of data
-    Table *d_table;
+    Table *d_table {};
 
     //! Size of the data arrays
-    unsigned d_n;
+    unsigned d_n {};
 
     //! x data set to be analysed
-    double *d_x;
+    double *d_x {};
 
     //! y data set to be analysed
-    double *d_y;
+    double *d_y {};
 
     //! GSL Tolerance, if ever needed...
-    double d_tolerance;
+    double d_tolerance {};
 
     //! Number of result points to de calculated and displayed in the output curve
-    int d_points;
+    int d_points {};
 
     //! Color index of the result curve
     QColor d_curveColor;
 
     //! Maximum number of iterations per fit
-    int d_max_iterations;
+    int d_max_iterations {};
 
     //! The curve to be analysed
-    QwtPlotCurve *d_curve;
+    QwtPlotCurve *d_curve {};
 
     //! Precision (number of significant digits) used for the results output
-    int d_prec;
+    int d_prec {};
 
     //! Error flag telling if something went wrong during the initialization phase.
-    bool d_init_err;
+    bool d_init_err {};
 
     //! Data interval
-    double d_from, d_to;
+    double d_from {}, d_to {};
 
     //! Specifies if the filter needs sorted data as input
-    bool d_sort_data;
+    bool d_sort_data {};
 
     //! Minimum number of data points necessary to perform the operation
-    int d_min_points;
+    int d_min_points {};
 
     //! String explaining the operation in the comment of the result table and in the project explorer
     QString d_explanation;

@@ -111,7 +111,7 @@ void Grid::drawLines(QPainter *painter, const QRect &rect, Qt::Orientation orien
 
 void Grid::load(const QStringList &grid)
 {
-    Plot *d_plot = (Plot *)plot();
+    Plot *d_plot = dynamic_cast<Plot *>(plot());
     if (!d_plot)
         return;
 
@@ -174,7 +174,7 @@ void Grid::load(const QStringList &grid)
 
 void Grid::enableZeroLineX(bool enable)
 {
-    Plot *d_plot = (Plot *)plot();
+    Plot *d_plot = dynamic_cast<Plot *>(plot());
     if (!d_plot)
         return;
 
@@ -201,7 +201,7 @@ void Grid::enableZeroLineX(bool enable)
 
 void Grid::enableZeroLineY(bool enable)
 {
-    Plot *d_plot = (Plot *)plot();
+    Plot *d_plot = dynamic_cast<Plot *>(plot());
     if (!d_plot)
         return;
 

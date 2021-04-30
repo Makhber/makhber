@@ -238,7 +238,7 @@ void LineDialog::apply()
         setCoordinates(unitBox->currentIndex());
 
     QwtPlot *plot = lm->plot();
-    auto *g = (Graph *)plot->parent();
+    auto *g = dynamic_cast<Graph *>(plot->parent());
     plot->replot();
     g->notifyChanges();
 
@@ -261,7 +261,7 @@ void LineDialog::enableHeadTab()
 
 void LineDialog::setDefaultValues()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 

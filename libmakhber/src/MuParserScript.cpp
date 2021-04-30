@@ -433,7 +433,7 @@ Column *MuParserScript::resolveColumnPath(const QString &path)
             // requirement of project-wide unique object names
             table = myContext->folder()->rootFolder()->table(tableName, true);
         else {
-            Folder *folder;
+            Folder *folder = nullptr;
             if (pathComponents.at(0).isEmpty())
                 // absolute path
                 folder = myContext->folder()->rootFolder();

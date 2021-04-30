@@ -79,7 +79,7 @@ void DataSetDialog::accept()
     if (operation.isEmpty())
         emit options(boxName->currentText());
     else if (d_graph) {
-        auto *app = (ApplicationWindow *)this->parent();
+        auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
         if (app)
             app->analyzeCurve(d_graph, operation, boxName->currentText());
     }

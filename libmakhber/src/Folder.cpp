@@ -60,7 +60,7 @@ QList<Folder *> Folder::folders() const
 {
     QList<Folder *> lst;
     foreach (QObject *f, children())
-        lst.append((Folder *)f);
+        lst.append(dynamic_cast<Folder *>(f));
     return lst;
 }
 
@@ -69,9 +69,9 @@ QStringList Folder::subfolders()
     QStringList list = QStringList();
     QObjectList folderList = children();
     if (!folderList.isEmpty()) {
-        QObject *f;
+        QObject *f = nullptr;
         foreach (f, folderList)
-            list << static_cast<Folder *>(f)->name();
+            list << dynamic_cast<Folder *>(f)->name();
     }
     return list;
 }
@@ -79,10 +79,10 @@ QStringList Folder::subfolders()
 QString Folder::path()
 {
     QString s = "/" + QString(name()) + "/";
-    auto *parentFolder = (Folder *)parent();
+    auto *parentFolder = dynamic_cast<Folder *>(parent());
     while (parentFolder) {
         s.prepend("/" + QString(parentFolder->name()));
-        parentFolder = (Folder *)parentFolder->parent();
+        parentFolder = dynamic_cast<Folder *>(parentFolder->parent());
     }
     return s;
 }
@@ -91,21 +91,21 @@ Folder *Folder::findSubfolder(const QString &s, bool caseSensitive, bool partial
 {
     QObjectList folderList = children();
     if (!folderList.isEmpty()) {
-        QObject *f;
+        QObject *f = nullptr;
 
         foreach (f, folderList) {
-            QString name = static_cast<Folder *>(f)->name();
+            QString name = dynamic_cast<Folder *>(f)->name();
             if (partialMatch) {
                 if (caseSensitive && name.startsWith(s, Qt::CaseSensitive))
-                    return static_cast<Folder *>(f);
+                    return dynamic_cast<Folder *>(f);
                 else if (!caseSensitive && name.startsWith(s, Qt::CaseInsensitive))
-                    return static_cast<Folder *>(f);
+                    return dynamic_cast<Folder *>(f);
             } else // partialMatch == false
             {
                 if (caseSensitive && name == s)
-                    return static_cast<Folder *>(f);
+                    return dynamic_cast<Folder *>(f);
                 else if (!caseSensitive && (name.toLower() == s.toLower()))
-                    return static_cast<Folder *>(f);
+                    return dynamic_cast<Folder *>(f);
             }
         }
     }
@@ -118,7 +118,7 @@ MyWidget *Folder::findWindow(const QString &s, bool windowNames, bool labels, bo
     Qt::CaseSensitivity cs = Qt::CaseSensitive;
     if (!caseSensitive)
         cs = Qt::CaseInsensitive;
-    MyWidget *w;
+    MyWidget *w = nullptr;
     foreach (w, lstWindows) {
         if (windowNames) {
             QString name = w->name();
@@ -157,7 +157,7 @@ MyWidget *Folder::window(const QString &name, const char *cls, bool recursive)
     if (!recursive)
         return nullptr;
     foreach (QObject *f, children()) {
-        MyWidget *w = ((Folder *)f)->window(name, cls, true);
+        MyWidget *w = (dynamic_cast<Folder *>(f))->window(name, cls, true);
         if (w)
             return w;
     }
@@ -168,7 +168,7 @@ Folder *Folder::rootFolder()
 {
     Folder *i = this;
     while (i->parent())
-        i = (Folder *)i->parent();
+        i = dynamic_cast<Folder *>(i->parent());
     return i;
 }
 
@@ -211,12 +211,12 @@ void FolderListItem::setActive(bool o)
 
 bool FolderListItem::isChildOf(FolderListItem *src)
 {
-    auto *parent = (FolderListItem *)this->parent();
+    auto *parent = dynamic_cast<FolderListItem *>(this->parent());
     while (parent) {
         if (parent == src)
             return true;
 
-        parent = (FolderListItem *)parent->parent();
+        parent = dynamic_cast<FolderListItem *>(parent->parent());
     }
     return false;
 }
@@ -224,10 +224,10 @@ bool FolderListItem::isChildOf(FolderListItem *src)
 int FolderListItem::depth()
 {
     int c = 0;
-    auto *parent = (FolderListItem *)this->parent();
+    auto *parent = dynamic_cast<FolderListItem *>(this->parent());
     while (parent) {
         c++;
-        parent = (FolderListItem *)parent->parent();
+        parent = dynamic_cast<FolderListItem *>(parent->parent());
     }
     return c;
 }

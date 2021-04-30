@@ -185,7 +185,7 @@ bool Project::load(XmlStreamReader *reader)
             return false;
 
         if (reader->name() == "makhber_project") {
-            bool ok;
+            bool ok = false;
             reader->readAttributeInt("version", &ok);
             if (!ok) {
                 reader->raiseError(tr("invalid or missing project version"));

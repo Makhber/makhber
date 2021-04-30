@@ -62,13 +62,13 @@ private:
     FilterType d_filter_type;
 
     //! Cutoff frequency for Low Pass and High Pass filters. Lower edge of the band for Band Pass and Band block filters.
-    double d_low_freq;
+    double d_low_freq {};
 
     //! Upper edge of the band for Band Pass and Band block filters.
-    double d_high_freq;
+    double d_high_freq {};
 
     //! Flag telling if the DC offset must be added/substracted when applying a Band Pass/Band block filter respectively.
-    bool d_offset;
+    bool d_offset {};
 };
 
 #endif

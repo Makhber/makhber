@@ -32,6 +32,7 @@
 #include "Graph.h"
 #include "Plot.h"
 #include "PlotCurve.h"
+#include <cmath>
 
 #include <qwt_symbol.h>
 #include <QPoint>
@@ -103,7 +104,7 @@ RangeSelectorTool::~RangeSelectorTool()
 
 void RangeSelectorTool::pointSelected(const QPoint &pos)
 {
-    int dist, point;
+    int dist = 0, point = 0;
     const int curve_key = d_graph->plotWidget()->closestCurve(pos.x(), pos.y(), dist, point);
     if (curve_key < 0 || dist >= 5) // 5 pixels tolerance
         return;
@@ -118,7 +119,7 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
         double min_x = curve->data().boundingRect().left();
         double max_x = curve->data().boundingRect().right();
         int n = curve->dataSize();
-        double second_x;
+        double second_x = NAN;
         if (curve->x(point) == min_x)
             second_x = max_x;
         else if (curve->x(point) == max_x)
@@ -175,7 +176,7 @@ void RangeSelectorTool::setActivePoint(int point)
 
 void RangeSelectorTool::emitStatusText()
 {
-    if (((PlotCurve *)d_selected_curve)->type() == Graph::Function) {
+    if ((dynamic_cast<PlotCurve *>(d_selected_curve))->type() == Graph::Function) {
         emit statusText(
                 QString("%1 <=> %2[%3]: x=%4; y=%5")
                         .arg(d_active_marker.xValue() > d_inactive_marker.xValue() ? tr("Right")
@@ -185,11 +186,11 @@ void RangeSelectorTool::emitStatusText()
                         .arg(QLocale().toString(d_selected_curve->x(d_active_point), 'G', 15),
                              QLocale().toString(d_selected_curve->y(d_active_point), 'G', 15)));
     } else {
-        Table *t = ((DataCurve *)d_selected_curve)->table();
+        Table *t = (dynamic_cast<DataCurve *>(d_selected_curve))->table();
         if (!t)
             return;
 
-        int row = ((DataCurve *)d_selected_curve)->tableRow(d_active_point);
+        int row = (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_active_point);
 
         emit statusText(
                 QString("%1 <=> %2[%3]: x=%4; y=%5")
@@ -198,7 +199,8 @@ void RangeSelectorTool::emitStatusText()
                              d_selected_curve->title().text())
                         .arg(row + 1)
                         .arg(t->text(row,
-                                     t->colIndex(((DataCurve *)d_selected_curve)->xColumnName())),
+                                     t->colIndex((dynamic_cast<DataCurve *>(d_selected_curve))
+                                                         ->xColumnName())),
                              t->text(row, t->colIndex(d_selected_curve->title().text()))));
     }
 }
@@ -220,7 +222,7 @@ bool RangeSelectorTool::eventFilter(QObject *obj, QEvent *event)
 {
     switch (event->type()) {
     case QEvent::KeyPress:
-        if (keyEventFilter((QKeyEvent *)event))
+        if (keyEventFilter(dynamic_cast<QKeyEvent *>(event)))
             return true;
         break;
     default:

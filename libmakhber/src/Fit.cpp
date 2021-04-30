@@ -36,6 +36,7 @@
 #include "ColorButton.h"
 #include "Script.h"
 #include "core/column/Column.h"
+#include <cmath>
 
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_blas.h>
@@ -338,10 +339,10 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
     case AssociatedErrors: {
         bool error = true;
         QwtErrorPlotCurve *er = nullptr;
-        if (d_curve && ((PlotCurve *)d_curve)->type() != Graph::Function) {
-            QList<DataCurve *> lst = ((DataCurve *)d_curve)->errorBarsList();
+        if (d_curve && (dynamic_cast<PlotCurve *>(d_curve))->type() != Graph::Function) {
+            QList<DataCurve *> lst = (dynamic_cast<DataCurve *>(d_curve))->errorBarsList();
             foreach (DataCurve *c, lst) {
-                er = (QwtErrorPlotCurve *)c;
+                er = dynamic_cast<QwtErrorPlotCurve *>(c);
                 if (!er->xErrors()) {
                     d_y_error_dataset = er->title().text();
                     error = false;
@@ -351,7 +352,7 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
         }
         if (error) {
             if (!fail_silently)
-                QMessageBox::critical((ApplicationWindow *)parent(), tr("Error"),
+                QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Error"),
                                       tr("The curve %1 has no associated Y error bars.")
                                               .arg(d_curve->title().text()));
             return false;
@@ -371,13 +372,13 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
         if (colName.isEmpty())
             return false;
 
-        Table *t = ((ApplicationWindow *)parent())->table(colName);
+        Table *t = (dynamic_cast<ApplicationWindow *>(parent()))->table(colName);
         if (!t)
             return false;
 
         if (unsigned(t->numRows()) < d_n) {
             if (!fail_silently)
-                QMessageBox::critical((ApplicationWindow *)parent(), tr("Error"),
+                QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Error"),
                                       tr("The column %1 has less points than the fitted data set. "
                                          "Please choose another column!")
                                               .arg(colName));
@@ -396,7 +397,7 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
 
 Table *Fit::parametersTable(const QString &tableName)
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     Table *t = app->newTable(tableName, d_p, 3);
     t->setHeader(QStringList() << tr("Parameter") << tr("Value") << tr("Error"));
     t->column(0)->setColumnMode(Makhber::ColumnMode::Text);
@@ -420,7 +421,7 @@ Table *Fit::parametersTable(const QString &tableName)
 
 Matrix *Fit::covarianceMatrix(const QString &matrixName)
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     Matrix *m = app->newMatrix(matrixName, d_p, d_p);
     for (unsigned i = 0; i < d_p; i++) {
         for (unsigned j = 0; j < d_p; j++)
@@ -451,34 +452,34 @@ void Fit::fit()
         return;
 
     if (!d_n) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Fit Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Fit Error"),
                               tr("You didn't specify a valid data set for this fit operation. "
                                  "Operation aborted!"));
         return;
     }
     if (!d_p) {
         QMessageBox::critical(
-                (ApplicationWindow *)parent(), tr("Fit Error"),
+                dynamic_cast<ApplicationWindow *>(parent()), tr("Fit Error"),
                 tr("There are no parameters specified for this fit operation. Operation aborted!"));
         return;
     }
     if (unsigned(d_p) > d_n) {
         QMessageBox::critical(
-                (ApplicationWindow *)parent(), tr("Fit Error"),
+                dynamic_cast<ApplicationWindow *>(parent()), tr("Fit Error"),
                 tr("You need at least %1 data points for this fit operation. Operation aborted!")
                         .arg(d_p));
         return;
     }
     if (d_formula.isEmpty()) {
         QMessageBox::critical(
-                (ApplicationWindow *)parent(), tr("Fit Error"),
+                dynamic_cast<ApplicationWindow *>(parent()), tr("Fit Error"),
                 tr("You must specify a valid fit function first. Operation aborted!"));
         return;
     }
 
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
-    int status {}, iterations;
+    int status {}, iterations = 0;
     vector<double> par;
     d_script.reset(scriptEnv->newScript(d_formula, this, metaObject()->className()));
     connect(d_script.get(), SIGNAL(error(const QString &, const QString &, int)), this,
@@ -493,7 +494,7 @@ void Fit::fit()
     if (status == GSL_SUCCESS)
         generateFitCurve(par);
 
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (app->writeFitResultsToLog)
         app->updateLog(logFitInfo(d_results, iterations, status, d_graph->parentPlotName()));
 
@@ -513,7 +514,7 @@ int Fit::evaluate_f(const gsl_vector *x, gsl_vector *f)
     }
     for (unsigned j = 0; j < d_n; j++) {
         d_script->setDouble(d_x[j], "x");
-        bool success;
+        bool success = false;
         gsl_vector_set(f, j, (d_script->eval().toDouble(&success) - d_y[j]) / d_y_errors[j]);
         if (!success)
             return GSL_EINVAL;
@@ -528,7 +529,7 @@ double Fit::evaluate_d(const gsl_vector *x)
         d_script->setDouble(gsl_vector_get(x, i), d_param_names[i].toUtf8());
     for (unsigned j = 0; j < d_n; j++) {
         d_script->setDouble(d_x[j], "x");
-        bool success;
+        bool success = false;
         result += pow((d_script->eval().toDouble(&success) - d_y[j]) / d_y_errors[j], 2);
         if (!success)
             return GSL_EINVAL;
@@ -547,7 +548,7 @@ double Fit::evaluate_df_helper(double x, void *params)
 {
     auto *data = static_cast<DiffData *>(params);
     data->script->setDouble(x, (data->param).toUtf8());
-    bool success;
+    bool success {};
     double result = data->script->eval().toDouble(&success);
     if (!success) {
         data->script->disconnect(SIGNAL(error(const QString &, const QString &, int)));
@@ -558,7 +559,7 @@ double Fit::evaluate_df_helper(double x, void *params)
 
 int Fit::evaluate_df(const gsl_vector *x, gsl_matrix *J)
 {
-    double result, abserr;
+    double result = NAN, abserr = NAN;
     gsl_function F;
     F.function = &evaluate_df_helper;
     DiffData data;
@@ -603,7 +604,7 @@ void Fit::insertFitFunctionCurve(const QString &name, double *x, double *y, int 
 {
     QString title = d_graph->generateFunctionName(name);
     auto *c =
-            new FunctionCurve((ApplicationWindow *)parent(), FunctionCurve::Normal, title);
+            new FunctionCurve(dynamic_cast<ApplicationWindow *>(parent()), FunctionCurve::Normal, title);
     c->setPen(QPen(d_curveColor, penWidth));
     c->setData(x, y, d_points);
     c->setRange(d_x[0], d_x[d_n - 1]);

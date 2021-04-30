@@ -53,16 +53,16 @@ bool ScalePicker::eventFilter(QObject *object, QEvent *e)
     if (!object->inherits("QwtScaleWidget"))
         return QObject::eventFilter(object, e);
 
-    auto *scale = (QwtScaleWidget *)object;
+    auto *scale = dynamic_cast<QwtScaleWidget *>(object);
     d_current_axis = scale;
 
     if (e->type() == QEvent::MouseButtonDblClick) {
-        mouseDblClicked(scale, ((QMouseEvent *)e)->pos());
+        mouseDblClicked(scale, (dynamic_cast<QMouseEvent *>(e))->pos());
         return true;
     }
 
     if (e->type() == QEvent::MouseButtonPress) {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         QPoint pos = me->pos();
         if (me->button() == Qt::LeftButton) {
             scale->setFocus();

@@ -132,7 +132,7 @@ void RenameWindowDialog::accept()
     if (text == name && label == window->windowLabel() && window->captionPolicy() == policy)
         close();
 
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     if (!app)
         return;
 

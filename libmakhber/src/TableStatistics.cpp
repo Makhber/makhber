@@ -28,6 +28,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "TableStatistics.h"
+#include <cmath>
 #include "table/TableModel.h"
 #include "table/TableView.h"
 #include "table/future_Table.h"
@@ -47,7 +48,7 @@ TableStatistics::TableStatistics(ScriptingEnv *env, QWidget *parent, Table *base
     : Table(env, 1, 1, "", parent, ""), d_base(base), d_type(t), d_targets(std::move(targets))
 {
 #ifdef LEGACY_CODE_0_2_x
-    static_cast<TableModel *>(d_view_widget->model())->setReadOnly(true);
+    dynamic_cast<TableModel *>(d_view_widget->model())->setReadOnly(true);
     d_hide_button->hide();
     d_control_tabs->hide();
 
@@ -188,7 +189,7 @@ void TableStatistics::update(Table *t, const QString &colName)
                         data[index++] = val;
                     }
                     double mean = gsl_stats_mean(data, 1, validCells.count());
-                    double min, max;
+                    double min = NAN, max = NAN;
                     gsl_vector_minmax(y, &min, &max);
 
                     column(2)->setValueAt(destRow, mean);
@@ -331,7 +332,7 @@ bool TableStatistics::eventFilter(QObject *watched, QEvent *event)
     QHeaderView *v_header = d_view_widget->verticalHeader();
 
     if (event->type() == QEvent::ContextMenu) {
-        auto *cm_event = static_cast<QContextMenuEvent *>(event);
+        auto *cm_event = dynamic_cast<QContextMenuEvent *>(event);
         QPoint global_pos = cm_event->globalPos();
         if (watched == v_header) {
             // no enabled actions for rows

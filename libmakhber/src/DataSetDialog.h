@@ -51,7 +51,7 @@ public:
     QPushButton *buttonOk;
     QPushButton *buttonCancel;
     QGroupBox *groupBox1;
-    QCheckBox *boxShowFormula;
+    QCheckBox *boxShowFormula{};
     QComboBox *boxName;
 
 public slots:

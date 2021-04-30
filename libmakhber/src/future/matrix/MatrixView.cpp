@@ -378,7 +378,7 @@ bool MatrixView::eventFilter(QObject *watched, QEvent *event)
     QHeaderView *h_header = d_view_widget->horizontalHeader();
 
     if (d_matrix && event->type() == QEvent::ContextMenu) {
-        auto *cm_event = static_cast<QContextMenuEvent *>(event);
+        auto *cm_event = dynamic_cast<QContextMenuEvent *>(event);
         QPoint global_pos = cm_event->globalPos();
         if (watched == v_header)
             d_matrix->showMatrixViewRowContextMenu(global_pos);

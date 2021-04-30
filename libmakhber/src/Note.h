@@ -73,8 +73,8 @@ public slots:
     void insert(const QString &s) { te->insertPlainText(s); }
 
 private:
-    ScriptEdit *te;
-    bool autoExec;
+    ScriptEdit *te {};
+    bool autoExec {};
 };
 
 #endif

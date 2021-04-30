@@ -84,7 +84,7 @@ SortDialog::SortDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl
 
 void SortDialog::accept()
 {
-    Column *leading;
+    Column *leading = nullptr;
     if (ui.box_type->currentIndex() == Together)
         leading = d_columns_list.at(ui.columns_list->currentIndex());
     else

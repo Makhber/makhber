@@ -78,7 +78,8 @@ QList<Column *> FFT::fftTable()
     gsl_fft_complex_workspace *workspace = gsl_fft_complex_workspace_alloc(d_n);
 
     if (!amp || !wavetable || !workspace) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         if (amp)
             delete[] amp;
@@ -158,7 +159,7 @@ void FFT::output()
 
 void FFT::output(QList<Column *> columns)
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     QString tableName = app->generateUniqueName(objectName());
     Table *t = app->newHiddenTable(tableName, d_explanation, columns);
     MultiLayer *ml = app->multilayerPlot(t, QStringList() << tableName + "_" + tr("Amplitude"), 0);
@@ -211,7 +212,7 @@ void FFT::setDataFromTable(Table *t, const QString &realColName, const QString &
                 d_y[i2 + 1] = d_table->cell(i, d_imag_col);
         }
     } else {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         d_init_err = true;
     }

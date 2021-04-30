@@ -32,6 +32,7 @@
 #include "PlotCurve.h"
 #include "ColorButton.h"
 #include "core/column/Column.h"
+#include <cmath>
 
 #include <QMessageBox>
 #include <QLocale>
@@ -55,12 +56,14 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
     int response_col = d_table->colIndex(responseColName);
 
     if (signal_col < 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()),
+                             tr("Makhber") + " - " + tr("Error"),
                              tr("The signal data set %1 does not exist!").arg(signalColName));
         d_init_err = true;
         return;
     } else if (response_col < 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()),
+                             tr("Makhber") + " - " + tr("Error"),
                              tr("The response data set %1 does not exist!").arg(responseColName));
         d_init_err = true;
         return;
@@ -78,14 +81,16 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
             d_n_response++;
     }
     if (d_n_response >= rows / 2) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()),
+                             tr("Makhber") + " - " + tr("Error"),
                              tr("The response dataset '%1' must be less then half the size of the "
                                 "signal dataset '%2'!")
                                      .arg(responseColName, signalColName));
         d_init_err = true;
         return;
     } else if (d_n_response % 2 == 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()),
+                             tr("Makhber") + " - " + tr("Error"),
                              tr("The response dataset '%1' must contain an odd number of points!")
                                      .arg(responseColName));
         d_init_err = true;
@@ -108,7 +113,8 @@ void Convolution::setDataFromTable(Table *t, const QString &signalColName,
         for (int i = 0; i < d_n_response; i++)
             d_y[i] = d_table->cell(i, response_col);
     } else {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         d_init_err = true;
         d_n = 0;
@@ -123,7 +129,7 @@ void Convolution::output()
 
 void Convolution::addResultCurve()
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!app)
         return;
 
@@ -164,7 +170,7 @@ void Convolution::convlv(double *sig, int n, double *dres, int m, int sign)
 {
     auto *res = new double[n];
     memset(res, 0, n * sizeof(double));
-    int i, m2 = m / 2;
+    int i = 0, m2 = m / 2;
     for (i = 0; i < m2; i++) { // store the response in wrap around order, see Numerical Recipes doc
         res[i] = dres[m2 + i];
         res[n - m2 + i] = dres[i];
@@ -177,7 +183,7 @@ void Convolution::convlv(double *sig, int n, double *dres, int m, int sign)
     gsl_fft_real_radix2_transform(res, 1, n);
     gsl_fft_real_radix2_transform(sig, 1, n);
 
-    double re, im, size;
+    double re = NAN, im = NAN, size = NAN;
     for (i = 0; i < n / 2; i++) { // multiply/divide both ffts
         if (i == 0 || i == n / 2 - 1) {
             if (sign == 1)

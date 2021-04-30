@@ -38,6 +38,7 @@
 #include "NonLinearFit.h"
 #include "SigmoidalFit.h"
 #include "Matrix.h"
+#include <cmath>
 #include <muParserError.h>
 
 #include <QListWidget>
@@ -337,7 +338,7 @@ void FitDialog::initEditPage()
 
 void FitDialog::initAdvancedPage()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
 
     generatePointsBtn = new QRadioButton(tr("&Uniform X Function"));
     generatePointsBtn->setChecked(app->generateUniformFitPoints);
@@ -440,7 +441,7 @@ void FitDialog::initAdvancedPage()
 
 void FitDialog::applyChanges()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     app->fit_output_precision = boxPrecision->value();
     app->pasteFitResultsToPlot = plotLabelBox->isChecked();
     app->writeFitResultsToLog = logBox->isChecked();
@@ -465,7 +466,7 @@ void FitDialog::showParametersTable()
         return;
     }
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     tableName = app->generateUniqueName(tableName, false);
     d_fitter->parametersTable(tableName);
 }
@@ -484,7 +485,7 @@ void FitDialog::showCovarianceMatrix()
         return;
     }
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     matrixName = app->generateUniqueName(matrixName, false);
     d_fitter->covarianceMatrix(matrixName);
 }
@@ -526,7 +527,7 @@ void FitDialog::activateCurve(const QString &curveName)
     if (!c)
         return;
 
-    double start, end;
+    double start = NAN, end = NAN;
     d_graph->range(d_graph->curveIndex(curveName), &start, &end);
     boxFrom->setText(QLocale().toString(qMin(start, end), 'g', 15));
     boxTo->setText(QLocale().toString(qMax(start, end), 'g', 15));
@@ -856,7 +857,7 @@ void FitDialog::showFunctionsList(int category)
 
 void FitDialog::choosePluginsFolder()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     QString dir = QFileDialog::getExistingDirectory(this, tr("Choose the plugins folder"),
                                                     QDir::currentPath(), QFileDialog::ShowDirsOnly);
     if (!dir.isEmpty()) {
@@ -884,7 +885,7 @@ void FitDialog::loadPlugins()
 {
     using fitFunc = char *(*)();
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     QString path = app->fitPluginsPath + "/";
     QDir dir(path);
     QStringList lst = dir.entryList(QDir::Files | QDir::NoSymLinks);
@@ -1030,7 +1031,7 @@ void FitDialog::accept()
     QString from = boxFrom->text().toLower();
     QString to = boxTo->text().toLower();
     QString tolerance = boxTolerance->text().toLower();
-    double start, end, eps;
+    double start = NAN, end = NAN, eps = NAN;
     try {
         MyParser parser;
         parser.SetExpr(CONFS(from));
@@ -1075,10 +1076,10 @@ void FitDialog::accept()
         return;
     }
 
-    int i, n = 0, rows = boxParams->rowCount();
+    int i = 0, n = 0, rows = boxParams->rowCount();
     if (!boxParams->isColumnHidden(2)) {
         for (i = 0; i < rows; i++) { // count the non-constant parameters
-            auto *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
+            auto *cb = dynamic_cast<QCheckBox *>(boxParams->cellWidget(i, 2));
             if (!cb->isChecked())
                 n++;
         }
@@ -1092,7 +1093,7 @@ void FitDialog::accept()
     QString formula;
 
     // recursively define variables for user functions used in formula
-    bool found_uf;
+    bool found_uf = false;
     do {
         found_uf = false;
         for (i = 0; i < d_user_function_names.count(); i++)
@@ -1113,7 +1114,7 @@ void FitDialog::accept()
     if (!boxParams->isColumnHidden(2)) {
         int j = 0;
         for (i = 0; i < rows; i++) {
-            auto *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
+            auto *cb = dynamic_cast<QCheckBox *>(boxParams->cellWidget(i, 2));
             if (!cb->isChecked()) {
                 paramsInit[j] = QLocale().toDouble(boxParams->item(i, 1)->text());
                 parameters << boxParams->item(i, 0)->text();
@@ -1129,7 +1130,7 @@ void FitDialog::accept()
         }
     }
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
 
     if (d_fitter) {
         delete d_fitter;
@@ -1140,7 +1141,8 @@ void FitDialog::accept()
         fitBuiltInFunction(funcBox->currentItem()->text(), paramsInit);
     else if (boxUseBuiltIn->isChecked() && categoryBox->currentRow() == 3) {
         d_fitter = new PluginFit(app, d_graph);
-        if (!((PluginFit *)d_fitter)->load(d_plugin_files_list[funcBox->currentRow()])) {
+        if (!(dynamic_cast<PluginFit *>(d_fitter))
+                     ->load(d_plugin_files_list[funcBox->currentRow()])) {
             d_fitter = nullptr;
             delete[] paramsInit;
             return;
@@ -1148,8 +1150,8 @@ void FitDialog::accept()
         d_fitter->setInitialGuesses(paramsInit);
     } else {
         d_fitter = new NonLinearFit(app, d_graph);
-        ((NonLinearFit *)d_fitter)->setParametersList(parameters);
-        ((NonLinearFit *)d_fitter)->setFormula(formula);
+        (dynamic_cast<NonLinearFit *>(d_fitter))->setParametersList(parameters);
+        (dynamic_cast<NonLinearFit *>(d_fitter))->setFormula(formula);
         d_fitter->setInitialGuesses(paramsInit);
     }
     delete[] paramsInit;
@@ -1174,9 +1176,10 @@ void FitDialog::accept()
     d_fitter->setMaximumIterations(boxPoints->value());
     d_fitter->scaleErrors(scaleErrorsBox->isChecked());
 
-    if (d_fitter->objectName() == tr("MultiPeak") && ((MultiPeakFit *)d_fitter)->peaks() > 1) {
-        ((MultiPeakFit *)d_fitter)->enablePeakCurves(app->generatePeakCurves);
-        ((MultiPeakFit *)d_fitter)->setPeakCurvesColor(app->peakCurvesColor);
+    if (d_fitter->objectName() == tr("MultiPeak")
+        && (dynamic_cast<MultiPeakFit *>(d_fitter))->peaks() > 1) {
+        (dynamic_cast<MultiPeakFit *>(d_fitter))->enablePeakCurves(app->generatePeakCurves);
+        (dynamic_cast<MultiPeakFit *>(d_fitter))->setPeakCurvesColor(app->peakCurvesColor);
     }
 
     d_fitter->fit();
@@ -1184,7 +1187,7 @@ void FitDialog::accept()
     if (!boxParams->isColumnHidden(2)) {
         int j = 0;
         for (i = 0; i < rows; i++) {
-            auto *cb = (QCheckBox *)boxParams->cellWidget(i, 2);
+            auto *cb = dynamic_cast<QCheckBox *>(boxParams->cellWidget(i, 2));
             if (!cb->isChecked())
                 boxParams->item(i, 1)->setText(
                         QLocale().toString(res[j++], 'g', boxPrecision->value()));
@@ -1197,7 +1200,7 @@ void FitDialog::accept()
 
 void FitDialog::fitBuiltInFunction(const QString &function, double *initVal)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (function == "ExpDecay1") {
         initVal[1] = 1 / initVal[1];
         d_fitter = new ExponentialFit(app, d_graph);
@@ -1296,7 +1299,7 @@ void FitDialog::selectSrcTable(int tabnr)
     colNamesBox->clear();
 
     if (tabnr >= 0 && tabnr < d_src_table->count()) {
-        auto *t = (Table *)d_src_table->at(tabnr);
+        auto *t = dynamic_cast<Table *>(d_src_table->at(tabnr));
         if (t)
             colNamesBox->addItems(t->colNames());
     }

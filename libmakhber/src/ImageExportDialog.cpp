@@ -82,7 +82,7 @@ ImageExportDialog::ImageExportDialog(QWidget *parent, bool vector_options, bool 
 
 void ImageExportDialog::initAdvancedOptions()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     d_advanced_options = new QStackedWidget();
 
     d_vector_options = new QGroupBox();
@@ -189,7 +189,7 @@ void ImageExportDialog::updateAdvancedOptions(const QString &filter)
 
 void ImageExportDialog::closeEvent(QCloseEvent *e)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (app) {
         app->d_extended_export_dialog = this->isExtended();
         app->d_image_export_filter = this->selectedNameFilter();
@@ -226,7 +226,7 @@ QPageSize ImageExportDialog::pageSize() const
 
 QPageLayout::Orientation ImageExportDialog::pageOrientation() const
 {
-    QPageLayout::Orientation orientation;
+    QPageLayout::Orientation orientation {};
     switch (d_box_page_orientation->currentIndex()) {
     case -1:
         orientation = QPageLayout::Portrait;

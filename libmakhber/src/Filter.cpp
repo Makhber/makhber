@@ -65,7 +65,7 @@ void Filter::init()
     d_points = 100;
     d_max_iterations = 1000;
     d_curve = nullptr;
-    d_prec = ((ApplicationWindow *)parent())->fit_output_precision;
+    d_prec = (dynamic_cast<ApplicationWindow *>(parent()))->fit_output_precision;
     d_init_err = false;
     d_sort_data = false;
     d_min_points = 2;
@@ -77,7 +77,8 @@ void Filter::init()
 void Filter::setInterval(double from, double to)
 {
     if (!d_curve) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Please assign a curve first!"));
         return;
     }
@@ -116,7 +117,8 @@ void Filter::setDataCurve(int curve, double start, double end)
 bool Filter::isDataAcceptable()
 {
     if (d_n < unsigned(d_min_points)) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("You need at least %1 points in order to perform this operation!")
                                       .arg(d_min_points));
         return false;
@@ -127,7 +129,7 @@ bool Filter::isDataAcceptable()
 int Filter::curveIndex(const QString &curveTitle, Graph *g)
 {
     if (curveTitle.isEmpty()) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Filter Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Filter Error"),
                               tr("Please enter a valid curve name!"));
         d_init_err = true;
         return -1;
@@ -178,7 +180,7 @@ void Filter::setColor(const QString &colorName)
         c = QColor(Qt::darkYellow);
     if (!ColorButton::isValidColor(c)) {
         QMessageBox::critical(
-                (ApplicationWindow *)parent(), tr("Color Name Error"),
+                dynamic_cast<ApplicationWindow *>(parent()), tr("Color Name Error"),
                 tr("The color name '%1' is not valid, a default color (red) will be used instead!")
                         .arg(colorName));
         d_curveColor = ColorButton::color(1);
@@ -214,7 +216,7 @@ bool Filter::run()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     output(); // data analysis and output
-    ((ApplicationWindow *)parent())->updateLog(logInfo());
+    (dynamic_cast<ApplicationWindow *>(parent()))->updateLog(logInfo());
 
     QApplication::restoreOverrideCursor();
     return true;
@@ -246,7 +248,7 @@ int Filter::sortedCurveData(QwtPlotCurve *c, double start, double end, double **
     gsl_sort_index(&p[0], &xtemp[0], 1, datasize);
 
     // find indices that, when permuted by the sort result, give start and end
-    int i_start, i_end;
+    int i_start = 0, i_end = 0;
     for (i_start = 0; i_start < datasize; i_start++)
         if (c->x(static_cast<int>(p[i_start])) >= start)
             break;
@@ -294,7 +296,7 @@ int Filter::curveData(QwtPlotCurve *c, double start, double end, double **x, dou
 
 QwtPlotCurve *Filter::addResultCurve(double *x, double *y)
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     const QString tableName = app->generateUniqueName(this->objectName());
     auto *xCol = new Column(tr("1", "filter table x column name"), Makhber::ColumnMode::Numeric);
     auto *yCol = new Column(tr("2", "filter table y column name"), Makhber::ColumnMode::Numeric);

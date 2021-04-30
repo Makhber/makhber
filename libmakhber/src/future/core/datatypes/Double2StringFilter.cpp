@@ -44,7 +44,7 @@ bool Double2StringFilter::load(XmlStreamReader *reader)
     QString digits_str = attribs.value(reader->namespaceUri().toString(), "digits").toString();
 
     if (AbstractSimpleFilter::load(reader)) {
-        bool ok;
+        bool ok = false;
         int digits = digits_str.toInt(&ok);
         if ((format_str.size() != 1) || !ok)
             reader->raiseError(tr("missing or invalid format attribute(s)"));

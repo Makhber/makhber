@@ -173,7 +173,7 @@ void CurvesDialog::showCurveBtn(int)
     bool range = false;
 
     if (it->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
-        auto *c = (PlotCurve *)it;
+        auto *c = dynamic_cast<PlotCurve *>(it);
         if (c->type() == Graph::Function)
             function = true;
         else {
@@ -207,7 +207,7 @@ void CurvesDialog::showPlotAssociations()
     if (curve < 0)
         curve = 0;
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
 #if QT_VERSION >= 0x050000
     close();
 #endif
@@ -221,7 +221,7 @@ void CurvesDialog::showPlotAssociations()
 
 void CurvesDialog::showFunctionDialog()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     int currentRow = contents->currentRow();
     close();
 
@@ -265,7 +265,7 @@ void CurvesDialog::contextMenuEvent(QContextMenuEvent *e)
 
 void CurvesDialog::init()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (app) {
         bool currentFolderOnly = app->d_show_current_folder;
         boxShowCurrentFolder->setChecked(currentFolderOnly);
@@ -331,7 +331,7 @@ void CurvesDialog::addCurves()
 
 bool CurvesDialog::addCurve(const QString &name)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return false;
 
@@ -361,7 +361,7 @@ bool CurvesDialog::addCurve(const QString &name)
     Table *t = app->table(name);
     if (t && d_graph->insertCurve(t, name, style)) {
         CurveLayout cl = Graph::initCurveLayout();
-        int color, symbol;
+        int color = 0, symbol = 0;
         d_graph->guessUniqueCurveLayout(color, symbol);
 
         cl.lCol = color;
@@ -474,8 +474,8 @@ void CurvesDialog::showCurveRange(bool on)
                 continue;
 
             if (it->rtti() == QwtPlotItem::Rtti_PlotCurve
-                && ((PlotCurve *)it)->type() != Graph::Function) {
-                auto *c = (DataCurve *)it;
+                && (dynamic_cast<PlotCurve *>(it))->type() != Graph::Function) {
+                auto *c = dynamic_cast<DataCurve *>(it);
                 lst << c->title().text() + "[" + QString::number(c->startRow() + 1) + ":"
                                 + QString::number(c->endRow() + 1) + "]";
             } else
@@ -496,7 +496,7 @@ void CurvesDialog::updateCurveRange()
 
 void CurvesDialog::showCurrentFolder(bool currentFolder)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
@@ -511,7 +511,7 @@ void CurvesDialog::showCurrentFolder(bool currentFolder)
                 if (!w->inherits("Table"))
                     continue;
 
-                auto *t = (Table *)w;
+                auto *t = dynamic_cast<Table *>(w);
                 for (int i = 0; i < t->numCols(); i++) {
                     if (t->colPlotDesignation(i) == Makhber::Y)
                         columns << QString(t->name()) + "_" + t->colLabel(i);
@@ -525,7 +525,7 @@ void CurvesDialog::showCurrentFolder(bool currentFolder)
 
 void CurvesDialog::closeEvent(QCloseEvent *e)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (app)
         app->d_add_curves_dialog_size = this->size();
 

@@ -90,48 +90,51 @@ protected:
     QPushButton *buttonOk;
     QPushButton *buttonCancel;
     QTabWidget generalDialog;
-    QWidget *scalesPage;
-    QLineEdit *boxEnd;
-    QLineEdit *boxStart;
-    QComboBox *boxScaleType;
-    QComboBox *boxMinorValue;
-    QLineEdit *boxStep;
-    QCheckBox *btnInvert;
-    QSpinBox *boxMajorValue;
-    QRadioButton *btnStep, *btnMajor;
-    QListWidget *axesList;
-    QWidget *gridPage;
-    QCheckBox *boxMajorGrid;
-    QCheckBox *boxMinorGrid;
-    QComboBox *boxTypeMajor;
-    ColorButton *boxColorMinor;
-    ColorButton *boxColorMajor;
-    ColorButton *boxCanvasColor;
-    QSpinBox *boxWidthMajor;
-    QComboBox *boxTypeMinor;
-    QSpinBox *boxWidthMinor;
-    QCheckBox *boxXLine;
-    QCheckBox *boxYLine;
-    QListWidget *axesGridList;
-    QWidget *axesPage, *frame;
-    QListWidget *axesTitlesList;
-    QGroupBox *boxShowLabels;
-    QCheckBox *boxShowAxis;
+    QWidget *scalesPage {};
+    QLineEdit *boxEnd {};
+    QLineEdit *boxStart {};
+    QComboBox *boxScaleType {};
+    QComboBox *boxMinorValue {};
+    QLineEdit *boxStep {};
+    QCheckBox *btnInvert {};
+    QSpinBox *boxMajorValue {};
+    QRadioButton *btnStep {}, *btnMajor {};
+    QListWidget *axesList {};
+    QWidget *gridPage {};
+    QCheckBox *boxMajorGrid {};
+    QCheckBox *boxMinorGrid {};
+    QComboBox *boxTypeMajor {};
+    ColorButton *boxColorMinor {};
+    ColorButton *boxColorMajor {};
+    ColorButton *boxCanvasColor {};
+    QSpinBox *boxWidthMajor {};
+    QComboBox *boxTypeMinor {};
+    QSpinBox *boxWidthMinor {};
+    QCheckBox *boxXLine {};
+    QCheckBox *boxYLine {};
+    QListWidget *axesGridList {};
+    QWidget *axesPage {}, *frame {};
+    QListWidget *axesTitlesList {};
+    QGroupBox *boxShowLabels {};
+    QCheckBox *boxShowAxis {};
 
-    QTextEdit *boxFormula, *boxTitle;
-    QSpinBox *boxFrameWidth, *boxPrecision, *boxAngle, *boxBaseline, *boxAxesLinewidth;
-    QPushButton *btnAxesFont;
-    QCheckBox *boxBackbones, *boxShowFormula;
-    ColorButton *boxAxisColor;
-    QComboBox *boxMajorTicksType, *boxMinorTicksType, *boxFormat, *boxAxisType, *boxColName;
-    QGroupBox *boxFramed;
-    QLabel *label1, *label2, *label3, *boxScaleTypeLabel, *minorBoxLabel, *labelTable;
-    QSpinBox *boxMajorTicksLength, *boxMinorTicksLength, *boxBorderWidth;
-    QComboBox *boxUnit, *boxTableName, *boxGridXAxis, *boxGridYAxis;
-    ColorButton *boxFrameColor, *boxAxisNumColor;
-    QGroupBox *labelBox;
-    QPushButton *buttonLabelFont;
-    TextFormatButtons *formatButtons;
+    QTextEdit *boxFormula {}, *boxTitle {};
+    QSpinBox *boxFrameWidth {}, *boxPrecision {}, *boxAngle {}, *boxBaseline {},
+            *boxAxesLinewidth {};
+    QPushButton *btnAxesFont {};
+    QCheckBox *boxBackbones {}, *boxShowFormula {};
+    ColorButton *boxAxisColor {};
+    QComboBox *boxMajorTicksType {}, *boxMinorTicksType {}, *boxFormat {}, *boxAxisType {},
+            *boxColName {};
+    QGroupBox *boxFramed {};
+    QLabel *label1 {}, *label2 {}, *label3 {}, *boxScaleTypeLabel {}, *minorBoxLabel {},
+            *labelTable {};
+    QSpinBox *boxMajorTicksLength {}, *boxMinorTicksLength {}, *boxBorderWidth {};
+    QComboBox *boxUnit {}, *boxTableName {}, *boxGridXAxis {}, *boxGridYAxis {};
+    ColorButton *boxFrameColor {}, *boxAxisNumColor {};
+    QGroupBox *labelBox {};
+    QPushButton *buttonLabelFont {};
+    TextFormatButtons *formatButtons {};
 
 public slots:
     void setAxisType(int axis);
@@ -200,10 +203,10 @@ protected:
     QList<int> majTicks, minTicks, axesBaseline;
     QList<Graph::AxisType> axesType;
     QFont xBottomFont, yLeftFont, xTopFont, yRightFont;
-    bool xAxisOn, yAxisOn, topAxisOn, rightAxisOn;
-    int xBottomLabelsRotation, xTopLabelsRotation;
+    bool xAxisOn {}, yAxisOn {}, topAxisOn {}, rightAxisOn {};
+    int xBottomLabelsRotation {}, xTopLabelsRotation {};
 
-    Graph *d_graph;
+    Graph *d_graph {};
     //! Last selected tab
     QWidget *lastPage;
 };

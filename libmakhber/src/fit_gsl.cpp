@@ -42,6 +42,7 @@
 #include <gsl/gsl_math.h>
 #include "fit_gsl.h"
 #include "Fit.h"
+#include <cmath>
 
 int expd3_f(const gsl_vector *x, void *params, gsl_vector *f)
 {
@@ -58,7 +59,7 @@ int expd3_f(const gsl_vector *x, void *params, gsl_vector *f)
     double t3 = gsl_vector_get(x, 5);
     double y0 = gsl_vector_get(x, 6);
 
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         double Yi = A1 * exp(-X[i] * t1) + A2 * exp(-X[i] * t2) + A3 * exp(-X[i] * t3) + y0;
         gsl_vector_set(f, i, (Yi - Y[i]) / sigma[i]);
@@ -82,7 +83,7 @@ double expd3_d(const gsl_vector *x, void *params)
     double t3 = gsl_vector_get(x, 5);
     double y0 = gsl_vector_get(x, 6);
 
-    size_t i;
+    size_t i = 0;
     double val = 0;
     for (i = 0; i < n; i++) {
         double dYi =
@@ -107,7 +108,7 @@ int expd3_df(const gsl_vector *x, void *params, gsl_matrix *J)
     double A3 = gsl_vector_get(x, 4);
     double l3 = gsl_vector_get(x, 5);
 
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         /* Jacobian matrix J(i,j) = dfi / dxj, */
         /* where fi = (Yi - yi)/sigma[i],      */
@@ -151,7 +152,7 @@ int expd2_f(const gsl_vector *x, void *params, gsl_vector *f)
     double t2 = gsl_vector_get(x, 3);
     double y0 = gsl_vector_get(x, 4);
 
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         double Yi = A1 * exp(-X[i] * t1) + A2 * exp(-X[i] * t2) + y0;
         gsl_vector_set(f, i, (Yi - Y[i]) / sigma[i]);
@@ -173,7 +174,7 @@ double expd2_d(const gsl_vector *x, void *params)
     double t2 = gsl_vector_get(x, 3);
     double y0 = gsl_vector_get(x, 4);
 
-    size_t i;
+    size_t i = 0;
     double val = 0;
     for (i = 0; i < n; i++) {
         double dYi = ((A1 * exp(-X[i] * t1) + A2 * exp(-X[i] * t2) + y0) - Y[i]) / sigma[i];
@@ -194,7 +195,7 @@ int expd2_df(const gsl_vector *x, void *params, gsl_matrix *J)
     double A2 = gsl_vector_get(x, 2);
     double l2 = gsl_vector_get(x, 3);
 
-    size_t i;
+    size_t i = 0;
 
     for (i = 0; i < n; i++) {
         /* Jacobian matrix J(i,j) = dfi / dxj, */
@@ -232,7 +233,7 @@ int exp_f(const gsl_vector *x, void *params, gsl_vector *f)
     double A = gsl_vector_get(x, 0);
     double lambda = gsl_vector_get(x, 1);
     double b = gsl_vector_get(x, 2);
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         double Yi = A * exp(-lambda * X[i]) + b;
         gsl_vector_set(f, i, (Yi - Y[i]) / sigma[i]);
@@ -250,7 +251,7 @@ double exp_d(const gsl_vector *x, void *params)
     double A = gsl_vector_get(x, 0);
     double lambda = gsl_vector_get(x, 1);
     double b = gsl_vector_get(x, 2);
-    size_t i;
+    size_t i = 0;
     double val = 0;
     for (i = 0; i < n; i++) {
         double dYi = ((A * exp(-lambda * X[i]) + b) - Y[i]) / sigma[i];
@@ -267,7 +268,7 @@ int exp_df(const gsl_vector *x, void *params, gsl_matrix *J)
 
     double A = gsl_vector_get(x, 0);
     double lambda = gsl_vector_get(x, 1);
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         /* Jacobian matrix J(i,j) = dfi / dxj, */
         /* where fi = (Yi - yi)/sigma[i],      */
@@ -303,7 +304,7 @@ int gauss_f(const gsl_vector *x, void *params, gsl_vector *f)
     double C = gsl_vector_get(x, 2);
     double w = gsl_vector_get(x, 3);
 
-    size_t i;
+    size_t i = 0;
 
     for (i = 0; i < n; i++) {
         double diff = X[i] - C;
@@ -325,7 +326,7 @@ double gauss_d(const gsl_vector *x, void *params)
     double C = gsl_vector_get(x, 2);
     double w = gsl_vector_get(x, 3);
 
-    size_t i;
+    size_t i = 0;
     double val = 0;
 
     for (i = 0; i < n; i++) {
@@ -346,7 +347,7 @@ int gauss_df(const gsl_vector *x, void *params, gsl_matrix *J)
     double C = gsl_vector_get(x, 2);
     double w = gsl_vector_get(x, 3);
 
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         /* Jacobian matrix J(i,j) = dfi / dxj,	 */
         /* where fi = Yi - yi,					*/
@@ -387,7 +388,7 @@ int gauss_multi_peak_f(const gsl_vector *x, void *params, gsl_vector *f)
     auto *w2 = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
-    size_t i, j;
+    size_t i = 0, j = 0;
     for (i = 0; i < peaks; i++) {
         xc[i] = gsl_vector_get(x, 3 * i + 1);
         double wi = gsl_vector_get(x, 3 * i + 2);
@@ -422,7 +423,7 @@ double gauss_multi_peak_d(const gsl_vector *x, void *params)
     auto *w2 = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
-    size_t i, j;
+    size_t i = 0, j = 0;
     double val = 0;
     for (i = 0; i < peaks; i++) {
         xc[i] = gsl_vector_get(x, 3 * i + 1);
@@ -430,7 +431,7 @@ double gauss_multi_peak_d(const gsl_vector *x, void *params)
         a[i] = sqrt(M_2_PI) * gsl_vector_get(x, 3 * i) / wi;
         w2[i] = wi * wi;
     }
-    double t;
+    double t = NAN;
     for (i = 0; i < n; i++) {
         double res = 0;
         for (j = 0; j < peaks; j++) {
@@ -458,7 +459,7 @@ int gauss_multi_peak_df(const gsl_vector *x, void *params, gsl_matrix *J)
     auto *xc = new double[peaks];
     auto *w = new double[peaks];
 
-    size_t i, j;
+    size_t i = 0, j = 0;
     for (i = 0; i < peaks; i++) {
         a[i] = gsl_vector_get(x, 3 * i);
         xc[i] = gsl_vector_get(x, 3 * i + 1);
@@ -504,7 +505,7 @@ int lorentz_multi_peak_f(const gsl_vector *x, void *params, gsl_vector *f)
     auto *w = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
-    size_t i, j;
+    size_t i = 0, j = 0;
     for (i = 0; i < peaks; i++) {
         a[i] = gsl_vector_get(x, 3 * i);
         xc[i] = gsl_vector_get(x, 3 * i + 1);
@@ -538,8 +539,8 @@ double lorentz_multi_peak_d(const gsl_vector *x, void *params)
     auto *w = new double[peaks];
     double offset = gsl_vector_get(x, p - 1);
 
-    size_t i, j;
-    double val = 0, t;
+    size_t i = 0, j = 0;
+    double val = 0, t = NAN;
     for (i = 0; i < peaks; i++) {
         a[i] = gsl_vector_get(x, 3 * i);
         xc[i] = gsl_vector_get(x, 3 * i + 1);
@@ -572,7 +573,7 @@ int lorentz_multi_peak_df(const gsl_vector *x, void *params, gsl_matrix *J)
     auto *xc = new double[peaks];
     auto *w = new double[peaks];
 
-    size_t i, j;
+    size_t i = 0, j = 0;
     for (i = 0; i < peaks; i++) {
         a[i] = gsl_vector_get(x, 3 * i);
         xc[i] = gsl_vector_get(x, 3 * i + 1);
@@ -638,7 +639,7 @@ int boltzmann_f(const gsl_vector *x, void *params, gsl_vector *f)
     double A2 = gsl_vector_get(x, 1);
     double x0 = gsl_vector_get(x, 2);
     double dx = gsl_vector_get(x, 3);
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         double Yi = (A1 - A2) / (1 + exp((X[i] - x0) / dx)) + A2;
         gsl_vector_set(f, i, (Yi - Y[i]) / sigma[i]);
@@ -658,7 +659,7 @@ double boltzmann_d(const gsl_vector *x, void *params)
     double A2 = gsl_vector_get(x, 1);
     double x0 = gsl_vector_get(x, 2);
     double dx = gsl_vector_get(x, 3);
-    size_t i;
+    size_t i = 0;
     double val = 0;
     for (i = 0; i < n; i++) {
         double dYi = ((A1 - A2) / (1 + exp((X[i] - x0) / dx)) + A2 - Y[i]) / sigma[i];
@@ -677,7 +678,7 @@ int boltzmann_df(const gsl_vector *x, void *params, gsl_matrix *J)
     double A2 = gsl_vector_get(x, 1);
     double x0 = gsl_vector_get(x, 2);
     double dx = gsl_vector_get(x, 3);
-    size_t i;
+    size_t i = 0;
     for (i = 0; i < n; i++) {
         /* Jacobian matrix J(i,j) = dfi / dxj,		*/
         /* where fi = Yi - yi,						*/

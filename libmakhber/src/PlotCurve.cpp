@@ -129,7 +129,7 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
 {
     Graph *g = nullptr;
     if (plot())
-        g = static_cast<Graph *>(plot()->parent());
+        g = dynamic_cast<Graph *>(plot()->parent());
 
     int end_row = d_end_row;
     // make sure end_row is a valid index for all columns
@@ -184,7 +184,7 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
             }
 
             if (format.isEmpty())
-                format = static_cast<DateTime2StringFilter *>(col->outputFilter())->format();
+                format = dynamic_cast<DateTime2StringFilter *>(col->outputFilter())->format();
 
             reference_dates.push_back(QDate());
             reference_times.push_back(QTime());
@@ -276,7 +276,7 @@ void DataCurve::remove()
 {
     if (!plot())
         return;
-    auto *g = (Graph *)plot()->parent();
+    auto *g = dynamic_cast<Graph *>(plot()->parent());
     if (!g)
         return;
 

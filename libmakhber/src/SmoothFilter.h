@@ -64,13 +64,13 @@ private:
     SmoothMethod d_method;
 
     //! The number of (right) adjacents points used to smooth the data set.
-    int d_right_points;
+    int d_right_points {};
 
     //! The number of left adjacents points used by the Savitzky-Golay algorithm.
-    int d_left_points;
+    int d_left_points {};
 
     //! Polynomial order in the Savitzky-Golay algorithm.
-    int d_polynom_order;
+    int d_polynom_order {};
 };
 
 #endif

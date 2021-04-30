@@ -63,7 +63,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
     case QEvent::MouseButtonPress: {
         emit selectPlot();
 
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
 
         if (me->button() == Qt::LeftButton && (plot()->drawLineActive())) {
             startLinePoint = me->pos();
@@ -110,8 +110,8 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
             emit showPlotDialog(plot()->curveKey(0));
             return true;
         } else {
-            const auto *me = (const QMouseEvent *)e;
-            int dist, point;
+            const auto *me = dynamic_cast<const QMouseEvent *>(e);
+            int dist = 0, point = 0;
             int curveKey = plotWidget->closestCurve(me->pos().x(), me->pos().y(), dist, point);
             if (dist < 10)
                 emit showPlotDialog(curveKey);
@@ -122,7 +122,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
     } break;
 
     case QEvent::MouseMove: {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         if (me->buttons() != Qt::LeftButton)
             return true;
 
@@ -137,7 +137,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
     } break;
 
     case QEvent::MouseButtonRelease: {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         Graph *g = plot();
 
         if (g->drawLineActive()) {
@@ -165,7 +165,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
     } break;
 
     case QEvent::KeyPress: {
-        int key = ((const QKeyEvent *)e)->key();
+        int key = (dynamic_cast<const QKeyEvent *>(e))->key();
 
         long selectedMarker = plot()->selectedMarkerKey();
         if (texts.contains(selectedMarker) && (key == Qt::Key_Enter || key == Qt::Key_Return)) {
@@ -237,7 +237,7 @@ bool CanvasPicker::selectMarker(const QMouseEvent *e)
 {
     const QPoint point = e->pos();
     foreach (long i, plot()->textMarkerKeys()) {
-        auto *m = (Legend *)plotWidget->marker(i);
+        auto *m = dynamic_cast<Legend *>(plotWidget->marker(i));
         if (!m)
             return false;
         if (m->rect().contains(point)) {
@@ -250,7 +250,7 @@ bool CanvasPicker::selectMarker(const QMouseEvent *e)
         }
     }
     foreach (long i, plot()->imageMarkerKeys()) {
-        auto *m = (ImageMarker *)plotWidget->marker(i);
+        auto *m = dynamic_cast<ImageMarker *>(plotWidget->marker(i));
         if (!m)
             return false;
         if (m->rect().contains(point)) {
@@ -263,7 +263,7 @@ bool CanvasPicker::selectMarker(const QMouseEvent *e)
         }
     }
     foreach (long i, plot()->lineMarkerKeys()) {
-        auto *mrkL = (ArrowMarker *)plotWidget->marker(i);
+        auto *mrkL = dynamic_cast<ArrowMarker *>(plotWidget->marker(i));
         if (!mrkL)
             return false;
         int d = mrkL->width()

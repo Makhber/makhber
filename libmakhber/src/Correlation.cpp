@@ -55,12 +55,14 @@ void Correlation::setDataFromTable(Table *t, const QString &colName1, const QStr
     int col2 = d_table->colIndex(colName2);
 
     if (col1 < 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()),
+                             tr("Makhber") + " - " + tr("Error"),
                              tr("The data set %1 does not exist!").arg(colName1));
         d_init_err = true;
         return;
     } else if (col2 < 0) {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()),
+                             tr("Makhber") + " - " + tr("Error"),
                              tr("The data set %1 does not exist!").arg(colName2));
         d_init_err = true;
         return;
@@ -87,7 +89,8 @@ void Correlation::setDataFromTable(Table *t, const QString &colName1, const QStr
             d_y[i] = d_table->cell(i, col2);
         }
     } else {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         d_init_err = true;
         d_n = 0;
@@ -112,7 +115,8 @@ void Correlation::output()
             }
         }
     } else {
-        QMessageBox::warning((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()),
+                             tr("Makhber") + " - " + tr("Error"),
                              tr("Error in GSL forward FFT operation!"));
         return;
     }
@@ -124,7 +128,7 @@ void Correlation::output()
 
 void Correlation::addResultCurve()
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!app)
         return;
 

@@ -46,8 +46,8 @@ public:
     void draw(Qwt3D::Triple const &);
 
 private:
-    double radius_;
-    double diag_;
+    double radius_ {};
+    double diag_ {};
 };
 
 #endif

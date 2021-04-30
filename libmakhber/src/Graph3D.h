@@ -65,8 +65,8 @@ public:
     enum PlotType { Scatter = 0, Trajectory = 1, Bars = 2 };
     enum PointStyle { None = 0, Dots = 1, VerticalBars = 2, HairCross = 3, Cones = 4 };
 
-    Qwt3D::SurfacePlot *sp;
-    UserFunction *func;
+    Qwt3D::SurfacePlot *sp {};
+    UserFunction *func {};
 
 public slots:
     void copy(Graph3D *g);
@@ -363,30 +363,30 @@ private:
     void deleteData(Qwt3D::Triple **data, int columns);
 
     //! Wait this many msecs before redraw 3D plot (used for animations)
-    int animation_redraw_wait;
+    int animation_redraw_wait {};
     //! File name of the color map used for the data (if any)
     QString color_map;
 
-    QTimer *d_timer;
+    QTimer *d_timer {};
     QString title, plotAssociation;
     QStringList labels;
     QFont titleFnt;
-    bool legendOn, smoothMesh, d_autoscale;
+    bool legendOn {}, smoothMesh {}, d_autoscale {};
     QVector<int> scaleType;
     QColor axesCol, labelsCol, titleCol, meshCol, bgCol, numCol, gridCol;
     //! Custom data colors.
     QColor fromColor, toColor;
-    int labelsDist, legendMajorTicks;
-    bool ignoreFonts;
-    Qwt3D::StandardColor *col_;
-    double barsRad, alpha, pointSize, crossHairRad, crossHairLineWidth, conesRad;
+    int labelsDist {}, legendMajorTicks {};
+    bool ignoreFonts {};
+    Qwt3D::StandardColor *col_ {};
+    double barsRad {}, alpha {}, pointSize {}, crossHairRad {}, crossHairLineWidth {}, conesRad {};
     //! Draw 3D points with smoothed angles.
-    bool smooth;
-    bool crossHairSmooth, crossHairBoxed;
-    int conesQuality;
+    bool smooth {};
+    bool crossHairSmooth {}, crossHairBoxed {};
+    int conesQuality {};
     PointStyle pointStyle;
-    Table *worksheet;
-    Matrix *d_matrix;
+    Table *worksheet {};
+    Matrix *d_matrix {};
     Qwt3D::PLOTSTYLE style_;
 };
 

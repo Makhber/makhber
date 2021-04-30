@@ -198,14 +198,14 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
 protected:
-    Ui::MatrixControlTabs ui;
+    Ui::MatrixControlTabs ui {};
     //! The matrix view (first part of the UI)
-    MatrixViewWidget *d_view_widget;
+    MatrixViewWidget *d_view_widget {};
     //! Widget that contains the control tabs UI from #ui
-    QWidget *d_control_tabs;
+    QWidget *d_control_tabs {};
     //! Button to toogle the visibility of #d_tool_box
-    QToolButton *d_hide_button;
-    QHBoxLayout *d_main_layout;
+    QToolButton *d_hide_button {};
+    QHBoxLayout *d_main_layout {};
     QPointer<future::Matrix> d_matrix;
 
     //! Initialization

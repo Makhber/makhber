@@ -70,7 +70,7 @@ void Legend::draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
 
     const int symbolLineLength = symbolsMaxLineLength();
 
-    int width, height;
+    int width = 0, height = 0;
     QwtArray<long> heights = itemsHeight(map.deviceToLayoutY(y), symbolLineLength, width, height);
 
     QRect rs = QRect(map.deviceToLayout(QPoint(x, y)), QSize(width, height));
@@ -109,7 +109,7 @@ QRect Legend::rect() const
     const int x = xMap.transform(xValue());
     const int y = yMap.transform(yValue());
 
-    int width, height;
+    int width = 0, height = 0;
     itemsHeight(y, symbolsMaxLineLength(), width, height);
 
     return QRect(QPoint(x, y), QSize(width - 1, height - 1));
@@ -220,11 +220,11 @@ void Legend::drawFrame(QPainter *p, int type, const QRect &rect) const
 
 void Legend::drawVector(QPainter *p, int x, int y, int l, int curveIndex) const
 {
-    auto *g = (Graph *)d_plot->parent();
+    auto *g = dynamic_cast<Graph *>(d_plot->parent());
     if (!g)
         return;
 
-    auto *v = (VectorCurve *)g->curve(curveIndex);
+    auto *v = dynamic_cast<VectorCurve *>(g->curve(curveIndex));
     if (!v)
         return;
 
@@ -255,7 +255,7 @@ void Legend::drawVector(QPainter *p, int x, int y, int l, int curveIndex) const
 void Legend::drawSymbols(QPainter *p, const QRect &rect, QwtArray<long> height,
                          int symbolLineLength) const
 {
-    auto *g = (Graph *)d_plot->parent();
+    auto *g = dynamic_cast<Graph *>(d_plot->parent());
 
     int w = rect.x() + left_margin;
     int l = symbolLineLength + 2 * left_margin;
@@ -321,9 +321,9 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QwtArray<long> height,
 
             int id = aux.toInt();
 
-            auto *g = (Graph *)d_plot->parent();
+            auto *g = dynamic_cast<Graph *>(d_plot->parent());
             if (g->isPiePlot()) {
-                auto *curve = (QwtPieCurve *)d_plot->curve(1);
+                auto *curve = dynamic_cast<QwtPieCurve *>(d_plot->curve(1));
                 if (curve) {
                     const QBrush br = QBrush(curve->color(id - 1), curve->pattern());
                     QPen pen = curve->pen();
@@ -491,7 +491,7 @@ QString Legend::parse(const QString &str) const
         int pos2 = s.indexOf(")", pos);
         int cv = s.midRef(pos + 2, pos2 - pos - 2).toInt() - 1;
         if (cv >= 0) {
-            auto *g = (Graph *)d_plot->parent();
+            auto *g = dynamic_cast<Graph *>(d_plot->parent());
             if (g) {
                 const QwtPlotCurve *c = (QwtPlotCurve *)g->curve(cv);
                 if (c)

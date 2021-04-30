@@ -69,7 +69,7 @@ public slots:
 signals:
 
 private:
-    MyWidget *window;
+    MyWidget *window{};
 };
 
 #endif // EXPORTDIALOG_H

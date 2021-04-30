@@ -47,7 +47,7 @@ bool NumericDateTimeBaseFilter::load(XmlStreamReader *reader)
     QString unitStr = attribs.value(reader->namespaceUri().toString(), "unit").toString();
 
     if (AbstractSimpleFilter::load(reader)) {
-        bool ok;
+        bool ok = false;
         int unit = unitStr.toInt(&ok);
         QDateTime base_datetime =
                 QDateTime::fromString(base_datetimeStr, "yyyy-dd-MM hh:mm:ss:zzz");

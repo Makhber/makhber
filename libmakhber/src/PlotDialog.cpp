@@ -44,6 +44,7 @@
 #include "ColorMapEditor.h"
 #include "QStringStdString.h"
 #include "core/column/Column.h"
+#include <cmath>
 
 #include <QTreeWidget>
 #include <QLineEdit>
@@ -173,33 +174,33 @@ void PlotDialog::showPlotAssociations(QTreeWidgetItem *item, int)
     if (!item)
         return;
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
         return;
 
-    auto *it = (QwtPlotItem *)((CurveTreeItem *)item)->plotItem();
+    auto *it = (QwtPlotItem *)(dynamic_cast<CurveTreeItem *>(item))->plotItem();
     if (!it)
         return;
 
     if (it->rtti() == QwtPlotItem::Rtti_PlotSpectrogram) {
-        auto *sp = (Spectrogram *)it;
+        auto *sp = dynamic_cast<Spectrogram *>(it);
         if (sp->matrix())
             sp->matrix()->showMaximized();
         return;
     }
 
-    if (((PlotCurve *)it)->type() == Graph::Function) {
+    if ((dynamic_cast<PlotCurve *>(it))->type() == Graph::Function) {
         close();
-        app->showFunctionDialog(((CurveTreeItem *)item)->graph(),
-                                ((CurveTreeItem *)item)->plotItemIndex());
+        app->showFunctionDialog((dynamic_cast<CurveTreeItem *>(item))->graph(),
+                                (dynamic_cast<CurveTreeItem *>(item))->plotItemIndex());
     } else {
 #if QT_VERSION >= 0x050000
         close();
 #endif
-        app->showPlotAssociations(((CurveTreeItem *)item)->plotItemIndex());
+        app->showPlotAssociations((dynamic_cast<CurveTreeItem *>(item))->plotItemIndex());
 #if QT_VERSION < 0x050000
         close();
 #endif
@@ -208,9 +209,9 @@ void PlotDialog::showPlotAssociations(QTreeWidgetItem *item, int)
 
 void PlotDialog::editCurve()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
 
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -237,7 +238,7 @@ void PlotDialog::editCurve()
 
 void PlotDialog::changePlotType(int new_curve_type)
 {
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item || item->type() != CurveTreeItem::PlotCurveTreeItem)
         return;
     Graph *graph = item->graph();
@@ -1014,7 +1015,7 @@ void PlotDialog::setMultiLayer(MultiLayer *ml)
 
     QWidgetList plots = ml->graphPtrs();
     for (int i = 0; i < plots.count(); ++i) {
-        auto *g = (Graph *)plots.at(i);
+        auto *g = dynamic_cast<Graph *>(plots.at(i));
         if (!g)
             continue;
 
@@ -1031,21 +1032,21 @@ void PlotDialog::setMultiLayer(MultiLayer *ml)
 
 void PlotDialog::selectCurve(int index)
 {
-    auto *layerItem = (LayerItem *)listBox->currentItem();
+    auto *layerItem = dynamic_cast<LayerItem *>(listBox->currentItem());
     if (!layerItem)
         return;
     if (layerItem->type() != LayerItem::LayerTreeItem)
         return;
     QTreeWidgetItem *item = layerItem->child(index);
     if (item) {
-        ((CurveTreeItem *)item)->setActive(true);
+        (dynamic_cast<CurveTreeItem *>(item))->setActive(true);
         listBox->setCurrentItem(item);
     }
 }
 
 void PlotDialog::showStatistics()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
@@ -1055,11 +1056,11 @@ void PlotDialog::showStatistics()
     if (it->type() != CurveTreeItem::PlotCurveTreeItem)
         return;
 
-    auto *plotItem = (QwtPlotItem *)((CurveTreeItem *)it)->plotItem();
+    auto *plotItem = (QwtPlotItem *)(dynamic_cast<CurveTreeItem *>(it))->plotItem();
     if (!plotItem)
         return;
 
-    auto *h = (QwtHistogram *)plotItem;
+    auto *h = dynamic_cast<QwtHistogram *>(plotItem);
     if (!h)
         return;
 
@@ -1107,7 +1108,7 @@ void PlotDialog::contextMenuEvent(QContextMenuEvent *e)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
         return;
-    auto *it = (QwtPlotItem *)((CurveTreeItem *)item)->plotItem();
+    auto *it = (QwtPlotItem *)(dynamic_cast<CurveTreeItem *>(item))->plotItem();
     if (!it)
         return;
 
@@ -1118,7 +1119,7 @@ void PlotDialog::contextMenuEvent(QContextMenuEvent *e)
         contextMenu.addAction(tr("&Delete"), this, SLOT(removeSelectedCurve()));
 
         if (it->rtti() == QwtPlotItem::Rtti_PlotCurve) {
-            if (((PlotCurve *)it)->type() == Graph::Function)
+            if ((dynamic_cast<PlotCurve *>(it))->type() == Graph::Function)
                 contextMenu.addAction(tr("&Edit..."), this, SLOT(editCurve()));
             else
                 contextMenu.addAction(tr("&Plot Associations..."), this, SLOT(editCurve()));
@@ -1130,7 +1131,7 @@ void PlotDialog::contextMenuEvent(QContextMenuEvent *e)
 
 void PlotDialog::removeSelectedCurve()
 {
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -1150,7 +1151,7 @@ void PlotDialog::removeSelectedCurve()
 
 void PlotDialog::changeErrorBarsPlus()
 {
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -1168,7 +1169,7 @@ void PlotDialog::changeErrorBarsPlus()
 
 void PlotDialog::changeErrorBarsMinus()
 {
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -1186,7 +1187,7 @@ void PlotDialog::changeErrorBarsMinus()
 
 void PlotDialog::changeErrorBarsThrough()
 {
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -1204,7 +1205,7 @@ void PlotDialog::changeErrorBarsThrough()
 
 void PlotDialog::changeErrorBarsType()
 {
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -1222,7 +1223,7 @@ void PlotDialog::changeErrorBarsType()
 
 void PlotDialog::pickErrorBarsColor(QColor color)
 {
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -1249,18 +1250,19 @@ void PlotDialog::updateTabWindow(QTreeWidgetItem *currentItem, QTreeWidgetItem *
         return;
 
     if (previousItem->type() == CurveTreeItem::PlotCurveTreeItem)
-        ((CurveTreeItem *)previousItem)->setActive(false);
+        (dynamic_cast<CurveTreeItem *>(previousItem))->setActive(false);
     else if (previousItem->type() == LayerItem::LayerTreeItem)
-        ((LayerItem *)previousItem)->setActive(false);
+        (dynamic_cast<LayerItem *>(previousItem))->setActive(false);
 
     boxPlotType->blockSignals(true);
 
     if (currentItem->type() == CurveTreeItem::PlotCurveTreeItem) {
-        auto *curveItem = (CurveTreeItem *)currentItem;
+        auto *curveItem = dynamic_cast<CurveTreeItem *>(currentItem);
         setActiveCurve(curveItem);
 
         if (previousItem->type() != CurveTreeItem::PlotCurveTreeItem
-            || ((CurveTreeItem *)previousItem)->plotItemType() != curveItem->plotItemType()) {
+            || (dynamic_cast<CurveTreeItem *>(previousItem))->plotItemType()
+                    != curveItem->plotItemType()) {
             clearTabWidget();
             int plot_type = setPlotType(curveItem);
             if (plot_type >= 0)
@@ -1274,7 +1276,7 @@ void PlotDialog::updateTabWindow(QTreeWidgetItem *currentItem, QTreeWidgetItem *
             privateTabWidget->addTab(layerPage, tr("Layer"));
             privateTabWidget->setCurrentIndex(privateTabWidget->indexOf(layerPage));
         }
-        setActiveLayer((LayerItem *)currentItem);
+        setActiveLayer(dynamic_cast<LayerItem *>(currentItem));
     } else {
         clearTabWidget();
         privateTabWidget->addTab(printPage, tr("Print"));
@@ -1370,11 +1372,11 @@ void PlotDialog::quit()
 
 void PlotDialog::showWorksheet()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
-    auto *item = (CurveTreeItem *)listBox->currentItem();
+    auto *item = dynamic_cast<CurveTreeItem *>(listBox->currentItem());
     if (!item)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
@@ -1514,7 +1516,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
         customScaleBox->setChecked(sp->colorMapPolicy() == Spectrogram::Custom);
 
         colorMapEditor->setRange(sp->data().range().minValue(), sp->data().range().maxValue());
-        colorMapEditor->setColorMap((const QwtLinearColorMap &)sp->colorMap());
+        colorMapEditor->setColorMap(dynamic_cast<const QwtLinearColorMap &>(sp->colorMap()));
 
         levelsGroupBox->setChecked(sp->testDisplayMode(QwtPlotSpectrogram::ContourMode));
         levelsBox->setValue(sp->levels());
@@ -1691,7 +1693,7 @@ bool PlotDialog::acceptParams()
 
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g) {
                 g->setFrame(boxBorderWidth->value(), boxBorderColor->color());
                 g->setMargin(boxMargin->value());
@@ -1714,7 +1716,7 @@ bool PlotDialog::acceptParams()
     if (!it)
         return false;
 
-    auto *item = (CurveTreeItem *)it;
+    auto *item = dynamic_cast<CurveTreeItem *>(it);
     auto *plotItem = (QwtPlotItem *)item->plotItem();
     if (!plotItem)
         return false;
@@ -1728,7 +1730,7 @@ bool PlotDialog::acceptParams()
         graph->setAutoScale();
         return true;
     } else if (privateTabWidget->currentWidget() == spectrogramPage) {
-        auto *sp = (Spectrogram *)plotItem;
+        auto *sp = dynamic_cast<Spectrogram *>(plotItem);
         if (!sp || sp->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
             return false;
 
@@ -1767,7 +1769,7 @@ bool PlotDialog::acceptParams()
             if (!fillGroupBox->isChecked())
                 br = QBrush();
             graph->setCurveBrush(index, br);
-            auto *curve = (QwtPlotCurve *)plotItem;
+            auto *curve = dynamic_cast<QwtPlotCurve *>(plotItem);
             curve->setPen(penWidget->pen());
         }
     } else if (privateTabWidget->currentWidget() == symbolPage) {
@@ -1780,11 +1782,11 @@ bool PlotDialog::acceptParams()
                 br = QBrush();
             QPen pen = QPen(boxSymbolColor->color(), boxPenWidth->value(), Qt::SolidLine);
             QwtSymbol s = QwtSymbol(boxSymbolStyle->selectedSymbol(), br, pen, QSize(size, size));
-            auto *curve = (QwtPlotCurve *)plotItem;
+            auto *curve = dynamic_cast<QwtPlotCurve *>(plotItem);
             curve->setSymbol(s);
         }
     } else if (privateTabWidget->currentWidget() == histogramPage) {
-        auto *h = (QwtHistogram *)plotItem;
+        auto *h = dynamic_cast<QwtHistogram *>(plotItem);
         if (!h)
             return false;
 
@@ -1816,7 +1818,7 @@ bool PlotDialog::acceptParams()
         graph->setBarsGap(item->plotItemIndex(), gapBox->value(), offsetBox->value());
     else if (privateTabWidget->currentWidget() == vectPage) {
         int index = item->plotItemIndex();
-        auto *app = (ApplicationWindow *)this->parent();
+        auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
         if (!app)
             return false;
 
@@ -1872,7 +1874,7 @@ bool PlotDialog::acceptParams()
         pie->setBrushStyle(boxPiePattern->getSelectedPattern());
         pie->setFirstColor(boxFirstColor->colorIndex(boxFirstColor->color()));
     } else if (privateTabWidget->currentWidget() == percentilePage) {
-        auto *b = (BoxCurve *)plotItem;
+        auto *b = dynamic_cast<BoxCurve *>(plotItem);
         if (b) {
             b->setMaxStyle(boxMaxStyle->selectedSymbol());
             b->setP99Style(box99Style->selectedSymbol());
@@ -1891,7 +1893,7 @@ bool PlotDialog::acceptParams()
             b->setSymbol(s);
         }
     } else if (privateTabWidget->currentWidget() == boxPage) {
-        auto *b = (BoxCurve *)plotItem;
+        auto *b = dynamic_cast<BoxCurve *>(plotItem);
         if (b) {
             b->setBoxWidth(boxWidth->value());
             b->setBoxStyle(boxType->currentIndex());
@@ -1954,7 +1956,7 @@ bool PlotDialog::validInput()
     if (pos == 0)
         to = to.replace(pos, 1, "");
 
-    double start, end, stp;
+    double start = NAN, end = NAN, stp = NAN;
     // bool error = false;
     if (from.contains(nonDigit)) {
         try {
@@ -2142,7 +2144,7 @@ void PlotDialog::updateBackgroundTransparency(int alpha)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g) {
                 QColor c = boxBackgroundColor->color();
                 c.setAlpha(boxBackgroundTransparency->value());
@@ -2150,7 +2152,7 @@ void PlotDialog::updateBackgroundTransparency(int alpha)
             }
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2174,7 +2176,7 @@ void PlotDialog::updateCanvasTransparency(int alpha)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g) {
                 QColor c = boxCanvasColor->color();
                 c.setAlpha(boxCanvasTransparency->value());
@@ -2182,7 +2184,7 @@ void PlotDialog::updateCanvasTransparency(int alpha)
             }
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2202,7 +2204,7 @@ void PlotDialog::pickCanvasColor(QColor c)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g) {
                 c.setAlpha(boxCanvasTransparency->value());
                 g->setCanvasBackground(c);
@@ -2210,7 +2212,7 @@ void PlotDialog::pickCanvasColor(QColor c)
             }
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2230,7 +2232,7 @@ void PlotDialog::pickBackgroundColor(QColor c)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < (int)allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g) {
                 c.setAlpha(boxBackgroundTransparency->value());
                 g->setBackgroundColor(c);
@@ -2238,7 +2240,7 @@ void PlotDialog::pickBackgroundColor(QColor c)
             }
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2255,12 +2257,12 @@ void PlotDialog::pickBorderColor(QColor c)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g)
                 g->setFrame(boxBorderWidth->value(), c);
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2278,12 +2280,12 @@ void PlotDialog::updateAntialiasing(bool on)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g)
                 g->setAntialiasing(on);
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2300,12 +2302,12 @@ void PlotDialog::updateBorder(int width)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g)
                 g->setFrame(width, boxBorderColor->color());
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2323,12 +2325,12 @@ void PlotDialog::changeMargin(int width)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = (Graph *)allPlots.at(i);
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g)
                 g->setMargin(width);
         }
     } else {
-        auto *item = (LayerItem *)listBox->currentItem();
+        auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
@@ -2339,7 +2341,7 @@ void PlotDialog::changeMargin(int width)
 
 void PlotDialog::setTitlesFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, titleFont, this);
     if (ok) {
         titleFont = font;
@@ -2350,7 +2352,7 @@ void PlotDialog::setTitlesFont()
 
 void PlotDialog::setAxesLabelsFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, axesFont, this);
     if (ok) {
         axesFont = font;
@@ -2361,7 +2363,7 @@ void PlotDialog::setAxesLabelsFont()
 
 void PlotDialog::setAxesNumbersFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, numbersFont, this);
     if (ok) {
         numbersFont = font;
@@ -2372,7 +2374,7 @@ void PlotDialog::setAxesNumbersFont()
 
 void PlotDialog::setLegendsFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, legendFont, this);
     if (ok) {
         legendFont = font;
@@ -2392,7 +2394,7 @@ void PlotDialog::initFonts(const QFont &titlefont, const QFont &axesfont, const 
 
 void PlotDialog::closeEvent(QCloseEvent *e)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (app)
         app->d_extended_plot_dialog = btnMore->isChecked();
 

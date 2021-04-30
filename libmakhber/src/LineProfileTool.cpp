@@ -98,7 +98,7 @@ void LineProfileTool::calculateLineProfile(const QPoint &start, const QPoint &en
 
     // uses the fast Bresenham's line-drawing algorithm
 #define sgn(x) ((x < 0) ? -1 : ((x > 0) ? 1 : 0))
-    int i, dx, dy, sdx, sdy, dxabs, dyabs, x, y, px, py;
+    int i = 0, dx = 0, dy = 0, sdx = 0, sdy = 0, dxabs = 0, dyabs = 0, x = 0, y = 0, px = 0, py = 0;
 
     dx = x2 - x1; // the horizontal distance of the line
     dy = y2 - y1; // the vertical distance of the line
@@ -149,8 +149,8 @@ void LineProfileTool::calculateLineProfile(const QPoint &start, const QPoint &en
 
 int LineProfileTool::averageImagePixel(const QImage &image, int px, int py, bool moreHorizontal)
 {
-    QRgb pixel;
-    int sum = 0, start, i;
+    QRgb pixel = 0;
+    int sum = 0, start = 0, i = 0;
     int middle = int(0.5 * (d_average_pixels - 1));
     if (moreHorizontal) {
         start = py - middle;

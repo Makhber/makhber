@@ -93,7 +93,7 @@ DataPickerTool::~DataPickerTool()
 
 void DataPickerTool::append(const QPoint &pos)
 {
-    int dist, point_index;
+    int dist = 0, point_index = 0;
     const int curve = d_graph->plotWidget()->closestCurve(pos.x(), pos.y(), dist, point_index);
     if (curve <= 0 || dist >= 5) { // 5 pixels tolerance
         setSelection(nullptr, 0);
@@ -126,7 +126,7 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
     d_move_target_pos = QPoint(plot()->transform(xAxis(), d_selected_curve->x(d_selected_point)),
                                plot()->transform(yAxis(), d_selected_curve->y(d_selected_point)));
 
-    if (((PlotCurve *)d_selected_curve)->type() == Graph::Function) {
+    if ((dynamic_cast<PlotCurve *>(d_selected_curve))->type() == Graph::Function) {
         emit statusText(QString("%1[%2]: x=%3; y=%4")
                                 .arg(d_selected_curve->title().text())
                                 .arg(d_selected_point + 1)
@@ -135,10 +135,10 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
                                      QLocale().toString(d_selected_curve->y(d_selected_point), 'G',
                                                         d_app->d_decimal_digits)));
     } else {
-        int row = ((DataCurve *)d_selected_curve)->tableRow(d_selected_point);
+        int row = (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_selected_point);
 
-        Table *t = ((DataCurve *)d_selected_curve)->table();
-        int xCol = t->colIndex(((DataCurve *)d_selected_curve)->xColumnName());
+        Table *t = (dynamic_cast<DataCurve *>(d_selected_curve))->table();
+        int xCol = t->colIndex((dynamic_cast<DataCurve *>(d_selected_curve))->xColumnName());
         int yCol = t->colIndex(d_selected_curve->title().text());
 
         emit statusText(QString("%1[%2]: x=%3; y=%4")
@@ -169,16 +169,16 @@ bool DataPickerTool::eventFilter(QObject *obj, QEvent *event)
             return true;
         }
     case QEvent::MouseMove:
-        if (((QMouseEvent *)event)->modifiers() == Qt::ControlModifier)
+        if ((dynamic_cast<QMouseEvent *>(event))->modifiers() == Qt::ControlModifier)
             d_move_mode = Vertical;
-        else if (((QMouseEvent *)event)->modifiers() == Qt::AltModifier)
+        else if ((dynamic_cast<QMouseEvent *>(event))->modifiers() == Qt::AltModifier)
             d_move_mode = Horizontal;
         else
             d_move_mode = Free;
         break;
 
     case QEvent::KeyPress:
-        if (keyEventFilter((QKeyEvent *)event))
+        if (keyEventFilter(dynamic_cast<QKeyEvent *>(event)))
             return true;
         break;
     default:
@@ -201,7 +201,7 @@ bool DataPickerTool::keyEventFilter(QKeyEvent *ke)
         if (d_graph && d_selected_curve) {
             int n_curves = d_graph->curves();
             int start = d_graph->curveIndex(d_selected_curve) + 1;
-            QwtPlotCurve *c;
+            QwtPlotCurve *c = nullptr;
             for (int i = start; i < start + n_curves; ++i)
                 if ((c = d_graph->curve(i % n_curves))->dataSize() > 0) {
                     setSelection(c, qMin(c->dataSize() - 1, d_selected_point));
@@ -215,7 +215,7 @@ bool DataPickerTool::keyEventFilter(QKeyEvent *ke)
         if (d_graph && d_selected_curve) {
             int n_curves = d_graph->curves();
             int start = d_graph->curveIndex(d_selected_curve) + n_curves - 1;
-            QwtPlotCurve *c;
+            QwtPlotCurve *c = nullptr;
             for (int i = start; i > start - n_curves; --i)
                 if ((c = d_graph->curve(i % n_curves))->dataSize() > 0) {
                     setSelection(c, qMin(c->dataSize() - 1, d_selected_point));
@@ -309,22 +309,22 @@ void DataPickerTool::removePoint()
 {
     if (!d_selected_curve)
         return;
-    if (((PlotCurve *)d_selected_curve)->type() == Graph::Function) {
+    if ((dynamic_cast<PlotCurve *>(d_selected_curve))->type() == Graph::Function) {
         QMessageBox::critical(const_cast<Graph *>(d_graph), tr("Remove point error"),
                               tr("Sorry, but removing points of a function is not possible."));
         return;
     }
 
-    Table *t = ((DataCurve *)d_selected_curve)->table();
+    Table *t = (dynamic_cast<DataCurve *>(d_selected_curve))->table();
     if (!t)
         return;
 
     int col = t->colIndex(d_selected_curve->title().text());
     if (t->columnType(col) == Makhber::ColumnMode::Numeric) {
-        t->column(col)->setValueAt(((DataCurve *)d_selected_curve)->tableRow(d_selected_point),
-                                   0.0);
-        t->column(col)->setInvalid(((DataCurve *)d_selected_curve)->tableRow(d_selected_point),
-                                   true);
+        t->column(col)->setValueAt(
+                (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_selected_point), 0.0);
+        t->column(col)->setInvalid(
+                (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_selected_point), true);
     } else {
         QMessageBox::warning(const_cast<Graph *>(d_graph), tr("Warning"),
                              tr("This operation cannot be performed on curves plotted from columns "
@@ -360,7 +360,7 @@ void DataPickerTool::move(const QPoint &point)
             d_selection_marker.attach(d_graph->plotWidget());
         d_graph->replot();
 
-        int row = ((DataCurve *)d_selected_curve)->tableRow(d_selected_point);
+        int row = (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_selected_point);
         emit statusText(QString("%1[%2]: x=%3; y=%4")
                                 .arg(d_selected_curve->title().text())
                                 .arg(row + 1)
@@ -374,20 +374,20 @@ void DataPickerTool::move(const QPoint &point)
 bool DataPickerTool::end(bool ok)
 {
     if (d_mode == Move && d_selected_curve) {
-        if (((PlotCurve *)d_selected_curve)->type() == Graph::Function) {
+        if ((dynamic_cast<PlotCurve *>(d_selected_curve))->type() == Graph::Function) {
             QMessageBox::critical(d_graph, tr("Move point error"),
                                   tr("Sorry, but moving points of a function is not possible."));
             return QwtPlotPicker::end(ok);
         }
-        Table *t = ((DataCurve *)d_selected_curve)->table();
+        Table *t = (dynamic_cast<DataCurve *>(d_selected_curve))->table();
         if (!t)
             return QwtPlotPicker::end(ok);
         double new_x_val = d_graph->plotWidget()->invTransform(d_selected_curve->xAxis(),
                                                                d_move_target_pos.x());
         double new_y_val = d_graph->plotWidget()->invTransform(d_selected_curve->yAxis(),
                                                                d_move_target_pos.y());
-        int row = ((DataCurve *)d_selected_curve)->tableRow(d_selected_point);
-        int xcol = t->colIndex(((DataCurve *)d_selected_curve)->xColumnName());
+        int row = (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_selected_point);
+        int xcol = t->colIndex((dynamic_cast<DataCurve *>(d_selected_curve))->xColumnName());
         int ycol = t->colIndex(d_selected_curve->title().text());
         if (t->columnType(xcol) == Makhber::ColumnMode::Numeric
             && t->columnType(ycol) == Makhber::ColumnMode::Numeric) {

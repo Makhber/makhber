@@ -79,7 +79,7 @@ bool ScreenPickerTool::eventFilter(QObject *obj, QEvent *event)
         emit selected(d_selection_marker.value());
         return true;
     case QEvent::KeyPress: {
-        auto *ke = (QKeyEvent *)event;
+        auto *ke = dynamic_cast<QKeyEvent *>(event);
         switch (ke->key()) {
         case Qt::Key_Enter:
         case Qt::Key_Return:

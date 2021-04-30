@@ -395,66 +395,66 @@ private:
     void connectActions();
     void addActionsToView();
     void translateActionsStrings();
-    QMenu *d_plot_menu;
+    QMenu *d_plot_menu {};
     static bool d_default_comment_visibility;
 
     //! \name selection related actions
     //@{
-    QAction *action_cut_selection;
-    QAction *action_copy_selection;
-    QAction *action_paste_into_selection;
+    QAction *action_cut_selection {};
+    QAction *action_copy_selection {};
+    QAction *action_paste_into_selection {};
 #ifndef LEGACY_CODE_0_2_x
     QAction *action_mask_selection;
     QAction *action_unmask_selection;
 #endif
-    QAction *action_set_formula;
-    QAction *action_clear_selection;
-    QAction *action_recalculate;
-    QAction *action_fill_row_numbers;
-    QAction *action_fill_random;
-    QAction *action_normalize_selection;
+    QAction *action_set_formula {};
+    QAction *action_clear_selection {};
+    QAction *action_recalculate {};
+    QAction *action_fill_row_numbers {};
+    QAction *action_fill_random {};
+    QAction *action_normalize_selection {};
     //@}
     //! \name table related actions
     //@{
-    QAction *action_toggle_comments;
-    QAction *action_toggle_tabbar;
-    QAction *action_select_all;
-    QAction *action_add_column;
-    QAction *action_clear_table;
-    QAction *action_export_to_TeX;
+    QAction *action_toggle_comments {};
+    QAction *action_toggle_tabbar {};
+    QAction *action_select_all {};
+    QAction *action_add_column {};
+    QAction *action_clear_table {};
+    QAction *action_export_to_TeX {};
 #ifndef LEGACY_CODE_0_2_x
     QAction *action_clear_masks;
 #endif
-    QAction *action_sort_table;
-    QAction *action_go_to_cell;
-    QAction *action_dimensions_dialog;
-    QAction *action_formula_mode;
+    QAction *action_sort_table {};
+    QAction *action_go_to_cell {};
+    QAction *action_dimensions_dialog {};
+    QAction *action_formula_mode {};
     //@}
     //! \name column related actions
     //@{
-    QAction *action_insert_columns;
-    QAction *action_remove_columns;
-    QAction *action_clear_columns;
-    QAction *action_add_columns;
-    QAction *action_set_as_x;
-    QAction *action_set_as_y;
-    QAction *action_set_as_z;
-    QAction *action_set_as_xerr;
-    QAction *action_set_as_yerr;
-    QAction *action_set_as_none;
-    QAction *action_normalize_columns;
-    QAction *action_sort_columns;
-    QAction *action_statistics_columns;
-    QAction *action_type_format;
-    QAction *action_edit_description;
+    QAction *action_insert_columns {};
+    QAction *action_remove_columns {};
+    QAction *action_clear_columns {};
+    QAction *action_add_columns {};
+    QAction *action_set_as_x {};
+    QAction *action_set_as_y {};
+    QAction *action_set_as_z {};
+    QAction *action_set_as_xerr {};
+    QAction *action_set_as_yerr {};
+    QAction *action_set_as_none {};
+    QAction *action_normalize_columns {};
+    QAction *action_sort_columns {};
+    QAction *action_statistics_columns {};
+    QAction *action_type_format {};
+    QAction *action_edit_description {};
     //@}
     //! \name row related actions
     //@{
-    QAction *action_insert_rows;
-    QAction *action_remove_rows;
-    QAction *action_clear_rows;
-    QAction *action_add_rows;
-    QAction *action_statistics_rows;
+    QAction *action_insert_rows {};
+    QAction *action_remove_rows {};
+    QAction *action_clear_rows {};
+    QAction *action_add_rows {};
+    QAction *action_statistics_rows {};
     //@}
 
     QPointer<TableView> d_view;

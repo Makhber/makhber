@@ -75,7 +75,7 @@ void Differentiation::output()
                                     + (d_y[i] - d_y[i - 1]) / (d_x[i] - d_x[i - 1])));
     }
 
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     QString tableName = app->generateUniqueName(objectName());
     QString curveTitle = d_curve->title().text();
     Table *t = app->newHiddenTable(

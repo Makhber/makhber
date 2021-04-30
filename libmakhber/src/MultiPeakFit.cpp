@@ -32,6 +32,7 @@
 #include "FunctionCurve.h"
 #include "ColorButton.h"
 #include "core/column/Column.h"
+#include <cmath>
 
 #include <QLocale>
 #include <QMessageBox>
@@ -174,7 +175,7 @@ void MultiPeakFit::guessInitialValues()
     gsl_vector_view x = gsl_vector_view_array(d_x, d_n);
     gsl_vector_view y = gsl_vector_view_array(d_y, d_n);
 
-    double min_out, max_out;
+    double min_out = NAN, max_out = NAN;
     gsl_vector_minmax(&y.vector, &min_out, &max_out);
 
     if (d_profile == Gauss)
@@ -207,7 +208,8 @@ void MultiPeakFit::insertPeakFunctionCurve(double *x, double *y, int peak)
     }
     QString title = tr("Peak") + QString::number(++index);
 
-    auto *c = new FunctionCurve((ApplicationWindow *)parent(), FunctionCurve::Normal, title);
+    auto *c = new FunctionCurve(dynamic_cast<ApplicationWindow *>(parent()), FunctionCurve::Normal,
+                                title);
     c->setPen(QPen(d_peaks_color, 1));
     c->setData(x, y, d_points);
     c->setRange(d_x[0], d_x[d_n - 1]);
@@ -228,7 +230,7 @@ void MultiPeakFit::insertPeakFunctionCurve(double *x, double *y, int peak)
 
 void MultiPeakFit::generateFitCurve(const vector<double> &par)
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!d_gen_function)
         d_points = d_n;
 
@@ -241,7 +243,7 @@ void MultiPeakFit::generateFitCurve(const vector<double> &par)
 
     auto *X = new double[d_points];
     auto *Y = new double[d_points];
-    int i, j;
+    int i = 0, j = 0;
     int peaks_aux = d_peaks;
     if (d_peaks == 1)
         peaks_aux--;

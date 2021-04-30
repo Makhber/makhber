@@ -34,6 +34,7 @@
 #include "Table.h"
 #include "Plot.h"
 #include "FFT.h"
+#include <cmath>
 
 #include <QRadioButton>
 #include <QGroupBox>
@@ -132,7 +133,7 @@ FFTDialog::FFTDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(pa
 
 void FFTDialog::accept()
 {
-    double sampling;
+    double sampling = NAN;
     try {
         MyParser parser;
         parser.SetExpr(boxSampling->text());
@@ -143,7 +144,7 @@ void FFTDialog::accept()
         return;
     }
 
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     unique_ptr<FFT> fft;
     if (graph) {
         fft = std::make_unique<FFT>(app, graph, boxName->currentText());

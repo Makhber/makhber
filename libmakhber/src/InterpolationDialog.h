@@ -63,7 +63,7 @@ public slots:
     void changeDataRange();
 
 private:
-    Graph *graph;
+    Graph *graph{};
 };
 
 #endif

@@ -33,6 +33,8 @@
 #include <QPainter>
 #include <QLocale>
 
+#include <cmath>
+
 VectorCurve::VectorCurve(VectorStyle style, Table *t, const QString &xColName, QString name,
                          const QString &endCol1, const QString &endCol2, int startRow, int endRow)
     : DataCurve(t, xColName, name, startRow, endRow)
@@ -63,7 +65,7 @@ void VectorCurve::copy(const VectorCurve *vc)
     d_headAngle = vc->d_headAngle;
     d_position = vc->d_position;
     pen = vc->pen;
-    vectorEnd = (QwtArrayData *)vc->vectorEnd->copy();
+    vectorEnd = dynamic_cast<QwtArrayData *>(vc->vectorEnd->copy());
 }
 
 void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
@@ -157,7 +159,7 @@ void VectorCurve::drawArrowHead(QPainter *p, int xs, int ys, int xe, int ye) con
 
 double VectorCurve::theta(int x0, int y0, int x1, int y1) const
 {
-    double t, pi = 4 * atan(-1.0);
+    double t = NAN, pi = 4 * atan(-1.0);
     if (x1 == x0) {
         if (y0 > y1)
             t = 90;

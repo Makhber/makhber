@@ -124,7 +124,7 @@ QString MyWidget::aspect()
 void MyWidget::changeEvent(QEvent *event)
 {
     if (!isHidden() && event->type() == QEvent::WindowStateChange) {
-        if (((QWindowStateChangeEvent *)event)->oldState() == windowState())
+        if ((dynamic_cast<QWindowStateChangeEvent *>(event))->oldState() == windowState())
             return;
         if (windowState() & Qt::WindowMinimized)
             w_status = Minimized;

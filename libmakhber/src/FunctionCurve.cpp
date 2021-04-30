@@ -30,6 +30,8 @@
 
 #include <QMessageBox>
 
+#include <cmath>
+
 // FIXME: While FunctionCurve itself supports arbitrary scripting
 // interpreters now, fit curves assume muParser in many formulas (using
 // "^" as power operator). Thus, simply having FunctionCurve honour the
@@ -94,8 +96,8 @@ bool FunctionCurve::loadData(int points)
         Script *script = scriptEnv->newScript(d_formulas[0], nullptr, title().text());
         QObject::connect(script, SIGNAL(error(const QString &, const QString &, int)), this,
                          SLOT(scriptError(const QString &, const QString &, int)));
-        int i;
-        double x;
+        int i = 0;
+        double x = NAN;
         for (i = 0, x = d_from; i < points; i++, x += step) {
             X[i] = x;
             script->setDouble(x, d_variable.toUtf8().constData());
@@ -113,8 +115,8 @@ bool FunctionCurve::loadData(int points)
     case Polar: {
         Script *script_x = scriptEnv->newScript(d_formulas[0], nullptr, title().text());
         Script *script_y = scriptEnv->newScript(d_formulas[1], nullptr, title().text());
-        int i;
-        double par;
+        int i = 0;
+        double par = NAN;
         for (i = 0, par = d_from; i < points; i++, par += step) {
             script_x->setDouble(par, d_variable.toUtf8().constData());
             script_y->setDouble(par, d_variable.toUtf8().constData());

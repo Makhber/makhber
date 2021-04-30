@@ -62,7 +62,7 @@
 ConfigDialog::ConfigDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {
     // get current values from app window
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     plot3DColors = app->plot3DColors;
     plot3DTitleFont = app->plot3DTitleFont;
     plot3DNumbersFont = app->plot3DNumbersFont;
@@ -160,7 +160,7 @@ void ConfigDialog::setCurrentPage(int index)
 
 void ConfigDialog::initTablesPage()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     tables = new QWidget();
 
     auto *topLayout = new QHBoxLayout();
@@ -238,7 +238,7 @@ void ConfigDialog::initTablesPage()
 
 void ConfigDialog::initPlotsPage()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
 
     plotsTabWidget = new QTabWidget();
     plotOptions = new QWidget();
@@ -415,7 +415,7 @@ void ConfigDialog::showFrameWidth(bool ok)
 
 void ConfigDialog::initPlots3DPage()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     plots3D = new QWidget();
 
     auto *topBox = new QGroupBox();
@@ -501,7 +501,7 @@ void ConfigDialog::initPlots3DPage()
 
 void ConfigDialog::initAppPage()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
 
     appTabWidget = new QTabWidget(generalDialog);
 
@@ -665,7 +665,7 @@ void ConfigDialog::initAppPage()
 
 void ConfigDialog::initFittingPage()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     fitPage = new QWidget();
 
     groupBoxFittingCurve = new QGroupBox();
@@ -739,7 +739,7 @@ void ConfigDialog::initFittingPage()
 
 void ConfigDialog::initCurvesPage()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
 
     curves = new QWidget();
 
@@ -773,7 +773,7 @@ void ConfigDialog::initCurvesPage()
 
 void ConfigDialog::initConfirmationsPage()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     confirm = new QWidget();
 
     groupBoxConfirm = new QGroupBox();
@@ -812,7 +812,7 @@ void ConfigDialog::initConfirmationsPage()
 void ConfigDialog::languageChange()
 {
     setWindowTitle(tr("Preferences"));
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
 
     // pages list
     itemsList->clear();
@@ -831,7 +831,7 @@ void ConfigDialog::languageChange()
     // calculate a sensible width for the items list
     // (default QListWidget size is 256 which looks too big)
     QFontMetrics fm(itemsList->font());
-    int width = 32, i;
+    int width = 32, i = 0;
     for (i = 0; i < itemsList->count(); i++) {
 #if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
         auto newWidth = fm.width(itemsList->item(i)->text());
@@ -1072,7 +1072,7 @@ void ConfigDialog::accept()
 
 void ConfigDialog::apply()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     if (!app)
         return;
 
@@ -1123,8 +1123,9 @@ void ConfigDialog::apply()
     QList<MyWidget *> windows = app->windowsList();
     foreach (MyWidget *w, windows) {
         if (w->inherits("MultiLayer")) {
-            ((MultiLayer *)w)->setScaleLayersOnPrint(boxScaleLayersOnPrint->isChecked());
-            ((MultiLayer *)w)->printCropmarks(boxPrintCropmarks->isChecked());
+            (dynamic_cast<MultiLayer *>(w))
+                    ->setScaleLayersOnPrint(boxScaleLayersOnPrint->isChecked());
+            (dynamic_cast<MultiLayer *>(w))->printCropmarks(boxPrintCropmarks->isChecked());
         }
     }
     // general page: application tab
@@ -1207,7 +1208,7 @@ void ConfigDialog::apply()
     // calculate a sensible width for the items list
     // (default QListWidget size is 256 which looks too big)
     QFontMetrics fm(itemsList->font());
-    int width = 32, i;
+    int width = 32, i = 0;
     for (i = 0; i < itemsList->count(); i++) {
 #if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
         auto newWidth = fm.width(itemsList->item(i)->text());
@@ -1297,7 +1298,7 @@ void ConfigDialog::pickHeaderColor()
 
 void ConfigDialog::pickTextFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, textFont, this);
     if (ok) {
         textFont = font;
@@ -1308,7 +1309,7 @@ void ConfigDialog::pickTextFont()
 
 void ConfigDialog::pickHeaderFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, headerFont, this);
     if (ok) {
         headerFont = font;
@@ -1319,7 +1320,7 @@ void ConfigDialog::pickHeaderFont()
 
 void ConfigDialog::pickLegendFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, legendFont, this);
     if (ok) {
         legendFont = font;
@@ -1330,7 +1331,7 @@ void ConfigDialog::pickLegendFont()
 
 void ConfigDialog::pickAxesFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, axesFont, this);
     if (ok) {
         axesFont = font;
@@ -1341,7 +1342,7 @@ void ConfigDialog::pickAxesFont()
 
 void ConfigDialog::pickNumbersFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, numbersFont, this);
     if (ok) {
         numbersFont = font;
@@ -1352,7 +1353,7 @@ void ConfigDialog::pickNumbersFont()
 
 void ConfigDialog::pickTitleFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, titleFont, this);
     if (ok)
         titleFont = font;
@@ -1362,7 +1363,7 @@ void ConfigDialog::pickTitleFont()
 
 void ConfigDialog::pickApplicationFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, appFont, this);
     if (ok)
         appFont = font;
@@ -1472,7 +1473,7 @@ void ConfigDialog::pick3DLabelsColor()
 
 void ConfigDialog::pick3DTitleFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, plot3DTitleFont, this);
     if (ok)
         plot3DTitleFont = font;
@@ -1482,7 +1483,7 @@ void ConfigDialog::pick3DTitleFont()
 
 void ConfigDialog::pick3DNumbersFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, plot3DNumbersFont, this);
     if (ok)
         plot3DNumbersFont = font;
@@ -1492,7 +1493,7 @@ void ConfigDialog::pick3DNumbersFont()
 
 void ConfigDialog::pick3DAxesFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, plot3DAxesFont, this);
     if (ok)
         plot3DAxesFont = font;
@@ -1526,14 +1527,14 @@ void ConfigDialog::setColumnSeparator(const QString &sep)
 
 void ConfigDialog::switchToLanguage(int param)
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     app->switchToLanguage(param);
     languageChange();
 }
 
 void ConfigDialog::insertLanguagesList()
 {
-    auto *app = (ApplicationWindow *)parentWidget();
+    auto *app = dynamic_cast<ApplicationWindow *>(parentWidget());
     QStringList locales = app->locales;
     QStringList languages;
     int lang = 0;

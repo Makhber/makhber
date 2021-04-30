@@ -61,7 +61,7 @@ ImportASCIIDialog::ImportASCIIDialog(bool import_mode_enabled, QWidget *parent, 
     setExtensionWidget(d_advanced_options);
 
     // get rembered option values
-    auto *app = (ApplicationWindow *)parent;
+    auto *app = dynamic_cast<ApplicationWindow *>(parent);
     d_strip_spaces->setChecked(app->strip_spaces);
     d_simplify_spaces->setChecked(app->simplify_spaces);
     d_ignored_lines->setValue(app->ignoredLines);
@@ -279,7 +279,7 @@ void ImportASCIIDialog::updateImportMode(int mode)
 
 void ImportASCIIDialog::closeEvent(QCloseEvent *e)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (app) {
         app->d_extended_import_ASCII_dialog = this->isExtended();
         app->d_ASCII_file_filter = this->selectedNameFilter();

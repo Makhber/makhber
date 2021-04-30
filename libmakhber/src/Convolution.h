@@ -54,9 +54,9 @@ protected:
 private:
     virtual void output();
     //! Size of the signal data set
-    int d_n_signal;
+    int d_n_signal {};
     //! Size of the response data set
-    int d_n_response;
+    int d_n_response{};
 };
 
 class Deconvolution : public Convolution

@@ -197,7 +197,7 @@ void TextDialog::apply()
 
 void TextDialog::setDefaultValues()
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
@@ -254,7 +254,7 @@ void TextDialog::setAlignment(int align)
 
 void TextDialog::customFont()
 {
-    bool okF;
+    bool okF = false;
     QFont fnt = QFontDialog::getFont(&okF, selectedFont, this);
     if (okF && fnt != selectedFont) {
         selectedFont = fnt;

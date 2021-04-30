@@ -39,6 +39,7 @@
 #include <QLocale>
 #include <qwt_plot_curve.h>
 #include "core/column/Column.h"
+#include <cmath>
 
 #include <stdexcept>
 using namespace std;
@@ -55,7 +56,7 @@ TranslateCurveTool::TranslateCurveTool(Graph *graph, ApplicationWindow *app, Dir
     // Phase 1: select curve point
     d_sub_tool = new DataPickerTool(d_graph, app, DataPickerTool::Display, this,
                                     SIGNAL(statusText(const QString &)));
-    connect((DataPickerTool *)d_sub_tool, SIGNAL(selected(QwtPlotCurve *, int)), this,
+    connect(dynamic_cast<DataPickerTool *>(d_sub_tool), SIGNAL(selected(QwtPlotCurve *, int)), this,
             SLOT(selectCurvePoint(QwtPlotCurve *, int)));
 }
 
@@ -67,8 +68,8 @@ void TranslateCurveTool::selectCurvePoint(QwtPlotCurve *curve, int point_index)
 
     // Phase 2: select destination
     d_sub_tool = new ScreenPickerTool(d_graph, this, SIGNAL(statusText(const QString &)));
-    connect((ScreenPickerTool *)d_sub_tool, SIGNAL(selected(const QwtDoublePoint &)), this,
-            SLOT(selectDestination(const QwtDoublePoint &)));
+    connect(dynamic_cast<ScreenPickerTool *>(d_sub_tool), SIGNAL(selected(const QwtDoublePoint &)),
+            this, SLOT(selectDestination(const QwtDoublePoint &)));
     emit statusText(tr("Curve selected! Move cursor and click to choose a point and "
                        "double-click/press 'Enter' to finish!"));
 }
@@ -81,12 +82,12 @@ void TranslateCurveTool::selectDestination(const QwtDoublePoint &point)
 
     // Phase 3: execute the translation
 
-    if (((PlotCurve *)d_selected_curve)->type() == Graph::Function) {
+    if ((dynamic_cast<PlotCurve *>(d_selected_curve))->type() == Graph::Function) {
         if (d_dir == Horizontal) {
             QMessageBox::warning(d_graph, tr("Warning"),
                                  tr("This operation cannot be performed on function curves."));
         } else {
-            auto *func = (FunctionCurve *)d_selected_curve;
+            auto *func = dynamic_cast<FunctionCurve *>(d_selected_curve);
             if (func->functionType() == FunctionCurve::Normal) {
                 QString formula = func->formulas().first();
                 double d = point.y() - d_curve_point.y();
@@ -100,8 +101,8 @@ void TranslateCurveTool::selectDestination(const QwtDoublePoint &point)
         d_graph->setActiveTool(nullptr);
         return;
     } else {
-        auto *c = (DataCurve *)d_selected_curve;
-        double d;
+        auto *c = dynamic_cast<DataCurve *>(d_selected_curve);
+        double d = NAN;
         QString col_name;
         switch (d_dir) {
         case Vertical: {

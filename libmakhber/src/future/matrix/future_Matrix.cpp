@@ -28,6 +28,7 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#include <cmath>
 #include "matrix/future_Matrix.h"
 #include "Matrix.h"
 #include "core/future_Folder.h"
@@ -62,8 +63,7 @@ int Matrix::default_row_height = 20;
 Matrix::Matrix(AbstractScriptingEngine *engine, int rows, int cols, const QString &name)
     : AbstractPart(name), d_plot_menu(0), scripted(engine)
 #else
-Matrix::Matrix(void *, int rows, int cols, const QString &name)
-    : AbstractPart(name), d_plot_menu(nullptr)
+Matrix::Matrix(void *, int rows, int cols, const QString &name) : AbstractPart(name)
 #endif
 {
     d_matrix_private = new Private(this);
@@ -272,7 +272,7 @@ void Matrix::pasteIntoSelection()
     int last_row = d_view->lastSelectedRow(false);
     int input_row_count = 0;
     int input_col_count = 0;
-    int rows, cols;
+    int rows = 0, cols = 0;
 
     const QClipboard *clipboard = QApplication::clipboard();
     const QMimeData *mimeData = clipboard->mimeData();
@@ -294,7 +294,7 @@ void Matrix::pasteIntoSelection()
         // if the is no selection or only one cell selected, the
         // selection will be expanded to the needed size from the current cell
         {
-            int current_row, current_col;
+            int current_row = 0, current_col = 0;
             d_view->getCurrentCell(&current_row, &current_col);
             if (current_row == -1)
                 current_row = 0;
@@ -337,7 +337,7 @@ void Matrix::insertEmptyColumns()
     int last = d_view->lastSelectedColumn();
     if (first < 0)
         return;
-    int count, current = first;
+    int count = 0, current = first;
 
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: insert empty column(s)").arg(name()));
@@ -394,7 +394,7 @@ void Matrix::insertEmptyRows()
         return;
     int first = d_view->firstSelectedRow();
     int last = d_view->lastSelectedRow();
-    int count, current = first;
+    int count = 0, current = first;
 
     if (first < 0)
         return;
@@ -557,7 +557,7 @@ QMenu *Matrix::createRowMenu(QMenu *append_to)
 
 void Matrix::createActions()
 {
-    QIcon *icon_temp;
+    QIcon *icon_temp = nullptr;
 
     // selection related actions
     action_cut_selection = new QAction(QIcon(QPixmap(":/cut.xpm")), tr("Cu&t"), this);
@@ -881,7 +881,7 @@ void Matrix::goToCell()
 {
     if (!d_view)
         return;
-    bool ok;
+    bool ok = false;
 
     int col = QInputDialog::getInt(nullptr, tr("Go to Cell"), tr("Enter column"), 1, 1,
                                    columnCount(), 1, &ok);
@@ -965,7 +965,7 @@ void Matrix::setCells(const QVector<qreal> &data)
 
 void Matrix::dimensionsDialog()
 {
-    bool ok;
+    bool ok = false;
 
     int cols = QInputDialog::getInt(nullptr, tr("Set Matrix Dimensions"),
                                     tr("Enter number of columns"), columnCount(), 1, 1e9, 1, &ok);
@@ -1220,8 +1220,8 @@ bool Matrix::load(XmlStreamReader *reader)
             return false;
 
         // read dimensions
-        bool ok1, ok2;
-        int rows, cols;
+        bool ok1 = false, ok2 = false;
+        int rows = 0, cols = 0;
         rows = reader->readAttributeInt("rows", &ok1);
         cols = reader->readAttributeInt("columns", &ok2);
         if (!ok1 || !ok2) {
@@ -1283,7 +1283,7 @@ bool Matrix::readDisplayElement(XmlStreamReader *reader)
     }
     setNumericFormat(str.at(0).toLatin1());
 
-    bool ok;
+    bool ok = false;
     int digits = reader->readAttributeInt("displayed_digits", &ok);
     if (!ok) {
         reader->raiseError(tr("invalid or missing number of displayed digits"));
@@ -1300,8 +1300,8 @@ bool Matrix::readCoordinatesElement(XmlStreamReader *reader)
 {
     Q_ASSERT(reader->isStartElement() && reader->name() == "coordinates");
 
-    bool ok;
-    double val;
+    bool ok = false;
+    double val = NAN;
 
     val = reader->readAttributeDouble("x_start", &ok);
     if (!ok) {
@@ -1346,7 +1346,7 @@ bool Matrix::readFormulaElement(XmlStreamReader *reader)
 bool Matrix::readRowHeightElement(XmlStreamReader *reader)
 {
     Q_ASSERT(reader->isStartElement() && reader->name() == "row_height");
-    bool ok;
+    bool ok = false;
     int row = reader->readAttributeInt("row", &ok);
     if (!ok) {
         reader->raiseError(tr("invalid or missing row index"));
@@ -1368,7 +1368,7 @@ bool Matrix::readRowHeightElement(XmlStreamReader *reader)
 bool Matrix::readColumnWidthElement(XmlStreamReader *reader)
 {
     Q_ASSERT(reader->isStartElement() && reader->name() == "column_width");
-    bool ok;
+    bool ok = false;
     int col = reader->readAttributeInt("column", &ok);
     if (!ok) {
         reader->raiseError(tr("invalid or missing column index"));
@@ -1392,8 +1392,8 @@ bool Matrix::readCellElement(XmlStreamReader *reader)
     Q_ASSERT(reader->isStartElement() && reader->name() == "cell");
 
     QString str;
-    int row, col;
-    bool ok;
+    int row = 0, col = 0;
+    bool ok = false;
 
     QXmlStreamAttributes attribs = reader->attributes();
     row = reader->readAttributeInt("row", &ok);

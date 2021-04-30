@@ -48,7 +48,7 @@ void TableCommentsHeaderView::setModel(QAbstractItemModel *model)
     Q_ASSERT(model->inherits("TableModel"));
     QAbstractItemModel *old_model = QHeaderView::model();
     auto *new_model =
-            new TableCommentsHeaderModel(static_cast<TableModel *>(model));
+            new TableCommentsHeaderModel(dynamic_cast<TableModel *>(model));
     QHeaderView::setModel(new_model);
     QObject::disconnect(
             new_model, SIGNAL(columnsInserted(QModelIndex, int, int)), this,

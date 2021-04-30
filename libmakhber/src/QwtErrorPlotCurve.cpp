@@ -98,9 +98,9 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
     double d_xOffset = 0.0;
     double d_yOffset = 0.0;
     if (d_master_curve->type() == Graph::VerticalBars)
-        d_xOffset = ((QwtBarCurve *)d_master_curve)->dataOffset();
+        d_xOffset = (dynamic_cast<QwtBarCurve *>(d_master_curve))->dataOffset();
     else if (d_master_curve->type() == Graph::HorizontalBars)
-        d_yOffset = ((QwtBarCurve *)d_master_curve)->dataOffset();
+        d_yOffset = (dynamic_cast<QwtBarCurve *>(d_master_curve))->dataOffset();
 
     for (int i = from; i <= to; i++) {
         const int xi = xMap.transform(x(i) + d_xOffset);
@@ -238,7 +238,7 @@ QwtDoubleRect QwtErrorPlotCurve::boundingRect() const
         }
     }
 
-    QwtArrayData *erMin, *erMax;
+    QwtArrayData *erMin = nullptr, *erMax = nullptr;
     if (type == Vertical) {
         erMin = new QwtArrayData(X, min);
         erMax = new QwtArrayData(X, max);

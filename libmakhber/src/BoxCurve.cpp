@@ -102,7 +102,7 @@ void BoxCurve::drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     const int box_width = 1 + (px_max - px_min) * b_width / 100;
     const int hbw = box_width / 2;
     const int median = yMap.transform(gsl_stats_median_from_sorted_data(dat, 1, size));
-    int b_lowerq, b_upperq;
+    int b_lowerq = 0, b_upperq = 0;
     double sd = 0;
     double se = 0;
     double mean = 0;
@@ -178,7 +178,7 @@ void BoxCurve::drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
 
     if (w_range) { // draw whiskers
         const int l = int(0.1 * box_width);
-        int w_upperq, w_lowerq;
+        int w_upperq = 0, w_lowerq = 0;
         if (w_range == SD) {
             w_lowerq = yMap.transform(mean - sd * w_coeff);
             w_upperq = yMap.transform(mean + sd * w_coeff);

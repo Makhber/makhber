@@ -31,6 +31,7 @@
 #include "MyParser.h"
 #include "ColorButton.h"
 #include "Interpolation.h"
+#include <cmath>
 
 #include <QGroupBox>
 #include <QSpinBox>
@@ -114,7 +115,7 @@ void InterpolationDialog::interpolate()
         return;
     }
 
-    double from, to;
+    double from = NAN, to = NAN;
     try {
         MyParser parser;
         parser.SetExpr(boxStart->text().replace(",", "."));
@@ -142,8 +143,8 @@ void InterpolationDialog::interpolate()
         return;
     }
 
-    auto *i = new Interpolation((ApplicationWindow *)this->parent(), graph, curve, from, to,
-                                boxMethod->currentIndex());
+    auto *i = new Interpolation(dynamic_cast<ApplicationWindow *>(this->parent()), graph, curve,
+                                from, to, boxMethod->currentIndex());
     i->setOutputPoints(boxPoints->value());
     i->setColor(btnColor->color());
     i->run();
@@ -173,11 +174,11 @@ void InterpolationDialog::activateCurve(const QString &curveName)
     if (!c)
         return;
 
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!app)
         return;
 
-    double start, end;
+    double start = NAN, end = NAN;
     graph->range(graph->curveIndex(curveName), &start, &end);
     boxStart->setText(QString::number(qMin(start, end), 'g', app->d_decimal_digits));
     boxEnd->setText(QString::number(qMax(start, end), 'g', app->d_decimal_digits));
@@ -185,7 +186,7 @@ void InterpolationDialog::activateCurve(const QString &curveName)
 
 void InterpolationDialog::changeDataRange()
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!app)
         return;
 

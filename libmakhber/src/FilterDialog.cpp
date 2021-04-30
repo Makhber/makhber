@@ -152,7 +152,7 @@ void FilterDialog::filter()
         }
     }
 
-    auto *f = new FFTFilter((ApplicationWindow *)this->parent(), graph, boxName->currentText(),
+    auto *f = new FFTFilter(dynamic_cast<ApplicationWindow *>(this->parent()), graph, boxName->currentText(),
                                  filter_type);
     if (filter_type == FFTFilter::BandPass) {
         f->setBand(from, to);

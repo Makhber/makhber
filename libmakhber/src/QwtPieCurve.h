@@ -63,5 +63,5 @@ private:
 
     int d_pie_ray, d_first_color;
     //! Keeps track of the left side position of the pie bounding rectangle in scale coordinates.
-    double d_left_coord;
+    double d_left_coord{};
 };

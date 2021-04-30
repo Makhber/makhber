@@ -57,8 +57,8 @@ public slots:
     void accept();
 
 private:
-    DataCurve *d_curve;
-    Graph *d_graph;
+    DataCurve *d_curve {};
+    Graph *d_graph {};
 };
 
 #endif

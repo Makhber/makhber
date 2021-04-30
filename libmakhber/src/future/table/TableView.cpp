@@ -388,7 +388,7 @@ void TableView::setColumnForControlTabs(int col)
         ui.type_box->setCurrentIndex(ui.type_box->findData((int)col_ptr->columnMode()));
         switch (col_ptr->columnMode()) {
         case Makhber::ColumnMode::Numeric: {
-            auto *filter = static_cast<Double2StringFilter *>(col_ptr->outputFilter());
+            auto *filter = dynamic_cast<Double2StringFilter *>(col_ptr->outputFilter());
             ui.format_box->setCurrentIndex(ui.format_box->findData(filter->numericFormat()));
             ui.digits_box->setValue(filter->numDigits());
             ui.date_time_interval->setVisible(false);
@@ -400,7 +400,7 @@ void TableView::setColumnForControlTabs(int col)
         case Makhber::ColumnMode::Month:
         case Makhber::ColumnMode::Day:
         case Makhber::ColumnMode::DateTime: {
-            auto *filter = static_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
+            auto *filter = dynamic_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
             ui.formatLineEdit->setText(filter->format());
             ui.format_box->setCurrentIndex(ui.format_box->findData(filter->format()));
             auto num_filter = col_ptr->numericDateTimeBaseFilter();
@@ -498,7 +498,7 @@ void TableView::updateFormatBox()
         const char *time_strings[] = { "hh",       "hh ap",        "hh:mm",        "hh:mm ap",
                                        "hh:mm:ss", "hh:mm:ss.zzz", "hh:mm:ss:zzz", "mm:ss.zzz",
                                        "hhmmss",   nullptr };
-        int j, i;
+        int j = 0, i = 0;
         for (i = 0; date_strings[i] != nullptr; i++)
             ui.format_box->addItem(QString(date_strings[i]), QVariant(date_strings[i]));
         for (j = 0; time_strings[j] != nullptr; j++)
@@ -677,7 +677,7 @@ void TableView::applyType()
         foreach (Column *col, list) {
             col->beginMacro(QObject::tr("%1: change column type").arg(col->name()));
             col->setColumnMode(new_mode);
-            auto *filter = static_cast<Double2StringFilter *>(col->outputFilter());
+            auto *filter = dynamic_cast<Double2StringFilter *>(col->outputFilter());
             int digits =
                     ui.digits_box->value(); // setNumericFormat causes digits_box to be modified...
             filter->setNumericFormat(ui.format_box->itemData(format_index).toChar().toLatin1());
@@ -722,7 +722,7 @@ void TableView::applyType()
                 break;
             }
             col->setColumnMode(new_mode, converter);
-            auto *filter = static_cast<DateTime2StringFilter *>(col->outputFilter());
+            auto *filter = dynamic_cast<DateTime2StringFilter *>(col->outputFilter());
             filter->setFormat(format);
             col->endMacro();
         }
@@ -929,7 +929,7 @@ bool TableView::eventFilter(QObject *watched, QEvent *event)
     QHeaderView *v_header = d_view_widget->verticalHeader();
 
     if (d_table && event->type() == QEvent::ContextMenu) {
-        auto *cm_event = static_cast<QContextMenuEvent *>(event);
+        auto *cm_event = dynamic_cast<QContextMenuEvent *>(event);
         QPoint global_pos = cm_event->globalPos();
         if (watched == v_header)
             d_table->showTableViewRowContextMenu(global_pos);

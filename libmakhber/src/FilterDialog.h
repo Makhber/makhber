@@ -60,7 +60,7 @@ public slots:
     void filter();
 
 private:
-    Graph *graph;
+    Graph *graph{};
     int filter_type;
 };
 

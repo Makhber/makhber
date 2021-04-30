@@ -237,8 +237,7 @@ void Graph::setSelectedMarker(long mrk, bool add)
                 d_markers_selector =
                         new SelectionMoveResizer(dynamic_cast<ArrowMarker *>(d_plot->marker(mrk)));
             else if (d_images.contains(mrk))
-                d_markers_selector =
-                        new SelectionMoveResizer(dynamic_cast<ImageMarker *>(d_plot->marker(mrk)));
+                d_markers_selector = new SelectionMoveResizer((ImageMarker *)d_plot->marker(mrk));
             else
                 return;
             connect(d_markers_selector, SIGNAL(targetsChanged()), this, SIGNAL(modifiedGraph()));
@@ -246,7 +245,7 @@ void Graph::setSelectedMarker(long mrk, bool add)
     } else {
         if (d_texts.contains(mrk)) {
             if (d_markers_selector) {
-                if (d_markers_selector->contains(dynamic_cast<Legend *>(d_plot->marker(mrk))))
+                if (d_markers_selector->contains((Legend *)d_plot->marker(mrk)))
                     return;
                 delete d_markers_selector;
             }
@@ -1532,8 +1531,7 @@ void Graph::removeMarker()
                 d_markers_selector->removeAll(
                         dynamic_cast<ArrowMarker *>(d_plot->marker(selectedMarker)));
             else if (d_images.contains(selectedMarker))
-                d_markers_selector->removeAll(
-                        dynamic_cast<ImageMarker *>(d_plot->marker(selectedMarker)));
+                d_markers_selector->removeAll((ImageMarker *)d_plot->marker(selectedMarker));
         }
         d_plot->removeMarker(selectedMarker);
         d_plot->replot();
@@ -1589,7 +1587,7 @@ void Graph::copyMarker()
     }
 
     if (d_lines.contains(selectedMarker)) {
-        auto *mrkL = dynamic_cast<ArrowMarker *>(d_plot->marker(selectedMarker));
+        auto *mrkL = (ArrowMarker *)d_plot->marker(selectedMarker);
         auxMrkStart = mrkL->startPoint();
         auxMrkEnd = mrkL->endPoint();
         selectedMarkerType = Arrow;
@@ -3237,7 +3235,7 @@ bool Graph::insertCurvesList(Table *w, const QStringList &names, int style, int 
         QStringList lst = otherCurves + errorCurves;
 
         for (int i = 0; i < lst.size(); i++) {
-            CurveType type_of_i {};
+            CurveType type_of_i;
             int j = w->colIndex(lst[i]);
             if (j < 0)
                 continue;
@@ -5197,9 +5195,8 @@ DataCurve *Graph::masterCurve(QwtErrorPlotCurve *er)
         if ((dynamic_cast<PlotCurve *>(it))->type() == Function)
             continue;
 
-        if ((dynamic_cast<DataCurve *>(it))->plotAssociation()
-            == er->masterCurve()->plotAssociation())
-            return dynamic_cast<DataCurve *>(it);
+        if (((DataCurve *)it)->plotAssociation() == er->masterCurve()->plotAssociation())
+            return (DataCurve *)it;
     }
     return nullptr;
 }

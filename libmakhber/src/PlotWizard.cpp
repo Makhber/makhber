@@ -327,7 +327,7 @@ bool PlotWizard::noCurves()
 
 void PlotWizard::plot3DRibbon(const QStringList &lst)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 
@@ -358,7 +358,7 @@ void PlotWizard::plot3DRibbon(const QStringList &lst)
 
 void PlotWizard::plot3D(const QStringList &lst)
 {
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     if (!app)
         return;
 

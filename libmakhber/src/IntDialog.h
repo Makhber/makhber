@@ -50,7 +50,7 @@ public:
     QPushButton *buttonOk;
     QPushButton *buttonCancel;
     QPushButton *buttonHelp;
-    QCheckBox *boxShowFormula;
+    QCheckBox *boxShowFormula {};
     QComboBox *boxName;
     QComboBox *boxMethod;
     QLineEdit *boxStart;
@@ -67,7 +67,7 @@ signals:
     void integrate(int, int, int, double, double, double);
 
 private:
-    Graph *graph;
+    Graph *graph{};
 };
 
 #endif

@@ -72,8 +72,8 @@ protected:
 
 private:
     QString formula_string;
-    char d_fmt;
-    int d_prec;
+    char d_fmt {};
+    int d_prec {};
     int d_minTicks, d_majTicks;
 };
 

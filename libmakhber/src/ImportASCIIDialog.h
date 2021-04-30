@@ -106,13 +106,13 @@ private:
     void initAdvancedOptions();
 
     //! Container widget for all advanced options.
-    QGroupBox *d_advanced_options;
-    QCheckBox *d_remember_options, *d_convert_to_numeric;
-    QPushButton *d_help_button;
+    QGroupBox *d_advanced_options {};
+    QCheckBox *d_remember_options {}, *d_convert_to_numeric {};
+    QPushButton *d_help_button {};
     // the actual options
-    QComboBox *d_import_mode, *d_column_separator, *boxDecimalSeparator;
-    QSpinBox *d_ignored_lines;
-    QCheckBox *d_rename_columns, *d_simplify_spaces, *d_strip_spaces;
+    QComboBox *d_import_mode {}, *d_column_separator {}, *boxDecimalSeparator {};
+    QSpinBox *d_ignored_lines {};
+    QCheckBox *d_rename_columns {}, *d_simplify_spaces {}, *d_strip_spaces {};
 };
 
 #endif

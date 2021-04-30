@@ -66,17 +66,17 @@ private:
     //! The new data type
     Makhber::ColumnDataType d_new_type;
     //! Pointer to old data
-    void *d_old_data;
+    void *d_old_data {};
     //! Pointer to new data
-    void *d_new_data;
+    void *d_new_data {};
     //! The new input filter
-    AbstractSimpleFilter *d_new_in_filter;
+    AbstractSimpleFilter *d_new_in_filter {};
     //! The new output filter
-    AbstractSimpleFilter *d_new_out_filter;
+    AbstractSimpleFilter *d_new_out_filter {};
     //! The old input filter
-    AbstractSimpleFilter *d_old_in_filter;
+    AbstractSimpleFilter *d_old_in_filter {};
     //! The old output filter
-    AbstractSimpleFilter *d_old_out_filter;
+    AbstractSimpleFilter *d_old_out_filter {};
     //! The old validity information
     IntervalAttribute<bool> d_old_validity;
     //! The new validity information
@@ -176,7 +176,7 @@ private:
     //! Number of rows to copy
     int d_num_rows;
     //! Previous number of rows in the destination column
-    int d_old_row_count;
+    int d_old_row_count {};
     //! The old validity information
     IntervalAttribute<bool> d_old_validity;
 };
@@ -238,9 +238,9 @@ private:
     //! The number of rows to be removed
     int d_count;
     //! Number of removed rows actually containing data
-    int d_data_row_count;
+    int d_data_row_count {};
     //! The number of rows before the removal
-    int d_old_size;
+    int d_old_size {};
     //! Column saving the removed rows
     Column::Private *d_backup;
     //! A dummy owner for the backup column
@@ -249,7 +249,7 @@ private:
      * to the Column::Private object to access its data pointer for fast data
      * replacement without too much copying.
      */
-    Column *d_backup_owner;
+    Column *d_backup_owner {};
     //! Backup of the masking attribute
     IntervalAttribute<bool> d_masking;
     //! Backup of the formula attribute
@@ -312,7 +312,7 @@ private:
     //! The column's data type
     Makhber::ColumnDataType d_type;
     //! Pointer to the old data pointer
-    void *d_data;
+    void *d_data {};
     //! Pointer to an empty data vector
     void *d_empty_data;
     //! The old validity
@@ -541,7 +541,7 @@ private:
     //! The old value
     QString d_old_value;
     //! The old number of rows
-    int d_row_count;
+    int d_row_count {};
     //! The old validity
     IntervalAttribute<bool> d_validity;
 };
@@ -574,9 +574,9 @@ private:
     //! The new value
     double d_new_value;
     //! The old value
-    double d_old_value;
+    double d_old_value {};
     //! The old number of rows
-    int d_row_count;
+    int d_row_count {};
     //! The old validity
     IntervalAttribute<bool> d_validity;
 };
@@ -612,7 +612,7 @@ private:
     //! The old value
     QDateTime d_old_value;
     //! The old number of rows
-    int d_row_count;
+    int d_row_count {};
     //! The old validity
     IntervalAttribute<bool> d_validity;
 };
@@ -650,7 +650,7 @@ private:
     //! Status flag
     bool d_copied;
     //! The old number of rows
-    int d_row_count;
+    int d_row_count {};
     //! The old validity
     IntervalAttribute<bool> d_validity;
 };
@@ -688,7 +688,7 @@ private:
     //! Status flag
     bool d_copied;
     //! The old number of rows
-    int d_row_count;
+    int d_row_count {};
     //! The old validity
     IntervalAttribute<bool> d_validity;
 };
@@ -726,7 +726,7 @@ private:
     //! Status flag
     bool d_copied;
     //! The old number of rows
-    int d_row_count;
+    int d_row_count {};
     //! The old validity
     IntervalAttribute<bool> d_validity;
 };

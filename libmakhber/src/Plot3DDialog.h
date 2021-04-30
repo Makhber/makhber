@@ -161,35 +161,36 @@ private:
     void initColorsPage();
     void initGeneralPage();
 
-    Graph3D *d_plot;
+    Graph3D *d_plot {};
     QFont titleFont, xAxisFont, yAxisFont, zAxisFont, numbersFont;
     QStringList labels, scales, tickLengths;
     QColor titleColor, meshColor, bgColor, axesColor, numColor, labelColor, gridColor;
     QColor fromColor, toColor; // custom data colors
 
-    QSpinBox *boxMeshLineWidth;
+    QSpinBox *boxMeshLineWidth {};
     QPushButton *buttonApply;
     QPushButton *buttonOk;
-    QPushButton *buttonCancel, *buttonLowerGreek, *buttonUpperGreek;
-    QPushButton *btnTitleColor, *btnTitleFont, *btnLabelFont, *btnGrid;
-    QPushButton *btnBackground, *btnMesh, *btnAxes, *btnTitle, *btnLabels, *btnNumbers;
-    QPushButton *btnNumbersFont, *btnFromColor, *btnToColor, *btnTable, *btnColorMap;
-    QPushButton *buttonAxisLowerGreek, *buttonAxisUpperGreek;
+    QPushButton *buttonCancel, *buttonLowerGreek {}, *buttonUpperGreek {};
+    QPushButton *btnTitleColor {}, *btnTitleFont {}, *btnLabelFont {}, *btnGrid {};
+    QPushButton *btnBackground {}, *btnMesh {}, *btnAxes {}, *btnTitle {}, *btnLabels {},
+            *btnNumbers {};
+    QPushButton *btnNumbersFont {}, *btnFromColor {}, *btnToColor {}, *btnTable, *btnColorMap {};
+    QPushButton *buttonAxisLowerGreek {}, *buttonAxisUpperGreek {};
     QTabWidget *generalDialog;
-    QWidget *scale, *colors, *general, *axes, *title, *bars, *points;
-    QLineEdit *boxTitle, *boxFrom, *boxTo, *boxLabel;
-    QSpinBox *boxMajors, *boxMinors;
-    QGroupBox *TicksGroupBox, *AxesColorGroupBox;
-    QSpinBox *boxResolution, *boxDistance, *boxTransparency;
-    QCheckBox *boxLegend, *boxSmooth, *boxBoxed, *boxCrossSmooth, *boxOrthogonal;
-    QListWidget *axesList, *axesList2;
-    QComboBox *boxType, *boxPointStyle;
-    QLineEdit *boxMajorLength, *boxMinorLength, *boxConesRad;
-    QDoubleSpinBox *boxZoom, *boxXScale, *boxYScale, *boxZScale;
-    QSpinBox *boxQuality;
-    QLineEdit *boxSize, *boxBarsRad, *boxCrossRad, *boxCrossLinewidth;
-    QStackedWidget *optionStack;
-    QWidget *dotsPage, *conesPage, *crossPage;
+    QWidget *scale {}, *colors {}, *general {}, *axes {}, *title {}, *bars, *points;
+    QLineEdit *boxTitle {}, *boxFrom {}, *boxTo {}, *boxLabel {};
+    QSpinBox *boxMajors {}, *boxMinors {};
+    QGroupBox *TicksGroupBox {}, *AxesColorGroupBox {};
+    QSpinBox *boxResolution {}, *boxDistance {}, *boxTransparency {};
+    QCheckBox *boxLegend {}, *boxSmooth {}, *boxBoxed {}, *boxCrossSmooth {}, *boxOrthogonal {};
+    QListWidget *axesList {}, *axesList2 {};
+    QComboBox *boxType {}, *boxPointStyle {};
+    QLineEdit *boxMajorLength {}, *boxMinorLength {}, *boxConesRad {};
+    QDoubleSpinBox *boxZoom {}, *boxXScale {}, *boxYScale {}, *boxZScale {};
+    QSpinBox *boxQuality {};
+    QLineEdit *boxSize {}, *boxBarsRad {}, *boxCrossRad {}, *boxCrossLinewidth {};
+    QStackedWidget *optionStack {};
+    QWidget *dotsPage {}, *conesPage {}, *crossPage {};
 };
 
 #endif

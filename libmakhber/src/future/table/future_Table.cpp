@@ -93,7 +93,7 @@ Table::Table(AbstractScriptingEngine *engine, int rows, int columns, const QStri
     : AbstractPart(name), d_plot_menu(0), scripted(engine), d_table_private(*this)
 #else
 Table::Table(int rows, int columns, const QString &name)
-    : AbstractPart(name), d_plot_menu(nullptr), d_table_private(*this)
+    : AbstractPart(name), d_table_private(*this)
 #endif
 {
     // set initial number of rows and columns
@@ -391,7 +391,7 @@ void Table::copySelection()
                 if (d_view->formulaModeActive()) {
                     output_str += col_ptr->formula(first_row + r);
                 } else if (col_ptr->dataType() == Makhber::TypeDouble) {
-                    auto *out_fltr = static_cast<Double2StringFilter *>(col_ptr->outputFilter());
+                    auto *out_fltr = dynamic_cast<Double2StringFilter *>(col_ptr->outputFilter());
                     // create a copy of current locale
                     QLocale noSeparators;
                     // we do not need separators on output!
@@ -431,7 +431,7 @@ void Table::pasteIntoSelection()
     int last_row = d_view->lastSelectedRow(false);
     int input_row_count = 0;
     int input_col_count = 0;
-    int rows, cols;
+    int rows = 0, cols = 0;
 
     const QClipboard *clipboard = QApplication::clipboard();
     const QMimeData *mimeData = clipboard->mimeData();
@@ -459,7 +459,7 @@ void Table::pasteIntoSelection()
         // if the is no selection or only one cell selected, the
         // selection will be expanded to the needed size from the current cell
         {
-            int current_row, current_col;
+            int current_row = 0, current_col = 0;
             d_view->getCurrentCell(&current_row, &current_col);
             if (current_row == -1)
                 current_row = 0;
@@ -753,7 +753,7 @@ void Table::insertEmptyColumns()
     int last = d_view->lastSelectedColumn();
     if (first < 0)
         return;
-    int count, current = first;
+    int count = 0, current = first;
     QList<Column *> cols;
 
     WAIT_CURSOR;
@@ -955,7 +955,7 @@ void Table::insertEmptyRows()
         return;
     int first = d_view->firstSelectedRow();
     int last = d_view->lastSelectedRow();
-    int count, current = first;
+    int count = 0, current = first;
 
     if (first < 0)
         return;
@@ -1131,7 +1131,7 @@ QMenu *Table::createContextMenu() const
 
 void Table::createActions()
 {
-    QIcon *icon_temp;
+    QIcon *icon_temp = nullptr;
 
     // selection related actions
     action_cut_selection = new QAction(QIcon(QPixmap(":/cut.xpm")), tr("Cu&t"), this);
@@ -1847,7 +1847,7 @@ void Table::goToCell()
 {
     if (!d_view)
         return;
-    bool ok;
+    bool ok = false;
 
     int col = QInputDialog::getInt(nullptr, tr("Go to Cell"), tr("Enter column"), 1, 1,
                                    columnCount(), 1, &ok);
@@ -2223,28 +2223,28 @@ void Table::selectAll()
 
 void Table::handleModeChange(const AbstractColumn *col)
 {
-    int index = columnIndex(static_cast<const Column *>(col));
+    int index = columnIndex(dynamic_cast<const Column *>(col));
     if (index != -1)
         d_table_private.updateHorizontalHeader(index, index);
 }
 
 void Table::handleDescriptionChange(const AbstractAspect *aspect)
 {
-    int index = columnIndex(static_cast<const Column *>(aspect));
+    int index = columnIndex(dynamic_cast<const Column *>(aspect));
     if (index != -1)
         d_table_private.updateHorizontalHeader(index, index);
 }
 
 void Table::handlePlotDesignationChange(const AbstractColumn *col)
 {
-    int index = columnIndex(static_cast<const Column *>(col));
+    int index = columnIndex(dynamic_cast<const Column *>(col));
     if (index != -1)
         d_table_private.updateHorizontalHeader(index, columnCount() - 1);
 }
 
 void Table::handleDataChange(const AbstractColumn *col)
 {
-    int index = columnIndex(static_cast<const Column *>(col));
+    int index = columnIndex(dynamic_cast<const Column *>(col));
     if (index != -1) {
         if (col->rowCount() > rowCount())
             setRowCount(col->rowCount());
@@ -2262,7 +2262,7 @@ void Table::handleRowsAboutToBeInserted(const AbstractColumn *col, int before, i
 void Table::handleRowsInserted(const AbstractColumn *col, int before, int count)
 {
     Q_UNUSED(count);
-    int index = columnIndex(static_cast<const Column *>(col));
+    int index = columnIndex(dynamic_cast<const Column *>(col));
     if (index != -1 && before <= col->rowCount())
         emit dataChanged(before, index, col->rowCount() - 1, index);
 }
@@ -2277,7 +2277,7 @@ void Table::handleRowsAboutToBeRemoved(const AbstractColumn *col, int first, int
 void Table::handleRowsRemoved(const AbstractColumn *col, int first, int count)
 {
     Q_UNUSED(count);
-    int index = columnIndex(static_cast<const Column *>(col));
+    int index = columnIndex(dynamic_cast<const Column *>(col));
     if (index != -1)
         emit dataChanged(first, index, col->rowCount() - 1, index);
 }
@@ -2369,8 +2369,8 @@ bool Table::load(XmlStreamReader *reader)
             return false;
 
         // read dimensions
-        bool ok1, ok2;
-        int rows, cols;
+        bool ok1 = false, ok2 = false;
+        int rows = 0, cols = 0;
         rows = reader->readAttributeInt("rows", &ok1);
         cols = reader->readAttributeInt("columns", &ok2);
         if (!ok1 || !ok2) {
@@ -2440,7 +2440,7 @@ void Table::adjustActionNames()
 bool Table::readColumnWidthElement(XmlStreamReader *reader)
 {
     Q_ASSERT(reader->isStartElement() && reader->name() == "column_width");
-    bool ok;
+    bool ok = false;
     int col = reader->readAttributeInt("column", &ok);
     if (!ok) {
         reader->raiseError(tr("invalid or missing column index"));
@@ -2546,7 +2546,7 @@ void Table::Private::insertColumns(int before, QList<Column *> cols)
 
     Q_ASSERT(before >= 0);
 
-    int i, rows;
+    int i = 0, rows = 0;
     for (i = 0; i < count; i++) {
         rows = cols.at(i)->rowCount();
         if (rows > d_row_count)
@@ -2643,7 +2643,7 @@ int Table::Private::numColsWithPD(Makhber::PlotDesignation pd)
 
 void Table::Private::updateVerticalHeader(int start_row)
 {
-    int current_size = d_vertical_header_data.size(), i;
+    int current_size = d_vertical_header_data.size(), i = 0;
     for (i = start_row; i < current_size; i++)
         d_vertical_header_data.replace(i, i + 1);
     for (; i < d_row_count; i++)

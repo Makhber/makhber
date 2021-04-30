@@ -29,6 +29,8 @@
 #include "QwtBarCurve.h"
 #include <QPainter>
 
+#include <cmath>
+
 QwtBarCurve::QwtBarCurve(BarStyle style, Table *t, const QString &xColName, const QString &name,
                          int startRow, int endRow)
     : DataCurve(t, xColName, name, startRow, endRow)
@@ -66,8 +68,8 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     painter->setPen(QwtPlotCurve::pen());
     painter->setBrush(QwtPlotCurve::brush());
 
-    int dx, dy;
-    double ref1, ref2;
+    int dx = 0, dy = 0;
+    double ref1 = NAN, ref2 = NAN;
     double bar_width = 0;
 
     if (bar_style == Vertical) {

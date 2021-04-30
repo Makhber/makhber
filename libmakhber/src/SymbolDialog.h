@@ -78,7 +78,7 @@ private:
 
     QButtonGroup *buttons;
     QPushButton *closeButton;
-    int numButtons;
+    int numButtons{};
     QVBoxLayout *mainLayout;
     QGridLayout *gridLayout;
 

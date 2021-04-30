@@ -93,8 +93,8 @@ public:
     QSize sizeHint() const;
 
 private:
-    QPushButton *selectButton;
-    QFrame *display;
+    QPushButton *selectButton {};
+    QFrame *display {};
 
 signals:
     //! Signal clicked: This is emitted when the selection button is clicked
@@ -111,7 +111,7 @@ private slots:
     void pickColor();
 
 private:
-    int btn_size;
+    int btn_size {};
 };
 
 #endif

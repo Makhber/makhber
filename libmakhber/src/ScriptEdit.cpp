@@ -94,7 +94,7 @@ ScriptEdit::ScriptEdit(ScriptingEnv *env, QWidget *parent, QString name)
 void ScriptEdit::customEvent(QEvent *e)
 {
     if (e->type() == SCRIPTING_CHANGE_EVENT) {
-        scriptingChangeEvent((ScriptingChangeEvent *)e);
+        scriptingChangeEvent(dynamic_cast<ScriptingChangeEvent *>(e));
         myScript->deleteLater();
         myScript = scriptEnv->newScript("", this, objectName());
         connect(myScript, SIGNAL(error(const QString &, const QString &, int)), this,
@@ -125,7 +125,7 @@ void ScriptEdit::contextMenuEvent(QContextMenuEvent *e)
     menu->addAction(actionEval);
 
     if (parent()->inherits("Note")) {
-        Note *sp = (Note *)parent();
+        Note *sp = dynamic_cast<Note *>(parent());
         auto *actionAutoexec = new QAction(tr("Auto&exec"), menu);
         actionAutoexec->setCheckable(true);
         actionAutoexec->setChecked(sp->autoexec());
@@ -138,7 +138,7 @@ void ScriptEdit::contextMenuEvent(QContextMenuEvent *e)
     QStringList flist = scriptEnv->mathFunctions();
     QMenu *submenu = nullptr;
     for (int i = 0; i < flist.size(); i++) {
-        QAction *newAction;
+        QAction *newAction = nullptr;
         QString menupart;
         // group by text before "_" (would make sense if we renamed several functions...)
         /*if (flist[i].contains("_") || (i<flist.size()-1 && flist[i+1].split("_")[0]==flist[i]))
@@ -394,7 +394,7 @@ void ScriptEdit::updateIndentation()
     QTextCursor cursor = textCursor();
     QTextBlock para = cursor.block();
     QString prev = para.previous().text();
-    int i;
+    int i = 0;
     for (i = 0; prev[i].isSpace(); i++)
         ;
     QString indent = prev.mid(0, i);

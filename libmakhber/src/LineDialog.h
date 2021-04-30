@@ -67,15 +67,15 @@ private:
     ArrowMarker *lm;
 
     PenWidget *penWidget;
-    QComboBox *unitBox;
+    QComboBox *unitBox {};
     QPushButton *btnOk;
     QPushButton *btnApply;
     QPushButton *buttonDefault;
     QCheckBox *endBox;
     QCheckBox *startBox, *filledBox;
     QTabWidget *tw;
-    QWidget *options, *geometry, *head;
-    QLineEdit *xStartBox, *yStartBox, *xEndBox, *yEndBox;
+    QWidget *options, *geometry {}, *head;
+    QLineEdit *xStartBox {}, *yStartBox {}, *xEndBox {}, *yEndBox {};
     QSpinBox *boxHeadAngle, *boxHeadLength;
 };
 

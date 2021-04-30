@@ -55,7 +55,7 @@ bool TitlePicker::eventFilter(QObject *object, QEvent *e)
     }
 
     if (object->inherits("QwtTextLabel") && e->type() == QEvent::MouseButtonPress) {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         emit clicked();
 
         if (me->button() == Qt::RightButton)
@@ -64,7 +64,7 @@ bool TitlePicker::eventFilter(QObject *object, QEvent *e)
     }
 
     if (object->inherits("QwtTextLabel") && e->type() == QEvent::KeyPress) {
-        switch (((const QKeyEvent *)e)->key()) {
+        switch ((dynamic_cast<const QKeyEvent *>(e))->key()) {
         case Qt::Key_Delete:
             emit removeTitle();
             return true;
@@ -87,5 +87,5 @@ void TitlePicker::setSelected(bool select)
     else
         text.setBackgroundPen(QPen(Qt::NoPen));
 
-    ((QwtPlot *)parent())->setTitle(text);
+    (dynamic_cast<QwtPlot *>(parent()))->setTitle(text);
 }

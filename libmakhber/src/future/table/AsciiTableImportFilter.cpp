@@ -65,7 +65,7 @@ struct MakhberTextStream
 
     QStringList readRow()
     {
-        char c;
+        char c = 0;
         QString r;
 
         while ((good = input.getChar(&c)))
@@ -117,7 +117,7 @@ template<class C>
 void readCols(QList<Column *> &cols, MakhberTextStream &stream, bool readColNames)
 {
     QStringList row, column_names;
-    int i;
+    int i = 0;
 
     // read first row
     row = stream.readRow();

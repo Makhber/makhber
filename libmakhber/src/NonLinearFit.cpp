@@ -73,7 +73,7 @@ void NonLinearFit::setFormula(const QString &s)
 void NonLinearFit::setParametersList(const QStringList &lst)
 {
     if ((int)lst.count() < 1) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Fit Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Fit Error"),
                               tr("You must provide a list containing at least one parameter for "
                                  "this type of fit. Operation aborted!"));
         d_init_err = true;

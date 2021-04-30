@@ -219,7 +219,7 @@ private:
     //! New cell value
     double d_value;
     //! Backup of the changed value
-    double d_old_value;
+    double d_old_value {};
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -247,10 +247,10 @@ private:
     double d_new_x2;
     double d_new_y1;
     double d_new_y2;
-    double d_old_x1;
-    double d_old_x2;
-    double d_old_y1;
-    double d_old_y2;
+    double d_old_x1 {};
+    double d_old_x2 {};
+    double d_old_y1 {};
+    double d_old_y2 {};
 };
 
 ///////////////////////////////////////////////////////////////////////////

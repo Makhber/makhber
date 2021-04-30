@@ -195,7 +195,7 @@ void ColorMapEditor::showColorDialog(int row, int col)
 bool ColorMapEditor::eventFilter(QObject *object, QEvent *e)
 {
     if (e->type() == QEvent::MouseMove && object == table->viewport()) {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         QPoint pos = table->viewport()->mapToParent(me->pos());
         int row = table->rowAt(pos.y() - table->horizontalHeader()->height());
         if (table->columnAt(pos.x()) == 1 && row >= 0 && row < table->rowCount())
@@ -207,7 +207,7 @@ bool ColorMapEditor::eventFilter(QObject *object, QEvent *e)
         setCursor(QCursor(Qt::ArrowCursor));
         return true;
     } else if (e->type() == QEvent::KeyPress && object == table) {
-        auto *ke = (QKeyEvent *)e;
+        auto *ke = dynamic_cast<QKeyEvent *>(e);
         if (ke->key() == Qt::Key_Return && table->currentColumn() == 1) {
             showColorDialog(table->currentRow(), 1);
             return true;

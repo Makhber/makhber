@@ -57,8 +57,8 @@ private:
               int to) const;
 
     bool d_autoBin;
-    double d_bin_size, d_begin, d_end;
+    double d_bin_size {}, d_begin {}, d_end {};
 
     //! Variables storing statistical information
-    double d_mean, d_standard_deviation, d_min, d_max;
+    double d_mean {}, d_standard_deviation {}, d_min {}, d_max {};
 };

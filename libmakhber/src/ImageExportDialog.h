@@ -51,20 +51,20 @@ private:
     void initAdvancedOptions();
 
     //! Container widget for all advanced options.
-    QStackedWidget *d_advanced_options;
+    QStackedWidget *d_advanced_options {};
     // vector format options
     //! Container widget for all options available for vector formats.
-    QGroupBox *d_vector_options;
-    QSpinBox *d_resolution;
-    QCheckBox *d_color;
-    QCheckBox *d_keep_aspect;
-    QCheckBox *d_standard_page;
-    QComboBox *d_box_page_size;
-    QComboBox *d_box_page_orientation;
+    QGroupBox *d_vector_options {};
+    QSpinBox *d_resolution {};
+    QCheckBox *d_color {};
+    QCheckBox *d_keep_aspect {};
+    QCheckBox *d_standard_page {};
+    QComboBox *d_box_page_size {};
+    QComboBox *d_box_page_orientation {};
     // raster format options
     //! Container widget for all options available for raster formats.
-    QGroupBox *d_raster_options;
-    QSpinBox *d_quality;
+    QGroupBox *d_raster_options {};
+    QSpinBox *d_quality {};
 
 public:
     //! Constructor

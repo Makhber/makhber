@@ -164,7 +164,7 @@ void ErrDialog::selectSrcTable(int tabnr)
 {
     colNamesBox->clear();
     if (tabnr > -1)
-        colNamesBox->addItems(((Table *)srcTables->at(tabnr))->colNames());
+        colNamesBox->addItems((dynamic_cast<Table *>(srcTables->at(tabnr)))->colNames());
 }
 
 void ErrDialog::add()
@@ -179,7 +179,7 @@ void ErrDialog::add()
         emit options(nameLabel->currentText(),
                      tableNamesBox->currentText() + "_" + colNamesBox->currentText(), direction);
     else {
-        int type;
+        int type = 0;
         if (percentBox->isChecked())
             type = 0;
         else

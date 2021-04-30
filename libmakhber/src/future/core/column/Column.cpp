@@ -314,7 +314,7 @@ void Column::save(QXmlStreamWriter *writer) const
         writer->writeCharacters(formula(interval.start()));
         writer->writeEndElement();
     }
-    int i;
+    int i = 0;
     switch (dataType()) {
     case Makhber::TypeDouble:
         for (i = 0; i < rowCount(); i++) {
@@ -508,8 +508,8 @@ bool Column::XmlReadMask(XmlStreamReader *reader)
 {
     Q_ASSERT(reader->isStartElement() && reader->name() == "mask");
 
-    bool ok1, ok2;
-    int start, end;
+    bool ok1 = false, ok2 = false;
+    int start = 0, end = 0;
     start = reader->readAttributeInt("start_row", &ok1);
     end = reader->readAttributeInt("end_row", &ok2);
     if (!ok1 || !ok2) {
@@ -527,8 +527,8 @@ bool Column::XmlReadFormula(XmlStreamReader *reader)
 {
     Q_ASSERT(reader->isStartElement() && reader->name() == "formula");
 
-    bool ok1, ok2;
-    int start, end;
+    bool ok1 = false, ok2 = false;
+    int start = 0, end = 0;
     start = reader->readAttributeInt("start_row", &ok1);
     end = reader->readAttributeInt("end_row", &ok2);
     if (!ok1 || !ok2) {
@@ -545,7 +545,7 @@ bool Column::XmlReadRow(XmlStreamReader *reader)
     Q_ASSERT(reader->isStartElement() && reader->name() == "row");
 
     QString str;
-    int type_code;
+    int type_code = 0;
 
     QXmlStreamAttributes attribs = reader->attributes();
     // verfiy type
@@ -556,7 +556,7 @@ bool Column::XmlReadRow(XmlStreamReader *reader)
         return false;
     }
 
-    bool ok;
+    bool ok = false;
     int index = reader->readAttributeInt("index", &ok);
     if (!ok) {
         reader->raiseError(tr("invalid or missing row index"));

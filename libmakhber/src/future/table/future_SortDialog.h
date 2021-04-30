@@ -66,7 +66,7 @@ private:
         QComboBox *box_type;
         QComboBox *box_order;
         QComboBox *columns_list;
-    } ui;
+    } ui{};
 };
 
 } // namespace

@@ -111,7 +111,7 @@ void OpenProjectDialog::updateAdvancedOptions(const QString &filter)
 void OpenProjectDialog::closeEvent(QCloseEvent *e)
 {
     if (isExtendable()) {
-        auto *app = (ApplicationWindow *)this->parent();
+        auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
         if (app)
             app->d_extended_open_dialog = this->isExtended();
     }

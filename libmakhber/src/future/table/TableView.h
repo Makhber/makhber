@@ -219,7 +219,7 @@ protected slots:
 
 protected:
     //! Pointer to the item delegate
-    TableItemDelegate *d_delegate;
+    TableItemDelegate *d_delegate {};
     //! Pointer to the current underlying model
     TableModel *d_model;
 
@@ -230,15 +230,15 @@ protected:
     bool eventFilter(QObject *watched, QEvent *event);
 
     //! UI with options tabs (description, format, formula etc.)
-    Ui::ControlTabs ui;
+    Ui::ControlTabs ui {};
     //! The table view (first part of the UI)
-    TableViewWidget *d_view_widget;
+    TableViewWidget *d_view_widget {};
     //! Widget that contains the control tabs UI from #ui
-    QWidget *d_control_tabs;
+    QWidget *d_control_tabs {};
     //! Button to toogle the visibility of #d_tool_box
-    QToolButton *d_hide_button;
-    QHBoxLayout *d_main_layout;
-    TableDoubleHeaderView *d_horizontal_header;
+    QToolButton *d_hide_button {};
+    QHBoxLayout *d_main_layout {};
+    TableDoubleHeaderView *d_horizontal_header {};
     QPointer<future::Table> d_table;
 
     //! Initialization

@@ -52,7 +52,8 @@ Interpolation::Interpolation(ApplicationWindow *parent, Graph *g, const QString 
 void Interpolation::init(int m)
 {
     if (m < 0 || m > 2) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Unknown interpolation method. Valid values are: 0 - Linear, 1 - "
                                  "Cubic, 2 - Akima."));
         d_init_err = true;
@@ -80,7 +81,7 @@ void Interpolation::init(int m)
 void Interpolation::setMethod(int m)
 {
     if (m < 0 || m > 2) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Error"),
                               tr("Unknown interpolation method, valid values are: 0 - Linear, 1 - "
                                  "Cubic, 2 - Akima."));
         d_init_err = true;
@@ -88,7 +89,7 @@ void Interpolation::setMethod(int m)
     }
     unsigned min_points = m + 3;
     if (d_n < min_points) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
                               tr("You need at least %1 points in order to perform this operation!")
                                       .arg(min_points));
         d_init_err = true;
@@ -132,7 +133,7 @@ bool Interpolation::isDataAcceptable()
     // GSL interpolation routines fail with division by zero on such data
     for (unsigned i = 1; i < d_n; i++)
         if (d_x[i - 1] == d_x[i]) {
-            QMessageBox::critical((ApplicationWindow *)parent(),
+            QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
                                   tr("Makhber") + " - " + tr("Error"),
                                   tr("Several data points have the same x value causing divisions "
                                      "by zero, operation aborted!"));

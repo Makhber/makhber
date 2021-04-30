@@ -64,7 +64,7 @@ private:
     //! The new columns
     QList<Column *> d_cols;
     //! Row count before the command
-    int d_rows_before;
+    int d_rows_before {};
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -90,7 +90,7 @@ private:
     //! Number of rows
     int d_rows;
     //! Number of rows before
-    int d_old_rows;
+    int d_old_rows{};
 };
 
 ///////////////////////////////////////////////////////////////////////////

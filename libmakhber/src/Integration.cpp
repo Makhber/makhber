@@ -97,7 +97,8 @@ bool Integration::isDataAcceptable()
     case Akima:
         break;
     default:
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Unknown interpolation method. Valid values are: 0 - Linear, 1 - "
                                  "Cubic, 2 - Akima."));
         d_init_err = true;
@@ -106,7 +107,7 @@ bool Integration::isDataAcceptable()
     // GSL interpolation routines fail with division by zero on such data
     for (unsigned i = 1; i < d_n; i++)
         if (d_x[i - 1] == d_x[i]) {
-            QMessageBox::critical((ApplicationWindow *)parent(),
+            QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
                                   tr("Makhber") + " - " + tr("Error"),
                                   tr("Several data points have the same x value causing divisions "
                                      "by zero, operation aborted!"));
@@ -118,7 +119,7 @@ bool Integration::isDataAcceptable()
 
 QString Integration::logInfo()
 {
-    const gsl_interp_type *method_t;
+    const gsl_interp_type *method_t = nullptr;
     QString method_name;
     switch (d_method) {
     case Linear:
@@ -138,7 +139,7 @@ QString Integration::logInfo()
     }
 
     if (d_n < gsl_interp_type_min_size(method_t)) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
                               tr("You need at least %1 points in order to perform this operation!")
                                       .arg(gsl_interp_type_min_size(method_t)));
         d_init_err = true;
@@ -153,7 +154,7 @@ QString Integration::logInfo()
     logInfo += "\n" + tr("Numerical integration of") + ": " + d_curve->title().text()
             + tr(" using ") + method_name + tr("Interpolation") + "\n";
 
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     int prec = app->d_decimal_digits;
     logInfo += tr("Points") + ": " + QString::number(d_n) + " " + tr("from")
             + " x = " + QLocale().toString(d_from, 'g', prec) + " ";

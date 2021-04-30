@@ -107,7 +107,7 @@ QList<QString> ActionManager::internalNames() const
 
 void ActionManager::removeAction(QObject *action)
 {
-    removeAction(static_cast<QAction *>(action));
+    removeAction(dynamic_cast<QAction *>(action));
 }
 
 void ActionManager::removeAction(QAction *action)

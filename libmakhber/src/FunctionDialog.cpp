@@ -30,6 +30,7 @@
 #include "MyParser.h"
 #include "ApplicationWindow.h"
 #include "FunctionCurve.h"
+#include <cmath>
 
 #include <QTextEdit>
 #include <QLineEdit>
@@ -196,7 +197,7 @@ void FunctionDialog::setCurveToModify(Graph *g, int curve)
 
     graph = g;
 
-    auto *c = (FunctionCurve *)graph->curve(curve);
+    auto *c = dynamic_cast<FunctionCurve *>(graph->curve(curve));
     if (!c)
         return;
 
@@ -258,7 +259,7 @@ bool FunctionDialog::acceptFunction()
     QString from = boxFrom->text().toLower();
     QString to = boxTo->text().toLower();
 
-    double start, end;
+    double start = NAN, end = NAN;
     try {
         MyParser parser;
         parser.SetExpr(from);
@@ -295,8 +296,8 @@ bool FunctionDialog::acceptFunction()
     ranges += start;
     ranges += end;
 
-    bool result;
-    auto *app = (ApplicationWindow *)this->parent();
+    bool result = false;
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     app->updateFunctionLists(type, formulas);
     if (!graph)
         result = app->newFunctionPlot(type, formulas, "x", ranges, boxPoints->value());
@@ -317,7 +318,7 @@ bool FunctionDialog::acceptParametric()
     QString from = boxParFrom->text().toLower();
     QString to = boxParTo->text().toLower();
 
-    double start, end;
+    double start = NAN, end = NAN;
     try {
         MyParser parser;
         parser.SetExpr(from);
@@ -357,8 +358,8 @@ bool FunctionDialog::acceptParametric()
     ranges += start;
     ranges += end;
 
-    bool result;
-    auto *app = (ApplicationWindow *)this->parent();
+    bool result = false;
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     app->updateFunctionLists(type, formulas);
     if (!graph)
         result = app->newFunctionPlot(type, formulas, boxParameter->text(), ranges,
@@ -381,7 +382,7 @@ bool FunctionDialog::acceptPolar()
     QString from = boxPolarFrom->text().toLower();
     QString to = boxPolarTo->text().toLower();
 
-    double start, end;
+    double start = NAN, end = NAN;
     try {
         MyParser parser;
         parser.SetExpr(from);
@@ -421,8 +422,8 @@ bool FunctionDialog::acceptPolar()
     ranges += start;
     ranges += end;
 
-    bool result;
-    auto *app = (ApplicationWindow *)this->parent();
+    bool result = false;
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     app->updateFunctionLists(type, formulas);
 
     if (!graph)

@@ -76,7 +76,7 @@ Table::Table(ScriptingEnv *env, const QString &fname, const QString &sep, int ig
 
     QFile file(fname);
     if (file.open(QIODevice::ReadOnly)) {
-        d_future_table = static_cast<future::Table *>(filter.importAspect(file));
+        d_future_table = dynamic_cast<future::Table *>(filter.importAspect(file));
         if (!d_future_table)
             d_future_table = new future::Table(0, 0, label);
         else
@@ -255,7 +255,7 @@ void Table::print(const QString &fileName)
     int rows = numRows();
     int cols = numCols();
     int height = margin;
-    int i, vertHeaderWidth = vHeader->width();
+    int i = 0, vertHeaderWidth = vHeader->width();
     int right = margin + vertHeaderWidth;
 
     // print header
@@ -583,7 +583,7 @@ void Table::saveToDevice(QIODevice *device, const QString &geometry)
     // Copy QXmlStreamWriter's output to device
     if (tmp_file.isOpen()) {
         tmp_file.seek(0);
-        qint64 bytes_read;
+        qint64 bytes_read = 0;
         char buffer[1024];
         while ((bytes_read = tmp_file.read(buffer, 1024)) > 0)
             device->write(buffer, bytes_read);
@@ -1012,7 +1012,7 @@ bool Table::exportASCII(const QString &fname, const QString &separator, bool wit
     }
 
     QTextStream out(&file);
-    int i, j;
+    int i = 0, j = 0;
     int rows = numRows();
     int cols = numCols();
     int selectedCols = 0;
@@ -1095,7 +1095,7 @@ bool Table::exportASCII(const QString &fname, const QString &separator, bool wit
 void Table::customEvent(QEvent *e)
 {
     if (e->type() == SCRIPTING_CHANGE_EVENT)
-        scriptingChangeEvent((ScriptingChangeEvent *)e);
+        scriptingChangeEvent(dynamic_cast<ScriptingChangeEvent *>(e));
 }
 
 void Table::closeEvent(QCloseEvent *e)
@@ -1284,7 +1284,7 @@ QString Table::columnFormat(int col)
         && col_ptr->columnMode() != Makhber::ColumnMode::Day)
         return QString();
 
-    auto *filter = static_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
+    auto *filter = dynamic_cast<DateTime2StringFilter *>(col_ptr->outputFilter());
     return filter->format();
 }
 
@@ -1342,7 +1342,7 @@ void Table::applyFormula()
 
 void Table::addFunction()
 {
-    static_cast<ScriptEdit *>(ui.formula_box)
+    dynamic_cast<ScriptEdit *>(ui.formula_box)
             ->insertFunction(ui.add_function_combobox->currentText());
 }
 
@@ -1407,7 +1407,7 @@ void Table::importASCII(const QString &fname, const QString &sep, int ignoredLin
 
     QFile file(fname);
     if (file.open(QIODevice::ReadOnly)) {
-        auto *temp = static_cast<future::Table *>(filter.importAspect(file));
+        auto *temp = dynamic_cast<future::Table *>(filter.importAspect(file));
         if (!temp)
             return;
         int preexisting_cols = columnCount();

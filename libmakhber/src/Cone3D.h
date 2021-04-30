@@ -48,9 +48,9 @@ public:
 private:
     GLUquadricObj *hat;
     GLUquadricObj *disk;
-    unsigned quality_;
-    double radius_;
-    GLboolean oldstate_;
+    unsigned quality_ {};
+    double radius_ {};
+    GLboolean oldstate_ {};
 };
 
 #endif

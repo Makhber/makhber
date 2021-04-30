@@ -31,6 +31,7 @@
 #include "ColorButton.h"
 #include "ApplicationWindow.h"
 #include "PolynomialFit.h"
+#include <cmath>
 
 #include <QSpinBox>
 #include <QCheckBox>
@@ -111,7 +112,7 @@ void PolynomFitDialog::fit()
         return;
     }
 
-    auto *app = (ApplicationWindow *)this->parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
     auto *fitter =
             new PolynomialFit(app, graph, boxOrder->value(), boxShowFormula->isChecked());
     if (fitter->setDataFromCurve(curveName, boxStart->text().toDouble(),
@@ -143,7 +144,7 @@ void PolynomFitDialog::setGraph(Graph *g)
 
 void PolynomFitDialog::activateCurve(const QString &curveName)
 {
-    double start, end;
+    double start = NAN, end = NAN;
     graph->range(graph->curveIndex(curveName), &start, &end);
 
     boxStart->setText(QString::number(start, 'g', 15));

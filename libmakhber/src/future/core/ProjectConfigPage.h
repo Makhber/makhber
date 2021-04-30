@@ -44,7 +44,7 @@ public slots:
     virtual void apply();
 
 private:
-    Ui::ProjectConfigPage ui;
+    Ui::ProjectConfigPage ui{};
 };
 
 #endif // ifndef PROJECT_CONFIG_PAGE_H

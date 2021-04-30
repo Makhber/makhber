@@ -55,15 +55,15 @@ private:
     void setDataFromTable(Table *t, const QString &realColName,
                           const QString &imagColName = QString());
 
-    double d_sampling;
+    double d_sampling {};
     //! Flag telling if an inverse FFT must be performed.
-    bool d_inverse;
+    bool d_inverse {};
     //! Flag telling if the amplitudes in the output spectrum must be normalized.
-    bool d_normalize;
+    bool d_normalize {};
     //! Flag telling if the output frequencies must be shifted in order to have a zero-centered spectrum.
-    bool d_shift_order;
+    bool d_shift_order {};
 
-    int d_real_col, d_imag_col;
+    int d_real_col {}, d_imag_col {};
 };
 
 #endif

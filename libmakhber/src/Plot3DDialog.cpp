@@ -33,6 +33,7 @@
 #include "TextDialog.h"
 #include "MyParser.h"
 #include "SymbolDialog.h"
+#include <cmath>
 
 #include <QListWidget>
 #include <QLineEdit>
@@ -656,7 +657,7 @@ QColor Plot3DDialog::pickTitleColor()
 
 void Plot3DDialog::pickTitleFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, titleFont, this);
     if (ok) {
         titleFont = font;
@@ -667,7 +668,7 @@ void Plot3DDialog::pickTitleFont()
 
 void Plot3DDialog::pickNumbersFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font = QFontDialog::getFont(&ok, numbersFont, this);
     if (ok) {
         numbersFont = font;
@@ -828,7 +829,7 @@ bool Plot3DDialog::updatePlot()
         axis = axesList->currentRow();
         QString from = boxFrom->text().toLower();
         QString to = boxTo->text().toLower();
-        double start, end;
+        double start = NAN, end = NAN;
         bool error = false;
         try {
             MyParser parser;
@@ -905,7 +906,7 @@ void Plot3DDialog::setAxesFonts(const QFont &xf, const QFont &yf, const QFont &z
 
 void Plot3DDialog::pickAxisLabelFont()
 {
-    bool ok;
+    bool ok = false;
     QFont font;
     switch (axesList2->currentRow()) {
     case 0:

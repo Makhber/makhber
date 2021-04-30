@@ -70,7 +70,7 @@ SymbolDialog::SymbolDialog(CharSet charSet, QWidget *parent, Qt::WindowFlags fl)
 
 void SymbolDialog::initLowerGreekChars()
 {
-    int i, counter = 0;
+    int i = 0, counter = 0;
     for (i = 0; i <= (0x3C9 - 0x3B1); i++, counter++) {
         auto *btn = new QPushButton(QString(QChar(i + 0x3B1)));
         btn->setMaximumWidth(40);
@@ -108,7 +108,7 @@ void SymbolDialog::initLowerGreekChars()
 
 void SymbolDialog::initUpperGreekChars()
 {
-    int i, counter = 0;
+    int i = 0, counter = 0;
     for (i = 0; i <= (0x3A1 - 0x391); i++, counter++) {
         auto *btn = new QPushButton(QString(QChar(i + 0x391)));
         btn->setMaximumWidth(40);
@@ -130,7 +130,7 @@ void SymbolDialog::initUpperGreekChars()
 
 void SymbolDialog::initNumberSymbols()
 {
-    int i, counter = 0;
+    int i = 0, counter = 0;
     for (i = 0; i <= (0x216B - 0x2153); i++, counter++) {
         auto *btn = new QPushButton(QString(QChar(i + 0x2153)));
         btn->setMaximumWidth(40);
@@ -152,7 +152,7 @@ void SymbolDialog::initNumberSymbols()
 
 void SymbolDialog::initMathSymbols()
 {
-    int i, counter = 0;
+    int i = 0, counter = 0;
     for (i = 0; i <= (0x220D - 0x2200); i++, counter++) {
         auto *btn = new QPushButton(QString(QChar(i + 0x2200)));
         btn->setMaximumWidth(40);
@@ -305,7 +305,7 @@ void SymbolDialog::initMathSymbols()
 
 void SymbolDialog::initArrowSymbols()
 {
-    int i, counter = 0;
+    int i = 0, counter = 0;
     for (i = 0; i <= (0x219B - 0x2190); i++, counter++) {
         auto *btn = new QPushButton(QString(QChar(i + 0x2190)));
         btn->setMaximumWidth(40);
@@ -344,7 +344,7 @@ void SymbolDialog::initArrowSymbols()
 void SymbolDialog::addCurrentChar()
 {
     for (int i = 1; i < numButtons; i++) {
-        auto *btn = (QPushButton *)buttons->button(i);
+        auto *btn = dynamic_cast<QPushButton *>(buttons->button(i));
         if (btn && btn->hasFocus())
             emit addLetter(btn->text());
     }
@@ -352,7 +352,7 @@ void SymbolDialog::addCurrentChar()
 
 void SymbolDialog::getChar(int btnIndex)
 {
-    auto *btn = (QPushButton *)buttons->button(btnIndex);
+    auto *btn = dynamic_cast<QPushButton *>(buttons->button(btnIndex));
     if (btn)
         emit addLetter(btn->text());
 }
@@ -368,5 +368,5 @@ void SymbolDialog::focusInEvent(QFocusEvent *event)
 {
     Q_UNUSED(event)
     // select the first button as default (in case [return] is pressed)
-    ((QPushButton *)buttons->button(1))->setFocus(Qt::TabFocusReason);
+    (dynamic_cast<QPushButton *>(buttons->button(1)))->setFocus(Qt::TabFocusReason);
 }

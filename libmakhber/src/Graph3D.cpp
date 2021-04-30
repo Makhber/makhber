@@ -35,6 +35,7 @@
 #include "MyParser.h"
 #include "ColorButton.h"
 #include "core/column/Column.h"
+#include <cmath>
 
 #include <QApplication>
 #include <QMessageBox>
@@ -245,7 +246,7 @@ void Graph3D::addData(Table *table, int xcol, int ycol)
 {
     worksheet = table;
     int r = table->numRows();
-    int i, xmesh = 0, ymesh = 2;
+    int i = 0, xmesh = 0, ymesh = 2;
     for (i = 0; i < r; i++) {
         if (!table->column(xcol)->isInvalid(i) && !table->column(ycol)->isInvalid(i))
             xmesh++;
@@ -334,7 +335,7 @@ void Graph3D::addMatrixData(Matrix *m)
     sp->makeCurrent();
     sp->loadFromData(data_matrix, rows, cols, m->xStart(), m->xEnd(), m->yStart(), m->yEnd());
 
-    double start, end;
+    double start = NAN, end = NAN;
     sp->coordinates()->axes[Z1].limits(start, end);
     sp->legend()->setLimits(start, end);
     sp->legend()->setMajors(legendMajorTicks);
@@ -367,8 +368,8 @@ void Graph3D::addData(Table *table, const QString &xColName, const QString &yCol
     s += yColName + "(Y)";
     plotAssociation = s;
 
-    int i, j, xmesh = 0, ymesh = 2;
-    double xv, yv;
+    int i = 0, j = 0, xmesh = 0, ymesh = 2;
+    double xv = NAN, yv = NAN;
 
     for (i = 0; i < r; i++) {
         if (!table->column(xcol)->isInvalid(i) && !table->column(ycol)->isInvalid(i)) {
@@ -443,7 +444,7 @@ void Graph3D::addData(Table *table, int xCol, int yCol, int zCol, int type)
     s += table->colName(zCol) + "(Z)";
     plotAssociation = s;
 
-    int i, j, columns = 0;
+    int i = 0, j = 0, columns = 0;
     for (i = 0; i < r; i++) {
         if (!table->column(xCol)->isInvalid(i) && !table->column(yCol)->isInvalid(i)
             && !table->column(zCol)->isInvalid(i))
@@ -472,7 +473,7 @@ void Graph3D::addData(Table *table, int xCol, int yCol, int zCol, int type)
     sp->makeCurrent();
     sp->loadFromData(data, columns, columns, false, false);
 
-    double start, end;
+    double start = NAN, end = NAN;
     sp->coordinates()->axes[Z1].limits(start, end);
     sp->legend()->setLimits(start, end);
     sp->legend()->setMajors(legendMajorTicks);
@@ -507,8 +508,8 @@ void Graph3D::addData(Table *table, int xCol, int yCol, int zCol, double xl, dou
     s += table->colName(zCol) + "(Z)";
     plotAssociation = s;
 
-    int i, j, columns = 0;
-    double xv, yv;
+    int i = 0, j = 0, columns = 0;
+    double xv = NAN, yv = NAN;
     for (i = 0; i < r; i++) {
         if (!table->column(xCol)->isInvalid(i) && !table->column(yCol)->isInvalid(i)
             && !table->column(zCol)->isInvalid(i)) {
@@ -586,7 +587,7 @@ void Graph3D::updateData(Table *table)
 void Graph3D::updateDataXY(Table *table, int xCol, int yCol)
 {
     int r = table->numRows();
-    int i, j, xmesh = 0, ymesh = 2;
+    int i = 0, j = 0, xmesh = 0, ymesh = 2;
 
     for (i = 0; i < r; i++) {
         if (!table->column(xCol)->isInvalid(i) && !table->column(yCol)->isInvalid(i))
@@ -623,7 +624,7 @@ void Graph3D::updateDataXY(Table *table, int xCol, int yCol)
     double maxx = gsl_vector_max(x);
     double minz = gsl_vector_min(y);
     double maxz = gsl_vector_max(y);
-    double miny, maxy;
+    double miny = NAN, maxy = NAN;
 
     sp->makeCurrent();
     resetNonEmptyStyle();
@@ -640,7 +641,7 @@ void Graph3D::updateDataXY(Table *table, int xCol, int yCol)
 void Graph3D::updateDataXYZ(Table *table, int xCol, int yCol, int zCol)
 {
     int r = table->numRows();
-    int i, j, columns = 0;
+    int i = 0, j = 0, columns = 0;
 
     for (i = 0; i < r; i++) {
         if (!table->column(xCol)->isInvalid(i) && !table->column(yCol)->isInvalid(i)
@@ -701,7 +702,7 @@ void Graph3D::updateMatrixData(Matrix *m)
     sp->loadFromData(data, rows, cols, m->xStart(), m->xEnd(), m->yStart(), m->yEnd());
 
     Qwt3D::Axis z_axis = sp->coordinates()->axes[Z1];
-    double start, end;
+    double start = NAN, end = NAN;
     z_axis.limits(start, end);
     z_axis.setMajors(z_axis.majors());
     z_axis.setMajors(z_axis.minors());
@@ -847,7 +848,7 @@ void Graph3D::setZAxisLabelFont(const QStringList &lst)
 QStringList Graph3D::axisTickLengths()
 {
     QStringList lst;
-    double majorl, minorl;
+    double majorl = NAN, minorl = NAN;
 
     sp->coordinates()->axes[X1].ticLength(majorl, minorl);
     lst << QString::number(majorl);
@@ -866,7 +867,7 @@ QStringList Graph3D::axisTickLengths()
 
 void Graph3D::setTickLengths(const QStringList &lst)
 {
-    double majorl, minorl;
+    double majorl = NAN, minorl = NAN;
     QStringList tick_length = lst;
     if (int(lst.count()) > 6)
         tick_length.removeAll(tick_length.first());
@@ -895,7 +896,7 @@ void Graph3D::setTickLengths(const QStringList &lst)
 
 void Graph3D::updateTickLength(int axis, double majorLength, double minorLength)
 {
-    double majorl, minorl;
+    double majorl = NAN, minorl = NAN;
     switch (axis) {
     case 0:
         sp->coordinates()->axes[X1].ticLength(majorl, minorl);
@@ -1066,42 +1067,42 @@ QFont Graph3D::zAxisLabelFont()
 
 double Graph3D::xStart()
 {
-    double start, stop;
+    double start = NAN, stop = NAN;
     sp->coordinates()->axes[X1].limits(start, stop);
     return start;
 }
 
 double Graph3D::xStop()
 {
-    double start, stop;
+    double start = NAN, stop = NAN;
     sp->coordinates()->axes[X1].limits(start, stop);
     return stop;
 }
 
 double Graph3D::yStart()
 {
-    double start, stop;
+    double start = NAN, stop = NAN;
     sp->coordinates()->axes[Y1].limits(start, stop);
     return start;
 }
 
 double Graph3D::yStop()
 {
-    double start, stop;
+    double start = NAN, stop = NAN;
     sp->coordinates()->axes[Y1].limits(start, stop);
     return stop;
 }
 
 double Graph3D::zStart()
 {
-    double start, stop;
+    double start = NAN, stop = NAN;
     sp->coordinates()->axes[Z1].limits(start, stop);
     return start;
 }
 
 double Graph3D::zStop()
 {
-    double start, stop;
+    double start = NAN, stop = NAN;
     sp->coordinates()->axes[Z1].limits(start, stop);
     return stop;
 }
@@ -1109,8 +1110,8 @@ double Graph3D::zStop()
 QStringList Graph3D::scaleLimits()
 {
     QStringList limits;
-    double start, stop;
-    int majors, minors;
+    double start = NAN, stop = NAN;
+    int majors = 0, minors = 0;
 
     sp->coordinates()->axes[X1].limits(start, stop);
     majors = sp->coordinates()->axes[X1].majors();
@@ -1148,7 +1149,7 @@ QStringList Graph3D::scaleLimits()
 QStringList Graph3D::scaleTicks()
 {
     QStringList limits;
-    int majors, minors;
+    int majors = 0, minors = 0;
 
     majors = sp->coordinates()->axes[X1].majors();
     minors = sp->coordinates()->axes[X1].minors();
@@ -1170,9 +1171,9 @@ QStringList Graph3D::scaleTicks()
 
 void Graph3D::updateScale(int axis, const QStringList &options)
 {
-    double xMin, xMax, yMin, yMax, zMin, zMax;
-    double *min, *max;
-    int majors, minors, newMaj, newMin;
+    double xMin = NAN, xMax = NAN, yMin = NAN, yMax = NAN, zMin = NAN, zMax = NAN;
+    double *min = nullptr, *max = nullptr;
+    int majors = 0, minors = 0, newMaj = 0, newMin = 0;
     Qwt3D::Axis *targetAxes[4];
 
     sp->makeCurrent();
@@ -1337,8 +1338,8 @@ void Graph3D::updateScales(double xl, double xr, double yl, double yr, double zl
                            int xcol, int ycol)
 {
     int r = worksheet->numRows();
-    int i, j, xmesh = 0, ymesh = 2;
-    double xv, yv;
+    int i = 0, j = 0, xmesh = 0, ymesh = 2;
+    double xv = NAN, yv = NAN;
 
     for (i = 0; i < r; i++) {
         if (!worksheet->column(xcol)->isInvalid(i) && !worksheet->column(ycol)->isInvalid(i)) {
@@ -1381,8 +1382,8 @@ void Graph3D::updateScales(double xl, double xr, double yl, double yr, double zl
                            int xCol, int yCol, int zCol)
 {
     int r = worksheet->numRows();
-    int i, j, columns = 0;
-    double xv, yv, zv;
+    int i = 0, j = 0, columns = 0;
+    double xv = NAN, yv = NAN, zv = NAN;
     for (i = 0; i < r; i++) {
         if (!worksheet->column(xCol)->isInvalid(i) && !worksheet->column(yCol)->isInvalid(i)
             && !worksheet->column(zCol)->isInvalid(i)) {
@@ -1424,7 +1425,7 @@ void Graph3D::updateScales(double xl, double xr, double yl, double yr, double zl
 
 void Graph3D::setTicks(const QStringList &options)
 {
-    int min, maj;
+    int min = 0, maj = 0;
     if (int(options.count()) == 6) {
         maj = options[0].toInt();
         sp->coordinates()->axes[X1].setMajors(maj);
@@ -1998,7 +1999,7 @@ void Graph3D::exportVector(const QString &fileName, const QString &fileType)
     QString format = fileType;
     format = format.toUpper();
 
-    auto *gl2ps = (VectorWriter *)IO::outputHandler(format);
+    auto *gl2ps = dynamic_cast<VectorWriter *>(IO::outputHandler(format));
     if (gl2ps) {
         gl2ps->setTextMode(VectorWriter::NATIVE);
     }
@@ -2349,7 +2350,7 @@ QString Graph3D::saveToString(const QString &geometry)
         s += "\t";
     }
 
-    double start, stop;
+    double start = NAN, stop = NAN;
     sp->coordinates()->axes[X1].limits(start, stop);
     s += QString::number(start) + "\t";
     s += QString::number(stop) + "\t";
@@ -2821,7 +2822,7 @@ bool Graph3D::openColorMap(ColorVector &cv, QString fname)
 
 void Graph3D::findBestLayout()
 {
-    double start, end;
+    double start = NAN, end = NAN;
     sp->coordinates()->axes[X1].limits(start, end);
     double xScale = 1 / fabs(end - start);
 

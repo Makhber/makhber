@@ -31,6 +31,8 @@
 #include <QMessageBox>
 #include <QLocale>
 
+#include <cmath>
+
 #include <gsl/gsl_multifit.h>
 #include <gsl/gsl_fit.h>
 using namespace std;
@@ -131,7 +133,7 @@ void PolynomialFit::fit()
 
     if (unsigned(d_p) > d_n) {
         QMessageBox::critical(
-                (ApplicationWindow *)parent(), tr("Fit Error"),
+                dynamic_cast<ApplicationWindow *>(parent()), tr("Fit Error"),
                 tr("You need at least %1 data points for this fit operation. Operation aborted!")
                         .arg(d_p));
         return;
@@ -166,7 +168,7 @@ void PolynomialFit::fit()
     gsl_vector_free(c);
     gsl_vector_free(weights);
 
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (app->writeFitResultsToLog)
         app->updateLog(logFitInfo(d_results, 0, 0, d_graph->parentPlotName()));
 
@@ -178,7 +180,7 @@ void PolynomialFit::fit()
 
 QString PolynomialFit::legendInfo()
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     QString legend = "";
     if (show_legend) {
         legend = "Y=" + QLocale().toString(d_results[0], 'g', d_prec);
@@ -256,13 +258,13 @@ void LinearFit::fit()
 
     if (d_p > d_n) {
         QMessageBox::critical(
-                (ApplicationWindow *)parent(), tr("Fit Error"),
+                dynamic_cast<ApplicationWindow *>(parent()), tr("Fit Error"),
                 tr("You need at least %1 data points for this fit operation. Operation aborted!")
                         .arg(d_p));
         return;
     }
 
-    double c0, c1, cov00, cov01, cov11;
+    double c0 = NAN, c1 = NAN, cov00 = NAN, cov01 = NAN, cov11 = NAN;
 
     auto *weights = new double[d_n];
     for (unsigned i = 0; i < d_n; i++)
@@ -283,7 +285,7 @@ void LinearFit::fit()
     gsl_matrix_set(covar, 1, 1, cov11);
     gsl_matrix_set(covar, 1, 0, cov01);
 
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (app->writeFitResultsToLog)
         app->updateLog(logFitInfo(d_results, 0, 0, d_graph->parentPlotName()));
 

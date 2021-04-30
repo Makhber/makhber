@@ -86,15 +86,15 @@ private:
     void createConnections();
     void updateSamples();
 
-    ColorButton *colorButton;
-    QComboBox *widthComboBox;
-    QComboBox *lineStyleComboBox;
-    QComboBox *capStyleComboBox;
-    QComboBox *joinStyleComboBox;
+    ColorButton *colorButton {};
+    QComboBox *widthComboBox {};
+    QComboBox *lineStyleComboBox {};
+    QComboBox *capStyleComboBox {};
+    QComboBox *joinStyleComboBox {};
 
-    QLabel *dashLabel;
-    QLineEdit *dashLineEdit;
-    QValidator *dashValidator;
+    QLabel *dashLabel {};
+    QLineEdit *dashLineEdit {};
+    QValidator *dashValidator {};
 
     QPen m_pen;
     QString d_custom_dash;

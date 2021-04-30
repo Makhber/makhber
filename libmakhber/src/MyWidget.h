@@ -169,7 +169,7 @@ protected slots:
 protected:
     virtual void changeEvent(QEvent *event);
     //!Pointer to the parent folder of the window
-    Folder *parentFolder;
+    Folder *parentFolder{};
     //! The window label
     /**
      * \sa setWindowLabel(), windowLabel(), setCaptionPolicy()

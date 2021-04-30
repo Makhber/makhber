@@ -307,49 +307,49 @@ private:
     bool readRowHeightElement(XmlStreamReader *reader);
     bool readColumnWidthElement(XmlStreamReader *reader);
 
-    QMenu *d_plot_menu;
+    QMenu *d_plot_menu {};
 
     //! \name selection related actions
     //@{
-    QAction *action_cut_selection;
-    QAction *action_copy_selection;
-    QAction *action_paste_into_selection;
-    QAction *action_clear_selection;
+    QAction *action_cut_selection {};
+    QAction *action_copy_selection {};
+    QAction *action_paste_into_selection {};
+    QAction *action_clear_selection {};
     //@}
     //! \name matrix related actions
     //@{
-    QAction *action_toggle_tabbar;
-    QAction *action_select_all;
-    QAction *action_clear_matrix;
-    QAction *action_go_to_cell;
-    QAction *action_dimensions_dialog;
-    QAction *action_edit_format;
-    QAction *action_edit_coordinates;
-    QAction *action_set_formula;
-    QAction *action_recalculate;
-    QAction *action_import_image;
-    QAction *action_duplicate;
-    QAction *action_transpose;
-    QAction *action_mirror_vertically;
-    QAction *action_mirror_horizontally;
+    QAction *action_toggle_tabbar {};
+    QAction *action_select_all {};
+    QAction *action_clear_matrix {};
+    QAction *action_go_to_cell {};
+    QAction *action_dimensions_dialog {};
+    QAction *action_edit_format {};
+    QAction *action_edit_coordinates {};
+    QAction *action_set_formula {};
+    QAction *action_recalculate {};
+    QAction *action_import_image {};
+    QAction *action_duplicate {};
+    QAction *action_transpose {};
+    QAction *action_mirror_vertically {};
+    QAction *action_mirror_horizontally {};
     //@}
     //! \name column related actions
     //@{
-    QAction *action_insert_columns;
-    QAction *action_remove_columns;
-    QAction *action_clear_columns;
-    QAction *action_add_columns;
+    QAction *action_insert_columns {};
+    QAction *action_remove_columns {};
+    QAction *action_clear_columns {};
+    QAction *action_add_columns {};
     //@}
     //! \name row related actions
     //@{
-    QAction *action_insert_rows;
-    QAction *action_remove_rows;
-    QAction *action_clear_rows;
-    QAction *action_add_rows;
+    QAction *action_insert_rows {};
+    QAction *action_remove_rows {};
+    QAction *action_clear_rows {};
+    QAction *action_add_rows {};
     //@}
 
     QPointer<MatrixView> d_view;
-    Private *d_matrix_private;
+    Private *d_matrix_private {};
 };
 
 /**

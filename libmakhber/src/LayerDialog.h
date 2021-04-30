@@ -52,7 +52,7 @@ protected slots:
     void enableLayoutOptions(bool ok);
 
 private:
-    MultiLayer *multi_layer;
+    MultiLayer *multi_layer{};
 
     QPushButton *buttonOk;
     QPushButton *buttonCancel;

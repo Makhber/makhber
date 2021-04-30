@@ -73,7 +73,7 @@ public slots:
 private:
     Direction d_dir;
     PlotToolInterface *d_sub_tool;
-    QwtPlotCurve *d_selected_curve;
+    QwtPlotCurve *d_selected_curve {};
     QwtDoublePoint d_curve_point;
     ApplicationWindow *d_app;
 };

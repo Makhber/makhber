@@ -45,7 +45,7 @@ QMenu *AbstractPart::createContextMenu() const
     Q_ASSERT(menu);
     const QStyle *widget_style = d_mdi_window->style();
 
-    QAction *action_temp;
+    QAction *action_temp = nullptr;
     if (d_mdi_window->windowState() & (Qt::WindowMinimized | Qt::WindowMaximized)) {
         action_temp = menu->addAction(tr("&Restore"), d_mdi_window, SLOT(showNormal()));
         action_temp->setIcon(widget_style->standardIcon(QStyle::SP_TitleBarNormalButton));

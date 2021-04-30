@@ -28,6 +28,7 @@
  ***************************************************************************/
 #include "QwtHistogram.h"
 #include "core/column/Column.h"
+#include <cmath>
 #include <QPainter>
 #include <QLocale>
 
@@ -130,8 +131,8 @@ bool QwtHistogram::loadData()
         return false;
     }
 
-    int n;
-    gsl_histogram *h;
+    int n = 0;
+    gsl_histogram *h = nullptr;
     if (d_autoBin) {
         n = 10;
         h = gsl_histogram_alloc(n);
@@ -142,7 +143,7 @@ bool QwtHistogram::loadData()
         for (int i = 0; i < size; i++)
             gsl_vector_set(v, i, Y[i]);
 
-        double min, max;
+        double min = NAN, max = NAN;
         gsl_vector_minmax(v, &min, &max);
         gsl_vector_free(v);
 
@@ -172,7 +173,7 @@ bool QwtHistogram::loadData()
     Y.resize(n);
     for (int i = 0; i < n; i++) {
         Y[i] = gsl_histogram_get(h, i);
-        double lower, upper;
+        double lower = NAN, upper = NAN;
         gsl_histogram_get_range(h, i, &lower, &upper);
         X[i] = lower;
     }
@@ -206,12 +207,12 @@ void QwtHistogram::initData(const QVector<double> &Y, int size)
     if (!h)
         return;
 
-    gsl_vector *v;
+    gsl_vector *v = nullptr;
     v = gsl_vector_alloc(size);
     for (int i = 0; i < size; i++)
         gsl_vector_set(v, i, Y[i]);
 
-    double min, max;
+    double min = NAN, max = NAN;
     gsl_vector_minmax(v, &min, &max);
     gsl_vector_free(v);
 
@@ -225,7 +226,7 @@ void QwtHistogram::initData(const QVector<double> &Y, int size)
 
     for (int i = 0; i < n; i++) {
         y[i] = gsl_histogram_get(h, i);
-        double lower, upper;
+        double lower = NAN, upper = NAN;
         gsl_histogram_get_range(h, i, &lower, &upper);
         x[i] = lower;
     }

@@ -28,6 +28,7 @@
  ***************************************************************************/
 #include "ArrowMarker.h"
 #include "LineDialog.h"
+#include <cmath>
 
 #include <QPainter>
 #include <QMouseEvent>
@@ -123,7 +124,7 @@ void ArrowMarker::draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &
 
 double ArrowMarker::theta(int xs, int ys, int xe, int ye) const
 {
-    double t;
+    double t = NAN;
     if (xe == xs) {
         if (ys > ye)
             t = 90;
@@ -177,7 +178,7 @@ double ArrowMarker::dist(int x, int y)
         return qMin(sqrt(double((x - x0) * (x - x0) + (y - y0) * (y - y0))),
                     sqrt(double((x - x1) * (x - x1) + (y - y1) * (y - y1))));
 
-    double d;
+    double d = NAN;
     if (x0 == x1)
         d = abs(x - x0);
     else {
@@ -395,7 +396,7 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
 {
     switch (e->type()) {
     case QEvent::MouseButtonPress: {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         if (me->button() != Qt::LeftButton)
             return false;
         QRect handler = QRect(QPoint(0, 0), QSize(10, 10));
@@ -421,7 +422,7 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
         return false;
     }
     case QEvent::MouseMove: {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         switch (d_op) {
         case MoveStart:
             setStartPoint(me->pos());
@@ -441,7 +442,7 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
         }
     }
     case QEvent::MouseButtonRelease: {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         switch (d_op) {
         case MoveStart:
             setStartPoint(me->pos());
@@ -469,7 +470,7 @@ bool ArrowMarker::eventFilter(QObject *, QEvent *e)
         }
     }
     case QEvent::MouseButtonDblClick: {
-        const auto *me = (const QMouseEvent *)e;
+        const auto *me = dynamic_cast<const QMouseEvent *>(e);
         if (me->button() != Qt::LeftButton)
             return false;
         auto *ld = new LineDialog(this, plot()->window());

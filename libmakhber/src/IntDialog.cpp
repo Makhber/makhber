@@ -33,6 +33,7 @@
 #include "Integration.h"
 #include "FunctionCurve.h"
 #include "Differentiation.h"
+#include <cmath>
 
 #include <QGroupBox>
 #include <QSpinBox>
@@ -98,7 +99,8 @@ void IntDialog::accept()
     QwtPlotCurve *c = graph->curve(curveName);
     QStringList curvesList = graph->analysableCurvesList();
     if (!c || !curvesList.contains(curveName)) {
-        QMessageBox::critical((ApplicationWindow *)parent(), tr("Makhber") + " - " + tr("Warning"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Warning"),
                               tr("The curve <b> %1 </b> doesn't exist anymore! Operation aborted!")
                                       .arg(curveName));
         boxName->clear();
@@ -125,7 +127,7 @@ void IntDialog::accept()
             start = parser.Eval();
 
             if (start < minx) {
-                QMessageBox::warning((ApplicationWindow *)parent(), tr("Input error"),
+                QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()), tr("Input error"),
                                      tr("Please give a number larger or equal to the minimum value "
                                         "of X, for the lower limit.\n If you do not know that "
                                         "value, type min in the box."));
@@ -134,7 +136,7 @@ void IntDialog::accept()
                 return;
             }
             if (start > maxx) {
-                QMessageBox::warning((ApplicationWindow *)parent(), tr("Input error"),
+                QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()), tr("Input error"),
                                      tr("Please give a number smaller or equal to the maximum "
                                         "value of X, for the lower limit.\n If you do not know "
                                         "that value, type max in the box."));
@@ -143,8 +145,8 @@ void IntDialog::accept()
                 return;
             }
         } catch (mu::ParserError &e) {
-            QMessageBox::critical((ApplicationWindow *)parent(), tr("Start limit error"),
-                                  QStringFromString(e.GetMsg()));
+            QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                                  tr("Start limit error"), QStringFromString(e.GetMsg()));
             boxStart->clear();
             boxStart->setFocus();
             return;
@@ -176,7 +178,7 @@ void IntDialog::accept()
                 boxEnd->setText(QString::number(maxx));
             }
             if (stop < minx) {
-                QMessageBox::warning((ApplicationWindow *)parent(), tr("Input error"),
+                QMessageBox::warning(dynamic_cast<ApplicationWindow *>(parent()), tr("Input error"),
                                      tr("Please give a number larger or equal to the minimum value "
                                         "of X, for the upper limit.\n If you do not know that "
                                         "value, type min in the box."));
@@ -185,15 +187,15 @@ void IntDialog::accept()
                 return;
             }
         } catch (mu::ParserError &e) {
-            QMessageBox::critical((ApplicationWindow *)parent(), tr("End limit error"),
-                                  QStringFromString(e.GetMsg()));
+            QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                                  tr("End limit error"), QStringFromString(e.GetMsg()));
             boxEnd->clear();
             boxEnd->setFocus();
             return;
         }
     }
 
-    auto *i = new Integration((ApplicationWindow *)this->parent(), graph, curveName,
+    auto *i = new Integration(dynamic_cast<ApplicationWindow *>(this->parent()), graph, curveName,
                               boxStart->text().toDouble(), boxEnd->text().toDouble());
     i->setMethod((Integration::InterpolationMethod)boxMethod->currentIndex());
     i->run();
@@ -218,7 +220,7 @@ void IntDialog::setGraph(Graph *g)
 
 void IntDialog::activateCurve(const QString &curveName)
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!app)
         return;
 
@@ -226,7 +228,7 @@ void IntDialog::activateCurve(const QString &curveName)
     if (!c)
         return;
 
-    double start, end;
+    double start = NAN, end = NAN;
     graph->range(graph->curveIndex(curveName), &start, &end);
     boxStart->setText(QString::number(qMin(start, end), 'g', app->d_decimal_digits));
     boxEnd->setText(QString::number(qMax(start, end), 'g', app->d_decimal_digits));
@@ -234,7 +236,7 @@ void IntDialog::activateCurve(const QString &curveName)
 
 void IntDialog::changeDataRange()
 {
-    auto *app = (ApplicationWindow *)parent();
+    auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!app)
         return;
 
