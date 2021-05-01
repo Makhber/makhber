@@ -491,23 +491,21 @@ void TableView::updateFormatBox()
         break;
     case Makhber::ColumnMode::DateTime: {
         // TODO: allow adding of the combo box entries here
-        const char *date_strings[] = { "yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy", "dd/MM/yy",
-                                       "dd.MM.yyyy", "dd.MM.yy",   "MM/yyyy",    "dd.MM.",
-                                       "yyyyMMdd",   nullptr };
+        std::array<const char *, 9> date_strings = { "yyyy-MM-dd", "yyyy/MM/dd", "dd/MM/yyyy",
+                                                     "dd/MM/yy",   "dd.MM.yyyy", "dd.MM.yy",
+                                                     "MM/yyyy",    "dd.MM.",     "yyyyMMdd" };
 
-        const char *time_strings[] = { "hh",       "hh ap",        "hh:mm",        "hh:mm ap",
-                                       "hh:mm:ss", "hh:mm:ss.zzz", "hh:mm:ss:zzz", "mm:ss.zzz",
-                                       "hhmmss",   nullptr };
-        int j = 0, i = 0;
-        for (i = 0; date_strings[i] != nullptr; i++)
-            ui.format_box->addItem(QString(date_strings[i]), QVariant(date_strings[i]));
-        for (j = 0; time_strings[j] != nullptr; j++)
-            ui.format_box->addItem(QString(time_strings[j]), QVariant(time_strings[j]));
-        for (i = 0; date_strings[i] != nullptr; i++)
-            for (j = 0; time_strings[j] != nullptr; j++)
-                ui.format_box->addItem(
-                        QString("%1 %2").arg(date_strings[i], time_strings[j]),
-                        QVariant(QString(date_strings[i]) + " " + QString(time_strings[j])));
+        std::array<const char *, 9> time_strings = { "hh",           "hh ap",     "hh:mm",
+                                                     "hh:mm ap",     "hh:mm:ss",  "hh:mm:ss.zzz",
+                                                     "hh:mm:ss:zzz", "mm:ss.zzz", "hhmmss" };
+        for (auto date_string : date_strings)
+            ui.format_box->addItem(QString(date_string), QVariant(date_string));
+        for (auto time_string : time_strings)
+            ui.format_box->addItem(QString(time_string), QVariant(time_string));
+        for (auto date_string : date_strings)
+            for (auto time_string : time_strings)
+                ui.format_box->addItem(QString("%1 %2").arg(date_string, time_string),
+                                       QVariant(QString(date_string) + " " + QString(time_string)));
         ui.formatLineEdit->setEnabled(true);
         ui.date_time_interval->setEnabled(true);
         ui.date_time_0->setEnabled(true);

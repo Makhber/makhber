@@ -41,14 +41,16 @@
 #endif
 
 namespace {
-const char *langs[] = {
+std::array langs = {
 #ifdef SCRIPTING_MUPARSER
-    MuParserScripting::langName,
+    MuParserScripting::langName
+#ifdef SCRIPTING_PYTHON
+    ,
+#endif
 #endif
 #ifdef SCRIPTING_PYTHON
-    PythonScripting::langName,
+    PythonScripting::langName
 #endif
-    nullptr
 };
 }
 
@@ -81,8 +83,8 @@ ScriptingEnv *ScriptingLangManager::newEnv(const std::string &name, ApplicationW
 QStringList ScriptingLangManager::languages()
 {
     QStringList l;
-    for (auto i = langs; *i; i++)
-        l << *i;
+    for (auto lang : langs)
+        l << lang;
     return l;
 }
 

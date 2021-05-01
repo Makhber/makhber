@@ -32,6 +32,8 @@
 #include <QComboBox>
 #include <qwt_symbol.h>
 
+#include <array>
+
 //! Plot symbol combo box
 class SymbolBox : public QComboBox
 {
@@ -46,7 +48,7 @@ public:
     static QwtSymbol::Style style(int index);
     static int symbolIndex(const QwtSymbol::Style &style);
 
-    static const QwtSymbol::Style symbols[];
+    static std::array<const QwtSymbol::Style, 16> symbols;
 
 protected:
     void init();

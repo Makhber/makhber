@@ -35,6 +35,8 @@
 #include <QDate>
 #include <QTime>
 
+#include <array>
+
 /**
  * \brief Conversion filter QString -> QDateTime.
  *
@@ -78,8 +80,8 @@ private:
     //! The format string.
     QString d_format;
 
-    static const char *date_formats[];
-    static const char *time_formats[];
+    static std::array<const char *, 11> date_formats;
+    static std::array<const char *, 9> time_formats;
 
 public:
     virtual QDateTime dateTimeAt(int row) const;

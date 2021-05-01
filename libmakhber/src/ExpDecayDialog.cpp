@@ -206,25 +206,27 @@ void ExpDecayDialog::fit()
         delete fitter;
 
     if (slopes == 3) {
-        double x_init[7] = { 1.0,
-                             boxFirst->text().toDouble(),
-                             1.0,
-                             boxSecond->text().toDouble(),
-                             1.0,
-                             boxThird->text().toDouble(),
-                             boxYOffset->text().toDouble() };
+        std::array<double, 7> x_init = { 1.0,
+                                         boxFirst->text().toDouble(),
+                                         1.0,
+                                         boxSecond->text().toDouble(),
+                                         1.0,
+                                         boxThird->text().toDouble(),
+                                         boxYOffset->text().toDouble() };
         fitter = new ThreeExpFit(app, graph);
-        fitter->setInitialGuesses(x_init);
+        fitter->setInitialGuesses(x_init.data());
     } else if (slopes == 2) {
-        double x_init[5] = { 1.0, boxFirst->text().toDouble(), 1.0, boxSecond->text().toDouble(),
-                             boxYOffset->text().toDouble() };
+        std::array<double, 5> x_init = { 1.0, boxFirst->text().toDouble(), 1.0,
+                                         boxSecond->text().toDouble(),
+                                         boxYOffset->text().toDouble() };
         fitter = new TwoExpFit(app, graph);
-        fitter->setInitialGuesses(x_init);
+        fitter->setInitialGuesses(x_init.data());
     } else if (slopes == 1 || slopes == -1) {
-        double x_init[3] = { boxAmplitude->text().toDouble(), slopes / boxFirst->text().toDouble(),
-                             boxYOffset->text().toDouble() };
+        std::array<double, 3> x_init = { boxAmplitude->text().toDouble(),
+                                         slopes / boxFirst->text().toDouble(),
+                                         boxYOffset->text().toDouble() };
         fitter = new ExponentialFit(app, graph, slopes == -1);
-        fitter->setInitialGuesses(x_init);
+        fitter->setInitialGuesses(x_init.data());
     } else {
         return;
     }

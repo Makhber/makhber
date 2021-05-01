@@ -42,6 +42,8 @@
 #include <gsl/gsl_sf.h>
 #include <gsl/gsl_errno.h>
 
+#include <array>
+
 //! TODO
 class MuParserScripting : public ScriptingEnv
 {
@@ -82,7 +84,7 @@ public:
         double (*fun3)(double, double, double);
         QString description;
     };
-    static const mathFunction math_functions[];
+    static std::array<const mathFunction, 48> math_functions;
 
 private:
 #define SPECIAL(fname, arg)                                                                        \

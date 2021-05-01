@@ -159,13 +159,13 @@ MuParserScript::MuParserScript(ScriptingEnv *environment, const QString &code, Q
     m_parser.DefineConst(_T("E"), M_E);
 
     // tell parser about mathematical functions
-    for (const MuParserScripting::mathFunction *i = MuParserScripting::math_functions; i->name; i++)
-        if (i->numargs == 1 && i->fun1 != nullptr)
-            m_parser.DefineFun(i->name, i->fun1);
-        else if (i->numargs == 2 && i->fun2 != nullptr)
-            m_parser.DefineFun(i->name, i->fun2);
-        else if (i->numargs == 3 && i->fun3 != nullptr)
-            m_parser.DefineFun(i->name, i->fun3);
+    for (auto i : MuParserScripting::math_functions)
+        if (i.numargs == 1 && i.fun1 != nullptr)
+            m_parser.DefineFun(i.name, i.fun1);
+        else if (i.numargs == 2 && i.fun2 != nullptr)
+            m_parser.DefineFun(i.name, i.fun2);
+        else if (i.numargs == 3 && i.fun3 != nullptr)
+            m_parser.DefineFun(i.name, i.fun3);
 
     // tell parser about table/matrix access functions
     if (Context && Context->inherits("Table")) {

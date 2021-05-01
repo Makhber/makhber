@@ -73,13 +73,12 @@ struct MakhberTextStream
             case '\r':
                 if (input.getChar(&c) && c != '\n') // eat \n following \r
                     input.ungetChar(c);
-                goto breakLoop;
+                break;
             case '\n':
-                goto breakLoop;
+                break;
             default:
                 r += c;
             };
-    breakLoop:
         switch (whiteSpaceTreatment) {
         case none:
             return r.split(separator);

@@ -32,14 +32,14 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 
-const Qt::BrushStyle PatternBox::patterns[] = {
+std::array<const Qt::BrushStyle, 14> PatternBox::patterns = {
     Qt::SolidPattern,  Qt::HorPattern,    Qt::VerPattern,       Qt::CrossPattern,
     Qt::BDiagPattern,  Qt::FDiagPattern,  Qt::DiagCrossPattern, Qt::Dense1Pattern,
     Qt::Dense2Pattern, Qt::Dense3Pattern, Qt::Dense4Pattern,    Qt::Dense5Pattern,
     Qt::Dense6Pattern, Qt::Dense7Pattern,
 };
 
-auto patternsSize = sizeof(PatternBox::patterns) / sizeof(PatternBox::patterns[0]);
+auto patternsSize = PatternBox::patterns.size();
 
 PatternBox::PatternBox(bool rw, QWidget *parent) : QComboBox(parent)
 {
@@ -147,11 +147,11 @@ void PatternBox::init()
 
 void PatternBox::setPattern(const Qt::BrushStyle &style)
 {
-    const Qt::BrushStyle *ite = std::find(patterns, patterns + patternsSize, style);
-    if (ite == patterns + patternsSize)
+    auto ite = std::find(patterns.begin(), patterns.end(), style);
+    if (ite == patterns.end())
         this->setCurrentIndex(0); // default pattern is solid.
     else
-        this->setCurrentIndex(ite - patterns);
+        this->setCurrentIndex(std::distance(patterns.begin(), ite));
 }
 
 Qt::BrushStyle PatternBox::getSelectedPattern() const
@@ -165,9 +165,9 @@ Qt::BrushStyle PatternBox::getSelectedPattern() const
 
 int PatternBox::patternIndex(const Qt::BrushStyle &style)
 {
-    const Qt::BrushStyle *ite = std::find(patterns, patterns + patternsSize, style);
-    if (ite == patterns + patternsSize)
+    auto ite = std::find(patterns.begin(), patterns.end(), style);
+    if (ite == patterns.end())
         return 0; // default pattern is solid.
     else
-        return (ite - patterns);
+        return std::distance(patterns.begin(), ite);
 }

@@ -29,6 +29,8 @@
 #ifndef COLORBOX_H
 #define COLORBOX_H
 
+#include <array>
+
 #include <QComboBox>
 
 //! A combo box to select a standard color
@@ -62,7 +64,7 @@ protected:
     //! The number of predefined colors
     static const int colors_count;
     //! Array containing the 24 predefined colors
-    static const QColor colors[];
+    static std::array<const QColor, 24> colors;
 };
 
 #endif

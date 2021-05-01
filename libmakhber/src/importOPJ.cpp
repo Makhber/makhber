@@ -628,9 +628,9 @@ bool ImportOPJ::importNotes(const OriginFile &opj)
 
 bool ImportOPJ::importGraphs(const OriginFile &opj)
 {
-    double pi = 3.141592653589793;
+    const double pi = 3.141592653589793;
     int visible_count = 0;
-    int tickTypeMap[] = { 0, 3, 1, 2 };
+    std::array<int, 4> tickTypeMap = { 0, 3, 1, 2 };
     for (unsigned int g = 0; g < opj.graphCount(); ++g) {
         Origin::Graph _graph = opj.graph(g);
         MultiLayer *ml = mw->multilayerPlot(decodeMbcs(_graph.name.c_str())); //, 0);
@@ -1174,15 +1174,16 @@ QString ImportOPJ::parseOriginTags(const QString &str)
     line = strreverse(linerev);
 
     // replace \b(...), \i(...), \u(...), \g(...), \+(...), \-(...), \f:font(...) tags
-    QString rxstr[] = { R"(\\\s*b\s*\()",     R"(\\\s*i\s*\()",  R"(\\\s*u\s*\()",
-                        R"(\\\s*g\s*\()",     R"(\\\s*\+\s*\()", R"(\\\s*\-\s*\()",
-                        R"(\\\s*f\:[^\(]*\()" };
-    int postag[] = { 0, 0, 0, 0, 0, 0, 0 };
-    QString ltag[] = {
-        "<b>", "<i>", "<u>", "<font face=Symbol>", "<sup>", "<sub>", "<font face=%1>"
+    std::array<QString, 7> rxstr = { R"(\\\s*b\s*\()",     R"(\\\s*i\s*\()",  R"(\\\s*u\s*\()",
+                                     R"(\\\s*g\s*\()",     R"(\\\s*\+\s*\()", R"(\\\s*\-\s*\()",
+                                     R"(\\\s*f\:[^\(]*\()" };
+    std::array<int, 7> postag = { 0, 0, 0, 0, 0, 0, 0 };
+    std::array<QString, 7> ltag = { "<b>",   "<i>",   "<u>",           "<font face=Symbol>",
+                                    "<sup>", "<sub>", "<font face=%1>" };
+    std::array<QString, 7> rtag = {
+        "</b>", "</i>", "</u>", "</font>", "</sup>", "</sub>", "</font>"
     };
-    QString rtag[] = { "</b>", "</i>", "</u>", "</font>", "</sup>", "</sub>", "</font>" };
-    QRegExp rxtags[7];
+    std::array<QRegExp, 7> rxtags;
     for (int i = 0; i < 7; ++i)
         rxtags[i].setPattern(rxstr[i] + R"([^\(\)]*\))");
 

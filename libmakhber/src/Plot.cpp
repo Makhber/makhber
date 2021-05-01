@@ -150,10 +150,11 @@ void Plot::printFrame(QPainter *painter, const QRect &rect) const
     painter->restore();
 }
 
-void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt],
+void Plot::drawItems(QPainter *painter, const QRect &rect,
+                     std::array<const QwtScaleMap, axisCnt> map,
                      const QwtPlotPrintFilter &pfilter) const
 {
-    QwtPlot::drawItems(painter, rect, map, pfilter);
+    QwtPlot::drawItems(painter, rect, map.data(), pfilter);
 
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         if (!axisEnabled(i))
@@ -392,7 +393,7 @@ QwtPlotCurve *Plot::curve(int index)
 
 int Plot::closestCurve(int xpos, int ypos, int &dist, int &point)
 {
-    QwtScaleMap map[QwtPlot::axisCnt];
+    std::array<QwtScaleMap, QwtPlot::axisCnt> map;
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++)
         map[axis] = canvasMap(axis);
 

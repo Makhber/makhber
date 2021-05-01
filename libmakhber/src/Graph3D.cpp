@@ -1174,7 +1174,7 @@ void Graph3D::updateScale(int axis, const QStringList &options)
     double xMin = NAN, xMax = NAN, yMin = NAN, yMax = NAN, zMin = NAN, zMax = NAN;
     double *min = nullptr, *max = nullptr;
     int majors = 0, minors = 0, newMaj = 0, newMin = 0;
-    Qwt3D::Axis *targetAxes[4];
+    std::array<Qwt3D::Axis *, 4> targetAxes;
 
     sp->makeCurrent();
 

@@ -34,7 +34,7 @@
 #include <QHBoxLayout>
 #include <QFrame>
 
-const QColor ColorButton::colors[] = {
+std::array<const QColor, 48> ColorButton::colors = {
     QColor(Qt::black),
     QColor(Qt::red),
     QColor(Qt::green),
@@ -86,7 +86,7 @@ const QColor ColorButton::colors[] = {
     QColor(0xf3, 0xe1, 0xeb),
 };
 
-const unsigned int ColorButton::colors_count = sizeof(colors) / sizeof(colors[0]);
+const unsigned int ColorButton::colors_count = static_cast<unsigned int>(colors.size());
 
 ColorButton::ColorButton(QWidget *parent) : QWidget(parent)
 {
@@ -97,10 +97,10 @@ void ColorButton::init()
 {
     // transpose colors in the 6x8 basic colour grid.
     constexpr int rows = 8, cols = 6;
-    static_assert(rows * cols <= sizeof(colors) / sizeof(colors[0]));
+    static_assert(rows * cols <= colors.size());
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-            QColorDialog::setStandardColor(j + cols * i, colors[i + rows * j].rgb());
+            QColorDialog::setStandardColor(j + cols * i, colors.at(i + rows * j).rgb());
         }
     }
     const int btn_size = 28;
@@ -142,9 +142,9 @@ QColor ColorButton::color() const
 
 unsigned int ColorButton::colorIndex(const QColor &c)
 {
-    const QColor *ite = std::find(std::begin(colors), std::end(colors), c);
+    auto ite = std::find(colors.begin(), colors.end(), c);
     if (ite != std::end(colors) && ite->isValid())
-        return (ite - colors);
+        return std::distance(colors.begin(), ite);
     else
         return c.rgba();
 }
@@ -152,7 +152,7 @@ unsigned int ColorButton::colorIndex(const QColor &c)
 QColor ColorButton::color(unsigned int colorIndex)
 {
     if (colorIndex < colors_count)
-        return colors[colorIndex];
+        return colors.at(colorIndex);
     else {
         QColor qc = QColor::fromRgba(colorIndex);
         if (qc.isValid())
@@ -164,8 +164,8 @@ QColor ColorButton::color(unsigned int colorIndex)
 
 bool ColorButton::isValidColor(const QColor &c)
 {
-    const QColor *ite = std::find(std::begin(colors), std::end(colors), c);
-    return (ite != std::end(colors) && ite->isValid());
+    auto ite = std::find(colors.begin(), colors.end(), c);
+    return (ite != colors.end());
 }
 
 QSize ColorButton::sizeHint() const

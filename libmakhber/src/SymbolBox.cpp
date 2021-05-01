@@ -32,14 +32,14 @@
 #include <qpixmap.h>
 #include <qpainter.h>
 
-const QwtSymbol::Style SymbolBox::symbols[] = {
+std::array<const QwtSymbol::Style, 16> SymbolBox::symbols = {
     QwtSymbol::NoSymbol,  QwtSymbol::Ellipse,   QwtSymbol::Rect,      QwtSymbol::Diamond,
     QwtSymbol::Triangle,  QwtSymbol::DTriangle, QwtSymbol::UTriangle, QwtSymbol::LTriangle,
     QwtSymbol::RTriangle, QwtSymbol::Cross,     QwtSymbol::XCross,    QwtSymbol::HLine,
     QwtSymbol::VLine,     QwtSymbol::Star1,     QwtSymbol::Star2,     QwtSymbol::Hexagon
 };
 
-auto symbolsSize = sizeof(SymbolBox::symbols) / sizeof(SymbolBox::symbols[0]);
+auto symbolsSize = SymbolBox::symbols.size();
 
 SymbolBox::SymbolBox(bool rw, QWidget *parent) : QComboBox(parent)
 {
@@ -143,11 +143,11 @@ void SymbolBox::init()
 
 void SymbolBox::setStyle(const QwtSymbol::Style &style)
 {
-    const QwtSymbol::Style *ite = std::find(symbols, symbols + symbolsSize, style);
-    if (ite == symbols + symbolsSize)
+    auto ite = std::find(symbols.begin(), symbols.end(), style);
+    if (ite == symbols.end())
         this->setCurrentIndex(0);
     else
-        this->setCurrentIndex(ite - symbols);
+        this->setCurrentIndex(std::distance(symbols.begin(), ite));
 }
 
 QwtSymbol::Style SymbolBox::selectedSymbol() const
@@ -161,11 +161,11 @@ QwtSymbol::Style SymbolBox::selectedSymbol() const
 
 int SymbolBox::symbolIndex(const QwtSymbol::Style &style)
 {
-    const QwtSymbol::Style *ite = std::find(symbols, symbols + symbolsSize, style);
-    if (ite == symbols + symbolsSize)
+    auto ite = std::find(symbols.begin(), symbols.end(), style);
+    if (ite == symbols.end())
         return 0;
     else
-        return (ite - symbols);
+        return std::distance(symbols.begin(), ite);
 }
 
 QwtSymbol::Style SymbolBox::style(int index)

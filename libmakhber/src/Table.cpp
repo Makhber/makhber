@@ -584,9 +584,9 @@ void Table::saveToDevice(QIODevice *device, const QString &geometry)
     if (tmp_file.isOpen()) {
         tmp_file.seek(0);
         qint64 bytes_read = 0;
-        char buffer[1024];
-        while ((bytes_read = tmp_file.read(buffer, 1024)) > 0)
-            device->write(buffer, bytes_read);
+        std::array<char, 1024> buffer;
+        while ((bytes_read = tmp_file.read(buffer.data(), 1024)) > 0)
+            device->write(buffer.data(), bytes_read);
     } else
         stream << tmp_string;
     stream << "\n";

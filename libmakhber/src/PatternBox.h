@@ -31,6 +31,8 @@
 
 #include <QComboBox>
 
+#include <array>
+
 //! Pattern combo box
 class PatternBox : public QComboBox
 {
@@ -41,7 +43,7 @@ public:
     void setPattern(const Qt::BrushStyle &c);
     Qt::BrushStyle getSelectedPattern() const;
 
-    static const Qt::BrushStyle patterns[];
+    static std::array<const Qt::BrushStyle, 14> patterns;
     static int patternIndex(const Qt::BrushStyle &style);
 
 protected:

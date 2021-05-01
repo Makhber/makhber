@@ -30,6 +30,7 @@
 #ifndef COLORBUTTON_H
 #define COLORBUTTON_H
 
+#include <array>
 #include <QWidget>
 class QPushButton;
 class QHBoxLayout;
@@ -104,8 +105,8 @@ signals:
 protected:
     //! Initialize the widget (called from constructor)
     void init();
-    //! Array containing the 24 predefined colors
-    static const QColor colors[];
+    //! Array containing the 48 predefined colors
+    static std::array<const QColor, 48> colors;
 
 private slots:
     void pickColor();

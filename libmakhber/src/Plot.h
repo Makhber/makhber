@@ -37,6 +37,8 @@
 #include <qwt_plot_grid.h>
 #include <qwt_plot_marker.h>
 
+#include <array>
+
 class Grid;
 
 //! Plot window class
@@ -94,8 +96,8 @@ public:
                const QwtPlotPrintFilter & = QwtPlotPrintFilter()) const override;
 
 protected:
-    void drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt],
-                   const QwtPlotPrintFilter &pfilter) const override;
+    void drawItems(QPainter *painter, const QRect &rect, std::array<const QwtScaleMap, axisCnt> map,
+                   const QwtPlotPrintFilter &pfilter) const;
 
     void drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleMap &map, int axis,
                          bool min, bool maj) const;

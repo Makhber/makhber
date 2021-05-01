@@ -35,6 +35,8 @@
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_histogram.h>
 
+#include <array>
+
 QwtHistogram::QwtHistogram(Table *t, const QString &name, int startRow, int endRow)
     : QwtBarCurve(QwtBarCurve::Vertical, t, "dummy", name, startRow, endRow)
 {
@@ -121,13 +123,13 @@ bool QwtHistogram::loadData()
     }
 
     if (size < 2 || (size == 2 && Y[0] == Y[1])) { // non valid histogram
-        double X[2];
+        std::array<double, 2> X;
         Y.resize(2);
         for (int i = 0; i < 2; i++) {
             Y[i] = 0;
             X[i] = 0;
         }
-        setData(X, Y.data(), 2);
+        setData(X.data(), Y.data(), 2);
         return false;
     }
 
@@ -192,17 +194,17 @@ bool QwtHistogram::loadData()
 void QwtHistogram::initData(const QVector<double> &Y, int size)
 {
     if (size < 2 || (size == 2 && Y[0] == Y[1])) { // non valid histogram data
-        double x[2], y[2];
+        std::array<double, 2> x, y;
         for (int i = 0; i < 2; i++) {
             y[i] = 0;
             x[i] = 0;
         }
-        setData(x, y, 2);
+        setData(x.data(), y.data(), 2);
         return;
     }
 
     const int n = 10; // default value
-    double x[n], y[n]; // store ranges (x) and bins (y)
+    std::array<double, n> x, y; // store ranges (x) and bins (y)
     gsl_histogram *h = gsl_histogram_alloc(n);
     if (!h)
         return;
@@ -231,7 +233,7 @@ void QwtHistogram::initData(const QVector<double> &Y, int size)
         x[i] = lower;
     }
 
-    setData(x, y, n);
+    setData(x.data(), y.data(), n);
 
     d_bin_size = (d_end - d_begin) / (double)n;
     d_autoBin = true;

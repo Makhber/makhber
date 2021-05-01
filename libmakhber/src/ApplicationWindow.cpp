@@ -3504,7 +3504,7 @@ void ApplicationWindow::openRecentProject()
 QFile *ApplicationWindow::openCompressedFile(const QString &fn)
 {
     QTemporaryFile *file = nullptr;
-    char buf[16384];
+    std::array<char, 16384> buf;
     int len = 0, err = 0;
 
     gzFile in = gzopen(QFile::encodeName(fn).constData(), "rb");
@@ -3522,7 +3522,7 @@ QFile *ApplicationWindow::openCompressedFile(const QString &fn)
     }
 
     forever {
-        len = gzread(in, buf, sizeof(buf));
+        len = gzread(in, buf.data(), sizeof(buf));
         if (len == 0)
             break;
         if (len < 0) {
@@ -3532,7 +3532,7 @@ QFile *ApplicationWindow::openCompressedFile(const QString &fn)
             delete file;
             return nullptr;
         }
-        if (file->write(buf, len) != len) {
+        if (file->write(buf.data(), len) != len) {
             QMessageBox::critical(
                     this, tr("File opening error"),
                     tr("Error writing to temporary file: %1").arg(file->errorString()));

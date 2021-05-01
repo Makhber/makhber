@@ -32,7 +32,7 @@
 #include <QPainter>
 #include <algorithm>
 
-const QColor ColorBox::colors[] = {
+std::array<const QColor, 24> ColorBox::colors = {
     QColor(Qt::black),        QColor(Qt::red),          QColor(Qt::green),
     QColor(Qt::blue),         QColor(Qt::cyan),         QColor(Qt::magenta),
     QColor(Qt::yellow),       QColor(Qt::darkYellow),   QColor(Qt::darkBlue),
@@ -43,7 +43,7 @@ const QColor ColorBox::colors[] = {
     QColor(0x80, 0xFF, 0xFF), QColor(0xFF, 0x80, 0xFF), QColor(Qt::darkGray),
 };
 
-const int ColorBox::colors_count = sizeof(colors) / sizeof(colors[0]);
+const int ColorBox::colors_count = static_cast<int>(colors.size());
 
 ColorBox::ColorBox(QWidget *parent) : QComboBox(parent)
 {
@@ -157,9 +157,9 @@ void ColorBox::init()
 
 void ColorBox::setColor(const QColor &c)
 {
-    const QColor *ite = std::find(std::begin(colors), std::end(colors), c);
-    if (ite->isValid())
-        this->setCurrentIndex(ite - colors);
+    auto ite = std::find(colors.begin(), colors.end(), c);
+    if (ite != colors.end())
+        this->setCurrentIndex(std::distance(colors.begin(), ite));
     else
         this->setCurrentIndex(0); // default color is black.
 }
@@ -167,17 +167,17 @@ void ColorBox::setColor(const QColor &c)
 QColor ColorBox::color() const
 {
     size_t i = this->currentIndex();
-    if (i < sizeof(colors))
-        return colors[this->currentIndex()];
+    if (i < std::size(colors))
+        return colors.at(this->currentIndex());
     else
         return QColor(Qt::black); // default color is black.
 }
 
 unsigned int ColorBox::colorIndex(const QColor &c)
 {
-    const QColor *ite = std::find(std::begin(colors), std::end(colors), c);
-    if (ite->isValid())
-        return (ite - colors);
+    auto ite = std::find(colors.begin(), colors.end(), c);
+    if (ite != colors.end())
+        return std::distance(colors.begin(), ite);
     else
         return c.rgba();
 }
@@ -185,7 +185,7 @@ unsigned int ColorBox::colorIndex(const QColor &c)
 QColor ColorBox::color(unsigned int colorIndex)
 {
     if (colorIndex < colors_count)
-        return colors[colorIndex];
+        return colors.at(colorIndex);
     else {
         QColor qc = QColor::fromRgba(colorIndex);
         if (qc.isValid())
