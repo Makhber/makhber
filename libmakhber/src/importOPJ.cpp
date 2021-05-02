@@ -220,7 +220,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
     QLocale locale = mw->locale();
     int Makhber_scaling_factor = 10; // in Origin width is measured in characters while in Makhber
                                      // - pixels --- need to be accurate
-    int columnCount = spread.columns.size();
+    int columnCount = static_cast<int>(spread.columns.size());
     int maxrows = spread.maxRows;
     if (!columnCount) // remove tables without cols
         return false;
@@ -496,7 +496,7 @@ bool ImportOPJ::importTables(const OriginFile &opj)
     for (unsigned int s = 0; s < opj.spreadCount(); ++s) {
         mw->setStatusBarText(QString("Spreadsheet %1 / %2").arg(s + 1).arg(opj.spreadCount()));
         Origin::SpreadSheet spread = opj.spread(s);
-        int columnCount = spread.columns.size();
+        auto columnCount = spread.columns.size();
         if (!columnCount) // remove tables without cols
             continue;
         importSpreadsheet(opj, spread);
@@ -511,7 +511,7 @@ bool ImportOPJ::importTables(const OriginFile &opj)
                                          .arg(j + 1)
                                          .arg(excelwb.sheets.size()));
             Origin::SpreadSheet spread = excelwb.sheets[j];
-            int columnCount = spread.columns.size();
+            auto columnCount = spread.columns.size();
             if (!columnCount) // remove tables without cols
                 continue;
             spread.name = excelwb.name;
@@ -527,8 +527,8 @@ bool ImportOPJ::importTables(const OriginFile &opj)
     // Import matrices
     for (unsigned int s = 0; s < opj.matrixCount(); ++s) {
         Origin::Matrix matrix = opj.matrix(s);
-        unsigned int layers = matrix.sheets.size();
-        for (unsigned int l = 0; l < layers; ++l) {
+        auto layers = matrix.sheets.size();
+        for (size_t l = 0; l < layers; ++l) {
             Origin::MatrixSheet &layer = matrix.sheets[l];
             int columnCount = layer.columnCount;
             int rowCount = layer.rowCount;
@@ -639,8 +639,8 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
 
         ml->hide(); //!hack used in order to avoid resize and repaint events
         ml->setWindowLabel(decodeMbcs(_graph.label.c_str()));
-        unsigned int layers = _graph.layers.size();
-        for (unsigned int l = 0; l < layers; ++l) {
+        auto layers = _graph.layers.size();
+        for (size_t l = 0; l < layers; ++l) {
             mw->setStatusBarText(QString("Graph %1 / %2, layer %3 / %4")
                                          .arg(g + 1)
                                          .arg(opj.graphCount())
@@ -753,7 +753,8 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                     continue;
                 }
 
-                CurveLayout cl = graph->initCurveLayout(style, layer.curves.size());
+                CurveLayout cl =
+                        graph->initCurveLayout(style, static_cast<int>(layer.curves.size()));
                 cl.sSize = ceil(_curve.symbolSize * 0.5);
                 cl.penWidth = _curve.symbolThickness;
                 color = _curve.symbolColor.regular;
@@ -830,7 +831,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                     cl.fillCol = color;
                     break;
                 default:
-                    cl.fillCol = -1;
+                    cl.fillCol = 0;
                 }
 
                 cl.lWidth = _curve.lineWidth;
