@@ -85,29 +85,6 @@
     </message>
 </context>
 <context>
-    <name>Application</name>
-    <message>
-        <source>Error!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> sending event </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> to object </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error &lt;unknown&gt; sending event</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ApplicationWindow</name>
     <message>
         <source>UNTITLED</source>
@@ -2575,7 +2552,7 @@ Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
         <source>No updates available. You are already running the latest version.</source>
-        <translation>Nejsou dostupné žádné aktualizace. Již provozujete nejnovější verzi.</translation>
+        <translation type="vanished">Nejsou dostupné žádné aktualizace. Již provozujete nejnovější verzi.</translation>
     </message>
     <message>
         <source>Invalid version file</source>
@@ -2583,7 +2560,7 @@ Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
         <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation>Soubor s verzí (obsah: &quot;%1&quot;) se nepodařilo přeměnit na platné číslo verze.</translation>
+        <translation type="vanished">Soubor s verzí (obsah: &quot;%1&quot;) se nepodařilo přeměnit na platné číslo verze.</translation>
     </message>
     <message>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
@@ -2737,6 +2714,15 @@ Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No updates available.
+You are already running the latest version: &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The version file could not be decoded into a valid version number.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6731,14 +6717,18 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
     </message>
     <message>
         <source>Released XXXX-XX-XX</source>
-        <translation type="unfinished">Vydáno XXXX-XX-XX</translation>
+        <translation type="obsolete">Vydáno XXXX-XX-XX</translation>
     </message>
     <message>
         <source>Close</source>
         <translation type="unfinished">Zavřít</translation>
     </message>
     <message>
-        <source>Lib: Version</source>
+        <source>Released: MMM, DD YYYY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber was built with the fellowing libraries</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9192,11 +9182,11 @@ největší celé číslo menší nebo rovno x.</translation>
         <translation>%1: přesunut sloupec %2 z %3 doh %4</translation>
     </message>
     <message>
-        <source>Built</source>
+        <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Makhber</source>
+        <source>Released</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9872,7 +9862,7 @@ největší celé číslo menší nebo rovno x.</translation>
         <source>Current column:
 Name: %1
 Position: %2</source>
-        <translation>Nynější sloupec:
+        <translation type="vanished">Nynější sloupec:
 Název: %1
 Poloha: %2</translation>
     </message>

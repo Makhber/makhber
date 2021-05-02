@@ -88,23 +88,23 @@
     <name>Application</name>
     <message>
         <source>Error!</source>
-        <translation>错误！</translation>
+        <translation type="vanished">错误！</translation>
     </message>
     <message>
         <source>Error </source>
-        <translation>错误 </translation>
+        <translation type="vanished">错误 </translation>
     </message>
     <message>
         <source> sending event </source>
-        <translation> 发送事件 </translation>
+        <translation type="vanished"> 发送事件 </translation>
     </message>
     <message>
         <source> to object </source>
-        <translation> 到 对象 </translation>
+        <translation type="vanished"> 到 对象 </translation>
     </message>
     <message>
         <source>Error &lt;unknown&gt; sending event</source>
-        <translation>错误 &lt;未知&gt; 发送事件</translation>
+        <translation type="vanished">错误 &lt;未知&gt; 发送事件</translation>
     </message>
 </context>
 <context>
@@ -2567,7 +2567,7 @@ Are you sure you want to continue?</source>
     </message>
     <message>
         <source>No updates available. You are already running the latest version.</source>
-        <translation>没有可用的更新。 您已经在运行最新版本。</translation>
+        <translation type="vanished">没有可用的更新。 您已经在运行最新版本。</translation>
     </message>
     <message>
         <source>Invalid version file</source>
@@ -2575,7 +2575,7 @@ Are you sure you want to continue?</source>
     </message>
     <message>
         <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation>版本文件（内容：&quot;%1&quot;）无法解码为有效的版本号。</translation>
+        <translation type="vanished">版本文件（内容：&quot;%1&quot;）无法解码为有效的版本号。</translation>
     </message>
     <message>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
@@ -2736,6 +2736,15 @@ in file %2.</source>
     </message>
     <message>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No updates available.
+You are already running the latest version: &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The version file could not be decoded into a valid version number.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6117,7 +6126,7 @@ overlaping if the columns in the ASCII file don&apos;t
 have the same number of rows.</source>
         <comment>when translating this check the what&apos;s this functions and tool tips to place the &apos;
 &apos;s correctly</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">警告：勾选这个选项会导致列重叠，如果ASCII文件中的各列行数不等。</translation>
     </message>
 </context>
 <context>
@@ -6743,14 +6752,18 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     </message>
     <message>
         <source>Released XXXX-XX-XX</source>
-        <translation type="unfinished">发布日期：XXXX-XX-XX</translation>
+        <translation type="obsolete">发布日期：XXXX-XX-XX</translation>
     </message>
     <message>
         <source>Close</source>
         <translation type="unfinished">关闭</translation>
     </message>
     <message>
-        <source>Lib: Version</source>
+        <source>Released: MMM, DD YYYY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber was built with the fellowing libraries</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9227,11 +9240,11 @@ n 阶正则圆柱贝塞尔函数的第 s 个正零 x_s，J_n（x_s）= 0</transl
         <translation>%1:将列 %2 从位置 %3 移动到 %4</translation>
     </message>
     <message>
-        <source>Built</source>
+        <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Makhber</source>
+        <source>Released</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9907,7 +9920,7 @@ n 阶正则圆柱贝塞尔函数的第 s 个正零 x_s，J_n（x_s）= 0</transl
         <source>Current column:
 Name: %1
 Position: %2</source>
-        <translation>当前列：
+        <translation type="vanished">当前列：
 名称：%1 
 位置：%2</translation>
     </message>

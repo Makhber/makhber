@@ -85,29 +85,6 @@
     </message>
 </context>
 <context>
-    <name>Application</name>
-    <message>
-        <source>Error!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> sending event </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source> to object </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Error &lt;unknown&gt; sending event</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ApplicationWindow</name>
     <message>
         <source></source>
@@ -2578,7 +2555,7 @@ Tem certeza que quer continuar?</translation>
     </message>
     <message>
         <source>No updates available. You are already running the latest version.</source>
-        <translation>Não há atualizações disponíveis. Você já está usando a última versão.</translation>
+        <translation type="vanished">Não há atualizações disponíveis. Você já está usando a última versão.</translation>
     </message>
     <message>
         <source>Invalid version file</source>
@@ -2586,7 +2563,7 @@ Tem certeza que quer continuar?</translation>
     </message>
     <message>
         <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation>O arquivo de versão (contido en: &quot;%1&quot;) não pode ser decodificado em um número de versão válido.</translation>
+        <translation type="vanished">O arquivo de versão (contido en: &quot;%1&quot;) não pode ser decodificado em um número de versão válido.</translation>
     </message>
     <message>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
@@ -2740,6 +2717,15 @@ Tem certeza que quer continuar?</translation>
     </message>
     <message>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No updates available.
+You are already running the latest version: &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The version file could not be decoded into a valid version number.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6761,14 +6747,18 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
     </message>
     <message>
         <source>Released XXXX-XX-XX</source>
-        <translation type="unfinished">Atualizado em XXXX-XX-XX</translation>
+        <translation type="obsolete">Atualizado em XXXX-XX-XX</translation>
     </message>
     <message>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
     </message>
     <message>
-        <source>Lib: Version</source>
+        <source>Released: MMM, DD YYYY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Makhber was built with the fellowing libraries</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9242,11 +9232,11 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>%1: mover coluna %2 da posição %3 para a %4</translation>
     </message>
     <message>
-        <source>Built</source>
+        <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>About Makhber</source>
+        <source>Released</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -9924,7 +9914,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <source>Current column:
 Name: %1
 Position: %2</source>
-        <translation>Coluna Atual:
+        <translation type="vanished">Coluna Atual:
 Nome: %1
 Posição: %2</translation>
     </message>

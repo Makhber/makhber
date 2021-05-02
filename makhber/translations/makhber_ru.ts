@@ -32,38 +32,38 @@
     </message>
     <message>
         <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="114"/>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="130"/>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="163"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="129"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="161"/>
         <source>Renaming &quot;%1&quot; to &quot;%2&quot; in order to avoid name collision.</source>
         <translation>Переименование «%1» в «%2», чтобы избежать конфликта имен.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="128"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="127"/>
         <source>%1: insert %2 at position %3.</source>
         <translation>%1: вставить %2 в позицию %3.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="143"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="141"/>
         <source>%1: remove %2.</source>
         <translation>%1: удалить %2.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="161"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="159"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1: переместить %2 в %3.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="252"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="249"/>
         <source>Tabs and line breaks in object names are currently not supported. They have been removed.</source>
         <translation>Табуляция и перенос строки в именах объектов в настоящее время не поддерживаются. Они были удалены.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="257"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="254"/>
         <source>Intended name &quot;%1&quot; diverted to &quot;%2&quot; in order to avoid name collision.</source>
         <translation>Предполагаемое имя «%1» изменено на «%2» во избежание конфликта имен.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="364"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="360"/>
         <source>%1: remove all children.</source>
         <translation>%1: удалить все дочерние элементы.</translation>
     </message>
@@ -105,132 +105,102 @@
     </message>
 </context>
 <context>
-    <name>Application</name>
-    <message>
-        <location filename="../src/main.cpp" line="143"/>
-        <location filename="../src/main.cpp" line="150"/>
-        <source>Error!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/main.cpp" line="144"/>
-        <source>Error </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/main.cpp" line="144"/>
-        <source> sending event </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/main.cpp" line="145"/>
-        <location filename="../src/main.cpp" line="152"/>
-        <source> to object </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/main.cpp" line="151"/>
-        <source>Error &lt;unknown&gt; sending event</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>ApplicationWindow</name>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="194"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="195"/>
         <source>UNTITLED</source>
         <translation>БЕЗЫМЯННЫЙ</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="209"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11239"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="210"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11261"/>
         <source>&amp;Next</source>
         <comment>next window</comment>
         <translation>&amp;Следующий</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="211"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11240"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="212"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11262"/>
         <source>&amp;Previous</source>
         <comment>previous window</comment>
         <translation>&amp;Предыдущий</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="232"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="233"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="721"/>
         <source>Project Explorer</source>
         <translation>Обозреватель проекта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="242"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12674"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13020"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="243"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12692"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13037"/>
         <source>Folder</source>
         <translation>Папка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="280"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="281"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="715"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="280"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="281"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="716"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12633"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12674"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12991"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12994"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12997"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13000"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13003"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12651"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12692"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13008"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13011"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13014"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13017"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13020"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="280"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="281"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="717"/>
         <source>View</source>
         <translation>Вид</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="280"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="281"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="718"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12650"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12652"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12656"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12681"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13006"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12668"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12670"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12674"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12699"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13023"/>
         <source>Created</source>
         <translation>Создан</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="280"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="281"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="719"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12987"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13004"/>
         <source>Label</source>
         <translation>Метка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="292"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="293"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="722"/>
         <source>Results Log</source>
         <translation>Журнал результатов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="302"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="303"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="724"/>
         <source>Scripting Console</source>
         <translation>Консоль скриптов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="326"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="327"/>
         <source>F5</source>
         <comment>next window shortcut</comment>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="329"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="330"/>
         <source>F6</source>
         <comment>previous window shortcut</comment>
         <translation>F6</translation>
@@ -255,25 +225,25 @@
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="467"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="728"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1828"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1863"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1875"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1916"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1929"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1949"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2003"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2097"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2166"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2214"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2265"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2325"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4031"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7051"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7067"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11372"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11442"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12961"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13000"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1831"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1866"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1878"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1919"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1932"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1952"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2006"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2100"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2169"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2217"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2268"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2328"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4040"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7063"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7079"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11394"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11464"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12979"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13017"/>
         <location filename="../../libmakhber/src/ApplicationWindow.h" line="526"/>
         <source>Graph</source>
         <translation>График</translation>
@@ -300,49 +270,49 @@
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="517"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11235"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11257"/>
         <source>Add &amp;Text</source>
         <translation>Добавить &amp;текст</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="518"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11237"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11259"/>
         <source>ALT+T</source>
         <translation>ALT+T</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="524"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11242"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11264"/>
         <source>Draw &amp;Arrow</source>
         <translation>Нарисовать &amp;стрелку</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="525"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11243"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11265"/>
         <source>CTRL+ALT+A</source>
         <translation>CTRL+ALT+A</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="531"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11246"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11268"/>
         <source>Draw &amp;Line</source>
         <translation>Нарисовать &amp;линию</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="532"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11247"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11269"/>
         <source>CTRL+ALT+L</source>
         <translation>CTRL+ALT+L</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="544"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11208"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11230"/>
         <source>&amp;Zoom In</source>
         <translation>&amp;Приблизить</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="545"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11209"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11231"/>
         <source>Ctrl++</source>
         <translation>Ctrl ++</translation>
     </message>
@@ -353,61 +323,61 @@
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="552"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11213"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11235"/>
         <source>Ctrl+-</source>
         <translation>Ctrl + -</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="562"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11224"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11246"/>
         <source>S&amp;creen Reader</source>
         <translation>С&amp;читывание с экрана</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="568"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11216"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11238"/>
         <source>&amp;Data Reader</source>
         <translation>Сч&amp;итывание данных</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="569"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11217"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11239"/>
         <source>CTRL+D</source>
         <translation>CTRL+D</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="575"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11220"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11242"/>
         <source>&amp;Select Data Range</source>
         <translation>В&amp;ыделить диапазон данных</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="576"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11221"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11243"/>
         <source>ALT+S</source>
         <translation>ALT+S</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="582"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11227"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11249"/>
         <source>&amp;Move Data Points...</source>
         <translation>&amp;Переместить данные...</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="583"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11228"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11250"/>
         <source>Ctrl+ALT+M</source>
         <translation>Ctrl+ALT+M</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="588"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11231"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11253"/>
         <source>Remove &amp;Bad Data Points...</source>
         <translation>Удалить &amp;ошибочные данные...</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="589"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11232"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11254"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
@@ -425,12 +395,12 @@
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="646"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="726"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2438"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2450"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2668"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7055"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12955"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12994"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2441"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2454"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2676"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7067"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12973"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13011"/>
         <source>Table</source>
         <translation>Таблица</translation>
     </message>
@@ -442,7 +412,7 @@
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="732"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8663"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8675"/>
         <source>3D Surface</source>
         <translation>3D Поверхность</translation>
     </message>
@@ -479,14 +449,14 @@
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="739"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="888"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8013"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8025"/>
         <source>3D &amp;Plot</source>
         <translation>3&amp;D График</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="740"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="908"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5784"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5794"/>
         <source>&amp;Matrix</source>
         <translation>&amp;Матрица</translation>
     </message>
@@ -537,8 +507,8 @@
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="749"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="995"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10642"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11130"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10664"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11152"/>
         <source>&amp;Help</source>
         <translation>&amp;Помощь</translation>
     </message>
@@ -587,45 +557,45 @@
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="760"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="922"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7775"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7890"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7787"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7902"/>
         <source>&amp;Translate</source>
         <translation>&amp;Транслировать</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="761"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="933"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7784"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7899"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7796"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7911"/>
         <source>&amp;Smooth</source>
         <translation>&amp;Сглаживание</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="762"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="939"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7789"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7904"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7801"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7916"/>
         <source>&amp;FFT Filter</source>
         <translation>&amp;БПФ-фильтр</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="763"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="959"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7803"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7918"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7815"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7930"/>
         <source>Fit E&amp;xponential Decay</source>
         <translation>&amp;Экспоненциальное затухание</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="764"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7813"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7928"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7825"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7940"/>
         <source>Fit &amp;Multi-Peak</source>
         <translation>Мульти&amp;пиковое приближение</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="851"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10999"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11021"/>
         <source>Toolbars</source>
         <translation>Панель инструментов</translation>
     </message>
@@ -657,44 +627,44 @@
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1499"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1517"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1536"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2890"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2897"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2906"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5105"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5109"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5118"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5130"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5189"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5200"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5471"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5489"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5507"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5526"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11704"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11757"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11763"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12513"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12521"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13572"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13578"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13582"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13586"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13599"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13605"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13608"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13612"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2900"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2907"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2916"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5115"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5119"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5128"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5140"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5199"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5210"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5481"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5499"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5517"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5536"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11726"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11779"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11785"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12531"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12539"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13579"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13585"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13590"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13594"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13607"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13613"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13616"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13620"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1491"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13613"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13621"/>
         <source>Please set a default X column for this table, first!</source>
         <translation>Пожалуйста, установите сначала столбец X по умолчанию для данной таблицы!</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1499"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13599"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13607"/>
         <source>Please select a column to plot!</source>
         <translation>Пожалуйста, выберите столбец для построения графика!</translation>
     </message>
@@ -708,48 +678,48 @@
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1686"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1695"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1751"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2794"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2805"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2811"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4809"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5675"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5976"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5985"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6019"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6038"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6052"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6080"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6094"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6125"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6161"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6492"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6513"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2804"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2815"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2821"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4819"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5685"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5986"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5995"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6029"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6048"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6062"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6090"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6104"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6135"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6171"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6503"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6524"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6529"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6545"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6553"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6576"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6594"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6631"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6658"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6696"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6718"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6762"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8136"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8223"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11568"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11580"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11600"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11612"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11642"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11654"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13313"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6535"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6540"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6556"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6564"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6588"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6606"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6643"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6670"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6708"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6730"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6774"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8148"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8235"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11590"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11602"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11622"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11634"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11664"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11676"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13319"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1687"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8137"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8149"/>
         <source>&lt;h4&gt;There are no tables available in this project.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Please create a table and try again!&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;В этом проекте нет ни одной доступной таблицы.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Пожалуйста, создайте таблицу и попробуйте ещё раз!&lt;/h4&gt;</translation>
     </message>
@@ -773,11 +743,11 @@
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1722"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1757"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2601"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2603"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8871"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12952"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12991"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2607"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2609"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8883"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12970"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13008"/>
         <source>Matrix</source>
         <translation>Матрица</translation>
     </message>
@@ -793,243 +763,243 @@
         <translation>&lt;h4&gt;В этом проекте матрицы недоступны.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Пожалуйста, создайте матрицу и попробуйте ещё раз!&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2055"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2076"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6669"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2058"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2079"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6681"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2064"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2067"/>
         <source>Import image from file</source>
         <translation>Импорт изображения из файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2085"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2088"/>
         <source>Load image from file</source>
         <translation>Загрузить изображение из файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2127"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5315"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2130"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5325"/>
         <source>Y Axis Title</source>
         <translation>Заголовок оси Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2128"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5290"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2131"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5300"/>
         <source>X Axis Title</source>
         <translation>Заголовок оси X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2423"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2426"/>
         <source>pixels</source>
         <translation>точки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2424"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2427"/>
         <source>pixel intensity (a.u.)</source>
         <translation>интенсивность точек (отн. ед.)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2467"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2472"/>
         <source>Renamed Window</source>
         <translation>Переименованное окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2468"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2473"/>
         <source>The table &apos;%1&apos; already exists. It has been renamed &apos;%2&apos;.</source>
         <translation>Таблица &apos;%1&apos; уже существует. Она была переименована в &apos;%2&apos;.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2566"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2577"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2572"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2583"/>
         <source>Notes</source>
         <translation>Заметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2633"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2641"/>
         <source>Determinant of </source>
         <translation>Определитель </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2795"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5190"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5977"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6039"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6081"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6493"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6546"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6577"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6595"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6632"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6659"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6697"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6719"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8224"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11569"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11601"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11643"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2805"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5200"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5987"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6049"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6091"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6504"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6557"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6589"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6607"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6644"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6671"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6709"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6731"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8236"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11591"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11623"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11665"/>
         <source>&lt;h4&gt;There are no plot layers available in this window.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Please add a layer and try again!&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;В этом окне нет ни одного доступного графического слоя.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Пожалуйста, добавьте графический слой и попробуйте ещё раз!&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2806"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6525"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2816"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6536"/>
         <source>There are no curves available on this plot!</source>
         <translation>На данном графике нет доступных кривых!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2812"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5201"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5986"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6053"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6095"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6530"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6554"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11581"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11613"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11655"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2822"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5211"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5996"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6063"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6105"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6541"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6565"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11603"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11635"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11677"/>
         <source>This functionality is not available for pie plots!</source>
         <translation>Эта функция недоступна для круговой диаграммы!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2841"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2851"/>
         <source>Error bars error</source>
         <translation>Ошибка шкалы погрешностей</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2842"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2891"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2852"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2901"/>
         <source>This feature is not available for user defined function curves!</source>
         <translation>Эта функция недоступна для кривых, определённых пользователем!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2898"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2908"/>
         <source>The selected columns have different numbers of rows!</source>
         <translation>Выбранные столбцы имеют разное число строк!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2907"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="2917"/>
         <source>You can only define error bars for numeric columns.</source>
         <translation>Вы можете определять шкалу погрешностей только для числовых столбцов.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3265"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3275"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3277"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3287"/>
         <source>ASCII Import Failed</source>
         <translation>Ошибка импорта ASCII</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3266"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3278"/>
         <source>Numeric data cannot be imported into non-numeric column &quot;%1&quot;.</source>
         <translation>Числовые данные нельзя импортировать в нечисловой столбец «%1».</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3276"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3288"/>
         <source>Non-numeric data cannot be imported into non-text column &quot;%1&quot;.</source>
         <translation>Нечисловые данные нельзя импортировать в нетекстовый столбец «%1».</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3295"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3307"/>
         <source>new_by_import</source>
         <translation>new_by_import</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3363"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3378"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3400"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3422"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3469"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3500"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3507"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3517"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3525"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3550"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3570"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3587"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3602"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3629"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3772"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3970"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3986"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3998"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4111"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11787"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11791"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11796"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11996"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12002"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12051"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3375"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3390"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3412"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3434"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3481"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3512"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3519"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3529"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3537"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3562"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3582"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3599"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3614"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3641"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3782"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3979"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3995"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4007"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4121"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11809"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11813"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11818"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12018"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12024"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12073"/>
         <source>File opening error</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3364"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3376"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; is the current file!</source>
         <translation>Файл: &lt;b&gt;%1&lt;/b&gt; является текущим файлом!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3379"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3971"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11797"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11997"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3391"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3980"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11819"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12019"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; doesn&apos;t exist!</source>
         <translation>Файл: &lt;b&gt;%1&lt;/b&gt; не существует!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3401"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3588"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3413"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3600"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is not a valid project file.</source>
         <translation>Файл &lt;b&gt;%1&lt;/b&gt; не является корректным файлом проекта.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3455"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3467"/>
         <source>File Open Error</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3456"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3468"/>
         <source>The file: &lt;b&gt; %1 &lt;/b&gt; &lt;p&gt;does not exist anymore!&lt;p&gt;It will be removed from the list.</source>
         <translation>Файл:  &lt;b&gt; %1 &lt;/b&gt; &lt;p&gt;больше не существует!&lt;p&gt;Он будет удалён из списка.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3470"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3482"/>
         <source>The file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; is the current file!</source>
         <translation>Файл:: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; является текущим файлом!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3500"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3512"/>
         <source>zlib can&apos;t open %1.</source>
         <translation>zlib не может открыть %1.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3508"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3520"/>
         <source>Can&apos;t create temporary file for writing uncompressed copy of %1.</source>
         <translation>Невозможно создать временный файл для записи несжатой копии %1.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3526"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3538"/>
         <source>Error writing to temporary file: %1</source>
         <translation>Ошибка записи во временный файл:%1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3571"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3583"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is corrupted, but there exists a backup copy.&lt;br&gt;Do you want to open the backup instead?</source>
         <translation>Файл &lt;b&gt;%1&lt;/b&gt; повреждён, но существует резервная копия.&lt;br&gt;Хотите ли вы вместо оригинала открыть резервную копию?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3577"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3589"/>
         <source>Opening backup copy</source>
         <translation>Открытие резервной копии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3578"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3590"/>
         <source>The original (corrupt) file is being left untouched, in case you want to try rescuing data manually. If you want to continue working with the automatically restored backup copy, you have to explicitly overwrite the original file.</source>
         <translation>Исходный (поврежденный) файл остается нетронутым на тот случай, если вы захотите попробовать восстановить данные вручную. Если вы хотите продолжить работу с автоматически восстановленной резервной копией, вам необходимо явно перезаписать исходный файл.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3630"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3642"/>
         <source>The file &quot;%1&quot; was created using &quot;%2&quot; as scripting language.
 
 Initializing support for this language FAILED; I&apos;m using &quot;%3&quot; instead.
@@ -1039,17 +1009,17 @@ Various parts of this file may not be displayed as expected.</source>
 Отображение различных фрагментов этого файла может отличаться от ожидаемого.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3646"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3656"/>
         <source>Window</source>
         <translation>Окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3653"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3663"/>
         <source>Opening file</source>
         <translation>Открытие файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3773"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3783"/>
         <source>Invalid WindowLabel line:
 &apos;%1&apos;
 in file %2.</source>
@@ -1058,2969 +1028,2978 @@ in file %2.</source>
 в файле %2.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3890"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3899"/>
         <source>Script Error</source>
         <translation>Ошибка скрипта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3951"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3960"/>
         <source>Scripting Error</source>
         <translation>Ошибка скрипта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3952"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3961"/>
         <source>Scripting language &quot;%1&quot; failed to initialize.</source>
         <translation>Ошибка инициализации скриптового языка &quot;%1&quot;.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3963"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3972"/>
         <source>Open Template File</source>
         <translation>Открыть файл шаблона</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4076"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4086"/>
         <source>Table1</source>
         <translation>Таблица1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4665"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4691"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4750"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4845"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5058"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6142"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4675"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4701"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4760"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4855"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5068"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6152"/>
         <source>Export Error</source>
         <translation>Ошибка экспорта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4666"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4676"/>
         <source>&lt;h4&gt;There are no plot layers available in this window!&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;В данном окне отсутствуют доступные графические слои!&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4692"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4751"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5059"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4702"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4761"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5069"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt; %1 &lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation>Невозможно выполнить запись в файл: &lt;br&gt;&lt;h4&gt; %1 &lt;/h4&gt;&lt;p&gt;Пожалуйста, проверьте, есть ли у Вас права на запись в данное место!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4774"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4784"/>
         <source>Choose a directory to export the graphs to</source>
         <translation>Выберите каталог для экспорта графиков</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4778"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4788"/>
         <source>Output format:</source>
         <translation>Формат вывода:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4779"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4789"/>
         <source>Directory:</source>
         <translation>Папка:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4810"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4820"/>
         <source>There are no plot layers available in window &lt;b&gt;%1&lt;/b&gt;.&lt;br&gt;Graph window not exported!</source>
         <translation>В окне нет доступных слоев с постороениями &lt;b&gt;%1&lt;/b&gt;.&lt;br&gt;Окно графика не экспортировано!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4826"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5409"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4836"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5419"/>
         <source>Overwrite file?</source>
         <translation>Перезаписать файл?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4827"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5410"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4837"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5420"/>
         <source>A file called: &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt;already exists. Do you want to overwrite it?</source>
         <translation>Файл с именем: &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt;уже существует. Вы хотите перезаписать его?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4830"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5413"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13316"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4840"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5423"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13322"/>
         <source>&amp;Yes</source>
         <translation>&amp;Да</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4830"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5413"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10388"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10972"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4840"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5423"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10410"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10994"/>
         <source>&amp;All</source>
         <translation>&amp;Все</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4830"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5413"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6624"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8898"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4840"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5423"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6636"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8910"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Отмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4846"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4856"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation>Невозможно записать в файл: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Пожалуйста, проверьте, есть ли у Вас права на запись в данное место!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4918"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4928"/>
         <source>Minimized</source>
         <translation>Свёрнутый</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4921"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7688"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4931"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7700"/>
         <source>Maximized</source>
         <translation>Развёрнутый</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4992"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5002"/>
         <source>Save Project As</source>
         <translation>Сохранить проект как</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5045"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5055"/>
         <source>Save Window As Template</source>
         <translation>Сохранить окно как шаблон</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5105"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12513"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5115"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12531"/>
         <source>Please enter a valid name!</source>
         <translation>Пожалуйста, введите корректное название!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5110"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5120"/>
         <source>The name you chose is not valid: only letters and digits are allowed!</source>
         <translation>Вы выбрали некорректное название: допускается использовать только буквы и цифры!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5111"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5120"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5132"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12523"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5121"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5130"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5142"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12541"/>
         <source>Please choose another name!</source>
         <translation>Пожалуйста, выберите другое имя!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5119"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5129"/>
         <source>Name &lt;b&gt;%1&lt;/b&gt; already exists!</source>
         <translation>Имя &lt;b&gt;%1&lt;/b&gt; уже существует!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5121"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5131"/>
         <source>Warning: for internal consistency reasons the underscore character is replaced with a minus sign.</source>
         <translation>Предупреждение: для обеспечения внутренней согласованности символ подчёркивания был заменён на знак минус.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5131"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5141"/>
         <source>The table name must be different from the names of its columns!</source>
         <translation>Название таблицы должно отличаться от названий столбцов!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5342"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5352"/>
         <source>Right Axis Title</source>
         <translation>Заголовок правой оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5367"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5377"/>
         <source>Top Axis Title</source>
         <translation>Заголовок верхней оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5393"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5403"/>
         <source>Choose a directory to export the tables to</source>
         <translation>Выберите каталог, в который будет экспортирована таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5447"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6130"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5457"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6140"/>
         <source>Choose a filename to save under</source>
         <translation>Выберите имя файла для сохранения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5472"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5482"/>
         <source>Please select two columns for this operation!</source>
         <translation>Пожалуйста, выберите два столбца для выполнения этой операции!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5490"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5500"/>
         <source>Please select exactly one columns for this operation!</source>
         <translation>Пожалуйста, выберите строго один столбец для выполнения этой операции!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5508"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5527"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5518"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5537"/>
         <source>Please select two columns for this operation:
  the first represents the signal and the second the response function!</source>
         <translation>Пожалуйста, выберите два столбца для данной операции: первая представляет сигнал, а вторая функцию-отклик!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5550"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5560"/>
         <source>Column selection error</source>
         <translation>Ошибка выбора столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5551"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5561"/>
         <source>Please select a column first!</source>
         <translation>Пожалуйста, выберите сначала столбец!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5567"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5577"/>
         <source>Row selection error</source>
         <translation>Ошибка выделения строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5567"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5577"/>
         <source>Please select a row first!</source>
         <translation>Пожалуйста, выберите сначала строку!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5676"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5686"/>
         <source>Not available for empty 3D surface plots!</source>
         <translation>Недоступно для пустых 3D поверхностей!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5782"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10818"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10849"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5792"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10840"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10871"/>
         <source>&amp;Worksheet</source>
         <translation>Рабочая &amp;таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6020"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6126"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6162"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6030"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6136"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6172"/>
         <source>&lt;h4&gt;There are no plot layers available in this window.&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;В данном окне нет доступных слоёв.&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6058"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6101"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6068"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6111"/>
         <source>This will modify the data in the worksheets!
 Are you sure you want to continue?</source>
         <translation>Данные в рабочих областях изменятся!
 Вы уверены, что хотите продолжить?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6060"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6103"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6070"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6113"/>
         <source>Continue</source>
         <translation>Продолжить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6060"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6103"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7543"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6070"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6113"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7555"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6143"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6153"/>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
         <translation>Невозможно записать файл: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Пожалйста убедитесь, что вы имеете права на запись в него, и что он не используется другим приложением!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6467"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6478"/>
         <source>Sorry, there are no results to display!</source>
         <translation>Извините, результаты для отображения отсутствуют!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6514"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6525"/>
         <source>There are no plot layers available in this window!</source>
         <translation>В данном окне нет слоёв графика!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6622"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6634"/>
         <source>Add new layer?</source>
         <translation>Добавить новый слой?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6623"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6635"/>
         <source>Do you want to add the text on a new layer or on the active layer?</source>
         <translation>В какой слой вы хотите добавить текст - новый или активный?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6624"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6636"/>
         <source>On &amp;New Layer</source>
         <translation>В &amp;новый слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6624"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6636"/>
         <source>On &amp;Active Layer</source>
         <translation>В &amp;активный слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6678"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6690"/>
         <source>Insert image from file</source>
         <translation>Вставить изображение из файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6763"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6775"/>
         <source>There are no plot layers available in this window.</source>
         <translation>В данном окне нет доступных слоёв.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6786"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6798"/>
         <source>Layer Geometry</source>
         <translation>Геометрия слоя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7034"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7046"/>
         <source>Duplicate window error</source>
         <translation>Ошибка дубликации окна</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7035"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7047"/>
         <source>There are no windows available in this project!</source>
         <translation>В данном проекте нет доступных окон!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7062"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7074"/>
         <source>Duplicate error</source>
         <translation>Ошибка дубликации</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7063"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7075"/>
         <source>Empty 3D surface plots cannot be duplicated!</source>
         <translation>Графики пустых 3D поверхностей не могут быть продублированы!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7184"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7203"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7197"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7216"/>
         <source>Window Geometry</source>
         <translation>Геометрия окна</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7344"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7356"/>
         <source>&amp;Cascade</source>
         <translation>&amp;Каскад</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7345"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7357"/>
         <source>&amp;Tile</source>
         <translation>&amp;Мозаика</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7354"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10666"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11146"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7366"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10688"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11168"/>
         <source>&amp;Hide Window</source>
         <translation>&amp;Скрыть окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7355"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10654"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11139"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7367"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10676"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11161"/>
         <source>Close &amp;Window</source>
         <translation>Закрыть &amp;окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7383"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10669"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7395"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10691"/>
         <source>More windows...</source>
         <translation>Больше окон...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7396"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7408"/>
         <source>&amp;View Pixel Line profile</source>
         <translation>&amp;Показать профиль линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7398"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7410"/>
         <source>&amp;Intensity Matrix</source>
         <translation>Матрица &amp;интенсивности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7402"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7414"/>
         <source>&amp;Cut</source>
         <translation>&amp;Вырезать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7403"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7838"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7954"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8039"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7415"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7850"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7966"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8051"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7404"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10827"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10850"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7416"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10849"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10872"/>
         <source>&amp;Delete</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7407"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7409"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7411"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12427"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13498"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7419"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7421"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7423"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12445"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13504"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Свойства...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7420"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7432"/>
         <source>Please use the project explorer to select a window!</source>
         <translation>Пожалуйста, используйте обозреватель проекта для выбора окна!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7441"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7453"/>
         <source>Normal</source>
         <translation>Нормальный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7542"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7554"/>
         <source>Save changes to project: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</source>
         <translation>Сохранить изменения в проекте: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7543"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12715"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7555"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12733"/>
         <source>Yes</source>
         <translation>Да</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7543"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12716"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7555"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12734"/>
         <source>No</source>
         <translation>Нет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7617"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10346"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10938"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7629"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10368"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10960"/>
         <source>&amp;Delete Selection</source>
         <translation>&amp;Удалить выделенное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7624"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12403"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7636"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12421"/>
         <source>New &amp;Window</source>
         <translation>&amp;Новое окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7632"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12412"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7644"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12430"/>
         <source>New F&amp;older</source>
         <translation>Новая &amp;папка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7635"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7647"/>
         <source>Auto &amp;Column Width</source>
         <translation>&amp;Автоматический выбор ширины колонок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7762"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7888"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7774"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7900"/>
         <source>Anal&amp;yze</source>
         <translation>Ана&amp;лизировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7766"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7879"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7778"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7891"/>
         <source>Re&amp;move Pie Curve</source>
         <translation>У&amp;далить круговую диаграмму</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7823"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7938"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7988"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7835"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7950"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8000"/>
         <source>&amp;Paste Layer</source>
         <translation>&amp;Вставить слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7828"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7943"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7840"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7955"/>
         <source>&amp;Paste Text</source>
         <translation>&amp;Вставить текст</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7831"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7946"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7843"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7958"/>
         <source>&amp;Paste Line/Arrow</source>
         <translation>&amp;Вставить линию/стрелку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7834"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7949"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7846"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7961"/>
         <source>&amp;Paste Image</source>
         <translation>Вст&amp;авить изображение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7840"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7844"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7849"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7956"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7960"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7965"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7852"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7856"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7861"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7968"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7972"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7977"/>
         <source>&amp;Layer</source>
         <translation>&amp;Слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7841"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7845"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7850"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7957"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7961"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7966"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7853"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7857"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7862"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7969"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7973"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7978"/>
         <source>&amp;Window</source>
         <translation>&amp;Окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7843"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7959"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7855"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7971"/>
         <source>E&amp;xport</source>
         <translation>&amp;Экспорт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7847"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7963"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10398"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10982"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7859"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7975"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10420"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11004"/>
         <source>&amp;Print</source>
         <translation>&amp;Печать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7853"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7969"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7865"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7981"/>
         <source>&amp;Geometry...</source>
         <translation>&amp;Геометрия...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7855"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7971"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7867"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7983"/>
         <source>P&amp;roperties...</source>
         <translation>С&amp;войства...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7857"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7973"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7869"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7985"/>
         <source>&amp;Delete Layer</source>
         <translation>&amp;Удалить слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8005"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8017"/>
         <source>&amp;Copy Page</source>
         <translation>&amp;Копировать страницу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8006"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8018"/>
         <source>E&amp;xport Page</source>
         <translation>&amp;Экспортировать страницу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8015"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8027"/>
         <source>&amp;Matrix...</source>
         <translation>&amp;Матрица...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8019"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8031"/>
         <source>Choose &amp;Data Set...</source>
         <translation>Выберите набор &amp;данных...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8021"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8033"/>
         <source>Choose &amp;Matrix...</source>
         <translation>Выберите &amp;матрицу...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8024"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8036"/>
         <source>C&amp;lear</source>
         <translation>Сте&amp;реть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8031"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8043"/>
         <source>&amp;Copy Graph</source>
         <translation>&amp;Копировать график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8032"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8044"/>
         <source>&amp;Export</source>
         <translation>&amp;Экспортировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8038"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8050"/>
         <source>Cu&amp;t</source>
         <translation>В&amp;ырезать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8040"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8052"/>
         <source>&amp;Paste</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8042"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8054"/>
         <source>&amp;Insert Row</source>
         <translation>&amp;Вставить строку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8043"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8055"/>
         <source>&amp;Insert Column</source>
         <translation>&amp;Вставить столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8045"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8057"/>
         <source>&amp;Delete Rows</source>
         <translation>&amp;Удалить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8047"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8059"/>
         <source>&amp;Delete Columns</source>
         <translation>&amp;Удалить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8050"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8062"/>
         <source>Clea&amp;r</source>
         <translation>Очистит&amp;ь</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8086"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8098"/>
         <source>index.html File Not Found!</source>
         <translation>Файл index.html не найден!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8087"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8099"/>
         <source>There is no file called &lt;b&gt;index.html&lt;/b&gt; in this folder.&lt;br&gt;Please choose another folder!</source>
         <translation>В данной папке нет файла с именем &lt;b&gt;index.html&lt;/b&gt;.&lt;br&gt;Пожалуйста, выберите другую папку!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8101"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8113"/>
         <source>Help Files Not Found!</source>
         <translation>Файлы справки не найдены!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8102"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8114"/>
         <source>Please indicate the location of the help file!</source>
         <translation>Пожалуйста, укажите расположение файла справки!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8103"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8115"/>
         <source>The manual can be downloaded from the following internet address:</source>
         <translation>Справочник может быть загружен со следующих интернет страниц:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8117"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8129"/>
         <source>unable to open index.html!</source>
         <translation>невозможно открыть index.html!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8118"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8130"/>
         <source>&lt;b&gt;index.html&lt;/b&gt; file cannot be opened</source>
         <translation>Файл &lt;b&gt; index.html &lt;/b&gt; не открывается</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8198"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8210"/>
         <source>Edit function</source>
         <translation>Править функцию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8838"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8850"/>
         <source>Set the number of pixels to average</source>
         <translation>Установка числа точек для усреднения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8839"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8851"/>
         <source>Number of averaged pixels</source>
         <translation>Число усреднённых точек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8867"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8879"/>
         <source>Error importing image</source>
         <translation>Ошибка при импорте изображения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8868"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8880"/>
         <source>Import of image &apos;%1&apos; failed</source>
         <translation>Не удалось импортировать изображение &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8895"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8907"/>
         <source>Guess best origin for the new layer?</source>
         <translation>Предложить лучший источник для нового слоя?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="217"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13262"/>
+        <source>No updates available.
+You are already running the latest version: &quot;%1&quot;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13268"/>
+        <source>The version file could not be decoded into a valid version number.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="218"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="713"/>
         <source>Makhber - untitled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3423"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12052"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3435"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12074"/>
         <source>Makhber currently does not support Origin import. If you are interested in reviving and maintaining an Origin import filter, contact the developers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3603"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3615"/>
         <source>Makhber does not support QtiPlot project files from versions later than 0.9.0.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3612"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3890"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6057"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6100"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7543"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11715"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13113"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3624"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3899"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6067"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6110"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7555"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11737"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13130"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3987"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3996"/>
         <source>The file: &lt;b&gt; %1 &lt;/b&gt; was not created using Makhber!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="3999"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4008"/>
         <source>Makhber does not support QtiPlot template files from versions later than 0.9.0.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4112"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4122"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber template file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4988"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12335"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4998"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12353"/>
         <source>Makhber project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4989"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12336"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4999"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12354"/>
         <source>Compressed Makhber project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5035"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5045"/>
         <source>Makhber/QtiPlot Matrix Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5037"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5047"/>
         <source>Makhber/QtiPlot 2D Graph Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5039"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5049"/>
         <source>Makhber/QtiPlot Table Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5041"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5051"/>
         <source>Makhber/QtiPlot 3D Surface Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8077"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8089"/>
         <source>Choose the location of the Makhber help folder!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8896"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8908"/>
         <source>Do you want Makhber to guess the best position for the new layer?
  Warning: this will rearrange existing layers!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8898"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8910"/>
         <source>&amp;Guess</source>
         <translation>&amp;Автоматически</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8898"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="8910"/>
         <source>&amp;Top-left corner</source>
         <translation>&amp;Верхний левый угол</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9028"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9040"/>
         <source>Error reading matrix from project file</source>
         <translation>Ошибка чтения матрицы из файла проекта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9032"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9176"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9044"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9188"/>
         <source>The following problems occured when loading the project file:
 </source>
         <translation>При загрузке файла проекта возникли следующие проблемы:
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9036"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9180"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9048"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9192"/>
         <source>Project loading partly failed</source>
         <translation>Частично не удалось загрузить проект</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9172"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="9184"/>
         <source>Error reading table from project file</source>
         <translation>Ошибка чтения таблицы из файла проекта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10034"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10056"/>
         <source>Curve</source>
         <translation>Кривая</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10255"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10860"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10277"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10882"/>
         <source>New &amp;Project</source>
         <translation>Новый &amp;проект</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10256"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10862"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10278"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10884"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10259"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10864"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10281"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10886"/>
         <source>New &amp;Graph</source>
         <translation>Новый &amp;график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10260"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10866"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10282"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10888"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10263"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10868"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10285"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10890"/>
         <source>New &amp;Note / Script</source>
         <translation>Новая &amp;заметка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10264"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10869"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10286"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10891"/>
         <source>Ctrl+ALT+N</source>
         <translation>Ctrl + ALT + N</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10267"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10872"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10289"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10894"/>
         <source>New &amp;Table</source>
         <translation>Новая &amp;таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10268"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10873"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10290"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10895"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10271"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10876"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10293"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10898"/>
         <source>New &amp;Matrix</source>
         <translation>Новая &amp;матрица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10272"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10877"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10294"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10899"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10276"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10880"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10298"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10902"/>
         <source>New &amp;Function Plot</source>
         <translation>Новый график &amp;функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10277"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10882"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10299"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10904"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10281"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10884"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10303"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10906"/>
         <source>New 3D &amp;Surface Plot</source>
         <translation>Новый график 3D по&amp;верхности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10282"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10886"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10304"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10908"/>
         <source>Ctrl+ALT+Z</source>
         <translation>Ctrl+ALT+Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10286"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10889"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10308"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10911"/>
         <source>&amp;Open</source>
         <translation>&amp;Открыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10287"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10890"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10309"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10912"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10290"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10894"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10312"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10916"/>
         <source>Open Image &amp;File</source>
         <translation>Открыть из&amp;ображение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10291"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10895"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10313"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10917"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10294"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10897"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10316"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10919"/>
         <source>Import I&amp;mage...</source>
         <translation>Импорт и&amp;зображения...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10297"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10899"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10319"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10921"/>
         <source>&amp;Save Project</source>
         <translation>&amp;Сохранить проект</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10298"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10901"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10320"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10923"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10302"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10903"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12386"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10324"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10925"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12404"/>
         <source>Save Project &amp;As...</source>
         <translation>Сохранить проект &amp;как...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10306"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10328"/>
         <source>Open Temp&amp;late...</source>
         <translation>Открыть &amp;шаблон...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10310"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10908"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10332"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10930"/>
         <source>Save As &amp;Template...</source>
         <translation>Сохранить как ш&amp;аблон...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10313"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10335"/>
         <source>Save Note As...</source>
         <translation>Сохранить заметку как...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10316"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10911"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10338"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10933"/>
         <source>&amp;Import ASCII...</source>
         <translation>Им&amp;порт ASCII...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10319"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10915"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10341"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10937"/>
         <source>&amp;Undo</source>
         <translation>&amp;Отменить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10320"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10917"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10342"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10939"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10324"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10919"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10346"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10941"/>
         <source>&amp;Redo</source>
         <translation>&amp;Вернуть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10325"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10921"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10347"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10943"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10329"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10923"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10351"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10945"/>
         <source>&amp;Duplicate</source>
         <translation>&amp;Дублировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10332"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10926"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10354"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10948"/>
         <source>Cu&amp;t Selection</source>
         <translation>Вырезать в&amp;ыбранное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10333"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10928"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10355"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10950"/>
         <source>Ctrl+X</source>
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10336"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10930"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10358"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10952"/>
         <source>&amp;Copy Selection</source>
         <translation>&amp;Копировать выделенное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10337"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10932"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10359"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10954"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10341"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10934"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10363"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10956"/>
         <source>&amp;Paste Selection</source>
         <translation>&amp;Вставить выделенное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10342"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10936"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10364"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10958"/>
         <source>Ctrl+V</source>
         <translation>Ctrl+V</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10347"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10940"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10369"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10962"/>
         <source>Del</source>
         <comment>delete key</comment>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10350"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10372"/>
         <source>&amp;Lock Toolbars</source>
         <translation>&amp;Заблокировать панели инструментов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10356"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10943"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10378"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10965"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10361"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10383"/>
         <source>Undo/Redo &amp;History</source>
         <translation>Отменить / повторить и &amp;история</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10368"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10954"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10390"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10976"/>
         <source>Add La&amp;yer</source>
         <translation>Добавить с&amp;лой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10369"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10956"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10391"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10978"/>
         <source>ALT+L</source>
         <translation>ALT+L</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10374"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10959"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10396"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10981"/>
         <source>Arran&amp;ge Layers</source>
         <translation>Вы&amp;ровнять слои</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10375"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10961"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10397"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10983"/>
         <source>ALT+A</source>
         <translation>ALT+A</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10379"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10963"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10964"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10401"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10985"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10986"/>
         <source>Automatic Layout</source>
         <translation>Авторазмещение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10383"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10967"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10405"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10989"/>
         <source>&amp;Current</source>
         <translation>&amp;Текущий</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10384"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10968"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10406"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10990"/>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10389"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10973"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10411"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10995"/>
         <source>Alt+X</source>
         <translation>Alt+X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10393"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10977"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10415"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10999"/>
         <source>&amp;Export PDF</source>
         <translation>Экспорт в &amp;PDF</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10394"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10978"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10416"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11000"/>
         <source>Ctrl+Alt+P</source>
         <translation>Ctrl + Alt + P</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10399"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10983"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10421"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11005"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10402"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10987"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10424"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11009"/>
         <source>Print All Plo&amp;ts</source>
         <translation>Печать всех гра&amp;фиков</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10406"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10989"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10428"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11011"/>
         <source>E&amp;xport ASCII</source>
         <translation>Э&amp;кспортировать в ASCII</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10409"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10991"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10431"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11013"/>
         <source>&amp;Quit</source>
         <translation>В&amp;ыход</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10410"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10992"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10432"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11014"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10413"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10994"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10435"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11016"/>
         <source>Clear &amp;Log Information</source>
         <translation>Очистить &amp;Лог</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10417"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10995"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10439"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11017"/>
         <source>Delete &amp;Fit Tables</source>
         <translation>Удалить табли&amp;цы приближений</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10422"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10997"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10444"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11019"/>
         <source>Plot &amp;Wizard</source>
         <translation>Мастер по&amp;строения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10423"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10998"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10445"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11020"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+W</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10426"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11001"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10448"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11023"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Настройки...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10430"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11003"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10452"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11025"/>
         <source>Add/Remove &amp;Curve...</source>
         <translation>Добавить/удалить &amp;кривую...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10431"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11004"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10453"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11026"/>
         <source>ALT+C</source>
         <translation>ALT+C</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10435"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11007"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10457"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11029"/>
         <source>Add &amp;Error Bars...</source>
         <translation>Показать величину &amp;ошибки...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10436"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11009"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10458"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11031"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10439"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11011"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10461"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11033"/>
         <source>Add &amp;Function...</source>
         <translation>Добавить &amp;функцию...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10440"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11013"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10462"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11035"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10443"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11015"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10465"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11037"/>
         <source>&amp;Rescale to Show All</source>
         <translation>&amp;Перерисовать и отобразить всё</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10444"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11016"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10466"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11038"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10447"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11019"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10469"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11041"/>
         <source>New &amp;Legend</source>
         <translation>Новая &amp;легенда</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10448"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11020"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10470"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11042"/>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10451"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11023"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10473"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11045"/>
         <source>Add Time Stamp</source>
         <translation>Добавить отметку времени</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10452"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11024"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10474"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11046"/>
         <source>Ctrl+ALT+T</source>
         <translation>Ctrl+ALT+T</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10455"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11027"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10477"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11049"/>
         <source>Add &amp;Image</source>
         <translation>Добавить &amp;изображение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10456"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11029"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10478"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11051"/>
         <source>ALT+I</source>
         <translation>ALT+I</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10462"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11031"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10484"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11053"/>
         <source>&amp;Line</source>
         <translation>&amp;Линия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10466"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10544"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11034"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11077"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10488"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10566"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11056"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11099"/>
         <source>&amp;Scatter</source>
         <translation>&amp;Точки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10470"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11037"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10492"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11059"/>
         <source>Line + S&amp;ymbol</source>
         <translation>Линия + с&amp;имволы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10475"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11040"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10497"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11062"/>
         <source>Vertical &amp;Drop Lines</source>
         <translation>Вертикально п&amp;адающие линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10479"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11042"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10501"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11064"/>
         <source>&amp;Spline</source>
         <translation>&amp;Сплайн</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10483"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11044"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10505"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11066"/>
         <source>&amp;Horizontal Steps</source>
         <translation>&amp;Горизонтальные ступеньки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10488"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11043"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10510"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11065"/>
         <source>&amp;Vertical Steps</source>
         <translation>&amp;Вертикальные ступеньки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10493"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11046"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10515"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11068"/>
         <source>&amp;Vertical Bars</source>
         <translation>Вертикальные с&amp;толбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10498"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11049"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10520"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11071"/>
         <source>&amp;Horizontal Bars</source>
         <translation>Горизонтальные &amp;столбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10502"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11052"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10524"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11074"/>
         <source>&amp;Area</source>
         <translation>&amp;Пространство</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10506"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11055"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10528"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11077"/>
         <source>&amp;Pie</source>
         <translation>&amp;Круговая диаграмма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10509"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11061"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10531"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11083"/>
         <source>Vectors XY&amp;AM</source>
         <translation>Векторы XY&amp;AM</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10512"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11058"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10534"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11080"/>
         <source>Vectors &amp;XYXY</source>
         <translation>Векторы &amp;XYXY</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10515"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11064"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10537"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11086"/>
         <source>&amp;Histogram</source>
         <translation>&amp;Гистограмма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10520"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11065"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10542"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11087"/>
         <source>&amp;Stacked Histogram</source>
         <translation>&amp;Фигурная гистограмма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10524"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11066"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10546"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11088"/>
         <source>&amp;Vertical 2 Layers</source>
         <translation>2 &amp;вертикальных слоя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10528"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11067"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10550"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11089"/>
         <source>&amp;Horizontal 2 Layers</source>
         <translation>2 &amp;горизонтальных слоя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10531"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11068"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10553"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11090"/>
         <source>&amp;4 Layers</source>
         <translation>&amp;4 слоя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10535"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11069"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10557"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11091"/>
         <source>&amp;Stacked Layers</source>
         <translation>&amp;Упакованные слои</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10538"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11071"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10560"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11093"/>
         <source>&amp;Ribbon</source>
         <translation>&amp;Лента</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10541"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11074"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10563"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11096"/>
         <source>&amp;Bars</source>
         <translation>&amp;Столбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10548"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11080"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10570"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11102"/>
         <source>&amp;Trajectory</source>
         <translation>&amp;Траектория</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10552"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11092"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10574"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11114"/>
         <source>Statistics on &amp;Columns</source>
         <translation>Статистика по &amp;столбцам</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10556"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11095"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10578"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11117"/>
         <source>Statistics on &amp;Rows</source>
         <translation>Статистика по &amp;строкам</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10559"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11097"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10581"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11119"/>
         <source>&amp;Integrate ...</source>
         <translation>&amp;Интегрирование...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10562"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11098"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10584"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11120"/>
         <source>Inte&amp;rpolate ...</source>
         <translation>Интер&amp;поляция...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10565"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11099"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10587"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11121"/>
         <source>&amp;Low Pass...</source>
         <translation>Фильтр &amp;нижних частот...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10568"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11100"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10590"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11122"/>
         <source>&amp;High Pass...</source>
         <translation>Фильтр &amp;верхних частот...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10571"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11101"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10593"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11123"/>
         <source>&amp;Band Pass...</source>
         <translation>&amp;Полосовой фильтр...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10574"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11102"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10596"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11124"/>
         <source>&amp;Band Block...</source>
         <translation>&amp;Режекторный фильтр...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10577"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11103"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10599"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11125"/>
         <source>&amp;FFT...</source>
         <translation>&amp;БПФ...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10580"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11104"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10602"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11126"/>
         <source>&amp;Savitzky-Golay...</source>
         <translation>&amp;Савицкий-Голай...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10583"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11105"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10605"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11127"/>
         <source>&amp;FFT Filter...</source>
         <translation>&amp;БПФ-фильтр...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10586"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11106"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10608"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11128"/>
         <source>Moving Window &amp;Average...</source>
         <translation>&amp;Скользящее среднее...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10589"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11107"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10611"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11129"/>
         <source>&amp;Differentiate</source>
         <translation>&amp;Дифференцирование</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10592"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11108"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10614"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11130"/>
         <source>Fit &amp;Linear</source>
         <translation>&amp;Линейное приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10595"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11109"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10617"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11131"/>
         <source>Fit &amp;Polynomial ...</source>
         <translation>&amp;Полиномиальное приближение...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10598"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11110"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10620"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11132"/>
         <source>&amp;First Order ...</source>
         <translation>&amp;Первого порядка...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10601"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11111"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10623"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11133"/>
         <source>&amp;Second Order ...</source>
         <translation>&amp;Второго порядка...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10604"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11112"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10626"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11134"/>
         <source>&amp;Third Order ...</source>
         <translation>&amp;Третьего порядка...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10607"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11113"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10629"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11135"/>
         <source>Fit Exponential Gro&amp;wth ...</source>
         <translation>&amp;Экспоненциальное приближение...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10610"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11114"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10632"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11136"/>
         <source>Fit &amp;Boltzmann (Sigmoidal)</source>
         <translation>Приближение по &amp;Больцману (Сигмоидальное)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10613"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11115"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10635"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11137"/>
         <source>Fit &amp;Gaussian</source>
         <translation>Приближение &amp;гауссианом</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10616"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11116"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10638"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11138"/>
         <source>Fit Lorent&amp;zian</source>
         <translation>Приближение &amp;лоренцианом</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10619"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11118"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10641"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11140"/>
         <source>Fit &amp;Wizard...</source>
         <translation>Мастер &amp;приближения...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10620"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11119"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10642"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11141"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10623"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11121"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10645"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11143"/>
         <source>&amp;Plot ...</source>
         <translation>&amp;График...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10626"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11122"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10648"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11144"/>
         <source>&amp;Scales...</source>
         <translation>&amp;Масштабы...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10629"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11123"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10651"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11145"/>
         <source>&amp;Axes...</source>
         <translation>&amp;Оси...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10632"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11124"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10654"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11146"/>
         <source>&amp;Grid ...</source>
         <translation>&amp;Сетка...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10635"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11125"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10657"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11147"/>
         <source>&amp;Title ...</source>
         <translation>&amp;Заголовок...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10638"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11127"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10660"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11149"/>
         <source>&amp;About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10784"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11181"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10806"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11203"/>
         <source>&amp;Makhber Homepage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10787"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10809"/>
         <source>Makhber &amp;Forums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11185"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11207"/>
         <source>Visit Makhber &amp;Forums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11726"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11748"/>
         <source>start Makhber in language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11728"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11750"/>
         <source>show Makhber manual in a standalone window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11730"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11752"/>
         <source>print Makhber version and release date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11745"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11767"/>
         <source>Makhber - Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12003"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12025"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber or Origin project file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13202"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13219"/>
         <source>Makhber will now try to determine whether a new version of Makhber is available. Please modify your firewall settings in order to allow Makhber to connect to the internet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13247"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13252"/>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10639"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11128"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10661"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11150"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10643"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11131"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10665"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11153"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10647"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11134"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10669"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11156"/>
         <source>&amp;Choose Help Folder...</source>
         <translation>В&amp;ыберите папку помощи...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10651"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11137"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10673"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11159"/>
         <source>&amp;Rename Window</source>
         <translation>&amp;Переименовать окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10655"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11140"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10677"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11162"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10658"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11142"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10680"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11164"/>
         <source>&amp;Remove Layer</source>
         <translation>&amp;Удалить слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10659"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11143"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10681"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11165"/>
         <source>Alt+R</source>
         <translation>Alt+R</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10663"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11145"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10685"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11167"/>
         <source>Window &amp;Geometry...</source>
         <translation>&amp;Геометрия окна...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10673"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11148"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10695"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11170"/>
         <source>&amp;View Pixel Line Profile</source>
         <translation>&amp;Показать профиль линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10676"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11149"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10698"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11171"/>
         <source>&amp;Intensity Table</source>
         <translation>Таблица &amp;интенсивности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10679"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10682"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10685"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11150"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11151"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11152"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10701"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10704"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10707"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11172"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11173"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11174"/>
         <source>&amp;Properties</source>
         <translation>&amp;Свойства</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10688"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11153"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10710"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11175"/>
         <source>&amp;Activate Window</source>
         <translation>&amp;Сделать окно активным</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10691"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11154"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10713"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11176"/>
         <source>Mi&amp;nimize Window</source>
         <translation>&amp;Свернуть окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10694"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11155"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10716"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11177"/>
         <source>Ma&amp;ximize Window</source>
         <translation>&amp;Развернуть окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10697"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11156"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10719"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11178"/>
         <source>Re&amp;size Window...</source>
         <translation>И&amp;зменить размер окна...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10700"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11157"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10722"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11179"/>
         <source>&amp;Print Window</source>
         <translation>&amp;Распечатать окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10704"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11158"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10726"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11180"/>
         <source>&amp;Layer Geometry</source>
         <translation>Гео&amp;метрия слоя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10708"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11159"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10730"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11181"/>
         <source>&amp;Surface...</source>
         <translation>&amp;Поверхность...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10711"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11160"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10733"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11182"/>
         <source>&amp;Data Set...</source>
         <translation>Набор &amp;данных...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10714"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11161"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10736"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11183"/>
         <source>&amp;Invert</source>
         <translation>&amp;Инвертировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10717"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11162"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10739"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11184"/>
         <source>&amp;Determinant</source>
         <translation>&amp;Определитель</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10720"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11163"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10742"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11185"/>
         <source>&amp;Convert to Table</source>
         <translation>&amp;Преобразовать в таблицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10723"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11164"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10745"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11186"/>
         <source>Convert to &amp;Matrix</source>
         <translation>Преобразовать в &amp;Матрицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10727"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11165"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10749"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11187"/>
         <source>3D &amp;Wire Frame</source>
         <translation>3D &amp;Проволочный каркас</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10731"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11166"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10753"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11188"/>
         <source>3D &amp;Hidden Line</source>
         <translation>3D &amp;Скрытая линия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10734"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11167"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10756"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11189"/>
         <source>3D &amp;Polygons</source>
         <translation>3D &amp;Многоугольники</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10738"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11168"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10760"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11190"/>
         <source>3D Wire &amp;Surface</source>
         <translation>3D Проволочная &amp;поверхность</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10742"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10764"/>
         <source>Contour - &amp;Color Fill</source>
         <translation>Контур - заполнение &amp;цветом</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10745"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11086"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10767"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11108"/>
         <source>Contour &amp;Lines</source>
         <translation>&amp;Линии контура</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10748"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11089"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10770"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11111"/>
         <source>&amp;Gray Scale Map</source>
         <translation>Шкала &amp;уровней серого</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10751"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11169"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10773"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11191"/>
         <source>Co&amp;rrelate</source>
         <translation>Вычислить ко&amp;рреляцию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10754"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11170"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10776"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11192"/>
         <source>&amp;Autocorrelate</source>
         <translation>&amp;Автокорреляция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10757"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11171"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10779"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11193"/>
         <source>&amp;Convolute</source>
         <translation>&amp;Свернуть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10760"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11172"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10782"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11194"/>
         <source>&amp;Deconvolute</source>
         <translation>&amp;Обратить свёртку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10763"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11173"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10785"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11195"/>
         <source>&amp;Horizontal</source>
         <translation>&amp;Горизонтально</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10766"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11174"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10788"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11196"/>
         <source>&amp;Vertical</source>
         <translation>&amp;Вертикально</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10769"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11176"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10791"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11198"/>
         <source>&amp;Box Plot</source>
         <translation>&amp;Ящичковая диаграмма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10773"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11179"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10795"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11201"/>
         <source>&amp;Gaussian...</source>
         <translation>&amp;Гауссиан...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10776"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11180"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10798"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11202"/>
         <source>&amp;Lorentzian...</source>
         <translation>&amp;Лоренциан...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10780"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11183"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10802"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11205"/>
         <source>Search for &amp;Updates</source>
         <translation>Искать &amp;обновления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10790"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11186"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10812"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11208"/>
         <source>Report a &amp;Bug</source>
         <translation>Сообщить об оши&amp;бке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10794"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11188"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10816"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11210"/>
         <source>Download &amp;Manual</source>
         <translation>Загрузка &amp;Мануала</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10799"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11192"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10821"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11214"/>
         <source>Scripting &amp;Language</source>
         <translation>Скриптовый &amp;язык</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10803"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11194"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10825"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11216"/>
         <source>&amp;Restart Scripting</source>
         <translation>Пе&amp;резапустить скрипт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10806"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11196"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10828"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11218"/>
         <source>E&amp;xecute</source>
         <translation>&amp;Выполнить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10807"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11197"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10829"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11219"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10809"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11199"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10831"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11221"/>
         <source>Execute &amp;All</source>
         <translation>Выполнить в&amp;сё</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10810"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11200"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10832"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11222"/>
         <source>Ctrl+Shift+J</source>
         <translation>Ctrl+Shift+J</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10812"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11202"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10834"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11224"/>
         <source>&amp;Evaluate Expression</source>
         <translation>&amp;Выполнить выражение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10813"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11203"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10835"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11225"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10815"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10848"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10837"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10870"/>
         <source>&amp;Plot details...</source>
         <translation>Детали &amp;построения...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10821"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10854"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10843"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10876"/>
         <source>&amp;Reset to Full Range</source>
         <translation>&amp;Сбросить до полного диапазона</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10824"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10855"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10846"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10877"/>
         <source>Edit &amp;Range...</source>
         <translation>Править &amp;диапозон...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10830"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10856"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10852"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10878"/>
         <source>&amp;Hide</source>
         <translation>&amp;Скрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10833"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10857"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10855"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10879"/>
         <source>Hide &amp;Other Curves</source>
         <translation>Скрыть д&amp;ругие кривые</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10836"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10858"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10880"/>
         <source>&amp;Show All Curves</source>
         <translation>Показать &amp;все кривые</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10839"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10851"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10861"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10873"/>
         <source>&amp;Edit Function...</source>
         <translation>&amp;Править функцию...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10842"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10852"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10864"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10874"/>
         <source>&amp;Copy status bar text</source>
         <translation>Копировать &amp;текст из строки состояния</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10861"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10883"/>
         <source>Open a new project</source>
         <translation>Открыть новый проект</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10865"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10887"/>
         <source>Create an empty 2D plot</source>
         <translation>Создать пустой 2D график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10870"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10892"/>
         <source>Create an empty note / script window</source>
         <translation>Созать пустое окно заметки / скрипта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10874"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10896"/>
         <source>New table</source>
         <translation>Новая таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10878"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10900"/>
         <source>New matrix</source>
         <translation>Новая матрица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10881"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10903"/>
         <source>Create a new 2D function plot</source>
         <translation>Создать новый 2D график функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10885"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10907"/>
         <source>Create a new 3D surface plot</source>
         <translation>Создать новый 3D график поверхности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10891"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10913"/>
         <source>Open project</source>
         <translation>Открыть проект</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10900"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10922"/>
         <source>Save project</source>
         <translation>Сохранить проект</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10905"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10927"/>
         <source>Open Te&amp;mplate...</source>
         <translation>Открыть &amp;шаблон...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10906"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10928"/>
         <source>Open template</source>
         <translation>Открыть шаблон</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10909"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10931"/>
         <source>Save window as template</source>
         <translation>Сохранить окно как шаблон</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10912"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10934"/>
         <source>Import data file(s)</source>
         <translation>Импорт файла(ов) данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10913"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10935"/>
         <source>Ctrl+K</source>
         <translation>Ctrl+K</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10916"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10938"/>
         <source>Undo changes</source>
         <translation>Отменить изменения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10920"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10942"/>
         <source>Redo changes</source>
         <translation>Вернуть изменения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10924"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10946"/>
         <source>Duplicate window</source>
         <translation>Создать дубликат окна</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10927"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10949"/>
         <source>Cut selection</source>
         <translation>Вырезать выделенное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10931"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10953"/>
         <source>Copy selection</source>
         <translation>Копировать выделенное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10935"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10957"/>
         <source>Paste selection</source>
         <translation>Вставить выделенное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10939"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10961"/>
         <source>Delete selection</source>
         <translation>Удалить выделенное</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10942"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10964"/>
         <source>Project &amp;Explorer</source>
         <translation>Обозр&amp;еватель проекта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10944"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10966"/>
         <source>Show project explorer</source>
         <translation>Показать обозреватель проекта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10946"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10968"/>
         <source>Results &amp;Log</source>
         <translation>&amp;Журнал результатов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10947"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10969"/>
         <source>Show analysis results</source>
         <translation>Показать результаты анализа</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10950"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10972"/>
         <source>&amp;Console</source>
         <translation>&amp;Консоль</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10951"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10973"/>
         <source>Show Scripting console</source>
         <translation>Показать консоль скриптов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10955"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10977"/>
         <source>Add Layer</source>
         <translation>Добавить слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10960"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10982"/>
         <source>Arrange Layers</source>
         <translation>Выровнять слои</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10969"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10991"/>
         <source>Export current graph</source>
         <translation>Экспортировать текущий график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10974"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10996"/>
         <source>Export all graphs</source>
         <translation>Экспортировать все графики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10979"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11001"/>
         <source>Export to PDF</source>
         <translation>Экспорт в PDF</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="10984"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11006"/>
         <source>Print window</source>
         <translation>Распечатать содержимое окна</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11005"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11027"/>
         <source>Add curve to graph</source>
         <translation>Добавить кривую на график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11008"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11030"/>
         <source>Add Error Bars...</source>
         <translation>Добавить шкалу ошибок...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11012"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11034"/>
         <source>Add Function...</source>
         <translation>Добавить функцию...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11017"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11039"/>
         <source>Best fit</source>
         <translation>Наиболее подходящий масштаб</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11021"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11043"/>
         <source>Add new legend</source>
         <translation>Добавить новое обозначение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11025"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11047"/>
         <source>Date &amp; time </source>
         <translation>Дата &amp; и время </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11028"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11050"/>
         <source>Add Image</source>
         <translation>Добавить изображение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11032"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11054"/>
         <source>Plot as line</source>
         <translation>Построить как линию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11035"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11057"/>
         <source>Plot as symbols</source>
         <translation>Построить как отметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11038"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11060"/>
         <source>Plot as line + symbols</source>
         <translation>Построить как линию + отметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11047"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11069"/>
         <source>Plot with vertical bars</source>
         <translation>Отобразить с помощью вертикальных столбиков</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11050"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11072"/>
         <source>Plot with horizontal bars</source>
         <translation>Отобразить с помощью горизонтальных столбиков</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11053"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11075"/>
         <source>Plot area</source>
         <translation>Область графика</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11056"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11078"/>
         <source>Plot pie</source>
         <translation>Круговая диаграмма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11059"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11081"/>
         <source>Vectors XYXY</source>
         <translation>Векторы XYXY</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11062"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11084"/>
         <source>Vectors XYAM</source>
         <translation>Векторы XYAM</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11072"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11094"/>
         <source>Plot 3D ribbon</source>
         <translation>Построить 3D лента</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11075"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11097"/>
         <source>Plot 3D bars</source>
         <translation>Построить 3D столбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11078"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11100"/>
         <source>Plot 3D scatter</source>
         <translation>Построить 3D отметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11081"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11103"/>
         <source>Plot 3D trajectory</source>
         <translation>Построить 3D траекторию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11083"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11105"/>
         <source>Contour + &amp;Color Fill</source>
         <translation>Контур + заполнение &amp;цветом</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11084"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11106"/>
         <source>Contour Lines + Color Fill</source>
         <translation>Линии контура + заполнение цветом</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11087"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11109"/>
         <source>Contour Lines</source>
         <translation>Линии контура</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11090"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11112"/>
         <source>Gray Scale Map</source>
         <translation>Шкала уровней серого</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11093"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11115"/>
         <source>Selected columns statistics</source>
         <translation>Статистика выделенных колонок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11096"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11118"/>
         <source>Selected rows statistics</source>
         <translation>Статистика выделенных строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11147"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11169"/>
         <source>More Windows...</source>
         <translation>Больше окон...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11177"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11199"/>
         <source>Box and whiskers plot</source>
         <translation>Диаграмма типа &quot;ящик с усами&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11205"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11227"/>
         <source>Disable &amp;tools</source>
         <translation>Отключить &amp;инструменты</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11206"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11228"/>
         <source>Pointer</source>
         <translation>Указатель</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11210"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11232"/>
         <source>Zoom In</source>
         <translation>Приблизить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11212"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11234"/>
         <source>Zoom &amp;Out</source>
         <translation>&amp;Отодвинуть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11214"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11236"/>
         <source>Zoom Out</source>
         <translation>Отодвинуть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11218"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11240"/>
         <source>Data reader</source>
         <translation>Считывание данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11222"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11244"/>
         <source>Select data range</source>
         <translation>Выделить диапазон данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11225"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11247"/>
         <source>Screen reader</source>
         <translation>Считывание с экрана</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11229"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11251"/>
         <source>Move data points</source>
         <translation>Перемещение данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11233"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11255"/>
         <source>Remove data points</source>
         <translation>Удаление данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11236"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11258"/>
         <source>Add Text</source>
         <translation>Добавить текст</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11244"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11266"/>
         <source>Draw arrow</source>
         <translation>Нарисовать стрелку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11248"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11270"/>
         <source>Draw line</source>
         <translation>Нарисовать линию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11254"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11255"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11256"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11257"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11276"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11277"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11278"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11279"/>
         <source>Box</source>
         <translation>Короб</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11258"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11260"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11261"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11280"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11282"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11283"/>
         <source>Frame</source>
         <translation>Рамка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11259"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11281"/>
         <source>&amp;Frame</source>
         <translation>&amp;Рамка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11262"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11263"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11284"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11285"/>
         <source>No Axes</source>
         <translation>Без осей координат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11264"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11265"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11286"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11287"/>
         <source>No axes</source>
         <translation>Без осей координат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11267"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11289"/>
         <source>Front grid</source>
         <translation>Сетка на переднем плане</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11268"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11290"/>
         <source>Back grid</source>
         <translation>Сетка сзади</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11269"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11291"/>
         <source>Right grid</source>
         <translation>Сетка на правой боковой поверхности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11270"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11292"/>
         <source>Left grid</source>
         <translation>Сетка на левой боковой поверхности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11271"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11293"/>
         <source>Ceiling grid</source>
         <translation>Сетка на верхней поверхности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11272"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11294"/>
         <source>Floor grid</source>
         <translation>Сетка на нижней поверхности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11274"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11275"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11276"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11277"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11296"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11297"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11298"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11299"/>
         <source>Wireframe</source>
         <translation>Проволочный каркас</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11278"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11279"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11300"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11301"/>
         <source>Hidden Line</source>
         <translation>Скрытая линия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11280"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11281"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11302"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11303"/>
         <source>Hidden line</source>
         <translation>Скрытая линия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11282"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11283"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11304"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11305"/>
         <source>Polygon Only</source>
         <translation>Только многоугольники</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11284"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11285"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11306"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11307"/>
         <source>Polygon only</source>
         <translation>Только многоугольники</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11286"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11287"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11308"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11309"/>
         <source>Mesh &amp; Filled Polygons</source>
         <translation>Многоугольники, заполненные сеткой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11288"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11289"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11310"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11311"/>
         <source>Mesh &amp; filled Polygons</source>
         <translation>Многоугольники, заполненные сеткой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11290"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11291"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11292"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11293"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11312"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11313"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11314"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11315"/>
         <source>Dots</source>
         <translation>Точки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11294"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11295"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11296"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11297"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11316"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11317"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11318"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11319"/>
         <source>Bars</source>
         <translation>Столбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11298"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11299"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11300"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11301"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11320"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11321"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11322"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11323"/>
         <source>Cones</source>
         <translation>Конусы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11302"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11303"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11304"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11305"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11324"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11325"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11326"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11327"/>
         <source>Crosshairs</source>
         <translation>Перекрестия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11310"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11311"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11332"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11333"/>
         <source>Floor Data Projection</source>
         <translation>Проекция данных на основание</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11312"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11313"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11334"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11335"/>
         <source>Floor data projection</source>
         <translation>Проекция данных на основание</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11314"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11315"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11336"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11337"/>
         <source>Floor Isolines</source>
         <translation>Изолинии в основании</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11316"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11317"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11338"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11339"/>
         <source>Floor isolines</source>
         <translation>Изолинии в основании</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11318"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11319"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11340"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11341"/>
         <source>Empty Floor</source>
         <translation>Пустое основание</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11320"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11321"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11342"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11343"/>
         <source>Empty floor</source>
         <translation>Пустое основание</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11323"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11324"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11325"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11326"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11345"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11346"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11347"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11348"/>
         <source>Animation</source>
         <translation>Анимация</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11328"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11329"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11330"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11331"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11350"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11351"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11352"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11353"/>
         <source>Enable perspective</source>
         <translation>Разрешить перспективу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11333"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11334"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11335"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11336"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11355"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11356"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11357"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11358"/>
         <source>Reset rotation</source>
         <translation>Сбросить вращение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11338"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11339"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11340"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11341"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11360"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11361"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11362"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11363"/>
         <source>Fit frame to window</source>
         <translation>Подогнать фрейм под окно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11659"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11681"/>
         <source>Enter the number of peaks</source>
         <translation>Введите число пиков</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11659"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11681"/>
         <source>Peaks</source>
         <translation>Пики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11705"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11727"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: This command line option must be used without other arguments!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Эта опция командной строки должна использоваться без аргументов!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11715"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11737"/>
         <source>Version</source>
         <translation>Версия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11721"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11743"/>
         <source>Usage</source>
         <translation>Использование</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11722"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11744"/>
         <source>options</source>
         <translation>опции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11722"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11735"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11740"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11744"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11757"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11762"/>
         <source>file</source>
         <translation>файл</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11722"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11735"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11740"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11744"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11757"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11762"/>
         <source>name</source>
         <translation>имя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11723"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11745"/>
         <source>Valid options are</source>
         <translation>Корректными опциями являются</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11724"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11725"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11726"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11728"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11730"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11732"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11746"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11747"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11748"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11750"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11752"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11754"/>
         <source>or</source>
         <translation>или</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11724"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11746"/>
         <source>show about dialog and exit</source>
         <translation>показать диалог &apos;О программе&apos; и выйти</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11725"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11747"/>
         <source>show command line options</source>
         <translation>показать опции коммандной строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11732"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11754"/>
         <source>execute the script file given as argument</source>
         <translation>выполнить скрипт, переданный в качестве аргумента</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11736"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11758"/>
         <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file</source>
         <translation>может быть любым файлом .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py или ASCII</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11741"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11763"/>
         <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
         <translation>может быть любым файлом .sciprj, .sciprj.gz, .qti, qti.gz, .py или ASCII</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11758"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11780"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Неправильный параметр локализации или  отсутствие перевода!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11764"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11786"/>
         <source>&lt;b&gt; %1 &lt;/b&gt; unknown command line option!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt; неизвестная опция коммандной строки!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11765"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11787"/>
         <source>Type %1 to see the list of the valid options.</source>
         <translation>Введите %1 чтобы увидеть список доступных опций.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11788"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11810"/>
         <source>&lt;b&gt;%1&lt;/b&gt; is a directory, please specify a file name!</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; - папка, пожалуйста, укажите имя файла!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11792"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11814"/>
         <source>You don&apos;t have the permission to open this file: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Вы не имеете прав для открытия этого файла:  &lt;b&gt;%1&lt;/b&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12258"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12280"/>
         <source>File save error</source>
         <translation>Ошибка сохранения файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12259"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12281"/>
         <source>The file: &lt;br&gt;&lt;b&gt;%1&lt;/b&gt; is opened in read-only mode</source>
         <translation>Файл: &lt;br&gt;&lt;b&gt;%1&lt;/b&gt; открыт в режиме &quot;только чтение&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12289"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12311"/>
         <source>Error writing data to disk</source>
         <translation>Ошибка записи данных на диск</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12290"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12312"/>
         <source>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Your data may or may not have ended up in &lt;em&gt;%2&lt;/em&gt; (%3). 					If there already was a version of this project on disk, it has not been touched.&lt;/html&gt;</source>
         <translation>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Ваши данные могли оказаться или не оказаться в &lt;em&gt;%2&lt;/em&gt; (%3). Если на диске уже была версия этого проекта, она осталась неизменной.&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12312"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12333"/>
         <source>Error renaming backup files</source>
         <translation>Ошибка переименования файлов резервных копий</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12313"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12334"/>
         <source>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Data was written to &lt;em&gt;%2&lt;/em&gt;, but saving the original file as &lt;em&gt;%3&lt;/em&gt;					and moving the new file to &lt;em&gt;%4&lt;/em&gt; failed. In case you wonder why the original file hasn&apos;t					been simply replaced, see here:					&lt;a href=&quot;http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&quot;&gt;					http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&lt;/a&gt;.&lt;/html&gt;</source>
         <translation>&lt;html&gt;%1 &lt;br&gt; &lt;br&gt; Данные были записаны в &lt;em&gt;%2 &lt;/em&gt;, но сохранен исходный файл как &lt;em&gt;%3 &lt;/em&gt;, а перемещение нового файла в &lt;em&gt;%4 &lt;/em&gt; не удалось. Если вам интересно, почему исходный файл не был просто заменен, см. Здесь: &lt;a href=&quot;http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&quot;&gt; http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54 &lt;/a&gt;. &lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12339"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12357"/>
         <source>Save project as</source>
         <translation>Сохранить проект как</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12380"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12398"/>
         <source>&amp;Find...</source>
         <translation>&amp;Найти...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12382"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12400"/>
         <source>App&amp;end Project...</source>
         <translation>&amp;Добавить в проект...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12384"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12402"/>
         <source>Save &amp;As Project...</source>
         <translation>Сохр&amp;анить как проект...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12390"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12408"/>
         <source>&amp;Show All Windows</source>
         <translation>Показать &amp;все окна</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12391"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12409"/>
         <source>&amp;Hide All Windows</source>
         <translation>&amp;Скрыть все окна</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12396"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12414"/>
         <source>&amp;Delete Folder</source>
         <translation>&amp;Удалить папку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12398"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12416"/>
         <source>&amp;Rename</source>
         <translation>&amp;Переименовать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12416"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12434"/>
         <source>&amp;View Windows</source>
         <translation>П&amp;росмотр окон</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12418"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12436"/>
         <source>&amp;None</source>
         <translation>&amp;Никакой(ая)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12418"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12436"/>
         <source>&amp;Windows in Active Folder</source>
         <translation>Окна в т&amp;екущей папке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12419"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12437"/>
         <source>Windows in &amp;Active Folder &amp;&amp; Subfolders</source>
         <translation>Окна в &amp;Текущей и вложенных папках</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12451"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12469"/>
         <source>Hidden</source>
         <translation>Скрытый</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12522"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12540"/>
         <source>Name already exists!</source>
         <translation>Имя уже существует!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12633"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12651"/>
         <source>Project</source>
         <translation>Проект</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12635"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12675"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13005"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12653"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12693"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13022"/>
         <source>Path</source>
         <translation>Путь</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12638"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12656"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12638"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12656"/>
         <source>bytes</source>
         <translation>байт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12641"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12676"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12659"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12694"/>
         <source>Contents</source>
         <translation>Содержимое</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12641"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12677"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12659"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12695"/>
         <source>windows</source>
         <translation>окна</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12643"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12678"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12661"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12696"/>
         <source>folders</source>
         <translation>папки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12654"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12672"/>
         <source>Modified</source>
         <translation>Изменён</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12658"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12684"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12981"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12676"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12702"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12998"/>
         <source>Properties</source>
         <translation>Свойства</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12694"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12712"/>
         <source>New Folder</source>
         <translation>Новая папка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12714"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12732"/>
         <source>Delete folder?</source>
         <translation>Удалить папку?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12715"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12733"/>
         <source>Delete folder &apos;%1&apos; and all the windows it contains?</source>
         <translation>Удалить папку &apos;%1&apos; и все содержащиеся в ней окна?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12958"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12997"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12976"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13014"/>
         <source>Note</source>
         <translation>Заметка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12964"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13003"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12982"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13020"/>
         <source>3D Graph</source>
         <translation>3D график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13007"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13024"/>
         <source>Status</source>
         <translation>Состояние</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13075"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13092"/>
         <source>No match found</source>
         <translation>Совпадений не найдено</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13076"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13093"/>
         <source>Sorry, no match found for string: &apos;%1&apos;</source>
         <translation>Извините, совпадений для строки &apos;%1&apos; не найдено</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13094"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13111"/>
         <source>Cannot move an object to itself!</source>
         <translation>Невозможно переместить объект в самого себя!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13100"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13117"/>
         <source>Cannot move a parent folder into a child folder!</source>
         <translation>Невозможно переместить папку в себя!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13113"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13130"/>
         <source>Skipped moving folder</source>
         <translation>Пропуск операции перемещения папки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13114"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13131"/>
         <source>The destination folder already contains a folder called &apos;%1&apos;! Folder skipped!</source>
         <translation>Папка назначения уже содержит папку с именем &apos;%1&apos;! Папка пропущена!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13205"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13222"/>
         <source>Do you wish to continue?</source>
         <translation>Продолжить?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13218"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13234"/>
         <source>HTTP get version file</source>
         <translation>получение файла версии по HTTP</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13219"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13235"/>
         <source>Error while fetching version file with HTTP: %1.</source>
         <translation>Ошибка при получении файла версии с помощью HTTP: %1.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13246"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13251"/>
         <source>Updates Available</source>
         <translation>Обновления доступны</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13257"/>
         <source>No updates available. You are already running the latest version.</source>
-        <translation>Нет доступных обновлений. У вас уже установлена ​​последняя версия.</translation>
+        <translation type="vanished">Нет доступных обновлений. У вас уже установлена ​​последняя версия.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13260"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13267"/>
         <source>Invalid version file</source>
         <translation>Поврежденный файл версии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13261"/>
         <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation>Файл версии (содержащий: &quot;%1&quot;) не может быть преобразован в корректный номер версии.</translation>
+        <translation type="vanished">Файл версии (содержащий: &quot;%1&quot;) не может быть преобразован в корректный номер версии.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13314"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13320"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Все данные, связанные с таблицей, будут удалены. Вы уверены?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13316"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13322"/>
         <source>&amp;No</source>
         <translation>&amp;Нет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13509"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13515"/>
         <source>D&amp;epending Graphs</source>
         <translation>&amp;Связанные графики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13520"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13526"/>
         <source>D&amp;epending 3D Graphs</source>
         <translation>Связанные &amp;трёхмерные графики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13531"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13549"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13553"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13537"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13555"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13559"/>
         <source>D&amp;epends on</source>
         <translation>Включить з&amp;ависимости</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13573"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13609"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13580"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13617"/>
         <source>You need at least two columns for this operation!</source>
         <translation>Для выполнения этой операции необходимо как минимум два столбца!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13578"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13586"/>
         <source>Please select a Z column for this operation!</source>
         <translation>Пожалуйста, выберите столбец Z для данной операции!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13582"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13590"/>
         <source>You need to define a X column first!</source>
         <translation>Сначала необходимо задать столбец X!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13586"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13594"/>
         <source>You need to define a Y column first!</source>
         <translation>Сначала необходимо задать столбец Y!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13605"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13613"/>
         <source>Please select a Y column to plot!</source>
         <translation>Пожалуйста, выберите столбец Y для отображения!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13702"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13710"/>
         <source>Undo/Redo History</source>
         <translation>История отмен / повторов</translation>
     </message>
@@ -4118,427 +4097,427 @@ Are you sure you want to continue?</source>
 <context>
     <name>AxesDialog</name>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="70"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="68"/>
         <source>General Plot Options</source>
         <translation>Основные опции построения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="81"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="79"/>
         <source>&amp;Apply</source>
         <translation>&amp;Применить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="85"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="83"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="90"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="88"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Отмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="112"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="110"/>
         <source>From</source>
         <translation>От</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="116"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="114"/>
         <source>To</source>
         <translation>До</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="120"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="438"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="118"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="436"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="122"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="120"/>
         <source>linear</source>
         <translation>линейный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="123"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="121"/>
         <source>logarithmic</source>
         <translation>логарифмический</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="128"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="126"/>
         <source>Inverted</source>
         <translation>Обратный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="140"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="138"/>
         <source>Step</source>
         <translation>Шаг</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="153"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="452"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="151"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="450"/>
         <source>Major Ticks</source>
         <translation>Шаг основной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="160"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="461"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="158"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="459"/>
         <source>Minor Ticks</source>
         <translation>Шаг дополнительной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="181"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="283"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="374"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="179"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="281"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="372"/>
         <source>Bottom</source>
         <translation>Внизу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="182"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="288"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="375"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="180"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="286"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="373"/>
         <source>Left</source>
         <translation>По левому краю</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="183"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="284"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="376"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="181"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="282"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="374"/>
         <source>Top</source>
         <translation>Вверху</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="184"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="289"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="377"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="182"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="287"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="375"/>
         <source>Right</source>
         <translation>По правому краю</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="211"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="209"/>
         <source>Scale</source>
         <translation>Масштаб</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="230"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="228"/>
         <source>Major Grids</source>
         <translation>Основная сетка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="235"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="233"/>
         <source>Minor Grids</source>
         <translation>Дополнительная сетка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="239"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="237"/>
         <source>Line Color</source>
         <translation>Цвет линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="248"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="246"/>
         <source>Line Type</source>
         <translation>Тип линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="267"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="265"/>
         <source>Thickness</source>
         <translation>Толщина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="280"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="586"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="278"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="584"/>
         <source>Axes</source>
         <translation>Оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="292"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="290"/>
         <source>Additional lines</source>
         <translation>Дополнительные линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="295"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="293"/>
         <source>X=0</source>
         <translation>X=0</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="300"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="298"/>
         <source>Y=0</source>
         <translation>Y=0</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="310"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="308"/>
         <source>Horizontal</source>
         <translation>Горизонтальная</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="311"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="309"/>
         <source>Vertical</source>
         <translation>Вертикальная</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="336"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="334"/>
         <source>Grid</source>
         <translation>Сетка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="364"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="362"/>
         <source>Numeric</source>
         <translation>Цифровой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="365"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="363"/>
         <source>Text from table</source>
         <translation>Текст из таблицы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="366"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="364"/>
         <source>Day of the week</source>
         <translation>День недели</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="367"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="365"/>
         <source>Month</source>
         <translation>Месяц</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="368"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="366"/>
         <source>Time</source>
         <translation>Время</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="369"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="367"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="370"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="368"/>
         <source>Date &amp; Time</source>
         <translation>Дата и время</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="371"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="369"/>
         <source>Column Headings</source>
         <translation>Заголовки столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="402"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="400"/>
         <source>Show</source>
         <translation>Показать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="406"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="404"/>
         <source>Title</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="421"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="419"/>
         <source>&amp;Font</source>
         <translation>&amp;Шрифт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="442"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="440"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="445"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="443"/>
         <source>Axis &amp;Font</source>
         <translation>&amp;Шрифт оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="448"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="514"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="575"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="446"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="512"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="573"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="455"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="464"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="453"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="462"/>
         <source>None</source>
         <translation>Никто</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="456"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="465"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="454"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="463"/>
         <source>Out</source>
         <translation>Снаружи</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="457"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="466"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="455"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="464"/>
         <source>In &amp; Out</source>
         <translation>Внутри &amp; и снаружи</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="458"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="467"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="456"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="465"/>
         <source>In</source>
         <translation>Внутри</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="470"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="468"/>
         <source>Stand-off</source>
         <translation>Отстояние</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="475"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="473"/>
         <source>Show Labels</source>
         <translation>Показать метки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="482"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="480"/>
         <source>Column</source>
         <translation>Столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="488"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="486"/>
         <source>Table</source>
         <translation>Таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="494"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="492"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="501"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="499"/>
         <source>Precision</source>
         <translation>Точность</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="507"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="505"/>
         <source>Angle</source>
         <translation>Угол</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="518"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="516"/>
         <source>For&amp;mula</source>
         <translation>&amp;Формула</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="537"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="535"/>
         <source>Axis</source>
         <translation>Ось</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="571"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="569"/>
         <source>Canvas frame</source>
         <translation>Рамка холста</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="579"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="577"/>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="589"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="587"/>
         <source>Draw backbones</source>
         <translation>Нарисовать систему координат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="592"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="590"/>
         <source>Line Width</source>
         <translation>Ширина линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="597"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="595"/>
         <source>Major ticks length</source>
         <translation>Длина основной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="602"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="600"/>
         <source>Minor ticks length</source>
         <translation>Длина дополнительной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="613"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="611"/>
         <source>General</source>
         <translation>Общее</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="707"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="705"/>
         <source>Automatic</source>
         <translation>Автоматический</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="708"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="706"/>
         <source>Decimal: 100.0</source>
         <translation>Десятичный: 100.0</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="709"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="707"/>
         <source>Scientific: 1e2</source>
         <translation>Научный: 1e2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="710"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="708"/>
         <source>Scientific: 10^2</source>
         <translation>Научный: 10^2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1199"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1193"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1208"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1202"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1218"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1224"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1212"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1219"/>
         <source>Step input error</source>
         <translation>Ошибка ввода шага</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1225"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1220"/>
         <source>Please enter a positive step value!</source>
         <translation>Пожалуйста, введите положительное значение шага!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1302"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1297"/>
         <source>Formula input error</source>
         <translation>Ошибка ввода формулы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1304"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1299"/>
         <source>Valid variables are &apos;x&apos; for Top/Bottom axes and &apos;y&apos; for Left/Right axes!</source>
         <translation>Допустимыми переменными являются &apos;x&apos; для верхней/нижней оси и &apos;y&apos; для левой/правой оси!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1461"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1471"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1456"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1466"/>
         <source>millisec.</source>
         <translation>мс.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1462"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1472"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1457"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1467"/>
         <source>sec.</source>
         <translation>с.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1463"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1473"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1458"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1468"/>
         <source>min.</source>
         <translation>мин.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1464"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1474"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1459"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1469"/>
         <source>hours</source>
         <translation>часы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1467"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1475"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1462"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1470"/>
         <source>days</source>
         <translation>дни</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1468"/>
-        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1476"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1463"/>
+        <location filename="../../libmakhber/src/AxesDialog.cpp" line="1471"/>
         <source>weeks</source>
         <translation>недели</translation>
     </message>
@@ -4554,122 +4533,122 @@ Are you sure you want to continue?</source>
 <context>
     <name>ColorBox</name>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="58"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="60"/>
         <source>black</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="64"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="66"/>
         <source>red</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="68"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="70"/>
         <source>green</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="72"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="74"/>
         <source>blue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="76"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="78"/>
         <source>cyan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="80"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="82"/>
         <source>magenta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="84"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="86"/>
         <source>yellow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="88"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="90"/>
         <source>dark yellow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="92"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="94"/>
         <source>navy</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="96"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="98"/>
         <source>purple</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="100"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="102"/>
         <source>wine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="104"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="106"/>
         <source>olive</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="108"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="110"/>
         <source>dark cyan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="112"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="114"/>
         <source>royal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="116"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="118"/>
         <source>orange</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="120"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="122"/>
         <source>violet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="124"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="126"/>
         <source>pink</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="128"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="130"/>
         <source>white</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="132"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="134"/>
         <source>light gray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="136"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="138"/>
         <source>gray</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="140"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="142"/>
         <source>light yellow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="144"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="146"/>
         <source>light cyan</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="148"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="150"/>
         <source>light magenta</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ColorBox.cpp" line="152"/>
+        <location filename="../../libmakhber/src/ColorBox.cpp" line="154"/>
         <source>dark gray</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5667,61 +5646,61 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Convolution</name>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="44"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="45"/>
         <source>Convolution</source>
         <translation>Свёртка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="58"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="63"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="81"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="89"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="112"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="60"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="66"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="85"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="93"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="117"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="58"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="63"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="81"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="89"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="112"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="60"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="66"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="85"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="93"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="117"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="59"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="61"/>
         <source>The signal data set %1 does not exist!</source>
         <translation>Набор данных сигнала %1 не существует!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="64"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="67"/>
         <source>The response data set %1 does not exist!</source>
         <translation>Набор данных отклика %1 не существует!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="82"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="86"/>
         <source>The response dataset &apos;%1&apos; must be less then half the size of the signal dataset &apos;%2&apos;!</source>
         <translation>Объём данных отклика &apos;%1&apos; должен составлять менее половины объёма данных сигнала &apos;%2&apos;!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="90"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="94"/>
         <source>The response dataset &apos;%1&apos; must contain an odd number of points!</source>
         <translation>Набор данных отклика &apos;%1&apos; должен содержать нечётное число точек!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="113"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="118"/>
         <source>Could not allocate memory, operation aborted!</source>
         <translation>Не удалось выделить память, операция отменена!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="145"/>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="149"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="150"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="154"/>
         <source>Index</source>
         <translation>Индекс</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="153"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="158"/>
         <source>Plot</source>
         <translation>График</translation>
     </message>
@@ -5734,45 +5713,45 @@ p, li { white-space: pre-wrap; }
         <translation>Корреляция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="58"/>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="63"/>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="90"/>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="115"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="59"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="65"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="93"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="119"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="58"/>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="63"/>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="90"/>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="115"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="59"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="65"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="93"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="119"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="59"/>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="64"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="60"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="66"/>
         <source>The data set %1 does not exist!</source>
         <translation>Набор данных %1 не существует!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="91"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="94"/>
         <source>Could not allocate memory, operation aborted!</source>
         <translation>Не удалось выделить память, операция отменена!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="116"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="120"/>
         <source>Error in GSL forward FFT operation!</source>
         <translation>Ошибка при выполнении прямого БПФ (в библиотеке GSL)!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="151"/>
         <location filename="../../libmakhber/src/Correlation.cpp" line="155"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="159"/>
         <source>Lag</source>
         <translation>Задержка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Correlation.cpp" line="159"/>
+        <location filename="../../libmakhber/src/Correlation.cpp" line="163"/>
         <source>Plot</source>
         <translation>График</translation>
     </message>
@@ -5971,34 +5950,34 @@ p, li { white-space: pre-wrap; }
         <translation>Выберите точку и щелкните на ней дважды для удаления!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="314"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="313"/>
         <source>Remove point error</source>
         <translation>Ошибка удаления точки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="315"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="314"/>
         <source>Sorry, but removing points of a function is not possible.</source>
         <translation>Простите, но удалить точки функции невозможно.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="330"/>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="400"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="329"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="399"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="331"/>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="401"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="330"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="400"/>
         <source>This operation cannot be performed on curves plotted from columns having a non-numerical format.</source>
         <translation>Эта операция не может быть выполнена над кривыми построенными для колонок с нецифровым форматом данных.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="379"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="378"/>
         <source>Move point error</source>
         <translation>Ошибка перемещения точки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="380"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="379"/>
         <source>Sorry, but moving points of a function is not possible.</source>
         <translation>Простите, но переместить точки функции невозможно.</translation>
     </message>
@@ -6024,7 +6003,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Deconvolution</name>
     <message>
-        <location filename="../../libmakhber/src/Convolution.cpp" line="216"/>
+        <location filename="../../libmakhber/src/Convolution.cpp" line="221"/>
         <source>Deconvolution</source>
         <translation>Обращение свёртки</translation>
     </message>
@@ -6147,91 +6126,91 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ExpDecayDialog</name>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="49"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="50"/>
         <source>Verify initial guesses</source>
         <translation>Проверка начальных предположений</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="53"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="54"/>
         <source>Exponential Fit of</source>
         <translation>Экспоненциальное приближение для</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="61"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="62"/>
         <source>Growth time</source>
         <translation>Время роста</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="63"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="64"/>
         <source>Decay time</source>
         <translation>Время затухания</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="65"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="66"/>
         <source>First decay time (t1)</source>
         <translation>Первое время затухания (t1)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="69"/>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="76"/>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="83"/>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="95"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="70"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="77"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="84"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="96"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="73"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="74"/>
         <source>Second decay time (t2)</source>
         <translation>Второе время затухания (t2)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="79"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="80"/>
         <source>Third decay time (t3)</source>
         <translation>Третье время затухания (t3)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="93"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="94"/>
         <source>Amplitude</source>
         <translation>Амплитуда</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="99"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="100"/>
         <source>Y Offset</source>
         <translation>Смещение по Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="101"/>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="107"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="102"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="108"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="104"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="105"/>
         <source>Initial time</source>
         <translation>Начальное время</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="110"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="111"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="117"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="118"/>
         <source>&amp;Fit</source>
         <translation>&amp;Приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="120"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="121"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="191"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="192"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="192"/>
+        <location filename="../../libmakhber/src/ExpDecayDialog.cpp" line="193"/>
         <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>Кривая &lt;b&gt; %1 &lt;/b&gt; больше не существует! Операция отменена!</translation>
     </message>
@@ -6379,64 +6358,64 @@ p, li { white-space: pre-wrap; }
         <translation>FFT</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="81"/>
-        <location filename="../../libmakhber/src/FFT.cpp" line="212"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="82"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="215"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="81"/>
-        <location filename="../../libmakhber/src/FFT.cpp" line="212"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="82"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="215"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="82"/>
-        <location filename="../../libmakhber/src/FFT.cpp" line="213"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="83"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="216"/>
         <source>Could not allocate memory, operation aborted!</source>
         <translation>Не удалось выделить память, операция отменена!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="91"/>
-        <location filename="../../libmakhber/src/FFT.cpp" line="173"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="94"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="176"/>
         <source>Frequency</source>
         <translation>Частота</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="94"/>
-        <location filename="../../libmakhber/src/FFT.cpp" line="175"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="97"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="178"/>
         <source>Time</source>
         <translation>Время</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="123"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="126"/>
         <source>Real</source>
         <translation>Вещественная часть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="124"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="127"/>
         <source>Imaginary</source>
         <translation>Мнимая часть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="125"/>
-        <location filename="../../libmakhber/src/FFT.cpp" line="162"/>
-        <location filename="../../libmakhber/src/FFT.cpp" line="177"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="128"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="165"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="180"/>
         <source>Amplitude</source>
         <translation>Амплитуда</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="126"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="129"/>
         <source>Angle</source>
         <translation>Угол</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="173"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="176"/>
         <source>Hz</source>
         <translation>Гц</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFT.cpp" line="175"/>
+        <location filename="../../libmakhber/src/FFT.cpp" line="178"/>
         <source>s</source>
         <translation>s</translation>
     </message>
@@ -6444,78 +6423,78 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FFTDialog</name>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="53"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="54"/>
         <source>FFT Options</source>
         <translation>Опции БПФ</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="59"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="60"/>
         <source>&amp;Forward</source>
         <translation>&amp;Прямой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="61"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="62"/>
         <source>&amp;Inverse</source>
         <translation>&amp;Обратный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="72"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="73"/>
         <source>Curve</source>
         <translation>Кривая</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="74"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="75"/>
         <source>Sampling</source>
         <translation>Выборка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="81"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="82"/>
         <source>Real</source>
         <translation>Вещественная часть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="85"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="86"/>
         <source>Imaginary</source>
         <translation>Мнимая часть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="89"/>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="92"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="90"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="93"/>
         <source>Sampling Interval</source>
         <translation>Интеграл выборки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="98"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="99"/>
         <source>&amp;Normalize Amplitude</source>
         <translation>&amp;Нормирование амплитуды</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="101"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="102"/>
         <source>&amp;Shift Results</source>
         <translation>&amp;Сдвиг результата</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="111"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="112"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="113"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="114"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="141"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="142"/>
         <source>Sampling value error</source>
         <translation>Ошибочное значение выборки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="152"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="153"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTDialog.cpp" line="153"/>
+        <location filename="../../libmakhber/src/FFTDialog.cpp" line="154"/>
         <source>Please choose a column for the real part of the data!</source>
         <translation>Пожалуйста, выберите столбец для вещественной части данных!</translation>
     </message>
@@ -6533,54 +6512,54 @@ p, li { white-space: pre-wrap; }
         <translation>Фильтрованный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="66"/>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="88"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="67"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="89"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="66"/>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="88"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="67"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="89"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="67"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="68"/>
         <source>Unknown filter type. Valid values are: 1 - Low pass, 2 - High Pass, 3 - Band Pass, 4 - Band block.</source>
         <translation>Неизвестный тип фильтра. Корректные значения: 1 - низкочастотный, 2 - высокочастотный, 3 - полосовой, 4 - режекторный.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="89"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="90"/>
         <source>Please enter different values for the band limits.</source>
         <translation>Пожалуйста, введите разные значения для пределов полосы.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="132"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="133"/>
         <source>to</source>
         <translation>до</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="133"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="134"/>
         <source>Hz</source>
         <translation>Гц</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="137"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="138"/>
         <source>Low Pass FFT Filter</source>
         <translation>БПФ фильтр низких частот</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="143"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="144"/>
         <source>High Pass FFT Filter</source>
         <translation>БПФ фильтр верхних частот</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="149"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="150"/>
         <source>Band Pass FFT Filter</source>
         <translation>Полосовой БПФ фильтр</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FFTFilter.cpp" line="156"/>
+        <location filename="../../libmakhber/src/FFTFilter.cpp" line="157"/>
         <source>Band Block FFT Filter</source>
         <translation>Режекторный БПФ фильтр</translation>
     </message>
@@ -6588,61 +6567,61 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Filter</name>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="80"/>
-        <location filename="../../libmakhber/src/Filter.cpp" line="119"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="81"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="121"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="80"/>
-        <location filename="../../libmakhber/src/Filter.cpp" line="119"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="81"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="121"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="81"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="82"/>
         <source>Please assign a curve first!</source>
         <translation>Пожалуйста, определите сначала кривую!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="120"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="122"/>
         <source>You need at least %1 points in order to perform this operation!</source>
         <translation>Необходимо как минимум %1 точек для выполнения этой операции!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="130"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="132"/>
         <source>Filter Error</source>
         <translation>Ошибка фильтра</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="131"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="133"/>
         <source>Please enter a valid curve name!</source>
         <translation>Пожалуйста, введите корректное название кривой!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="181"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="183"/>
         <source>Color Name Error</source>
         <translation>Ошибочное имя цвета</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="182"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="184"/>
         <source>The color name &apos;%1&apos; is not valid, a default color (red) will be used instead!</source>
         <translation>Имя цвета &apos;%1&apos; не корректно, будет использован цвет по умолчанию (красный)!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="299"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="301"/>
         <source>1</source>
         <comment>filter table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="300"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="302"/>
         <source>2</source>
         <comment>filter table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Filter.cpp" line="310"/>
+        <location filename="../../libmakhber/src/Filter.cpp" line="312"/>
         <source>of</source>
         <translation>из</translation>
     </message>
@@ -6803,163 +6782,163 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Fit</name>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="222"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="223"/>
         <source>Plot</source>
         <translation>График</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="223"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="224"/>
         <source>fit of dataset</source>
         <translation>приближение по набору данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="225"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="226"/>
         <source>using function</source>
         <translation>используя функцию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="229"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="230"/>
         <source>Y standard errors</source>
         <translation>Ошибки погрешности Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="232"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="233"/>
         <source>Unknown</source>
         <translation>Неизвестный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="235"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="236"/>
         <source>Associated dataset (%1)</source>
         <translation>Связанный набор данных (%1)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="238"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="239"/>
         <source>Statistical (assuming Poisson distribution)</source>
         <translation>Статистический (предполагается распределение Пуассона)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="241"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="242"/>
         <source>Arbitrary Dataset</source>
         <translation>Произвольный набор данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="248"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="249"/>
         <source>Nelder-Mead Simplex</source>
         <translation>Симплекс Нелдера-Мида</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="250"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="251"/>
         <source>Unscaled Levenberg-Marquardt</source>
         <translation>Немасштабированный Левенберг-Макуардт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="252"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="253"/>
         <source>Scaled Levenberg-Marquardt</source>
         <translation>Масштабированный Левенберг-Макуардт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="254"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="255"/>
         <source> algorithm with tolerance = </source>
         <translation> алгоритм с допустимым отклонением = </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="257"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="258"/>
         <source>From x</source>
         <translation>От значения по x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="257"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="258"/>
         <source>to x</source>
         <translation>до значения по x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="273"/>
-        <location filename="../../libmakhber/src/Fit.cpp" line="314"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="274"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="315"/>
         <source>R^2</source>
         <translation>R^2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="277"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="278"/>
         <source>Iterations</source>
         <translation>Итераций</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="278"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="279"/>
         <source>Status</source>
         <translation>Состояние</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="309"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="310"/>
         <source>Dataset</source>
         <translation>Набор данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="310"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="311"/>
         <source>Function</source>
         <translation>Функция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="354"/>
-        <location filename="../../libmakhber/src/Fit.cpp" line="380"/>
-        <location filename="../../libmakhber/src/Fit.cpp" line="401"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="355"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="381"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="402"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="355"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="356"/>
         <source>The curve %1 has no associated Y error bars.</source>
         <translation>Кривая %1 не содержит связанных значений погрешности Y.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="381"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="382"/>
         <source>The column %1 has less points than the fitted data set. Please choose another column!</source>
         <translation>Столбец %1 имеет меньше точек, чем подогнанный набор данных. Выберите другой столбец!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="401"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="402"/>
         <source>Parameter</source>
         <translation>Параметр</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="401"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="402"/>
         <source>Value</source>
         <translation>Значение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="454"/>
-        <location filename="../../libmakhber/src/Fit.cpp" line="461"/>
-        <location filename="../../libmakhber/src/Fit.cpp" line="467"/>
-        <location filename="../../libmakhber/src/Fit.cpp" line="474"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="455"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="462"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="468"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="475"/>
         <source>Fit Error</source>
         <translation>Ошибка приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="455"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="456"/>
         <source>You didn&apos;t specify a valid data set for this fit operation. Operation aborted!</source>
         <translation>Вы не указали допустимый набор данных для этой операции. Операция прервана!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="462"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="463"/>
         <source>There are no parameters specified for this fit operation. Operation aborted!</source>
         <translation>Не указаны параметры для выполнения операции. Операция прервана!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="468"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="469"/>
         <source>You need at least %1 data points for this fit operation. Operation aborted!</source>
         <translation>Необходимо как минимум %1 точек данных для этой операции приближения. Операция прервана!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="475"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="476"/>
         <source>You must specify a valid fit function first. Operation aborted!</source>
         <translation>Необходимо сначала указать допустимую функцию для приближения. Операция прервана!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="505"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="506"/>
         <source>Input function error</source>
         <translation>Ошибка ввода функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Fit.cpp" line="594"/>
+        <location filename="../../libmakhber/src/Fit.cpp" line="595"/>
         <source>Fit</source>
         <translation>Приближение</translation>
     </message>
@@ -6967,455 +6946,455 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FitDialog</name>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="68"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="69"/>
         <source>Fit Wizard</source>
         <translation>Мастер приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="99"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="100"/>
         <source>Curve</source>
         <translation>Кривая</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="102"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="235"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="103"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="236"/>
         <source>Function</source>
         <translation>Функция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="112"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="113"/>
         <source>Initial guesses</source>
         <translation>Начальные оценки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="129"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="130"/>
         <source>Parameter</source>
         <translation>Параметр</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="129"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="130"/>
         <source>Value</source>
         <translation>Значение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="129"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="130"/>
         <source>Constant</source>
         <translation>Константа</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="134"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="135"/>
         <source>Algorithm</source>
         <translation>Алгоритм</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="136"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="137"/>
         <source>Scaled Levenberg-Marquardt</source>
         <translation>Масштабированный Левенберг-Макуардт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="137"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="138"/>
         <source>Unscaled Levenberg-Marquardt</source>
         <translation>Немасштабированный Левенберг-Макуардт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="138"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="139"/>
         <source>Nelder-Mead Simplex</source>
         <translation>Симплекс Нелдера-Мида</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="141"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="142"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="150"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="151"/>
         <source>From x=</source>
         <translation>От x=</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="153"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="154"/>
         <source>To x=</source>
         <translation>До x=</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="160"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="161"/>
         <source>Iterations</source>
         <translation>Итераций</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="166"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="167"/>
         <source>Tolerance</source>
         <translation>Допуск</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="177"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="178"/>
         <source>Y Error Source</source>
         <translation>Источник погрешности Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="179"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="180"/>
         <source>Errors Unknown</source>
         <translation>Погрешности неизвестны</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="180"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="181"/>
         <source>Associated</source>
         <translation>Связанный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="181"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="182"/>
         <source>Statistical (Poisson)</source>
         <translation>Статистический (Пуассон)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="182"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="183"/>
         <source>Arbitrary Dataset</source>
         <translation>Произвольный набор данных</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="195"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="196"/>
         <source>&lt;&lt; &amp;Edit function</source>
         <translation>&lt;&lt; &amp;Редактировать функцию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="197"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="198"/>
         <source>&amp;Delete Fit Curves</source>
         <translation>&amp;Удалить кривые приближений</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="199"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="200"/>
         <source>&amp;Fit</source>
         <translation>&amp;Приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="202"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="304"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="417"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="203"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="305"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="418"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="204"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="205"/>
         <source>Custom &amp;Output &gt;&gt;</source>
         <translation>&amp;Пользовательский вывод &gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="234"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="235"/>
         <source>Category</source>
         <translation>Категория</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="236"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="237"/>
         <source>Expression</source>
         <translation>Выражение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="239"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="240"/>
         <source>User defined</source>
         <translation>Определённые пользователем</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="240"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="241"/>
         <source>Built-in</source>
         <translation>Встроенные</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="241"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="242"/>
         <source>Basic</source>
         <translation>Основные</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="242"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="243"/>
         <source>Plugins</source>
         <translation>Плагины</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="252"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="253"/>
         <source>Fit with &amp;built-in function</source>
         <translation>Выполнить приближение с помощью &amp;встроенной функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="259"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="964"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="260"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="965"/>
         <source>Polynomial Order</source>
         <translation>Порядок полинома</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="270"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="271"/>
         <source>&amp;Choose plugins folder...</source>
         <translation>&amp;Выбор папку с плагинами...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="274"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="275"/>
         <source>Clear user &amp;list</source>
         <translation>Очистить &amp;список пользователя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="279"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="280"/>
         <source>Name</source>
         <translation>Имя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="280"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="281"/>
         <source>user1</source>
         <translation>user1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="282"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="283"/>
         <source>&amp;Save</source>
         <translation>&amp;Сохранить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="284"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="382"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="285"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="383"/>
         <source>Parameters</source>
         <translation>Параметры</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="287"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="288"/>
         <source>&amp;Remove</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="298"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="299"/>
         <source>Add &amp;expression</source>
         <translation>Добавить &amp;выражение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="300"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="301"/>
         <source>Add &amp;name</source>
         <translation>Добавить &amp;название</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="302"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="303"/>
         <source>Rese&amp;t</source>
         <translation>С&amp;брос</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="306"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="307"/>
         <source>&amp;Fit &gt;&gt;</source>
         <translation>&amp;Приблизить &gt;&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="342"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="343"/>
         <source>&amp;Uniform X Function</source>
         <translation>&amp;Равномерная X-функция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="349"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="350"/>
         <source>Points</source>
         <translation>Точек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="364"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="365"/>
         <source>Same X as Fitting &amp;Data</source>
         <translation>Ось X -- та же, что и &amp;у данных приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="369"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="370"/>
         <source>Generated Fit Curve</source>
         <translation>Построенная кривая приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="373"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="374"/>
         <source>Significant Digits</source>
         <translation>Значащие разряды</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="379"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="380"/>
         <source>Parameters &amp;Table</source>
         <translation>Таблица &amp;параметров</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="381"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="386"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="382"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="387"/>
         <source>Name: </source>
         <translation>Имя: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="384"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="385"/>
         <source>Covariance &amp;Matrix</source>
         <translation>Ковариация &amp;Матрицы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="387"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="388"/>
         <source>CovMatrix</source>
         <translation>МатрКов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="390"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="391"/>
         <source>Scale Errors with sqrt(Chi^2/doF)</source>
         <translation>Масштабировать ошибки по sqrt(Chi^2/doF)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="394"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="395"/>
         <source>Parameters Output</source>
         <translation>Вывод параметров</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="397"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="398"/>
         <source>&amp;Write Parameters to Result Log</source>
         <translation>З&amp;аписать параметры в журнал результатов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="401"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="402"/>
         <source>&amp;Paste Parameters to Plot</source>
         <translation>Встави&amp;ть параметры в построение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="407"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="408"/>
         <source>&lt;&lt; &amp;Fit</source>
         <translation>&lt;&lt; &amp;Приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="412"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="413"/>
         <source>&amp;Apply</source>
         <translation>&amp;Применить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="458"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="464"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="477"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="483"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="459"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="465"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="478"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="484"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="459"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="460"/>
         <source>Please enter a valid name for the parameters table.</source>
         <translation>Введите, пожалуйста, допустимое название таблицы параметров.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="464"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="483"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="465"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="484"/>
         <source>Please perform a fit first and try again.</source>
         <translation>Выполните, пожалуйста, сначала операцию приближения и после этого попробуйте повторить.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="478"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="479"/>
         <source>Please enter a valid name for the covariance matrix.</source>
         <translation>Введите, пожалуйста, допустимое название матрицы ковариации.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="538"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="543"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="548"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="563"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="539"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="544"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="549"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="564"/>
         <source>Input function error</source>
         <translation>Ошибка ввода функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="539"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="540"/>
         <source>Please enter a valid function!</source>
         <translation>Пожалуйста, введите допустимую функцию!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="544"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="545"/>
         <source>Please enter a function name!</source>
         <translation>Пожалуйста, введите имя функции!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="549"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="550"/>
         <source>Please enter at least one parameter name!</source>
         <translation>Пожалуйста, введите наименование как минимум одного параметра!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="555"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="556"/>
         <source>Error: function name</source>
         <translation>Ошибка: имя функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="557"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="558"/>
         <source> is a built-in function name&lt;p&gt;You must choose another name for your function!</source>
         <translation> является встроенным наименованием функции&lt;p&gt;Для вашей функции вы должны выбрать другое наименование!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="564"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="565"/>
         <source>You can&apos;t define functions recursevely!</source>
         <translation>Вы не можете определять функции рекурсивно!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="826"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="827"/>
         <source>Fit with selected &amp;user function</source>
         <translation>Выполнить приближение с помощью выбраной &amp;пользовательской фунцией</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="833"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="834"/>
         <source>Fit using &amp;built-in function</source>
         <translation>Выполнить приближение с использованием &amp;встроенной функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="845"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="846"/>
         <source>Fit using &amp;plugin function</source>
         <translation>Выполнить приближение с использованием функции из &amp;плагина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="860"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="861"/>
         <source>Choose the plugins folder</source>
         <translation>Выберите каталог с плагинами</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="954"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="959"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="955"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="960"/>
         <source>Peaks</source>
         <translation>Вершины</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1020"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1021"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1021"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1022"/>
         <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>Кривая &lt;b&gt; %1 &lt;/b&gt; больше не существует! Операция отменена!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1039"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1250"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1040"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1258"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1049"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1050"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1055"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1239"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1056"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1247"/>
         <source>Input error</source>
         <translation>Ошибка ввода</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1056"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1057"/>
         <source>Please enter x limits that satisfy: from &lt; end!</source>
         <translation>Пожалуйста, введите пределы изменения x, удовлетворяющие соотношению: от &lt; до!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1066"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1072"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1067"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1073"/>
         <source>Tolerance input error</source>
         <translation>Ошибка ввода допуска</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1073"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1074"/>
         <source>The tolerance value must be positive and less than 1!</source>
         <translation>Значение допуска должны быть положительным и меньше 1!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1172"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1179"/>
         <source>MultiPeak</source>
         <translation>Многопиковое</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1240"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1248"/>
         <source>Please enter initial guesses for your parameters!</source>
         <translation>Введите, пожалуйста, начальные приближения параметров!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1269"/>
-        <location filename="../../libmakhber/src/FitDialog.cpp" line="1270"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1277"/>
+        <location filename="../../libmakhber/src/FitDialog.cpp" line="1278"/>
         <source>No data tables</source>
         <translation>Без таблиц данных</translation>
     </message>
@@ -7423,7 +7402,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FunctionCurve</name>
     <message>
-        <location filename="../../libmakhber/src/FunctionCurve.cpp" line="147"/>
+        <location filename="../../libmakhber/src/FunctionCurve.cpp" line="149"/>
         <source>Input function error</source>
         <translation>Ошибка ввода функции</translation>
     </message>
@@ -7431,134 +7410,134 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FunctionDialog</name>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="48"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="49"/>
         <source>Add function curve</source>
         <translation>Добавить кривую функции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="52"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="53"/>
         <source>Curve type </source>
         <translation>Тип кривой </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="54"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="55"/>
         <source>Function</source>
         <translation>Функция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="55"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="56"/>
         <source>Parametric plot</source>
         <translation>Параметрический график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="56"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="57"/>
         <source>Polar plot</source>
         <translation>Полярный график</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="64"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="65"/>
         <source>f(x)= </source>
         <translation>f(x)= </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="68"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="69"/>
         <source>From x= </source>
         <translation>От x= </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="72"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="73"/>
         <source>To x= </source>
         <translation>До x= </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="76"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="108"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="140"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="77"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="109"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="141"/>
         <source>Points</source>
         <translation>Точек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="88"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="120"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="89"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="121"/>
         <source>Parameter</source>
         <translation>Параметр</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="92"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="124"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="93"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="125"/>
         <source>From</source>
         <translation>От</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="96"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="128"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="97"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="129"/>
         <source>To</source>
         <translation>До</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="100"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="101"/>
         <source>x = </source>
         <translation>x = </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="104"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="105"/>
         <source>y = </source>
         <translation>y = </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="132"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="133"/>
         <source>R =</source>
         <translation>R =</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="136"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="137"/>
         <source>Theta =</source>
         <translation>Тета =</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="151"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="152"/>
         <source>&amp;Apply</source>
         <translation>&amp;Применить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="152"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="187"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="153"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="188"/>
         <source>Clear Function</source>
         <translation>Очистить функцию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="153"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="154"/>
         <source>Ok</source>
         <translation>Ok</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="155"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="156"/>
         <source>Close</source>
         <translation>Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="185"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="186"/>
         <source>Clear List</source>
         <translation>Очистить список</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/FunctionDialog.cpp" line="268"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="328"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="393"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="327"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="391"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/FunctionDialog.cpp" line="277"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="338"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="403"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="337"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="401"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/FunctionDialog.cpp" line="283"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="344"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="409"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="343"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="407"/>
         <source>Input error</source>
         <translation>Ошибка ввода</translation>
     </message>
@@ -7568,8 +7547,8 @@ p, li { white-space: pre-wrap; }
         <translation>Пожалуйста, введите пределы изменения x, удовлетворяющие соотношению: от &lt; до!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="345"/>
-        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="410"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="344"/>
+        <location filename="../../libmakhber/src/FunctionDialog.cpp" line="408"/>
         <source>Please enter parameter limits that satisfy: from &lt; end!</source>
         <translation>Пожалуйста, введите пределы изменения параметра, удовлетворяющие соотношению: от &lt; до!</translation>
     </message>
@@ -7577,27 +7556,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GaussAmpFit</name>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="490"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="491"/>
         <source>(offset)</source>
         <translation>(смещение)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="490"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="491"/>
         <source>(height)</source>
         <translation>(высота)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="490"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="491"/>
         <source>(center)</source>
         <translation>(центр)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="490"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="491"/>
         <source>(width)</source>
         <translation>(ширина)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="495"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="496"/>
         <source>GaussAmp Fit</source>
         <translation>Амплитудное приближение Гаусса</translation>
     </message>
@@ -7605,32 +7584,32 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>GaussFit</name>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="425"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="447"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="426"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="448"/>
         <source>Gauss</source>
         <translation>Гаусс</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="426"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="448"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="427"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="449"/>
         <source>(area)</source>
         <translation>(площадь)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="426"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="448"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="427"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="449"/>
         <source>(center)</source>
         <translation>(центр)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="426"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="448"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="427"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="449"/>
         <source>(width)</source>
         <translation>(ширина)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="426"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="448"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="427"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="449"/>
         <source>(offset)</source>
         <translation>(смещение)</translation>
     </message>
@@ -7638,172 +7617,172 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph</name>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="772"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="776"/>
         <source>Internal Error</source>
         <translation>Внутренняя ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="773"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="777"/>
         <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&gt;&quot;&gt;bug tracker: https://sourceforge.net/tracker/?group_id=199120&amp;atid=968214&lt;/a&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="813"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1341"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1359"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1374"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="5063"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="817"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1344"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1362"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1377"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="5068"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="814"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="818"/>
         <source>Couldn&apos;t change the axis type to the requested format!</source>
         <translation>Не удалось изменить тип оси на требуемый формат!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1341"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1374"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1344"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1377"/>
         <source>Please provide a valid file name!</source>
         <translation>Пожалуйста, укажите корректное имя файла!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1359"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1362"/>
         <source>File format not handled, operation aborted!</source>
         <translation>Формат файла не обработан, операция прервана!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1385"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4264"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4268"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="5051"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1388"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4270"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4274"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="5056"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1386"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1389"/>
         <source>Output in postscript format is not available for Qt5, using PDF</source>
         <translation>Вывод в формате postscript недоступен для Qt5 при использовании PDF</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="1716"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="1722"/>
         <source>Title</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3704"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3734"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3710"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3740"/>
         <source>File open error</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3705"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3735"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3711"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3741"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>Файл изображения: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;больше не существует!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3944"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3950"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3946"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3952"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3953"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3959"/>
         <source>Data set generated from curve</source>
         <translation>Набор данных, построенный по кривой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="3954"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="3960"/>
         <source>Curve data %1</source>
         <translation>Данные кривой %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4265"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4271"/>
         <source>The columns</source>
         <translation>Столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4266"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4272"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>являются пустыми и их содержимое не может быть отображено на графике!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4269"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4275"/>
         <source>The column</source>
         <translation>Столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4270"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4276"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>явлется пустой и её содержимое не может быть отображено на графике!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4276"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4322"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4282"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4328"/>
         <source>&amp;Cut</source>
         <translation>&amp;Вырезать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4277"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4323"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4283"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4329"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4278"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4324"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4284"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4330"/>
         <source>&amp;Delete</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4280"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4328"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4332"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4336"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4340"/>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4368"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4286"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4334"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4338"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4342"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4346"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4374"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Свойства...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4352"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4358"/>
         <source>&amp;Rescale to show all</source>
         <translation>&amp;Перерисовать и отобразить всё</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4353"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4359"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4355"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4361"/>
         <source>&amp;Hide axis</source>
         <translation>&amp;Скрыть оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4357"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4363"/>
         <source>&amp;Show grids</source>
         <translation>&amp;Показать сетку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="4367"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="4373"/>
         <source>&amp;Scale...</source>
         <translation>&amp;Масштаб...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="5052"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="5057"/>
         <source>There are no curves available on this plot!</source>
         <translation>На данном графике нет доступных кривых!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph.cpp" line="5064"/>
+        <location filename="../../libmakhber/src/Graph.cpp" line="5069"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>На данном графике нет кривых с более чем двумя точками. Операция прервана!</translation>
     </message>
@@ -7816,42 +7795,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph3D</name>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="187"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="188"/>
         <source>X axis</source>
         <translation>Ось X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="194"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="195"/>
         <source>Y axis</source>
         <translation>Ось Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="201"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="202"/>
         <source>Z axis</source>
         <translation>Ось Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="1941"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="1942"/>
         <source>IO Error</source>
         <translation>Ошибка ввода/вывода</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="1942"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="1943"/>
         <source>Could not print: &lt;h4&gt;</source>
         <translation>Невозможно напечатать: &lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="1994"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="1995"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="1994"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="1995"/>
         <source>Please provide a valid file name!</source>
         <translation>Пожалуйста, укажите корректное имя файла!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Graph3D.cpp" line="2006"/>
+        <location filename="../../libmakhber/src/Graph3D.cpp" line="2007"/>
         <source> not supported</source>
         <translation> не поддерживается</translation>
     </message>
@@ -8377,120 +8356,120 @@ have the same number of rows.</source>
 <context>
     <name>IntDialog</name>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="48"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="49"/>
         <source>Integration Options</source>
         <translation>Опции интегрирования</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="53"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="54"/>
         <source>Integration of</source>
         <translation>Интегрирование</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="57"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="58"/>
         <source>Interpolation</source>
         <translation>Интерполяция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="59"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="60"/>
         <source>Linear</source>
         <translation>Linear</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="60"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="61"/>
         <source>Cubic</source>
         <translation>Кубический</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="61"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="62"/>
         <source>Non-rounded Akima</source>
         <translation>Сплайн Акимы без округления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="64"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="65"/>
         <source>Lower limit</source>
         <translation>Нижняя граница</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="68"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="69"/>
         <source>Upper limit</source>
         <translation>Верхняя граница</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="73"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="74"/>
         <source>&amp;Integrate</source>
         <translation>&amp;Интегрировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="75"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="76"/>
         <source>&amp;Help</source>
         <translation>&amp;Помощь</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="76"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="77"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="101"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="103"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="101"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="103"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="102"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="104"/>
         <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>Кривая &lt;b&gt; %1 &lt;/b&gt; больше не существует! Операция отменена!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="128"/>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="137"/>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="179"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="130"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="139"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="181"/>
         <source>Input error</source>
         <translation>Ошибка ввода</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="129"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="131"/>
         <source>Please give a number larger or equal to the minimum value of X, for the lower limit.
  If you do not know that value, type min in the box.</source>
         <translation>Пожалуйста, укажите число, большее или равное минимальному значению X, для нижней границы.
 Если вы не знаете этого значения, то введите &quot;min&quot; в строке ввода.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="138"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="140"/>
         <source>Please give a number smaller or equal to the maximum value of X, for the lower limit.
  If you do not know that value, type max in the box.</source>
         <translation>Пожалуйста, укажите число, меньшее или равное максимальному значению X, для нижней границы.
 Если вы не знаете этого значения, то введите &quot;max&quot; в строке ввода.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="146"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="149"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="180"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="182"/>
         <source>Please give a number larger or equal to the minimum value of X, for the upper limit.
  If you do not know that value, type min in the box.</source>
         <translation>Пожалуйста, укажите число большее или равное минимальному значению X, для верхней границы.
 Если вы не знаете этого значения, то введите &quot;min&quot; в строке ввода.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="188"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="191"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="250"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="252"/>
         <source>Help for Integration</source>
         <translation>Помощь по интегрированию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/IntDialog.cpp" line="251"/>
+        <location filename="../../libmakhber/src/IntDialog.cpp" line="253"/>
         <source>The integration of a curve consists of the following five steps:
  1) Choose which curve you want to integrate
  2) Set the order of the integration. The higher it is the more accurate the calculation is
@@ -8523,91 +8502,91 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation>Интегрирование</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="100"/>
-        <location filename="../../libmakhber/src/Integration.cpp" line="110"/>
-        <location filename="../../libmakhber/src/Integration.cpp" line="141"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="101"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="111"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="142"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="100"/>
-        <location filename="../../libmakhber/src/Integration.cpp" line="110"/>
-        <location filename="../../libmakhber/src/Integration.cpp" line="141"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="101"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="111"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="142"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="101"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="102"/>
         <source>Unknown interpolation method. Valid values are: 0 - Linear, 1 - Cubic, 2 - Akima.</source>
         <translation>Неизвестный метод интерполяции, корректные значения: 0 - линейная, 1 - кубическая, 2 - сплайн Акимы.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="111"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="112"/>
         <source>Several data points have the same x value causing divisions by zero, operation aborted!</source>
         <translation>Значения x некоторых точек вызывают деление на нуль, операция прервана!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="126"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="127"/>
         <source>Linear</source>
         <translation>Линейный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="130"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="131"/>
         <source>Cubic</source>
         <translation>Кубический</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="134"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="135"/>
         <source>Akima</source>
         <translation>Сплайн Акимы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="142"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="143"/>
         <source>You need at least %1 points in order to perform this operation!</source>
         <translation>Необходимо как минимум %1 точек для выполнения этой операции!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="151"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="152"/>
         <source>Plot</source>
         <translation>График</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="153"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="154"/>
         <source>Numerical integration of</source>
         <translation>Численное интегрирование</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="154"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="155"/>
         <source> using </source>
         <translation> используя </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="154"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="155"/>
         <source>Interpolation</source>
         <translation>Интерполяция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="158"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="159"/>
         <source>Points</source>
         <translation>Точек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="158"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="159"/>
         <source>from</source>
         <translation>от</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="160"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="161"/>
         <source>to</source>
         <translation>до</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="172"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="173"/>
         <source>Peak at</source>
         <translation>Пиковое значение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Integration.cpp" line="175"/>
+        <location filename="../../libmakhber/src/Integration.cpp" line="176"/>
         <source>Area</source>
         <translation>Площадь</translation>
     </message>
@@ -8615,69 +8594,69 @@ The limits must be within the range of x; If you do not know the maximum (minimu
 <context>
     <name>Interpolation</name>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="55"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="83"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="91"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="136"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="56"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="84"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="92"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="137"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="55"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="91"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="136"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="56"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="92"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="137"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="56"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="57"/>
         <source>Unknown interpolation method. Valid values are: 0 - Linear, 1 - Cubic, 2 - Akima.</source>
         <translation>Неизвестный метода интерполяции, корректные значения: 0 - линейная, 1 - кубическая, 2 - сплайн Акимы.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="64"/>
         <location filename="../../libmakhber/src/Interpolation.cpp" line="65"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="66"/>
         <source>Linear</source>
         <translation>Линейный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="64"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="68"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="72"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="65"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="69"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="73"/>
         <source>Int</source>
         <translation>Инт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="65"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="69"/>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="73"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="66"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="70"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="74"/>
         <source>Interpolation</source>
         <translation>Интерполяция</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="68"/>
         <location filename="../../libmakhber/src/Interpolation.cpp" line="69"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="70"/>
         <source>Cubic</source>
         <translation>Кубический</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="72"/>
         <location filename="../../libmakhber/src/Interpolation.cpp" line="73"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="74"/>
         <source>Akima</source>
         <translation>Сплайн Акимы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="84"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="85"/>
         <source>Unknown interpolation method, valid values are: 0 - Linear, 1 - Cubic, 2 - Akima.</source>
         <translation>Неизвестный метода интерполяции, корректные значения: 0 - линейная, 1 - кубическая, 2 - сплайн Акимы.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="92"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="93"/>
         <source>You need at least %1 points in order to perform this operation!</source>
         <translation>Необходимо как минимум %1 точек для выполнения этой операции!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Interpolation.cpp" line="137"/>
+        <location filename="../../libmakhber/src/Interpolation.cpp" line="138"/>
         <source>Several data points have the same x value causing divisions by zero, operation aborted!</source>
         <translation>Значения x некоторых точек вызывают деление на нуль, операция прервана!</translation>
     </message>
@@ -8685,97 +8664,97 @@ The limits must be within the range of x; If you do not know the maximum (minimu
 <context>
     <name>InterpolationDialog</name>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="46"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="47"/>
         <source>Interpolation Options</source>
         <translation>Опции интерполяции</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="50"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="51"/>
         <source>Make curve from</source>
         <translation>Построить кривую по</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="55"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="56"/>
         <source>Spline</source>
         <translation>Сплайн</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="57"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="58"/>
         <source>Linear</source>
         <translation>Линейный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="58"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="59"/>
         <source>Cubic</source>
         <translation>Кубический</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="59"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="60"/>
         <source>Non-rounded Akima</source>
         <translation>Сплайн Акимы без округления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="62"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="63"/>
         <source>Points</source>
         <translation>Точек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="69"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="70"/>
         <source>From Xmin</source>
         <translation>От Xmin</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="71"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="72"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="74"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="75"/>
         <source>To Xmax</source>
         <translation>До Xmax</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="78"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="79"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="85"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="86"/>
         <source>&amp;Make</source>
         <translation>&amp;Вычислить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="87"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="88"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="110"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="111"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="111"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="112"/>
         <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>Кривая &lt;b&gt; %1 &lt;/b&gt; больше не существует! Операция отменена!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="123"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="124"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="133"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="134"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="139"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="140"/>
         <source>Input error</source>
         <translation>Ошибка ввода</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="140"/>
+        <location filename="../../libmakhber/src/InterpolationDialog.cpp" line="141"/>
         <source>Please enter x limits that satisfy: from &lt; to!</source>
         <translation>Пожалуйста, введите пределы изменения x, удовлетворяющие соотношению: от &lt; до!</translation>
     </message>
@@ -9114,32 +9093,32 @@ The limits must be within the range of x; If you do not know the maximum (minimu
 <context>
     <name>LinearFit</name>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="247"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="249"/>
         <source>(y-intercept)</source>
         <translation>(Y-перехват)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="247"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="249"/>
         <source>(slope)</source>
         <translation>(наклон)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="248"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="250"/>
         <source>Linear Regression</source>
         <translation>Линейная регрессия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="249"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="251"/>
         <source>Linear</source>
         <translation>Линейный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="259"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="261"/>
         <source>Fit Error</source>
         <translation>Ошибка приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="260"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="262"/>
         <source>You need at least %1 data points for this fit operation. Operation aborted!</source>
         <translation>Необходимо как минимум %1 точек данных для этой операции приближения. Операция прервана!</translation>
     </message>
@@ -9147,27 +9126,27 @@ The limits must be within the range of x; If you do not know the maximum (minimu
 <context>
     <name>LorentzFit</name>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="411"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="412"/>
         <source>Lorentz</source>
         <translation>Лоренц</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="412"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="413"/>
         <source>(area)</source>
         <translation>(площадь)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="412"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="413"/>
         <source>(center)</source>
         <translation>(центр)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="412"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="413"/>
         <source>(width)</source>
         <translation>(ширина)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="412"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="413"/>
         <source>(offset)</source>
         <translation>(смещение)</translation>
     </message>
@@ -9186,70 +9165,74 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     </message>
     <message>
         <location filename="../../libmakhber/src/MakhberAbout.ui" line="68"/>
+        <source>Released: MMM, DD YYYY</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../libmakhber/src/MakhberAbout.ui" line="112"/>
+        <source>Makhber was built with the fellowing libraries</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Released XXXX-XX-XX</source>
-        <translation type="unfinished">Выпущено XXXX-XX-XX</translation>
+        <translation type="obsolete">Выпущено XXXX-XX-XX</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Закрыть</translation>
     </message>
-    <message>
-        <location filename="../../libmakhber/src/MakhberAbout.ui" line="112"/>
-        <source>Lib: Version</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>Matrix</name>
     <message>
         <location filename="../../libmakhber/src/Matrix.cpp" line="308"/>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="338"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="339"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="308"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="309"/>
         <source>Calculation failed, the matrix is not square!</source>
         <translation>Вычисление завершилось неудачей - матрица не является квадратной!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="338"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="340"/>
         <source>Inversion failed, the matrix is not square!</source>
         <translation>Ошибка обращения, матрица не является квадратной!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="530"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="532"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="531"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="533"/>
         <source>Do you want to hide or delete</source>
         <translation>Вы хотите удалить или скрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="533"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="535"/>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="533"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="535"/>
         <source>Hide</source>
         <translation>Скрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="533"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="535"/>
         <source>Cancel</source>
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="714"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="716"/>
         <source>Matrix %1</source>
         <translation>Матрица %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="720"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="722"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: применить формулу к выделению</translation>
     </message>
@@ -9523,12 +9506,12 @@ p, li { white-space: pre-wrap; }
         <translation>В таблице %2 нет столбца с именем %1!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScript.cpp" line="582"/>
+        <location filename="../../libmakhber/src/MuParserScript.cpp" line="581"/>
         <source>tablecol: wrong number of arguments (need 2, got %1)</source>
         <translation>tablecol: неверное колличество аргументов (необходимо 2, задано %1)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScript.cpp" line="611"/>
+        <location filename="../../libmakhber/src/MuParserScript.cpp" line="610"/>
         <source>cell: wrong number of arguments (need 2, got %1)</source>
         <translation>ячейка: неверное количество аргументов (нужно 2, получено %1)</translation>
     </message>
@@ -9536,119 +9519,119 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MuParserScripting</name>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="48"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="49"/>
         <source>abs(x):
  Absolute value of x.</source>
         <translation>abs(x):
  Абсолютное значение x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="49"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="50"/>
         <source>acos(x):
  Inverse cos function.</source>
         <translation>acos (x):
  Арккосинус x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="51"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="52"/>
         <source>acosh(x):
  Hyperbolic inverse cos function.</source>
         <translation>acosh (x):
  Гиперболический арккосинус x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="52"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="53"/>
         <source>asin(x):
  Inverse sin function.</source>
         <translation>asin(x):
  Арксинус x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="54"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="55"/>
         <source>asinh(x):
  Hyperbolic inverse sin function.</source>
         <translation>asinh(x):
  Гиперболический арксинус x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="55"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="56"/>
         <source>atan(x):
  Inverse tan function.</source>
         <translation>atan(x):
  Арктангенс х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="57"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="58"/>
         <source>atanh(x):
   Hyperbolic inverse tan function.</source>
         <translation>atanh(x):
  Гиперболический арктангенс х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="59"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="60"/>
         <source>avg(x,y,...):
   Mean value of all arguments.</source>
         <translation>avg (x, y, ...):
   Среднее значение всех аргументов.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="61"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="62"/>
         <source>bessel_j0(x):
   Regular cylindrical Bessel function of zeroth order, J_0(x).</source>
         <translation>bessel_j0 (x):
   Регулярная цилиндрическая функция Бесселя нулевого порядка J_0 (x).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="63"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="65"/>
         <source>bessel_j1(x):
   Regular cylindrical Bessel function of first order, J_1(x).</source>
         <translation>bessel_j1 (x):
   Регулярная цилиндрическая функция Бесселя первого порядка J_1 (x).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="65"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="68"/>
         <source>bessel_jn(double x, int n):
  Regular cylindrical Bessel function of order n, J_n(x).</source>
         <translation>bessel_jn (double x, int n):
  Регулярная цилиндрическая функция Бесселя порядка n, J_n (x).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="68"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="71"/>
         <source>bessel_jn_zero(double n, unsigned int s):
  s-th positive zero x_s of regular cylindrical Bessel function of order n, J_n(x_s)=0</source>
         <translation>bessel_jn_zero (double n, unsigned int s):
  s-й положительный ноль x_s правильной цилиндрической функции Бесселя порядка n, J_n (x_s) = 0</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="71"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="74"/>
         <source>bessel_y0(x):
  Irregular cylindrical Bessel function of zeroth order, Y_0(x), for x&gt;0.</source>
         <translation>bessel_y0 (x):
  Нерегулярная цилиндрическая функция Бесселя нулевого порядка Y_0 (x) для x&gt;0.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="74"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="77"/>
         <source>bessel_y1(x):
  Irregular cylindrical Bessel function of first order, Y_1(x), for x&gt;0.</source>
         <translation>bessel_y1 (x):
  Нерегулярная цилиндрическая функция Бесселя нулевого порядка Y_1 (x) для x&gt;0.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="77"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="80"/>
         <source>bessel_yn(double x, int n):
  Irregular cylindrical Bessel function of order n, Y_n(x), for x&gt;0.</source>
         <translation>bessel_yn (double x, int n):
  Нерегулярная цилиндрическая функция Бесселя порядка n, Y_n (x), для x&gt;0.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="80"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="84"/>
         <source>beta(a,b):
  Computes the Beta Function, B(a,b) = Gamma(a)*Gamma(b)/Gamma(a+b) for a &gt; 0, b &gt; 0.</source>
         <translation>beta(a,b):
  Вычисляет бета-функцию, B (a, b) = Gamma (a) * Gamma (b) / Gamma (a + b) для a&gt;0, b&gt;0.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="83"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="87"/>
         <source>ceil(x):
  Round to the next larger integer,
  smallest integer larger or equal to x.</source>
@@ -9657,56 +9640,56 @@ p, li { white-space: pre-wrap; }
  наименьшее целое число, большее или равное x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="85"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="90"/>
         <source>cos(x):
  Calculate cosine.</source>
         <translation>cos (x):
  Косинус х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="86"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="92"/>
         <source>cosh(x):
  Hyperbolic cos function.</source>
         <translation>cosh (x):
  Гиперболический косинус х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="87"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="93"/>
         <source>erf(x):
   The error function.</source>
         <translation>erf (x):
   Функция ошибки.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="89"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="95"/>
         <source>erfc(x):
  Complementary error function erfc(x) = 1 - erf(x).</source>
         <translation>erfc (x):
  Дополнительная функция ошибок erfc (x) = 1 - erf (x).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="91"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="97"/>
         <source>erfz(x):
  The Gaussian probability density function Z(x).</source>
         <translation>erfz (x):
  Гауссова функция плотности вероятности Z (x).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="93"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="99"/>
         <source>erfq(x):
  The upper tail of the Gaussian probability function Q(x).</source>
         <translation>erfq (x):
  Верхний хвост гауссовой функции вероятности Q (x).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="95"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="101"/>
         <source>exp(x):
  Exponential function: e raised to the power of x.</source>
         <translation>ехр (х):
  Экспоненциальная функция: e в степени x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="97"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="103"/>
         <source>floor(x):
  Round to the next smaller integer,
  largest integer smaller or equal to x.</source>
@@ -9715,77 +9698,77 @@ p, li { white-space: pre-wrap; }
  наибольшее целое число, меньшее или равное x.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="100"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="106"/>
         <source>gamma(x):
  Computes the Gamma function, subject to x not being a negative integer.</source>
         <translation>gamma(x):
  Вычисляет гамма-функцию, если x не является отрицательным целым числом.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="103"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="109"/>
         <source>gammaln(x):
  Computes the logarithm of the Gamma function, subject to x not a being negative integer. For x&lt;0, log(|Gamma(x)|) is returned.</source>
         <translation>gammaln(x):
  Вычисляет логарифм гамма-функции, при условии, что x не является отрицательным целым числом. Для x&lt;0 возвращается log (| Gamma (x) |).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="106"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="112"/>
         <source>hazard(x):
  Computes the hazard function for the normal distribution h(x) = erfz(x)/erfq(x).</source>
         <translation>hazard(x):
  Вычисляет функцию риска для нормального распределения h (x) = erfz (x) / erfq (x).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="108"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="115"/>
         <source>(e1)?(e2):(e3):
  if e1 then e2 else e3.</source>
         <translation>(e1)? (e2) :( e3):
  если e1, то e2, иначе e3.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="109"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="117"/>
         <source>ln(x):
  Calculate natural logarithm log_e.</source>
         <translation>ln (x):
  Вычислите натуральный логарифм log_e.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="110"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="119"/>
         <source>log(x):
  Calculate decimal logarithm log_10.</source>
         <translation>log(x):
  Вычислить десятичный логарифм log_10.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="112"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="121"/>
         <source>log10(x):
  Calculate decimal logarithm log_10.</source>
         <translation>log10(x):
  Вычислить десятичный логарифм log_10.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="113"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="123"/>
         <source>log2(x):
  Calculate binary logarithm log_2.</source>
         <translation>log2(x):
  Вычислить двоичный логарифм log_2.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="115"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="125"/>
         <source>min(x,y,...):
  Calculate minimum of all arguments.</source>
         <translation>min (x, y, ...):
  Вычислить минимум всех аргументов.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="117"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="127"/>
         <source>max(x,y,...):
  Calculate maximum of all arguments.</source>
         <translation>max (x, y, ...):
  Вычислить максимум из всех аргументов.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="119"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="129"/>
         <source>mod(x,y):
  Calculate rest of integer division x/y,
  x modulo y.</source>
@@ -9794,70 +9777,70 @@ p, li { white-space: pre-wrap; }
  x по модулю y.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="120"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="131"/>
         <source>pow(x,y):
  Raise x to the power of y, x^y.</source>
         <translation>pow (x, y):
  Возводим x в степень y, x ^ y.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="121"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="133"/>
         <source>rint(x):
  Round to nearest integer.</source>
         <translation>rint (x):
  Округлить до ближайшего целого числа.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="123"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="135"/>
         <source>sign(x):
  Sign function: -1 if x&lt;0; 1 if x&gt;0.</source>
         <translation>sign(x):
  Сигнум: -1 если x&lt;0; 1 если x&gt;0.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="124"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="136"/>
         <source>sin(x):
  Calculate sine.</source>
         <translation>sin(x):
  Синус х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="125"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="138"/>
         <source>sinh(x):
  Hyperbolic sin function.</source>
         <translation>sinh(x):
  Гиперболический синус х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="126"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="139"/>
         <source>sqrt(x):
  Square root function.</source>
         <translation>sqrt (x):
  Функция квадратного корня.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="128"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="141"/>
         <source>sum(x,y,...):
  Calculate sum of all arguments.</source>
         <translation>sum(x,y,...):
  Вычислить сумму аргументов.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="129"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="143"/>
         <source>tan(x):
  Calculate tangent function.</source>
         <translation>tan(x):
  Тангенс х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="130"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="145"/>
         <source>tanh(x):
  Hyperbolic tan function.</source>
         <translation>tanh(x):
  Гиперболический тангенс х.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="132"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="147"/>
         <source>w0(x):
  Compute the principal branch of Lambert&apos;s W function, W_0(x).
  W is defined as a solution to the equation W(x)*exp(W(x))=x.
@@ -9868,7 +9851,7 @@ p, li { white-space: pre-wrap; }
  При x&lt;0 есть две ветви с действительными значениями; эта функция вычисляет тот, где W&gt; -1 для x &lt; 0 (см. также wm1 (x)).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="137"/>
+        <location filename="../../libmakhber/src/MuParserScripting.cpp" line="153"/>
         <source>wm1(x):
  Compute the secondary branch of Lambert&apos;s W function, W_{-1}(x).
  W is defined as a solution to the equation W(x)*exp(W(x))=x.
@@ -9943,129 +9926,129 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MultiPeakFit</name>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="44"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="45"/>
         <source>MultiPeak</source>
         <translation>Многопиковое</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="71"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="72"/>
         <source>Gauss Fit</source>
         <translation>Гауссово приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="73"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="74"/>
         <source>Lorentz Fit</source>
         <translation>Приближение Лоренца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="75"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="76"/>
         <source>multi-peak</source>
         <translation>многовершинный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="117"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="118"/>
         <source>(amplitude)</source>
         <translation>(амплитуда)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="117"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="118"/>
         <source>(center)</source>
         <translation>(центр)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="117"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="118"/>
         <source>(width)</source>
         <translation>(ширина)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="118"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="127"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="119"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="128"/>
         <source>(offset)</source>
         <translation>(смещение)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="123"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="124"/>
         <source>(amplitude %1)</source>
         <translation>(амплитуда %1)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="124"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="125"/>
         <source>(center %1)</source>
         <translation>(центр %1)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="125"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="126"/>
         <source>(width %1)</source>
         <translation>(ширина %1)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="205"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="208"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="360"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="206"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="209"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="361"/>
         <source>Peak</source>
         <translation>Вершина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="238"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="239"/>
         <source>Fit Error</source>
         <translation>Ошибка приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="239"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="240"/>
         <source>Could not allocate enough memory for the fit curves!</source>
         <translation>Невозможно выделить память для выполнения приближения кривых!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="272"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="274"/>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="285"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="273"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="275"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="286"/>
         <source>Fit</source>
         <translation>Приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="286"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="287"/>
         <source>fit of</source>
         <translation>приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="289"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="290"/>
         <source>1</source>
         <comment>multipeak fit table first column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="292"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="293"/>
         <source>peak%1</source>
         <translation>пик %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="294"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="295"/>
         <source>2</source>
         <comment>multipeak fit table last column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="337"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="338"/>
         <source>peak</source>
         <translation>пик</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="360"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="361"/>
         <source>Area</source>
         <translation>Площадь</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="361"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="362"/>
         <source>Center</source>
         <translation>Центр</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="361"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="362"/>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="361"/>
+        <location filename="../../libmakhber/src/MultiPeakFit.cpp" line="362"/>
         <source>Height</source>
         <translation>Высота</translation>
     </message>
@@ -10418,343 +10401,343 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Plot3DDialog</name>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="58"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="59"/>
         <source>Surface Plot Options</source>
         <translation>Опции построения поверхности</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="68"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="69"/>
         <source>&amp;Apply</source>
         <translation>&amp;Применить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="70"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="71"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="73"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="74"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Отмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="97"/>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="148"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="98"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="149"/>
         <source>X</source>
         <translation>Х</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="98"/>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="149"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="99"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="150"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="99"/>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="150"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="100"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="151"/>
         <source>Z</source>
         <translation>Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="104"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="105"/>
         <source>From</source>
         <translation>От</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="108"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="109"/>
         <source>To</source>
         <translation>До</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="112"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="113"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="114"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="115"/>
         <source>linear</source>
         <translation>линейный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="115"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="116"/>
         <source>logarithmic</source>
         <translation>логарифмический</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="124"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="125"/>
         <source>Major Ticks</source>
         <translation>Шаг основной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="127"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="128"/>
         <source>Minor Ticks</source>
         <translation>Шаг дополнительной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="142"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="143"/>
         <source>&amp;Scale</source>
         <translation>&amp;Масштаб</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="155"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="156"/>
         <source>Title</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="158"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="159"/>
         <source>Axis Font</source>
         <translation>Шрифт оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="161"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="162"/>
         <source>&amp;Choose font</source>
         <translation>&amp;Выбор шрифта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="170"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="171"/>
         <source>Major Ticks Length</source>
         <translation>Длина основной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="173"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="174"/>
         <source>Minor Ticks Length</source>
         <translation>Длина дополнительной разметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="187"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="188"/>
         <source>&amp;Axis</source>
         <translation>&amp;Ось</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="204"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="205"/>
         <source>&amp;Color</source>
         <translation>&amp;Цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="206"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="207"/>
         <source>&amp;Font</source>
         <translation>&amp;Шрифт</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="218"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="219"/>
         <source>&amp;Title</source>
         <translation>&amp;Заголовок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="229"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="230"/>
         <source>Ma&amp;x</source>
         <translation>Ma&amp;x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="231"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="232"/>
         <source>&amp;Min</source>
         <translation>&amp;Min</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="233"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="234"/>
         <source>Color Ma&amp;p</source>
         <translation>Цветовая &amp;шкала</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="237"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="238"/>
         <source>Data</source>
         <translation>Данные</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="241"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="242"/>
         <source>&amp;Line</source>
         <translation>&amp;Линия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="243"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="244"/>
         <source>&amp;Background</source>
         <translation>&amp;Фон</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="247"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="248"/>
         <source>General</source>
         <translation>Общее</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="251"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="252"/>
         <source>&amp;Axes</source>
         <translation>&amp;Оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="253"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="254"/>
         <source>Lab&amp;els</source>
         <translation>&amp;Метки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="255"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="256"/>
         <source>&amp;Numbers</source>
         <translation>&amp;Числа</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="257"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="258"/>
         <source>&amp;Grid</source>
         <translation>&amp;Сетка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="261"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="262"/>
         <source>Coordinate System</source>
         <translation>Система координат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="271"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="272"/>
         <source>Opacity</source>
         <translation>Прозрачность</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="283"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="284"/>
         <source>&amp;Colors</source>
         <translation>&amp;Цвета</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="300"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="301"/>
         <source>Show Legend</source>
         <translation>Отобразить легенду</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="302"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="303"/>
         <source>Orthogonal</source>
         <translation>Ортогональная</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="305"/>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="416"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="306"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="417"/>
         <source>Line Width</source>
         <translation>Ширина линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="310"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="311"/>
         <source>Resolution</source>
         <translation>Разрешение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="316"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="317"/>
         <source>Numbers Font</source>
         <translation>Шрифт чисел</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="317"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="318"/>
         <source>&amp;Choose Font</source>
         <translation>&amp;Выбор шрифта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="320"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="321"/>
         <source>Distance labels - axis</source>
         <translation>Расстояние метки - ось</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="331"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="332"/>
         <source>Zoom (%)</source>
         <translation>Масштабирование (%)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="338"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="339"/>
         <source>X Zoom (%)</source>
         <translation>Масштабирование по X (%)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="345"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="346"/>
         <source>Y Zoom (%)</source>
         <translation>Масштабирование по Y (%)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="352"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="353"/>
         <source>Z Zoom (%)</source>
         <translation>Масштабирование по Z (%)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="369"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="370"/>
         <source>&amp;General</source>
         <translation>&amp;Общее</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="387"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="388"/>
         <source>Style</source>
         <translation>Стиль</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="389"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="390"/>
         <source>Dot</source>
         <translation>Точка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="390"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="391"/>
         <source>Cross Hair</source>
         <translation>Перекрестие</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="391"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="392"/>
         <source>Cone</source>
         <translation>Конус</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="399"/>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="433"/>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="519"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="400"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="434"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="520"/>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="403"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="404"/>
         <source>Smooth angles</source>
         <translation>Сглаживать углы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="413"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="414"/>
         <source>Radius</source>
         <translation>Радиус</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="419"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="420"/>
         <source>Smooth line</source>
         <translation>Гладкая линия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="423"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="424"/>
         <source>Boxed</source>
         <translation>В рамке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="436"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="437"/>
         <source>Quality</source>
         <translation>Качество</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="453"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="454"/>
         <source>Points</source>
         <translation>Точек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="524"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="525"/>
         <source>Bars</source>
         <translation>Столбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="572"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="573"/>
         <source>Colormap files</source>
         <translation>Файлы цветовой шкалы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="838"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="839"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="848"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="849"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="855"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="856"/>
         <source>Input error</source>
         <translation>Ошибка ввода</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="856"/>
+        <location filename="../../libmakhber/src/Plot3DDialog.cpp" line="857"/>
         <source>Please enter scale limits that satisfy: from &lt; to!</source>
         <translation>Пожалуйста, введите пределы изменения масштаба, удовлетворяющие соотношению: от &lt; до!</translation>
     </message>
@@ -10762,913 +10745,913 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PlotDialog</name>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="72"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="73"/>
         <source>Plot details</source>
         <translation>Детали построения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="88"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="89"/>
         <source>Plot type</source>
         <translation>Тип графика</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="118"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="119"/>
         <source>&amp;Worksheet</source>
         <translation>Рабочая &amp;таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="120"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="121"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="123"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="124"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Отмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="125"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="126"/>
         <source>&amp;Apply</source>
         <translation>&amp;Применить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="127"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1124"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1542"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="128"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1125"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1544"/>
         <source>&amp;Plot Associations...</source>
         <translation>&amp;Ассоциации графика...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="282"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="283"/>
         <source>Titles</source>
         <translation>Заголовки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="283"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="284"/>
         <source>Axes Labels</source>
         <translation>Заголовки Осей</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="284"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="285"/>
         <source>Axes Numbers</source>
         <translation>Число осей</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="285"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="286"/>
         <source>Legends</source>
         <translation>Подписи</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="297"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1281"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="298"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1283"/>
         <source>Fonts</source>
         <translation>Шрифты</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="312"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="313"/>
         <source>Background Color</source>
         <translation>Цвет фона</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="315"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="326"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="316"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="327"/>
         <source>Opacity</source>
         <translation>Прозрачность</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="320"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="331"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="321"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="332"/>
         <source>Transparent</source>
         <translation>Прозрачность</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="323"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="324"/>
         <source>Canvas Color</source>
         <translation>Цвет холста</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="334"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="335"/>
         <source>Border Color</source>
         <translation>Цвет границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="338"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="396"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="775"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="803"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="339"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="397"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="776"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="804"/>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="346"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="347"/>
         <source>Margin</source>
         <translation>Край</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="352"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="353"/>
         <source>Antialiasing</source>
         <translation>Сглаживание</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="355"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="356"/>
         <source>Apply to all layers</source>
         <translation>Применить во всех слоях</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="363"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1021"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1274"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="364"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1022"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1276"/>
         <source>Layer</source>
         <translation>Слой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="382"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="770"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="845"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="944"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="383"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="771"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="846"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="945"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="387"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="522"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="779"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="843"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="388"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="523"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="780"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="844"/>
         <source>Style</source>
         <translation>Стиль</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="401"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="402"/>
         <source>Border</source>
         <translation>Край</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="405"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="406"/>
         <source>First color</source>
         <translation>Первый цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="410"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="500"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1317"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1335"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="411"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="501"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1319"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1337"/>
         <source>Pattern</source>
         <translation>Шаблон</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="413"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="414"/>
         <source>Pie radius</source>
         <translation>Радиус ломтя</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="422"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="423"/>
         <source>Fill</source>
         <translation>Заполнение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="430"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1294"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1396"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="431"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1296"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1398"/>
         <source>Pie</source>
         <translation>Круговая диаграмма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="437"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="438"/>
         <source>&amp;Scale layers to paper size</source>
         <translation>Ма&amp;сштабировать слои к размерам страницы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="439"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="440"/>
         <source>Print Crop &amp;Marks</source>
         <translation>Печатать &amp;Метки Обрезки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="446"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1280"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="447"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1282"/>
         <source>Print</source>
         <translation>Печать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="451"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="452"/>
         <source>Attach curve to: </source>
         <translation>Прикрепить кривую к: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="453"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="454"/>
         <source>x Axis</source>
         <translation>Ось x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="456"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="799"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="457"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="800"/>
         <source>Bottom</source>
         <translation>Внизу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="457"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="800"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="458"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="801"/>
         <source>Top</source>
         <translation>Вверху</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="459"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="460"/>
         <source>y Axis</source>
         <translation>Ось y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="462"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="797"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="463"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="798"/>
         <source>Left</source>
         <translation>По левому краю</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="463"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="798"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="464"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="799"/>
         <source>Right</source>
         <translation>По правому краю</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="471"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1300"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="472"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1302"/>
         <source>Axes</source>
         <translation>Оси</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="478"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="479"/>
         <source>Connect</source>
         <translation>Соединить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="482"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="483"/>
         <source>No line</source>
         <translation>Без линий</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="483"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="484"/>
         <source>Lines</source>
         <translation>Линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="484"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="485"/>
         <source>Sticks</source>
         <translation>Штанги</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="485"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="486"/>
         <source>Horizontal Steps</source>
         <translation>Горизонтальные шаги</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="486"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="487"/>
         <source>Dots</source>
         <translation>Точки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="487"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="488"/>
         <source>Spline</source>
         <translation>Сплайн</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="488"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="489"/>
         <source>Vertical Steps</source>
         <translation>Вертикальные шаги</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="494"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="495"/>
         <source>Fill area under curve</source>
         <translation>Заполнить пространство под кривой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="497"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="498"/>
         <source>Fill color</source>
         <translation>Цвет заполнения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="509"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1303"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1311"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1414"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="510"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1305"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1313"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1416"/>
         <source>Line</source>
         <translation>Линия</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="525"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="684"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="526"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="685"/>
         <source>Size</source>
         <translation>Размер</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="530"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="690"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="531"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="691"/>
         <source>Fill Color</source>
         <translation>Цвет заполнения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="534"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="695"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="535"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="696"/>
         <source>Edge Color</source>
         <translation>Цвет грани</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="537"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="699"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="538"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="700"/>
         <source>Edge Width</source>
         <translation>Ширина грани</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="548"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="682"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1307"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1312"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="549"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="683"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1309"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1314"/>
         <source>Symbol</source>
         <translation>Отметка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="556"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1409"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="557"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1411"/>
         <source>Box</source>
         <translation>Рамка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="558"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="658"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="559"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="659"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="562"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="563"/>
         <source>No Box</source>
         <translation>Без рамки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="563"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="564"/>
         <source>Rectangle</source>
         <translation>Прямоугольник</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="564"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="565"/>
         <source>Diamond</source>
         <translation>Ромб</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="565"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="566"/>
         <source>Perc 10, 25, 75, 90</source>
         <translation>Проц 10, 25, 75, 90</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="566"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="567"/>
         <source>Notch</source>
         <translation>Катушка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="569"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="606"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="570"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="607"/>
         <source>Range</source>
         <translation>Диапазон</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="573"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="612"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1090"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="574"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="613"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1091"/>
         <source>Standard Deviation</source>
         <translation>Среднеквадратичное отклонение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="574"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="613"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="575"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="614"/>
         <source>Standard Error</source>
         <translation>Стандартная Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="575"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="576"/>
         <source>Perc 25, 75</source>
         <translation>Проц 25, 75</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="576"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="577"/>
         <source>Perc 10, 90</source>
         <translation>Проц 10, 90</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="577"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="578"/>
         <source>Perc 5, 95</source>
         <translation>Проц 5, 95</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="578"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="579"/>
         <source>Perc 1, 99</source>
         <translation>Проц 1, 99</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="579"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="618"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="580"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="619"/>
         <source>Max-Min</source>
         <translation>Max-Min</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="580"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="619"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="581"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="620"/>
         <source>Constant</source>
         <translation>Константа</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="583"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="622"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="584"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="623"/>
         <source>Percentile (%)</source>
         <translation>Процентиль (%)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="590"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="591"/>
         <source>Coefficient</source>
         <translation>Коэффициент</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="598"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="599"/>
         <source>Box Width</source>
         <translation>Ширина рамки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="604"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="605"/>
         <source>Whiskers</source>
         <translation>Усы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="611"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="612"/>
         <source>No Whiskers</source>
         <translation>Без усов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="614"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="615"/>
         <source>75-25</source>
         <translation>75-25</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="615"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="616"/>
         <source>90-10</source>
         <translation>90-10</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="616"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="617"/>
         <source>95-5</source>
         <translation>95-5</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="617"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="618"/>
         <source>99-1</source>
         <translation>99-1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="629"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="630"/>
         <source>Coef</source>
         <translation>Коэфф</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="649"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1336"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="650"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1338"/>
         <source>Box/Whiskers</source>
         <translation>Рамка/усы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="660"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="661"/>
         <source>Max</source>
         <translation>Макс</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="665"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="666"/>
         <source>99%</source>
         <translation>99%</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="669"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1089"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="670"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1090"/>
         <source>Mean</source>
         <translation>Среднее</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="673"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="674"/>
         <source>1%</source>
         <translation>1%</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="677"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="678"/>
         <source>Min</source>
         <translation>Мин</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="709"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1337"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="710"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1339"/>
         <source>Percentile</source>
         <translation>Процентиль</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="724"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="814"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1412"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="725"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="815"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1414"/>
         <source>Image</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="728"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="729"/>
         <source>&amp;Gray Scale</source>
         <translation>Уровни &amp;серого</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="731"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="732"/>
         <source>&amp;Default Color Map</source>
         <translation>&amp;Цветовая карта по умолчанию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="734"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="735"/>
         <source>&amp;Custom Color Map</source>
         <translation>&amp;Пользовательская цветовая карта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="743"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="744"/>
         <source>Contour Lines</source>
         <translation>Линии контура</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="747"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="748"/>
         <source>Levels</source>
         <translation>Уровни</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="757"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="758"/>
         <source>Use &amp;Color Map</source>
         <translation>Использовать шкалу &amp;цветов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="761"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="762"/>
         <source>Use Default &amp;Pen</source>
         <translation>Использовать перо по &amp;умолчанию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="790"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="791"/>
         <source>Color Bar Scale</source>
         <translation>Шкала цветов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="794"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="795"/>
         <source>Axis</source>
         <translation>Ось</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="814"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1341"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1412"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="815"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1343"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1414"/>
         <source>Contour</source>
         <translation>Контур</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="831"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="832"/>
         <source>Direction</source>
         <translation>Направление</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="834"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="835"/>
         <source>Plus</source>
         <translation>Плюс</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="836"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="837"/>
         <source>Minus</source>
         <translation>Минус</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="838"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="839"/>
         <source>&amp;X Error Bar</source>
         <translation>Штрихи ошибок по &amp;X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="850"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="947"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="851"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="948"/>
         <source>Line Width</source>
         <translation>Ширина линии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="852"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="853"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="853"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="854"/>
         <source>2</source>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="854"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="855"/>
         <source>3</source>
         <translation>3</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="855"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="856"/>
         <source>4</source>
         <translation>4</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="856"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="857"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="860"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="861"/>
         <source>Cap Width</source>
         <translation>Ширина шляпки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="862"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="863"/>
         <source>8</source>
         <translation>8</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="863"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="864"/>
         <source>10</source>
         <translation>10</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="864"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="865"/>
         <source>12</source>
         <translation>12</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="865"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="866"/>
         <source>16</source>
         <translation>16</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="866"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="867"/>
         <source>20</source>
         <translation>20</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="870"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="871"/>
         <source>Through Symbol</source>
         <translation>Через символ</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="878"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1331"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1394"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="879"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1333"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1396"/>
         <source>Error Bars</source>
         <translation>Шкала ошибок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="890"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="891"/>
         <source>Automatic Binning</source>
         <translation>Автоматически</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="893"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="894"/>
         <source>&amp;Show statistics</source>
         <translation>&amp;Вывести статистику</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="898"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="899"/>
         <source>Bin Size</source>
         <translation>Размер корзины</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="901"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="902"/>
         <source>Begin</source>
         <translation>Начала</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="904"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="905"/>
         <source>End</source>
         <translation>Конец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="914"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1321"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="915"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1323"/>
         <source>Histogram Data</source>
         <translation>Данные гистограммы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="925"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="926"/>
         <source>Gap Between Bars (in %)</source>
         <translation>Промежуток между столбиками (в %)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="930"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="931"/>
         <source>Offset (in %)</source>
         <translation>Смещение (в %)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="937"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1318"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="938"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1320"/>
         <source>Spacing</source>
         <translation>Интервал</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="952"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="953"/>
         <source>Arrowheads</source>
         <translation>Наконечники стрелки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="954"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="955"/>
         <source>Length</source>
         <translation>Длина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="958"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2091"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="959"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2093"/>
         <source>Angle</source>
         <translation>Угол</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="963"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="964"/>
         <source>&amp;Filled</source>
         <translation>&amp;Заполненная</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="967"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2096"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="968"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2098"/>
         <source>End Point</source>
         <translation>Конечная точка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="969"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2097"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="970"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2099"/>
         <source>X End</source>
         <translation>Конец X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="974"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2098"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="975"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2100"/>
         <source>Y End</source>
         <translation>Конец Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="979"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="980"/>
         <source>Position</source>
         <translation>Положение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="982"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="983"/>
         <source>Tail</source>
         <translation>Хвост</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="983"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="984"/>
         <source>Middle</source>
         <translation>Середина</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="984"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="985"/>
         <source>Head</source>
         <translation>Голова</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="998"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1327"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="999"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1329"/>
         <source>Vector</source>
         <translation>Вектор</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1066"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1082"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1093"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1067"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1083"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1094"/>
         <source>Bins</source>
         <translation>Корзины</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1068"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1087"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1069"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1088"/>
         <source>Histogram and Probabilities for</source>
         <translation>Гистограмма и вероятности для</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1082"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1083"/>
         <source>Quantity</source>
         <translation>Количество</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1082"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1083"/>
         <source>Sum</source>
         <translation>Сумма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1082"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1083"/>
         <source>Percent</source>
         <translation>Процент</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1091"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1092"/>
         <source>Minimum</source>
         <translation>Минимум</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1092"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1093"/>
         <source>Maximum</source>
         <translation>Максимум</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1118"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1119"/>
         <source>&amp;Delete</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1122"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1540"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1123"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1542"/>
         <source>&amp;Edit...</source>
         <translation>&amp;Правка...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1341"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1343"/>
         <source>Colors</source>
         <translation>Цвета</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1398"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1400"/>
         <source>Vertical Bars</source>
         <translation>Вертикальные столбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1400"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1402"/>
         <source>Horizontal Bars</source>
         <translation>Горизонтальные столбики</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1402"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1404"/>
         <source>Histogram</source>
         <translation>Гистограмма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1404"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1406"/>
         <source>Vector XYXY</source>
         <translation>Вектор XYXY</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1405"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1407"/>
         <source>Vector XYAM</source>
         <translation>Вектор XYAM</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1415"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1417"/>
         <source>Scatter</source>
         <translation>Отметки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1416"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1418"/>
         <source>Line + Symbol</source>
         <translation>Линия + Отметка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1928"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1934"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1940"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1988"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1930"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1936"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1942"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1990"/>
         <source>Input error</source>
         <translation>Ошибка ввода</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1928"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1930"/>
         <source>Please enter a valid start limit!</source>
         <translation>Пожалуйста, введите корректную начальную границу!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1934"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1936"/>
         <source>Please enter a valid end limit!</source>
         <translation>Пожалуйста, введите корректную конечную границу!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1940"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1942"/>
         <source>Please enter a valid bin size value!</source>
         <translation>Пожалуйста, введите корректное значение размера корзины!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1965"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1967"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1979"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1981"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1989"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="1991"/>
         <source>Please enter limits that satisfy: begin &lt; end!</source>
         <translation>Пожалуйста, введите пределы, удовлетворяющие соотношению: от &lt; до!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2000"/>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2009"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2002"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2011"/>
         <source>Bin size input error</source>
         <translation>Ошибка ввода размера корзины</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2010"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2012"/>
         <source>Please enter a positive bin size value!</source>
         <translation>Пожалуйста, введите положительное значение размера корзины!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2090"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2092"/>
         <source>Vector Data</source>
         <translation>Данные вектора</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2092"/>
+        <location filename="../../libmakhber/src/PlotDialog.cpp" line="2094"/>
         <source>Magnitude</source>
         <translation>Величина</translation>
     </message>
@@ -11844,62 +11827,62 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PolynomFitDialog</name>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="47"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="48"/>
         <source>Polynomial Fit Options</source>
         <translation>Опции полиноминального приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="52"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="53"/>
         <source>Polynomial Fit of</source>
         <translation>Полиномиальное приближение для</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="57"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="58"/>
         <source>Order (1 - 9, 1 = linear)</source>
         <translation>Порядок (1 - 9, 1 = линейное)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="63"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="64"/>
         <source>Fit curve Xmin</source>
         <translation>Xmin для приближенной кривой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="64"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="65"/>
         <source>0</source>
         <translation>0</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="67"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="68"/>
         <source>Fit curve Xmax</source>
         <translation>Xmax для приближенной кривой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="71"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="72"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="76"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="77"/>
         <source>Show Formula on Graph?</source>
         <translation>Отобразить формулу на графике?</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="81"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="82"/>
         <source>&amp;Fit</source>
         <translation>&amp;Приближение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="84"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="85"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="106"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="107"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="107"/>
+        <location filename="../../libmakhber/src/PolynomFitDialog.cpp" line="108"/>
         <source>The curve &lt;b&gt; %1 &lt;/b&gt; doesn&apos;t exist anymore! Operation aborted!</source>
         <translation>Кривая &lt;b&gt; %1 &lt;/b&gt; больше не существует! Операция отменена!</translation>
     </message>
@@ -11907,22 +11890,22 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PolynomialFit</name>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="62"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="64"/>
         <source>Poly</source>
         <translation>Поли</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="64"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="66"/>
         <source>Polynomial</source>
         <translation>Полиномиальный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="134"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="136"/>
         <source>Fit Error</source>
         <translation>Ошибка приближения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="135"/>
+        <location filename="../../libmakhber/src/PolynomialFit.cpp" line="137"/>
         <source>You need at least %1 data points for this fit operation. Operation aborted!</source>
         <translation>Необходимо как минимум %1 точек данных для этой операции приближения. Операция прервана!</translation>
     </message>
@@ -11930,27 +11913,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Project</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="78"/>
+        <location filename="../../libmakhber/src/future/core/Project.cpp" line="75"/>
         <source>Unnamed</source>
         <translation>Безымянный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="194"/>
+        <location filename="../../libmakhber/src/future/core/Project.cpp" line="191"/>
         <source>invalid or missing project version</source>
         <translation>неверная или отсутствующая версия проекта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="218"/>
+        <location filename="../../libmakhber/src/future/core/Project.cpp" line="215"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="225"/>
+        <location filename="../../libmakhber/src/future/core/Project.cpp" line="222"/>
         <source>no makhber_project element found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="227"/>
+        <location filename="../../libmakhber/src/future/core/Project.cpp" line="224"/>
         <source>no valid XML document found</source>
         <translation>не найден пригодный XML-документ</translation>
     </message>
@@ -11986,12 +11969,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PythonScripting</name>
     <message>
-        <location filename="../../libmakhber/src/PythonScripting.cpp" line="258"/>
+        <location filename="../../libmakhber/src/PythonScripting.cpp" line="228"/>
         <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PythonScripting.cpp" line="259"/>
+        <location filename="../../libmakhber/src/PythonScripting.cpp" line="229"/>
         <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against;try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11999,7 +11982,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="318"/>
+        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="314"/>
         <source>&amp;Remove</source>
         <translation>&amp;Удалить</translation>
     </message>
@@ -12009,7 +11992,7 @@ p, li { white-space: pre-wrap; }
         <translation>В %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="156"/>
+        <location filename="../../libmakhber/src/future/core/Project.cpp" line="153"/>
         <source>General</source>
         <translation>Общее</translation>
     </message>
@@ -12055,103 +12038,103 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="88"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="40"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="686"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="710"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="42"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="676"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="700"/>
         <source>%1: change column type</source>
         <translation>%1: изменить тип столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="119"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="174"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="121"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="176"/>
         <source>%1: change cell value(s)</source>
         <translation>%1: изменить значение (я) ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="219"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="155"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="64"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="221"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="153"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="66"/>
         <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="229"/>
         <source>%1: insert %2 row(s)</source>
         <translation>%1: вставить %2 строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="245"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="144"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="122"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="247"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="142"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="124"/>
         <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="214"/>
         <source>%1: remove %2 row(s)</source>
         <translation>%1: удалить %2 строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="295"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="297"/>
         <source>%1: set plot designation</source>
         <translation>%1: установить обозначение участка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="321"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="323"/>
         <source>%1: clear column</source>
         <translation>%1: очистить столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="383"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="385"/>
         <source>%1: mark all cells valid</source>
         <translation>%1: пометить все ячейки как действительные</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="413"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="415"/>
         <source>%1: clear masks</source>
         <translation>%1: очистить маски</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="445"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="447"/>
         <source>%1: mark cells invalid</source>
         <translation>%1: пометить ячейки как недопустимые</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="447"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="449"/>
         <source>%1: mark cells valid</source>
         <translation>%1: пометить ячейки как действительные</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="479"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="481"/>
         <source>%1: mask cells</source>
         <translation>%1: ячейки маски</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="481"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="483"/>
         <source>%1: unmask cells</source>
         <translation>%1: демаскировать ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="512"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="514"/>
         <source>%1: set cell formula</source>
         <translation>%1: установить формулу ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="542"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="544"/>
         <source>%1: clear all formulas</source>
         <translation>%1: очистить все формулы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="573"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="575"/>
         <source>%1: set text for row %2</source>
         <translation>%1: установить текст для строки %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="604"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="635"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="606"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="637"/>
         <source>%1: set value for row %2</source>
         <translation>%1: установить значение для строки %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="666"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="668"/>
         <source>%1: replace the texts for rows %2 to %3</source>
         <translation>%1: заменить тексты строк с %2 на %3</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="706"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="746"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="708"/>
+        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="748"/>
         <source>%1: replace the values for rows %2 to %3</source>
         <translation>%1: заменить значения для строк %2 на %3</translation>
     </message>
@@ -12162,14 +12145,14 @@ p, li { white-space: pre-wrap; }
         <translation>%1: установить формат даты и времени на %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/DateTime2StringFilter.cpp" line="49"/>
-        <location filename="../../libmakhber/src/future/core/datatypes/String2DateTimeFilter.cpp" line="141"/>
+        <location filename="../../libmakhber/src/future/core/datatypes/DateTime2StringFilter.cpp" line="48"/>
+        <location filename="../../libmakhber/src/future/core/datatypes/String2DateTimeFilter.cpp" line="140"/>
         <source>set date-time format to %1</source>
         <translation>установить формат даты и времени на %1</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/future/core/datatypes/Double2StringFilter.cpp" line="76"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="283"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="285"/>
         <source>%1: set numeric format to &apos;%2&apos;</source>
         <translation>%1: установить числовой формат на &quot;%2&quot;</translation>
     </message>
@@ -12180,7 +12163,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../libmakhber/src/future/core/datatypes/Double2StringFilter.cpp" line="101"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="310"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="312"/>
         <source>%1: set decimal digits to %2</source>
         <translation>%1: установить десятичные цифры на %2</translation>
     </message>
@@ -12222,124 +12205,124 @@ p, li { white-space: pre-wrap; }
         <translation>неожиданный конец документа</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="122"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="39"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="120"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="41"/>
         <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="179"/>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="45"/>
+        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="46"/>
         <source>%1: insert %2 column(s)</source>
         <translation>%1: вставить %2 столбца (ов)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="133"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="89"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="131"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="91"/>
         <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="193"/>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="100"/>
+        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="101"/>
         <source>%1: remove %2 column(s)</source>
         <translation>%1: удалить %2 столбца (ов)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="166"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="164"/>
         <source>%1: set matrix size to %2x%3</source>
         <translation>%1: установить размер матрицы на %2x%3</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="194"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="154"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="192"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="156"/>
         <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="307"/>
         <source>%1: clear</source>
         <translation>%1: очистить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="345"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="761"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="343"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="760"/>
         <source>%1: insert empty column(s)</source>
         <translation>%1: вставить пустой столбец (и)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="372"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="789"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="370"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="788"/>
         <source>%1: remove selected column(s)</source>
         <translation>%1: удалить выбранные столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="385"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="804"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="383"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="803"/>
         <source>%1: clear selected column(s)</source>
         <translation>%1: очистить выбранные столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="405"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="965"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="403"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="964"/>
         <source>%1: insert empty rows(s)</source>
         <translation>%1: вставить пустые строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="432"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="988"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="430"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="987"/>
         <source>%1: remove selected rows(s)</source>
         <translation>%1: удалить выбранные строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="450"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="448"/>
         <source>%1: clear selected rows(s)</source>
         <translation>%1: очистить выбранные строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="903"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1897"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="902"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1896"/>
         <source>%1: copy %2</source>
         <translation>%1: копировать %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1051"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1047"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1050"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1046"/>
         <source>%1: add %2 rows(s)</source>
         <translation>%1: добавить %2 строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1063"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1062"/>
         <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="343"/>
         <source>%1: add %2 column(s)</source>
         <translation>%1: добавить %2 столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="187"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="189"/>
         <source>%1: clear column %2</source>
         <translation>%1: очистить столбец %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="216"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="218"/>
         <source>%1: set cell value</source>
         <translation>%1: установить значение ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="248"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="250"/>
         <source>%1: set matrix coordinates</source>
         <translation>%1: установить координаты матрицы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="335"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="337"/>
         <source>%1: set formula</source>
         <translation>%1: установить формулу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="367"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="400"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="369"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="402"/>
         <source>%1: set cell values</source>
         <translation>%1: установить значения ячеек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="426"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="428"/>
         <source>%1: transpose</source>
         <translation>%1: транспонировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="471"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="473"/>
         <source>%1: mirror horizontally</source>
         <translation>%1: зеркало по горизонтали</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="507"/>
+        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="509"/>
         <source>%1: mirror vertically</source>
         <translation>%1: зеркало по вертикали</translation>
     </message>
@@ -12350,7 +12333,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="243"/>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="71"/>
+        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="72"/>
         <source>%1: set the number of rows to %2</source>
         <translation>%1: установить количество строк на %2</translation>
     </message>
@@ -12365,68 +12348,68 @@ p, li { white-space: pre-wrap; }
         <translation>%1: добавить столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="824"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="823"/>
         <source>%1: set plot designation(s)</source>
         <translation>%1: установить обозначение (я) участка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="870"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="869"/>
         <source>%1: normalize column(s)</source>
         <translation>%1: нормализовать столбец (и)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="900"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="899"/>
         <source>%1: normalize selection</source>
         <translation>%1: нормализовать выделение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1006"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1005"/>
         <source>%1: clear selected cell(s)</source>
         <translation>%1: очистить выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="124"/>
+        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="125"/>
         <source>%1: move column %2 from position %3 to %4</source>
         <translation>%1: переместить столбец %2 из позиции %3 в %4</translation>
-    </message>
-    <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11710"/>
-        <location filename="../../libmakhber/src/globals.cpp" line="98"/>
-        <source>Built</source>
-        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/globals.cpp" line="96"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11732"/>
+        <location filename="../../libmakhber/src/globals.cpp" line="98"/>
+        <source>Released</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RangeSelectorTool</name>
     <message>
-        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="56"/>
+        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="57"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="56"/>
+        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="57"/>
         <source>All the curves on this plot are empty!</source>
         <translation>Все кривые на этом графике пустые!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="93"/>
+        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="94"/>
         <source>Click or use Ctrl+arrow key to select range (arrows select active cursor)!</source>
         <translation>Щелкните мышью или используйте Ctrl+стрелка для выбора диапозона!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="181"/>
-        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="196"/>
+        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="182"/>
+        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="197"/>
         <source>Right</source>
         <translation>По правому краю</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="182"/>
-        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="197"/>
+        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="183"/>
+        <location filename="../../libmakhber/src/RangeSelectorTool.cpp" line="198"/>
         <source>Left</source>
         <translation>По левому краю</translation>
     </message>
@@ -12546,13 +12529,13 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../libmakhber/src/ScriptEdit.cpp" line="325"/>
-        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="352"/>
+        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="353"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ScriptEdit.cpp" line="327"/>
-        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="354"/>
+        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="355"/>
         <source>All Files</source>
         <translation>Все файлы</translation>
     </message>
@@ -12562,27 +12545,27 @@ p, li { white-space: pre-wrap; }
         <translation>Импорт текста из файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="338"/>
+        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="339"/>
         <source>Error Opening File</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="339"/>
+        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="340"/>
         <source>Could not open file &quot;%1&quot; for reading.</source>
         <translation>Невозможно открыть файл &quot;%1&quot; для чтения.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="359"/>
+        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="360"/>
         <source>Save Text to File</source>
         <translation>Сохранить текст в файл</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="376"/>
+        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="377"/>
         <source>File Save Error</source>
         <translation>Ошибка сохранения файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="377"/>
+        <location filename="../../libmakhber/src/ScriptEdit.cpp" line="378"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt; %1 &lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation>Невозможно выполнить запись в файл: &lt;br&gt;&lt;h4&gt; %1 &lt;/h4&gt;&lt;p&gt;Пожалуйста, проверьте, есть ли у Вас права на запись в данное место!</translation>
     </message>
@@ -12626,27 +12609,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>SigmoidalFit</name>
     <message>
-        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="70"/>
+        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="71"/>
         <source>(init value)</source>
         <translation>(начальное значение)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="70"/>
+        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="71"/>
         <source>(final value)</source>
         <translation>(конечное значение)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="70"/>
+        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="71"/>
         <source>(center)</source>
         <translation>(центр)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="71"/>
+        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="72"/>
         <source>(time constant)</source>
         <translation>(постоянная времени)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="76"/>
+        <location filename="../../libmakhber/src/SigmoidalFit.cpp" line="77"/>
         <source>Boltzmann (Sigmoidal) Fit</source>
         <translation>Приближение по Больцману (Сигмоидальное)</translation>
     </message>
@@ -12708,103 +12691,103 @@ p, li { white-space: pre-wrap; }
         <translation>Сглаженный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="69"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="250"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="258"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="268"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="343"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="385"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="393"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="415"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="70"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="252"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="260"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="271"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="346"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="389"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="397"/>
         <location filename="../../libmakhber/src/SmoothFilter.cpp" line="420"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="434"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="441"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="425"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="439"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="446"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="69"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="250"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="258"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="268"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="343"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="385"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="393"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="415"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="70"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="252"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="260"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="271"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="346"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="389"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="397"/>
         <location filename="../../libmakhber/src/SmoothFilter.cpp" line="420"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="434"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="441"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="425"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="439"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="446"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="70"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="71"/>
         <source>Unknown smooth filter. Valid values are: 1 - Savitky-Golay, 2 - FFT, 3 - Moving Window Average.</source>
         <translation>Неизвестный фильтр сглаживания. Корректные значения: 1 - Савицкий-Голай, 2 - БПФ, 3 - Скользящее среднее.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="87"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="93"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="97"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="88"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="94"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="98"/>
         <source>points</source>
         <translation>точки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="88"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="89"/>
         <source>Savitzky-Golay smoothing</source>
         <translation>Сглаживание Савицкого-Голая</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="93"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="94"/>
         <source>FFT smoothing</source>
         <translation>БПФ сглаживание</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="98"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="99"/>
         <source>average smoothing</source>
         <translation>сглаживание усреднением</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="251"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="344"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="421"/>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="442"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="253"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="347"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="426"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="447"/>
         <source>The polynomial order must be lower than the number of left points plus the number of right points!</source>
         <translation>Порядок полинома должен быть меньше, чем общее количество точек слева и справа!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="259"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="261"/>
         <source>Tried to smooth over more points (left+right+1=%1) than given as input (%2).</source>
         <translation>Попытка сгладить больше точек (левая + правая + 1 =%1), чем указано на входе (%2).</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="269"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="272"/>
         <source>Internal error in Savitzky-Golay algorithm.
 </source>
         <translation>Внутренняя ошибка в алгоритме Савицкого-Голея.
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="386"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="390"/>
         <source>Internal error in Savitzky-Golay algorithm: QR decomposition failed.
 </source>
         <translation>Внутренняя ошибка в алгоритме Савицкого-Голея: QR-разложение не удалось.
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="394"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="398"/>
         <source>Internal error in Savitzky-Golay algorithm: least-squares solution failed.
 </source>
         <translation>Внутренняя ошибка в алгоритме Савицкого-Голея: решение методом наименьших квадратов не удалось.
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="416"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="421"/>
         <source>The number of points must be positive!</source>
         <translation>Количество точек должно быть положительно!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="435"/>
+        <location filename="../../libmakhber/src/SmoothFilter.cpp" line="440"/>
         <source>Setting polynomial order is only available for Savitzky-Golay smooth filters! Ignored option!</source>
         <translation>Установка порядка полинома доступно только для фильтра сглаживания Савицкого-Голая! Опция игнорируется!</translation>
     </message>
@@ -12812,115 +12795,115 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>SurfaceDialog</name>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="43"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="44"/>
         <source>Define surface plot</source>
         <translation>Определить поверхность построения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="50"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="51"/>
         <source>f(x,y)=</source>
         <translation>f(x,y)=</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="53"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="54"/>
         <source>X - axis</source>
         <translation>Ось X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="56"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="71"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="86"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="57"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="72"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="87"/>
         <source>-1</source>
         <translation>-1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="59"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="74"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="89"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="60"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="75"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="90"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="62"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="77"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="92"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="63"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="78"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="93"/>
         <source>From</source>
         <translation>От</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="64"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="79"/>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="94"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="65"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="80"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="95"/>
         <source>To</source>
         <translation>До</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="69"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="70"/>
         <source>Y - axis</source>
         <translation>Ось Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="84"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="85"/>
         <source>Z - axis</source>
         <translation>Ось Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="104"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="105"/>
         <source>Clear &amp;list</source>
         <translation>Очистить &amp;список</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="105"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="106"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="107"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="108"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="165"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="166"/>
         <source>X Start limit error</source>
         <translation>Ошибка начальной границы по X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="174"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="175"/>
         <source>X End limit error</source>
         <translation>Ошибка конечной границы по X</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="184"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="185"/>
         <source>Y Start limit error</source>
         <translation>Ошибка начальной границы по Н</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="193"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="194"/>
         <source>Y End limit error</source>
         <translation>Ошибка конечной границы по Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="202"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="203"/>
         <source>Z Start limit error</source>
         <translation>Ошибка начальной границы по Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="211"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="212"/>
         <source>Z End limit error</source>
         <translation>Ошибка конечной границы по Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="217"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="218"/>
         <source>Input error</source>
         <translation>Ошибка ввода</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="218"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="219"/>
         <source>Please enter limits that satisfy: from &lt; end!</source>
         <translation>Пожалуйста, введите пределы, удовлетворяющие соотношению: от &lt; до!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="239"/>
+        <location filename="../../libmakhber/src/SurfaceDialog.cpp" line="240"/>
         <source>Input function error</source>
         <translation>Ошибка ввода функции</translation>
     </message>
@@ -13105,88 +13088,88 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TableStatistics</name>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="84"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="86"/>
         <source>RowStats</source>
         <translation>СтатистикаСтрок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="85"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="87"/>
         <source>Row Statistics of %1</source>
         <translation>Статистика строки %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="88"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="90"/>
         <source>Row</source>
         <translation>Строка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="89"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="91"/>
         <source>Cols</source>
         <translation>Столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="90"/>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="123"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="92"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="124"/>
         <source>Mean</source>
         <translation>Среднее</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="91"/>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="124"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="93"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="125"/>
         <source>StandardDev</source>
         <translation>СтандартноеОтклонение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="92"/>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="125"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="94"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="126"/>
         <source>Variance</source>
         <translation>Вариация</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="93"/>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="126"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="95"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="127"/>
         <source>Sum</source>
         <translation>Сумма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="94"/>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="128"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="96"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="129"/>
         <source>Max</source>
         <translation>Макс</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="95"/>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="130"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="97"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="131"/>
         <source>Min</source>
         <translation>Мин</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="117"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="118"/>
         <source>ColStats</source>
         <translation>СтатистикаКолонок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="118"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="119"/>
         <source>Column Statistics of %1</source>
         <translation>Статистика столбца %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="121"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="122"/>
         <source>Col</source>
         <translation>Столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="122"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="123"/>
         <source>Rows</source>
         <translation>Строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="127"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="128"/>
         <source>iMax</source>
         <translation>iMax</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TableStatistics.cpp" line="129"/>
+        <location filename="../../libmakhber/src/TableStatistics.cpp" line="130"/>
         <source>iMin</source>
         <translation>iMin</translation>
     </message>
@@ -13199,165 +13182,164 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TableView</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="186"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="185"/>
         <source>Ctrl+A</source>
         <comment>Table: select all</comment>
         <translation>Ctrl + A</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="260"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="259"/>
         <source>Show/hide control tabs</source>
         <translation>Показать / скрыть вкладки управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="268"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="267"/>
         <source>Numeric</source>
         <translation>Цифровой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="269"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="484"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="268"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="478"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="270"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="269"/>
         <source>Month names</source>
         <translation>Названия месяцев</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="271"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="270"/>
         <source>Day names</source>
         <translation>Названия дней</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="272"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="271"/>
         <source>Date and time</source>
         <translation>Дата и время</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="280"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="279"/>
         <source>years</source>
         <translation>лет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="281"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="280"/>
         <source>months</source>
         <translation>месяцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="283"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="282"/>
         <source>days</source>
         <translation>дни</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="284"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="283"/>
         <source>hours</source>
         <translation>часы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="285"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="284"/>
         <source>minutes</source>
         <translation>минут</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="287"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="286"/>
         <source>seconds</source>
         <translation>секунды</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="289"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="288"/>
         <source>milliseconds</source>
         <translation>миллисекунды</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="388"/>
         <source>Current column:
 Name: %1
 Position: %2</source>
-        <translation>Текущий столбец:
+        <translation type="vanished">Текущий столбец:
 Имя: %1
 Позиция: %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="477"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="471"/>
         <source>Decimal</source>
         <translation>Десятичный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="478"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="472"/>
         <source>Scientific (e)</source>
         <translation>Научный (e)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="479"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="473"/>
         <source>Scientific (E)</source>
         <translation>Научный (E)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="480"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="474"/>
         <source>Automatic (e)</source>
         <translation>Автомат (е)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="481"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="475"/>
         <source>Automatic (E)</source>
         <translation>Автомат (E)</translation>
     </message>
     <message>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="481"/>
         <location filename="../../libmakhber/src/future/table/TableView.cpp" line="487"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="493"/>
         <source>Number without leading zero</source>
         <translation>Число без нуля в начале</translation>
     </message>
     <message>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="482"/>
         <location filename="../../libmakhber/src/future/table/TableView.cpp" line="488"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="494"/>
         <source>Number with leading zero</source>
         <translation>Число с нулем в начале</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="489"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="483"/>
         <source>Abbreviated month name</source>
         <translation>Сокращенное название месяца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="490"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="484"/>
         <source>Full month name</source>
         <translation>Полное название месяца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="495"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="489"/>
         <source>Abbreviated day name</source>
         <translation>Сокращенное название дня недели</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="496"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="490"/>
         <source>Full day name</source>
         <translation>Полное название дня</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="533"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="611"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="523"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="601"/>
         <source>Predefined:</source>
         <translation>Предопределено:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="535"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="613"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="525"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="603"/>
         <source>Format:</source>
         <translation>Формат:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="547"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="624"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="537"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="614"/>
         <source>Selected column type:
 </source>
         <translation>Тип выбранного столбца:
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="553"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="543"/>
         <source>Double precision
 floating point values
 </source>
@@ -13366,44 +13348,44 @@ floating point values
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="557"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="547"/>
         <source>Text
 </source>
         <translation>Текст
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="560"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="550"/>
         <source>Month names
 </source>
         <translation>Названия месяцев
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="563"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="553"/>
         <source>Days of the week
 </source>
         <translation>Дни недели
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="566"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="598"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="625"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="556"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="588"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="615"/>
         <source>Dates and/or times
 </source>
         <translation>Дата и / или время
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="570"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="600"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="626"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="560"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="590"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="616"/>
         <source>Example: </source>
         <translation>Пример: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="578"/>
+        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="568"/>
         <source>Hello world!
 </source>
         <translation>Привет, мир!
@@ -13616,23 +13598,23 @@ floating point values
 <context>
     <name>TranslateCurveTool</name>
     <message>
-        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="72"/>
+        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="73"/>
         <source>Curve selected! Move cursor and click to choose a point and double-click/press &apos;Enter&apos; to finish!</source>
         <translation>Кривая выбрана! Для выбора точки подведите указатель и сделайте щелчок, двойной щелчок/нажатие &apos;Enter&apos; для завершения!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="86"/>
-        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="125"/>
+        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="87"/>
+        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="126"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="87"/>
+        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="88"/>
         <source>This operation cannot be performed on function curves.</source>
         <translation>Эта операция не может быть выполнена над кривыми функций.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="126"/>
+        <location filename="../../libmakhber/src/TranslateCurveTool.cpp" line="127"/>
         <source>This operation cannot be performed on curves plotted from columns having a non-numerical format.</source>
         <translation>Эта операция не может быть выполнена над кривыми построенными для колонок с нецифровым форматом данных.</translation>
     </message>
@@ -13706,219 +13688,219 @@ floating point values
 <context>
     <name>future::Matrix</name>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="216"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="214"/>
         <source>%1: cut selected cell(s)</source>
         <translation>%1: вырезать выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="269"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="267"/>
         <source>%1: paste from clipboard</source>
         <translation>%1: вставить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="474"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="472"/>
         <source>%1: clear selected cell(s)</source>
         <translation>%1: очистить выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="565"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="785"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="563"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="783"/>
         <source>Cu&amp;t</source>
         <translation>В&amp;ырезать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="568"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="786"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="566"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="784"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="571"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="787"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="569"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="785"/>
         <source>Past&amp;e</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="577"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="788"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="575"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="786"/>
         <source>Clea&amp;r</source>
         <comment>clear selection</comment>
         <translation>&amp;Очистить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="585"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="789"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="583"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="787"/>
         <source>Assign &amp;Formula</source>
         <translation>Назначить &amp;формулу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="586"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="584"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="593"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="790"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="591"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="788"/>
         <source>Recalculate</source>
         <translation>Пересчитать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="594"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="592"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="603"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="601"/>
         <source>F12</source>
         <translation>F12</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="610"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="791"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="608"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="789"/>
         <source>Select All</source>
         <translation>Выбрать все</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="617"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="792"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="838"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="615"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="790"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="836"/>
         <source>Clear Matrix</source>
         <translation>Очистить матрицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="624"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="793"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="622"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="791"/>
         <source>&amp;Go to Cell</source>
         <translation>&amp;Перейти в ячейку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="625"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="623"/>
         <source>Ctrl+Alt+G</source>
         <translation>Ctrl+Alt+G</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="629"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="794"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="627"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="792"/>
         <source>&amp;Transpose</source>
         <translation>&amp;Транспонировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="632"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="795"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="630"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="793"/>
         <source>Mirror &amp;Horizontally</source>
         <translation>Зеркало по &amp;горизонтали</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="635"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="796"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="633"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="794"/>
         <source>Mirror &amp;Vertically</source>
         <translation>Зеркало по &amp;вертикали</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="638"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="797"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="636"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="795"/>
         <source>&amp;Import Image</source>
         <comment>import image as matrix</comment>
         <translation>&amp;Импортировать изображение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="642"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="799"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="640"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="797"/>
         <source>&amp;Duplicate</source>
         <comment>duplicate matrix</comment>
         <translation>&amp;Дублировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="646"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="801"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="644"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="799"/>
         <source>&amp;Dimensions</source>
         <comment>matrix size</comment>
         <translation>&amp;Габаритные размеры</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="649"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="802"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="647"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="800"/>
         <source>Set &amp;Coordinates</source>
         <translation>&amp;Набор и координаты</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="652"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="803"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="650"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="801"/>
         <source>Set Display &amp;Format</source>
         <translation>Установить отображение и &amp;формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="659"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="804"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="657"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="802"/>
         <source>&amp;Insert Empty Columns</source>
         <translation>&amp;Вставить пустые столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="666"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="805"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="664"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="803"/>
         <source>Remo&amp;ve Columns</source>
         <translation>&amp;Удаление столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="673"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="806"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="671"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="804"/>
         <source>Clea&amp;r Columns</source>
         <translation>&amp;Очистить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="680"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="807"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="678"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="805"/>
         <source>&amp;Add Columns</source>
         <translation>&amp;Добавить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="688"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="808"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="686"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="806"/>
         <source>&amp;Insert Empty Rows</source>
         <translation>&amp;Вставить пустые строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="696"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="809"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="694"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="807"/>
         <source>Remo&amp;ve Rows</source>
         <translation>У&amp;далить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="704"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="810"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="702"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="808"/>
         <source>Clea&amp;r Rows</source>
         <translation>О&amp;чистить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="712"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="811"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="710"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="809"/>
         <source>&amp;Add Rows</source>
         <translation>&amp;Добавить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="816"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="814"/>
         <source>&amp;Matrix</source>
         <translation>&amp;Матрица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="888"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="893"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="886"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="891"/>
         <source>Go to Cell</source>
         <translation>Перейти к ячейке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="888"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="886"/>
         <source>Enter column</source>
         <translation>Введите столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="893"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="891"/>
         <source>Enter row</source>
         <translation>Введите строку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="971"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="976"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="970"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="975"/>
         <source>Set Matrix Dimensions</source>
         <translation>Установить размеры матрицы</translation>
     </message>
@@ -13933,129 +13915,129 @@ floating point values
         <translation>Введите количество строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="987"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="986"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="996"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="994"/>
         <source>Import image from file</source>
         <translation>Импорт изображения из файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1009"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1008"/>
         <source>Error importing image</source>
         <translation>Ошибка при импорте изображения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1010"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1009"/>
         <source>Import of image &apos;%1&apos; failed</source>
         <translation>Не удалось импортировать изображение &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1229"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1228"/>
         <source>invalid row or column count</source>
         <translation>недопустимое количество строк или столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1260"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1259"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1270"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1269"/>
         <source>no matrix element found</source>
         <translation>матричный элемент не найден</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1282"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1281"/>
         <source>invalid or missing numeric format</source>
         <translation>неверный или отсутствующий числовой формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1290"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1289"/>
         <source>invalid or missing number of displayed digits</source>
         <translation>неверное или отсутствующее количество отображаемых цифр</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1309"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1308"/>
         <source>invalid x start value</source>
         <translation>недопустимое начальное значение x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1316"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1315"/>
         <source>invalid x end value</source>
         <translation>недопустимое конечное значение x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1323"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1322"/>
         <source>invalid y start value</source>
         <translation>неверное начальное значение y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1330"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1329"/>
         <source>invalid y end value</source>
         <translation>недопустимое конечное значение y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1353"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1402"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1352"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1401"/>
         <source>invalid or missing row index</source>
         <translation>неверный или отсутствующий индекс строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1359"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1358"/>
         <source>invalid row height</source>
         <translation>неверная высота строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1375"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1407"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1374"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1406"/>
         <source>invalid or missing column index</source>
         <translation>неверный или отсутствующий индекс столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1381"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1380"/>
         <source>invalid column width</source>
         <translation>недопустимая ширина столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1414"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1413"/>
         <source>invalid cell value</source>
         <translation>недопустимое значение ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1445"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1444"/>
         <source>Hide Controls</source>
         <translation>Скрыть элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1447"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1446"/>
         <source>Show Controls</source>
         <translation>Показать элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1501"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1500"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: применить формулу к выделению</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1524"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1523"/>
         <source>Matrix</source>
         <translation>Матрица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1536"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1535"/>
         <source>Import image...</source>
         <translation>Импорт изображения...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1536"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1535"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1539"/>
+        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1538"/>
         <source>Matrix %1</source>
         <translation>Матрица %1</translation>
     </message>
@@ -14121,373 +14103,373 @@ floating point values
         <translation>%1: вырезать выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="427"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="426"/>
         <source>%1: paste from clipboard</source>
         <translation>%1: вставить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="556"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="555"/>
         <source>%1: mask selected cell(s)</source>
         <translation>%1: маска выбранных ячеек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="578"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="577"/>
         <source>%1: unmask selected cell(s)</source>
         <translation>%1: снять маску с выбранных ячеек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="604"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="603"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: применить формулу к выделению</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="623"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="622"/>
         <source>%1: fill cells with row numbers</source>
         <translation>%1: заполнить ячейки номерами строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="667"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="666"/>
         <source>%1: fill cells with random values</source>
         <translation>%1: заполнить ячейки случайными значениями</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1055"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1054"/>
         <source>&amp;Table</source>
         <translation>&amp;Таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1057"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1761"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1056"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1760"/>
         <source>S&amp;et Column(s) As</source>
         <translation>&amp;Установить столбцы как</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1069"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1730"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1773"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1837"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1068"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1729"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1772"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1836"/>
         <source>Fi&amp;ll Selection with</source>
         <translation>&amp;Заполнить выделение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1095"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1356"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1542"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1094"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1355"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1541"/>
         <source>Edit Column &amp;Description</source>
         <translation>&amp;Изменить описание столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1138"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1506"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1137"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1505"/>
         <source>Cu&amp;t</source>
         <translation>В&amp;ырезать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1141"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1507"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1140"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1506"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1144"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1508"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1143"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1507"/>
         <source>Past&amp;e</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1149"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1510"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1148"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1509"/>
         <source>&amp;Mask</source>
         <comment>mask selection</comment>
         <translation>&amp;Маска</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1153"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1511"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1152"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1510"/>
         <source>&amp;Unmask</source>
         <comment>unmask selection</comment>
         <translation>&amp;Снять маск</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1160"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1514"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1159"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1513"/>
         <source>Assign &amp;Formula</source>
         <translation>Назначить &amp;формулу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1161"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1160"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1168"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1515"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1167"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1514"/>
         <source>Clea&amp;r</source>
         <comment>clear selection</comment>
         <translation>Очистит&amp;ь</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1175"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1516"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1174"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1515"/>
         <source>Recalculate</source>
         <translation>Пересчитать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1176"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1175"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1181"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1517"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1180"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1516"/>
         <source>Row Numbers</source>
         <translation>Номера строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1185"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1518"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1184"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1517"/>
         <source>Random Values</source>
         <translation>Случайные значения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1202"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1201"/>
         <source>F12</source>
         <translation>F12</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1206"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1519"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1205"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1518"/>
         <source>Formula Edit Mode</source>
         <translation>Режим редактирования формулы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1213"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1520"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1212"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1519"/>
         <source>Select All</source>
         <translation>Выбрать все</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1220"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1521"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1219"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1520"/>
         <source>&amp;Add Column</source>
         <translation>&amp;Добавить столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1221"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1220"/>
         <source>append a new column to the table</source>
         <translation>добавить новый столбец в таблицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1228"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1522"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1227"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1521"/>
         <source>Clear Table</source>
         <translation>Очистить таблицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1235"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1523"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1234"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1522"/>
         <source>Export to TeX...</source>
         <translation>Экспорт в TeX ...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1240"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1512"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1239"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1511"/>
         <source>Clear Masks</source>
         <translation>Очистить маски</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1247"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1524"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1246"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1523"/>
         <source>&amp;Sort Table</source>
         <translation>&amp;Сортировать таблицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1254"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1525"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1253"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1524"/>
         <source>&amp;Go to Cell</source>
         <translation>&amp;Перейти в ячейку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1255"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1254"/>
         <source>Ctrl+Alt+G</source>
         <translation>Ctrl+Alt+G</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1260"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1526"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1259"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1525"/>
         <source>&amp;Dimensions</source>
         <comment>table size</comment>
         <translation>&amp;Габаритные размеры</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1261"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1260"/>
         <source>change the table size</source>
         <translation>изменить размер стола</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1268"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1527"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1267"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1526"/>
         <source>&amp;Insert Empty Columns</source>
         <translation>&amp;Вставить пустые столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1275"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1528"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1274"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1527"/>
         <source>Remo&amp;ve Columns</source>
         <translation>&amp;Удаление столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1282"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1529"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1281"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1528"/>
         <source>Clea&amp;r Columns</source>
         <translation>&amp;Очистить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1289"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1530"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1288"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1529"/>
         <source>&amp;Add Columns</source>
         <translation>&amp;Добавить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1293"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1531"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1292"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1530"/>
         <source>X</source>
         <comment>plot designation</comment>
         <translation>Х</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1296"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1532"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1295"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1531"/>
         <source>Y</source>
         <comment>plot designation</comment>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1299"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1533"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1298"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1532"/>
         <source>Z</source>
         <comment>plot designation</comment>
         <translation>Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1305"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1534"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1304"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1533"/>
         <source>X Error</source>
         <comment>plot designation</comment>
         <translation>Ошибки Х</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1312"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1535"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1311"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1534"/>
         <source>Y Error</source>
         <comment>plot designation</comment>
         <translation>Ошибки Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1316"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1536"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1315"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1535"/>
         <source>None</source>
         <comment>plot designation</comment>
         <translation>Никто</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1322"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1537"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1321"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1536"/>
         <source>&amp;Normalize Columns</source>
         <translation>&amp;Нормализовать столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1329"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1538"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1328"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1537"/>
         <source>&amp;Normalize Selection</source>
         <translation>&amp;Нормализовать выделение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1336"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1539"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1335"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1538"/>
         <source>&amp;Sort Columns</source>
         <translation>&amp;Сортировать столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1341"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1540"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1340"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1539"/>
         <source>Column Statisti&amp;cs</source>
         <translation>Статистика &amp;столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1342"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1341"/>
         <source>statistics on columns</source>
         <translation>статистика по столбцам</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1348"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1541"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1347"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1540"/>
         <source>Change &amp;Type &amp;&amp; Format</source>
         <translation>Изменить &amp;Тип и Формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1349"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1348"/>
         <source>Ctrl+Alt+O</source>
         <translation>Ctrl+Alt+O</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1364"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1543"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1363"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1542"/>
         <source>&amp;Insert Empty Rows</source>
         <translation>&amp;Вставить пустые строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1371"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1544"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1370"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1543"/>
         <source>Remo&amp;ve Rows</source>
         <translation>У&amp;далить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1378"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1545"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1377"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1544"/>
         <source>Clea&amp;r Rows</source>
         <translation>С&amp;тереть строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1385"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1546"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1384"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1545"/>
         <source>&amp;Add Rows</source>
         <translation>&amp;Добавить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1390"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1547"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1389"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1546"/>
         <source>Row Statisti&amp;cs</source>
         <translation>Статистика с&amp;троки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1391"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1390"/>
         <source>statistics on rows</source>
         <translation>статистика по строкам</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1644"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1643"/>
         <source>TeX Export Error</source>
         <translation>Ошибка экспорта TeX</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1645"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1644"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation>Невозможно выполнить записать в файл: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Пожалуйста, проверьте, есть ли у Вас права на запись в данное место!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1853"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1858"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1852"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1857"/>
         <source>Go to Cell</source>
         <translation>Перейти к ячейке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1853"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1852"/>
         <source>Enter column</source>
         <translation>Введите столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1858"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1857"/>
         <source>Enter row</source>
         <translation>Введите строку</translation>
     </message>
@@ -14502,67 +14484,67 @@ floating point values
         <translation>%1: переместить столбец %2 из позиции %3 в %4.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2024"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2023"/>
         <source>%1: sort column(s)</source>
         <translation>%1: сортировать столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2380"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2377"/>
         <source>invalid row or column count</source>
         <translation>недопустимое количество строк или столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2397"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2394"/>
         <source>Column %1</source>
         <translation>Столбец %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2410"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2407"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2417"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2414"/>
         <source>columns attribute and number of read columns do not match</source>
         <translation>атрибут columns и количество прочитанных столбцов не совпадают</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2419"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2416"/>
         <source>no table element found</source>
         <translation>элемент таблицы не найден</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2431"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2428"/>
         <source>Hide Comments</source>
         <translation>Скрыть комментарии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2433"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2430"/>
         <source>Show Comments</source>
         <translation>Показать комментарии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2437"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2434"/>
         <source>Hide Controls</source>
         <translation>Скрыть элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2439"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2436"/>
         <source>Show Controls</source>
         <translation>Показать элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2449"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2446"/>
         <source>invalid or missing column index</source>
         <translation>неверный или отсутствующий индекс столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2455"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2452"/>
         <source>invalid column width</source>
         <translation>недопустимая ширина столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2491"/>
+        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2488"/>
         <source>Table</source>
         <translation>Таблица</translation>
     </message>
