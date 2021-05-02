@@ -9822,6 +9822,8 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
                     case Graph::AxisType::ColHeader:
                         ag->setLabelsColHeaderFormat(i, app->table(lst[1]));
                         break;
+                    default:
+                        break;
                     }
                 }
         } else if (d_file_version < 69 && s.contains("AxesTickLabelsCol")) {
@@ -9835,6 +9837,8 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
                         break;
                     case Graph::AxisType::ColHeader:
                         ag->setLabelsColHeaderFormat(i, app->table(fList[i + 1]));
+                        break;
+                    default:
                         break;
                     }
                 }
