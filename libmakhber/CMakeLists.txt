@@ -365,7 +365,6 @@ else()
 endif()
 
 target_compile_definitions( libmakhber PUBLIC
-  LEGACY_CODE_0_2_x
   SCRIPTING_CONSOLE
   SCRIPTING_DIALOG
   )

@@ -6901,7 +6901,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Ctrl+A</source>
         <comment>Matrix: select all</comment>
-        <translation>Ctrl+A</translation>
+        <translation type="vanished">Ctrl+A</translation>
     </message>
     <message>
         <source>Show/hide control tabs</source>
@@ -9155,7 +9155,7 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
     <message>
         <source>%1: clear all masks</source>
-        <translation>%1: všechna maskování odstraněna</translation>
+        <translation type="vanished">%1: všechna maskování odstraněna</translation>
     </message>
     <message>
         <source>%1: add column</source>
@@ -10524,11 +10524,11 @@ dvojnásobná přesnost
     </message>
     <message>
         <source>%1: mask selected cell(s)</source>
-        <translation>%1: vybraná buňka(y) maskována</translation>
+        <translation type="vanished">%1: vybraná buňka(y) maskována</translation>
     </message>
     <message>
         <source>%1: unmask selected cell(s)</source>
-        <translation>%1: vybraná buňka(y) odmaskována</translation>
+        <translation type="vanished">%1: vybraná buňka(y) odmaskována</translation>
     </message>
     <message>
         <source>%1: apply formula to selection</source>
@@ -10573,12 +10573,12 @@ dvojnásobná přesnost
     <message>
         <source>&amp;Mask</source>
         <comment>mask selection</comment>
-        <translation>&amp;Maskovat</translation>
+        <translation type="vanished">&amp;Maskovat</translation>
     </message>
     <message>
         <source>&amp;Unmask</source>
         <comment>unmask selection</comment>
-        <translation>&amp;Odmaskovat</translation>
+        <translation type="vanished">&amp;Odmaskovat</translation>
     </message>
     <message>
         <source>Assign &amp;Formula</source>
@@ -10639,7 +10639,7 @@ dvojnásobná přesnost
     </message>
     <message>
         <source>Clear Masks</source>
-        <translation>Odstranit maskování</translation>
+        <translation type="vanished">Odstranit maskování</translation>
     </message>
     <message>
         <source>&amp;Sort Table</source>

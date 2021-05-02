@@ -10231,11 +10231,8 @@ void ApplicationWindow::connectTable(Table *w)
     connect(w, SIGNAL(modifiedWindow(MyWidget *)), this, SLOT(modifiedProject(MyWidget *)));
     connect(w, SIGNAL(changedColHeader(const QString &, const QString &)), this,
             SLOT(updateColNames(const QString &, const QString &)));
-
-#ifdef LEGACY_CODE_0_2_x
     connect(w->d_future_table, SIGNAL(requestRowStatistics()), this, SLOT(showRowStatistics()));
     connect(w->d_future_table, SIGNAL(requestColumnStatistics()), this, SLOT(showColStatistics()));
-#endif
     w->askOnCloseEvent(confirmCloseTable);
 }
 

@@ -6961,7 +6961,7 @@ p, li { white-space: pre-wrap; }
         <source>Ctrl+A</source>
         <comment>Matrix: select all</comment>
         <translatorcomment>矩陣：全選</translatorcomment>
-        <translation>Ctrl+A</translation>
+        <translation type="vanished">Ctrl+A</translation>
     </message>
     <message>
         <source>Show/hide control tabs</source>
@@ -9213,7 +9213,7 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     </message>
     <message>
         <source>%1: clear all masks</source>
-        <translation>%1：清除所有遮蓋</translation>
+        <translation type="vanished">%1：清除所有遮蓋</translation>
     </message>
     <message>
         <source>%1: add column</source>
@@ -10575,11 +10575,11 @@ floating point values
     </message>
     <message>
         <source>%1: mask selected cell(s)</source>
-        <translation>%1: 遮蓋所選單格</translation>
+        <translation type="vanished">%1: 遮蓋所選單格</translation>
     </message>
     <message>
         <source>%1: unmask selected cell(s)</source>
-        <translation>%1: 取消遮蓋所選單格</translation>
+        <translation type="vanished">%1: 取消遮蓋所選單格</translation>
     </message>
     <message>
         <source>%1: apply formula to selection</source>
@@ -10624,12 +10624,12 @@ floating point values
     <message>
         <source>&amp;Mask</source>
         <comment>mask selection</comment>
-        <translation>遮蓋(&amp;M)</translation>
+        <translation type="vanished">遮蓋(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Unmask</source>
         <comment>unmask selection</comment>
-        <translation>取消遮蓋(&amp;U)</translation>
+        <translation type="vanished">取消遮蓋(&amp;U)</translation>
     </message>
     <message>
         <source>Assign &amp;Formula</source>
@@ -10690,7 +10690,7 @@ floating point values
     </message>
     <message>
         <source>Clear Masks</source>
-        <translation>清除遮蓋</translation>
+        <translation type="vanished">清除遮蓋</translation>
     </message>
     <message>
         <source>&amp;Sort Table</source>

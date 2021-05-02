@@ -60,19 +60,10 @@
 #include <QMenu>
 #include "ApplicationWindow.h"
 
-#ifndef LEGACY_CODE_0_2_x
-TableView::TableView(future::Table *table) : d_table(table)
-#else
 TableView::TableView(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)
-#endif
 {
-#ifndef LEGACY_CODE_0_2_x
-    d_model = new TableModel(table);
-    init();
-#else
     d_model = nullptr;
-#endif
 }
 
 TableView::~TableView()

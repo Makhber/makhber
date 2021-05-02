@@ -81,10 +81,8 @@ public:
     QModelIndex parent(const QModelIndex &child) const;
     //@}
 
-#ifdef LEGACY_CODE_0_2_x
     bool isReadOnly() const { return d_read_only; }
     void setReadOnly(bool read_only) { d_read_only = read_only; }
-#endif
 
     Column *column(int index); // this is needed for the comment header view
 
@@ -110,9 +108,7 @@ private:
     //! Toggle flag for formula mode
     bool d_formula_mode;
 
-#ifdef LEGACY_CODE_0_2_x
     bool d_read_only;
-#endif
 };
 
 #endif

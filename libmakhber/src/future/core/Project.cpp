@@ -28,10 +28,6 @@
  *                                                                         *
  ***************************************************************************/
 #include "core/Project.h"
-#ifndef LEGACY_CODE_0_2_x
-#include "core/ProjectWindow.h"
-#include "core/ScriptingEngineManager.h"
-#endif
 #include "core/interfaces.h"
 #include "globals.h"
 #include "lib/XmlStreamReader.h"
@@ -56,30 +52,16 @@ public:
                 Project::global("default_mdi_window_visibility").toInt()))
     {
     }
-#ifndef LEGACY_CODE_0_2_x
-    ~Private() { delete primary_view; }
-#else
     ~Private() = default;
-#endif
     QUndoStack undo_stack;
     MdiWindowVisibility mdi_window_visibility;
-#ifndef LEGACY_CODE_0_2_x
-    ProjectWindow *primary_view;
-#else
     void *primary_view { nullptr };
-#endif
     AbstractScriptingEngine *scripting_engine { nullptr };
     QString file_name;
 };
 
 Project::Project() : future::Folder(tr("Unnamed")), d(new Private())
 {
-#ifndef LEGACY_CODE_0_2_x
-    // TODO: intelligent engine choosing
-    Q_ASSERT(ScriptingEngineManager::instance()->engineNames().size() > 0);
-    QString engine_name = ScriptingEngineManager::instance()->engineNames()[0];
-    d->scripting_engine = ScriptingEngineManager::instance()->engine(engine_name);
-#endif
 }
 
 Project::~Project()
@@ -92,44 +74,25 @@ QUndoStack *Project::undoStack() const
     return &d->undo_stack;
 }
 
-#ifndef LEGACY_CODE_0_2_x
-ProjectWindow *Project::view()
-{
-    if (!d->primary_view)
-        d->primary_view = new ProjectWindow(this);
-    return d->primary_view;
-#else
 void *Project::view()
 {
     return nullptr;
-#endif
 }
 
 QMenu *Project::createContextMenu() const
 {
-#ifndef LEGACY_CODE_0_2_x
-    return const_cast<Project *>(this)->view()->createContextMenu();
-#else
     return nullptr;
-#endif
 }
 
 QMenu *Project::createFolderContextMenu(const future::Folder *folder) const
 {
-#ifndef LEGACY_CODE_0_2_x
-    return const_cast<Project *>(this)->view()->createFolderContextMenu(folder);
-#else
     Q_UNUSED(folder)
     return nullptr;
-#endif
 }
 
 void Project::setMdiWindowVisibility(MdiWindowVisibility visibility)
 {
     d->mdi_window_visibility = visibility;
-#ifndef LEGACY_CODE_0_2_x
-    view()->updateMdiWindowVisibility();
-#endif
 }
 
 Project::MdiWindowVisibility Project::mdiWindowVisibility() const

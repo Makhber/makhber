@@ -59,12 +59,7 @@ namespace future {
 int Matrix::default_column_width = 120;
 int Matrix::default_row_height = 20;
 
-#ifndef LEGACY_CODE_0_2_x
-Matrix::Matrix(AbstractScriptingEngine *engine, int rows, int cols, const QString &name)
-    : AbstractPart(name), d_plot_menu(0), scripted(engine)
-#else
 Matrix::Matrix(void *, int rows, int cols, const QString &name) : AbstractPart(name)
-#endif
 {
     d_matrix_private = new Private(this);
     // set initial number of rows and columns
@@ -76,11 +71,7 @@ Matrix::Matrix(void *, int rows, int cols, const QString &name) : AbstractPart(n
     connectActions();
 }
 
-#ifndef LEGACY_CODE_0_2_x
-Matrix::Matrix() : AbstractPart("temp"), scripted(0)
-#else
 Matrix::Matrix() : AbstractPart("temp")
-#endif
 {
     d_view = nullptr;
     createActions();
@@ -98,17 +89,7 @@ void Matrix::setView(MatrixView *view)
 
 QWidget *Matrix::view()
 {
-#ifndef LEGACY_CODE_0_2_x
-    if (!d_view) {
-        d_view = new MatrixView(this);
-        addActionsToView();
-        connect(d_view, SIGNAL(controlTabBarStatusChanged(bool)), this,
-                SLOT(adjustTabBarAction(bool)));
-        adjustTabBarAction(true);
-    }
-#else
     Q_ASSERT(d_view != nullptr);
-#endif
     return d_view;
 }
 
@@ -722,9 +703,7 @@ void Matrix::connectActions()
     connect(action_edit_coordinates, SIGNAL(triggered()), this, SLOT(editCoordinates()));
     connect(action_edit_format, SIGNAL(triggered()), this, SLOT(editFormat()));
     connect(action_clear_selection, SIGNAL(triggered()), this, SLOT(clearSelectedCells()));
-#ifdef LEGACY_CODE_0_2_x
     connect(action_recalculate, SIGNAL(triggered()), this, SLOT(recalculateSelectedCells()));
-#endif
     connect(action_select_all, SIGNAL(triggered()), this, SLOT(selectAll()));
     connect(action_clear_matrix, SIGNAL(triggered()), this, SLOT(clear()));
     connect(action_transpose, SIGNAL(triggered()), this, SLOT(transpose()));
@@ -765,9 +744,6 @@ void Matrix::addActionsToView()
     d_view->addAction(action_go_to_cell);
     d_view->addAction(action_dimensions_dialog);
     d_view->addAction(action_import_image);
-#ifndef LEGACY_CODE_0_2_x
-    d_view->addAction(action_duplicate);
-#endif
     d_view->addAction(action_insert_columns);
     d_view->addAction(action_remove_columns);
     d_view->addAction(action_clear_columns);
@@ -793,9 +769,6 @@ void Matrix::translateActionsStrings()
     action_mirror_horizontally->setText(tr("Mirror &Horizontally"));
     action_mirror_vertically->setText(tr("Mirror &Vertically"));
     action_import_image->setText(tr("&Import Image", "import image as matrix"));
-#ifndef LEGACY_CODE_0_2_x
-    action_duplicate->setText(tr("&Duplicate", "duplicate matrix"));
-#endif
     action_dimensions_dialog->setText(tr("&Dimensions", "matrix size"));
     action_edit_coordinates->setText(tr("Set &Coordinates"));
     action_edit_format->setText(tr("Set Display &Format"));
@@ -827,9 +800,6 @@ bool Matrix::fillProjectMenu(QMenu *menu)
     menu->addAction(action_mirror_horizontally);
     menu->addAction(action_mirror_vertically);
     menu->addSeparator();
-#ifndef LEGACY_CODE_0_2_x
-    menu->addAction(action_duplicate);
-#endif
     menu->addAction(action_import_image);
     menu->addSeparator();
     menu->addAction(action_go_to_cell);
@@ -1012,12 +982,6 @@ void Matrix::importImageDialog()
 
 void Matrix::duplicate()
 {
-#ifndef LEGACY_CODE_0_2_x
-    Matrix *matrix = new Matrix(0, rowCount(), columnCount(), name());
-    matrix->copy(this);
-    if (folder())
-        folder()->addChild(matrix);
-#endif
 }
 
 void Matrix::editFormat()
@@ -1495,13 +1459,11 @@ void Matrix::recalculateSelectedCells()
 {
     if (!d_view)
         return;
-#ifdef LEGACY_CODE_0_2_x
     WAIT_CURSOR;
     beginMacro(tr("%1: apply formula to selection").arg(name()));
     emit recalculate();
     endMacro();
     RESET_CURSOR;
-#endif
 }
 
 /* ========================= static methods ======================= */

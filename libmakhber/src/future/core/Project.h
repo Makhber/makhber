@@ -61,11 +61,7 @@ public:
     virtual Project *project() { return this; }
     virtual QUndoStack *undoStack() const;
     virtual QString path() const { return ""; }
-#ifndef LEGACY_CODE_0_2_x
-    virtual ProjectWindow *view();
-#else
     virtual void *view();
-#endif
     virtual QMenu *createContextMenu() const;
     //@}
     virtual QMenu *createFolderContextMenu(const ::future::Folder *folder) const;

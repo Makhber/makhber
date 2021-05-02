@@ -6955,7 +6955,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <source>Ctrl+A</source>
         <comment>Matrix: select all</comment>
-        <translation>Ctrl+A</translation>
+        <translation type="vanished">Ctrl+A</translation>
     </message>
     <message>
         <source>Show/hide control tabs</source>
@@ -9205,7 +9205,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <source>%1: clear all masks</source>
-        <translation>%1: remover todas as máscaras</translation>
+        <translation type="vanished">%1: remover todas as máscaras</translation>
     </message>
     <message>
         <source>%1: add column</source>
@@ -10572,11 +10572,11 @@ valores de ponto flutuante (float)
     </message>
     <message>
         <source>%1: mask selected cell(s)</source>
-        <translation>%1: mascarar células(s) selecionada(s)</translation>
+        <translation type="vanished">%1: mascarar células(s) selecionada(s)</translation>
     </message>
     <message>
         <source>%1: unmask selected cell(s)</source>
-        <translation>%1: remover máscara(s) de célula(s) selecionada(s)</translation>
+        <translation type="vanished">%1: remover máscara(s) de célula(s) selecionada(s)</translation>
     </message>
     <message>
         <source>%1: apply formula to selection</source>
@@ -10621,12 +10621,12 @@ valores de ponto flutuante (float)
     <message>
         <source>&amp;Mask</source>
         <comment>mask selection</comment>
-        <translation>Mascarar</translation>
+        <translation type="vanished">Mascarar</translation>
     </message>
     <message>
         <source>&amp;Unmask</source>
         <comment>unmask selection</comment>
-        <translation>Desmascarar</translation>
+        <translation type="vanished">Desmascarar</translation>
     </message>
     <message>
         <source>Assign &amp;Formula</source>
@@ -10687,7 +10687,7 @@ valores de ponto flutuante (float)
     </message>
     <message>
         <source>Clear Masks</source>
-        <translation>Limpar máscaras</translation>
+        <translation type="vanished">Limpar máscaras</translation>
     </message>
     <message>
         <source>&amp;Sort Table</source>

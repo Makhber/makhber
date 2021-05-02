@@ -53,19 +53,10 @@
 #include <QMenu>
 #include <QtDebug>
 
-#ifndef LEGACY_CODE_0_2_x
-MatrixView::MatrixView(future::Matrix *matrix) : d_matrix(matrix)
-#else
 MatrixView::MatrixView(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)
-#endif
 {
-#ifndef LEGACY_CODE_0_2_x
-    d_model = new MatrixModel(matrix);
-    init();
-#else
     d_model = nullptr;
-#endif
 }
 
 MatrixView::~MatrixView()
@@ -154,17 +145,7 @@ void MatrixView::init()
     this->setWidget(d_main_widget);
     rereadSectionSizes();
 
-#ifndef LEGACY_CODE_0_2_x
-    // keyboard shortcuts
-    QShortcut *sel_all =
-            new QShortcut(QKeySequence(tr("Ctrl+A", "Matrix: select all")), d_view_widget);
-    connect(sel_all, SIGNAL(activated()), d_view_widget, SLOT(selectAll()));
-#endif
-
     connect(ui.button_set_coordinates, SIGNAL(pressed()), this, SLOT(applyCoordinates()));
-#ifndef LEGACY_CODE_0_2_x
-    connect(ui.button_set_formula, SIGNAL(pressed()), this, SLOT(applyFormula()));
-#endif
     connect(ui.button_set_format, SIGNAL(pressed()), this, SLOT(applyFormat()));
     connect(ui.format_box, SIGNAL(currentIndexChanged(int)), this, SLOT(updateTypeInfo()));
     connect(ui.digits_box, SIGNAL(valueChanged(int)), this, SLOT(updateTypeInfo()));
@@ -441,14 +422,6 @@ void MatrixView::updateFormulaTab()
     if (d_matrix)
         ui.formula_box->setPlainText(d_matrix->formula());
 }
-
-#ifndef LEGACY_CODE_0_2_x
-void MatrixView::applyFormula()
-{
-    if (d_matrix)
-        d_matrix->setFormula(ui.formula_box->toPlainText());
-}
-#endif
 
 void MatrixView::updateFormatTab()
 {

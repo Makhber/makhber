@@ -85,13 +85,9 @@ class MatrixView : public MyWidget
 
 public:
     //! Constructor
-#ifndef LEGACY_CODE_0_2_x
-    MatrixView(future::Matrix *matrix);
-#else
     MatrixView(const QString &label, QWidget *parent = 0, const QString name = 0,
                Qt::WindowFlags f = Qt::Widget);
     void setMatrix(future::Matrix *matrix);
-#endif
     //! Destructor
     virtual ~MatrixView();
     bool isControlTabBarVisible() { return d_control_tabs->isVisible(); }
@@ -172,9 +168,6 @@ public slots:
     void applyCoordinates();
     void updateCoordinatesTab();
     void updateFormulaTab();
-#ifndef LEGACY_CODE_0_2_x
-    void applyFormula();
-#endif
     void updateFormatTab();
     void applyFormat();
     void handleHorizontalSectionResized(int logicalIndex, int oldSize, int newSize);

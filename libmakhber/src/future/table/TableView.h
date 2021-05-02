@@ -93,13 +93,9 @@ class TableView : public MyWidget
 
 public:
     //! Constructor
-#ifndef LEGACY_CODE_0_2_x
-    TableView(future::Table *table);
-#else
     TableView(const QString &label, QWidget *parent = 0, const QString name = 0,
               Qt::WindowFlags f = Qt::Widget);
     void setTable(future::Table *table);
-#endif
     //! Destructor
     virtual ~TableView();
     bool isControlTabBarVisible() { return d_control_tabs->isVisible(); }

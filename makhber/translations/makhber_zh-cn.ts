@@ -6961,7 +6961,7 @@ p, li { white-space: pre-wrap; }
         <source>Ctrl+A</source>
         <comment>Matrix: select all</comment>
         <translatorcomment>矩阵：全选</translatorcomment>
-        <translation>Ctrl+A</translation>
+        <translation type="vanished">Ctrl+A</translation>
     </message>
     <message>
         <source>Show/hide control tabs</source>
@@ -9213,7 +9213,7 @@ n 阶正则圆柱贝塞尔函数的第 s 个正零 x_s，J_n（x_s）= 0</transl
     </message>
     <message>
         <source>%1: clear all masks</source>
-        <translation>%1：清除所有遮盖</translation>
+        <translation type="vanished">%1：清除所有遮盖</translation>
     </message>
     <message>
         <source>%1: add column</source>
@@ -10575,11 +10575,11 @@ floating point values
     </message>
     <message>
         <source>%1: mask selected cell(s)</source>
-        <translation>%1: 遮盖所选单元格</translation>
+        <translation type="vanished">%1: 遮盖所选单元格</translation>
     </message>
     <message>
         <source>%1: unmask selected cell(s)</source>
-        <translation>%1: 取消遮盖所选单元格</translation>
+        <translation type="vanished">%1: 取消遮盖所选单元格</translation>
     </message>
     <message>
         <source>%1: apply formula to selection</source>
@@ -10624,12 +10624,12 @@ floating point values
     <message>
         <source>&amp;Mask</source>
         <comment>mask selection</comment>
-        <translation>遮盖(&amp;M)</translation>
+        <translation type="vanished">遮盖(&amp;M)</translation>
     </message>
     <message>
         <source>&amp;Unmask</source>
         <comment>unmask selection</comment>
-        <translation>取消遮盖(&amp;U)</translation>
+        <translation type="vanished">取消遮盖(&amp;U)</translation>
     </message>
     <message>
         <source>Assign &amp;Formula</source>
@@ -10690,7 +10690,7 @@ floating point values
     </message>
     <message>
         <source>Clear Masks</source>
-        <translation>清除遮盖</translation>
+        <translation type="vanished">清除遮盖</translation>
     </message>
     <message>
         <source>&amp;Sort Table</source>

@@ -32,9 +32,6 @@
 #define FUTURE_TABLE_H
 
 #include "core/AbstractPart.h"
-#ifndef LEGACY_CODE_0_2_x
-#include "AbstractScriptingEngine.h"
-#endif
 #include "globals.h"
 #include <QList>
 #include <QStringList>
@@ -77,11 +74,7 @@ of the user interaction are handled by actions provides by Table, e.g., via a co
 Selections are handled by TableView and can be queried by Table. All selection based functions
 do nothing unless the view exists. The view is created by the first call to view();
 */
-#ifndef LEGACY_CODE_0_2_x
-class Table : public AbstractPart, public scripted
-#else
 class Table : public AbstractPart
-#endif
 {
     Q_OBJECT
 
@@ -89,12 +82,8 @@ public:
     class Private; // This could also be private, but then all commands need to be friend classes
     friend class Private;
 
-#ifndef LEGACY_CODE_0_2_x
-    Table(AbstractScriptingEngine *engine, int rows, int columns, const QString &name);
-#else
     Table(int rows, int columns, const QString &name);
     friend class ::TableStatistics;
-#endif
     virtual ~Table();
 
     /// set's the view attribute. Ownership not passed to this
@@ -248,11 +237,6 @@ private:
 public slots:
     //! Clear the whole table
     void clear();
-#ifndef LEGACY_CODE_0_2_x
-    //! Clear all mask in the table
-    void clearMasks();
-#endif
-
     //! Append one column
     void addColumn();
     //! Append as many columns as are selected
@@ -264,10 +248,6 @@ public slots:
     void pasteIntoSelection();
     void clearSelectedCells();
     void goToCell();
-#ifndef LEGACY_CODE_0_2_x
-    void maskSelection();
-    void unmaskSelection();
-#endif
     void setFormulaForSelection();
     void recalculateSelectedCells();
     void fillSelectedCellsWithRowNumbers();
@@ -384,11 +364,9 @@ signals:
     void rowsRemoved(int first, int count);
     void dataChanged(int top, int left, int bottom, int right);
     void headerDataChanged(Qt::Orientation orientation, int first, int last);
-#ifdef LEGACY_CODE_0_2_x
     void recalculate();
     void requestRowStatistics();
     void requestColumnStatistics();
-#endif
 
 private:
     void createActions();
@@ -403,10 +381,6 @@ private:
     QAction *action_cut_selection {};
     QAction *action_copy_selection {};
     QAction *action_paste_into_selection {};
-#ifndef LEGACY_CODE_0_2_x
-    QAction *action_mask_selection;
-    QAction *action_unmask_selection;
-#endif
     QAction *action_set_formula {};
     QAction *action_clear_selection {};
     QAction *action_recalculate {};
@@ -422,9 +396,6 @@ private:
     QAction *action_add_column {};
     QAction *action_clear_table {};
     QAction *action_export_to_TeX {};
-#ifndef LEGACY_CODE_0_2_x
-    QAction *action_clear_masks;
-#endif
     QAction *action_sort_table {};
     QAction *action_go_to_cell {};
     QAction *action_dimensions_dialog {};

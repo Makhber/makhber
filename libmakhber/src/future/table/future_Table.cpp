@@ -88,13 +88,8 @@ int Table::default_column_width = 120;
 
 // TODO: move all selection related stuff to the primary view ?
 
-#ifndef LEGACY_CODE_0_2_x
-Table::Table(AbstractScriptingEngine *engine, int rows, int columns, const QString &name)
-    : AbstractPart(name), d_plot_menu(0), scripted(engine), d_table_private(*this)
-#else
 Table::Table(int rows, int columns, const QString &name)
     : AbstractPart(name), d_table_private(*this)
-#endif
 {
     // set initial number of rows and columns
     QList<Column *> cols;
@@ -111,11 +106,7 @@ Table::Table(int rows, int columns, const QString &name)
     connectActions();
 }
 
-#ifndef LEGACY_CODE_0_2_x
-Table::Table() : AbstractPart("temp"), scripted(0)
-#else
 Table::Table() : AbstractPart("temp"), d_table_private(*this)
-#endif
 {
     d_view = nullptr;
     createActions();
@@ -162,12 +153,7 @@ void Table::setView(TableView *view)
 
 QWidget *Table::view()
 {
-#ifndef LEGACY_CODE_0_2_x
-    if (!d_view)
-        setView(new TableView(this));
-#else
     Q_ASSERT(d_view != nullptr);
-#endif
     return d_view;
 }
 
@@ -311,19 +297,6 @@ void Table::clear()
     endMacro();
     RESET_CURSOR;
 }
-
-#ifndef LEGACY_CODE_0_2_x
-void Table::clearMasks()
-{
-    WAIT_CURSOR;
-    beginMacro(QObject::tr("%1: clear all masks").arg(name()));
-    int cols = columnCount();
-    for (int i = 0; i < cols; i++)
-        column(i)->clearMasks();
-    endMacro();
-    RESET_CURSOR;
-}
-#endif
 
 void Table::addColumn()
 {
@@ -541,52 +514,6 @@ void Table::pasteIntoSelection()
     RESET_CURSOR;
 }
 
-#ifndef LEGACY_CODE_0_2_x
-void Table::maskSelection()
-{
-    if (!d_view)
-        return;
-    int first = d_view->firstSelectedRow();
-    int last = d_view->lastSelectedRow();
-    if (first < 0)
-        return;
-
-    WAIT_CURSOR;
-    beginMacro(tr("%1: mask selected cell(s)").arg(name()));
-    QList<Column *> list = d_view->selectedColumns();
-    foreach (Column *col_ptr, list) {
-        int col = columnIndex(col_ptr);
-        for (int row = first; row <= last; row++)
-            if (d_view->isCellSelected(row, col))
-                col_ptr->setMasked(row);
-    }
-    endMacro();
-    RESET_CURSOR;
-}
-
-void Table::unmaskSelection()
-{
-    if (!d_view)
-        return;
-    int first = d_view->firstSelectedRow();
-    int last = d_view->lastSelectedRow();
-    if (first < 0)
-        return;
-
-    WAIT_CURSOR;
-    beginMacro(tr("%1: unmask selected cell(s)").arg(name()));
-    QList<Column *> list = d_view->selectedColumns();
-    foreach (Column *col_ptr, list) {
-        int col = columnIndex(col_ptr);
-        for (int row = first; row <= last; row++)
-            if (d_view->isCellSelected(row, col))
-                col_ptr->setMasked(row, false);
-    }
-    endMacro();
-    RESET_CURSOR;
-}
-#endif
-
 void Table::setFormulaForSelection()
 {
     if (!d_view)
@@ -598,13 +525,11 @@ void Table::recalculateSelectedCells()
 {
     if (!d_view)
         return;
-#ifdef LEGACY_CODE_0_2_x
     WAIT_CURSOR;
     beginMacro(tr("%1: apply formula to selection").arg(name()));
     emit recalculate();
     endMacro();
     RESET_CURSOR;
-#endif
 }
 
 void Table::fillSelectedCellsWithRowNumbers()
@@ -935,18 +860,14 @@ void Table::sortSelectedColumns()
 
 void Table::statisticsOnSelectedColumns()
 {
-#ifdef LEGACY_CODE_0_2_x
     // TODO: this is only an ugly hack for 0.2.0
     emit requestColumnStatistics();
-#endif
 }
 
 void Table::statisticsOnSelectedRows()
 {
-#ifdef LEGACY_CODE_0_2_x
     // TODO: this is only an ugly hack for 0.2.0
     emit requestRowStatistics();
-#endif
 }
 
 void Table::insertEmptyRows()
@@ -1079,9 +1000,6 @@ bool Table::fillProjectMenu(QMenu *menu)
     menu->addAction(action_type_format);
     menu->addSeparator();
     menu->addAction(action_clear_table);
-#ifndef LEGACY_CODE_0_2_x
-    menu->addAction(action_clear_masks);
-#endif
     menu->addAction(action_sort_table);
     menu->addSeparator();
     menu->addAction(action_set_formula);
@@ -1142,16 +1060,6 @@ void Table::createActions()
 
     action_paste_into_selection = new QAction(QIcon(QPixmap(":/paste.xpm")), tr("Past&e"), this);
     actionManager()->addAction(action_paste_into_selection, "paste_into_selection");
-
-#ifndef LEGACY_CODE_0_2_x
-    action_mask_selection =
-            new QAction(QIcon(QPixmap(":/mask.xpm")), tr("&Mask", "mask selection"), this);
-    actionManager()->addAction(action_mask_selection, "mask_selection");
-
-    action_unmask_selection =
-            new QAction(QIcon(QPixmap(":/unmask.xpm")), tr("&Unmask", "unmask selection"), this);
-    actionManager()->addAction(action_unmask_selection, "unmask_selection");
-#endif
 
     icon_temp = new QIcon();
     icon_temp->addPixmap(QPixmap(":/16x16/fx.png"));
@@ -1234,11 +1142,6 @@ void Table::createActions()
     action_export_to_TeX = new QAction(*icon_temp, tr("Export to TeX..."), this);
     actionManager()->addAction(action_export_to_TeX, "export_to_TeX");
     delete icon_temp;
-
-#ifndef LEGACY_CODE_0_2_x
-    action_clear_masks = new QAction(QIcon(QPixmap(":/unmask.xpm")), tr("Clear Masks"), this);
-    actionManager()->addAction(action_clear_masks, "clear_masks");
-#endif
 
     icon_temp = new QIcon();
     icon_temp->addPixmap(QPixmap(":/16x16/sort.png"));
@@ -1396,10 +1299,6 @@ void Table::connectActions()
     connect(action_cut_selection, SIGNAL(triggered()), this, SLOT(cutSelection()));
     connect(action_copy_selection, SIGNAL(triggered()), this, SLOT(copySelection()));
     connect(action_paste_into_selection, SIGNAL(triggered()), this, SLOT(pasteIntoSelection()));
-#ifndef LEGACY_CODE_0_2_x
-    connect(action_mask_selection, SIGNAL(triggered()), this, SLOT(maskSelection()));
-    connect(action_unmask_selection, SIGNAL(triggered()), this, SLOT(unmaskSelection()));
-#endif
     connect(action_set_formula, SIGNAL(triggered()), this, SLOT(setFormulaForSelection()));
     connect(action_clear_selection, SIGNAL(triggered()), this, SLOT(clearSelectedCells()));
     connect(action_recalculate, SIGNAL(triggered()), this, SLOT(recalculateSelectedCells()));
@@ -1414,9 +1313,6 @@ void Table::connectActions()
     // Export to TeX
     connect(action_export_to_TeX, SIGNAL(triggered()), this, SLOT(showTeXTableExportDialog()));
 
-#ifndef LEGACY_CODE_0_2_x
-    connect(action_clear_masks, SIGNAL(triggered()), this, SLOT(clearMasks()));
-#endif
     connect(action_sort_table, SIGNAL(triggered()), this, SLOT(sortTable()));
     connect(action_go_to_cell, SIGNAL(triggered()), this, SLOT(goToCell()));
     connect(action_dimensions_dialog, SIGNAL(triggered()), this, SLOT(dimensionsDialog()));
@@ -1455,10 +1351,6 @@ void Table::addActionsToView()
     d_view->addAction(action_cut_selection);
     d_view->addAction(action_copy_selection);
     d_view->addAction(action_paste_into_selection);
-#ifndef LEGACY_CODE_0_2_x
-    d_view->addAction(action_mask_selection);
-    d_view->addAction(action_unmask_selection);
-#endif
     d_view->addAction(action_set_formula);
     d_view->addAction(action_clear_selection);
     d_view->addAction(action_recalculate);
@@ -1471,9 +1363,6 @@ void Table::addActionsToView()
     d_view->addAction(action_add_column);
     d_view->addAction(action_clear_table);
     d_view->addAction(action_export_to_TeX);
-#ifndef LEGACY_CODE_0_2_x
-    d_view->addAction(action_clear_masks);
-#endif
     d_view->addAction(action_sort_table);
     d_view->addAction(action_go_to_cell);
     d_view->addAction(action_dimensions_dialog);
@@ -1505,11 +1394,6 @@ void Table::translateActionsStrings()
     action_cut_selection->setText(tr("Cu&t"));
     action_copy_selection->setText(tr("&Copy"));
     action_paste_into_selection->setText(tr("Past&e"));
-#ifndef LEGACY_CODE_0_2_x
-    action_mask_selection->setText(tr("&Mask", "mask selection"));
-    action_unmask_selection->setText(tr("&Unmask", "unmask selection"));
-    action_clear_masks->setText(tr("Clear Masks"));
-#endif
     action_set_formula->setText(tr("Assign &Formula"));
     action_clear_selection->setText(tr("Clea&r", "clear selection"));
     action_recalculate->setText(tr("Recalculate"));
@@ -1737,11 +1621,6 @@ QMenu *Table::createSelectionMenu(QMenu *append_to)
     menu->addAction(action_paste_into_selection);
     menu->addAction(action_clear_selection);
     menu->addSeparator();
-#ifndef LEGACY_CODE_0_2_x
-    menu->addAction(action_mask_selection);
-    menu->addAction(action_unmask_selection);
-    menu->addSeparator();
-#endif
     menu->addAction(action_normalize_selection);
     menu->addSeparator();
     menu->addAction(action_set_formula);
@@ -1810,10 +1689,6 @@ QMenu *Table::createTableMenu(QMenu *append_to)
     menu->addAction(action_select_all);
     menu->addAction(action_clear_table);
     menu->addAction(action_export_to_TeX);
-#ifndef LEGACY_CODE_0_2_x
-    menu->addAction(action_clear_masks);
-    menu->addAction(action_sort_table);
-#endif
     menu->addSeparator();
     menu->addAction(action_add_column);
     menu->addSeparator();

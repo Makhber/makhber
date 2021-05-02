@@ -31,9 +31,6 @@
 #ifndef FUTURE_MATRIX_H
 #define FUTURE_MATRIX_H
 
-#ifndef LEGACY_CODE_0_2_x
-#include "core/AbstractScriptingEngine.h"
-#endif
 #include "core/AbstractPart.h"
 #include "matrix/MatrixView.h"
 #include "lib/macros.h"
@@ -51,12 +48,7 @@ class ActionManager;
 // TODO: move all selection related stuff to the primary view
 
 namespace future {
-#ifndef LEGACY_CODE_0_2_x
-//! Aspect providing a spreadsheet to manage MxN matrix data
-class Matrix : public AbstractPart, public scripted
-#else
 class Matrix : public AbstractPart
-#endif
 {
     Q_OBJECT
 
@@ -72,12 +64,8 @@ public:
      * \param cols initial number of columns
      * \param name object name
      */
-#ifndef LEGACY_CODE_0_2_x
-    Matrix(AbstractScriptingEngine *engine, int rows, int cols, const QString &name);
-#else
     Matrix(void *, int rows, int cols, const QString &name);
     void setView(MatrixView *view);
-#endif
     ~Matrix();
 
     //! Return an icon to be used for decorating my views.
@@ -266,9 +254,7 @@ public slots:
     void importImageDialog();
     //! Duplicate the matrix inside its folder
     void duplicate();
-#ifdef LEGACY_CODE_0_2_x
     void recalculateSelectedCells();
-#endif
 
 signals:
     void columnsAboutToBeInserted(int before, int count);
@@ -283,9 +269,7 @@ signals:
     void coordinatesChanged();
     void formulaChanged();
     void formatChanged();
-#ifdef LEGACY_CODE_0_2_x
     void recalculate();
-#endif
 
 private slots:
     void adjustTabBarAction(bool visible);

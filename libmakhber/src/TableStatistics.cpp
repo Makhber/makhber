@@ -47,7 +47,6 @@ TableStatistics::TableStatistics(ScriptingEnv *env, QWidget *parent, Table *base
                                  QList<int> targets)
     : Table(env, 1, 1, "", parent, ""), d_base(base), d_type(t), d_targets(std::move(targets))
 {
-#ifdef LEGACY_CODE_0_2_x
     dynamic_cast<TableModel *>(d_view_widget->model())->setReadOnly(true);
     d_hide_button->hide();
     d_control_tabs->hide();
@@ -80,7 +79,6 @@ TableStatistics::TableStatistics(ScriptingEnv *env, QWidget *parent, Table *base
     d_future_table->action_statistics_rows->setEnabled(false);
     d_future_table->action_toggle_tabbar->setEnabled(false);
 
-#endif
     setCaptionPolicy(MyWidget::Both);
     if (d_type == TableStatistics::StatRow) {
         setName(QString(d_base->name()) + "-" + tr("RowStats"));
@@ -326,7 +324,6 @@ QString TableStatistics::saveToString(const QString &geometry)
     return s + "</TableStatistics>\n";
 }
 
-#ifdef LEGACY_CODE_0_2_x
 bool TableStatistics::eventFilter(QObject *watched, QEvent *event)
 {
     QHeaderView *v_header = d_view_widget->verticalHeader();
@@ -389,4 +386,3 @@ bool TableStatistics::eventFilter(QObject *watched, QEvent *event)
     } else
         return TableView::eventFilter(watched, event);
 }
-#endif
