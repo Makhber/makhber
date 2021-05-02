@@ -126,6 +126,8 @@ jobs:
         run: |
           mkdir build; cd build
           cmake .. `
+            -DCMAKE_BUILD_TYPE=Release `
+            -DCMAKE_SYSTEM_VERSION="10.0" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DMAKHBER_BUILD_TESTS=ON
