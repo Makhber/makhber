@@ -364,10 +364,7 @@ else()
     )
 endif()
 
-target_compile_definitions( libmakhber PUBLIC
-  SCRIPTING_CONSOLE
-  SCRIPTING_DIALOG
-  )
+target_compile_definitions( libmakhber PUBLIC SCRIPTING_DIALOG )
 
 if( WIN32 )
   target_compile_definitions( libmakhber PUBLIC
@@ -400,15 +397,19 @@ if( MAKHBER_DOWNLOAD_LINKS )
   target_compile_definitions( libmakhber PUBLIC DOWNLOAD_LINKS )
 endif()
 
-if( MAKHBER_SCRIPTING_MUPARSER )
-  target_compile_definitions( libmakhber PUBLIC SCRIPTING_MUPARSER )
-endif()
-
 if( MAKHBER_ORIGIN_IMPORT )
   target_sources( libmakhber PRIVATE "src/importOPJ.h" "src/importOPJ.cpp" )
   target_link_libraries( libmakhber origin_static )
   target_include_directories( libmakhber PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
   target_compile_definitions( libmakhber PUBLIC ORIGIN_IMPORT )
+endif()
+
+if( MAKHBER_SCRIPTING_MUPARSER OR MAKHBER_SCRIPTING_PYTHON )
+  target_compile_definitions( libmakhber PUBLIC SCRIPTING_CONSOLE )
+endif()
+
+if( MAKHBER_SCRIPTING_MUPARSER )
+  target_compile_definitions( libmakhber PUBLIC SCRIPTING_MUPARSER )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
