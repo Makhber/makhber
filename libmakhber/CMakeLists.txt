@@ -364,12 +364,13 @@ else()
     )
 endif()
 
+target_compile_definitions( libmakhber PUBLIC DYNAMIC_PLUGIN_PATH )
+
 if( WIN32 )
   target_compile_definitions( libmakhber PUBLIC
     TS_PATH="/translations"
     PLUGIN_PATH="/fitPlugins"
     DYNAMIC_MANUAL_PATH
-    DYNAMIC_PLUGIN_PATH
     )
 elseif( APPLE )
   target_compile_definitions( libmakhber PUBLIC
