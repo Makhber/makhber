@@ -234,6 +234,7 @@ else()
   if( MULTI_CONFIG )
     configure_file( pyproject.toml.in pyproject_tmp.toml @ONLY )
     add_custom_target( pyproject_toml ALL
+      BYPRODUCTS pyproject.toml
       COMMAND ${CMAKE_COMMAND} -DCONFIG=$<CONFIG> -P ${CMAKE_CURRENT_SOURCE_DIR}/configure_toml.cmake
       DEPENDS libmakhber
       COMMENT "Generating pyproject.toml file..."
