@@ -12,7 +12,6 @@ set( TS_FILES
   "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_cs.ts"
   "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_de.ts"
   "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_es.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_fr.ts"
   "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_ja.ts"
   "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_pl.ts"
   "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_pt-br.ts"

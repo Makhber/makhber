@@ -13224,7 +13224,7 @@ void ApplicationWindow::searchForUpdates()
             QMessageBox::Yes | QMessageBox::Default, QMessageBox::No | QMessageBox::Escape);
 
     if (choice == QMessageBox::Yes) {
-        http.get(QNetworkRequest(QUrl("https://api.github.com/repos/Makhber/makhber/tags")));
+        http.get(QNetworkRequest(QUrl("https://api.github.com/repos/Makhber/makhber/releases")));
     }
 }
 
@@ -13241,7 +13241,7 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
 
     if (version_buffer.size() > 0) {
         QJsonDocument json = QJsonDocument::fromJson(version_buffer);
-        QString available_versionString = json[0]["name"].toString();
+        QString available_versionString = json[0]["tag_name"].toString();
         QStringList list = available_versionString.split(".");
         bool intok {};
         int available_version = (list.at(0).toInt() << 16) + (list.at(1).toInt() << 8)
