@@ -7,12 +7,9 @@ on:
 
 jobs:
 
-  Release:
-    name: Release
-    runs-on: windows-latest
-    outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
-      version: ${{ steps.version.outputs.version }}
+  Source:
+    name: Source
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -21,53 +18,37 @@ jobs:
 
       - name: Get Version
         id: version
-        continue-on-error: true
         run: |
-          $Env:version = (git describe --tags)
-          $Env:version
-          echo "::set-output name=version::$Env:version"
-
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.version.outputs.version }}
-          release_name: Release ${{ steps.version.outputs.version }}
-          draft: true
-          prerelease: false
+          VERSION=$(git describe --tags)
+          echo $VERSION
+          echo "::set-output name=version::$VERSION"
 
       - name: Archive source files
         run: |
           pip3 install git-archive-all
-          git-archive-all makhber-${{ steps.version.outputs.version }}-src.zip
-          git-archive-all makhber-${{ steps.version.outputs.version }}-src.tar.xz
+          git-archive-all Makhber-${{ steps.version.outputs.version }}-src.zip
+          git-archive-all Makhber-${{ steps.version.outputs.version }}-src.tar.xz
 
       - name: Upload ZIP File
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: makhber-${{ steps.version.outputs.version }}-src.zip
-          asset_name: makhber-${{ steps.version.outputs.version }}-src.zip
-          asset_content_type: application/zip
+          name: Release ${{ steps.version.outputs.version }}
+          draft: true
+          files: Makhber*.zip
 
       - name: Upload TARXZ File
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: makhber-${{ steps.version.outputs.version }}-src.tar.xz
-          asset_name: makhber-${{ steps.version.outputs.version }}-src.tar.xz
-          asset_content_type: application/zip
+          draft: true
+          files: Makhber*.tar.xz
 
   Windows:
     name: Windows
     runs-on: windows-latest
-    needs: Release
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
 
@@ -115,8 +96,7 @@ jobs:
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
-            -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin" `
-            -DCPACK_PACKAGE_FILE_NAME=makhber
+            -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin"
 
       - name: Building
         run: |
@@ -129,29 +109,24 @@ jobs:
           cpack -G NSIS
 
       - name: Upload MSI installer
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/makhber.msi
-          asset_name: makhber-${{ needs.Release.outputs.version }}-win64.msi
-          asset_content_type: application/zip
+          draft: true
+          files: build/Makhber*.msi
 
       - name: Upload NSIS installer
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/makhber.exe
-          asset_name: makhber-${{ needs.Release.outputs.version }}-win64.exe
-          asset_content_type: application/zip
+          draft: true
+          files: build/Makhber*.exe
 
   macos:
     runs-on: macos-latest
     name: macos
-    needs: Release
 
     steps:
       - name: Checkout
@@ -170,9 +145,7 @@ jobs:
           export PATH=/usr/local/opt/qt@5/bin:$PATH
           mkdir build && cd build
           cmake .. \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DMAKHBER_ORIGIN_IMPORT=ON \
-            -DCPACK_PACKAGE_FILE_NAME=makhber
+            -DCMAKE_BUILD_TYPE=Release
 
       - name: Building
         run: |
@@ -185,19 +158,16 @@ jobs:
           cpack -G DragNDrop
 
       - name: Upload MacOS package
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/makhber.dmg
-          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.dmg
-          asset_content_type: application/zip
+          draft: true
+          files: build/Makhber*.dmg
 
   Snap:
     runs-on: ubuntu-20.04
     name: Snap
-    needs: Release
 
     steps:
       - name: Checkout
@@ -216,14 +186,12 @@ jobs:
           echo "::set-output name=snap::$(echo $(ls *.snap))"
 
       - name: Upload Snap
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: ${{ steps.snap_build.outputs.snap }}
-          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.snap
-          asset_content_type: application/zip
+          draft: true
+          files: ${{ steps.snap_build.outputs.snap }}
 
       - uses: snapcore/action-publish@v1
         with:
@@ -234,7 +202,6 @@ jobs:
   Flatpak:
     runs-on: ubuntu-20.04
     name: Flatpak
-    needs: Release
 
     steps:
       - name: Checkout
@@ -269,23 +236,20 @@ jobs:
             build-bundle \
             --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo \
             repo \
-            makhber.flatpak \
+            Makhber-$(git describe --tags)-x86_64.flatpak \
             com.github.makhber.Makhber
 
       - name: Upload Flatpak
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/makhber.flatpak
-          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.flatpak
-          asset_content_type: application/zip
+          draft: true
+          files: build/Makhber*.flatpak
 
   AppImage:
     runs-on: ubuntu-18.04
     name: AppImage
-    needs: Release
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
 
@@ -367,17 +331,15 @@ jobs:
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
           chmod +x linuxdeploy*
-          export VERSION=${{ needs.Release.outputs.version }}
+          export VERSION=$(git describe --tags)
           export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
           export CONDA_PYTHON_VERSION=3.9
           ./linuxdeploy-x86_64.AppImage --appdir ./AppDir --plugin qt --plugin conda --output appimage --custom-apprun=../packaging/appimage/AppRun
 
       - name: Upload AppImage
-        uses: actions/upload-release-asset@v1
+        uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ needs.Release.outputs.upload_url }}
-          asset_path: build/Makhber-${{ needs.Release.outputs.version }}-x86_64.AppImage
-          asset_name: makhber-${{ needs.Release.outputs.version }}-x86_64.AppImage
-          asset_content_type: application/zip
+          draft: true
+          files: build/Makhber*.AppImage
