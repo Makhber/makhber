@@ -56,7 +56,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
 endif()
 
 if( WIN32 )
-  install( TARGETS makhber RUNTIME DESTINATION . )
+  install( TARGETS makhber RUNTIME DESTINATION bin )
   install( FILES ${QM_FILES} DESTINATION translations )
 elseif( APPLE )
   install( TARGETS makhber BUNDLE DESTINATION . )
@@ -69,15 +69,15 @@ endif()
 
 
 if( WIN32 )
-  set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION . )
+  set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION bin )
   include(DeployQt)
-  windeployqt( makhber . )
+  windeployqt( makhber bin )
 endif()
 
 if( RUNTIME_DIR )
   file( TO_CMAKE_PATH ${RUNTIME_DIR} RUNTIME_DIR_CMAKE )
   set( EXCLUDE_DLL "system32/*" "shell32*" "kernel32*" )
-  set( MAKHBER_DIR "." )
+  set( MAKHBER_DIR "bin" )
   set( MAKHBER_EXECUTABLE "${MAKHBER_DIR}/makhber.exe" )
   install( CODE "
     file( GET_RUNTIME_DEPENDENCIES
@@ -157,7 +157,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
       )
       file( ARCHIVE_EXTRACT
         INPUT python_embed.zip
-        DESTINATION \${CMAKE_INSTALL_PREFIX}
+        DESTINATION \${CMAKE_INSTALL_PREFIX}/bin
         VERBOSE
       )
       ")

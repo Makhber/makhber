@@ -106,7 +106,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
   find_package( PyQt REQUIRED )
 
   if( WIN32 )
-    set( PYTHON_INSTALL_PATH  "." )
+    set( PYTHON_INSTALL_PATH  "bin" )
   elseif( APPLE )
     set( PYTHON_INSTALL_PATH  "makhber.app/Contents/Resources" )
   else()

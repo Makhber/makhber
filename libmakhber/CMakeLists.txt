@@ -369,8 +369,8 @@ target_compile_definitions( libmakhber PUBLIC DYNAMIC_PLUGIN_PATH )
 
 if( WIN32 )
   target_compile_definitions( libmakhber PUBLIC
-    TS_PATH="/translations"
-    PLUGIN_PATH="/fitPlugins"
+    TS_PATH="/../translations"
+    PLUGIN_PATH="/../fitPlugins"
     )
 elseif( APPLE )
   target_compile_definitions( libmakhber PUBLIC
