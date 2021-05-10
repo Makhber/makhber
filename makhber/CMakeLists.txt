@@ -149,7 +149,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
       )")
   endif()
 
-  if( WIN32 )
+  if( MSVC )
     install( CODE "
       file( DOWNLOAD
         https://www.python.org/ftp/python/${Python3_VERSION}/python-${Python3_VERSION}-embed-amd64.zip

@@ -62,7 +62,7 @@ option( MAKHBER_ORIGIN_IMPORT "Enable importing OriginLab project files" ON )
 
 option( MAKHBER_SCRIPTING_PYTHON "Enable Python Scripting" OFF )
 
-if( WIN32 OR APPLE )
+if( MSVC OR APPLE )
   option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" ON )
 else()
   option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" OFF )
