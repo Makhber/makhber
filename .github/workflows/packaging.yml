@@ -29,22 +29,16 @@ jobs:
           git-archive-all Makhber-${{ steps.version.outputs.version }}-src.zip
           git-archive-all Makhber-${{ steps.version.outputs.version }}-src.tar.xz
 
-      - name: Upload ZIP File
+      - name: Upload source files
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           name: Release ${{ steps.version.outputs.version }}
           draft: true
-          files: Makhber*.zip
-
-      - name: Upload TARXZ File
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          draft: true
-          files: Makhber*.tar.xz
+          files: |
+            Makhber*.zip
+            Makhber*.tar.xz
 
   Windows:
     name: Windows
@@ -105,24 +99,17 @@ jobs:
       - name: Packaging
         run: |
           cd build
-          cpack -G WIX
-          cpack -G NSIS
+          cpack -G "WIX;NSIS"
 
-      - name: Upload MSI installer
+      - name: Upload Windows installers
         uses: softprops/action-gh-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           draft: true
-          files: build/Makhber*.msi
-
-      - name: Upload NSIS installer
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          draft: true
-          files: build/Makhber*.exe
+          files: |
+            build/Makhber*.msi
+            build/Makhber*.exe
 
   macos:
     runs-on: macos-latest
