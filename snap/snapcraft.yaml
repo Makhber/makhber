@@ -2,6 +2,7 @@ name: makhber
 summary: Makhber
 description: |
   Application for Visualization and Analysis of Scientific Data
+icon: makhber/icons/com.github.makhber.Makhber.svg
 base: core20
 compression: lzo
 grade: stable
@@ -143,8 +144,8 @@ parts:
       snapcraftctl build
   pyqt5-sip:
     source-type: tar
-    source: https://pypi.python.org/packages/source/P/PyQt5_sip/PyQt5_sip-12.8.1.tar.gz
-    source-checksum: sha256/30e944db9abee9cc757aea16906d4198129558533eb7fadbe48c5da2bd18e0bd
+    source: https://pypi.python.org/packages/source/P/PyQt5_sip/PyQt5_sip-12.9.0.tar.gz
+    source-checksum: sha256/d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32
     plugin: python
     prime:
       - -bin/
