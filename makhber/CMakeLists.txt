@@ -85,7 +85,7 @@ endif()
 
 if( RUNTIME_DIR )
   file( TO_CMAKE_PATH ${RUNTIME_DIR} RUNTIME_DIR_CMAKE )
-  set( EXCLUDE_DLL "system32/*" "shell32*" "kernel32*" )
+  set( EXCLUDE_DLLS "system32*" )
   set( MAKHBER_DIR "bin" )
   set( MAKHBER_EXECUTABLE "${MAKHBER_DIR}/makhber.exe" )
   install( CODE "
@@ -95,15 +95,19 @@ if( RUNTIME_DIR )
       CONFLICTING_DEPENDENCIES_PREFIX CONFLICTING_DEPENDENCIES
       EXECUTABLES \"\${CMAKE_INSTALL_PREFIX}/${MAKHBER_EXECUTABLE}\"
       DIRECTORIES \"${RUNTIME_DIR_CMAKE}\" \"${Python3_RUNTIME_LIBRARY_DIRS}\"
-      POST_EXCLUDE_REGEXES ${EXCLUDE_DLL}
+      POST_EXCLUDE_REGEXES ${EXCLUDE_DLLS}
       )
-    message( \"RESOLVED_DEPENDENCIES = \${RESOLVED_DEPENDENCIES}\" )
-    message( \"UNRESOLVED_DEPENDENCIES = \${UNRESOLVED_DEPENDENCIES}\" )
-    foreach( lib \${RESOLVED_DEPENDENCIES} )
+    message( \"RESOLVED_DEPENDENCIES :\" )
+    foreach( dll \${RESOLVED_DEPENDENCIES} )
+      message( \"    \${dll}\" )
       execute_process(
         COMMAND \"${CMAKE_COMMAND}\" -E
-        copy \${lib} \"\${CMAKE_INSTALL_PREFIX}/${MAKHBER_DIR}\"
+        copy \${dll} \"\${CMAKE_INSTALL_PREFIX}/${MAKHBER_DIR}\"
         )
+    endforeach()
+    message( \"UNRESOLVED_DEPENDENCIES :\" )
+    foreach( dll \${UNRESOLVED_DEPENDENCIES} )
+      message( \"    \${dll}\" )
     endforeach()
     ")
 endif()
