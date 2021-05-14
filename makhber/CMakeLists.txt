@@ -57,14 +57,23 @@ endif()
 
 if( WIN32 )
   install( TARGETS makhber RUNTIME DESTINATION bin )
-  install( FILES ${QM_FILES} DESTINATION translations )
+  install( FILES ${QM_FILES}
+    COMPONENT Translations
+    DESTINATION translations
+  )
 elseif( APPLE )
   install( TARGETS makhber BUNDLE DESTINATION . )
-  install( FILES ${QM_FILES} DESTINATION makhber.app/Contents/Resources/translations )
+  install( FILES ${QM_FILES}
+    COMPONENT Translations
+    DESTINATION makhber.app/Contents/Resources/translations
+  )
   install( FILES icons/makhber.icns DESTINATION makhber.app/Contents/Resources )
 else()
   install( TARGETS makhber RUNTIME DESTINATION bin )
-  install( FILES ${QM_FILES} DESTINATION share/makhber/translations )
+  install( FILES ${QM_FILES}
+    COMPONENT Translations
+    DESTINATION share/makhber/translations
+  )
 endif()
 
 
@@ -138,20 +147,23 @@ if( MAKHBER_SCRIPTING_PYTHON )
     makhberrc.py
     makhberUtil.py
     ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
+    COMPONENT Python
     DESTINATION ${PYTHON_INSTALL_PATH}
   )
 
   if( MAKHBER_BUNDLE_PYQT5 )
-    install( CODE "
-      execute_process(   
+    install( CODE
+      COMPONENT Python
+      "execute_process(   
         COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
         --target=\${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_PATH}
       )")
   endif()
 
   if( MSVC )
-    install( CODE "
-      file( DOWNLOAD
+    install( CODE 
+      COMPONENT Python
+      "file( DOWNLOAD
         https://www.python.org/ftp/python/${Python3_VERSION}/python-${Python3_VERSION}-embed-amd64.zip
         python_embed.zip
       )

@@ -15,14 +15,17 @@ add_subdirectory( planck_wavelength )
 
 if( WIN32 )
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
+    COMPONENT FitPlugins
     RUNTIME DESTINATION fitPlugins
     )
 elseif( APPLE )
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
+    COMPONENT FitPlugins
     LIBRARY DESTINATION makhber.app/Contents/PlugIns/fitPlugins
     )
 else()
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
+    COMPONENT FitPlugins
     LIBRARY DESTINATION lib/makhber/plugins
     )
 endif()

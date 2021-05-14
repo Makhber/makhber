@@ -107,7 +107,10 @@ if( SIP_VERSION VERSION_LESS 5 )
     target_include_directories( makhber_sip PUBLIC "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include" )
   endif()
 
-  install( TARGETS makhber_sip LIBRARY DESTINATION . )
+  install( TARGETS makhber_sip
+    COMPONENT Python
+    LIBRARY DESTINATION .
+  )
 
 else()
 
@@ -265,6 +268,9 @@ else()
     add_dependencies( makhber_sip pyproject_toml )
   endif()
 
-  install( FILES ${module_file} DESTINATION ${PYTHON_INSTALL_PATH} )
+  install( FILES ${module_file}
+    COMPONENT Python
+    DESTINATION ${PYTHON_INSTALL_PATH}
+  )
 
 endif()
