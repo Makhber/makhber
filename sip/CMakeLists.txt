@@ -1,9 +1,4 @@
 
-execute_process( COMMAND ${Python3_EXECUTABLE} -c "import sysconfig; print(sysconfig.get_config_var('EXT_SUFFIX'))"
-  OUTPUT_VARIABLE _Python3_EXT_SUFFIX
-  OUTPUT_STRIP_TRAILING_WHITESPACE
-)
-
 if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
   set( makhber_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
   set_source_files_properties( ${makhber_SIP_HDR} PROPERTIES GENERATED ON )
@@ -83,15 +78,12 @@ if( SIP_VERSION VERSION_LESS 5 )
   )
 
   python3_add_library( makhber_sip
+    WITH_SOABI
     ${makhber_PyQt_HDR}
     ${makhber_PyQt_SRCS}
   )
 
-  set_target_properties( makhber_sip PROPERTIES
-    OUTPUT_NAME "makhber"
-    PREFIX ""
-    SUFFIX ${_Python3_EXT_SUFFIX}
-  )
+  set_target_properties( makhber_sip PROPERTIES OUTPUT_NAME "makhber" )
 
   add_dependencies( makhber_sip generate_PyQt_source )
 
@@ -249,12 +241,17 @@ else()
   if( MSVC )
     set( module_file ${CMAKE_CURRENT_BINARY_DIR}/build/makhber/makhber.pyd )
   else()
+    execute_process(
+      COMMAND ${Python3_EXECUTABLE} -c "import sysconfig; print(sysconfig.get_config_var('EXT_SUFFIX'))"
+      OUTPUT_VARIABLE _Python3_EXT_SUFFIX
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
     set( module_file ${CMAKE_CURRENT_BINARY_DIR}/build/makhber/makhber${_Python3_EXT_SUFFIX} )
   endif()
 
   add_custom_command( OUTPUT ${module_file}
     COMMAND ${SIP_Build_EXECUTABLE} --verbose --concatenate 1
-      --qmake-setting $<$<CONFIG:>:"CONFIG+=release"> $<$<CONFIG:Release>:"CONFIG+=release"> $<$<CONFIG:Debug>:"CONFIG+=debug">
+      --qmake-setting $<$<CONFIG:Release,>:"CONFIG+=release"> $<$<CONFIG:Debug>:"CONFIG+=debug">
     DEPENDS libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
     COMMAND_EXPAND_LISTS
     COMMENT "Building Makhber Python Module..."
