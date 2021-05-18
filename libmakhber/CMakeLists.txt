@@ -315,7 +315,7 @@ set( FORMS
   "src/future/table/controltabs.ui"
   )
 
-add_library( libmakhber STATIC
+add_library( libmakhber
   ${SRCS}
   ${HEADERS}
   ${FORMS}
@@ -337,6 +337,14 @@ target_link_libraries( libmakhber
   qwt5-qt5
   qwtplot3d
   )
+
+if( BUILD_SHARED_LIBS AND WIN32 )
+  target_compile_definitions( libmakhber PUBLIC QWT_DLL )
+  set_target_properties( libmakhber
+    PROPERTIES
+      WINDOWS_EXPORT_ALL_SYMBOLS ON
+  )
+endif()
 
 if( MINGW AND CMAKE_GENERATOR STREQUAL "Ninja")
   target_link_libraries( libmakhber ${GSL_LIBRARIES} )
@@ -398,7 +406,7 @@ endif()
 
 if( MAKHBER_ORIGIN_IMPORT )
   target_sources( libmakhber PRIVATE "src/importOPJ.h" "src/importOPJ.cpp" )
-  target_link_libraries( libmakhber origin_static )
+  target_link_libraries( libmakhber $<IF:$<BOOL:${BUILD_SHARED_LIBS}>,origin_shared,origin_static> )
   target_include_directories( libmakhber PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
   target_compile_definitions( libmakhber PUBLIC ORIGIN_IMPORT )
 endif()
@@ -466,4 +474,11 @@ if( MAKHBER_SCRIPTING_PYTHON )
     "src/PythonScripting.cpp"
     )
 
+endif()
+
+if( BUILD_SHARED_LIBS )
+  install( TARGETS libmakhber
+    RUNTIME DESTINATION bin
+    LIBRARY DESTINATION lib
+  )
 endif()

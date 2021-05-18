@@ -77,7 +77,7 @@ else()
 endif()
 
 
-if( WIN32 )
+if( MSVC )
   set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION bin )
   include(DeployQt)
   windeployqt( makhber bin )

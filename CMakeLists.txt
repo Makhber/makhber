@@ -55,6 +55,14 @@ get_property( MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG )
 
 set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
 
+if( BUILD_SHARED_LIBS )
+  if( MSVC )
+    message( FATAL_ERROR "Building Shared Libararies is not supported with MSVC" )
+  endif()
+  set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
+  set( CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
+endif()
+
 option( MAKHBER_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
 
 option( MAKHBER_DOWNLOAD_LINKS "Enable Download links" OFF )
