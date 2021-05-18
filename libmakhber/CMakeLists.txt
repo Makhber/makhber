@@ -387,8 +387,8 @@ elseif( APPLE )
     )
 else()
   target_compile_definitions( libmakhber PUBLIC
-    TS_PATH="/../share/makhber/translations"
-    PLUGIN_PATH="/../lib/makhber/plugins"
+    TS_PATH="/../${CMAKE_INSTALL_DATADIR}/makhber/translations"
+    PLUGIN_PATH="/../${CMAKE_INSTALL_LIBDIR}/makhber/plugins"
     )
 endif()
 
@@ -437,7 +437,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
   elseif( APPLE )
     set( PYTHONPATH "/../Resources" )
   else()
-    set( PYTHONPATH "/../share/makhber" )
+    set( PYTHONPATH "/../${CMAKE_INSTALL_DATADIR}/makhber" )
   endif()
 
   set_property( SOURCE "src/PythonScripting.cpp"
@@ -478,7 +478,7 @@ endif()
 
 if( BUILD_SHARED_LIBS )
   install( TARGETS libmakhber
-    RUNTIME DESTINATION bin
-    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
   )
 endif()

@@ -55,6 +55,8 @@ get_property( MULTI_CONFIG GLOBAL PROPERTY GENERATOR_IS_MULTI_CONFIG )
 
 set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
 
+include( GNUInstallDirs )
+
 if( BUILD_SHARED_LIBS )
   if( MSVC )
     message( FATAL_ERROR "Building Shared Libararies is not supported with MSVC" )
@@ -117,11 +119,11 @@ if( MAKHBER_SCRIPTING_PYTHON )
   find_package( PyQt REQUIRED )
 
   if( WIN32 )
-    set( PYTHON_INSTALL_PATH  "bin" )
+    set( PYTHON_INSTALL_PATH ${CMAKE_INSTALL_BINDIR} )
   elseif( APPLE )
     set( PYTHON_INSTALL_PATH  "makhber.app/Contents/Resources" )
   else()
-    set( PYTHON_INSTALL_PATH  "share/makhber" )
+    set( PYTHON_INSTALL_PATH  "${CMAKE_INSTALL_DATADIR}/makhber" )
   endif()
 
 endif()
@@ -170,7 +172,7 @@ if( WIN32 )
 elseif( APPLE )
   install( FILES ${DOC_FILES} DESTINATION makhber.app/Contents/Resources )
 else()
-  install( FILES ${DOC_FILES} DESTINATION share/doc/makhber )
+  install( FILES ${DOC_FILES} DESTINATION ${CMAKE_INSTALL_DOCDIR} )
 endif()
 
 set( CPACK_PACKAGE_NAME "Makhber" )

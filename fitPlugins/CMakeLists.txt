@@ -26,6 +26,6 @@ elseif( APPLE )
 else()
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
     COMPONENT FitPlugins
-    LIBRARY DESTINATION lib/makhber/plugins
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/makhber/plugins
     )
 endif()
