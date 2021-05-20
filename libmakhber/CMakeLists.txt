@@ -437,7 +437,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
   elseif( APPLE )
     set( PYTHONPATH "/../Resources" )
   else()
-    set( PYTHONPATH "/../${CMAKE_INSTALL_DATADIR}/makhber" )
+    set( PYTHONPATH "/../${PYTHON_INSTALL_PATH}" )
   endif()
 
   set_property( SOURCE "src/PythonScripting.cpp"
@@ -456,14 +456,10 @@ if( MAKHBER_SCRIPTING_PYTHON )
     )
 
   if( MINGW )
-    get_filename_component( PYTHON_DIR ${Python3_EXECUTABLE} DIRECTORY )
-    file( REAL_PATH "${PYTHON_DIR}/.." PYTHON_ROOT_DIR )
-    set( PYTHONHOME "${PYTHON_ROOT_DIR}" CACHE PATH "Python Home" )
-    message( STATUS "PYTHONHOME = ${PYTHONHOME}" )
     set_property( SOURCE "src/PythonScripting.cpp"
       APPEND
       PROPERTY COMPILE_DEFINITIONS
-      PYTHONHOME=${PYTHONHOME}
+      PYTHONHOME=${PYTHON_PREFIX}
       )
   endif()
 

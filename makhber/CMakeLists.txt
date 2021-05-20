@@ -43,15 +43,12 @@ endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
 
-  file( COPY makhberrc.py DESTINATION . )
-  add_custom_command( OUTPUT makhberrc.pyc
-    COMMAND ${Python3_EXECUTABLE} -m compileall -b makhberrc.py
-    COMMENT "Compiling python files"
-    )
-  add_custom_target( generate_pyc_files
-    DEPENDS makhberrc.pyc
-    )
-  add_dependencies( makhber generate_pyc_files )
+  file( COPY "makhberrc.py" "makhberUtil.py" DESTINATION . )
+  add_custom_command( TARGET makhber
+    POST_BUILD
+    COMMAND ${Python3_EXECUTABLE} -m compileall -l ${CMAKE_CURRENT_BINARY_DIR}
+    COMMENT "Compiling Python files"
+  )
 
 endif()
 
@@ -75,7 +72,6 @@ else()
     DESTINATION ${CMAKE_INSTALL_DATADIR}/makhber/translations
   )
 endif()
-
 
 if( MSVC )
   set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR} )
@@ -149,9 +145,12 @@ if( MAKHBER_SCRIPTING_PYTHON )
   install( FILES
     makhberrc.py
     makhberUtil.py
-    ${CMAKE_CURRENT_BINARY_DIR}/makhberrc.pyc
     COMPONENT Python
     DESTINATION ${PYTHON_INSTALL_PATH}
+  )
+  install( DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/__pycache__"
+    COMPONENT Python
+    DESTINATION "${PYTHON_INSTALL_PATH}"
   )
 
   if( MAKHBER_BUNDLE_PYQT5 )

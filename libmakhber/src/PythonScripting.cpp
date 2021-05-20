@@ -293,43 +293,12 @@ PythonScripting::~PythonScripting()
 bool PythonScripting::loadInitFile(const QString &path)
 {
     PyRun_SimpleString("import sys\nsys.path.append('" PYTHONPATH "')");
-    QFileInfo pyFile(path + ".py"), pycFile(path + ".pyc");
+    QFileInfo pyFile(path + ".py");
     bool success = false;
-    if (pycFile.isReadable() && (pycFile.lastModified() >= pyFile.lastModified())) {
-        // if we have a recent pycFile, use it
-        FILE *f = fopen(pycFile.filePath().toLocal8Bit(), "rb");
-        success = PyRun_SimpleFileEx(f, pycFile.filePath().toLocal8Bit(), false) == 0;
+    if (pyFile.isReadable() && pyFile.exists()) {
+        FILE *f = fopen(pyFile.filePath().toLocal8Bit(), "rb");
+        success = PyRun_SimpleFile(f, pyFile.filePath().toLocal8Bit()) == 0;
         fclose(f);
-    } else if (pyFile.isReadable() && pyFile.exists()) {
-        // try to compile pyFile to pycFile
-        PyObject *compileModule = PyImport_ImportModule("py_compile");
-        if (compileModule) {
-            PyObject *compile = PyDict_GetItemString(PyModule_GetDict(compileModule), "compile");
-            if (compile) {
-                PyObject *tmp = PyObject_CallFunctionObjArgs(
-                        compile, PyUnicode_FromString(pyFile.filePath().toUtf8().constData()),
-                        PyUnicode_FromString(pycFile.filePath().toUtf8().constData()), NULL);
-                if (tmp)
-                    Py_DECREF(tmp);
-                else
-                    PyErr_Print();
-            } else
-                PyErr_Print();
-            Py_DECREF(compileModule);
-        } else
-            PyErr_Print();
-        pycFile.refresh();
-        if (pycFile.isReadable() && (pycFile.lastModified() >= pyFile.lastModified())) {
-            // run the newly compiled pycFile
-            FILE *f = fopen(pycFile.filePath().toLocal8Bit(), "rb");
-            success = PyRun_SimpleFileEx(f, pycFile.filePath().toLocal8Bit(), false) == 0;
-            fclose(f);
-        } else {
-            // fallback: just run pyFile
-            FILE *f = fopen(pyFile.filePath().toLocal8Bit(), "r");
-            success = PyRun_SimpleFileEx(f, pyFile.filePath().toLocal8Bit(), false) == 0;
-            fclose(f);
-        }
     }
     return success;
 }

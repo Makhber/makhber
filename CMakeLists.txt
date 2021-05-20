@@ -118,12 +118,14 @@ if( MAKHBER_SCRIPTING_PYTHON )
   find_package( SIP REQUIRED )
   find_package( PyQt REQUIRED )
 
-  if( WIN32 )
+  if( MSVC )
     set( PYTHON_INSTALL_PATH ${CMAKE_INSTALL_BINDIR} )
   elseif( APPLE )
     set( PYTHON_INSTALL_PATH  "makhber.app/Contents/Resources" )
-  else()
-    set( PYTHON_INSTALL_PATH  "${CMAKE_INSTALL_DATADIR}/makhber" )
+  else() # MinGW and Linux
+    get_filename_component( PYTHON_DIR ${Python3_EXECUTABLE} DIRECTORY )
+    file( REAL_PATH "${PYTHON_DIR}/.." PYTHON_PREFIX )
+    string( REPLACE "${PYTHON_PREFIX}/" "" PYTHON_INSTALL_PATH ${Python3_SITEARCH} )
   endif()
 
 endif()
@@ -150,12 +152,7 @@ if( MAKHBER_BUILD_TESTS )
 endif()
 
 # Documentation
-set( DOC_FILES
-  ChangeLog.md
-  README.md
-  license.rtf
-  )
-
+# Developer Documentation
 option( MAKHBER_BUILD_CODE_DOCS "Build Code documentation" OFF )
 
 if( MAKHBER_BUILD_CODE_DOCS )
@@ -166,6 +163,13 @@ if( MAKHBER_BUILD_CODE_DOCS )
     doxygen_add_docs( code_documentation libmakhber makhber )
   endif()
 endif()
+
+# User Documentation
+set( DOC_FILES
+  ChangeLog.md
+  README.md
+  license.rtf
+)
 
 if( WIN32 )
   install( FILES ${DOC_FILES} DESTINATION . )
