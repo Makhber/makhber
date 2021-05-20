@@ -116,30 +116,6 @@ if( APPLE )
   ")
 endif()
 
-# Icons
-
-if( UNIX AND NOT APPLE )
-  install( FILES icons/com.github.makhber.Makhber.svg DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps )
-
-  foreach( res IN ITEMS 16 22 32 48 64 128 )
-    install( FILES icons/hicolor-${res}/com.github.makhber.Makhber.png
-      DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/${res}x${res}/apps )
-  endforeach()
-
-  foreach( res IN ITEMS 16 22 32 )
-    install( FILES icons/locolor-${res}/com.github.makhber.Makhber.png
-      DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/locolor/${res}x${res}/apps )
-  endforeach()
-endif()
-
-# Application Files
-if( UNIX AND NOT APPLE )
-  install( FILES com.github.makhber.Makhber.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications )
-  install( FILES makhber.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1 )
-  install( FILES com.github.makhber.Makhber.appdata.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/appdata )
-  install( FILES x-sciprj.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/mimelnk/application )
-endif()
-
 if( MAKHBER_SCRIPTING_PYTHON )
 
   install( FILES

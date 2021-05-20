@@ -1,0 +1,23 @@
+[Desktop Entry]
+Type=Application
+Version=1.1
+Name=Makhber
+GenericName=Scientific Data Analysis and Visualization
+GenericName[ru]=Анализ и отображение научных данных
+Comment=Application for scientific data analysis and visualization
+Comment[cs]=Aplikace pro zpracování a analýzu vědeckých dat
+Comment[de]=Programm zur wissenschaftlichen Datenauswertung und Visualisierung
+Comment[es]=Aplicación para visualización y análisis de datos científicos
+Comment[ja]=科学データの分析および可視化用アプリケーション
+Comment[pl]=Aplikacja do wizualizacji i analizy danych naukowych
+Comment[pt_BR]=Programa para visualização e análise da dados científicos
+Comment[ru]=Приложение для анализа и отображения научных данных
+Comment[sv]=Vetenskaplig dataanalys och visualisering
+Comment[zh_CN]=科学数据分析和可视化应用程序
+Comment[zh_TW]=為科學資料進行分析及視覺化的應用程式
+Icon=com.github.makhber.Makhber
+Exec=makhber %f
+Terminal=false
+MimeType=application/x-sciprj;application/x-originlab;
+Categories=Science;DataVisualization;Graphics;2DGraphics;3DGraphics;Qt;
+X-KDE-SubstituteUID=false

@@ -2,7 +2,7 @@ name: makhber
 summary: Makhber
 description: |
   Application for Visualization and Analysis of Scientific Data
-icon: makhber/icons/com.github.makhber.Makhber.svg
+icon: packaging/freedesktop/com.github.makhber.Makhber.svg
 base: core20
 compression: lzo
 grade: stable
@@ -29,7 +29,7 @@ parts:
   makhber:
     source-type: local
     source: .
-    parse-info: [usr/share/appdata/com.github.makhber.Makhber.appdata.xml]
+    parse-info: [usr/share/metainfo/com.github.makhber.Makhber.appdata.xml]
     plugin: cmake
     cmake-parameters: 
       - "-DCMAKE_INSTALL_PREFIX=/usr"

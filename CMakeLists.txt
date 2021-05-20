@@ -5,7 +5,7 @@ cmake_policy(SET CMP0091 NEW)
 
 project( makhber
   VERSION 0.9.3
-  DESCRIPTION "Makhber is a free application for Visualization and Analysis of Scientific Data."
+  DESCRIPTION "Free application for Visualization and Analysis of Scientific Data."
   HOMEPAGE_URL "https://github.com/Makhber/makhber"
   LANGUAGES CXX C
   )
@@ -177,6 +177,10 @@ elseif( APPLE )
   install( FILES ${DOC_FILES} DESTINATION makhber.app/Contents/Resources )
 else()
   install( FILES ${DOC_FILES} DESTINATION ${CMAKE_INSTALL_DOCDIR} )
+endif()
+
+if( UNIX AND NOT APPLE )
+  add_subdirectory( packaging/freedesktop )
 endif()
 
 set( CPACK_PACKAGE_NAME "Makhber" )
