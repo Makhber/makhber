@@ -218,4 +218,9 @@ set( CPACK_DEBIAN_PACKAGE_MAINTAINER "Mehdi Chinoune <mehdi.chinoune@hotmail.com
 set( CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON )
 set( CPACK_DEBIAN_PACKAGE_DEPENDS "python3-pyqt5" "python3" )
 
+# RPM
+set( CPACK_RPM_PACKAGE_LICENSE "GPLv2+" )
+set( CPACK_RPM_PACKAGE_DESCRIPTION "Makhber RPM Package" )
+set( CPACK_RPM_PACKAGE_AUTOREQ ON )
+
 include(CPack)
