@@ -779,9 +779,9 @@ void Graph::setLabelsTextFormat(int axis, Table *table, const QString &columnNam
                    " project file; or there's some problem within Makhber. Please report this"
                    " as a bug (together with detailed instructions how to reproduce this message or"
                    " the corrupted file).<p>"
-                   "<a href=\"https://sourceforge.net/tracker/?group_id=199120&atid=968214>\">"
+                   "<a href=\"https://github.com/Makhber/makhber/issues>\">"
                    "bug tracker: "
-                   "https://sourceforge.net/tracker/?group_id=199120&atid=968214</a></html>")
+                   "https://github.com/Makhber/makhber/issues</a></html>")
                         .arg(objectName()));
         return;
     }

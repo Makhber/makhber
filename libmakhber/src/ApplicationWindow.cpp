@@ -164,7 +164,7 @@ using namespace std;
 #include <unistd.h> // for fsync()
 #endif
 
-#define MANUAL_URI "http://sourceforge.net/projects/scidavis/files/SciDAVis%20Documentation/0.1/"
+const QString MANUAL_URI ("https://github.com/Makhber/makhber-handbook/releases/latest");
 const QString HOMEPAGE_URI("https://github.com/Makhber/makhber");
 const QString FORUM_URI("https://github.com/Makhber/makhber/discussions");
 const QString BUGREPORT_URI("https://github.com/Makhber/makhber/issues");
@@ -8113,7 +8113,7 @@ void ApplicationWindow::showHelp()
                 this, tr("Help Files Not Found!"),
                 tr("Please indicate the location of the help file!") + "<br>"
                         + tr("The manual can be downloaded from the following internet address:")
-                        + "<p><a href = \"" MANUAL_URI "\">" MANUAL_URI "</a></p>");
+                        + "<p><a href = \"" + MANUAL_URI + "\">" + MANUAL_URI + "</a></p>");
         chooseHelpFolder();
 #ifdef Q_OS_MAC
         QSettings settings(QSettings::IniFormat, QSettings::UserScope, "Makhber", "Makhber");

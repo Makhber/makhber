@@ -52,7 +52,7 @@ There is also a section with some notes about \ref future "future plans".
 <br>
 
   \section libs Makhber uses the following libraries:
-  <a href="http://www.trolltech.com/products/qt/index.html">Qt</a>,
+  <a href="http://www.qt.io">Qt</a>,
   <a href="http://qwt.sourceforge.net/index.html">Qwt</a>,
   <a href="http://qwtplot3d.sourceforge.net/">QwtPlot3D</a>,
   <a href="http://sources.redhat.com/gsl/">GSL</a>,
