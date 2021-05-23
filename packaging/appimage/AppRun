@@ -3,6 +3,6 @@ HERE="$(dirname "$(readlink -f "${0}")")"
 
 # Export Python Home and Path
 export PYTHONHOME=$HERE/usr/conda
-export PYTHONPATH=$HERE/usr/share/makhber
+export PYTHONPATH=$HERE/usr/lib/python3.9/site-packages
 
 "$HERE/usr/bin/makhber"

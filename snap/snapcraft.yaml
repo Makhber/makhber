@@ -15,8 +15,6 @@ apps:
   makhber:
     common-id: com.github.makhber.Makhber
     command: usr/bin/makhber
-    environment:
-      PYTHONPATH: $SNAP/lib/python3.8/site-packages:$SNAP/usr/share/makhber
     extensions:
       - kde-neon
     plugs:
