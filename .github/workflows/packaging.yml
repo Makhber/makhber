@@ -76,7 +76,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps --triplet x64-windows
+          vcpkg install zlib gsl muparser opengl gl2ps openssl --triplet x64-windows
 
       - name: Install Python packages
         run: |

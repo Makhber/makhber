@@ -8,18 +8,7 @@ if( WIN32 )
 endif()
 
 # Translation Files
-set( TS_FILES
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_cs.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_de.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_es.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_ja.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_pl.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_pt-br.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_ru.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_sv.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_zh-cn.ts"
-  "${CMAKE_CURRENT_SOURCE_DIR}/translations/makhber_zh-tw.ts"
-  )
+file( GLOB TS_FILES "translations/*.ts" )
 qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/libmakhber" ${TS_FILES} )
 
 add_executable( makhber
@@ -91,20 +80,32 @@ if( RUNTIME_DIR )
       EXECUTABLES \"\${CMAKE_INSTALL_PREFIX}/${MAKHBER_EXECUTABLE}\"
       DIRECTORIES \"${RUNTIME_DIR_CMAKE}\" \"${Python3_RUNTIME_LIBRARY_DIRS}\"
       POST_EXCLUDE_REGEXES ${EXCLUDE_DLLS}
-      )
+    )
     message( \"RESOLVED_DEPENDENCIES :\" )
     foreach( dll \${RESOLVED_DEPENDENCIES} )
       message( \"    \${dll}\" )
       execute_process(
         COMMAND \"${CMAKE_COMMAND}\" -E
         copy \${dll} \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\"
-        )
+      )
     endforeach()
     message( \"UNRESOLVED_DEPENDENCIES :\" )
     foreach( dll \${UNRESOLVED_DEPENDENCIES} )
       message( \"    \${dll}\" )
     endforeach()
-    ")
+    "
+  )
+  find_package( OpenSSL REQUIRED )
+  find_file( OPENSSL_LIBSSL_DLL "libssl-1_1-x64.dll" PATHS "${RUNTIME_DIR}" )
+  find_file( OPENSSL_LIBCRYPTO_DLL "libcrypto-1_1-x64.dll" PATHS "${RUNTIME_DIR}" )
+  install( CODE "
+    execute_process(
+      COMMAND \"${CMAKE_COMMAND}\" -E
+      copy ${OPENSSL_LIBSSL_DLL} \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\"
+      COMMAND \"${CMAKE_COMMAND}\" -E
+      copy ${OPENSSL_LIBCRYPTO_DLL} \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\"
+    )"
+  )
 endif()
 
 if( APPLE )
@@ -112,8 +113,8 @@ if( APPLE )
   install( CODE "
     execute_process(
       COMMAND ${MACDEPLOYQT_EXECUTABLE} \${CMAKE_INSTALL_PREFIX}/makhber.app -always-overwrite
-    )
-  ")
+    )"
+  )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
