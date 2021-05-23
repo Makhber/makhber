@@ -5,7 +5,7 @@ cmake_policy(SET CMP0091 NEW)
 
 project( makhber
   VERSION 0.9.3
-  DESCRIPTION "Free application for Visualization and Analysis of Scientific Data."
+  DESCRIPTION "Free application for Visualization and Analysis of Scientific Data"
   HOMEPAGE_URL "https://github.com/Makhber/makhber"
   LANGUAGES CXX C
   )
@@ -205,5 +205,17 @@ set( CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/makhber/icons/makhber.ico" )
 set( CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/makhber/icons/makhber.ico" )
 set( CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON )
 set( CPACK_NSIS_EXECUTABLES_DIRECTORY . )
+
+# Default permissions
+set( CPACK_INSTALL_DEFAULT_DIRECTORY_PERMISSIONS
+  OWNER_READ OWNER_WRITE OWNER_EXECUTE # 7
+  GROUP_READ GROUP_EXECUTE # 5
+  WORLD_READ WORLD_EXECUTE # 5
+)
+
+# DEB
+set( CPACK_DEBIAN_PACKAGE_MAINTAINER "Mehdi Chinoune <mehdi.chinoune@hotmail.com>" )
+set( CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON )
+set( CPACK_DEBIAN_PACKAGE_DEPENDS "python3-pyqt5" "python3" )
 
 include(CPack)
