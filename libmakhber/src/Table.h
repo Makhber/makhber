@@ -41,8 +41,8 @@
 #include "MyWidget.h"
 #include "ScriptingEnv.h"
 #include "Script.h"
-#include "future/table/future_Table.h"
-#include "future/table/TableView.h"
+#include "table/future_Table.h"
+#include "table/TableView.h"
 #include "globals.h"
 
 /*!\brief MDI window providing a spreadsheet table with column logic.

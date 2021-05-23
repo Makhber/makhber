@@ -4,66 +4,66 @@
 <context>
     <name>AbstractAspect</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="76"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="76"/>
         <source>XML read error: </source>
         <comment>prefix for XML error messages</comment>
         <translation>Ошибка чтения XML: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="77"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="77"/>
         <source> (non-critical)</source>
         <comment>postfix for XML error messages</comment>
         <translation> (не критическая)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="85"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="85"/>
         <source>aspect name missing or empty</source>
         <translation>имя аспекта не задано или отсутствует</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="92"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="92"/>
         <source>Invalid creation time for &apos;%1&apos;. Using current time.</source>
         <translation>Неверное время создания &apos;%1&apos;. Будет использовано текущее время.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="112"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="112"/>
         <source>%1: add %2.</source>
         <translation>%1: добавляется %2.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="114"/>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="129"/>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="161"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="114"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="129"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="161"/>
         <source>Renaming &quot;%1&quot; to &quot;%2&quot; in order to avoid name collision.</source>
         <translation>Переименование «%1» в «%2», чтобы избежать конфликта имен.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="127"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="127"/>
         <source>%1: insert %2 at position %3.</source>
         <translation>%1: вставить %2 в позицию %3.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="141"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="141"/>
         <source>%1: remove %2.</source>
         <translation>%1: удалить %2.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="159"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="159"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1: переместить %2 в %3.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="249"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="249"/>
         <source>Tabs and line breaks in object names are currently not supported. They have been removed.</source>
         <translation>Табуляция и перенос строки в именах объектов в настоящее время не поддерживаются. Они были удалены.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="254"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="254"/>
         <source>Intended name &quot;%1&quot; diverted to &quot;%2&quot; in order to avoid name collision.</source>
         <translation>Предполагаемое имя «%1» изменено на «%2» во избежание конфликта имен.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="360"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="360"/>
         <source>%1: remove all children.</source>
         <translation>%1: удалить все дочерние элементы.</translation>
     </message>
@@ -71,17 +71,17 @@
 <context>
     <name>AbstractPart</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractPart.cpp" line="50"/>
+        <location filename="../../libmakhber/src/core/AbstractPart.cpp" line="50"/>
         <source>&amp;Restore</source>
         <translation>&amp;Восстановить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractPart.cpp" line="54"/>
+        <location filename="../../libmakhber/src/core/AbstractPart.cpp" line="54"/>
         <source>Mi&amp;nimize</source>
         <translation>М&amp;инимизировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractPart.cpp" line="58"/>
+        <location filename="../../libmakhber/src/core/AbstractPart.cpp" line="58"/>
         <source>Ma&amp;ximize</source>
         <translation>&amp;Максимизировать</translation>
     </message>
@@ -89,17 +89,17 @@
 <context>
     <name>AbstractSimpleFilter</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractSimpleFilter.cpp" line="150"/>
+        <location filename="../../libmakhber/src/core/AbstractSimpleFilter.cpp" line="150"/>
         <source>incompatible filter type</source>
         <translation>несовместимый тип фильтра</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractSimpleFilter.cpp" line="167"/>
+        <location filename="../../libmakhber/src/core/AbstractSimpleFilter.cpp" line="167"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractSimpleFilter.cpp" line="174"/>
+        <location filename="../../libmakhber/src/core/AbstractSimpleFilter.cpp" line="174"/>
         <source>no simple filter element found</source>
         <translation>простой фильтрующий элемент не найден</translation>
     </message>
@@ -4013,7 +4013,7 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>AsciiTableImportFilter</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/AsciiTableImportFilter.cpp" line="182"/>
+        <location filename="../../libmakhber/src/table/AsciiTableImportFilter.cpp" line="182"/>
         <source>Table</source>
         <translation>Таблица</translation>
     </message>
@@ -4700,63 +4700,63 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>Column</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="388"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="388"/>
         <source>column type missing</source>
         <translation>тип столбца отсутствует</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="393"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="393"/>
         <source>column type invalid</source>
         <translation>недопустимый тип столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="399"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="399"/>
         <source>column mode missing</source>
         <translation>режим столбца отсутствует</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="404"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="404"/>
         <source>column mode invalid</source>
         <translation>недопустимый режим столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="409"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="409"/>
         <source>column type or mode invalid</source>
         <translation>тип или режим столбца недопустим</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="418"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="418"/>
         <source>column plot designation invalid</source>
         <translation>недопустимое назначение столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="454"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="454"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="463"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="463"/>
         <source>no column element found</source>
         <translation>элемент столбца не найден</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="516"/>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="535"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="516"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="535"/>
         <source>invalid or missing start or end row</source>
         <translation>неверная или отсутствующая начальная или конечная строка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="555"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="555"/>
         <source>invalid or missing row type</source>
         <translation>неверный или отсутствующий тип строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="562"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="562"/>
         <source>invalid or missing row index</source>
         <translation>неверный или отсутствующий индекс строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="571"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="571"/>
         <source>invalid row value</source>
         <translation>недопустимое значение строки</translation>
     </message>
@@ -4764,7 +4764,7 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>Column::D</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.h" line="350"/>
+        <location filename="../../libmakhber/src/core/column/Column.h" line="350"/>
         <source>as string</source>
         <translation>как строка</translation>
     </message>
@@ -5441,55 +5441,55 @@ The following special codes can be used:
 <context>
     <name>ControlTabs</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="26"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="26"/>
         <source>Control Tabs</source>
         <translation>Вкладки управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="54"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="54"/>
         <source>Description</source>
         <translation>Описание</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="62"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="62"/>
         <source>go to previous column</source>
         <translation>перейти к предыдущему столбцу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="65"/>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="78"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="65"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="78"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="75"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="75"/>
         <source>go to next column</source>
         <translation>перейти к следующему столбцу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="88"/>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="170"/>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="388"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="88"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="170"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="388"/>
         <source>Appl&amp;y</source>
         <translation>&amp;Применить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="109"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="109"/>
         <source>Name:</source>
         <translation>Имя:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="128"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="128"/>
         <source>Comment:</source>
         <translation>Комментарий:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="152"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="152"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="164"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="164"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5500,12 +5500,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Применить новый тип и формат ко всем выбранным столбцам&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="180"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="180"/>
         <source>Type:</source>
         <translation>Тип:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="202"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="202"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5516,13 +5516,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Выбрать тип столбца&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="212"/>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="244"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="212"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="244"/>
         <source>Format:</source>
         <translation>Формат:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="234"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="234"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5533,12 +5533,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Выбрать формат отображения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="254"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="254"/>
         <source>Decimal Digits:</source>
         <translation>Десятичные цифры:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="264"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="264"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5549,17 +5549,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Введите число отображаемых десятичных знаков&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="280"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="280"/>
         <source>Numbers are</source>
         <translation>Числа</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="290"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="290"/>
         <source>since</source>
         <translation>поскольку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="349"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="349"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5570,17 +5570,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Информация о выбранном типе и формате&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="366"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="366"/>
         <source>Formula</source>
         <translation>Формула</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="372"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="372"/>
         <source>Formula:</source>
         <translation>Формула:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="382"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="382"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5591,7 +5591,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Применить формулу ко всем выбранным ячейкам&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="417"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="417"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5602,7 +5602,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Выбрать ссылку на столбец для добавления в формулу&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="427"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="427"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5613,13 +5613,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Вставить ссылку на столбец в формулу&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="433"/>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="463"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="433"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="463"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="446"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="446"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -5630,7 +5630,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Выбрать функцию для вставки в формулу&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/controltabs.ui" line="456"/>
+        <location filename="../../libmakhber/src/table/controltabs.ui" line="456"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
@@ -6046,17 +6046,17 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>DimensionsDialog</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/DimensionsDialog.ui" line="13"/>
+        <location filename="../../libmakhber/src/table/DimensionsDialog.ui" line="13"/>
         <source>Dialog</source>
         <translation>Диалог</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/DimensionsDialog.ui" line="21"/>
+        <location filename="../../libmakhber/src/table/DimensionsDialog.ui" line="21"/>
         <source>Rows</source>
         <translation>Строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/DimensionsDialog.ui" line="39"/>
+        <location filename="../../libmakhber/src/table/DimensionsDialog.ui" line="39"/>
         <source>Columns</source>
         <translation>Столбцов</translation>
     </message>
@@ -6064,7 +6064,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Double2StringFilter</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/Double2StringFilter.cpp" line="50"/>
+        <location filename="../../libmakhber/src/core/datatypes/Double2StringFilter.cpp" line="50"/>
         <source>missing or invalid format attribute(s)</source>
         <translation>отсутствует или недействителен атрибут (ы) формата</translation>
     </message>
@@ -9240,49 +9240,49 @@ The limits must be within the range of x; If you do not know the maximum (minimu
 <context>
     <name>MatrixControlTabs</name>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="25"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="25"/>
         <source>Control Tabs</source>
         <translation>Вкладки управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="53"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="53"/>
         <source>Coordinates</source>
         <translation>Координаты</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="59"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="346"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="502"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="59"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="346"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="502"/>
         <source>Appl&amp;y</source>
         <translation>&amp;Применять</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="69"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="69"/>
         <source>First column X =</source>
         <translation>Первый столбец X =</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="126"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="126"/>
         <source>Last column X =</source>
         <translation>Последний столбец X =</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="180"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="180"/>
         <source>First row Y =</source>
         <translation>Первая строка Y =</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="231"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="231"/>
         <source>Last row Y =</source>
         <translation>Последняя строка Y =</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="328"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="328"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="340"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="340"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9293,12 +9293,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Применить новый тип и формат ко всем выбранным столбцам&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="353"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="353"/>
         <source>Format:</source>
         <translation>Формат:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="375"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="375"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9309,12 +9309,12 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Выбрать формат отображения&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="388"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="388"/>
         <source>Decimal Digits:</source>
         <translation>Десятичные цифры:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="398"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="398"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9325,7 +9325,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Введите число отображаемых десятичных знаков&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="463"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="463"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9336,17 +9336,17 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Информация о выбранном типе и формате&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="480"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="480"/>
         <source>Formula</source>
         <translation>Формула</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="486"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="486"/>
         <source>Formula:</source>
         <translation>Формула:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="496"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="496"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9357,7 +9357,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Применить формулу ко всем выбранным ячейкам&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="528"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="528"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9368,7 +9368,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Выбрать ссылку на столбец для добавления в формулу&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="538"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="538"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9379,13 +9379,13 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Вставить ссылку на столбец в формулу&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="544"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="573"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="544"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="573"/>
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="557"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="557"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9396,7 +9396,7 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Выбрать функцию для вставки в формулу&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcontroltabs.ui" line="567"/>
+        <location filename="../../libmakhber/src/matrix/matrixcontroltabs.ui" line="567"/>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Sans Serif&apos;; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
@@ -9415,37 +9415,37 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">Ctrl + A</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/MatrixView.cpp" line="194"/>
+        <location filename="../../libmakhber/src/matrix/MatrixView.cpp" line="194"/>
         <source>Show/hide control tabs</source>
         <translation>Показать / скрыть вкладки управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/MatrixView.cpp" line="197"/>
+        <location filename="../../libmakhber/src/matrix/MatrixView.cpp" line="197"/>
         <source>Decimal</source>
         <translation>Десятичный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/MatrixView.cpp" line="198"/>
+        <location filename="../../libmakhber/src/matrix/MatrixView.cpp" line="198"/>
         <source>Scientific (e)</source>
         <translation>Научный (e)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/MatrixView.cpp" line="199"/>
+        <location filename="../../libmakhber/src/matrix/MatrixView.cpp" line="199"/>
         <source>Scientific (E)</source>
         <translation>Научный (E)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/MatrixView.cpp" line="200"/>
+        <location filename="../../libmakhber/src/matrix/MatrixView.cpp" line="200"/>
         <source>Automatic (e)</source>
         <translation>Автомат (е)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/MatrixView.cpp" line="201"/>
+        <location filename="../../libmakhber/src/matrix/MatrixView.cpp" line="201"/>
         <source>Automatic (E)</source>
         <translation>Автомат (E)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/MatrixView.cpp" line="513"/>
+        <location filename="../../libmakhber/src/matrix/MatrixView.cpp" line="513"/>
         <source>Example: %1</source>
         <translation>Пример:%1</translation>
     </message>
@@ -10139,7 +10139,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>NumericDateTimeBaseFilter</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/NumericDateTimeBaseFilter.cpp" line="56"/>
+        <location filename="../../libmakhber/src/core/datatypes/NumericDateTimeBaseFilter.cpp" line="56"/>
         <source>missing or invalid format attribute(s)</source>
         <translation type="unfinished">отсутствует или недействителен атрибут (ы) формата</translation>
     </message>
@@ -11912,27 +11912,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Project</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="63"/>
+        <location filename="../../libmakhber/src/core/Project.cpp" line="63"/>
         <source>Unnamed</source>
         <translation>Безымянный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="154"/>
+        <location filename="../../libmakhber/src/core/Project.cpp" line="154"/>
         <source>invalid or missing project version</source>
         <translation>неверная или отсутствующая версия проекта</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="178"/>
+        <location filename="../../libmakhber/src/core/Project.cpp" line="178"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="185"/>
+        <location filename="../../libmakhber/src/core/Project.cpp" line="185"/>
         <source>no makhber_project element found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="187"/>
+        <location filename="../../libmakhber/src/core/Project.cpp" line="187"/>
         <source>no valid XML document found</source>
         <translation>не найден пригодный XML-документ</translation>
     </message>
@@ -11940,27 +11940,27 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ProjectConfigPage</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/ProjectConfigPage.ui" line="13"/>
+        <location filename="../../libmakhber/src/core/ProjectConfigPage.ui" line="13"/>
         <source>Form</source>
         <translation>Форма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/ProjectConfigPage.ui" line="21"/>
+        <location filename="../../libmakhber/src/core/ProjectConfigPage.ui" line="21"/>
         <source>By default, show the subwindows ...</source>
         <translation>По умолчанию показывать подокна ...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/ProjectConfigPage.ui" line="41"/>
+        <location filename="../../libmakhber/src/core/ProjectConfigPage.ui" line="41"/>
         <source>in the current folder</source>
         <translation>в текущей папке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/ProjectConfigPage.ui" line="46"/>
+        <location filename="../../libmakhber/src/core/ProjectConfigPage.ui" line="46"/>
         <source>in the current folder and its subfolders</source>
         <translation>в текущей папке и ее подпапках</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/ProjectConfigPage.ui" line="51"/>
+        <location filename="../../libmakhber/src/core/ProjectConfigPage.ui" line="51"/>
         <source>all subwindows in the project</source>
         <translation>все подокна в проекте</translation>
     </message>
@@ -11981,358 +11981,358 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractAspect.cpp" line="314"/>
+        <location filename="../../libmakhber/src/core/AbstractAspect.cpp" line="314"/>
         <source>&amp;Remove</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/AbstractFilter.cpp" line="122"/>
+        <location filename="../../libmakhber/src/core/AbstractFilter.cpp" line="122"/>
         <source>In%1</source>
         <translation>В %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/Project.cpp" line="116"/>
+        <location filename="../../libmakhber/src/core/Project.cpp" line="116"/>
         <source>General</source>
         <translation>Общее</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="41"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="41"/>
         <source>%1: rename to %2</source>
         <translation>%1: переименовать в %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="64"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="64"/>
         <source>%1: change comment</source>
         <translation>%1: изменить комментарий</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="87"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="87"/>
         <source>%1: change caption</source>
         <translation>%1: изменить заголовок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="110"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="110"/>
         <source>%1: set creation time</source>
         <translation>%1: установить время создания</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="133"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="133"/>
         <source>%1: remove %2</source>
         <translation>%1: удалить %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="169"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="169"/>
         <source>%1: add %2</source>
         <translation>%1: добавить %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="184"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="184"/>
         <source>%1: move child from position %2 to %3.</source>
         <translation>%1: переместить дочерний элемент из позиции %2 в %3.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/aspectcommands.h" line="222"/>
+        <location filename="../../libmakhber/src/core/aspectcommands.h" line="222"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1: переместить %2 в %3.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/Column.cpp" line="88"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="42"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="667"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="691"/>
+        <location filename="../../libmakhber/src/core/column/Column.cpp" line="88"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="42"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="667"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="691"/>
         <source>%1: change column type</source>
         <translation>%1: изменить тип столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="121"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="176"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="121"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="176"/>
         <source>%1: change cell value(s)</source>
         <translation>%1: изменить значение (я) ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="221"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="134"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="66"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="215"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="221"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="134"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="66"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="215"/>
         <source>%1: insert %2 row(s)</source>
         <translation>%1: вставить %2 строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="247"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="123"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="124"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="200"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="247"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="123"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="124"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="200"/>
         <source>%1: remove %2 row(s)</source>
         <translation>%1: удалить %2 строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="297"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="297"/>
         <source>%1: set plot designation</source>
         <translation>%1: установить обозначение участка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="323"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="323"/>
         <source>%1: clear column</source>
         <translation>%1: очистить столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="385"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="385"/>
         <source>%1: mark all cells valid</source>
         <translation>%1: пометить все ячейки как действительные</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="415"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="415"/>
         <source>%1: clear masks</source>
         <translation>%1: очистить маски</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="447"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="447"/>
         <source>%1: mark cells invalid</source>
         <translation>%1: пометить ячейки как недопустимые</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="449"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="449"/>
         <source>%1: mark cells valid</source>
         <translation>%1: пометить ячейки как действительные</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="481"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="481"/>
         <source>%1: mask cells</source>
         <translation>%1: ячейки маски</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="483"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="483"/>
         <source>%1: unmask cells</source>
         <translation>%1: демаскировать ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="514"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="514"/>
         <source>%1: set cell formula</source>
         <translation>%1: установить формулу ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="544"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="544"/>
         <source>%1: clear all formulas</source>
         <translation>%1: очистить все формулы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="575"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="575"/>
         <source>%1: set text for row %2</source>
         <translation>%1: установить текст для строки %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="606"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="637"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="606"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="637"/>
         <source>%1: set value for row %2</source>
         <translation>%1: установить значение для строки %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="668"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="668"/>
         <source>%1: replace the texts for rows %2 to %3</source>
         <translation>%1: заменить тексты строк с %2 на %3</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="708"/>
-        <location filename="../../libmakhber/src/future/core/column/columncommands.cpp" line="748"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="708"/>
+        <location filename="../../libmakhber/src/core/column/columncommands.cpp" line="748"/>
         <source>%1: replace the values for rows %2 to %3</source>
         <translation>%1: заменить значения для строк %2 на %3</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/DateTime2StringFilter.cpp" line="45"/>
-        <location filename="../../libmakhber/src/future/core/datatypes/String2DateTimeFilter.cpp" line="137"/>
+        <location filename="../../libmakhber/src/core/datatypes/DateTime2StringFilter.cpp" line="45"/>
+        <location filename="../../libmakhber/src/core/datatypes/String2DateTimeFilter.cpp" line="137"/>
         <source>%1: set date-time format to %2</source>
         <translation>%1: установить формат даты и времени на %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/DateTime2StringFilter.cpp" line="48"/>
-        <location filename="../../libmakhber/src/future/core/datatypes/String2DateTimeFilter.cpp" line="140"/>
+        <location filename="../../libmakhber/src/core/datatypes/DateTime2StringFilter.cpp" line="48"/>
+        <location filename="../../libmakhber/src/core/datatypes/String2DateTimeFilter.cpp" line="140"/>
         <source>set date-time format to %1</source>
         <translation>установить формат даты и времени на %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/Double2StringFilter.cpp" line="76"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="285"/>
+        <location filename="../../libmakhber/src/core/datatypes/Double2StringFilter.cpp" line="76"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="285"/>
         <source>%1: set numeric format to &apos;%2&apos;</source>
         <translation>%1: установить числовой формат на &quot;%2&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/Double2StringFilter.cpp" line="80"/>
+        <location filename="../../libmakhber/src/core/datatypes/Double2StringFilter.cpp" line="80"/>
         <source>set numeric format to &apos;%1&apos;</source>
         <translation>установить числовой формат на &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/Double2StringFilter.cpp" line="101"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="312"/>
+        <location filename="../../libmakhber/src/core/datatypes/Double2StringFilter.cpp" line="101"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="312"/>
         <source>%1: set decimal digits to %2</source>
         <translation>%1: установить десятичные цифры на %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/datatypes/Double2StringFilter.cpp" line="105"/>
+        <location filename="../../libmakhber/src/core/datatypes/Double2StringFilter.cpp" line="105"/>
         <source>set decimal digits to %1</source>
         <translation>установить десятичные цифры на %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="60"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="60"/>
         <source>XML reader error: </source>
         <comment>prefix for XML error messages</comment>
         <translation>Ошибка чтения XML: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="61"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="61"/>
         <source> (loading failed)</source>
         <comment>postfix for XML error messages</comment>
         <translation> (загрузка не удалась)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="62"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="62"/>
         <source>XML reader warning: </source>
         <comment>prefix for XML warning messages</comment>
         <translation>Предупреждение обработчика XML: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="79"/>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="86"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="79"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="86"/>
         <source>line %1, column %2: </source>
         <translation>строка%1, столбец%2: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="93"/>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="100"/>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="132"/>
-        <location filename="../../libmakhber/src/future/lib/XmlStreamReader.cpp" line="143"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="93"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="100"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="132"/>
+        <location filename="../../libmakhber/src/lib/XmlStreamReader.cpp" line="143"/>
         <source>unexpected end of document</source>
         <translation>неожиданный конец документа</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="101"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="41"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="165"/>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="46"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="101"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="41"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="165"/>
+        <location filename="../../libmakhber/src/table/tablecommands.cpp" line="46"/>
         <source>%1: insert %2 column(s)</source>
         <translation>%1: вставить %2 столбца (ов)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="112"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="91"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="179"/>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="101"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="112"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="91"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="179"/>
+        <location filename="../../libmakhber/src/table/tablecommands.cpp" line="101"/>
         <source>%1: remove %2 column(s)</source>
         <translation>%1: удалить %2 столбца (ов)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="145"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="145"/>
         <source>%1: set matrix size to %2x%3</source>
         <translation>%1: установить размер матрицы на %2x%3</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="173"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="156"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="293"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="173"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="156"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="293"/>
         <source>%1: clear</source>
         <translation>%1: очистить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="324"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="685"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="324"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="685"/>
         <source>%1: insert empty column(s)</source>
         <translation>%1: вставить пустой столбец (и)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="351"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="713"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="351"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="713"/>
         <source>%1: remove selected column(s)</source>
         <translation>%1: удалить выбранные столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="364"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="728"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="364"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="728"/>
         <source>%1: clear selected column(s)</source>
         <translation>%1: очистить выбранные столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="384"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="885"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="384"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="885"/>
         <source>%1: insert empty rows(s)</source>
         <translation>%1: вставить пустые строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="411"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="908"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="411"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="908"/>
         <source>%1: remove selected rows(s)</source>
         <translation>%1: удалить выбранные строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="429"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="429"/>
         <source>%1: clear selected rows(s)</source>
         <translation>%1: очистить выбранные строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="872"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1771"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="872"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1771"/>
         <source>%1: copy %2</source>
         <translation>%1: копировать %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1014"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="967"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1014"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="967"/>
         <source>%1: add %2 rows(s)</source>
         <translation>%1: добавить %2 строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1026"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="316"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1026"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="316"/>
         <source>%1: add %2 column(s)</source>
         <translation>%1: добавить %2 столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="189"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="189"/>
         <source>%1: clear column %2</source>
         <translation>%1: очистить столбец %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="218"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="218"/>
         <source>%1: set cell value</source>
         <translation>%1: установить значение ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="250"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="250"/>
         <source>%1: set matrix coordinates</source>
         <translation>%1: установить координаты матрицы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="337"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="337"/>
         <source>%1: set formula</source>
         <translation>%1: установить формулу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="369"/>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="402"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="369"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="402"/>
         <source>%1: set cell values</source>
         <translation>%1: установить значения ячеек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="428"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="428"/>
         <source>%1: transpose</source>
         <translation>%1: транспонировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="473"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="473"/>
         <source>%1: mirror horizontally</source>
         <translation>%1: зеркало по горизонтали</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/matrixcommands.cpp" line="509"/>
+        <location filename="../../libmakhber/src/matrix/matrixcommands.cpp" line="509"/>
         <source>%1: mirror vertically</source>
         <translation>%1: зеркало по вертикали</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/AsciiTableImportFilter.h" line="68"/>
+        <location filename="../../libmakhber/src/table/AsciiTableImportFilter.h" line="68"/>
         <source>ASCII table</source>
         <translation>Таблица ASCII</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="229"/>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="72"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="229"/>
+        <location filename="../../libmakhber/src/table/tablecommands.cpp" line="72"/>
         <source>%1: set the number of rows to %2</source>
         <translation>%1: установить количество строк на %2</translation>
     </message>
@@ -12341,32 +12341,32 @@ p, li { white-space: pre-wrap; }
         <translation type="vanished">%1: очистить все маски</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="304"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="304"/>
         <source>%1: add column</source>
         <translation>%1: добавить столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="748"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="748"/>
         <source>%1: set plot designation(s)</source>
         <translation>%1: установить обозначение (я) участка</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="794"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="794"/>
         <source>%1: normalize column(s)</source>
         <translation>%1: нормализовать столбец (и)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="824"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="824"/>
         <source>%1: normalize selection</source>
         <translation>%1: нормализовать выделение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="926"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="926"/>
         <source>%1: clear selected cell(s)</source>
         <translation>%1: очистить выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/tablecommands.cpp" line="125"/>
+        <location filename="../../libmakhber/src/table/tablecommands.cpp" line="125"/>
         <source>%1: move column %2 from position %3 to %4</source>
         <translation>%1: переместить столбец %2 из позиции %3 в %4</translation>
     </message>
@@ -13053,12 +13053,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TableConfigPage</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableConfigPage.ui" line="13"/>
+        <location filename="../../libmakhber/src/table/TableConfigPage.ui" line="13"/>
         <source>Form</source>
         <translation type="unfinished">Форма</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableConfigPage.ui" line="19"/>
+        <location filename="../../libmakhber/src/table/TableConfigPage.ui" line="19"/>
         <source>TODO</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13066,18 +13066,18 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TableModel</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableModel.cpp" line="91"/>
+        <location filename="../../libmakhber/src/table/TableModel.cpp" line="91"/>
         <source>(masked)</source>
         <translation>(в маске)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableModel.cpp" line="93"/>
+        <location filename="../../libmakhber/src/table/TableModel.cpp" line="93"/>
         <source>invalid cell (ignored in all operations)</source>
         <comment>tooltip string for invalid rows</comment>
         <translation>недопустимая ячейка (игнорируется во всех операциях)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableModel.cpp" line="105"/>
+        <location filename="../../libmakhber/src/table/TableModel.cpp" line="105"/>
         <source>-</source>
         <comment>string for invalid rows</comment>
         <translation>-</translation>
@@ -13180,74 +13180,74 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>TableView</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="176"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="176"/>
         <source>Ctrl+A</source>
         <comment>Table: select all</comment>
         <translation>Ctrl + A</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="250"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="250"/>
         <source>Show/hide control tabs</source>
         <translation>Показать / скрыть вкладки управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="258"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="258"/>
         <source>Numeric</source>
         <translation>Цифровой</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="259"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="469"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="259"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="469"/>
         <source>Text</source>
         <translation>Текст</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="260"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="260"/>
         <source>Month names</source>
         <translation>Названия месяцев</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="261"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="261"/>
         <source>Day names</source>
         <translation>Названия дней</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="262"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="262"/>
         <source>Date and time</source>
         <translation>Дата и время</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="270"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="270"/>
         <source>years</source>
         <translation>лет</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="271"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="271"/>
         <source>months</source>
         <translation>месяцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="273"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="273"/>
         <source>days</source>
         <translation>дни</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="274"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="274"/>
         <source>hours</source>
         <translation>часы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="275"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="275"/>
         <source>minutes</source>
         <translation>минут</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="277"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="277"/>
         <source>seconds</source>
         <translation>секунды</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="279"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="279"/>
         <source>milliseconds</source>
         <translation>миллисекунды</translation>
     </message>
@@ -13260,84 +13260,84 @@ Position: %2</source>
 Позиция: %2</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="462"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="462"/>
         <source>Decimal</source>
         <translation>Десятичный</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="463"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="463"/>
         <source>Scientific (e)</source>
         <translation>Научный (e)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="464"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="464"/>
         <source>Scientific (E)</source>
         <translation>Научный (E)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="465"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="465"/>
         <source>Automatic (e)</source>
         <translation>Автомат (е)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="466"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="466"/>
         <source>Automatic (E)</source>
         <translation>Автомат (E)</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="472"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="478"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="472"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="478"/>
         <source>Number without leading zero</source>
         <translation>Число без нуля в начале</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="473"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="479"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="473"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="479"/>
         <source>Number with leading zero</source>
         <translation>Число с нулем в начале</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="474"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="474"/>
         <source>Abbreviated month name</source>
         <translation>Сокращенное название месяца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="475"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="475"/>
         <source>Full month name</source>
         <translation>Полное название месяца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="480"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="480"/>
         <source>Abbreviated day name</source>
         <translation>Сокращенное название дня недели</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="481"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="481"/>
         <source>Full day name</source>
         <translation>Полное название дня</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="514"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="592"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="514"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="592"/>
         <source>Predefined:</source>
         <translation>Предопределено:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="516"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="594"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="516"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="594"/>
         <source>Format:</source>
         <translation>Формат:</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="528"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="605"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="528"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="605"/>
         <source>Selected column type:
 </source>
         <translation>Тип выбранного столбца:
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="534"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="534"/>
         <source>Double precision
 floating point values
 </source>
@@ -13346,44 +13346,44 @@ floating point values
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="538"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="538"/>
         <source>Text
 </source>
         <translation>Текст
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="541"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="541"/>
         <source>Month names
 </source>
         <translation>Названия месяцев
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="544"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="544"/>
         <source>Days of the week
 </source>
         <translation>Дни недели
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="547"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="579"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="606"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="547"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="579"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="606"/>
         <source>Dates and/or times
 </source>
         <translation>Дата и / или время
 </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="551"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="581"/>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="607"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="551"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="581"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="607"/>
         <source>Example: </source>
         <translation>Пример: </translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/TableView.cpp" line="559"/>
+        <location filename="../../libmakhber/src/table/TableView.cpp" line="559"/>
         <source>Hello world!
 </source>
         <translation>Привет, мир!
@@ -13653,32 +13653,32 @@ floating point values
 <context>
     <name>future::Folder</name>
     <message>
-        <location filename="../../libmakhber/src/future/core/future_Folder.cpp" line="102"/>
+        <location filename="../../libmakhber/src/core/future_Folder.cpp" line="102"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/future_Folder.cpp" line="109"/>
+        <location filename="../../libmakhber/src/core/future_Folder.cpp" line="109"/>
         <source>no folder element found</source>
         <translation>элемент папки не найден</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/future_Folder.cpp" line="125"/>
+        <location filename="../../libmakhber/src/core/future_Folder.cpp" line="125"/>
         <source>Folder %1</source>
         <translation>Папка %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/future_Folder.cpp" line="133"/>
+        <location filename="../../libmakhber/src/core/future_Folder.cpp" line="133"/>
         <source>Column %1</source>
         <translation>Столбец %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/future_Folder.cpp" line="151"/>
+        <location filename="../../libmakhber/src/core/future_Folder.cpp" line="151"/>
         <source>creation of aspect from element &apos;%1&apos; failed</source>
         <translation>не удалось создать аспект из элемента &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/core/future_Folder.cpp" line="158"/>
+        <location filename="../../libmakhber/src/core/future_Folder.cpp" line="158"/>
         <source>no plugin to load element &apos;%1&apos; found</source>
         <translation>не найден плагин для загрузки элемента &quot;%1&quot;</translation>
     </message>
@@ -13686,355 +13686,355 @@ floating point values
 <context>
     <name>future::Matrix</name>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="195"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="195"/>
         <source>%1: cut selected cell(s)</source>
         <translation>%1: вырезать выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="248"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="248"/>
         <source>%1: paste from clipboard</source>
         <translation>%1: вставить из буфера обмена</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="453"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="453"/>
         <source>%1: clear selected cell(s)</source>
         <translation>%1: очистить выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="544"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="759"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="544"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="759"/>
         <source>Cu&amp;t</source>
         <translation>В&amp;ырезать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="547"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="760"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="547"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="760"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="550"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="761"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="550"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="761"/>
         <source>Past&amp;e</source>
         <translation>&amp;Вставить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="556"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="762"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="556"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="762"/>
         <source>Clea&amp;r</source>
         <comment>clear selection</comment>
         <translation>&amp;Очистить</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="564"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="763"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="564"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="763"/>
         <source>Assign &amp;Formula</source>
         <translation>Назначить &amp;формулу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="565"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="565"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="572"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="764"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="572"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="764"/>
         <source>Recalculate</source>
         <translation>Пересчитать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="573"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="573"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="582"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="582"/>
         <source>F12</source>
         <translation>F12</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="589"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="765"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="589"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="765"/>
         <source>Select All</source>
         <translation>Выбрать все</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="596"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="766"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="806"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="596"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="766"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="806"/>
         <source>Clear Matrix</source>
         <translation>Очистить матрицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="603"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="767"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="603"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="767"/>
         <source>&amp;Go to Cell</source>
         <translation>&amp;Перейти в ячейку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="604"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="604"/>
         <source>Ctrl+Alt+G</source>
         <translation>Ctrl+Alt+G</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="608"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="768"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="608"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="768"/>
         <source>&amp;Transpose</source>
         <translation>&amp;Транспонировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="611"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="769"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="611"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="769"/>
         <source>Mirror &amp;Horizontally</source>
         <translation>Зеркало по &amp;горизонтали</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="614"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="770"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="614"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="770"/>
         <source>Mirror &amp;Vertically</source>
         <translation>Зеркало по &amp;вертикали</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="617"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="771"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="617"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="771"/>
         <source>&amp;Import Image</source>
         <comment>import image as matrix</comment>
         <translation>&amp;Импортировать изображение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="621"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="621"/>
         <source>&amp;Duplicate</source>
         <comment>duplicate matrix</comment>
         <translation>&amp;Дублировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="625"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="772"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="625"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="772"/>
         <source>&amp;Dimensions</source>
         <comment>matrix size</comment>
         <translation>&amp;Габаритные размеры</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="628"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="773"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="628"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="773"/>
         <source>Set &amp;Coordinates</source>
         <translation>&amp;Набор и координаты</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="631"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="774"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="631"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="774"/>
         <source>Set Display &amp;Format</source>
         <translation>Установить отображение и &amp;формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="638"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="775"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="638"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="775"/>
         <source>&amp;Insert Empty Columns</source>
         <translation>&amp;Вставить пустые столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="645"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="776"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="645"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="776"/>
         <source>Remo&amp;ve Columns</source>
         <translation>&amp;Удаление столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="652"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="777"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="652"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="777"/>
         <source>Clea&amp;r Columns</source>
         <translation>&amp;Очистить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="659"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="778"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="659"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="778"/>
         <source>&amp;Add Columns</source>
         <translation>&amp;Добавить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="667"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="779"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="667"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="779"/>
         <source>&amp;Insert Empty Rows</source>
         <translation>&amp;Вставить пустые строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="675"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="780"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="675"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="780"/>
         <source>Remo&amp;ve Rows</source>
         <translation>У&amp;далить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="683"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="781"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="683"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="781"/>
         <source>Clea&amp;r Rows</source>
         <translation>О&amp;чистить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="691"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="782"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="691"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="782"/>
         <source>&amp;Add Rows</source>
         <translation>&amp;Добавить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="787"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="787"/>
         <source>&amp;Matrix</source>
         <translation>&amp;Матрица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="856"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="861"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="856"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="861"/>
         <source>Go to Cell</source>
         <translation>Перейти к ячейке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="856"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="856"/>
         <source>Enter column</source>
         <translation>Введите столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="861"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="861"/>
         <source>Enter row</source>
         <translation>Введите строку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="940"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="945"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="940"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="945"/>
         <source>Set Matrix Dimensions</source>
         <translation>Установить размеры матрицы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="941"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="941"/>
         <source>Enter number of columns</source>
         <translation>Введите количество столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="946"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="946"/>
         <source>Enter number of rows</source>
         <translation>Введите количество строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="956"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="956"/>
         <source>Images</source>
         <translation>Изображения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="964"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="964"/>
         <source>Import image from file</source>
         <translation>Импорт изображения из файла</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="978"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="978"/>
         <source>Error importing image</source>
         <translation>Ошибка при импорте изображения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="979"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="979"/>
         <source>Import of image &apos;%1&apos; failed</source>
         <translation>Не удалось импортировать изображение &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1192"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1192"/>
         <source>invalid row or column count</source>
         <translation>недопустимое количество строк или столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1223"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1223"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1233"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1233"/>
         <source>no matrix element found</source>
         <translation>матричный элемент не найден</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1245"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1245"/>
         <source>invalid or missing numeric format</source>
         <translation>неверный или отсутствующий числовой формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1253"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1253"/>
         <source>invalid or missing number of displayed digits</source>
         <translation>неверное или отсутствующее количество отображаемых цифр</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1272"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1272"/>
         <source>invalid x start value</source>
         <translation>недопустимое начальное значение x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1279"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1279"/>
         <source>invalid x end value</source>
         <translation>недопустимое конечное значение x</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1286"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1286"/>
         <source>invalid y start value</source>
         <translation>неверное начальное значение y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1293"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1293"/>
         <source>invalid y end value</source>
         <translation>недопустимое конечное значение y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1316"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1365"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1316"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1365"/>
         <source>invalid or missing row index</source>
         <translation>неверный или отсутствующий индекс строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1322"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1322"/>
         <source>invalid row height</source>
         <translation>неверная высота строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1338"/>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1370"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1338"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1370"/>
         <source>invalid or missing column index</source>
         <translation>неверный или отсутствующий индекс столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1344"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1344"/>
         <source>invalid column width</source>
         <translation>недопустимая ширина столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1377"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1377"/>
         <source>invalid cell value</source>
         <translation>недопустимое значение ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1408"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1408"/>
         <source>Hide Controls</source>
         <translation>Скрыть элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1410"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1410"/>
         <source>Show Controls</source>
         <translation>Показать элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1463"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1463"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: применить формулу к выделению</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1485"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1485"/>
         <source>Matrix</source>
         <translation>Матрица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1497"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1497"/>
         <source>Import image...</source>
         <translation>Импорт изображения...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1497"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1497"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/matrix/future_Matrix.cpp" line="1500"/>
+        <location filename="../../libmakhber/src/matrix/future_Matrix.cpp" line="1500"/>
         <source>Matrix %1</source>
         <translation>Матрица %1</translation>
     </message>
@@ -14042,52 +14042,52 @@ floating point values
 <context>
     <name>future::SortDialog</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="43"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="43"/>
         <source>Sorting Options</source>
         <translation>Опции сортировки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="51"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="51"/>
         <source>Sort columns</source>
         <translation>Сортировать столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="53"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="53"/>
         <source>Separately</source>
         <translation>Раздельно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="54"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="54"/>
         <source>Together</source>
         <translation>Совместно</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="58"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="58"/>
         <source>Order</source>
         <translation>Порядок</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="60"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="60"/>
         <source>Ascending</source>
         <translation>По возрастанию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="61"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="61"/>
         <source>Descending</source>
         <translation>По убыванию</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="64"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="64"/>
         <source>Leading column</source>
         <translation>Ведущий столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="69"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="69"/>
         <source>&amp;Sort</source>
         <translation>&amp;Сортировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_SortDialog.cpp" line="73"/>
+        <location filename="../../libmakhber/src/table/future_SortDialog.cpp" line="73"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
@@ -14095,12 +14095,12 @@ floating point values
 <context>
     <name>future::Table</name>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="331"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="331"/>
         <source>%1: cut selected cell(s)</source>
         <translation>%1: вырезать выбранные ячейки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="399"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="399"/>
         <source>%1: paste from clipboard</source>
         <translation>%1: вставить из буфера обмена</translation>
     </message>
@@ -14113,61 +14113,61 @@ floating point values
         <translation type="vanished">%1: снять маску с выбранных ячеек</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="529"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="529"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: применить формулу к выделению</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="547"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="547"/>
         <source>%1: fill cells with row numbers</source>
         <translation>%1: заполнить ячейки номерами строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="591"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="591"/>
         <source>%1: fill cells with random values</source>
         <translation>%1: заполнить ячейки случайными значениями</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="975"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="975"/>
         <source>&amp;Table</source>
         <translation>&amp;Таблица</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="977"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1639"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="977"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1639"/>
         <source>S&amp;et Column(s) As</source>
         <translation>&amp;Установить столбцы как</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="989"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1613"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1651"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1711"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="989"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1613"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1651"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1711"/>
         <source>Fi&amp;ll Selection with</source>
         <translation>&amp;Заполнить выделение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1012"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1258"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1425"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1012"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1258"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1425"/>
         <source>Edit Column &amp;Description</source>
         <translation>&amp;Изменить описание столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1055"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1394"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1055"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1394"/>
         <source>Cu&amp;t</source>
         <translation>В&amp;ырезать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1058"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1395"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1058"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1395"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1061"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1396"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1061"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1396"/>
         <source>Past&amp;e</source>
         <translation>&amp;Вставить</translation>
     </message>
@@ -14182,83 +14182,83 @@ floating point values
         <translation type="vanished">&amp;Снять маск</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1067"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1397"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1067"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1397"/>
         <source>Assign &amp;Formula</source>
         <translation>Назначить &amp;формулу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1068"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1068"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1075"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1398"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1075"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1398"/>
         <source>Clea&amp;r</source>
         <comment>clear selection</comment>
         <translation>Очистит&amp;ь</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1082"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1399"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1082"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1399"/>
         <source>Recalculate</source>
         <translation>Пересчитать</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1083"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1083"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1088"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1400"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1088"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1400"/>
         <source>Row Numbers</source>
         <translation>Номера строк</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1092"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1401"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1092"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1401"/>
         <source>Random Values</source>
         <translation>Случайные значения</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1109"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1109"/>
         <source>F12</source>
         <translation>F12</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1113"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1402"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1113"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1402"/>
         <source>Formula Edit Mode</source>
         <translation>Режим редактирования формулы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1120"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1403"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1120"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1403"/>
         <source>Select All</source>
         <translation>Выбрать все</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1127"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1404"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1127"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1404"/>
         <source>&amp;Add Column</source>
         <translation>&amp;Добавить столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1128"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1128"/>
         <source>append a new column to the table</source>
         <translation>добавить новый столбец в таблицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1135"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1405"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1135"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1405"/>
         <source>Clear Table</source>
         <translation>Очистить таблицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1142"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1406"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1142"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1406"/>
         <source>Export to TeX...</source>
         <translation>Экспорт в TeX ...</translation>
     </message>
@@ -14267,273 +14267,273 @@ floating point values
         <translation type="vanished">Очистить маски</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1149"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1407"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1149"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1407"/>
         <source>&amp;Sort Table</source>
         <translation>&amp;Сортировать таблицу</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1156"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1408"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1156"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1408"/>
         <source>&amp;Go to Cell</source>
         <translation>&amp;Перейти в ячейку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1157"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1157"/>
         <source>Ctrl+Alt+G</source>
         <translation>Ctrl+Alt+G</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1162"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1409"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1162"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1409"/>
         <source>&amp;Dimensions</source>
         <comment>table size</comment>
         <translation>&amp;Габаритные размеры</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1163"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1163"/>
         <source>change the table size</source>
         <translation>изменить размер стола</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1170"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1410"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1170"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1410"/>
         <source>&amp;Insert Empty Columns</source>
         <translation>&amp;Вставить пустые столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1177"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1411"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1177"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1411"/>
         <source>Remo&amp;ve Columns</source>
         <translation>&amp;Удаление столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1184"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1412"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1184"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1412"/>
         <source>Clea&amp;r Columns</source>
         <translation>&amp;Очистить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1191"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1413"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1191"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1413"/>
         <source>&amp;Add Columns</source>
         <translation>&amp;Добавить столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1195"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1414"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1195"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1414"/>
         <source>X</source>
         <comment>plot designation</comment>
         <translation>Х</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1198"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1415"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1198"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1415"/>
         <source>Y</source>
         <comment>plot designation</comment>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1201"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1416"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1201"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1416"/>
         <source>Z</source>
         <comment>plot designation</comment>
         <translation>Z</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1207"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1417"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1207"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1417"/>
         <source>X Error</source>
         <comment>plot designation</comment>
         <translation>Ошибки Х</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1214"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1418"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1214"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1418"/>
         <source>Y Error</source>
         <comment>plot designation</comment>
         <translation>Ошибки Y</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1218"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1419"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1218"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1419"/>
         <source>None</source>
         <comment>plot designation</comment>
         <translation>Никто</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1224"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1420"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1224"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1420"/>
         <source>&amp;Normalize Columns</source>
         <translation>&amp;Нормализовать столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1231"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1421"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1231"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1421"/>
         <source>&amp;Normalize Selection</source>
         <translation>&amp;Нормализовать выделение</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1238"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1422"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1238"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1422"/>
         <source>&amp;Sort Columns</source>
         <translation>&amp;Сортировать столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1243"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1423"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1243"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1423"/>
         <source>Column Statisti&amp;cs</source>
         <translation>Статистика &amp;столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1244"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1244"/>
         <source>statistics on columns</source>
         <translation>статистика по столбцам</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1250"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1424"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1250"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1424"/>
         <source>Change &amp;Type &amp;&amp; Format</source>
         <translation>Изменить &amp;Тип и Формат</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1251"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1251"/>
         <source>Ctrl+Alt+O</source>
         <translation>Ctrl+Alt+O</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1266"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1426"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1266"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1426"/>
         <source>&amp;Insert Empty Rows</source>
         <translation>&amp;Вставить пустые строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1273"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1427"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1273"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1427"/>
         <source>Remo&amp;ve Rows</source>
         <translation>У&amp;далить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1280"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1428"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1280"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1428"/>
         <source>Clea&amp;r Rows</source>
         <translation>С&amp;тереть строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1287"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1429"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1287"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1429"/>
         <source>&amp;Add Rows</source>
         <translation>&amp;Добавить строки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1292"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1430"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1292"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1430"/>
         <source>Row Statisti&amp;cs</source>
         <translation>Статистика с&amp;троки</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1293"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1293"/>
         <source>statistics on rows</source>
         <translation>статистика по строкам</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1527"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1527"/>
         <source>TeX Export Error</source>
         <translation>Ошибка экспорта TeX</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1528"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1528"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation>Невозможно выполнить записать в файл: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Пожалуйста, проверьте, есть ли у Вас права на запись в данное место!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1727"/>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1732"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1727"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1732"/>
         <source>Go to Cell</source>
         <translation>Перейти к ячейке</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1727"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1727"/>
         <source>Enter column</source>
         <translation>Введите столбец</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1732"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1732"/>
         <source>Enter row</source>
         <translation>Введите строку</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1745"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1745"/>
         <source>Set Table Dimensions</source>
         <translation>Установить размеры таблицы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1759"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1759"/>
         <source>%1: move column %2 from position %3 to %4.</source>
         <translation>%1: переместить столбец %2 из позиции %3 в %4.</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="1898"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="1898"/>
         <source>%1: sort column(s)</source>
         <translation>%1: сортировать столбцы</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2252"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2252"/>
         <source>invalid row or column count</source>
         <translation>недопустимое количество строк или столбцов</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2269"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2269"/>
         <source>Column %1</source>
         <translation>Столбец %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2282"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2282"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2289"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2289"/>
         <source>columns attribute and number of read columns do not match</source>
         <translation>атрибут columns и количество прочитанных столбцов не совпадают</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2291"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2291"/>
         <source>no table element found</source>
         <translation>элемент таблицы не найден</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2303"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2303"/>
         <source>Hide Comments</source>
         <translation>Скрыть комментарии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2305"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2305"/>
         <source>Show Comments</source>
         <translation>Показать комментарии</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2309"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2309"/>
         <source>Hide Controls</source>
         <translation>Скрыть элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2311"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2311"/>
         <source>Show Controls</source>
         <translation>Показать элементы управления</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2321"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2321"/>
         <source>invalid or missing column index</source>
         <translation>неверный или отсутствующий индекс столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2327"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2327"/>
         <source>invalid column width</source>
         <translation>недопустимая ширина столбца</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/future/table/future_Table.cpp" line="2363"/>
+        <location filename="../../libmakhber/src/table/future_Table.cpp" line="2363"/>
         <source>Table</source>
         <translation>Таблица</translation>
     </message>

@@ -33,7 +33,7 @@
 #include <QObject>
 #include "lib/IntervalAttribute.h"
 #include "core/column/Column.h"
-#include "../future/core/datatypes/NumericDateTimeBaseFilter.h"
+#include "core/datatypes/NumericDateTimeBaseFilter.h"
 #include <QScopedPointer>
 class AbstractSimpleFilter;
 class QString;

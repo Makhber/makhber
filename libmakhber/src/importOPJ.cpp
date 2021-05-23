@@ -31,8 +31,8 @@
  ***************************************************************************/
 #include "importOPJ.h"
 
-#include "future/core/datatypes/Double2StringFilter.h"
-#include "future/core/datatypes/DateTime2StringFilter.h"
+#include "core/datatypes/Double2StringFilter.h"
+#include "core/datatypes/DateTime2StringFilter.h"
 
 #include <QRegExp>
 #include <QApplication>

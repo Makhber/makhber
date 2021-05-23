@@ -39,8 +39,8 @@
 #include "MyWidget.h"
 #include "ScriptingEnv.h"
 #include "Script.h"
-#include "future/matrix/future_Matrix.h"
-#include "future/matrix/MatrixView.h"
+#include "matrix/future_Matrix.h"
+#include "matrix/MatrixView.h"
 
 // (maximum) initial matrix size
 #define _Matrix_initial_rows_ 10

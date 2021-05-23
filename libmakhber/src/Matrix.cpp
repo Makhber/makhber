@@ -29,7 +29,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "Matrix.h"
-#include "future/matrix/MatrixView.h"
+#include "matrix/MatrixView.h"
 #include "ScriptEdit.h"
 
 #include <QtGlobal>
