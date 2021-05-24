@@ -40,6 +40,8 @@ parts:
       - PATH: $HOME/.local/bin:$PATH
       - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
       - PYTHONPATH: $SNAPCRAFT_STAGE/lib/python3.8/site-packages
+    build-snaps:
+      - cmake
     build-packages:
       - g++
       - make

@@ -162,15 +162,10 @@ jobs:
         with:
           submodules: true
 
-      - name: Install snapcraft
-        run: |
-          sudo snap install snapcraft --classic
-
-      - name: Building & Packaging
+      - uses: snapcore/action-build@v1
         id: snap_build
-        run: |
-          sudo snapcraft --debug --destructive-mode --enable-experimental-extensions
-          echo "::set-output name=snap::$(echo $(ls *.snap))"
+        with:
+          snapcraft-args: --enable-experimental-extensions
 
       - name: Upload Snap
         uses: softprops/action-gh-release@v1
