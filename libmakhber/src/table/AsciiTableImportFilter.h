@@ -31,6 +31,7 @@
 #define ASCII_TABLE_IMPORT_FILTER_H
 
 #include "core/AbstractImportFilter.h"
+
 #include <QLocale>
 
 //! Import an ASCII file as Table.

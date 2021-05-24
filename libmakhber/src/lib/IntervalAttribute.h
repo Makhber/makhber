@@ -31,6 +31,7 @@
 #define INTERVALATTRIBUTE_H
 
 #include "Interval.h"
+
 #include <QList>
 
 //! A class representing an interval-based attribute

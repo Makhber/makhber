@@ -29,15 +29,16 @@
  *                                                                         *
  ***************************************************************************/
 #include "CanvasPicker.h"
+
 #include "ImageMarker.h"
 #include "Legend.h"
 #include "ArrowMarker.h"
 
-#include <QVector>
-#include <QMouseEvent>
-
 #include <qwt_text_label.h>
 #include <qwt_plot_canvas.h>
+
+#include <QVector>
+#include <QMouseEvent>
 
 CanvasPicker::CanvasPicker(Graph *graph) : QObject(graph)
 {

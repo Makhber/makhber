@@ -31,8 +31,9 @@
 #ifndef ASPECT_VIEW_H
 #define ASPECT_VIEW_H
 
-#include <QMdiSubWindow>
 #include "lib/macros.h"
+
+#include <QMdiSubWindow>
 
 class AbstractAspect;
 class AbstractPart;

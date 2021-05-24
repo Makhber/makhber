@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "QwtErrorPlotCurve.h"
+
 #include "QwtBarCurve.h"
 #include "core/column/Column.h"
 

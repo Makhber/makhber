@@ -1,10 +1,12 @@
+
+#include "utils.h"
+
 #include "ApplicationWindowTest.h"
 #include "MultiLayer.h"
+
 #include <map>
 #include <string>
 #include <fstream>
-
-#include "utils.h"
 
 struct MenuActions : std::map<QString, const QMenu *>
 {

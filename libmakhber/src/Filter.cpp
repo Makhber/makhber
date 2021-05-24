@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "Filter.h"
+
 #include "Legend.h"
 #include "ColorButton.h"
 #include "Table.h"
@@ -34,11 +35,11 @@
 #include "PlotCurve.h"
 #include "core/column/Column.h"
 
+#include <gsl/gsl_sort.h>
+
 #include <QApplication>
 #include <QMessageBox>
 #include <QLocale>
-
-#include <gsl/gsl_sort.h>
 
 #include <algorithm>
 using namespace std;

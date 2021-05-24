@@ -30,6 +30,7 @@
 #define ERRORBARS_H
 
 #include "PlotCurve.h"
+
 #include <qwt_plot.h>
 
 //! Error bars curve

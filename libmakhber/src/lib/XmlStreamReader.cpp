@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "lib/XmlStreamReader.h"
+
 #include <QtDebug>
 
 XmlStreamReader::XmlStreamReader()

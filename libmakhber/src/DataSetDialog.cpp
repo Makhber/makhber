@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "DataSetDialog.h"
+
 #include "ApplicationWindow.h"
 #include "Graph.h"
 

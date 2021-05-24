@@ -29,8 +29,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "Matrix.h"
+
 #include "matrix/MatrixView.h"
 #include "ScriptEdit.h"
+
+#include <gsl/gsl_linalg.h>
+#include <gsl/gsl_math.h>
 
 #include <QtGlobal>
 #include <QTextStream>
@@ -56,9 +60,6 @@
 #include <cstdlib>
 #include <cmath>
 #include <cstdio>
-
-#include <gsl/gsl_linalg.h>
-#include <gsl/gsl_math.h>
 
 Matrix::Matrix(ScriptingEnv *env, int r, int c, const QString &label, QWidget *parent,
                const char *name, Qt::WindowFlags f)

@@ -31,9 +31,10 @@
 #ifndef DATA_PICKER_TOOL_H
 #define DATA_PICKER_TOOL_H
 
-#include "PlotToolInterface.h"
 #include <qwt_plot_marker.h>
 #include <qwt_plot_picker.h>
+
+#include "PlotToolInterface.h"
 
 class ApplicationWindow;
 class QwtPlotCurve;
@@ -78,7 +79,7 @@ private:
     QwtPlotMarker d_selection_marker;
     Mode d_mode;
     QwtPlotCurve *d_selected_curve;
-    int d_selected_point{};
+    int d_selected_point {};
     MoveMode d_move_mode;
     QPoint d_move_target_pos;
 };

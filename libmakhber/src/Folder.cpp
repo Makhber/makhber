@@ -31,17 +31,15 @@
  ***************************************************************************/
 #include "Folder.h"
 
-#include <qobject.h>
-#include <qdatetime.h>
-#include <qpixmap.h>
-
-#include <qevent.h>
-#include <qpoint.h>
-#include <qmessagebox.h>
-#include <qstringlist.h>
-#include <qapplication.h>
-#include <qcursor.h>
-// Added by qt3to4:
+#include <QObject>
+#include <QDateTime>
+#include <QPixmap>
+#include <QEvent>
+#include <QPoint>
+#include <QMessageBox>
+#include <QStringList>
+#include <QApplication>
+#include <QCursor>
 #include <QKeyEvent>
 #include <QDropEvent>
 #include <QMouseEvent>

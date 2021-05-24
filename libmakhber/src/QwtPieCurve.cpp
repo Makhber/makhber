@@ -27,16 +27,17 @@
  *                                                                         *
  ***************************************************************************/
 #include "QwtPieCurve.h"
+
 #include "ColorButton.h"
 #include "Table.h"
 #include "core/column/Column.h"
+
+#include <qwt_plot_layout.h>
 
 #include <QPaintDevice>
 #include <QPainter>
 #include <QVarLengthArray>
 #include <QLocale>
-
-#include <qwt_plot_layout.h>
 
 QwtPieCurve::QwtPieCurve(Table *t, const QString &name, int startRow, int endRow)
     : DataCurve(t, QString(), name, startRow, endRow)

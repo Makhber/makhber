@@ -26,10 +26,11 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-
-#include "Matrix.h"
-#include "matrix/future_Matrix.h"
 #include "matrix/MatrixModel.h"
+
+#include "matrix/future_Matrix.h"
+#include "Matrix.h"
+
 #include <QString>
 #include <QBrush>
 #include <QColor>

@@ -30,6 +30,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "LineProfileTool.h"
+
 #include "ImageMarker.h"
 #include "ArrowMarker.h"
 #include "Graph.h"

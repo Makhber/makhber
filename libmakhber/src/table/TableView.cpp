@@ -27,13 +27,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "table/future_Table.h"
 #include "table/TableView.h"
+
+#include "table/future_Table.h"
 #include "table/TableModel.h"
 #include "table/TableItemDelegate.h"
 #include "table/tablecommands.h"
 #include "table/TableDoubleHeaderView.h"
-
 #include "core/column/Column.h"
 #include "core/AbstractFilter.h"
 #include "core/datatypes/SimpleCopyThroughFilter.h"
@@ -42,6 +42,7 @@
 #include "core/datatypes/DateTime2StringFilter.h"
 #include "core/datatypes/String2DateTimeFilter.h"
 #include "core/datatypes/Double2DateTimeFilter.h"
+#include "ApplicationWindow.h"
 
 #include <QKeyEvent>
 #include <QtDebug>
@@ -58,7 +59,6 @@
 #include <QGridLayout>
 #include <QScrollArea>
 #include <QMenu>
-#include "ApplicationWindow.h"
 
 TableView::TableView(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)

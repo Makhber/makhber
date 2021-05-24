@@ -31,15 +31,15 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
+#include "customevents.h"
+#include "ScriptingEnv.h"
+
 #include <QVariant>
 #include <QString>
 #include <QStringList>
 #include <QObject>
 #include <QStringList>
 #include <QEvent>
-
-#include "customevents.h"
-#include "ScriptingEnv.h"
 
 class ApplicationWindow;
 

@@ -76,8 +76,7 @@ void PlotEnrichement::updateBoundingRect()
 
 QRectF PlotEnrichement::boundingRect() const
 {
-    return QRectF(xValue(), yValue(), qAbs(d_x_right - xValue()),
-                         qAbs(d_y_bottom - yValue()));
+    return QRectF(xValue(), yValue(), qAbs(d_x_right - xValue()), qAbs(d_y_bottom - yValue()));
 }
 
 void PlotEnrichement::setRect(int x, int y, int w, int h)

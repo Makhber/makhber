@@ -25,8 +25,11 @@
 */
 #include <QApplication>
 #include <QMessageBox>
+
 #include <gtest/gtest.h>
+
 #include <iostream>
+
 using std::cerr;
 using std::cout;
 using std::endl;

@@ -31,6 +31,7 @@
 
 #include "PlotCurve.h"
 #include "Script.h"
+
 #include <QObject>
 
 // Function curve class

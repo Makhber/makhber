@@ -26,10 +26,9 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "ScriptingEnv.h"
 #include "Script.h"
 
-#include <cstring>
+#include "ScriptingEnv.h"
 
 #ifdef SCRIPTING_MUPARSER
 #include "MuParserScript.h"
@@ -40,13 +39,15 @@
 #include "PythonScripting.h"
 #endif
 
+#include <cstring>
+
 namespace {
 std::array langs = {
 #ifdef SCRIPTING_MUPARSER
     MuParserScripting::langName
-#ifdef SCRIPTING_PYTHON
-    ,
 #endif
+#if defined(SCRIPTING_PYTHON) && defined(SCRIPTING_MUPARSER)
+    ,
 #endif
 #ifdef SCRIPTING_PYTHON
     PythonScripting::langName

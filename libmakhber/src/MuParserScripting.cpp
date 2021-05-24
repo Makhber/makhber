@@ -30,13 +30,14 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "MuParserScript.h"
 #include "MuParserScripting.h"
+
+#include "MuParserScript.h"
 #include "Table.h"
 #include "Matrix.h"
 #include "QStringStdString.h"
 
-#include <qstringlist.h>
+#include <QStringList>
 
 using namespace mu;
 

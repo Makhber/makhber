@@ -54,7 +54,7 @@ public Q_SLOTS:
     void changeDataRange();
 
 private:
-    Graph *graph{};
+    Graph *graph {};
 
     QPushButton *buttonFit;
     QPushButton *buttonCancel;

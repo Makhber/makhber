@@ -28,8 +28,8 @@
  ***************************************************************************/
 
 /* TODO:
-   1) use diffrent size icons 16x16, 22x22, 32x32 etc..(up to 64x64)
-   2) use only svg icons insted of xpm
+   1) use different size icons 16x16, 22x22, 32x32 etc..(up to 64x64)
+   2) use only svg icons instead of xpm
    3) use freedesktop icon naming when possible */
 
 #include "IconLoader.h"

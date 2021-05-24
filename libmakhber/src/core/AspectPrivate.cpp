@@ -26,11 +26,15 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "AbstractAspect.h"
 #include "AspectPrivate.h"
+
+#include "AbstractAspect.h"
+
 #include <QRegExp>
 #include <QStringList>
+
 #include <stdexcept>
+
 using namespace std;
 
 QHash<QString, QVariant> AbstractAspect::Private::g_defaults;

@@ -30,10 +30,6 @@
 #include "QwtPieCurve.h"
 #include "VectorCurve.h"
 
-#include <QPainter>
-#include <QPolygon>
-#include <QMessageBox>
-
 #include <qwt_plot.h>
 #include <qwt_scale_widget.h>
 #include <qwt_painter.h>
@@ -41,6 +37,10 @@
 #include <qwt_plot_canvas.h>
 #include <qwt_layout_metrics.h>
 #include <qwt_symbol.h>
+
+#include <QPainter>
+#include <QPolygon>
+#include <QMessageBox>
 
 Legend::Legend(Plot *plot) : d_plot(plot), d_frame(0), d_angle(0)
 {

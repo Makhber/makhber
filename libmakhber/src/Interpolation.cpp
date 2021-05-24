@@ -28,11 +28,11 @@
  ***************************************************************************/
 #include "Interpolation.h"
 
-#include <QMessageBox>
-
 #include <gsl/gsl_sort.h>
 #include <gsl/gsl_spline.h>
 #include <gsl/gsl_interp.h>
+
+#include <QMessageBox>
 
 Interpolation::Interpolation(ApplicationWindow *parent, Graph *g, const QString &curveTitle, int m)
     : Filter(parent, g)
@@ -89,7 +89,8 @@ void Interpolation::setMethod(int m)
     }
     unsigned min_points = m + 3;
     if (d_n < min_points) {
-        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("You need at least %1 points in order to perform this operation!")
                                       .arg(min_points));
         d_init_err = true;

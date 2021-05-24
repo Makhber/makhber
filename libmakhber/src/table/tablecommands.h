@@ -30,15 +30,16 @@
 #ifndef TABLE_COMMANDS_H
 #define TABLE_COMMANDS_H
 
-#include <QUndoCommand>
-#include <QAbstractItemModel>
-#include <QModelIndex>
-#include <QItemSelection>
 #include "core/column/Column.h"
 #include "core/column/ColumnPrivate.h"
 #include "table/future_Table.h"
 #include "core/AbstractFilter.h"
 #include "lib/IntervalAttribute.h"
+
+#include <QUndoCommand>
+#include <QAbstractItemModel>
+#include <QModelIndex>
+#include <QItemSelection>
 
 ///////////////////////////////////////////////////////////////////////////
 // class TableInsertColumnsCmd
@@ -90,7 +91,7 @@ private:
     //! Number of rows
     int d_rows;
     //! Number of rows before
-    int d_old_rows{};
+    int d_old_rows {};
 };
 
 ///////////////////////////////////////////////////////////////////////////

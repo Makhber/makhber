@@ -27,9 +27,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "ExponentialFit.h"
+
 #include "fit_gsl.h"
-using namespace std;
+
 #include <cassert>
+
+using namespace std;
 
 /*****************************************************************************
  *

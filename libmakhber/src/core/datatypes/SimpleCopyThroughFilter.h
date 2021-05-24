@@ -32,6 +32,7 @@
 
 #include "core/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
+
 #include <QXmlStreamWriter>
 
 /**

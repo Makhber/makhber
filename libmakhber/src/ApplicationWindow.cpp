@@ -29,8 +29,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "globals.h"
 #include "ApplicationWindow.h"
+
+#include "globals.h"
 #include "CurvesDialog.h"
 #include "PlotDialog.h"
 #include "AxesDialog.h"
@@ -105,8 +106,7 @@
 #include "MultiPeakFitTool.h"
 #include "LineProfileTool.h"
 
-#include <cstdio>
-#include <cstdlib>
+#include <zlib.h>
 
 #include <QFileDialog>
 #include <QInputDialog>
@@ -152,11 +152,11 @@
 #include <QElapsedTimer>
 #include <QJsonDocument>
 
-#include <zlib.h>
-
 #include <iostream>
 #include <memory>
-using namespace std;
+
+#include <cstdio>
+#include <cstdlib>
 
 #ifdef Q_OS_WIN
 #include <io.h> // for _commit()
@@ -164,7 +164,9 @@ using namespace std;
 #include <unistd.h> // for fsync()
 #endif
 
-const QString MANUAL_URI ("https://github.com/Makhber/makhber-handbook/releases/latest");
+using namespace std;
+
+const QString MANUAL_URI("https://github.com/Makhber/makhber-handbook/releases/latest");
 const QString HOMEPAGE_URI("https://github.com/Makhber/makhber");
 const QString FORUM_URI("https://github.com/Makhber/makhber/discussions");
 const QString BUGREPORT_URI("https://github.com/Makhber/makhber/issues");
@@ -4051,11 +4053,14 @@ void ApplicationWindow::openTemplate()
                                     ->setMargins(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(),
                                                  lst[4].toInt());
                             lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                            (dynamic_cast<MultiLayer *>(w))->setSpacing(lst[1].toInt(), lst[2].toInt());
+                            (dynamic_cast<MultiLayer *>(w))
+                                    ->setSpacing(lst[1].toInt(), lst[2].toInt());
                             lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                            (dynamic_cast<MultiLayer *>(w))->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
+                            (dynamic_cast<MultiLayer *>(w))
+                                    ->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
                             lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                            (dynamic_cast<MultiLayer *>(w))->setAlignement(lst[1].toInt(), lst[2].toInt());
+                            (dynamic_cast<MultiLayer *>(w))
+                                    ->setAlignement(lst[1].toInt(), lst[2].toInt());
 #else
                             QStringList lst = t.readLine().split("\t", QString::SkipEmptyParts);
                             ((MultiLayer *)w)
@@ -13243,8 +13248,8 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
         QString available_versionString = json[0]["tag_name"].toString();
         QStringList list = available_versionString.split(".");
         bool intok {};
-        int available_version = (list.at(0).toInt() << 16) + (list.at(1).toInt() << 8)
-                        + list.at(2).toInt(&intok);
+        int available_version =
+                (list.at(0).toInt() << 16) + (list.at(1).toInt() << 8) + list.at(2).toInt(&intok);
 
         if (intok) {
             if (available_version > Makhber::version()) {
@@ -13257,11 +13262,10 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
                     == QMessageBox::Yes)
                     QDesktopServices::openUrl(QUrl(DOWNLOAD_URI));
             } else {
-                QMessageBox::information(
-                        this, versionString(),
-                        tr("No updates available.\n"
-                           "You are already running the latest version: \"%1\"")
-                            .arg(available_versionString));
+                QMessageBox::information(this, versionString(),
+                                         tr("No updates available.\n"
+                                            "You are already running the latest version: \"%1\"")
+                                                 .arg(available_versionString));
             }
         } else
             QMessageBox::information(this, tr("Invalid version file"),

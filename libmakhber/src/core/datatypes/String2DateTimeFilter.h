@@ -31,6 +31,7 @@
 #define STRING2DATE_TIME_FILTER_H
 
 #include "core/AbstractSimpleFilter.h"
+
 #include <QDateTime>
 #include <QDate>
 #include <QTime>

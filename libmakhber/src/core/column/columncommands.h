@@ -30,11 +30,12 @@
 #ifndef COLUMNCOMMANDS_H
 #define COLUMNCOMMANDS_H
 
-#include <QUndoCommand>
-#include <QStringList>
 #include "core/column/Column.h"
 #include "core/AbstractSimpleFilter.h"
 #include "lib/IntervalAttribute.h"
+
+#include <QUndoCommand>
+#include <QStringList>
 
 ///////////////////////////////////////////////////////////////////////////
 // class ColumnSetModeCmd
@@ -521,8 +522,7 @@ class ColumnSetTextCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnSetTextCmd(Column::Private *col, int row, QString new_value,
-                     QUndoCommand *parent = 0);
+    ColumnSetTextCmd(Column::Private *col, int row, QString new_value, QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnSetTextCmd();
 

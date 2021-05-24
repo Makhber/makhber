@@ -30,11 +30,13 @@
 #ifndef COLUMNPRIVATE_H
 #define COLUMNPRIVATE_H
 
-#include <QObject>
 #include "lib/IntervalAttribute.h"
 #include "core/column/Column.h"
 #include "core/datatypes/NumericDateTimeBaseFilter.h"
+
+#include <QObject>
 #include <QScopedPointer>
+
 class AbstractSimpleFilter;
 class QString;
 

@@ -29,6 +29,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "MyWidget.h"
+
 #include "Folder.h"
 
 #include <QMessageBox>

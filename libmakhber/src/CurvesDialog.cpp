@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "CurvesDialog.h"
+
 #include "Graph.h"
 #include "Table.h"
 #include "Matrix.h"
@@ -46,7 +47,6 @@
 #include <QShortcut>
 #include <QKeySequence>
 #include <QMenu>
-
 #include <QMessageBox>
 
 CurvesDialog::CurvesDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)

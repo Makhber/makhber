@@ -1,5 +1,9 @@
 #ifndef MAKHBEROBJECT_H
 #define MAKHBEROBJECT_H
+
+#include <QObject>
+#include <QWidget>
+
 /**
    Generic base class for Qt based classes in Makhber
 **/

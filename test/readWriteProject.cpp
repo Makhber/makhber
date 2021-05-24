@@ -1,16 +1,18 @@
+
+#include "utils.h"
+
 #include "ApplicationWindowTest.h"
 #include "MultiLayer.h"
 #include "Graph3D.h"
 #include "testPaintDevice.h"
 #include "Note.h"
+
 #include <QMdiArea>
 
 #include <iostream>
 #include <fstream>
 #include <memory>
 #include <stdexcept>
-
-#include "utils.h"
 
 extern "C" {
 void file_compress(const char *file, const char *mode);

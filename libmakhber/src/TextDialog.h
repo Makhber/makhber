@@ -31,6 +31,7 @@
 #define TEXTDLG_H
 
 #include <QDialog>
+
 class QGroupBox;
 class QTextEdit;
 class QTextCursor;

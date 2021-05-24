@@ -33,6 +33,7 @@
 
 #include "PlotToolInterface.h"
 #include "MultiPeakFit.h"
+
 #include <QObject>
 
 class DataPickerTool;

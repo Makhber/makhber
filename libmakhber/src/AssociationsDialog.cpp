@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "AssociationsDialog.h"
+
 #include "Table.h"
 #include "FunctionCurve.h"
 #include "PlotCurve.h"

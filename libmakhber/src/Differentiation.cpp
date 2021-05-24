@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "Differentiation.h"
+
 #include "MultiLayer.h"
 #include "Legend.h"
 #include "core/column/Column.h"

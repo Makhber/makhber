@@ -31,6 +31,7 @@
 
 #include "AbstractAspect.h"
 #include "AbstractColumn.h"
+
 #include <QVector>
 
 /**

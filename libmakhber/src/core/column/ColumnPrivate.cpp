@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "core/column/ColumnPrivate.h"
+
 #include "core/column/Column.h"
 #include "core/AbstractSimpleFilter.h"
 #include "core/datatypes/SimpleCopyThroughFilter.h"
@@ -43,19 +44,21 @@
 #include "core/datatypes/DateTime2DoubleFilter.h"
 #include "core/datatypes/DayOfWeek2DoubleFilter.h"
 #include "core/datatypes/Month2DoubleFilter.h"
+#include "ApplicationWindow.h"
+
 #include <QString>
 #include <QStringList>
-#include "ApplicationWindow.h"
 #include <QtDebug>
 
 #include <stdexcept>
+
 using namespace std;
 
 Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owner)
 {
     Q_ASSERT(owner != nullptr); // a Column::Private without owner is not allowed
-                          // because the owner must become the parent aspect of the input and output
-                          // filters
+                                // because the owner must become the parent aspect of the input and
+                                // output filters
     d_column_mode = mode;
     switch (mode) {
     case Makhber::ColumnMode::Numeric: {

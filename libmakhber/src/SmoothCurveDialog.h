@@ -58,7 +58,7 @@ public Q_SLOTS:
     void activateCurve(const QString &curveName);
 
 private:
-    Graph *graph{};
+    Graph *graph {};
     int smooth_method;
 };
 

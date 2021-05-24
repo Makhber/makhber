@@ -26,6 +26,12 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+
+#include "PythonScripting.h"
+
+#include "PythonScript.h"
+#include "ApplicationWindow.h"
+
 // get rid of a compiler warning
 #ifdef _POSIX_C_SOURCE
 #undef _POSIX_C_SOURCE
@@ -36,11 +42,7 @@
 #include <frameobject.h>
 #include <traceback.h>
 
-#include <iostream>
-
-#include "PythonScript.h"
-#include "PythonScripting.h"
-#include "ApplicationWindow.h"
+#include "sip.h"
 
 #include <QObject>
 #include <QStringList>
@@ -48,8 +50,7 @@
 #include <QDateTime>
 #include <QCoreApplication>
 
-// includes sip.h, which undefines Qt's "slots" macro since SIP 4.6
-#include "sip.h"
+#include <iostream>
 
 #define str(x) xstr(x)
 #define xstr(x) #x
@@ -320,7 +321,7 @@ bool PythonScripting::setQObject(QObject *val, const char *name, PyObject *dict)
 #if SIP_VERSION >= 0x050000
     auto *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt5.sip._C_API", 0));
 #else
-    const sipAPIDef *PyQt5_sip_CAPI = (const sipAPIDef*)(PyCapsule_Import("sip._C_API",0));
+    const sipAPIDef *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("sip._C_API", 0));
 #endif
     if (!PyQt5_sip_CAPI)
         return false;

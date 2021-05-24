@@ -34,10 +34,11 @@
 
 #include "MyWidget.h"
 #include "Graph.h"
+#include "core/column/Column.h"
+
 #include <QPushButton>
 #include <QLayout>
 #include <QPointer>
-#include "core/column/Column.h"
 
 class QWidget;
 class QLabel;
@@ -231,7 +232,7 @@ private:
     bool d_scale_on_print, d_print_cropmarks;
 
     //! Used when adding text markers on new layers
-    int defaultTextMarkerFrame{};
+    int defaultTextMarkerFrame {};
     QFont defaultTextMarkerFont;
     QColor defaultTextMarkerColor, defaultTextMarkerBackground;
 

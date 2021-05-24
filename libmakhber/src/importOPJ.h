@@ -32,7 +32,9 @@
 #define IMPORTOPJ_H
 
 #include "ApplicationWindow.h"
+
 #include <OriginFile.h>
+
 #include <QTextCodec>
 
 //! Origin project import class

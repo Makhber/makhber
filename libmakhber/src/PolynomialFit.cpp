@@ -28,13 +28,14 @@
  ***************************************************************************/
 #include "PolynomialFit.h"
 
+#include <gsl/gsl_multifit.h>
+#include <gsl/gsl_fit.h>
+
 #include <QMessageBox>
 #include <QLocale>
 
 #include <cmath>
 
-#include <gsl/gsl_multifit.h>
-#include <gsl/gsl_fit.h>
 using namespace std;
 
 PolynomialFit::PolynomialFit(ApplicationWindow *parent, Graph *g, int order, bool legend)

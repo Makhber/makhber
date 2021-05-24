@@ -27,10 +27,12 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include <cmath>
+#include "Cone3D.h"
+
 #include <qwt3d_color.h>
 #include <qwt3d_plot.h>
-#include "Cone3D.h"
+
+#include <cmath>
 
 using namespace Qwt3D;
 

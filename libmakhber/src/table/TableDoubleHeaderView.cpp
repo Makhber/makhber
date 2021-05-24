@@ -28,7 +28,9 @@
  ***************************************************************************/
 
 #include "TableDoubleHeaderView.h"
+
 #include "TableCommentsHeaderModel.h"
+
 #include <QApplication>
 #include <QEvent>
 #include <QLayout>
@@ -47,8 +49,7 @@ void TableCommentsHeaderView::setModel(QAbstractItemModel *model)
 {
     Q_ASSERT(model->inherits("TableModel"));
     QAbstractItemModel *old_model = QHeaderView::model();
-    auto *new_model =
-            new TableCommentsHeaderModel(dynamic_cast<TableModel *>(model));
+    auto *new_model = new TableCommentsHeaderModel(dynamic_cast<TableModel *>(model));
     QHeaderView::setModel(new_model);
     QObject::disconnect(
             new_model, SIGNAL(columnsInserted(QModelIndex, int, int)), this,

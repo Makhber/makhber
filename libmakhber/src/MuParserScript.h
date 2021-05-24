@@ -32,8 +32,10 @@
 
 #include "Script.h"
 #include "QStringStdString.h"
-#include <QtCore/QMap>
+
 #include <muParser.h>
+
+#include <QMap>
 
 class QByteArray;
 class Column;

@@ -509,7 +509,10 @@ void ColumnSetMaskedCmd::undo()
 ///////////////////////////////////////////////////////////////////////////
 ColumnSetFormulaCmd::ColumnSetFormulaCmd(Column::Private *col, Interval<int> interval,
                                          QString formula, QUndoCommand *parent)
-    : QUndoCommand(parent), d_col(col), d_interval(std::move(interval)), d_formula(std::move(formula))
+    : QUndoCommand(parent),
+      d_col(col),
+      d_interval(std::move(interval)),
+      d_formula(std::move(formula))
 {
     setText(QObject::tr("%1: set cell formula").arg(col->name()));
     d_copied = false;

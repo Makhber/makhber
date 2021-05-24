@@ -28,10 +28,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "core/Project.h"
+
 #include "core/interfaces.h"
-#include "globals.h"
-#include "lib/XmlStreamReader.h"
 #include "core/ProjectConfigPage.h"
+#include "lib/XmlStreamReader.h"
+#include "globals.h"
+
 #include <QUndoStack>
 #include <QString>
 #include <QKeySequence>
@@ -60,9 +62,7 @@ public:
     QString file_name;
 };
 
-Project::Project() : future::Folder(tr("Unnamed")), d(new Private())
-{
-}
+Project::Project() : future::Folder(tr("Unnamed")), d(new Private()) { }
 
 Project::~Project()
 {

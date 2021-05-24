@@ -30,9 +30,10 @@
 #ifndef DAY_OF_WEEK2DOUBLE_FILTER_H
 #define DAY_OF_WEEK2DOUBLE_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
-#include <QDateTime>
+#include "core/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
+
+#include <QDateTime>
 #include <QXmlStreamWriter>
 
 //! Conversion filter QDateTime -> double, translating dates into days of the week (Monday -> 1).

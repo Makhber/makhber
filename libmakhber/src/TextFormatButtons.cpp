@@ -28,7 +28,9 @@
  ***************************************************************************/
 
 #include "TextFormatButtons.h"
+
 #include "SymbolDialog.h"
+
 #include <QTextEdit>
 #include <QPushButton>
 #include <QHBoxLayout>

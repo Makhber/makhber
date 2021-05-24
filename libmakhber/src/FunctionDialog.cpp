@@ -27,10 +27,10 @@
  *                                                                         *
  ***************************************************************************/
 #include "FunctionDialog.h"
+
 #include "MyParser.h"
 #include "ApplicationWindow.h"
 #include "FunctionCurve.h"
-#include <cmath>
 
 #include <QTextEdit>
 #include <QLineEdit>
@@ -43,6 +43,8 @@
 #include <QStackedWidget>
 #include <QWidget>
 #include <QMessageBox>
+
+#include <cmath>
 
 FunctionDialog::FunctionDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {

@@ -27,18 +27,20 @@
  *                                                                         *
  ***************************************************************************/
 #include "Integration.h"
+
 #include "MultiLayer.h"
 #include "Legend.h"
-
-#include <QMessageBox>
-#include <QDateTime>
-#include <QLocale>
 
 #include <gsl/gsl_spline.h>
 #include <gsl/gsl_interp.h>
 #include <gsl/gsl_vector.h>
 
+#include <QMessageBox>
+#include <QDateTime>
+#include <QLocale>
+
 #include <stdexcept>
+
 using namespace std;
 
 Integration::Integration(ApplicationWindow *parent, Graph *g) : Filter(parent, g)
@@ -139,7 +141,8 @@ QString Integration::logInfo()
     }
 
     if (d_n < gsl_interp_type_min_size(method_t)) {
-        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("You need at least %1 points in order to perform this operation!")
                                       .arg(gsl_interp_type_min_size(method_t)));
         d_init_err = true;

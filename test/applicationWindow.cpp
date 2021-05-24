@@ -1,10 +1,13 @@
+
+#include "utils.h"
+
 #include "ApplicationWindowTest.h"
 #include "RenameWindowDialog.h"
 #include "Folder.h"
-#include <QToolBar>
-#include <iostream>
 
-#include "utils.h"
+#include <QToolBar>
+
+#include <iostream>
 
 TEST_F(ApplicationWindowTest, lockToolbars)
 {

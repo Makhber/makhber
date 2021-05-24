@@ -28,12 +28,15 @@
  ***************************************************************************/
 
 #include "table/tablecommands.h"
+
 #include "table/future_Table.h"
 #include "core/column/Column.h"
 #include "lib/Interval.h"
 #include "core/datatypes/Double2StringFilter.h"
+
 #include <QObject>
 #include <QtDebug>
+
 #include <utility>
 
 ///////////////////////////////////////////////////////////////////////////

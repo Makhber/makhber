@@ -31,16 +31,17 @@
 #ifndef MATRIX_H
 #define MATRIX_H
 
-#include <QTableWidget>
-#include <QContextMenuEvent>
-#include <QEvent>
-#include <QHeaderView>
-#include <QDateTime>
 #include "MyWidget.h"
 #include "ScriptingEnv.h"
 #include "Script.h"
 #include "matrix/future_Matrix.h"
 #include "matrix/MatrixView.h"
+
+#include <QTableWidget>
+#include <QContextMenuEvent>
+#include <QEvent>
+#include <QHeaderView>
+#include <QDateTime>
 
 // (maximum) initial matrix size
 #define _Matrix_initial_rows_ 10
@@ -309,7 +310,7 @@ private:
     void init(int rows, int cols);
 
     //! Stores the matrix data only before the user opens the matrix dialog in order to avoid data loses during number format changes.
-    double **dMatrix{};
+    double **dMatrix {};
 
     Matrix(future::Matrix *future_matrix, ScriptingEnv *env, int r, int c, const QString &label,
            QWidget *parent = 0, const char *name = 0, Qt::WindowFlags f = Qt::Widget);

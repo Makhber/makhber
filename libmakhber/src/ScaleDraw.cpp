@@ -27,14 +27,16 @@
  *                                                                         *
  ***************************************************************************/
 #include "ScaleDraw.h"
-#include "MyParser.h"
 
-#include <QDateTime>
-#include <QMessageBox>
-#include <utility>
+#include "MyParser.h"
 
 #include <qwt_painter.h>
 #include <qwt_text.h>
+
+#include <QDateTime>
+#include <QMessageBox>
+
+#include <utility>
 
 ScaleDraw::ScaleDraw(QString s)
     : formula_string(std::move(s)), d_fmt('g'), d_prec(4), d_minTicks(Out), d_majTicks(Out)
@@ -154,7 +156,10 @@ QwtText QwtTextScaleDraw::label(double value) const
  *
  *****************************************************************************/
 
-TimeScaleDraw::TimeScaleDraw(const QTime &t, QString format) : t_origin(t), t_format(std::move(format)) { }
+TimeScaleDraw::TimeScaleDraw(const QTime &t, QString format)
+    : t_origin(t), t_format(std::move(format))
+{
+}
 
 QString TimeScaleDraw::origin()
 {
@@ -173,7 +178,10 @@ QwtText TimeScaleDraw::label(double value) const
  *
  *****************************************************************************/
 
-DateScaleDraw::DateScaleDraw(const QDate &t, QString format) : t_origin(t), t_format(std::move(format)) { }
+DateScaleDraw::DateScaleDraw(const QDate &t, QString format)
+    : t_origin(t), t_format(std::move(format))
+{
+}
 
 QString DateScaleDraw::origin()
 {

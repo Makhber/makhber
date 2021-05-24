@@ -28,6 +28,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "ScriptingLangDialog.h"
+
 #include "ApplicationWindow.h"
 
 #include <QListWidget>

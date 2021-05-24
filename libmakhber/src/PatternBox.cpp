@@ -28,9 +28,10 @@
  ***************************************************************************/
 #include "PatternBox.h"
 
+#include <QPixmap>
+#include <QPainter>
+
 #include <algorithm>
-#include <qpixmap.h>
-#include <qpainter.h>
 
 std::array<const Qt::BrushStyle, 14> PatternBox::patterns = {
     Qt::SolidPattern,  Qt::HorPattern,    Qt::VerPattern,       Qt::CrossPattern,

@@ -30,6 +30,7 @@
 #define FUTURE_SORTDIALOG_H
 
 #include "core/column/Column.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -66,7 +67,7 @@ private:
         QComboBox *box_type;
         QComboBox *box_order;
         QComboBox *columns_list;
-    } ui{};
+    } ui {};
 };
 
 } // namespace

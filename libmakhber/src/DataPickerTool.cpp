@@ -29,6 +29,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "DataPickerTool.h"
+
 #include "Graph.h"
 #include "Plot.h"
 #include "FunctionCurve.h"
@@ -103,8 +104,8 @@ void DataPickerTool::append(const QPoint &pos)
     if (!d_selected_curve)
         return;
 
-    QwtPlotPicker::append(transform(QPointF(d_selected_curve->x(d_selected_point),
-                                                   d_selected_curve->y(d_selected_point))));
+    QwtPlotPicker::append(transform(
+            QPointF(d_selected_curve->x(d_selected_point), d_selected_curve->y(d_selected_point))));
 }
 
 void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
@@ -148,7 +149,7 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
     }
 
     QPointF selected_point_value(d_selected_curve->x(d_selected_point),
-                                        d_selected_curve->y(d_selected_point));
+                                 d_selected_curve->y(d_selected_point));
     d_selection_marker.setValue(selected_point_value);
     if (d_selection_marker.plot() == nullptr)
         d_selection_marker.attach(d_graph->plotWidget());

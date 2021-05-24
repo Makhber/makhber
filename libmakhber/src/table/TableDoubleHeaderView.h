@@ -30,8 +30,9 @@
 #ifndef TABLEDOUBLEHEADERVIEW_H
 #define TABLEDOUBLEHEADERVIEW_H
 
-#include <QHeaderView>
 #include "TableModel.h"
+
+#include <QHeaderView>
 
 //! Slave header for TableDoubleHeaderView
 /**

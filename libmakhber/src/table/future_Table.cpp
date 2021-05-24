@@ -29,37 +29,13 @@
  *                                                                         *
  ***************************************************************************/
 #include "table/future_Table.h"
-#include "core/Project.h"
-#include "lib/ActionManager.h"
-#include <QItemSelectionModel>
-#include <QTime>
-#include <QtGlobal>
-#include <QHBoxLayout>
-#include <QShortcut>
-#include <QApplication>
-#include <QContextMenuEvent>
-#include <climits> // for RAND_MAX
-#include <QMenu>
-#include <QItemSelection>
-#include <QModelIndex>
-#include <QModelIndexList>
-#include <QInputDialog>
-#include <QMapIterator>
-#include <QDialog>
-#include <QMenuBar>
-#include <QClipboard>
-#include <QToolBar>
-#include <QtDebug>
-#include <QMimeData>
-#include "ApplicationWindow.h"
-#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
-#include <QRandomGenerator>
-#endif
 
 #include "table/TableModel.h"
 #include "table/TableView.h"
 #include "table/tablecommands.h"
 #include "table/future_SortDialog.h"
+#include "lib/ActionManager.h"
+#include "core/Project.h"
 #include "core/column/Column.h"
 #include "core/AbstractFilter.h"
 #include "core/datatypes/String2DoubleFilter.h"
@@ -73,10 +49,36 @@
 #include "core/datatypes/String2DateTimeFilter.h"
 #include "core/datatypes/DateTime2DoubleFilter.h"
 #include "core/datatypes/SimpleCopyThroughFilter.h"
+#include "ApplicationWindow.h"
 #include "TeXTableExportDialog.h"
 #include "TeXTableSettings.h"
 
 #include "ui_DimensionsDialog.h"
+
+#include <QItemSelectionModel>
+#include <QTime>
+#include <QtGlobal>
+#include <QHBoxLayout>
+#include <QShortcut>
+#include <QApplication>
+#include <QContextMenuEvent>
+#include <QMenu>
+#include <QItemSelection>
+#include <QModelIndex>
+#include <QModelIndexList>
+#include <QInputDialog>
+#include <QMapIterator>
+#include <QDialog>
+#include <QMenuBar>
+#include <QClipboard>
+#include <QToolBar>
+#include <QtDebug>
+#include <QMimeData>
+#if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
+#include <QRandomGenerator>
+#endif
+
+#include <climits> // for RAND_MAX
 
 #define WAIT_CURSOR QApplication::setOverrideCursor(QCursor(Qt::WaitCursor))
 #define RESET_CURSOR QApplication::restoreOverrideCursor()

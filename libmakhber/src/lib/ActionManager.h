@@ -30,11 +30,13 @@
 #ifndef ACTIONMANAGER_H
 #define ACTIONMANAGER_H
 
+#include "lib/macros.h"
+
 #include <QObject>
 #include <QAction>
 #include <QList>
 #include <QMap>
-#include "lib/macros.h"
+
 class QString;
 class QKeySequence;
 

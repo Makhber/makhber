@@ -26,9 +26,10 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#include "TeXTableExportDialog.h"
+
 #include "TeXTableSettings.h"
 #include "TeXTableSettingsWidget.h"
-#include "TeXTableExportDialog.h"
 
 TeXTableExportDialog::TeXTableExportDialog(QWidget *parent) : ExtensibleFileDialog(parent)
 {

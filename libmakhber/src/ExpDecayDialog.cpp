@@ -27,12 +27,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "ExpDecayDialog.h"
+
 #include "Graph.h"
 #include "ColorButton.h"
 #include "ApplicationWindow.h"
 #include "Fit.h"
 #include "ExponentialFit.h"
-#include <cmath>
 
 #include <QMessageBox>
 #include <QLayout>
@@ -42,6 +42,8 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <QCloseEvent>
+
+#include <cmath>
 
 ExpDecayDialog::ExpDecayDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {

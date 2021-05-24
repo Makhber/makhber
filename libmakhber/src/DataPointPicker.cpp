@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "DataPointPicker.h"
+
 #include "Graph.h"
 #include "DataPickerTool.h"
 

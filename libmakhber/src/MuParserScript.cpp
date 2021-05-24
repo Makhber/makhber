@@ -27,19 +27,21 @@
  *                                                                         *
  ***************************************************************************/
 
-// for NAN macro
-#define _ISOC99_SOURCE
-
 #include "MuParserScript.h"
+
 #include "MuParserScripting.h"
-#include "QStringStdString.h"
-#include "core/column/Column.h"
 #include "Table.h"
 #include "Matrix.h"
 #include "Folder.h"
+#include "QStringStdString.h"
+#include "core/column/Column.h"
+
+#include <QByteArray>
+#include <QRegExp>
+
+// for NAN macro
+#define _ISOC99_SOURCE
 #include <cmath>
-#include <QtCore/QByteArray>
-#include <QtCore/QRegExp>
 
 /**
  * \class MuParserScript

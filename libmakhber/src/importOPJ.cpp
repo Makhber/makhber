@@ -31,6 +31,13 @@
  ***************************************************************************/
 #include "importOPJ.h"
 
+#include "Matrix.h"
+#include "ColorButton.h"
+#include "MultiLayer.h"
+#include "Note.h"
+#include "Folder.h"
+#include "QwtHistogram.h"
+#include "Grid.h"
 #include "core/datatypes/Double2StringFilter.h"
 #include "core/datatypes/DateTime2StringFilter.h"
 
@@ -40,13 +47,7 @@
 #include <QDockWidget>
 #include <QLocale>
 #include <QDate>
-#include "Matrix.h"
-#include "ColorButton.h"
-#include "MultiLayer.h"
-#include "Note.h"
-#include "Folder.h"
-#include "QwtHistogram.h"
-#include "Grid.h"
+
 #include <cmath>
 
 #define OBJECTXOFFSET 200

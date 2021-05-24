@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "ExtensibleFileDialog.h"
+
 #include <QGridLayout>
 
 ExtensibleFileDialog::ExtensibleFileDialog(QWidget *parent, bool extended, Qt::WindowFlags flags)

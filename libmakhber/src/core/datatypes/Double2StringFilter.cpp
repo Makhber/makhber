@@ -28,7 +28,9 @@
  ***************************************************************************/
 
 #include "Double2StringFilter.h"
+
 #include "lib/XmlStreamReader.h"
+
 #include <QXmlStreamWriter>
 
 void Double2StringFilter::writeExtraAttributes(QXmlStreamWriter *writer) const

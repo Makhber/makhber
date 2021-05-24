@@ -31,13 +31,19 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
+#ifdef _MSC_VER
+#define NOMINMAX
+#endif
+
+#include "Folder.h"
+#include "Table.h"
+#include "ScriptingEnv.h"
+#include "Script.h"
+#include "MakhberObject.h"
+
 #include <QMainWindow>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
-#ifdef SEARCH_FOR_UPDATES
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
-#endif
 #include <QFile>
 #include <QSplitter>
 #include <QDesktopServices>
@@ -47,15 +53,10 @@
 #include <QDockWidget>
 #include <QMdiArea>
 #include <QSettings>
-
-#ifdef _MSC_VER
-#define NOMINMAX
+#ifdef SEARCH_FOR_UPDATES
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 #endif
-#include "Folder.h"
-#include "Table.h"
-#include "ScriptingEnv.h"
-#include "Script.h"
-#include "MakhberObject.h"
 
 class QPixmap;
 class QCloseEvent;

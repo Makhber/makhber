@@ -29,14 +29,15 @@
 #ifndef AXESDIALOG_H
 #define AXESDIALOG_H
 
+#include "MakhberObject.h"
+#include "Graph.h"
+
 #include <QDialog>
 #include <QLabel>
 #include <QList>
 #include <QVector>
 #include <QTextEdit>
 #include <QTabWidget>
-#include "MakhberObject.h"
-#include "Graph.h"
 
 class QListWidget;
 class QListWidgetItem;

@@ -56,7 +56,7 @@ Q_SIGNALS:
     void setImageGeometry(int, int, int, int);
 
 protected:
-    double aspect_ratio{};
+    double aspect_ratio {};
 
 private:
     QPushButton *buttonOk;

@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "ProjectConfigPage.h"
+
 #include "Project.h"
 
 ProjectConfigPage::ProjectConfigPage()

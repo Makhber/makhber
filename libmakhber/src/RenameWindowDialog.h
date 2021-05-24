@@ -29,10 +29,10 @@
 #ifndef RENAMEDIALOG_H
 #define RENAMEDIALOG_H
 
-#include <qvariant.h>
-#include <qdialog.h>
-
 #include "MyWidget.h"
+
+#include <QVariant>
+#include <QDialog>
 
 class QGroupBox;
 class QPushButton;
@@ -69,7 +69,7 @@ public Q_SLOTS:
 Q_SIGNALS:
 
 private:
-    MyWidget *window{};
+    MyWidget *window {};
 };
 
 #endif // EXPORTDIALOG_H

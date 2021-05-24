@@ -29,7 +29,8 @@
 #ifndef DOUBLE2STRING_FILTER_H
 #define DOUBLE2STRING_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
+#include "core/AbstractSimpleFilter.h"
+
 #include <QLocale>
 #include <QChar>
 #include <QtDebug>

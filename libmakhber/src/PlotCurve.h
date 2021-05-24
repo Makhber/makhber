@@ -29,8 +29,9 @@
 #ifndef PLOTCURVE_H
 #define PLOTCURVE_H
 
-#include <qwt_plot_curve.h>
 #include "Table.h"
+
+#include <qwt_plot_curve.h>
 
 //! Abstract 2D plot curve class
 class PlotCurve : public QwtPlotCurve
@@ -52,8 +53,7 @@ class DataCurve : public PlotCurve
 {
 
 public:
-    DataCurve(Table *t, QString xColName, const QString &name, int startRow = 0,
-              int endRow = -1);
+    DataCurve(Table *t, QString xColName, const QString &name, int startRow = 0, int endRow = -1);
 
     QString xColumnName() { return d_x_column; };
     void setXColumnName(const QString &name) { d_x_column = name; };

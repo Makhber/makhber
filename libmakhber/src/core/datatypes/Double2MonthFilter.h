@@ -30,11 +30,13 @@
 #ifndef DOUBLE2MONTH_FILTER_H
 #define DOUBLE2MONTH_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
-#include <QDateTime>
-#include <math.h>
+#include "core/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
+
+#include <QDateTime>
 #include <QXmlStreamWriter>
+
+#include <math.h>
 
 //! Conversion filter double -> QDateTime, interpreting the input numbers as months of the year.
 class Double2MonthFilter : public AbstractSimpleFilter

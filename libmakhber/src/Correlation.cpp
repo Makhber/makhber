@@ -27,15 +27,18 @@
  *                                                                         *
  ***************************************************************************/
 #include "Correlation.h"
+
 #include "MultiLayer.h"
 #include "Plot.h"
 #include "PlotCurve.h"
 #include "ColorButton.h"
-#include <QMessageBox>
-#include <QLocale>
 #include "core/column/Column.h"
 
 #include <gsl/gsl_fft_halfcomplex.h>
+
+#include <QMessageBox>
+#include <QLocale>
+
 #include <vector>
 
 Correlation::Correlation(ApplicationWindow *parent, Table *t, const QString &colName1,

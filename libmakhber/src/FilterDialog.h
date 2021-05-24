@@ -60,7 +60,7 @@ public Q_SLOTS:
     void filter();
 
 private:
-    Graph *graph{};
+    Graph *graph {};
     int filter_type;
 };
 

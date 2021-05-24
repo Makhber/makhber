@@ -29,21 +29,21 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
+#include "Plot.h"
+#include "Table.h"
+#include "PlotToolInterface.h"
+#include "core/column/Column.h"
+
+#include <qwt_plot.h>
+#include <qwt_plot_marker.h>
+#include <qwt_plot_curve.h>
+
 #include <QList>
 #include <QPointer>
 #include <QPrinter>
 #include <QVector>
 #include <QEvent>
 #include <QMap>
-
-#include <qwt_plot.h>
-#include <qwt_plot_marker.h>
-#include <qwt_plot_curve.h>
-
-#include "Plot.h"
-#include "Table.h"
-#include "PlotToolInterface.h"
-#include "core/column/Column.h"
 
 class QwtPlotCurve;
 class QwtPlotZoomer;

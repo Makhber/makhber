@@ -27,12 +27,14 @@
  *                                                                         *
  ***************************************************************************/
 #include "SigmoidalFit.h"
+
 #include "fit_gsl.h"
-#include <cmath>
 
 #include <QMessageBox>
 
 #include <vector>
+#include <cmath>
+
 using namespace std;
 
 SigmoidalFit::SigmoidalFit(ApplicationWindow *parent, Graph *g) : Fit(parent, g)

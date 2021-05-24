@@ -26,14 +26,11 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-
-#include <limits>
+#include "matrix/MatrixView.h"
 
 #include "matrix/future_Matrix.h"
-#include "matrix/MatrixView.h"
 #include "matrix/MatrixModel.h"
 #include "matrix/matrixcommands.h"
-
 #include "core/AbstractFilter.h"
 
 #include <QKeyEvent>
@@ -52,6 +49,8 @@
 #include <QScrollArea>
 #include <QMenu>
 #include <QtDebug>
+
+#include <limits>
 
 MatrixView::MatrixView(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)

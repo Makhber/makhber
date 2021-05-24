@@ -30,8 +30,10 @@
 #define ERRDIALOG_H
 
 #include "MyWidget.h"
+
 #include <QDialog>
 #include <QList>
+
 class QLabel;
 class QComboBox;
 class QRadioButton;
@@ -69,7 +71,7 @@ private:
     QRadioButton *yErrBox;
     QPushButton *buttonAdd;
     QPushButton *buttonCancel;
-    QList<MyWidget *> *srcTables{};
+    QList<MyWidget *> *srcTables {};
 
 protected Q_SLOTS:
     //! Set all string in the current language

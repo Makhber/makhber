@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "CurveRangeDialog.h"
+
 #include "PlotCurve.h"
 #include "Graph.h"
 #include "Table.h"

@@ -27,15 +27,17 @@
  *                                                                         *
  ***************************************************************************/
 #include "MultiPeakFit.h"
+
 #include "fit_gsl.h"
 #include "PlotCurve.h"
 #include "FunctionCurve.h"
 #include "ColorButton.h"
 #include "core/column/Column.h"
-#include <cmath>
 
 #include <QLocale>
 #include <QMessageBox>
+
+#include <cmath>
 
 using namespace std;
 

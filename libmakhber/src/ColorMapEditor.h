@@ -28,8 +28,9 @@
 #ifndef COLORMAPEDITOR_H
 #define COLORMAPEDITOR_H
 
-#include <QWidget>
 #include <qwt_color_map.h>
+
+#include <QWidget>
 
 class QPushButton;
 class QTableWidget;

@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "LineDialog.h"
+
 #include "ColorButton.h"
 #include "ArrowMarker.h"
 #include "PenWidget.h"

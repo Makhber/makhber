@@ -29,15 +29,15 @@
 #ifndef LEGENDMARKER_H
 #define LEGENDMARKER_H
 
-#include <qfont.h>
-#include <qpen.h>
+#include "Graph.h"
+#include "Plot.h"
+#include "PlotEnrichement.h"
 
 #include <qwt_plot.h>
 #include <qwt_text.h>
 
-#include "Graph.h"
-#include "Plot.h"
-#include "PlotEnrichement.h"
+#include <QFont>
+#include <QPen>
 
 /**
  * \brief A piece of text to be drawn on a Plot.

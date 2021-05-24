@@ -27,10 +27,11 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "core/Project.h"
 #include "core/future_Folder.h"
-#include "lib/XmlStreamReader.h"
+
+#include "core/Project.h"
 #include "core/column/Column.h"
+#include "lib/XmlStreamReader.h"
 
 #include <QIcon>
 #include <QApplication>

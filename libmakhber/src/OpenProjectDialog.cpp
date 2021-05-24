@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "OpenProjectDialog.h"
+
 #include "ApplicationWindow.h"
 
 #include <QHBoxLayout>

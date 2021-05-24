@@ -29,6 +29,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "PartMdiView.h"
+
 #include "AbstractPart.h"
 
 #include <QCloseEvent>

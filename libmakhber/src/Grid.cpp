@@ -26,9 +26,10 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#include "Grid.h"
+
 #include "Plot.h"
 #include "Graph.h"
-#include "Grid.h"
 #include "ColorButton.h"
 
 #include <qwt_plot_canvas.h>

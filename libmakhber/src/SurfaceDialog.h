@@ -29,8 +29,8 @@
 #ifndef SURFACEDIALOG_H
 #define SURFACEDIALOG_H
 
-#include <qvariant.h>
-#include <qdialog.h>
+#include <QVariant>
+#include <QDialog>
 
 class QPushButton;
 class QLineEdit;

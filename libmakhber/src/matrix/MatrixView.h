@@ -30,6 +30,11 @@
 #ifndef MATRIXVIEW_H
 #define MATRIXVIEW_H
 
+#include "globals.h"
+#include "MyWidget.h"
+
+#include "ui_matrixcontroltabs.h"
+
 #include <QWidget>
 #include <QTableView>
 #include <QMessageBox>
@@ -48,9 +53,6 @@
 #include <QSpinBox>
 #include <QScrollArea>
 #include <QPointer>
-#include "globals.h"
-#include "ui_matrixcontroltabs.h"
-#include "MyWidget.h"
 
 namespace future {
 class Matrix;

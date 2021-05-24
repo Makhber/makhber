@@ -28,7 +28,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "TableStatistics.h"
-#include <cmath>
+
 #include "table/TableModel.h"
 #include "table/TableView.h"
 #include "table/future_Table.h"
@@ -36,12 +36,15 @@
 #include "core/column/Column.h"
 #include "core/datatypes/Double2StringFilter.h"
 
+#include <gsl/gsl_vector.h>
+#include <gsl/gsl_statistics.h>
+
 #include <QList>
 #include <QMenu>
 #include <QContextMenuEvent>
+
 #include <utility>
-#include <gsl/gsl_vector.h>
-#include <gsl/gsl_statistics.h>
+#include <cmath>
 
 TableStatistics::TableStatistics(ScriptingEnv *env, QWidget *parent, Table *base, Type t,
                                  QList<int> targets)

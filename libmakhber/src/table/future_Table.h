@@ -33,6 +33,7 @@
 
 #include "core/AbstractPart.h"
 #include "globals.h"
+
 #include <QList>
 #include <QStringList>
 #include <QPointer>

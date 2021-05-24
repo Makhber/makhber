@@ -30,11 +30,13 @@
 #ifndef STRING2DAYOFWEEK_FILTER_H
 #define STRING2DAYOFWEEK_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
-#include <QDateTime>
-#include <math.h>
+#include "core/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
+
+#include <QDateTime>
 #include <QXmlStreamWriter>
+
+#include <math.h>
 
 //! Conversion filter String -> QDateTime, interpreting the input as days of the week (either numeric or "Mon" etc).
 class String2DayOfWeekFilter : public AbstractSimpleFilter

@@ -30,6 +30,7 @@
 #define SMOOTHFILTER_H
 
 #include "Filter.h"
+
 #include <gsl/gsl_matrix_double.h>
 
 class SmoothFilter : public Filter

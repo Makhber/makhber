@@ -29,6 +29,7 @@
  ***************************************************************************/
 
 #include "AbstractSimpleFilter.h"
+
 #include <QtDebug>
 
 // TODO: should simple filters have a name argument?

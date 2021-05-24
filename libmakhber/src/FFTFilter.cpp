@@ -28,10 +28,10 @@
  ***************************************************************************/
 #include "FFTFilter.h"
 
+#include <gsl/gsl_fft_halfcomplex.h>
+
 #include <QMessageBox>
 #include <QLocale>
-
-#include <gsl/gsl_fft_halfcomplex.h>
 
 FFTFilter::FFTFilter(ApplicationWindow *parent, Graph *g, const QString &curveTitle, int m)
     : Filter(parent, g)
@@ -86,7 +86,8 @@ void FFTFilter::setBand(double lowFreq, double highFreq)
     if (d_filter_type < 3)
         return;
     else if (lowFreq == highFreq) {
-        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Please enter different values for the band limits."));
         d_init_err = true;
         return;

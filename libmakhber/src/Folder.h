@@ -29,10 +29,12 @@
 #ifndef FOLDER_H
 #define FOLDER_H
 
-#include <qobject.h>
+#include "MyWidget.h"
+#include "MakhberObject.h"
+
+#include <QObject>
 #include <QTreeWidget>
 #include <QTreeWidgetItem>
-// Added by qt3to4:
 #include <QDragEnterEvent>
 #include <QMouseEvent>
 #include <QDragLeaveEvent>
@@ -41,9 +43,6 @@
 #include <QEvent>
 #include <QDropEvent>
 #include <QMdiArea>
-
-#include "MyWidget.h"
-#include "MakhberObject.h"
 
 class FolderListItem;
 class FolderListView;

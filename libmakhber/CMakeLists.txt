@@ -443,7 +443,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     APPEND
     PROPERTY COMPILE_DEFINITIONS
       PYTHONPATH="${PYTHONPATH}"
-    )
+  )
 
   set_property( SOURCE
     "src/PythonScripting.cpp"
@@ -452,14 +452,22 @@ if( MAKHBER_SCRIPTING_PYTHON )
     "src/globals.cpp"
     APPEND
     PROPERTY COMPILE_DEFINITIONS SCRIPTING_PYTHON
-    )
+  )
+
+  set_property( SOURCE
+    "src/PythonScripting.cpp"
+    "src/PythonScript.cpp"
+    "src/globals.cpp"
+    APPEND
+    PROPERTY COMPILE_DEFINITIONS QT_NO_KEYWORDS
+  )
 
   if( MINGW )
     set_property( SOURCE "src/PythonScripting.cpp"
       APPEND
       PROPERTY COMPILE_DEFINITIONS
       PYTHONHOME=${PYTHON_PREFIX}
-      )
+    )
   endif()
 
   target_sources( libmakhber PRIVATE

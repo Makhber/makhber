@@ -30,13 +30,13 @@
  ***************************************************************************/
 #include "SmoothFilter.h"
 
-#include <QApplication>
-#include <QMessageBox>
-
 #include <gsl/gsl_fft_halfcomplex.h>
 #include <gsl/gsl_linalg.h>
 #include <gsl/gsl_blas.h>
 #include <gsl/gsl_poly.h>
+
+#include <QApplication>
+#include <QMessageBox>
 
 SmoothFilter::SmoothFilter(ApplicationWindow *parent, Graph *g, const QString &curveTitle, int m)
     : Filter(parent, g)
@@ -422,7 +422,8 @@ void SmoothFilter::setSmoothPoints(int points, int left_points)
         d_init_err = true;
         return;
     } else if (d_polynom_order > points + left_points) {
-        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("The polynomial order must be lower than the number of left "
                                  "points plus the number of right points!"));
         d_init_err = true;
@@ -436,14 +437,16 @@ void SmoothFilter::setSmoothPoints(int points, int left_points)
 void SmoothFilter::setPolynomOrder(int order)
 {
     if (d_method != SavitzkyGolay) {
-        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Setting polynomial order is only available for Savitzky-Golay "
                                  "smooth filters! Ignored option!"));
         return;
     }
 
     if (order > d_right_points + d_left_points) {
-        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("The polynomial order must be lower than the number of left "
                                  "points plus the number of right points!"));
         d_init_err = true;

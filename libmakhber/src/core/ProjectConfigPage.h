@@ -29,8 +29,9 @@
 #ifndef PROJECT_CONFIG_PAGE_H
 #define PROJECT_CONFIG_PAGE_H
 
-#include "ui_ProjectConfigPage.h"
 #include "lib/ConfigPageWidget.h"
+
+#include "ui_ProjectConfigPage.h"
 
 //! Helper class for Project
 class ProjectConfigPage : public ConfigPageWidget
@@ -44,7 +45,7 @@ public Q_SLOTS:
     virtual void apply();
 
 private:
-    Ui::ProjectConfigPage ui{};
+    Ui::ProjectConfigPage ui {};
 };
 
 #endif // ifndef PROJECT_CONFIG_PAGE_H

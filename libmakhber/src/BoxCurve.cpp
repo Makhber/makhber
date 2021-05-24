@@ -27,12 +27,14 @@
  *                                                                         *
  ***************************************************************************/
 #include "BoxCurve.h"
+
 #include "core/column/Column.h"
-#include <QPainter>
-#include <QLocale>
 
 #include <gsl/gsl_sort.h>
 #include <gsl/gsl_statistics.h>
+
+#include <QPainter>
+#include <QLocale>
 
 BoxCurve::BoxCurve(Table *t, QString name, int startRow, int endRow)
     : DataCurve(t, QString(), name, startRow, endRow)

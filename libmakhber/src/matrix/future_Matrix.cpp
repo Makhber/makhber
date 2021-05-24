@@ -28,13 +28,16 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include <cmath>
 #include "matrix/future_Matrix.h"
-#include "Matrix.h"
+
 #include "core/future_Folder.h"
-#include "matrixcommands.h"
 #include "lib/ActionManager.h"
 #include "lib/XmlStreamReader.h"
+#include "Matrix.h"
+#include "matrixcommands.h"
+
+#include <gsl/gsl_linalg.h>
+#include <gsl/gsl_math.h>
 
 #include <QtCore>
 #include <QtGui>
@@ -47,9 +50,6 @@
 #include <cstdlib>
 #include <cmath>
 #include <cstdio>
-
-#include <gsl/gsl_linalg.h>
-#include <gsl/gsl_math.h>
 
 namespace future {
 
@@ -980,9 +980,7 @@ void Matrix::importImageDialog()
     }
 }
 
-void Matrix::duplicate()
-{
-}
+void Matrix::duplicate() { }
 
 void Matrix::editFormat()
 {

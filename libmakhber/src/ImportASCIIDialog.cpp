@@ -30,6 +30,7 @@
  ***************************************************************************/
 
 #include "ImportASCIIDialog.h"
+
 #include "ApplicationWindow.h"
 
 #include <QGridLayout>

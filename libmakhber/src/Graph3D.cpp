@@ -26,16 +26,22 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#include "Graph3D.h"
+
 #ifdef _MSC_VER
 #define NOMINMAX
 #endif
-#include "Graph3D.h"
+
 #include "Bar.h"
 #include "Cone3D.h"
 #include "MyParser.h"
 #include "ColorButton.h"
 #include "core/column/Column.h"
-#include <cmath>
+
+#include <qwt3d_io_gl2ps.h>
+#include <qwt3d_coordsys.h>
+
+#include <gsl/gsl_vector.h>
 
 #include <QApplication>
 #include <QMessageBox>
@@ -49,12 +55,10 @@
 #include <QCursor>
 #include <QImageWriter>
 
-#include <qwt3d_io_gl2ps.h>
-#include <qwt3d_coordsys.h>
-
-#include <gsl/gsl_vector.h>
 #include <fstream>
 #include <stdexcept>
+#include <cmath>
+
 using namespace std;
 
 UserFunction::UserFunction(const QString &s, SurfacePlot &pw) : Function(pw)

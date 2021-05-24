@@ -29,10 +29,11 @@
 #ifndef XML_STREAM_READER_H
 #define XML_STREAM_READER_H
 
+#include "lib/macros.h"
+
 #include <QXmlStreamReader>
 #include <QString>
 #include <QStringList>
-#include "lib/macros.h"
 
 //! XML stream parser that supports errors as well as warnings
 /**

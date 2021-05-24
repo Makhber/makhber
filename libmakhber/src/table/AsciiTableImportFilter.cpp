@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "table/AsciiTableImportFilter.h"
+
 #include "table/future_Table.h"
 #include "lib/IntervalAttribute.h"
 #include "core/column/Column.h"
@@ -40,6 +41,7 @@
 #include <utility>
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 QStringList AsciiTableImportFilter::fileExtensions() const

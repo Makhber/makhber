@@ -30,8 +30,10 @@
 #ifndef COLORBUTTON_H
 #define COLORBUTTON_H
 
-#include <array>
 #include <QWidget>
+
+#include <array>
+
 class QPushButton;
 class QHBoxLayout;
 class QFrame;

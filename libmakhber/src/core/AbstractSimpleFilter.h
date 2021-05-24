@@ -34,6 +34,7 @@
 #include "core/AbstractColumn.h"
 #include "lib/IntervalAttribute.h"
 #include "lib/XmlStreamReader.h"
+
 #include <QUndoCommand>
 #include <QXmlStreamWriter>
 

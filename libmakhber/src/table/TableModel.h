@@ -30,10 +30,11 @@
 #ifndef TABLEMODEL_H
 #define TABLEMODEL_H
 
+#include "core/AbstractFilter.h"
+
 #include <QAbstractItemModel>
 #include <QList>
 #include <QStringList>
-#include "core/AbstractFilter.h"
 #include <QColor>
 #include <QPointer>
 

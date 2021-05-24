@@ -67,7 +67,7 @@ Q_SIGNALS:
     void integrate(int, int, int, double, double, double);
 
 private:
-    Graph *graph{};
+    Graph *graph {};
 };
 
 #endif

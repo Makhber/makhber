@@ -29,10 +29,10 @@
  *                                                                         *
  ***************************************************************************/
 #include "RangeSelectorTool.h"
+
 #include "Graph.h"
 #include "Plot.h"
 #include "PlotCurve.h"
-#include <cmath>
 
 #include <qwt_symbol.h>
 #include <QPoint>
@@ -40,6 +40,8 @@
 #include <QEvent>
 #include <QKeyEvent>
 #include <QLocale>
+
+#include <cmath>
 
 RangeSelectorTool::RangeSelectorTool(Graph *graph, const QObject *status_target,
                                      const char *status_slot)

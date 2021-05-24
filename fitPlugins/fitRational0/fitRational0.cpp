@@ -30,13 +30,13 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <gsl/gsl_vector.h>
+#include <gsl/gsl_blas.h>
+
 #include <cmath>
 #include <cstdlib>
 #include <cstdio>
 #include <cstddef>
-
-#include <gsl/gsl_vector.h>
-#include <gsl/gsl_blas.h>
 
 #ifdef _WIN32
 #define DLL_EXPORT __declspec(dllexport)

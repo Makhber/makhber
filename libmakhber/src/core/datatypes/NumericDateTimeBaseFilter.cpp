@@ -27,6 +27,7 @@
  ***************************************************************************/
 
 #include "NumericDateTimeBaseFilter.h"
+
 #include <cmath>
 
 const QDateTime NumericDateTimeBaseFilter::zeroOffsetDate =

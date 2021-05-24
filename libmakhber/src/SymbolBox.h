@@ -29,8 +29,9 @@
 #ifndef SYMBOLBOX_H
 #define SYMBOLBOX_H
 
-#include <QComboBox>
 #include <qwt_symbol.h>
+
+#include <QComboBox>
 
 #include <array>
 

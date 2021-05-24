@@ -29,8 +29,9 @@
 #ifndef MULTIPEAKFIT_H
 #define MULTIPEAKFIT_H
 
-#include <QColor>
 #include "Fit.h"
+
+#include <QColor>
 
 class MultiPeakFit : public Fit
 {
@@ -65,7 +66,7 @@ protected:
 
 private:
     //! Number of peaks
-    int d_peaks{};
+    int d_peaks {};
 
     //! Tells weather the peak curves should be displayed together with the best line fit.
     bool generate_peak_curves;

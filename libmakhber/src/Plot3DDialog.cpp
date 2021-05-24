@@ -26,14 +26,17 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#include "Plot3DDialog.h"
+
 #ifdef _MSC_VER
 #define NOMINMAX
 #endif
-#include "Plot3DDialog.h"
+
 #include "TextDialog.h"
 #include "MyParser.h"
 #include "SymbolDialog.h"
-#include <cmath>
+
+#include <qwt3d_color.h>
 
 #include <QListWidget>
 #include <QLineEdit>
@@ -52,7 +55,7 @@
 #include <QFontDialog>
 #include <QColorDialog>
 
-#include <qwt3d_color.h>
+#include <cmath>
 
 Plot3DDialog::Plot3DDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {

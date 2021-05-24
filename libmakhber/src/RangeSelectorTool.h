@@ -32,6 +32,7 @@
 #define RANGE_SELECTOR_TOOL_H
 
 #include "PlotToolInterface.h"
+
 #include <qwt_plot_marker.h>
 #include <qwt_plot_picker.h>
 

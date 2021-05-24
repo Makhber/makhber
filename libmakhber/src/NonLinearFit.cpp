@@ -27,10 +27,12 @@
  *                                                                         *
  ***************************************************************************/
 #include "NonLinearFit.h"
+
 #include "MyParser.h"
 #include "fit_gsl.h"
 
 #include <QMessageBox>
+
 using namespace std;
 
 NonLinearFit::NonLinearFit(ApplicationWindow *parent, Graph *g) : Fit(parent, g)

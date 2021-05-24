@@ -27,16 +27,18 @@
  *                                                                         *
  ***************************************************************************/
 #include "ArrowMarker.h"
+
 #include "LineDialog.h"
-#include <cmath>
+
+#include <qwt_plot.h>
+#include <qwt_plot_canvas.h>
+#include <qwt_painter.h>
 
 #include <QPainter>
 #include <QMouseEvent>
 #include <QApplication>
 
-#include <qwt_plot.h>
-#include <qwt_plot_canvas.h>
-#include <qwt_painter.h>
+#include <cmath>
 
 #ifndef M_PI
 #define M_PI 3.141592653589793238462643;
@@ -362,9 +364,9 @@ QRectF ArrowMarker::boundingRect() const
     const int x1 = xMap.transform(d_rect.right());
     const int y1 = yMap.transform(d_rect.bottom());
 
-    return QRectF(
-            x0 < x1 ? d_rect.left() : d_rect.right(), y0 < y1 ? d_rect.top() : d_rect.bottom(),
-            qAbs(d_rect.left() - d_rect.right()), qAbs(d_rect.top() - d_rect.bottom()));
+    return QRectF(x0 < x1 ? d_rect.left() : d_rect.right(),
+                  y0 < y1 ? d_rect.top() : d_rect.bottom(), qAbs(d_rect.left() - d_rect.right()),
+                  qAbs(d_rect.top() - d_rect.bottom()));
 }
 
 void ArrowMarker::updateBoundingRect()

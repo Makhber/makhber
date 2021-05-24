@@ -31,6 +31,7 @@
 #define PLOTWIZARD_H
 
 #include <QDialog>
+
 class QGroupBox;
 class QPushButton;
 class QListWidget;

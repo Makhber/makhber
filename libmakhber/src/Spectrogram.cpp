@@ -27,12 +27,15 @@
  ***************************************************************************/
 
 #include "Spectrogram.h"
+
 #include "ColorButton.h"
-#include <cmath>
-#include <qpen.h>
-#include <qmessagebox.h>
 
 #include <qwt_scale_widget.h>
+
+#include <QPen>
+#include <QMessageBox>
+
+#include <cmath>
 
 Spectrogram::Spectrogram()
     : QwtPlotSpectrogram(),

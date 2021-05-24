@@ -30,14 +30,15 @@
 #ifndef ABSTRACTCOLUMN_H
 #define ABSTRACTCOLUMN_H
 
+#include "lib/Interval.h"
+#include "core/AbstractAspect.h"
+#include "globals.h"
+
 #include <QList>
 #include <QString>
 #include <QDateTime>
 #include <QDate>
 #include <QTime>
-#include "lib/Interval.h"
-#include "globals.h"
-#include "core/AbstractAspect.h"
 
 class Column;
 class AbstractSimpleFilter;

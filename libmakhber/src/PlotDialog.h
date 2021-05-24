@@ -29,9 +29,10 @@
 #ifndef PLOTDIALOG_H
 #define PLOTDIALOG_H
 
+#include "MultiLayer.h"
+
 #include <QDialog>
 #include <QTreeWidgetItem>
-#include "MultiLayer.h"
 
 class QCheckBox;
 class QComboBox;

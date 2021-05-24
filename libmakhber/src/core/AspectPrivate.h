@@ -30,11 +30,11 @@
 #define ASPECT_PRIVATE_H
 
 #include "AbstractAspect.h"
+#include "ApplicationWindow.h"
 
 #include <QString>
 #include <QDateTime>
 #include <QList>
-#include "ApplicationWindow.h"
 #include <QHash>
 
 //! Private data managed by AbstractAspect.

@@ -29,17 +29,17 @@
 
 #include "SelectionMoveResizer.h"
 
-#include <QPainter>
-#include <QMouseEvent>
+#include "Legend.h"
+#include "ArrowMarker.h"
+#include "ImageMarker.h"
+#include "PlotEnrichement.h"
 
 #include <qwt_scale_map.h>
 #include <qwt_plot.h>
 #include <qwt_plot_canvas.h>
 
-#include "Legend.h"
-#include "ArrowMarker.h"
-#include "ImageMarker.h"
-#include "PlotEnrichement.h"
+#include <QPainter>
+#include <QMouseEvent>
 
 SelectionMoveResizer::SelectionMoveResizer(Legend *target) : QWidget(target->plot()->canvas())
 {

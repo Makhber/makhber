@@ -28,8 +28,10 @@
  *                                                                         *
  ***************************************************************************/
 #include "String2DateTimeFilter.h"
-#include <QStringList>
+
 #include "lib/XmlStreamReader.h"
+
+#include <QStringList>
 #include <QXmlStreamWriter>
 
 std::array<const char *, 11> String2DateTimeFilter::date_formats = {

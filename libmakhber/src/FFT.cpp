@@ -27,16 +27,17 @@
  *                                                                         *
  ***************************************************************************/
 #include "FFT.h"
+
 #include "MultiLayer.h"
 #include "Plot.h"
 #include "ColorButton.h"
 #include "core/column/Column.h"
 
-#include <QMessageBox>
-#include <QLocale>
-
 #include <gsl/gsl_fft_complex.h>
 #include <gsl/gsl_fft_halfcomplex.h>
+
+#include <QMessageBox>
+#include <QLocale>
 
 FFT::FFT(ApplicationWindow *parent, Table *t, const QString &realColName,
          const QString &imagColName)
@@ -212,7 +213,8 @@ void FFT::setDataFromTable(Table *t, const QString &realColName, const QString &
                 d_y[i2 + 1] = d_table->cell(i, d_imag_col);
         }
     } else {
-        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()), tr("Makhber") + " - " + tr("Error"),
+        QMessageBox::critical(dynamic_cast<ApplicationWindow *>(parent()),
+                              tr("Makhber") + " - " + tr("Error"),
                               tr("Could not allocate memory, operation aborted!"));
         d_init_err = true;
     }

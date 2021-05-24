@@ -30,11 +30,13 @@
 #ifndef STRING2MONTH_FILTER_H
 #define STRING2MONTH_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
-#include <QDateTime>
-#include <math.h>
+#include "core/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
+
+#include <QDateTime>
 #include <QXmlStreamWriter>
+
+#include <math.h>
 
 //! Conversion filter String -> QDateTime, interpreting the input as months of the year (either numeric or "Jan" etc).
 class String2MonthFilter : public AbstractSimpleFilter

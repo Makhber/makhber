@@ -27,21 +27,24 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "globals.h"
+#include "version.h"
+
+#include "ui_MakhberAbout.h"
+
+#include "qwt_global.h"
+#include "muParserDef.h"
+#include "gsl/gsl_version.h"
 #ifdef SCRIPTING_PYTHON
 #include <Python.h>
 #endif
-#include "globals.h"
-#include "version.h"
-#include "qwt_global.h"
-#include "gsl/gsl_version.h"
-#include "muParserDef.h"
+
 #include <QMessageBox>
 #include <QIcon>
 #include <QObject>
 #include <QMetaObject>
 #include <QMetaEnum>
 #include <QtDebug>
-#include "ui_MakhberAbout.h"
 
 const QString Makhber::copyright_string = "";
 

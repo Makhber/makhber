@@ -29,6 +29,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "Table.h"
+
 #include "core/column/Column.h"
 #include "lib/Interval.h"
 #include "table/TableModel.h"
@@ -54,8 +55,10 @@
 #include <QProgressDialog>
 #include <QFile>
 #include <QTemporaryFile>
+
 #include <vector>
 #include <iostream>
+
 using namespace std;
 
 Table::Table(ScriptingEnv *env, const QString &fname, const QString &sep, int ignoredLines,

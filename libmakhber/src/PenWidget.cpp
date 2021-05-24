@@ -29,6 +29,7 @@
 /* based on https://github.com/jhj/aqp-qt5/raw/master/pagedesigner1/penwidget.cpp */
 
 #include "PenWidget.h"
+
 #include "ColorButton.h"
 
 #include <QApplication>
@@ -42,7 +43,6 @@
 #include <QPushButton>
 #include <QValidator>
 #include <QVBoxLayout>
-
 #include <QDebug>
 
 PenWidget::PenWidget(QWidget *parent, QPen pen) : QWidget(parent)

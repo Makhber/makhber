@@ -29,10 +29,13 @@
  *                                                                         *
  ***************************************************************************/
 #include "MultiPeakFitTool.h"
+
 #include "ApplicationWindow.h"
 #include "DataPickerTool.h"
 #include "Plot.h"
+
 #include <qwt_plot_curve.h>
+
 #include <QApplication>
 
 MultiPeakFitTool::MultiPeakFitTool(Graph *graph, ApplicationWindow *app,

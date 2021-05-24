@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "TextDialog.h"
+
 #include "ApplicationWindow.h"
 
 #include <QFontDialog>

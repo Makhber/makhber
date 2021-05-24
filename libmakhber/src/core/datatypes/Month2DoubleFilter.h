@@ -30,9 +30,10 @@
 #ifndef MONTH2DOUBLE_FILTER_H
 #define MONTH2DOUBLE_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
-#include <QDateTime>
+#include "core/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
+
+#include <QDateTime>
 #include <QXmlStreamWriter>
 
 /**

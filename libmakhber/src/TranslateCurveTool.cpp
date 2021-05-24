@@ -29,19 +29,23 @@
  *                                                                         *
  ***************************************************************************/
 #include "TranslateCurveTool.h"
+
 #include "Graph.h"
 #include "PlotCurve.h"
 #include "FunctionCurve.h"
 #include "ApplicationWindow.h"
 #include "DataPickerTool.h"
 #include "ScreenPickerTool.h"
+#include "core/column/Column.h"
+
+#include <qwt_plot_curve.h>
+
 #include <QMessageBox>
 #include <QLocale>
-#include <qwt_plot_curve.h>
-#include "core/column/Column.h"
-#include <cmath>
 
 #include <stdexcept>
+#include <cmath>
+
 using namespace std;
 
 TranslateCurveTool::TranslateCurveTool(Graph *graph, ApplicationWindow *app, Direction dir,

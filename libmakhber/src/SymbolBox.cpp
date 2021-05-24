@@ -27,10 +27,11 @@
  *                                                                         *
  ***************************************************************************/
 #include "SymbolBox.h"
-#include <algorithm>
 
-#include <qpixmap.h>
-#include <qpainter.h>
+#include <QPixmap>
+#include <QPainter>
+
+#include <algorithm>
 
 std::array<const QwtSymbol::Style, 16> SymbolBox::symbols = {
     QwtSymbol::NoSymbol,  QwtSymbol::Ellipse,   QwtSymbol::Rect,      QwtSymbol::Diamond,

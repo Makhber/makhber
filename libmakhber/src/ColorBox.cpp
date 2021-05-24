@@ -30,6 +30,7 @@
 
 #include <QPixmap>
 #include <QPainter>
+
 #include <algorithm>
 
 std::array<const QColor, 24> ColorBox::colors = {

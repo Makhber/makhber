@@ -32,9 +32,11 @@
 #define SCREEN_PICKER_TOOL_H
 
 #include "PlotToolInterface.h"
-#include <QObject>
+
 #include <qwt_plot_marker.h>
 #include <qwt_plot_picker.h>
+
+#include <QObject>
 
 /*!Plot tool for selecting arbitrary points.
  *

@@ -28,7 +28,8 @@
 #ifndef NUMERIC_DATETIME_BASE_FILTER_H
 #define NUMERIC_DATETIME_BASE_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
+#include "core/AbstractSimpleFilter.h"
+
 #include <QDateTime>
 #include <QDate>
 #include <QTime>

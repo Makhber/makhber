@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "ConfigDialog.h"
+
 #include "ApplicationWindow.h"
 #include "MultiLayer.h"
 #include "Graph.h"

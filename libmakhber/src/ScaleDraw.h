@@ -29,12 +29,12 @@
 #ifndef SCALES_H
 #define SCALES_H
 
+#include <qwt_scale_draw.h>
+
 #include <QDateTime>
 #include <QStringList>
 #include <QLocale>
 #include <QMap>
-
-#include <qwt_scale_draw.h>
 
 //! Extension to QwtScaleDraw
 class ScaleDraw : public QwtScaleDraw

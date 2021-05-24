@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "FitDialog.h"
+
 #include "MyParser.h"
 #include "ApplicationWindow.h"
 #include "ColorButton.h"
@@ -38,7 +39,7 @@
 #include "NonLinearFit.h"
 #include "SigmoidalFit.h"
 #include "Matrix.h"
-#include <cmath>
+
 #include <muParserError.h>
 
 #include <QListWidget>
@@ -60,6 +61,8 @@
 #include <QGroupBox>
 #include <QLibrary>
 #include <QLocale>
+
+#include <cmath>
 #include <cstdio>
 
 #define CONFS(string) QString::number(QLocale().toDouble(string), 'g', boxPrecision->value())

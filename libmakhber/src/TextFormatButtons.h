@@ -31,6 +31,7 @@
 #define TEXTFORMATBUTTONS_H
 
 #include <QWidget>
+
 class QTextEdit;
 class QPushButton;
 

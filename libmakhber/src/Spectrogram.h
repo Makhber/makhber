@@ -30,12 +30,14 @@
 #define SPECTROGRAM_H
 
 #include "Matrix.h"
+
 #include <qwt_raster_data.h>
 #include <qwt_plot.h>
 #include <qwt_plot_spectrogram.h>
 #include <qwt_color_map.h>
-#include <cmath>
+
 #include <limits>
+#include <cmath>
 
 class MatrixData;
 

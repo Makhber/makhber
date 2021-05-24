@@ -29,13 +29,13 @@
 #ifndef FIT_H
 #define FIT_H
 
-#include <QObject>
-
 #include "Filter.h"
 #include "Script.h"
 
 #include <gsl/gsl_multifit_nlin.h>
 #include <gsl/gsl_multimin.h>
+
+#include <QObject>
 
 #include <vector>
 

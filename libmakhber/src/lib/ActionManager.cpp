@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "ActionManager.h"
+
 #include <QMutableMapIterator>
 
 ActionManager::ActionManager() = default;

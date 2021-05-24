@@ -1,10 +1,12 @@
+
+#include "utils.h"
+
 #include "ApplicationWindowTest.h"
 #include "ArrowMarker.h"
 #include "MultiLayer.h"
+
 #include <iostream>
 #include <thread>
-
-#include "utils.h"
 
 static double sqr(double x)
 {

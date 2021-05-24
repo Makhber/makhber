@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "FFTDialog.h"
+
 #include "Graph.h"
 #include "MyParser.h"
 #include "ApplicationWindow.h"
@@ -34,7 +35,6 @@
 #include "Table.h"
 #include "Plot.h"
 #include "FFT.h"
-#include <cmath>
 
 #include <QRadioButton>
 #include <QGroupBox>
@@ -47,6 +47,8 @@
 #include <QLayout>
 
 #include <memory>
+#include <cmath>
+
 using namespace std;
 
 FFTDialog::FFTDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)

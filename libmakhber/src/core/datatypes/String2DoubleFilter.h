@@ -29,12 +29,13 @@
 #ifndef STRING2DOUBLE_FILTER_H
 #define STRING2DOUBLE_FILTER_H
 
-#include "../AbstractSimpleFilter.h"
-#include <QLocale>
+#include "core/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
+#include "ApplicationWindow.h"
+
+#include <QLocale>
 #include <QXmlStreamWriter>
 #include <QtDebug>
-#include "ApplicationWindow.h"
 
 //! Locale-aware conversion filter QString -> double.
 class String2DoubleFilter : public AbstractSimpleFilter

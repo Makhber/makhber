@@ -29,7 +29,9 @@
  ***************************************************************************/
 
 #include "DateTime2StringFilter.h"
+
 #include "lib/XmlStreamReader.h"
+
 #include <QXmlStreamWriter>
 
 void DateTime2StringFilter::setFormat(const QString &format)

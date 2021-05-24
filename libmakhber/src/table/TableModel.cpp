@@ -27,19 +27,18 @@
  *                                                                         *
  ***************************************************************************/
 
+#include "table/TableModel.h"
+
 #include "core/column/Column.h"
 #include "table/future_Table.h"
-#include "table/TableModel.h"
+
 #include <QString>
 #include <QBrush>
 #include <QIcon>
 #include <QPixmap>
 
 TableModel::TableModel(future::Table *table)
-    : QAbstractItemModel(nullptr),
-      d_table(table),
-      d_formula_mode(false),
-      d_read_only(false)
+    : QAbstractItemModel(nullptr), d_table(table), d_formula_mode(false), d_read_only(false)
 {
     connect(d_table, SIGNAL(columnsAboutToBeInserted(int, QList<Column *>)), this,
             SLOT(handleColumnsAboutToBeInserted(int, QList<Column *>)));

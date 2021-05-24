@@ -29,9 +29,9 @@
 #ifndef FILTER_H
 #define FILTER_H
 
-#include <QObject>
-
 #include "ApplicationWindow.h"
+
+#include <QObject>
 
 class QwtPlotCurve;
 class Graph;

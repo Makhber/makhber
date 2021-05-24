@@ -30,6 +30,12 @@
 #ifndef TABLEVIEW_H
 #define TABLEVIEW_H
 
+#include "globals.h"
+#include "MyWidget.h"
+#include "lib/IntervalAttribute.h"
+
+#include "ui_controltabs.h"
+
 #include <QWidget>
 #include <QTableView>
 #include <QMessageBox>
@@ -47,12 +53,8 @@
 #include <QComboBox>
 #include <QSpinBox>
 #include <QScrollArea>
-#include "ui_controltabs.h"
 #include <QtDebug>
 #include <QPointer>
-#include "globals.h"
-#include "MyWidget.h"
-#include "lib/IntervalAttribute.h"
 
 class Column;
 namespace future {

@@ -1,10 +1,13 @@
+
+#include "utils.h"
+
 #include "ApplicationWindowTest.h"
 #include "FFT.h"
 #include "MultiLayer.h"
-#include <QMdiArea>
-#include <iostream>
 
-#include "utils.h"
+#include <QMdiArea>
+
+#include <iostream>
 
 TEST_F(ApplicationWindowTest, fft)
 {

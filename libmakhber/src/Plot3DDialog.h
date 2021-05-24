@@ -30,6 +30,7 @@
 #define PLOT3DDIALOG_H
 
 #include "Graph3D.h"
+
 #include <QCheckBox>
 
 class QComboBox;

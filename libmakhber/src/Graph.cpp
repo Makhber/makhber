@@ -27,9 +27,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include <QVarLengthArray>
-
 #include "Graph.h"
+
 #include "Grid.h"
 #include "CanvasPicker.h"
 #include "QwtErrorPlotCurve.h"
@@ -55,6 +54,16 @@
 #include "ApplicationWindow.h"
 #include "core/column/Column.h"
 
+#include <qwt_painter.h>
+#include <qwt_plot_canvas.h>
+#include <qwt_plot_layout.h>
+#include <qwt_plot_zoomer.h>
+#include <qwt_scale_widget.h>
+#include <qwt_scale_engine.h>
+#include <qwt_text.h>
+#include <qwt_text_label.h>
+#include <qwt_color_map.h>
+
 #include <QApplication>
 #include <QBitmap>
 #include <QClipboard>
@@ -70,27 +79,15 @@
 #include <QImageWriter>
 #include <QFileInfo>
 #include <QRegExp>
-
-#if QT_VERSION >= 0x040300
+#include <QVarLengthArray>
 #include <QSvgGenerator>
-#endif
-
-#include <qwt_painter.h>
-#include <qwt_plot_canvas.h>
-#include <qwt_plot_layout.h>
-#include <qwt_plot_zoomer.h>
-#include <qwt_scale_widget.h>
-#include <qwt_scale_engine.h>
-#include <qwt_text.h>
-#include <qwt_text_label.h>
-#include <qwt_color_map.h>
 
 #include <stdexcept>
-
 #include <cmath>
 #include <cstdlib>
 #include <cstdio>
 #include <cstddef>
+
 using namespace std;
 
 Graph::Graph(QWidget *parent, QString name, Qt::WindowFlags f) : QWidget(parent, f)
@@ -186,8 +183,7 @@ Graph::Graph(QWidget *parent, QString name, Qt::WindowFlags f) : QWidget(parent,
             SIGNAL(rightAxisTitleDblClicked()));
     connect(scalePicker, SIGNAL(topAxisTitleDblClicked()), this, SIGNAL(topAxisTitleDblClicked()));
 
-    connect(d_zoomer[0], SIGNAL(zoomed(const QRectF &)), this,
-            SLOT(zoomed(const QRectF &)));
+    connect(d_zoomer[0], SIGNAL(zoomed(const QRectF &)), this, SLOT(zoomed(const QRectF &)));
 }
 
 void Graph::notifyChanges()

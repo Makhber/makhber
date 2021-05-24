@@ -27,9 +27,9 @@
  *                                                                         *
  ***************************************************************************/
 #include "SurfaceDialog.h"
+
 #include "MyParser.h"
 #include "ApplicationWindow.h"
-#include <cmath>
 
 #include <QMessageBox>
 #include <QLayout>
@@ -38,6 +38,8 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QComboBox>
+
+#include <cmath>
 
 SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {

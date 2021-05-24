@@ -30,6 +30,7 @@
 #define VECTORCURVE_H
 
 #include "PlotCurve.h"
+
 #include <qwt_plot.h>
 
 class QwtPlot;
@@ -89,7 +90,7 @@ public:
     void updateColumnNames(const QString &oldName, const QString &newName, bool updateTableName);
 
 protected:
-    QwtArrayData *vectorEnd{};
+    QwtArrayData *vectorEnd {};
     QPen pen;
     bool filledArrow;
     int d_headLength, d_headAngle, d_position;

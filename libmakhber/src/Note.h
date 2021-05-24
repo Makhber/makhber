@@ -31,7 +31,8 @@
 
 #include "MyWidget.h"
 #include "ScriptEdit.h"
-#include <qtextedit.h>
+
+#include <QTextEdit>
 
 class ScriptingEnv;
 

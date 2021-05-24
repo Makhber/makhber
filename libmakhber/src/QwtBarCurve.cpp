@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "QwtBarCurve.h"
+
 #include <QPainter>
 
 #include <cmath>

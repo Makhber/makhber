@@ -1,9 +1,14 @@
 #ifndef UTILS_H
 #define UTILS_H
+
+#include <QApplication>
+#include <QDialog>
+#include <QKeyEvent>
+#include <QString>
+
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include <QString>
 
 inline std::ostream &operator<<(std::ostream &o, const QString &s)
 {

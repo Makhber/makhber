@@ -29,6 +29,7 @@
 #include "VectorCurve.h"
 
 #include <qwt_painter.h>
+
 #include <QPainter>
 #include <QLocale>
 

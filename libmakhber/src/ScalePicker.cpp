@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "ScalePicker.h"
+
 #include "ScaleDraw.h"
 #include "Plot.h"
 #include "Graph.h"

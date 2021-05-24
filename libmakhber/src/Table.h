@@ -31,12 +31,6 @@
 #ifndef TABLE_H
 #define TABLE_H
 
-#include <QVarLengthArray>
-#include <QDateTime>
-#include <QHash>
-#include <QMap>
-#include <QPointer>
-
 #include "Graph.h"
 #include "MyWidget.h"
 #include "ScriptingEnv.h"
@@ -44,6 +38,12 @@
 #include "table/future_Table.h"
 #include "table/TableView.h"
 #include "globals.h"
+
+#include <QVarLengthArray>
+#include <QDateTime>
+#include <QHash>
+#include <QMap>
+#include <QPointer>
 
 /*!\brief MDI window providing a spreadsheet table with column logic.
  */

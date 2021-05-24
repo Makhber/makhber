@@ -35,6 +35,7 @@
 #include "lib/IntervalAttribute.h"
 #include "lib/XmlStreamReader.h"
 #include "core/datatypes/NumericDateTimeBaseFilter.h"
+
 #include <memory>
 
 class QString;

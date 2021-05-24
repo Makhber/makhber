@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "LayerDialog.h"
+
 #include "ApplicationWindow.h"
 
 #include <QLayout>

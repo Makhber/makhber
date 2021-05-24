@@ -30,6 +30,7 @@
 #define EXPORTDIALOG_H
 
 #include <QDialog>
+
 class QPushButton;
 class QCheckBox;
 class QComboBox;

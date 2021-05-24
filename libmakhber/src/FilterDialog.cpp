@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "FilterDialog.h"
+
 #include "Graph.h"
 #include "MyParser.h"
 #include "ColorButton.h"
@@ -152,8 +153,8 @@ void FilterDialog::filter()
         }
     }
 
-    auto *f = new FFTFilter(dynamic_cast<ApplicationWindow *>(this->parent()), graph, boxName->currentText(),
-                                 filter_type);
+    auto *f = new FFTFilter(dynamic_cast<ApplicationWindow *>(this->parent()), graph,
+                            boxName->currentText(), filter_type);
     if (filter_type == FFTFilter::BandPass) {
         f->setBand(from, to);
         f->enableOffset(boxOffset->isChecked());

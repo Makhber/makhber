@@ -27,13 +27,13 @@
  *                                                                         *
  ***************************************************************************/
 #include "IntDialog.h"
+
 #include "MyParser.h"
 #include "Graph.h"
 #include "ApplicationWindow.h"
 #include "Integration.h"
 #include "FunctionCurve.h"
 #include "Differentiation.h"
-#include <cmath>
 
 #include <QGroupBox>
 #include <QSpinBox>
@@ -43,6 +43,8 @@
 #include <QLineEdit>
 #include <QComboBox>
 #include <QLayout>
+
+#include <cmath>
 
 IntDialog::IntDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {

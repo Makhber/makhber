@@ -1,5 +1,8 @@
 #ifndef QSTRINGSTDSTRING_H
 #define QSTRINGSTDSTRING_H
+
+#include <QString>
+
 /// Deal with conversion between QString and std::string/std::wstring in a generic way
 
 template<class S>

@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "FindDialog.h"
+
 #include "ApplicationWindow.h"
 #include "Folder.h"
 

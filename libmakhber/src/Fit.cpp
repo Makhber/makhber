@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "Fit.h"
+
 #include "fit_gsl.h"
 #include "Table.h"
 #include "Matrix.h"
@@ -36,7 +37,6 @@
 #include "ColorButton.h"
 #include "Script.h"
 #include "core/column/Column.h"
-#include <cmath>
 
 #include <gsl/gsl_statistics.h>
 #include <gsl/gsl_blas.h>
@@ -47,6 +47,8 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include <QLocale>
+
+#include <cmath>
 
 using namespace std;
 
@@ -603,8 +605,8 @@ void Fit::generateFitCurve(const vector<double> &par)
 void Fit::insertFitFunctionCurve(const QString &name, double *x, double *y, int penWidth)
 {
     QString title = d_graph->generateFunctionName(name);
-    auto *c =
-            new FunctionCurve(dynamic_cast<ApplicationWindow *>(parent()), FunctionCurve::Normal, title);
+    auto *c = new FunctionCurve(dynamic_cast<ApplicationWindow *>(parent()), FunctionCurve::Normal,
+                                title);
     c->setPen(QPen(d_curveColor, penWidth));
     c->setData(x, y, d_points);
     c->setRange(d_x[0], d_x[d_n - 1]);

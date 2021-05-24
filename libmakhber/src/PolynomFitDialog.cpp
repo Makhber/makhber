@@ -27,11 +27,11 @@
  *                                                                         *
  ***************************************************************************/
 #include "PolynomFitDialog.h"
+
 #include "Graph.h"
 #include "ColorButton.h"
 #include "ApplicationWindow.h"
 #include "PolynomialFit.h"
-#include <cmath>
 
 #include <QSpinBox>
 #include <QCheckBox>
@@ -42,6 +42,8 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QComboBox>
+
+#include <cmath>
 
 PolynomFitDialog::PolynomFitDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {
@@ -113,8 +115,7 @@ void PolynomFitDialog::fit()
     }
 
     auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
-    auto *fitter =
-            new PolynomialFit(app, graph, boxOrder->value(), boxShowFormula->isChecked());
+    auto *fitter = new PolynomialFit(app, graph, boxOrder->value(), boxShowFormula->isChecked());
     if (fitter->setDataFromCurve(curveName, boxStart->text().toDouble(),
                                  boxEnd->text().toDouble())) {
         fitter->setColor(btnColor->color());

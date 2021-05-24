@@ -26,11 +26,12 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include <qbitmap.h>
+#include "Bar.h"
 
 #include <qwt3d_color.h>
 #include <qwt3d_plot.h>
-#include "Bar.h"
+
+#include <QBitmap>
 
 using namespace Qwt3D;
 

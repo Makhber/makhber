@@ -28,9 +28,11 @@
  ***************************************************************************/
 
 #include "core/column/Column.h"
+
 #include "core/column/ColumnPrivate.h"
 #include "core/column/columncommands.h"
 #include "lib/XmlStreamReader.h"
+
 #include <QIcon>
 #include <QXmlStreamWriter>
 #include <QtDebug>

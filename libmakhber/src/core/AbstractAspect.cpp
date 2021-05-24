@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "core/AbstractAspect.h"
+
 #include "core/AspectPrivate.h"
 #include "core/aspectcommands.h"
 #include "core/future_Folder.h"

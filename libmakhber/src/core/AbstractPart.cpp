@@ -28,7 +28,9 @@
  ***************************************************************************/
 
 #include "AbstractPart.h"
+
 #include "PartMdiView.h"
+
 #include <QMenu>
 #include <QStyle>
 

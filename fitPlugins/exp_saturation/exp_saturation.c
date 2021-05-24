@@ -32,6 +32,7 @@
 
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
+
 #include <math.h>
 
 #ifdef _WIN32

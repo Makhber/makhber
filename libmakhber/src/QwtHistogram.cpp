@@ -27,8 +27,9 @@
  *                                                                         *
  ***************************************************************************/
 #include "QwtHistogram.h"
+
 #include "core/column/Column.h"
-#include <cmath>
+
 #include <QPainter>
 #include <QLocale>
 
@@ -36,6 +37,7 @@
 #include <gsl/gsl_histogram.h>
 
 #include <array>
+#include <cmath>
 
 QwtHistogram::QwtHistogram(Table *t, const QString &name, int startRow, int endRow)
     : QwtBarCurve(QwtBarCurve::Vertical, t, "dummy", name, startRow, endRow)

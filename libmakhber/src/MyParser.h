@@ -29,13 +29,13 @@
 #ifndef MYPARSER_H
 #define MYPARSER_H
 
+#include "QStringStdString.h"
+
 #include <muParser.h>
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_sf.h>
 
-#include <qstringlist.h>
-
-#include "QStringStdString.h"
+#include <QStringList>
 
 using namespace mu;
 

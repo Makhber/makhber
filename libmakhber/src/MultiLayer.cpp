@@ -26,6 +26,21 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+
+#include "MultiLayer.h"
+
+#include "Plot.h"
+#include "Legend.h"
+#include "SelectionMoveResizer.h"
+
+#include <qwt_plot.h>
+#include <qwt_plot_canvas.h>
+#include <qwt_plot_layout.h>
+#include <qwt_scale_widget.h>
+#include <qwt_text_label.h>
+
+#include <gsl/gsl_vector.h>
+
 #include <QVector>
 #include <QWidgetList>
 #include <QPrinter>
@@ -39,25 +54,10 @@
 #include <QPicture>
 #include <QClipboard>
 #include <QMouseEvent>
-
-#if QT_VERSION >= 0x040300
 #include <QSvgGenerator>
-#endif
-
-#include <qwt_plot.h>
-#include <qwt_plot_canvas.h>
-#include <qwt_plot_layout.h>
-#include <qwt_scale_widget.h>
-#include <qwt_text_label.h>
-
-#include "MultiLayer.h"
-#include "Plot.h"
-#include "Legend.h"
-#include "SelectionMoveResizer.h"
-
-#include <gsl/gsl_vector.h>
 
 #include <iostream>
+
 using namespace std;
 
 LayerButton::LayerButton(const QString &text, QWidget *parent) : QPushButton(text, parent)
@@ -158,7 +158,8 @@ LayerButton *MultiLayer::addLayerButton()
     }
 
     auto *button = new LayerButton(QString::number(++graphs));
-    connect(button, SIGNAL(layerButtonclicked(LayerButton *)), this, SLOT(activateGraph(LayerButton *)));
+    connect(button, SIGNAL(layerButtonclicked(LayerButton *)), this,
+            SLOT(activateGraph(LayerButton *)));
     connect(button, SIGNAL(showContextMenu()), this, SIGNAL(showLayerButtonContextMenu()));
     connect(button, SIGNAL(showCurvesDialog()), this, SIGNAL(showCurvesDialog()));
 

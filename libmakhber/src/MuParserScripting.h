@@ -38,10 +38,11 @@
 #include "MuParserScript.h"
 
 #include <muParser.h>
-#include "math.h"
+
 #include <gsl/gsl_sf.h>
 #include <gsl/gsl_errno.h>
 
+#include "math.h"
 #include <array>
 
 //! TODO

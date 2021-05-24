@@ -27,13 +27,17 @@
  *                                                                         *
  ***************************************************************************/
 #include "PlotCurve.h"
+
 #include "ScaleDraw.h"
 #include "core/column/Column.h"
 #include "core/datatypes/DateTime2StringFilter.h"
+
+#include <qwt_symbol.h>
+
 #include <QDateTime>
 #include <QMessageBox>
+
 #include <utility>
-#include <qwt_symbol.h>
 
 DataCurve::DataCurve(Table *t, QString xColName, const QString &name, int startRow, int endRow)
     : PlotCurve(name),

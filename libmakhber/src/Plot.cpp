@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "Plot.h"
+
 #include "Graph.h"
 #include "Grid.h"
 #include "ScaleDraw.h"
@@ -44,6 +45,7 @@
 #include <QPainter>
 
 #include <iostream>
+
 using namespace std;
 
 Plot::Plot(QWidget *parent, QString) : QwtPlot(parent)
@@ -451,7 +453,8 @@ int Plot::insertCurve(QwtPlotItem *c)
     if (c->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
         (dynamic_cast<QwtPlotCurve *>(c))->setPaintAttribute(QwtPlotCurve::PaintFiltered);
 
-    c->setRenderHint(QwtPlotItem::RenderAntialiased, (dynamic_cast<Graph *>(parent()))->antialiasing());
+    c->setRenderHint(QwtPlotItem::RenderAntialiased,
+                     (dynamic_cast<Graph *>(parent()))->antialiasing());
     c->attach(this);
     return curve_key;
 }

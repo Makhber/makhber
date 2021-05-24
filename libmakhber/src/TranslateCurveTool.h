@@ -32,6 +32,7 @@
 #define TRANSLATE_CURVE_TOOL_H
 
 #include "PlotToolInterface.h"
+
 #include <QObject>
 #include <QPointF>
 

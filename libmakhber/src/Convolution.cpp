@@ -27,16 +27,19 @@
  *                                                                         *
  ***************************************************************************/
 #include "Convolution.h"
+
 #include "MultiLayer.h"
 #include "Plot.h"
 #include "PlotCurve.h"
 #include "ColorButton.h"
 #include "core/column/Column.h"
-#include <cmath>
+
+#include <gsl/gsl_fft_halfcomplex.h>
 
 #include <QMessageBox>
 #include <QLocale>
-#include <gsl/gsl_fft_halfcomplex.h>
+
+#include <cmath>
 
 Convolution::Convolution(ApplicationWindow *parent, Table *t, const QString &signalColName,
                          const QString &responseColName)

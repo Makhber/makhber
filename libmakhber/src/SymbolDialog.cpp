@@ -27,6 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 #include "SymbolDialog.h"
+
 #include <QPushButton>
 #include <QSizePolicy>
 #include <QGroupBox>

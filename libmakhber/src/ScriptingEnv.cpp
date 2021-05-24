@@ -27,9 +27,8 @@
  *                                                                         *
  ***************************************************************************/
 #include "ScriptingEnv.h"
-#include "Script.h"
 
-#include <cstring>
+#include "Script.h"
 
 #ifdef SCRIPTING_MUPARSER
 #include "MuParserScript.h"
@@ -39,6 +38,8 @@
 #include "PythonScript.h"
 #include "PythonScripting.h"
 #endif
+
+#include <cstring>
 
 ScriptingEnv::ScriptingEnv(ApplicationWindow *parent, const char *langName)
     : QObject(nullptr), d_parent(parent)

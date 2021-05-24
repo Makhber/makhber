@@ -29,7 +29,7 @@
 #ifndef LINEDIALOG_H
 #define LINEDIALOG_H
 
-#include <qdialog.h>
+#include <QDialog>
 
 class QCheckBox;
 class QComboBox;

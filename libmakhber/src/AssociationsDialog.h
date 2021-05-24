@@ -30,6 +30,7 @@
 #define ASSOCIATIONSDIALOG_H
 
 #include "MyWidget.h"
+
 #include <QDialog>
 
 class QLabel;
@@ -66,7 +67,7 @@ private:
     Table *findTable(int index);
     bool eventFilter(QObject *object, QEvent *e);
 
-    QList<MyWidget *> *tables{};
+    QList<MyWidget *> *tables {};
     Table *active_table;
     Graph *graph;
     QStringList plotAssociationsList;

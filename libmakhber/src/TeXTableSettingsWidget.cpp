@@ -27,8 +27,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "TeXTableSettings.h"
 #include "TeXTableSettingsWidget.h"
+
+#include "TeXTableSettings.h"
 
 #include <QCheckBox>
 #include <QRadioButton>

@@ -26,8 +26,9 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include <QObject>
 #include "Plot.h"
+
+#include <QObject>
 
 class Graph;
 class ArrowMarker;

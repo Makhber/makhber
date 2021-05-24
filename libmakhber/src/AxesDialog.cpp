@@ -26,16 +26,19 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "ApplicationWindow.h"
 #include "AxesDialog.h"
+
+#include "ApplicationWindow.h"
 #include "TextDialog.h"
 #include "Grid.h"
 #include "Plot.h"
 #include "MyParser.h"
 #include "ColorButton.h"
 #include "TextFormatButtons.h"
-#include <cmath>
-#include <array>
+
+#include <qwt_plot.h>
+#include <qwt_scale_widget.h>
+#include <qwt_scale_engine.h>
 
 #include <QColorDialog>
 #include <QCheckBox>
@@ -55,9 +58,8 @@
 #include <QGroupBox>
 #include <QRadioButton>
 
-#include <qwt_plot.h>
-#include <qwt_scale_widget.h>
-#include <qwt_scale_engine.h>
+#include <array>
+#include <cmath>
 
 #ifndef M_PI
 #define M_PI 3.141592653589793238462643

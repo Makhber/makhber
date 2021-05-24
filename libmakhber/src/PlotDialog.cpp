@@ -26,8 +26,9 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "ApplicationWindow.h"
 #include "PlotDialog.h"
+
+#include "ApplicationWindow.h"
 #include "ColorButton.h"
 #include "PenWidget.h"
 #include "PatternBox.h"
@@ -44,7 +45,6 @@
 #include "ColorMapEditor.h"
 #include "QStringStdString.h"
 #include "core/column/Column.h"
-#include <cmath>
 
 #include <QTreeWidget>
 #include <QLineEdit>
@@ -66,6 +66,8 @@
 #include <QDoubleSpinBox>
 #include <QMenu>
 #include <QDateTime>
+
+#include <cmath>
 
 PlotDialog::PlotDialog(bool showExtended, QWidget *parent, Qt::WindowFlags fl)
     : QDialog(parent, fl), d_ml(nullptr)

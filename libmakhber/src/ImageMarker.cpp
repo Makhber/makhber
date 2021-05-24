@@ -28,6 +28,7 @@
  ***************************************************************************/
 
 #include "ImageMarker.h"
+
 #include <QPainter>
 #include <QImageReader>
 
@@ -119,8 +120,7 @@ void ImageMarker::updateBoundingRect()
 
 QRectF ImageMarker::boundingRect() const
 {
-    return QRectF(xValue(), yValue(), qAbs(d_x_right - xValue()),
-                         qAbs(d_y_bottom - yValue()));
+    return QRectF(xValue(), yValue(), qAbs(d_x_right - xValue()), qAbs(d_y_bottom - yValue()));
 }
 
 QRect ImageMarker::rect() const
