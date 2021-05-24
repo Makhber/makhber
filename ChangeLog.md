@@ -1,5 +1,16 @@
 # Changelog
 
+## Makhber 0.9.4
+
+Released: 24-05-2021
+
+### General
+
+- Debian and RPM packages for Ubuntu 20.04 and Fedora 34
+- Fix Windows Installer by including OpenSSL library and adding the possiblity to select components.
+- Fix file association on Linux.
+- Other minor fixes.
+
 ## Makhber 0.9.3
 
 Released: 16-04-2021
