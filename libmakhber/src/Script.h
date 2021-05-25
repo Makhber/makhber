@@ -77,14 +77,14 @@ public:
     {
         Code.append(code);
         compiled = notCompiled;
-        emit codeChanged();
+        Q_EMIT codeChanged();
     }
     //! Set the code that will be executed when calling exec() or eval()
     virtual void setCode(const QString &code)
     {
         Code = code;
         compiled = notCompiled;
-        emit codeChanged();
+        Q_EMIT codeChanged();
     }
     //! Set the context in which the code is to be executed.
     virtual void setContext(QObject *context)
@@ -104,7 +104,7 @@ public:
     /// true if running in batch - don't redirect stdio
     bool batchMode = false;
 
-public slots:
+public Q_SLOTS:
     //! Compile the Code. Return true if the implementation doesn't support compilation.
     virtual bool compile(bool for_eval = true);
     //! Evaluate the Code, returning QVariant() on an error / exception.
@@ -117,7 +117,7 @@ public slots:
     virtual bool setInt(int, const char *) { return false; }
     virtual bool setDouble(double, const char *) { return false; }
 
-signals:
+Q_SIGNALS:
     //! This is emitted whenever the code to be executed by exec() and eval() is changed.
     void codeChanged();
     //! signal an error condition / exception
@@ -135,7 +135,7 @@ protected:
     void emit_error(const QString &message, int lineNumber)
     {
         if (EmitErrors)
-            emit error(message, Name, lineNumber);
+            Q_EMIT error(message, Name, lineNumber);
     }
 };
 

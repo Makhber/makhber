@@ -65,7 +65,7 @@ private:
     //! Internal function: format selected text with prefix and postfix
     void formatText(const QString &prefix, const QString &postfix);
 
-private slots:
+private Q_SLOTS:
     //! Format seleted text to subscript
     void addSubscript();
     //! Format seleted text to superscript

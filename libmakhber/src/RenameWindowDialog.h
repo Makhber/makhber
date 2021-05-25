@@ -61,12 +61,12 @@ private:
     QLineEdit *boxNameLine;
     QTextEdit *boxLabelEdit;
 
-public slots:
+public Q_SLOTS:
     void setWidget(MyWidget *w);
     MyWidget::CaptionPolicy getCaptionPolicy();
     void accept();
 
-signals:
+Q_SIGNALS:
 
 private:
     MyWidget *window{};

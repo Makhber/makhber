@@ -189,25 +189,25 @@ void SelectionMoveResizer::recalcBoundingRect()
 {
     d_bounding_rect = QRect(0, 0, -1, -1);
 
-    foreach (Legend *i, d_legend_markers) {
+    for (Legend *i : d_legend_markers) {
         if (d_bounding_rect.isValid())
             d_bounding_rect |= boundingRectOf(i);
         else
             d_bounding_rect = boundingRectOf(i);
     }
-    foreach (ArrowMarker *i, d_line_markers) {
+    for (ArrowMarker *i : d_line_markers) {
         if (d_bounding_rect.isValid())
             d_bounding_rect |= boundingRectOf(i);
         else
             d_bounding_rect = boundingRectOf(i);
     }
-    foreach (ImageMarker *i, d_image_markers) {
+    for (ImageMarker *i : d_image_markers) {
         if (d_bounding_rect.isValid())
             d_bounding_rect |= boundingRectOf(i);
         else
             d_bounding_rect = boundingRectOf(i);
     }
-    foreach (QWidget *i, d_widgets) {
+    for (QWidget *i : d_widgets) {
         if (d_bounding_rect.isValid())
             d_bounding_rect |= i->frameGeometry();
         else
@@ -301,7 +301,7 @@ QRect SelectionMoveResizer::operateOn(const QRect in)
 
 void SelectionMoveResizer::operateOnTargets()
 {
-    foreach (Legend *i, d_legend_markers) {
+    for (Legend *i : d_legend_markers) {
         QRect new_rect = operateOn(i->rect());
         i->setOrigin(new_rect.topLeft());
         if (!i->text().isEmpty()) {
@@ -311,7 +311,7 @@ void SelectionMoveResizer::operateOnTargets()
             i->setFont(f);
         }
     }
-    foreach (ArrowMarker *i, d_line_markers) {
+    for (ArrowMarker *i : d_line_markers) {
         QPoint p1 = i->startPoint();
         QPoint p2 = i->endPoint();
         QRect new_rect = operateOn(i->rect());
@@ -320,12 +320,12 @@ void SelectionMoveResizer::operateOnTargets()
         i->setEndPoint(QPoint(p2.x() < p1.x() ? new_rect.left() : new_rect.right(),
                               p2.y() < p1.y() ? new_rect.top() : new_rect.bottom()));
     }
-    foreach (ImageMarker *i, d_image_markers) {
+    for (ImageMarker *i : d_image_markers) {
         QRect new_rect = operateOn(i->rect());
         i->setOrigin(new_rect.topLeft());
         i->setSize(new_rect.size());
     }
-    foreach (QWidget *i, d_widgets) {
+    for (QWidget *i : d_widgets) {
         i->setGeometry(operateOn(i->geometry()));
         // ugly hack
         // see Graph::setIgnoreResizeEvents() and Graph::resizeEvent()
@@ -338,7 +338,7 @@ void SelectionMoveResizer::operateOnTargets()
     d_op_start = d_op_dp = QPoint(0, 0);
 
     update();
-    emit targetsChanged();
+    Q_EMIT targetsChanged();
 }
 
 void SelectionMoveResizer::paintEvent(QPaintEvent *e)

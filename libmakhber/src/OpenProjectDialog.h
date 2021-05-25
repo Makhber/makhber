@@ -49,7 +49,7 @@ private:
     QComboBox *d_open_codec;
     QWidget *d_advanced_options;
 
-protected slots:
+protected Q_SLOTS:
     void closeEvent(QCloseEvent *);
     //! Update which options are visible and enabled based on the output format.
     void updateAdvancedOptions(const QString &filter);

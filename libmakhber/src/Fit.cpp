@@ -341,7 +341,7 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
         QwtErrorPlotCurve *er = nullptr;
         if (d_curve && (dynamic_cast<PlotCurve *>(d_curve))->type() != Graph::Function) {
             QList<DataCurve *> lst = (dynamic_cast<DataCurve *>(d_curve))->errorBarsList();
-            foreach (DataCurve *c, lst) {
+            for (DataCurve *c : lst) {
                 er = dynamic_cast<QwtErrorPlotCurve *>(c);
                 if (!er->xErrors()) {
                     d_y_error_dataset = er->title().text();

@@ -50,7 +50,7 @@ public:
     virtual ~ScreenPickerTool();
     virtual RTTI rtti() const { return ScreenPicker; }
     virtual bool eventFilter(QObject *obj, QEvent *event);
-signals:
+Q_SIGNALS:
     /*! Emitted whenever a new message should be presented to the user.
      *
      * You don't have to connect to this signal if you alreay specified a reciever during

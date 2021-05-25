@@ -48,15 +48,15 @@ public:
     ExpDecayDialog(int type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     ~ExpDecayDialog() {};
 
-public slots:
+public Q_SLOTS:
     void fit();
     void setGraph(Graph *g);
 
-private slots:
+private Q_SLOTS:
     void activateCurve(const QString &curveName);
     void changeDataRange();
 
-signals:
+Q_SIGNALS:
     void options(const QString &, double, double, double, double, int);
     void options(const QString &, double, double, double, int);
     void options3(const QString &, double, double, double, double, double, int);

@@ -47,7 +47,7 @@ public:
     ScriptingLangDialog(ScriptingEnv *env, ApplicationWindow *parent,
                         Qt::WindowFlags fl = Qt::Widget);
 
-public slots:
+public Q_SLOTS:
     void updateLangList();
     void accept();
 

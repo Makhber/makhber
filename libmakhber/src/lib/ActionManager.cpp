@@ -79,7 +79,7 @@ void ActionManager::setShortcuts(const QString &internal_name, const QList<QKeyS
         d_action_shortcuts.insert(internal_name, sequences);
     } else {
         QList<QAction *> *list = d_action_registry.value(internal_name);
-        foreach (QAction *action, *list)
+        for (QAction *action : *list)
             action->setShortcuts(sequences);
         d_action_shortcuts.insert(internal_name, sequences);
     }

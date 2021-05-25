@@ -184,14 +184,14 @@ TextDialog::TextDialog(TextType type, QWidget *parent, Qt::WindowFlags fl) : QDi
 void TextDialog::apply()
 {
     if (textType == TextDialog::AxisTitle) {
-        emit changeAlignment(alignment());
-        emit changeText(textEditBox->toPlainText());
-        emit changeColor(colorBtn->color());
+        Q_EMIT changeAlignment(alignment());
+        Q_EMIT changeText(textEditBox->toPlainText());
+        Q_EMIT changeColor(colorBtn->color());
     } else {
         QColor c = backgroundBtn->color();
         c.setAlpha(boxBackgroundTransparency->value());
-        emit values(textEditBox->toPlainText(), angle(), backgroundBox->currentIndex(),
-                    selectedFont, colorBtn->color(), c);
+        Q_EMIT values(textEditBox->toPlainText(), angle(), backgroundBox->currentIndex(),
+                      selectedFont, colorBtn->color(), c);
     }
 }
 
@@ -258,7 +258,7 @@ void TextDialog::customFont()
     QFont fnt = QFontDialog::getFont(&okF, selectedFont, this);
     if (okF && fnt != selectedFont) {
         selectedFont = fnt;
-        emit changeFont(fnt);
+        Q_EMIT changeFont(fnt);
     }
 }
 

@@ -71,10 +71,10 @@ protected:
     //! Overloaded function (cf. Qt documentation)
     virtual void keyPressEvent(QKeyEvent *event);
 
-signals:
+Q_SIGNALS:
     void advanceCell();
 
-public slots:
+public Q_SLOTS:
     void selectAll();
 };
 
@@ -157,7 +157,7 @@ public:
     int rowHeight(int row) const;
     int columnWidth(int col) const;
 
-public slots:
+public Q_SLOTS:
     void rereadSectionSizes();
     void goToCell(int row, int col);
     void selectAll();
@@ -173,10 +173,10 @@ public slots:
     void handleHorizontalSectionResized(int logicalIndex, int oldSize, int newSize);
     void handleVerticalSectionResized(int logicalIndex, int oldSize, int newSize);
 
-signals:
+Q_SIGNALS:
     void controlTabBarStatusChanged(bool visible);
 
-protected slots:
+protected Q_SLOTS:
     //! Advance current cell after [Return] or [Enter] was pressed
     void advanceCell();
     void updateTypeInfo();

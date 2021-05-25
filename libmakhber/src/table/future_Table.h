@@ -234,7 +234,7 @@ private:
     //! Private ctor for initActionManager() only
     Table();
 
-public slots:
+public Q_SLOTS:
     //! Clear the whole table
     void clear();
     //! Append one column
@@ -337,7 +337,7 @@ private:
     //! Internal function to disconnect a column
     void disconnectColumn(const Column *col);
 
-private slots:
+private Q_SLOTS:
     //! \name Column event handlers
     //@{
     void handleDescriptionChange(const AbstractAspect *aspect);
@@ -351,7 +351,7 @@ private slots:
     //@}
     void adjustActionNames();
 
-signals:
+Q_SIGNALS:
     void columnsAboutToBeInserted(int before, QList<Column *> new_cols);
     void columnsInserted(int first, int count);
     void columnsAboutToBeReplaced(int first, int count);

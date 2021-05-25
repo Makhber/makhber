@@ -592,7 +592,7 @@ void FitDialog::saveUserFunction()
             boxUseBuiltIn->setEnabled(true);
     }
     buttonClearUsrList->setEnabled(true);
-    emit saveFunctionsList(d_user_functions);
+    Q_EMIT saveFunctionsList(d_user_functions);
 }
 
 void FitDialog::removeUserFunction()
@@ -621,7 +621,7 @@ void FitDialog::removeUserFunction()
             buttonClearUsrList->setEnabled(false);
         }
 
-        emit saveFunctionsList(d_user_functions);
+        Q_EMIT saveFunctionsList(d_user_functions);
     }
 }
 
@@ -776,7 +776,7 @@ void FitDialog::clearUserFunctions()
         boxUseBuiltIn->setEnabled(false);
         buttonClearUsrList->setEnabled(false);
     }
-    emit clearFunctionsList();
+    Q_EMIT clearFunctionsList();
 }
 
 void FitDialog::addUserFunctions(const QStringList &list)
@@ -1233,7 +1233,7 @@ void FitDialog::fitBuiltInFunction(const QString &function, double *initVal)
 
 bool FitDialog::containsUserFunctionName(const QString &function)
 {
-    foreach (QString fn, d_user_function_names)
+    for (QString fn : d_user_function_names)
         if (!fn.isEmpty() && function.contains(fn))
             return true;
 
@@ -1281,7 +1281,7 @@ void FitDialog::setSrcTables(QList<MyWidget *> *tables)
 
     d_src_table = tables;
     tableNamesBox->clear();
-    foreach (QWidget *i, *d_src_table)
+    for (QWidget *i : *d_src_table)
         tableNamesBox->addItem(i->objectName());
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)

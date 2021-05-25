@@ -346,7 +346,7 @@ void SymbolDialog::addCurrentChar()
     for (int i = 1; i < numButtons; i++) {
         auto *btn = dynamic_cast<QPushButton *>(buttons->button(i));
         if (btn && btn->hasFocus())
-            emit addLetter(btn->text());
+            Q_EMIT addLetter(btn->text());
     }
 }
 
@@ -354,7 +354,7 @@ void SymbolDialog::getChar(int btnIndex)
 {
     auto *btn = dynamic_cast<QPushButton *>(buttons->button(btnIndex));
     if (btn)
-        emit addLetter(btn->text());
+        Q_EMIT addLetter(btn->text());
 }
 
 void SymbolDialog::languageChange()

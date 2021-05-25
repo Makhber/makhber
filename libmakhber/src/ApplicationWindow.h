@@ -167,7 +167,7 @@ public:
     bool batchMode() const { return m_batch; } ///< running a python batch script
     static QSettings &getSettings();
 
-public slots:
+public Q_SLOTS:
     //! Copy the status bar text to the clipboard
     void copyStatusBarText();
     //! Show the context menu for the status bar
@@ -924,10 +924,10 @@ public slots:
     void setScriptingLangForBatch(const QString &lang) { setScriptingLang(lang, false, true); }
     //@}
 
-signals:
+Q_SIGNALS:
     void modified();
 
-private slots:
+private Q_SLOTS:
     void showHelp();
     void chooseHelpFolder();
 
@@ -1234,7 +1234,7 @@ private:
 
     Project *d_project;
 
-private slots:
+private Q_SLOTS:
     void removeDependentTableStatistics(const AbstractAspect *aspect);
     //! Set the active window selected from the context menu's dependency list
     /**
@@ -1251,7 +1251,7 @@ private slots:
 
     void handleAspectAdded(const AbstractAspect *aspect, int index);
     void handleAspectChildAboutToBeRemoved(const AbstractAspect *aspect, int index);
-protected slots:
+protected Q_SLOTS:
     void lockToolbar(const bool status);
 };
 

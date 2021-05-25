@@ -220,13 +220,13 @@ void MatrixModel::handleRowsRemoved(int first, int count)
 
 void MatrixModel::handleDataChanged(int top, int left, int bottom, int right)
 {
-    emit dataChanged(index(top, left), index(bottom, right));
+    Q_EMIT dataChanged(index(top, left), index(bottom, right));
 }
 
 void MatrixModel::handleCoordinatesChanged()
 {
-    emit headerDataChanged(Qt::Horizontal, 0, columnCount() - 1);
-    emit headerDataChanged(Qt::Vertical, 0, rowCount() - 1);
+    Q_EMIT headerDataChanged(Qt::Horizontal, 0, columnCount() - 1);
+    Q_EMIT headerDataChanged(Qt::Vertical, 0, rowCount() - 1);
 }
 
 void MatrixModel::handleFormatChanged()

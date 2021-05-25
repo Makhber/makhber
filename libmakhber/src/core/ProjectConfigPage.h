@@ -40,7 +40,7 @@ class ProjectConfigPage : public ConfigPageWidget
 public:
     ProjectConfigPage();
 
-public slots:
+public Q_SLOTS:
     virtual void apply();
 
 private:

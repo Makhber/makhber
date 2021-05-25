@@ -507,7 +507,7 @@ void CurvesDialog::showCurrentFolder(bool currentFolder)
         Folder *f = app->currentFolder();
         if (f) {
             QStringList columns;
-            foreach (QWidget *w, f->windowsList()) {
+            for (QWidget *w : f->windowsList()) {
                 if (!w->inherits("Table"))
                     continue;
 

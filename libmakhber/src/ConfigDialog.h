@@ -61,7 +61,7 @@ public:
      */
     ConfigDialog(QWidget *parent, Qt::WindowFlags fl = Qt::Widget);
 
-public slots:
+public Q_SLOTS:
     virtual void languageChange();
     void insertLanguagesList();
 
@@ -114,7 +114,7 @@ public slots:
 
     void switchToLanguage(int param);
 
-private slots:
+private Q_SLOTS:
     //! Update the decimal separator preview
     void updateDecSepPreview();
 

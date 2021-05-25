@@ -148,10 +148,10 @@ void ExportDialog::accept()
 
     hide();
     if (boxAllTables->isChecked())
-        emit exportAllTables(sep, boxNames->isChecked(), boxSelection->isChecked());
+        Q_EMIT exportAllTables(sep, boxNames->isChecked(), boxSelection->isChecked());
     else
-        emit exportTable(boxTable->currentText(), sep, boxNames->isChecked(),
-                         boxSelection->isChecked());
+        Q_EMIT exportTable(boxTable->currentText(), sep, boxNames->isChecked(),
+                           boxSelection->isChecked());
     close();
 }
 

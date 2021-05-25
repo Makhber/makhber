@@ -43,18 +43,18 @@ public:
     {
         d_intervals.clear();
         d_values.clear();
-        foreach (Interval<int> iv, other.intervals())
+        for (Interval<int> iv : other.intervals())
             d_intervals.append(iv);
-        foreach (T value, other.values())
+        for (T value : other.values())
             d_values.append(value);
     }
     IntervalAttribute<T> &operator=(const IntervalAttribute<T> &other)
     {
         d_intervals.clear();
         d_values.clear();
-        foreach (Interval<int> iv, other.intervals())
+        for (Interval<int> iv : other.intervals())
             d_intervals.append(iv);
-        foreach (T value, other.values())
+        for (T value : other.values())
             d_values.append(value);
         return *this;
     }
@@ -190,13 +190,13 @@ public:
     IntervalAttribute<bool>(const IntervalAttribute<bool> &other)
     {
         d_intervals.clear();
-        foreach (Interval<int> iv, other.intervals())
+        for (Interval<int> iv : other.intervals())
             d_intervals.append(iv);
     }
     IntervalAttribute<bool> &operator=(const IntervalAttribute<bool> &other)
     {
         d_intervals.clear();
-        foreach (Interval<int> iv, other.intervals())
+        for (Interval<int> iv : other.intervals())
             d_intervals.append(iv);
         return *this;
     }
@@ -204,7 +204,7 @@ public:
     void setValue(Interval<int> i, bool value = true)
     {
         if (value) {
-            foreach (Interval<int> iv, d_intervals)
+            for (Interval<int> iv : d_intervals)
                 if (iv.contains(i))
                     return;
 
@@ -218,7 +218,7 @@ public:
 
     bool isSet(int row) const
     {
-        foreach (Interval<int> iv, d_intervals)
+        for (Interval<int> iv : d_intervals)
             if (iv.contains(row))
                 return true;
         return false;
@@ -226,7 +226,7 @@ public:
 
     bool isSet(Interval<int> i) const
     {
-        foreach (Interval<int> iv, d_intervals)
+        for (Interval<int> iv : d_intervals)
             if (iv.contains(i))
                 return true;
         return false;

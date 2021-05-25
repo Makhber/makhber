@@ -130,7 +130,7 @@ SurfaceDialog::SurfaceDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(pare
 void SurfaceDialog::clearList()
 {
     boxFunction->clear();
-    emit clearFunctionsList();
+    Q_EMIT clearFunctionsList();
 }
 
 void SurfaceDialog::setFunction(const QString &s)
@@ -243,8 +243,8 @@ void SurfaceDialog::accept()
     }
 
     if (!error) {
-        emit options(boxFunction->currentText(), fromX, toX, fromY, toY, fromZ, toZ);
-        emit custom3DToolBar();
+        Q_EMIT options(boxFunction->currentText(), fromX, toX, fromY, toY, fromZ, toZ);
+        Q_EMIT custom3DToolBar();
 
         auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
         app->updateSurfaceFuncList(boxFunction->currentText());

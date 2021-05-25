@@ -59,7 +59,7 @@ Folder::Folder(const QString &name) : d_active_window(nullptr)
 QList<Folder *> Folder::folders() const
 {
     QList<Folder *> lst;
-    foreach (QObject *f, children())
+    for (QObject *f : children())
         lst.append(dynamic_cast<Folder *>(f));
     return lst;
 }
@@ -69,8 +69,7 @@ QStringList Folder::subfolders()
     QStringList list = QStringList();
     QObjectList folderList = children();
     if (!folderList.isEmpty()) {
-        QObject *f = nullptr;
-        foreach (f, folderList)
+        for (QObject *f : folderList)
             list << dynamic_cast<Folder *>(f)->name();
     }
     return list;
@@ -91,9 +90,7 @@ Folder *Folder::findSubfolder(const QString &s, bool caseSensitive, bool partial
 {
     QObjectList folderList = children();
     if (!folderList.isEmpty()) {
-        QObject *f = nullptr;
-
-        foreach (f, folderList) {
+        for (QObject *f : folderList) {
             QString name = dynamic_cast<Folder *>(f)->name();
             if (partialMatch) {
                 if (caseSensitive && name.startsWith(s, Qt::CaseSensitive))
@@ -118,8 +115,7 @@ MyWidget *Folder::findWindow(const QString &s, bool windowNames, bool labels, bo
     Qt::CaseSensitivity cs = Qt::CaseSensitive;
     if (!caseSensitive)
         cs = Qt::CaseInsensitive;
-    MyWidget *w = nullptr;
-    foreach (w, lstWindows) {
+    for (MyWidget *w : lstWindows) {
         if (windowNames) {
             QString name = w->name();
             if (partialMatch && name.startsWith(s, cs))
@@ -151,12 +147,12 @@ MyWidget *Folder::findWindow(const QString &s, bool windowNames, bool labels, bo
 
 MyWidget *Folder::window(const QString &name, const char *cls, bool recursive)
 {
-    foreach (MyWidget *w, lstWindows)
+    for (MyWidget *w : lstWindows)
         if (w->inherits(cls) && name == w->name().mid(0, w->name().indexOf("@")))
             return w;
     if (!recursive)
         return nullptr;
-    foreach (QObject *f, children()) {
+    for (QObject *f : children()) {
         MyWidget *w = (dynamic_cast<Folder *>(f))->window(name, cls, true);
         if (w)
             return w;
@@ -238,7 +234,7 @@ void FolderListItem::setData(int column, int role, const QVariant &value)
         && (value
             != this->text(
                     0))) { // data should be accepted or rejected on slot connected to this signal
-        emit this->folderListView()->itemRenamed(this, column, value.toString());
+        Q_EMIT this->folderListView()->itemRenamed(this, column, value.toString());
     } else {
         QTreeWidgetItem::setData(column, role, value);
     }
@@ -284,7 +280,7 @@ void FolderListView::startDrag(Qt::DropActions supportedActions)
         it++;
     }
 
-    emit dragItems(lst);
+    Q_EMIT dragItems(lst);
     drag->setMimeData(mimeData(lst));
     drag->exec(supportedActions);
 }
@@ -296,7 +292,7 @@ void FolderListView::dropEvent(QDropEvent *e)
         if (dropIndicatorPosition() != QAbstractItemView::OnItem) {
             e->ignore();
         } else {
-            emit dropItems(dest);
+            Q_EMIT dropItems(dest);
             e->accept();
             this->setState(QAbstractItemView::NoState); // hack to clear DraggingState
         }
@@ -319,20 +315,20 @@ void FolderListView::keyPressEvent(QKeyEvent *e)
 
     if (item->type() == FolderListItem::FolderType
         && (e->key() == Qt::Key_Enter || e->key() == Qt::Key_Return)) {
-        emit itemDoubleClicked(item, 0);
+        Q_EMIT itemDoubleClicked(item, 0);
         e->accept();
     } else if (e->key() == Qt::Key_F2) {
         if (item)
-            emit renameItem(item, 0);
+            Q_EMIT renameItem(item, 0);
         e->accept();
     } else if (e->key() == Qt::Key_A && e->modifiers() == Qt::ControlModifier) {
         selectAll();
         e->accept();
     } else if (e->key() == Qt::Key_F7) {
-        emit addFolderItem();
+        Q_EMIT addFolderItem();
         e->accept();
     } else if (e->key() == Qt::Key_F8) {
-        emit deleteSelection();
+        Q_EMIT deleteSelection();
         e->accept();
     } else
         QTreeWidget::keyPressEvent(e);
@@ -395,7 +391,7 @@ void WindowListItem::setData(int column, int role, const QVariant &value)
     if (role
         == Qt::EditRole) { // data should be accepted or rejected on slot connected to this signal
         if (column == 0)
-            emit this->folderListView()->itemRenamed(this, column, value.toString());
+            Q_EMIT this->folderListView()->itemRenamed(this, column, value.toString());
     } else {
         QTreeWidgetItem::setData(column, role, value);
     }

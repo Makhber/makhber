@@ -55,8 +55,9 @@ MultiPeakFitTool::MultiPeakFitTool(Graph *graph, ApplicationWindow *app,
     connect(d_picker_tool, SIGNAL(selected(QwtPlotCurve *, int)), this,
             SLOT(selectPeak(QwtPlotCurve *, int)));
     d_graph->plotWidget()->canvas()->grabMouse();
-    emit statusText(tr("Move cursor and click to select a point and double-click/press 'Enter' to "
-                       "set the position of a peak!"));
+    Q_EMIT statusText(
+            tr("Move cursor and click to select a point and double-click/press 'Enter' to "
+               "set the position of a peak!"));
 }
 
 MultiPeakFitTool::~MultiPeakFitTool()
@@ -89,9 +90,9 @@ void MultiPeakFitTool::selectPeak(QwtPlotCurve *curve, int point_index)
     if (d_selected_peaks == d_num_peaks)
         finalize();
     else
-        emit statusText(tr("Peak %1 selected! Click to select a point and double-click/press "
-                           "'Enter' to set the position of the next peak!")
-                                .arg(QString::number(d_selected_peaks)));
+        Q_EMIT statusText(tr("Peak %1 selected! Click to select a point and double-click/press "
+                             "'Enter' to set the position of the next peak!")
+                                  .arg(QString::number(d_selected_peaks)));
 }
 
 void MultiPeakFitTool::finalize()

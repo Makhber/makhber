@@ -240,7 +240,7 @@ protected:
     bool readCommentElement(XmlStreamReader *reader);
     //@}
 
-public slots:
+public Q_SLOTS:
     void setName(const QString &value);
     void setComment(const QString &value);
     //! Set the specification string used for constructing the caption().
@@ -272,7 +272,7 @@ public:
         setCreationTime(QLocale().toDateTime(str));
     }
 
-signals:
+Q_SIGNALS:
     //! Emit this before the name, comment or caption spec is changed
     void aspectDescriptionAboutToChange(const AbstractAspect *aspect);
     //! Emit this when the name, comment or caption spec changed
@@ -322,7 +322,7 @@ protected:
      * to be displayed in a status bar, a log window or some similar non-blocking way so as not to
      * disturb the workflow.
      */
-    void info(const QString &text) { emit statusInfo(text); }
+    void info(const QString &text) { Q_EMIT statusInfo(text); }
 
 private:
     Private *d_aspect_private;

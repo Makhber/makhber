@@ -181,7 +181,7 @@ void TableStatistics::update(Table *t, const QString &colName)
                     gsl_vector *y = gsl_vector_alloc(validCells.count());
 
                     int index = 0;
-                    foreach (int col, validCells) {
+                    for (int col : validCells) {
                         double val = d_base->column(col)->valueAt(srcRow);
                         gsl_vector_set(y, index, val);
                         data[index++] = val;
@@ -238,7 +238,7 @@ void TableStatistics::update(Table *t, const QString &colName)
                 data[0] = val;
                 double min = val, max = val;
                 int index = 0;
-                foreach (int row, validCells) {
+                for (int row : validCells) {
                     if (index > 0) {
                         val = col->valueAt(row);
                         gsl_vector_set(y, index, val);
@@ -275,7 +275,7 @@ void TableStatistics::update(Table *t, const QString &colName)
     }
 
     for (int i = 0; i < numCols(); i++)
-        emit modifiedData(this, Table::colName(i));
+        Q_EMIT modifiedData(this, Table::colName(i));
 }
 
 void TableStatistics::renameCol(const QString &from, const QString &to)

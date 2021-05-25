@@ -45,14 +45,14 @@ public:
     SurfaceDialog(QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     ~SurfaceDialog();
 
-public slots:
+public Q_SLOTS:
     void accept();
     void insertFunctionsList(const QStringList &list);
     void clearList();
     void setFunction(const QString &s);
     void setLimits(double xs, double xe, double ys, double ye, double zs, double ze);
 
-signals:
+Q_SIGNALS:
     void options(const QString &, double, double, double, double, double, double);
     void clearFunctionsList();
     void custom3DToolBar();

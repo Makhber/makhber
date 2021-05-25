@@ -89,7 +89,7 @@ public:
     void activateFormulaMode(bool on) { d_formula_mode = on; }
     bool formulaModeActive() const { return d_formula_mode; }
 
-private slots:
+private Q_SLOTS:
     //! \name Handlers for events from Table
     //@{
     void handleColumnsAboutToBeInserted(int, QList<Column *>);

@@ -77,7 +77,7 @@ DataSetDialog::DataSetDialog(const QString &text, QWidget *parent, Qt::WindowFla
 void DataSetDialog::accept()
 {
     if (operation.isEmpty())
-        emit options(boxName->currentText());
+        Q_EMIT options(boxName->currentText());
     else if (d_graph) {
         auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
         if (app)

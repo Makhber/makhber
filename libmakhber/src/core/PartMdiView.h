@@ -62,11 +62,11 @@ public:
 
     SubWindowStatus status() const { return d_status; }
 
-signals:
+Q_SIGNALS:
     void statusChanged(PartMdiView *view, PartMdiView::SubWindowStatus from,
                        PartMdiView::SubWindowStatus to);
 
-private slots:
+private Q_SLOTS:
     //! Keep my window title in sync with AbstractAspect::caption().
     void handleAspectDescriptionChanged(const AbstractAspect *aspect);
     void handleAspectAboutToBeRemoved(const AbstractAspect *aspect);

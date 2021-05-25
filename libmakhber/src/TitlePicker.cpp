@@ -49,24 +49,24 @@ bool TitlePicker::eventFilter(QObject *object, QEvent *e)
         return false;
 
     if (object->inherits("QwtTextLabel") && e->type() == QEvent::MouseButtonDblClick) {
-        emit doubleClicked();
+        Q_EMIT doubleClicked();
         d_selected = true;
         return true;
     }
 
     if (object->inherits("QwtTextLabel") && e->type() == QEvent::MouseButtonPress) {
         const auto *me = dynamic_cast<const QMouseEvent *>(e);
-        emit clicked();
+        Q_EMIT clicked();
 
         if (me->button() == Qt::RightButton)
-            emit showTitleMenu();
+            Q_EMIT showTitleMenu();
         return !(me->modifiers() & Qt::ShiftModifier);
     }
 
     if (object->inherits("QwtTextLabel") && e->type() == QEvent::KeyPress) {
         switch ((dynamic_cast<const QKeyEvent *>(e))->key()) {
         case Qt::Key_Delete:
-            emit removeTitle();
+            Q_EMIT removeTitle();
             return true;
         }
     }

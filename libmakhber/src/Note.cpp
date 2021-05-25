@@ -64,7 +64,7 @@ void Note::init(ScriptingEnv *env)
 
 void Note::modifiedNote()
 {
-    emit modifiedWindow(this);
+    Q_EMIT modifiedWindow(this);
 }
 
 QString Note::saveToString(const QString &info)

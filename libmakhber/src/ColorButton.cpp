@@ -132,7 +132,7 @@ void ColorButton::setColor(const QColor &c)
     QPalette pal;
     pal.setColor(QPalette::Window, c);
     display->setPalette(pal);
-    emit changed(c);
+    Q_EMIT changed(c);
 }
 
 QColor ColorButton::color() const

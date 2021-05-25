@@ -46,7 +46,7 @@ AbstractAspect::Private::Private(AbstractAspect *owner, const QString &name)
 
 AbstractAspect::Private::~Private()
 {
-    foreach (AbstractAspect *child, d_children)
+    for (AbstractAspect *child : d_children)
         delete child;
 }
 
@@ -57,7 +57,7 @@ void AbstractAspect::Private::addChild(AbstractAspect *child)
 
 void AbstractAspect::Private::insertChild(int index, AbstractAspect *child)
 {
-    emit d_owner->aspectAboutToBeAdded(d_owner, index);
+    Q_EMIT d_owner->aspectAboutToBeAdded(d_owner, index);
     d_children.insert(index, child);
     // Always remove from any previous parent before adding to a new one!
     // Can't handle this case here since two undo commands have to be created.
@@ -81,8 +81,8 @@ void AbstractAspect::Private::insertChild(int index, AbstractAspect *child)
             SIGNAL(aspectAdded(const AbstractAspect *)));
     connect(child, SIGNAL(statusInfo(const QString &)), d_owner,
             SIGNAL(statusInfo(const QString &)));
-    emit d_owner->aspectChildAdded(d_owner, index);
-    emit child->aspectAdded(child);
+    Q_EMIT d_owner->aspectChildAdded(d_owner, index);
+    Q_EMIT child->aspectAdded(child);
 }
 
 int AbstractAspect::Private::indexOfChild(const AbstractAspect *child) const
@@ -97,12 +97,12 @@ int AbstractAspect::Private::removeChild(AbstractAspect *child)
 {
     int index = indexOfChild(child);
     Q_ASSERT(index != -1);
-    emit d_owner->aspectChildAboutToBeRemoved(d_owner, index);
-    emit child->aspectAboutToBeRemoved(child);
+    Q_EMIT d_owner->aspectChildAboutToBeRemoved(d_owner, index);
+    Q_EMIT child->aspectAboutToBeRemoved(child);
     d_children.removeAll(child);
     QObject::disconnect(child, nullptr, d_owner, nullptr);
     child->d_aspect_private->d_parent = nullptr;
-    emit d_owner->aspectRemoved(d_owner, index);
+    Q_EMIT d_owner->aspectRemoved(d_owner, index);
     return index;
 }
 
@@ -124,9 +124,9 @@ QString AbstractAspect::Private::name() const
 
 void AbstractAspect::Private::setName(const QString &value)
 {
-    emit d_owner->aspectDescriptionAboutToChange(d_owner);
+    Q_EMIT d_owner->aspectDescriptionAboutToChange(d_owner);
     d_name = value;
-    emit d_owner->aspectDescriptionChanged(d_owner);
+    Q_EMIT d_owner->aspectDescriptionChanged(d_owner);
 }
 
 QString AbstractAspect::Private::comment() const
@@ -136,9 +136,9 @@ QString AbstractAspect::Private::comment() const
 
 void AbstractAspect::Private::setComment(const QString &value)
 {
-    emit d_owner->aspectDescriptionAboutToChange(d_owner);
+    Q_EMIT d_owner->aspectDescriptionAboutToChange(d_owner);
     d_comment = value;
-    emit d_owner->aspectDescriptionChanged(d_owner);
+    Q_EMIT d_owner->aspectDescriptionChanged(d_owner);
 }
 
 QString AbstractAspect::Private::captionSpec() const
@@ -148,9 +148,9 @@ QString AbstractAspect::Private::captionSpec() const
 
 void AbstractAspect::Private::setCaptionSpec(const QString &value)
 {
-    emit d_owner->aspectDescriptionAboutToChange(d_owner);
+    Q_EMIT d_owner->aspectDescriptionAboutToChange(d_owner);
     d_caption_spec = value;
-    emit d_owner->aspectDescriptionChanged(d_owner);
+    Q_EMIT d_owner->aspectDescriptionChanged(d_owner);
 }
 
 void AbstractAspect::Private::setCreationTime(const QDateTime &time)
@@ -211,7 +211,7 @@ QDateTime AbstractAspect::Private::creationTime() const
 QString AbstractAspect::Private::uniqueNameFor(const QString &current_name) const
 {
     QStringList child_names;
-    foreach (AbstractAspect *child, d_children)
+    for (AbstractAspect *child : d_children)
         child_names << child->name();
 
     if (!child_names.contains(current_name))

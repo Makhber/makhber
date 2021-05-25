@@ -97,7 +97,7 @@ private:
     QPushButton *selectButton {};
     QFrame *display {};
 
-signals:
+Q_SIGNALS:
     //! Signal clicked: This is emitted when the selection button is clicked
     void clicked();
     void changed(QColor);
@@ -108,7 +108,7 @@ protected:
     //! Array containing the 48 predefined colors
     static std::array<const QColor, 48> colors;
 
-private slots:
+private Q_SLOTS:
     void pickColor();
 
 private:

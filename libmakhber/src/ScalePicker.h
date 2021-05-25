@@ -79,7 +79,7 @@ public:
     //! Returns a pointer to the active axis in the plot layer.
     QwtScaleWidget *currentAxis() { return d_current_axis; };
 
-signals:
+Q_SIGNALS:
     //! Emitted when the user clicks on one of the monitored axes.
     void clicked();
 

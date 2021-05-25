@@ -83,14 +83,14 @@ void PartMdiView::closeEvent(QCloseEvent *event)
 
     SubWindowStatus old_status = d_status;
     d_status = Closed;
-    emit statusChanged(this, old_status, d_status);
+    Q_EMIT statusChanged(this, old_status, d_status);
 }
 
 void PartMdiView::hideEvent(QHideEvent *event)
 {
     SubWindowStatus old_status = d_status;
     d_status = Hidden;
-    emit statusChanged(this, old_status, d_status);
+    Q_EMIT statusChanged(this, old_status, d_status);
     event->accept();
 }
 
@@ -98,6 +98,6 @@ void PartMdiView::showEvent(QShowEvent *event)
 {
     SubWindowStatus old_status = d_status;
     d_status = Visible;
-    emit statusChanged(this, old_status, d_status);
+    Q_EMIT statusChanged(this, old_status, d_status);
     event->accept();
 }

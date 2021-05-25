@@ -76,13 +76,13 @@ protected:
     //! Overloaded function (cf. Qt documentation)
     virtual void keyPressEvent(QKeyEvent *event);
 
-signals:
+Q_SIGNALS:
     void advanceCell();
 
-protected slots:
+protected Q_SLOTS:
     //! Cause a repaint of the header
     void updateHeaderGeometry(Qt::Orientation o, int first, int last);
-public slots:
+public Q_SLOTS:
     void selectAll();
 };
 
@@ -181,7 +181,7 @@ public:
     int columnWidth(int col) const;
     bool formulaModeActive() const;
 
-public slots:
+public Q_SLOTS:
     void activateFormulaMode(bool on);
     void goToCell(int row, int col);
     void rereadSectionSizes();
@@ -196,7 +196,7 @@ public slots:
     void goToNextColumn();
     void goToPreviousColumn();
 
-protected slots:
+protected Q_SLOTS:
     //! Advance current cell after [Return] or [Enter] was pressed
     void advanceCell();
     void handleHorizontalSectionMoved(int index, int from, int to);

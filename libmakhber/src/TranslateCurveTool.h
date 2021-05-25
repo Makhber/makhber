@@ -57,14 +57,14 @@ public:
     TranslateCurveTool(Graph *graph, ApplicationWindow *app, Direction dir,
                        const QObject *status_target = NULL, const char *status_slot = "");
     virtual RTTI rtti() const { return TranslateCurve; }
-signals:
+Q_SIGNALS:
     /*!\brief Emitted whenever a new message should be presented to the user.
      *
      * You don't have to connect to this signal if you alreay specified a reciever during
      * initialization.
      */
     void statusText(const QString &);
-public slots:
+public Q_SLOTS:
     //! Select curve to translate, using the specified point as base point.
     void selectCurvePoint(QwtPlotCurve *curve, int point_index);
     //! Select the coordinates where the base point should end up (modulo projection on #d_dir direction).

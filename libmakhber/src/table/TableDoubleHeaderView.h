@@ -85,13 +85,13 @@ public:
     //! Return whether comments are show currently
     bool areCommentsShown() const;
 
-public slots:
+public Q_SLOTS:
     // adjust geometry and repaint header
     void refresh();
     // React to a header data change
     void headerDataChanged(Qt::Orientation orientation, int logicalFirst, int logicalLast);
 
-protected slots:
+protected Q_SLOTS:
     void sectionsInserted(const QModelIndex &parent, int logicalFirst, int logicalLast);
 
 protected:

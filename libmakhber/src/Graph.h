@@ -181,7 +181,7 @@ public:
     void exportPainter(QPaintDevice &paintDevice, bool keepAspect = false, QRect rect = QRect());
     void exportPainter(QPainter &painter, bool keepAspect = false, QRect rect = QRect(),
                        QSize size = QSize());
-public slots:
+public Q_SLOTS:
     //! Accessor method for #d_plot.
     Plot *plotWidget() const { return d_plot; };
     void copy(ApplicationWindow *parent, Graph *g);
@@ -744,7 +744,7 @@ public slots:
     void deselect();
     void print(QPainter *, const QRect &rect,
                const QwtPlotPrintFilter &pfilter = QwtPlotPrintFilter());
-signals:
+Q_SIGNALS:
     void selectedGraph(Graph *);
     void closedGraph();
     void drawTextOff();

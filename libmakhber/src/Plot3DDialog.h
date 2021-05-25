@@ -57,7 +57,7 @@ public:
     Plot3DDialog(QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     ~Plot3DDialog();
 
-public slots:
+public Q_SLOTS:
     void accept();
     bool updatePlot();
 
@@ -130,7 +130,7 @@ public slots:
     void pickDataColorMap();
     void setPlot(Graph3D *plot) { d_plot = plot; };
 
-signals:
+Q_SIGNALS:
     void showWorksheet();
     void updatePoints(double, bool);
     void updateBars(double);

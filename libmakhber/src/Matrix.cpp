@@ -125,7 +125,7 @@ Matrix::~Matrix() = default;
 
 void Matrix::handleChange()
 {
-    emit modifiedWindow(this);
+    Q_EMIT modifiedWindow(this);
 }
 
 double Matrix::cell(int row, int col)
@@ -259,7 +259,7 @@ void Matrix::setNumericFormat(const QChar &f, int prec)
     d_future_matrix->setNumericFormat(f.toLatin1());
     d_future_matrix->setDisplayedDigits(prec);
 
-    emit modifiedWindow(this);
+    Q_EMIT modifiedWindow(this);
 }
 
 void Matrix::setTextFormat(const QChar &format, int precision)
@@ -368,7 +368,7 @@ void Matrix::invert()
 
     gsl_matrix_free(inverse);
     QApplication::restoreOverrideCursor();
-    emit modifiedWindow(this);
+    Q_EMIT modifiedWindow(this);
 }
 
 void Matrix::transpose()
@@ -429,7 +429,7 @@ bool Matrix::recalculate()
             if (!ret.isValid()) {
                 forgetSavedCells();
                 blockSignals(false);
-                emit modifiedWindow(this);
+                Q_EMIT modifiedWindow(this);
                 QApplication::restoreOverrideCursor();
                 return false;
             }
@@ -438,7 +438,7 @@ bool Matrix::recalculate()
     forgetSavedCells();
 
     blockSignals(false);
-    emit modifiedWindow(this);
+    Q_EMIT modifiedWindow(this);
     QApplication::restoreOverrideCursor();
     return true;
 }
@@ -540,7 +540,7 @@ void Matrix::closeEvent(QCloseEvent *e)
 
         case 1:
             e->ignore();
-            emit hiddenWindow(this);
+            Q_EMIT hiddenWindow(this);
             break;
 
         case 2:

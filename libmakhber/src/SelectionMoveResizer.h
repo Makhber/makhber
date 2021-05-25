@@ -113,7 +113,7 @@ public:
     //! Returns true if m is one of targets, false else.
     bool contains(ImageMarker *m) const { return d_image_markers.contains(m); };
 
-public slots:
+public Q_SLOTS:
     //! Add target to the list of items to be moved/resized together.
     void add(Legend *target);
     //! Add target to the list of items to be moved/resized together.
@@ -133,7 +133,7 @@ public slots:
     //! Calculate #d_bounding_rect based on the bounding rectangles of all targets.
     void recalcBoundingRect();
 
-signals:
+Q_SIGNALS:
     //! Emitted when the targets are modified (moved or resized).
     void targetsChanged();
 
@@ -214,7 +214,7 @@ private:
     //! Difference between current and start position during operation.
     QPoint d_op_dp;
 
-private slots:
+private Q_SLOTS:
     //! A non-typesafe version of remvoveAll(QWidget*) needed for QObject::destroyed().
     void removeWidget(QObject *w) { removeAll((QWidget *)w); }
 };

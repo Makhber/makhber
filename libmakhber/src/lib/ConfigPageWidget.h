@@ -40,7 +40,7 @@ class ConfigPageWidget : public QWidget
 public:
     ConfigPageWidget(QWidget *parent = 0, Qt::WindowFlags f = Qt::Widget);
 
-public slots:
+public Q_SLOTS:
     virtual void apply() = 0;
 };
 

@@ -68,7 +68,7 @@ public:
     QModelIndex parent(const QModelIndex &child) const;
     //@}
 
-private slots:
+private Q_SLOTS:
     //! \name Handlers for events from Matrix
     //@{
     void handleColumnsAboutToBeInserted(int before, int count);

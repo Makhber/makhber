@@ -164,7 +164,7 @@ void Table::insertColumns(int before, QList<Column *> new_cols)
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: insert %2 column(s)").arg(name()).arg(new_cols.size()));
     int pos = before;
-    foreach (Column *col, new_cols)
+    for (Column *col : new_cols)
         insertChild(col, pos++);
     // remark: the TableInsertColumnsCmd will be created in completeAspectInsertion()
     endMacro();
@@ -181,7 +181,7 @@ void Table::removeColumns(int first, int count)
     for (int i = first; i < (first + count); i++)
         cols.append(d_table_private.column(i));
     // remark:  the TableRemoveColumnsCmd will be created in prepareAspectRemoval()
-    foreach (Column *col, cols)
+    for (Column *col : cols)
         removeChild(col);
     endMacro();
     RESET_CURSOR;
@@ -527,7 +527,7 @@ void Table::recalculateSelectedCells()
         return;
     WAIT_CURSOR;
     beginMacro(tr("%1: apply formula to selection").arg(name()));
-    emit recalculate();
+    Q_EMIT recalculate();
     endMacro();
     RESET_CURSOR;
 }
@@ -545,7 +545,7 @@ void Table::fillSelectedCellsWithRowNumbers()
 
     WAIT_CURSOR;
     beginMacro(tr("%1: fill cells with row numbers").arg(name()));
-    foreach (Column *col_ptr, d_view->selectedColumns()) {
+    for (Column *col_ptr : d_view->selectedColumns()) {
         int col = columnIndex(col_ptr);
         switch (col_ptr->columnMode()) {
         case Makhber::ColumnMode::Numeric: {
@@ -594,7 +594,7 @@ void Table::fillSelectedCellsWithRandomNumbers()
 #else
     qsrand(QTime::currentTime().msec());
 #endif
-    foreach (Column *col_ptr, d_view->selectedColumns()) {
+    for (Column *col_ptr : d_view->selectedColumns()) {
         int col = columnIndex(col_ptr);
         switch (col_ptr->columnMode()) {
         case Makhber::ColumnMode::Numeric: {
@@ -713,7 +713,7 @@ void Table::removeSelectedColumns()
     beginMacro(QObject::tr("%1: remove selected column(s)").arg(name()));
 
     QList<Column *> list = d_view->selectedColumns();
-    foreach (Column *ptr, list)
+    for (Column *ptr : list)
         removeColumn(ptr);
 
     endMacro();
@@ -729,10 +729,10 @@ void Table::clearSelectedColumns()
 
     QList<Column *> list = d_view->selectedColumns();
     if (d_view->formulaModeActive()) {
-        foreach (Column *ptr, list)
+        for (Column *ptr : list)
             ptr->clearFormulas();
     } else {
-        foreach (Column *ptr, list)
+        for (Column *ptr : list)
             ptr->clear();
     }
 
@@ -748,7 +748,7 @@ void Table::setSelectionAs(Makhber::PlotDesignation pd)
     beginMacro(QObject::tr("%1: set plot designation(s)").arg(name()));
 
     QList<Column *> list = d_view->selectedColumns();
-    foreach (Column *ptr, list)
+    for (Column *ptr : list)
         ptr->setPlotDesignation(pd);
 
     endMacro();
@@ -792,7 +792,7 @@ void Table::normalizeColumns(QList<Column *> cols)
 
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: normalize column(s)").arg(name()));
-    foreach (Column *col, cols) {
+    for (Column *col : cols) {
         if (col->dataType() == Makhber::TypeDouble) {
             double max = 0.0;
             for (int row = 0; row < col->rowCount(); row++) {
@@ -823,7 +823,7 @@ void Table::normalizeSelection()
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: normalize selection").arg(name()));
     double max = 0.0;
-    foreach (Column *col_ptr, d_view->selectedColumns()) {
+    for (Column *col_ptr : d_view->selectedColumns()) {
         int col = columnIndex(col_ptr);
         if (col_ptr->dataType() == Makhber::TypeDouble)
             for (int row = 0; row < col_ptr->rowCount(); row++)
@@ -833,7 +833,7 @@ void Table::normalizeSelection()
 
     if (max != 0.0) // avoid division by zero
     {
-        foreach (Column *col_ptr, d_view->selectedColumns()) {
+        for (Column *col_ptr : d_view->selectedColumns()) {
             int col = columnIndex(col_ptr);
             if (col_ptr->dataType() == Makhber::TypeDouble) {
                 QVector<qreal> results(rowCount());
@@ -861,13 +861,13 @@ void Table::sortSelectedColumns()
 void Table::statisticsOnSelectedColumns()
 {
     // TODO: this is only an ugly hack for 0.2.0
-    emit requestColumnStatistics();
+    Q_EMIT requestColumnStatistics();
 }
 
 void Table::statisticsOnSelectedRows()
 {
     // TODO: this is only an ugly hack for 0.2.0
-    emit requestRowStatistics();
+    Q_EMIT requestRowStatistics();
 }
 
 void Table::insertEmptyRows()
@@ -906,7 +906,7 @@ void Table::removeSelectedRows()
 
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: remove selected rows(s)").arg(name()));
-    foreach (Interval<int> i, d_view->selectedRows().intervals())
+    for (Interval<int> i : d_view->selectedRows().intervals())
         removeRows(i.start(), i.size());
     endMacro();
     RESET_CURSOR;
@@ -925,12 +925,12 @@ void Table::clearSelectedCells()
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: clear selected cell(s)").arg(name()));
     QList<Column *> list = d_view->selectedColumns();
-    foreach (Column *col_ptr, list) {
+    for (Column *col_ptr : list) {
         if (d_view->formulaModeActive())
-            foreach (Interval<int> i, d_view->selectedRows().intervals())
+            for (Interval<int> i : d_view->selectedRows().intervals())
                 col_ptr->setFormula(i, "");
         else
-            foreach (Interval<int> i, d_view->selectedRows().intervals())
+            for (Interval<int> i : d_view->selectedRows().intervals())
                 if (i.end() == col_ptr->rowCount() - 1)
                     col_ptr->removeRows(i.start(), i.size());
                 else {
@@ -1580,7 +1580,7 @@ bool Table::export_to_TeX(QString fileName, TeXTableSettings &tex_settings)
     if (tex_settings.with_labels()) {
         // Get the columns labes
         QStringList columns_labels;
-        foreach (Column *col, columns_list)
+        for (Column *col : columns_list)
             columns_labels << col->name();
         out << columns_labels.join(" & ") << "\\\\ \\hline \n";
     }
@@ -1589,7 +1589,7 @@ bool Table::export_to_TeX(QString fileName, TeXTableSettings &tex_settings)
     QStringList str_row;
     for (int row_index = first_row_index; row_index < last_row_index + 1; row_index++) {
         str_row.clear();
-        foreach (Column *col, columns_list)
+        for (Column *col : columns_list)
             str_row << col->asStringColumn()->textAt(row_index);
         out << str_row.join(" & ") << " \\\\ \\hline \n ";
     }
@@ -1778,10 +1778,10 @@ void Table::copy(Table *other)
         new_col->copy(src_col);
         new_col->setPlotDesignation(src_col->plotDesignation());
         QList<Interval<int>> masks = src_col->maskedIntervals();
-        foreach (Interval<int> iv, masks)
+        for (Interval<int> iv : masks)
             new_col->setMasked(iv);
         QList<Interval<int>> formulas = src_col->formulaIntervals();
-        foreach (Interval<int> iv, formulas)
+        for (Interval<int> iv : formulas)
             new_col->setFormula(iv, src_col->formula(iv.start()));
         columns.append(new_col);
     }
@@ -2123,7 +2123,7 @@ void Table::handleDataChange(const AbstractColumn *col)
     if (index != -1) {
         if (col->rowCount() > rowCount())
             setRowCount(col->rowCount());
-        emit dataChanged(0, index, col->rowCount() - 1, index);
+        Q_EMIT dataChanged(0, index, col->rowCount() - 1, index);
     }
 }
 
@@ -2139,7 +2139,7 @@ void Table::handleRowsInserted(const AbstractColumn *col, int before, int count)
     Q_UNUSED(count);
     int index = columnIndex(dynamic_cast<const Column *>(col));
     if (index != -1 && before <= col->rowCount())
-        emit dataChanged(before, index, col->rowCount() - 1, index);
+        Q_EMIT dataChanged(before, index, col->rowCount() - 1, index);
 }
 
 void Table::handleRowsAboutToBeRemoved(const AbstractColumn *col, int first, int count)
@@ -2154,7 +2154,7 @@ void Table::handleRowsRemoved(const AbstractColumn *col, int first, int count)
     Q_UNUSED(count);
     int index = columnIndex(dynamic_cast<const Column *>(col));
     if (index != -1)
-        emit dataChanged(first, index, col->rowCount() - 1, index);
+        Q_EMIT dataChanged(first, index, col->rowCount() - 1, index);
 }
 
 void Table::connectColumn(const Column *col)
@@ -2395,7 +2395,7 @@ void Table::Private::replaceColumns(int first, QList<Column *> new_cols)
         return;
 
     int count = new_cols.size();
-    emit d_owner.columnsAboutToBeReplaced(first, new_cols.count());
+    Q_EMIT d_owner.columnsAboutToBeReplaced(first, new_cols.count());
     for (int i = 0; i < count; i++) {
         int rows = new_cols.at(i)->rowCount();
         if (rows > d_row_count)
@@ -2408,8 +2408,8 @@ void Table::Private::replaceColumns(int first, QList<Column *> new_cols)
         d_owner.connectColumn(new_cols.at(i));
     }
     updateHorizontalHeader(first, first + count - 1);
-    emit d_owner.columnsReplaced(first, new_cols.count());
-    emit d_owner.dataChanged(0, first, d_row_count - 1, first + count - 1);
+    Q_EMIT d_owner.columnsReplaced(first, new_cols.count());
+    Q_EMIT d_owner.dataChanged(0, first, d_row_count - 1, first + count - 1);
 }
 
 void Table::Private::insertColumns(int before, QList<Column *> cols)
@@ -2428,14 +2428,14 @@ void Table::Private::insertColumns(int before, QList<Column *> cols)
             setRowCount(rows);
     }
 
-    emit d_owner.columnsAboutToBeInserted(before, cols);
+    Q_EMIT d_owner.columnsAboutToBeInserted(before, cols);
     for (int i = count - 1; i >= 0; i--) {
         d_columns.insert(before, cols.at(i));
         d_owner.connectColumn(cols.at(i));
         d_column_widths.insert(before, Table::defaultColumnWidth());
     }
     d_column_count += count;
-    emit d_owner.columnsInserted(before, cols.count());
+    Q_EMIT d_owner.columnsInserted(before, cols.count());
     updateHorizontalHeader(before, before + count - 1);
 }
 
@@ -2448,14 +2448,14 @@ void Table::Private::removeColumns(int first, int count)
 
     Q_ASSERT(first + count <= d_column_count);
 
-    emit d_owner.columnsAboutToBeRemoved(first, count);
+    Q_EMIT d_owner.columnsAboutToBeRemoved(first, count);
     for (int i = count - 1; i >= 0; i--) {
         d_owner.disconnectColumn(d_columns.at(first));
         d_columns.removeAt(first);
         d_column_widths.removeAt(first);
     }
     d_column_count -= count;
-    emit d_owner.columnsRemoved(first, count);
+    Q_EMIT d_owner.columnsRemoved(first, count);
     updateHorizontalHeader(first, d_column_count - 1);
 }
 
@@ -2475,8 +2475,8 @@ void Table::Private::moveColumn(int from, int to)
     d_owner.connectColumn(d_columns.at(to));
     d_column_widths.move(from, to);
     updateHorizontalHeader(qMin(from, to), qMax(from, to));
-    emit d_owner.dataChanged(0, from, d_row_count - 1, from);
-    emit d_owner.dataChanged(0, to, d_row_count - 1, to);
+    Q_EMIT d_owner.dataChanged(0, from, d_row_count - 1, from);
+    Q_EMIT d_owner.dataChanged(0, to, d_row_count - 1, to);
     if (d_owner.d_view)
         d_owner.d_view->rereadSectionSizes();
 }
@@ -2489,14 +2489,14 @@ void Table::Private::setRowCount(int rows)
         return;
 
     if (diff > 0) {
-        emit d_owner.rowsAboutToBeInserted(d_row_count, diff);
+        Q_EMIT d_owner.rowsAboutToBeInserted(d_row_count, diff);
         d_row_count = rows;
         updateVerticalHeader(d_row_count - diff);
-        emit d_owner.rowsInserted(old_row_count, diff);
+        Q_EMIT d_owner.rowsInserted(old_row_count, diff);
     } else {
-        emit d_owner.rowsAboutToBeRemoved(rows, -diff);
+        Q_EMIT d_owner.rowsAboutToBeRemoved(rows, -diff);
         d_row_count = rows;
-        emit d_owner.rowsRemoved(rows, -diff);
+        Q_EMIT d_owner.rowsRemoved(rows, -diff);
     }
 }
 
@@ -2523,7 +2523,7 @@ void Table::Private::updateVerticalHeader(int start_row)
         d_vertical_header_data.replace(i, i + 1);
     for (; i < d_row_count; i++)
         d_vertical_header_data << i + 1;
-    emit d_owner.headerDataChanged(Qt::Vertical, start_row, d_row_count - 1);
+    Q_EMIT d_owner.headerDataChanged(Qt::Vertical, start_row, d_row_count - 1);
 }
 
 void Table::Private::updateHorizontalHeader(int start_col, int end_col)
@@ -2583,7 +2583,7 @@ void Table::Private::updateHorizontalHeader(int start_col, int end_col)
                 composeColumnHeader(i, d_columns.at(i)->name());
         }
     }
-    emit d_owner.headerDataChanged(Qt::Horizontal, start_col, end_col);
+    Q_EMIT d_owner.headerDataChanged(Qt::Horizontal, start_col, end_col);
 }
 
 void Table::Private::composeColumnHeader(int col, const QString &label)

@@ -78,7 +78,7 @@ private:
     Plot *plotWidget;
     QPoint startLinePoint, endLinePoint;
 
-signals:
+Q_SIGNALS:
     void showPlotDialog(int);
     void viewTextDialog();
     void viewLineDialog();

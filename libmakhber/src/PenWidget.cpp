@@ -186,32 +186,32 @@ void PenWidget::updateColor(QColor color)
 {
     m_pen.setColor(color);
     updateSamples();
-    emit penChanged(m_pen);
+    Q_EMIT penChanged(m_pen);
 }
 
 void PenWidget::updateWidth(QString value)
 {
     m_pen.setWidth(value.toInt());
-    emit penChanged(m_pen);
+    Q_EMIT penChanged(m_pen);
 }
 
 void PenWidget::updateLineStyle(int index)
 {
     m_pen.setStyle(static_cast<Qt::PenStyle>(lineStyleComboBox->itemData(index).toInt()));
     toggleDashPattern(index);
-    emit penChanged(m_pen);
+    Q_EMIT penChanged(m_pen);
 }
 
 void PenWidget::updateCapStyle(int index)
 {
     m_pen.setCapStyle(static_cast<Qt::PenCapStyle>(capStyleComboBox->itemData(index).toInt()));
-    emit penChanged(m_pen);
+    Q_EMIT penChanged(m_pen);
 }
 
 void PenWidget::updateJoinStyle(int index)
 {
     m_pen.setJoinStyle(static_cast<Qt::PenJoinStyle>(joinStyleComboBox->itemData(index).toInt()));
-    emit penChanged(m_pen);
+    Q_EMIT penChanged(m_pen);
 }
 
 void PenWidget::updateSamples()

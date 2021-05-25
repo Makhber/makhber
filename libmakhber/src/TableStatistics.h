@@ -52,7 +52,7 @@ public:
     // saving
     virtual QString saveToString(const QString &geometry);
 
-public slots:
+public Q_SLOTS:
     //! update statistics after a column has changed (to be connected with Table::modifiedData)
     void update(Table *, const QString &colName);
     //! handle renaming of columns (to be connected with Table::changedColHeader)

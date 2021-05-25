@@ -52,7 +52,7 @@ public:
     void initTablesList(QList<MyWidget *> *lst, int curve);
     void setGraph(Graph *g);
 
-private slots:
+private Q_SLOTS:
     void updateTable(int index);
     void updateCurves();
     void accept();

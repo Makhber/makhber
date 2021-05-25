@@ -72,7 +72,7 @@ public:
     virtual bool load(XmlStreamReader *reader);
     //@}
 
-signals:
+Q_SIGNALS:
     void formatChanged();
 
 private:

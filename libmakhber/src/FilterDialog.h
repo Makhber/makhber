@@ -55,7 +55,7 @@ public:
     QLineEdit *boxEnd;
     ColorButton *btnColor;
 
-public slots:
+public Q_SLOTS:
     void setGraph(Graph *g);
     void filter();
 

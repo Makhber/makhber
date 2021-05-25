@@ -41,7 +41,7 @@ public:
     void setSelected(bool select = true);
     bool selected() { return d_selected; }
 
-signals:
+Q_SIGNALS:
     void clicked();
     void doubleClicked();
     void removeTitle();

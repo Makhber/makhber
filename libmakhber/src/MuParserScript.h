@@ -51,7 +51,7 @@ public:
     MuParserScript(ScriptingEnv *environment, const QString &code, QObject *context = 0,
                    const QString &name = "<input>");
 
-public slots:
+public Q_SLOTS:
     bool compile(bool asFunction = true) override;
     QVariant eval() override;
     bool exec() override { return eval().isValid(); }

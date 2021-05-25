@@ -179,9 +179,9 @@ public:
         QList<Interval<T>> *tmp1, *tmp2;
         tmp1 = new QList<Interval<T>>();
         *tmp1 << *static_cast<Interval<T> *>(this);
-        foreach (Interval<T> i, subtrahend) {
+        for (Interval<T> i : subtrahend) {
             tmp2 = new QList<Interval<T>>();
-            foreach (Interval<T> j, *tmp1)
+            for (Interval<T> j : *tmp1)
                 *tmp2 << subtract(j, i);
             delete tmp1;
             tmp1 = tmp2;

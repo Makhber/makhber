@@ -1568,10 +1568,10 @@ void ApplicationWindow::setListView(const QString &caption, const QString &view)
 void ApplicationWindow::updateTableNames(const QString &oldName, const QString &newName)
 {
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             QWidgetList gr_lst = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
-            foreach (QWidget *widget, gr_lst)
+            for (QWidget *widget : gr_lst)
                 (dynamic_cast<Graph *>(widget))->updateCurveNames(oldName, newName);
         } else if (w->inherits("Graph3D")) {
             QString name = (dynamic_cast<Graph3D *>(w))->formula();
@@ -1586,10 +1586,10 @@ void ApplicationWindow::updateTableNames(const QString &oldName, const QString &
 void ApplicationWindow::updateColNames(const QString &oldName, const QString &newName)
 {
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             QWidgetList gr_lst = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
-            foreach (QWidget *widget, gr_lst)
+            for (QWidget *widget : gr_lst)
                 (dynamic_cast<Graph *>(widget))->updateCurveNames(oldName, newName, false);
         } else if (w->inherits("Graph3D")) {
             QString name = (dynamic_cast<Graph3D *>(w))->formula();
@@ -1604,7 +1604,7 @@ void ApplicationWindow::updateColNames(const QString &oldName, const QString &ne
 void ApplicationWindow::changeMatrixName(const QString &oldName, const QString &newName)
 {
     QList<MyWidget *> lst = windowsList();
-    foreach (MyWidget *w, lst) {
+    for (MyWidget *w : lst) {
         if (w->inherits("Graph3D")) {
             QString s = (dynamic_cast<Graph3D *>(w))->formula();
             if (s.contains(oldName)) {
@@ -1613,7 +1613,7 @@ void ApplicationWindow::changeMatrixName(const QString &oldName, const QString &
             }
         } else if (w->inherits("MultiLayer")) {
             QWidgetList graphsList = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
-            foreach (QWidget *gr_widget, graphsList) {
+            for (QWidget *gr_widget : graphsList) {
                 auto *g = dynamic_cast<Graph *>(gr_widget);
                 for (int i = 0; i < g->curves(); i++) {
                     auto *sp = (QwtPlotItem *)g->plotItem(i);
@@ -1634,7 +1634,7 @@ void ApplicationWindow::remove3DMatrixPlots(Matrix *m)
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("Graph3D") && (dynamic_cast<Graph3D *>(w))->matrix() == m)
             (dynamic_cast<Graph3D *>(w))->clearData();
         else if (w->inherits("MultiLayer")) {
@@ -1661,7 +1661,7 @@ void ApplicationWindow::updateMatrixPlots(MyWidget *window)
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("Graph3D") && (dynamic_cast<Graph3D *>(w))->matrix() == m)
             (dynamic_cast<Graph3D *>(w))->updateMatrixData(m);
         else if (w->inherits("MultiLayer")) {
@@ -1740,7 +1740,7 @@ void ApplicationWindow::change3DMatrix(const QString &matrix_name)
         if (m && g)
             g->changeMatrix(m);
 
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -1768,7 +1768,7 @@ void ApplicationWindow::insert3DMatrixPlot(const QString &matrix_name)
     if (d_workspace.activeSubWindow() && d_workspace.activeSubWindow()->inherits("Graph3D")) {
         (dynamic_cast<Graph3D *>(d_workspace.activeSubWindow()))
                 ->addMatrixData(matrix(matrix_name));
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -1777,7 +1777,7 @@ void ApplicationWindow::insertNew3DData(const QString &colName)
     if (d_workspace.activeSubWindow() && d_workspace.activeSubWindow()->inherits("Graph3D")) {
         (dynamic_cast<Graph3D *>(d_workspace.activeSubWindow()))
                 ->insertNewData(table(colName), colName);
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -1786,7 +1786,7 @@ void ApplicationWindow::change3DData(const QString &colName)
     if (d_workspace.activeSubWindow() && d_workspace.activeSubWindow()->inherits("Graph3D")) {
         (dynamic_cast<Graph3D *>(d_workspace.activeSubWindow()))
                 ->changeDataColumn(table(colName), colName);
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -1841,7 +1841,7 @@ Graph3D *ApplicationWindow::newPlot3D(const QString &formula, double xl, double 
 
     initPlot3D(plot);
 
-    emit modified();
+    Q_EMIT modified();
     return plot;
 }
 
@@ -1887,7 +1887,7 @@ Graph3D *ApplicationWindow::dataPlot3D(Table *table, const QString &colName)
     plot->update();
     initPlot3D(plot);
 
-    emit modified();
+    Q_EMIT modified();
     QApplication::restoreOverrideCursor();
     return plot;
 }
@@ -1940,7 +1940,7 @@ Graph3D *ApplicationWindow::newPlot3D()
     customPlot3D(plot);
     initPlot3D(plot);
 
-    emit modified();
+    Q_EMIT modified();
     QApplication::restoreOverrideCursor();
     return plot;
 }
@@ -1965,7 +1965,7 @@ Graph3D *ApplicationWindow::dataPlotXYZ(Table *table, const QString &zColName, i
     plot->update();
     initPlot3D(plot);
 
-    emit modified();
+    Q_EMIT modified();
     QApplication::restoreOverrideCursor();
     return plot;
 }
@@ -2181,7 +2181,7 @@ MultiLayer *ApplicationWindow::multilayerPlot(Table *w, const QStringList &colLi
     g->arrangeLayers(false, false);
     customMenu(g);
 
-    emit modified();
+    Q_EMIT modified();
     QApplication::restoreOverrideCursor();
     return g;
 }
@@ -2249,13 +2249,13 @@ MultiLayer *ApplicationWindow::multilayerPlot(int c, int r, int style)
     g->setCols(c);
     g->arrangeLayers(false, false);
     QWidgetList lst = g->graphPtrs();
-    foreach (QWidget *widget, lst) {
+    for (QWidget *widget : lst) {
         auto *ag = dynamic_cast<Graph *>(widget);
         ag->setAutoscaleFonts(autoScaleFonts); // restore user defined fonts behaviour
         ag->setIgnoreResizeEvents(!autoResizeLayers);
     }
     customMenu(g);
-    emit modified();
+    Q_EMIT modified();
     return g;
 }
 
@@ -2316,7 +2316,7 @@ MultiLayer *ApplicationWindow::multilayerPlot(const QStringList &colList)
     ag->updatePlot();
     g->arrangeLayers(true, false);
     customMenu(g);
-    emit modified();
+    Q_EMIT modified();
     QApplication::restoreOverrideCursor();
     return g;
 }
@@ -2360,7 +2360,7 @@ void ApplicationWindow::customizeTables(const QColor &bgColor, const QColor &tex
     d_show_table_comments = showComments;
 
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("Table"))
             customTable(dynamic_cast<Table *>(w));
     }
@@ -2519,7 +2519,7 @@ void ApplicationWindow::initTable(Table *w)
 
     w->d_future_table->setPlotMenu(plot2D);
 
-    emit modified();
+    Q_EMIT modified();
 }
 
 /*
@@ -2550,7 +2550,7 @@ void ApplicationWindow::removeDependentTableStatistics(const AbstractAspect *asp
     if (!future_table)
         return;
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *win, windows) {
+    for (MyWidget *win : windows) {
         auto *table_stat = qobject_cast<TableStatistics *>(win);
         if (!table_stat)
             continue;
@@ -2598,7 +2598,7 @@ void ApplicationWindow::initNote(Note *m, const QString &caption)
     connect(m, SIGNAL(statusChanged(MyWidget *)), this, SLOT(updateWindowStatus(MyWidget *)));
     connect(m, SIGNAL(showTitleBarMenu()), this, SLOT(showWindowTitleBarMenu()));
 
-    emit modified();
+    Q_EMIT modified();
 }
 
 Matrix *ApplicationWindow::newMatrix(int rows, int columns)
@@ -2705,7 +2705,7 @@ void ApplicationWindow::initMatrix(Matrix *m)
     connect(m, SIGNAL(hiddenWindow(MyWidget *)), this, SLOT(hideWindow(MyWidget *)));
     connect(m, SIGNAL(statusChanged(MyWidget *)), this, SLOT(updateWindowStatus(MyWidget *)));
     connect(m, SIGNAL(showContextMenu()), this, SLOT(showWindowContextMenu()));
-    emit modified();
+    Q_EMIT modified();
 }
 
 Matrix *ApplicationWindow::convertTableToMatrix()
@@ -2756,7 +2756,7 @@ Table *ApplicationWindow::table(const QString &name)
     QString caption = name.left(pos);
 
     QList<MyWidget *> lst = windowsList();
-    foreach (MyWidget *w, lst) {
+    for (MyWidget *w : lst) {
         if (w->inherits("Table") && dynamic_cast<Table *>(w)->name() == caption) {
             return dynamic_cast<Table *>(w);
         }
@@ -2773,7 +2773,7 @@ Matrix *ApplicationWindow::matrix(const QString &name)
     }
 
     QList<MyWidget *> lst = windowsList();
-    foreach (MyWidget *w, lst) {
+    for (MyWidget *w : lst) {
         if (w->inherits("Matrix") && dynamic_cast<Matrix *>(w)->name() == caption) {
             return dynamic_cast<Matrix *>(w);
         }
@@ -2927,7 +2927,7 @@ void ApplicationWindow::defineErrorBars(const QString &curveName, const QString 
         return;
 
     g->addErrorBars(curveName, errTable, errColumnName, direction);
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::removeCurves(const QString &name)
@@ -2935,10 +2935,10 @@ void ApplicationWindow::removeCurves(const QString &name)
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             QWidgetList lst = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
-            foreach (QWidget *widget, lst)
+            for (QWidget *widget : lst)
                 (dynamic_cast<Graph *>(widget))->removeCurves(name);
         } else if (w->inherits("Graph3D")) {
             if (((dynamic_cast<Graph3D *>(w))->formula()).contains(name))
@@ -2951,7 +2951,7 @@ void ApplicationWindow::removeCurves(const QString &name)
 void ApplicationWindow::updateCurves(Table *t, const QString &name)
 {
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             QWidgetList graphsList = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
             for (int k = 0; k < (int)graphsList.count(); k++) {
@@ -3105,11 +3105,11 @@ void ApplicationWindow::setGraphDefaultSettings(bool autoscale, bool scaleFonts,
     antialiasing2DPlots = antialiasing;
 
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             QWidgetList lst = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
             Graph *g = nullptr;
-            foreach (QWidget *widget, lst) {
+            for (QWidget *widget : lst) {
                 g = dynamic_cast<Graph *>(widget);
                 g->enableAutoscaling(autoscale2DPlots);
                 g->updateScale();
@@ -3134,10 +3134,10 @@ void ApplicationWindow::setLegendDefaultSettings(int frame, const QFont &font,
     plotLegendFont = font;
 
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             QWidgetList graphsList = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
-            foreach (QWidget *widget, graphsList)
+            for (QWidget *widget : graphsList)
                 (dynamic_cast<Graph *>(widget))
                         ->setTextMarkerDefaults(frame, font, textCol, backgroundCol);
         }
@@ -3161,10 +3161,10 @@ void ApplicationWindow::setArrowDefaultSettings(const QPen &pen, int headLength,
     defaultArrowHeadFill = fillHead;
 
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             QWidgetList graphsList = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
-            foreach (QWidget *widget, graphsList)
+            for (QWidget *widget : graphsList)
                 (dynamic_cast<Graph *>(widget))
                         ->setArrowDefaults(defaultArrowLineWidth, defaultArrowColor,
 
@@ -3261,7 +3261,7 @@ void ApplicationWindow::importASCII(const QStringList &files, int import_mode,
     if (!table)
         return;
 
-    foreach (QString file, files) {
+    for (QString file : files) {
         auto *temp = new Table(scriptEnv, file, local_column_separator, local_ignored_lines,
                                local_rename_columns, local_strip_spaces, local_simplify_spaces,
                                local_convert_to_numeric, local_numeric_locale, "temp");
@@ -3521,7 +3521,7 @@ QFile *ApplicationWindow::openCompressedFile(const QString &fn)
         return nullptr;
     }
 
-    forever {
+    for (;;) {
         len = gzread(in, buf.data(), sizeof(buf));
         if (len == 0)
             break;
@@ -3886,7 +3886,7 @@ ApplicationWindow *ApplicationWindow::openProject(const QString &fn)
 void ApplicationWindow::executeNotes()
 {
     QList<MyWidget *> lst = projectFolder()->windowsList();
-    foreach (MyWidget *widget, lst)
+    for (MyWidget *widget : lst)
         if (widget->inherits("Note") && (dynamic_cast<Note *>(widget))->autoexec())
             (dynamic_cast<Note *>(widget))->executeAll();
 }
@@ -3936,7 +3936,7 @@ bool ApplicationWindow::setScriptingLang(const QString &lang, bool force, bool b
     ScriptingChangeEvent sce(newEnv);
     QApplication::sendEvent(this, &sce);
 
-    foreach (QObject *i, findChildren<QWidget *>())
+    for (QObject *i : findChildren<QWidget *>())
         QApplication::postEvent(i, new ScriptingChangeEvent(newEnv));
 
     QApplication::restoreOverrideCursor();
@@ -4809,7 +4809,7 @@ void ApplicationWindow::exportAllGraphs()
     MultiLayer *plot2D = nullptr;
     Graph3D *plot3D = nullptr;
 
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             plot3D = nullptr;
             plot2D = dynamic_cast<MultiLayer *>(w);
@@ -5158,7 +5158,7 @@ QStringList ApplicationWindow::columnsList(Makhber::PlotDesignation plotType)
 {
     QList<MyWidget *> windows = windowsList();
     QStringList list;
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (!w->inherits("Table"))
             continue;
 
@@ -5177,7 +5177,7 @@ QStringList ApplicationWindow::columnsList()
 {
     QList<MyWidget *> windows = windowsList();
     QStringList list;
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (!w->inherits("Table"))
             continue;
 
@@ -5221,7 +5221,7 @@ void ApplicationWindow::showCurvesDialog()
 QList<MyWidget *> *ApplicationWindow::tableList()
 {
     auto *lst = new QList<MyWidget *>();
-    foreach (MyWidget *w, windowsList()) {
+    for (MyWidget *w : windowsList()) {
         if (w->inherits("Table"))
             lst->append(w);
     }
@@ -5408,7 +5408,7 @@ void ApplicationWindow::exportAllTables(const QString &sep, bool colNames, bool 
 
         bool confirmOverwrite = true;
         bool success = true;
-        foreach (MyWidget *w, windowsList()) {
+        for (MyWidget *w : windowsList()) {
             if (w->inherits("Table")) {
                 auto *t = dynamic_cast<Table *>(w);
                 QString fileName = dir + "/" + t->name() + ".txt";
@@ -5999,7 +5999,7 @@ void ApplicationWindow::zoomIn()
     }
 
     QWidgetList graphsList = plot->graphPtrs();
-    foreach (QWidget *widget, graphsList) {
+    for (QWidget *widget : graphsList) {
         auto *g = dynamic_cast<Graph *>(widget);
         if (!g->isPiePlot())
             g->zoom(true);
@@ -6034,7 +6034,7 @@ void ApplicationWindow::setAutoScale()
     auto *g = (Graph *)plot->activeGraph();
     if (g) {
         g->setAutoScale();
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -6428,7 +6428,7 @@ void ApplicationWindow::updateLog(const QString &result)
     if (!result.isEmpty()) {
         logInfo += result;
         showResults(true);
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -6508,7 +6508,7 @@ void ApplicationWindow::showScreenReader()
     }
 
     QWidgetList graphsList = plot->graphPtrs();
-    foreach (QWidget *w, graphsList)
+    for (QWidget *w : graphsList)
         (dynamic_cast<Graph *>(w))
                 ->setActiveTool(new ScreenPickerTool(dynamic_cast<Graph *>(w), d_status_info,
                                                      SLOT(setText(const QString &))));
@@ -6569,7 +6569,7 @@ void ApplicationWindow::showCursor()
     }
 
     QWidgetList graphsList = plot->graphPtrs();
-    foreach (QWidget *w, graphsList)
+    for (QWidget *w : graphsList)
         if (!(dynamic_cast<Graph *>(w))->isPiePlot()
             && (dynamic_cast<Graph *>(w))->validCurvesDataSize())
             (dynamic_cast<Graph *>(w))
@@ -6716,7 +6716,7 @@ void ApplicationWindow::drawLine()
     auto *g = (Graph *)plot->activeGraph();
     if (g) {
         g->drawLine(true);
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -6738,7 +6738,7 @@ void ApplicationWindow::drawArrow()
     auto *g = (Graph *)plot->activeGraph();
     if (g) {
         g->drawLine(true, true);
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -6883,7 +6883,7 @@ void ApplicationWindow::clearSelection()
             g->removeMarker();
     } else if (m->inherits("Note"))
         (dynamic_cast<Note *>(m))->textWidget()->clear();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::copySelection()
@@ -6945,7 +6945,7 @@ void ApplicationWindow::cutSelection()
     } else if (m->inherits("Note"))
         (dynamic_cast<Note *>(m))->textWidget()->cut();
 
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::copyMarker()
@@ -7036,7 +7036,7 @@ void ApplicationWindow::pasteSelection()
             g->pasteMarker();
         }
     }
-    emit modified();
+    Q_EMIT modified();
 }
 
 MyWidget *ApplicationWindow::clone()
@@ -7160,7 +7160,7 @@ void ApplicationWindow::updateWindowStatus(MyWidget *w)
     setListView(w->name(), w->aspect());
     if (w->status() == MyWidget::Maximized) {
         QList<MyWidget *> windows = current_folder->windowsList();
-        foreach (MyWidget *oldMaxWindow, windows) {
+        for (MyWidget *oldMaxWindow : windows) {
             if (oldMaxWindow != w && oldMaxWindow->status() == MyWidget::Maximized)
                 oldMaxWindow->setStatus(MyWidget::Normal);
         }
@@ -7180,7 +7180,7 @@ void ApplicationWindow::hideWindow(MyWidget *w)
 {
     hiddenWindows.append(w);
     w->setHidden();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::resizeActiveWindow()
@@ -7242,7 +7242,7 @@ void ApplicationWindow::activateSubWindow(MyWidget *w)
     d_workspace.setActiveSubWindow(w);
 
     updateWindowLists(w);
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::maximizeWindow()
@@ -7253,7 +7253,7 @@ void ApplicationWindow::maximizeWindow()
 
     updateWindowLists(w);
     w->setMaximized();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::minimizeWindow()
@@ -7264,7 +7264,7 @@ void ApplicationWindow::minimizeWindow()
 
     updateWindowLists(w);
     w->setMinimized();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::updateWindowLists(MyWidget *w)
@@ -7337,7 +7337,7 @@ void ApplicationWindow::closeWindow(MyWidget *window)
         window->setParent(nullptr);
     else
         window->deleteLater();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::about()
@@ -7508,7 +7508,7 @@ void ApplicationWindow::dropEvent(QDropEvent *e)
         QStringList asciiFiles;
         QList<QUrl> urls = e->mimeData()->urls();
 
-        foreach (QUrl url, urls) {
+        for (QUrl url : urls) {
             QString fileName = url.toLocalFile();
             QFileInfo fileInfo(fileName);
             QString ext = fileInfo.completeSuffix().toLower();
@@ -7698,7 +7698,7 @@ void ApplicationWindow::showTable(const QString &curve)
     QTreeWidgetItem *it = lv.findItems(w->name(), Qt::MatchExactly | Qt::MatchCaseSensitive).at(0);
     if (it)
         it->setText(2, tr("Maximized"));
-    emit modified();
+    Q_EMIT modified();
 }
 
 QStringList ApplicationWindow::depending3DPlots(Matrix *m)
@@ -7725,7 +7725,7 @@ QStringList ApplicationWindow::dependingPlots(const QString &name)
             continue;
         if (w->inherits("MultiLayer")) {
             QWidgetList lst = (dynamic_cast<MultiLayer *>(w))->graphPtrs();
-            foreach (QWidget *widget, lst) {
+            for (QWidget *widget : lst) {
                 auto *g = dynamic_cast<Graph *>(widget);
                 onPlot = g->curvesList();
                 onPlot = onPlot.filter(QRegExp("^" + name + "_.*"));
@@ -8293,7 +8293,7 @@ void ApplicationWindow::clearLogInfo()
     if (!logInfo.isEmpty()) {
         logInfo = "";
         results->setText(logInfo);
-        emit modified();
+        Q_EMIT modified();
     }
 }
 
@@ -8472,7 +8472,7 @@ void ApplicationWindow::pickPlotStyle(QAction *action)
     } else if (action == barstyle) {
         setBars3DPlot();
     }
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::pickCoordSystem(QAction *action)
@@ -8491,7 +8491,7 @@ void ApplicationWindow::pickCoordSystem(QAction *action)
         grids->setEnabled(false);
     }
 
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::pickFloorStyle(QAction *action)
@@ -8507,7 +8507,7 @@ void ApplicationWindow::pickFloorStyle(QAction *action)
         setEmptyFloor3DPlot();
     }
 
-    emit modified();
+    Q_EMIT modified();
 }
 
 void ApplicationWindow::custom3DActions(MyWidget *w)
@@ -9043,7 +9043,7 @@ Matrix *ApplicationWindow::openMatrix(ApplicationWindow *app, const QStringList 
             QString msg_text =
                     tr("The following problems occured when loading the project file:\n");
             QStringList warnings = reader.warningStrings();
-            foreach (QString str, warnings)
+            for (QString str : warnings)
                 msg_text += str + "\n";
             QMessageBox::warning(this, tr("Project loading partly failed"), msg_text);
         }
@@ -9187,7 +9187,7 @@ Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
             QString msg_text =
                     tr("The following problems occured when loading the project file:\n");
             QStringList warnings = reader.warningStrings();
-            foreach (QString str, warnings)
+            for (QString str : warnings)
                 msg_text += str + "\n";
             QMessageBox::warning(this, tr("Project loading partly failed"), msg_text);
         }
@@ -11406,7 +11406,7 @@ void ApplicationWindow::plot3DMatrix(int style)
     plot->setName(label);
     initPlot3D(plot);
 
-    emit modified();
+    Q_EMIT modified();
     QApplication::restoreOverrideCursor();
 }
 
@@ -11469,7 +11469,7 @@ MultiLayer *ApplicationWindow::plotSpectrogram(Matrix *m, Graph::CurveType type)
     plot->plotSpectrogram(m, type);
     g->showNormal();
 
-    emit modified();
+    Q_EMIT modified();
     QApplication::restoreOverrideCursor();
     return g;
 }
@@ -11519,12 +11519,12 @@ void ApplicationWindow::deleteFitTables()
             mLst->append(windows.at(i));
     }
 
-    foreach (MyWidget *ml, *mLst) {
+    for (MyWidget *ml : *mLst) {
         if (ml->inherits("MultiLayer")) {
             QWidgetList lst = (dynamic_cast<MultiLayer *>(ml))->graphPtrs();
-            foreach (QWidget *widget, lst) {
+            for (QWidget *widget : lst) {
                 QList<QwtPlotCurve *> curves = (dynamic_cast<Graph *>(widget))->fitCurvesList();
-                foreach (QwtPlotCurve *c, curves) {
+                for (QwtPlotCurve *c : curves) {
                     if ((dynamic_cast<PlotCurve *>(c))->type() != Graph::Function) {
                         Table *t = (dynamic_cast<DataCurve *>(c))->table();
                         if (!t)
@@ -11550,7 +11550,7 @@ QList<MyWidget *> ApplicationWindow::windowsList()
     QTreeWidgetItemIterator it(item);
     while (item && item->depth() >= initial_depth) {
         QList<MyWidget *> folderWindows = item->folder()->windowsList();
-        foreach (MyWidget *w, folderWindows)
+        for (MyWidget *w : folderWindows)
             lst.append(w);
         it++;
         item = dynamic_cast<FolderListItem *>(*it);
@@ -11572,7 +11572,7 @@ void ApplicationWindow::updateRecentProjectsList()
     while ((int)recentProjects.size() > MaxRecentProjects)
         recentProjects.pop_back();
 
-    foreach (QAction *action, recent->actions())
+    for (QAction *action : recent->actions())
         action->deleteLater();
 
     for (int i = 0; i < (int)recentProjects.size(); i++)
@@ -11931,7 +11931,7 @@ QStringList ApplicationWindow::matrixNames()
 {
     QStringList names;
     QList<MyWidget *> windows = windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("Matrix"))
             names << dynamic_cast<Matrix *>(w)->name();
     }
@@ -11942,7 +11942,7 @@ bool ApplicationWindow::alreadyUsedName(const QString &label)
 {
     QList<MyWidget *> windows = windowsList();
     bool used = false;
-    foreach (MyWidget *widget, windows) {
+    for (MyWidget *widget : windows) {
         if (widget && widget->name() == label) {
             used = true;
             break;
@@ -11955,7 +11955,7 @@ bool ApplicationWindow::projectHasMatrices()
 {
     QList<MyWidget *> windows = windowsList();
     bool has = false;
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("Matrix")) {
             has = true;
             break;
@@ -11968,7 +11968,7 @@ bool ApplicationWindow::projectHas2DPlots()
 {
     QList<MyWidget *> windows = windowsList();
     bool hasPlots = false;
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             hasPlots = true;
             break;
@@ -11981,7 +11981,7 @@ bool ApplicationWindow::projectHas3DPlots()
 {
     QList<MyWidget *> windows = windowsList();
     bool has3DPlots = false;
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("Graph3D")) {
             has3DPlots = true;
             break;
@@ -12246,14 +12246,14 @@ void ApplicationWindow::rawSaveFolder(Folder *folder, QIODevice *device)
 {
     QTextStream stream(device);
     stream.setCodec(QTextCodec::codecForName("UTF-8"));
-    foreach (MyWidget *w, folder->windowsList()) {
+    for (MyWidget *w : folder->windowsList()) {
         auto *t = qobject_cast<Table *>(w);
         if (t)
             t->saveToDevice(device, windowGeometryInfo(w));
         else
             stream << w->saveToString(windowGeometryInfo(w));
     }
-    foreach (Folder *subfolder, folder->folders()) {
+    for (Folder *subfolder : folder->folders()) {
         stream << "<folder>\t" + QString(subfolder->name()) + "\t" + subfolder->birthDate() + "\t"
                         + subfolder->modificationDate();
         if (subfolder == current_folder)
@@ -12462,7 +12462,7 @@ void ApplicationWindow::setShowWindowsPolicy(bool checked)
     show_windows_policy = (ShowWindowsPolicy)p;
     if (show_windows_policy == HideAll) {
         QList<MyWidget *> lst = windowsList();
-        foreach (MyWidget *widget, lst) {
+        for (MyWidget *widget : lst) {
             if (!widget)
                 continue;
             hiddenWindows.append(widget);
@@ -12559,7 +12559,7 @@ void ApplicationWindow::renameFolder(QTreeWidgetItem *it, int col, const QString
 void ApplicationWindow::showAllFolderWindows()
 {
     QList<MyWidget *> lst = current_folder->windowsList();
-    foreach (MyWidget *w, lst) { // force show all windows in current folder
+    for (MyWidget *w : lst) { // force show all windows in current folder
         if (w) {
             updateWindowLists(w);
             switch (w->status()) {
@@ -12591,7 +12591,7 @@ void ApplicationWindow::showAllFolderWindows()
     QTreeWidgetItemIterator it(item);
     while (item && item->depth() >= initial_depth) { // show/hide windows in all subfolders
         lst = ((Folder *)item->folder())->windowsList();
-        foreach (MyWidget *w, lst) {
+        for (MyWidget *w : lst) {
             if (w && show_windows_policy == SubFolders) {
                 updateWindowLists(w);
                 switch (w->status()) {
@@ -12623,7 +12623,7 @@ void ApplicationWindow::showAllFolderWindows()
 void ApplicationWindow::hideAllFolderWindows()
 {
     QList<MyWidget *> lst = current_folder->windowsList();
-    foreach (MyWidget *w, lst)
+    for (MyWidget *w : lst)
         hideWindow(w);
 
     if ((current_folder->children()).isEmpty())
@@ -12636,7 +12636,7 @@ void ApplicationWindow::hideAllFolderWindows()
         QTreeWidgetItemIterator it(item);
         while (item && item->depth() >= initial_depth) {
             lst = item->folder()->windowsList();
-            foreach (MyWidget *w, lst)
+            for (MyWidget *w : lst)
                 hideWindow(w);
 
             it++;
@@ -12736,7 +12736,7 @@ bool ApplicationWindow::deleteFolder(Folder *f)
         return false;
     } else {
         FolderListItem *fi = f->folderListItem();
-        foreach (MyWidget *w, f->windowsList())
+        for (MyWidget *w : f->windowsList())
             closeWindow(w);
 
         if (!(f->children()).isEmpty()) {
@@ -12746,7 +12746,7 @@ bool ApplicationWindow::deleteFolder(Folder *f)
             while (item && item->depth() >= initial_depth) {
                 auto *subFolder = (Folder *)item->folder();
                 if (subFolder) {
-                    foreach (MyWidget *w, subFolder->windowsList()) {
+                    for (MyWidget *w : subFolder->windowsList()) {
                         removeWindowFromLists(w);
                         subFolder->removeWindow(w);
                         delete w;
@@ -12828,7 +12828,7 @@ void ApplicationWindow::folderItemChanged(QTreeWidgetItem *current, QTreeWidgetI
 void ApplicationWindow::hideFolderWindows(Folder *f)
 {
     QList<MyWidget *> lst = f->windowsList();
-    foreach (MyWidget *w, lst)
+    for (MyWidget *w : lst)
         w->hide();
 
     if ((f->children()).isEmpty())
@@ -12842,7 +12842,7 @@ void ApplicationWindow::hideFolderWindows(Folder *f)
     QTreeWidgetItemIterator it(item);
     while (item && item->depth() >= initial_depth) {
         lst = item->folder()->windowsList();
-        foreach (MyWidget *w, lst)
+        for (MyWidget *w : lst)
             w->hide();
         it++;
         item = dynamic_cast<FolderListItem *>(*it);
@@ -12876,12 +12876,12 @@ bool ApplicationWindow::changeFolder(Folder *newFolder, bool force)
 
     QObjectList folderLst = newFolder->children();
     if (!folderLst.isEmpty()) {
-        foreach (QObject *f, folderLst)
+        for (QObject *f : folderLst)
             addFolderListViewItem(dynamic_cast<Folder *>(f));
     }
 
     QList<MyWidget *> lst = newFolder->windowsList();
-    foreach (MyWidget *w, lst) {
+    for (MyWidget *w : lst) {
         w->blockSignals(true);
         if (!hiddenWindows.contains(w) && !outWindows.contains(w)
             && show_windows_policy != HideAll) {
@@ -12905,7 +12905,7 @@ bool ApplicationWindow::changeFolder(Folder *newFolder, bool force)
         QTreeWidgetItemIterator it(item);
         while (item && item->depth() >= initial_depth) { // show/hide windows in subfolders
             lst = ((Folder *)item->folder())->windowsList();
-            foreach (MyWidget *w, lst) {
+            for (MyWidget *w : lst) {
                 if (!hiddenWindows.contains(w) && !outWindows.contains(w)) {
                     if (show_windows_policy == SubFolders) {
                         if (w->status() == MyWidget::Normal || w->status() == MyWidget::Maximized)
@@ -12945,7 +12945,7 @@ bool ApplicationWindow::changeFolder(Folder *newFolder, bool force)
         oldFolder->setActiveWindow(old_active_window);
     }
 
-    foreach (MyWidget *w, newFolder->windowsList())
+    for (MyWidget *w : newFolder->windowsList())
         w->blockSignals(false);
 
     return true;
@@ -13101,10 +13101,9 @@ void ApplicationWindow::dropFolderItems(QTreeWidgetItem *dest)
 
     Folder *dest_f = (dynamic_cast<FolderListItem *>(dest))->folder();
 
-    QTreeWidgetItem *it = nullptr;
     QStringList subfolders = dest_f->subfolders();
 
-    foreach (it, draggedItems) {
+    for (QTreeWidgetItem *it : draggedItems) {
         if (it->type() == FolderListItem::FolderType) {
             Folder *f = (dynamic_cast<FolderListItem *>(it))->folder();
             FolderListItem *src = f->folderListItem();
@@ -13172,7 +13171,7 @@ void ApplicationWindow::moveFolder(FolderListItem *src, FolderListItem *dest)
     dest_f->setFolderListItem(copy_item);
 
     QList<MyWidget *> lst = src_f->windowsList();
-    foreach (MyWidget *w, lst) {
+    for (MyWidget *w : lst) {
         src_f->removeWindow(w);
         w->hide();
         dest_f->addWindow(w);
@@ -13194,7 +13193,7 @@ void ApplicationWindow::moveFolder(FolderListItem *src, FolderListItem *dest)
             dest_f->setFolderListItem(copy_item);
 
             lst = QList<MyWidget *>(src_f->windowsList());
-            foreach (MyWidget *w, lst) {
+            for (MyWidget *w : lst) {
                 src_f->removeWindow(w);
                 w->hide();
                 dest_f->addWindow(w);
@@ -13391,7 +13390,7 @@ void ApplicationWindow::cascade()
     int x = 0;
     int y = 0;
 
-    foreach (QWidget *w, windows) {
+    for (QWidget *w : windows) {
         w->activateWindow();
         w->showNormal();
         (dynamic_cast<MyWidget *>(w))->setStatus(MyWidget::Normal);
@@ -13451,7 +13450,7 @@ QMenu *ApplicationWindow::createToolbarsMenu()
     QList<QToolBar *> toolbars = this->findChildren<QToolBar *>();
     if (toolbars.size()) {
         menu = new QMenu(this);
-        foreach (QToolBar *toolbar, toolbars) {
+        for (QToolBar *toolbar : toolbars) {
             if (toolbar->parentWidget() == this)
                 menu->addAction(toolbar->toggleViewAction());
         }
@@ -13719,7 +13718,7 @@ QStringList ApplicationWindow::tableWindows()
 {
     QList<AbstractAspect *> tables = d_project->descendantsThatInherit("future::Table");
     QStringList result;
-    foreach (AbstractAspect *aspect, tables)
+    for (AbstractAspect *aspect : tables)
         result.append(aspect->name());
     return result;
 }

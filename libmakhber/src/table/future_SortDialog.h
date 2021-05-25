@@ -49,11 +49,11 @@ public:
     enum { Separately = 0, Together = 1 };
     enum { Ascending = 0, Descending = 1 };
 
-private slots:
+private Q_SLOTS:
     void accept();
     void changeType(int index);
 
-signals:
+Q_SIGNALS:
     void sort(Column *leading, QList<Column *> cols, bool ascending);
 
 private:

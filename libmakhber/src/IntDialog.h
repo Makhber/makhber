@@ -56,14 +56,14 @@ public:
     QLineEdit *boxStart;
     QLineEdit *boxEnd;
 
-public slots:
+public Q_SLOTS:
     void accept();
     void setGraph(Graph *g);
     void activateCurve(const QString &curveName);
     void help();
     void changeDataRange();
 
-signals:
+Q_SIGNALS:
     void integrate(int, int, int, double, double, double);
 
 private:

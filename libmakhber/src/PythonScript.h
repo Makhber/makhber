@@ -47,9 +47,9 @@ public:
                  const QString &name = "<input>");
     ~PythonScript();
 
-    void write(const QString &text) { emit print(text); }
+    void write(const QString &text) { Q_EMIT print(text); }
 
-public slots:
+public Q_SLOTS:
     bool compile(bool for_eval = true) override;
     QVariant eval() override;
     bool exec() override;

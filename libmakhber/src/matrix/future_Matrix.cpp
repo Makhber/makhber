@@ -885,7 +885,7 @@ void Matrix::copy(Matrix *other)
     setDisplayedDigits(other->displayedDigits());
     setFormula(other->formula());
     d_matrix_private->blockChangeSignals(false);
-    emit dataChanged(0, 0, rows - 1, columns - 1);
+    Q_EMIT dataChanged(0, 0, rows - 1, columns - 1);
     if (d_view)
         d_view->rereadSectionSizes();
     endMacro();
@@ -1461,7 +1461,7 @@ void Matrix::recalculateSelectedCells()
         return;
     WAIT_CURSOR;
     beginMacro(tr("%1: apply formula to selection").arg(name()));
-    emit recalculate();
+    Q_EMIT recalculate();
     endMacro();
     RESET_CURSOR;
 }
@@ -1542,31 +1542,31 @@ void Matrix::Private::insertColumns(int before, int count)
     Q_ASSERT(before >= 0);
     Q_ASSERT(before <= d_column_count);
 
-    emit d_owner->columnsAboutToBeInserted(before, count);
+    Q_EMIT d_owner->columnsAboutToBeInserted(before, count);
     for (int i = 0; i < count; i++) {
         d_data.insert(before + i, QVector<qreal>(d_row_count));
         d_column_widths.insert(before + i, Matrix::defaultColumnWidth());
     }
 
     d_column_count += count;
-    emit d_owner->columnsInserted(before, count);
+    Q_EMIT d_owner->columnsInserted(before, count);
 }
 
 void Matrix::Private::removeColumns(int first, int count)
 {
-    emit d_owner->columnsAboutToBeRemoved(first, count);
+    Q_EMIT d_owner->columnsAboutToBeRemoved(first, count);
     Q_ASSERT(first >= 0);
     Q_ASSERT(first + count <= d_column_count);
     d_data.remove(first, count);
     for (int i = 0; i < count; i++)
         d_column_widths.removeAt(first);
     d_column_count -= count;
-    emit d_owner->columnsRemoved(first, count);
+    Q_EMIT d_owner->columnsRemoved(first, count);
 }
 
 void Matrix::Private::insertRows(int before, int count)
 {
-    emit d_owner->rowsAboutToBeInserted(before, count);
+    Q_EMIT d_owner->rowsAboutToBeInserted(before, count);
     Q_ASSERT(before >= 0);
     Q_ASSERT(before <= d_row_count);
     for (int col = 0; col < d_column_count; col++)
@@ -1576,12 +1576,12 @@ void Matrix::Private::insertRows(int before, int count)
         d_row_heights.insert(before + i, Matrix::defaultRowHeight());
 
     d_row_count += count;
-    emit d_owner->rowsInserted(before, count);
+    Q_EMIT d_owner->rowsInserted(before, count);
 }
 
 void Matrix::Private::removeRows(int first, int count)
 {
-    emit d_owner->rowsAboutToBeRemoved(first, count);
+    Q_EMIT d_owner->rowsAboutToBeRemoved(first, count);
     Q_ASSERT(first >= 0);
     Q_ASSERT(first + count <= d_row_count);
     for (int col = 0; col < d_column_count; col++)
@@ -1590,7 +1590,7 @@ void Matrix::Private::removeRows(int first, int count)
         d_row_heights.removeAt(first);
 
     d_row_count -= count;
-    emit d_owner->rowsRemoved(first, count);
+    Q_EMIT d_owner->rowsRemoved(first, count);
 }
 
 double Matrix::Private::cell(int row, int col) const
@@ -1606,7 +1606,7 @@ void Matrix::Private::setCell(int row, int col, double value)
     Q_ASSERT(col >= 0 && col < d_column_count);
     d_data[col][row] = value;
     if (!d_block_change_signals)
-        emit d_owner->dataChanged(row, col, row, col);
+        Q_EMIT d_owner->dataChanged(row, col, row, col);
 }
 
 void Matrix::Private::setCells(const QVector<qreal> &data)
@@ -1646,14 +1646,14 @@ void Matrix::Private::setColumnCells(int col, int first_row, int last_row,
         d_data[col] = values;
         d_data[col].resize(d_row_count); // values may be larger
         if (!d_block_change_signals)
-            emit d_owner->dataChanged(first_row, col, last_row, col);
+            Q_EMIT d_owner->dataChanged(first_row, col, last_row, col);
         return;
     }
 
     for (int i = first_row; i <= last_row; i++)
         d_data[col][i] = values.at(i - first_row);
     if (!d_block_change_signals)
-        emit d_owner->dataChanged(first_row, col, last_row, col);
+        Q_EMIT d_owner->dataChanged(first_row, col, last_row, col);
 }
 
 QVector<qreal> Matrix::Private::rowCells(int row, int first_column, int last_column)
@@ -1677,14 +1677,14 @@ void Matrix::Private::setRowCells(int row, int first_column, int last_column,
     for (int i = first_column; i <= last_column; i++)
         d_data[i][row] = values.at(i - first_column);
     if (!d_block_change_signals)
-        emit d_owner->dataChanged(row, first_column, row, last_column);
+        Q_EMIT d_owner->dataChanged(row, first_column, row, last_column);
 }
 
 void Matrix::Private::clearColumn(int col)
 {
     d_data[col].fill(0.0);
     if (!d_block_change_signals)
-        emit d_owner->dataChanged(0, col, d_row_count - 1, col);
+        Q_EMIT d_owner->dataChanged(0, col, d_row_count - 1, col);
 }
 
 double Matrix::Private::xStart() const
@@ -1710,25 +1710,25 @@ double Matrix::Private::yEnd() const
 void Matrix::Private::setXStart(double x)
 {
     d_x_start = x;
-    emit d_owner->coordinatesChanged();
+    Q_EMIT d_owner->coordinatesChanged();
 }
 
 void Matrix::Private::setXEnd(double x)
 {
     d_x_end = x;
-    emit d_owner->coordinatesChanged();
+    Q_EMIT d_owner->coordinatesChanged();
 }
 
 void Matrix::Private::setYStart(double y)
 {
     d_y_start = y;
-    emit d_owner->coordinatesChanged();
+    Q_EMIT d_owner->coordinatesChanged();
 }
 
 void Matrix::Private::setYEnd(double y)
 {
     d_y_end = y;
-    emit d_owner->coordinatesChanged();
+    Q_EMIT d_owner->coordinatesChanged();
 }
 
 QString Matrix::Private::formula() const
@@ -1739,7 +1739,7 @@ QString Matrix::Private::formula() const
 void Matrix::Private::setFormula(const QString &formula)
 {
     d_formula = formula;
-    emit d_owner->formulaChanged();
+    Q_EMIT d_owner->formulaChanged();
 }
 
 } // namespace

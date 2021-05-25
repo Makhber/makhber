@@ -325,7 +325,7 @@ private:
     bool XmlReadRow(XmlStreamReader *reader);
     //@}
 
-private slots:
+private Q_SLOTS:
     void notifyDisplayChange();
 
 private:

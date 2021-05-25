@@ -47,7 +47,7 @@ public:
 
     void setGraph(Graph *graph);
 
-private slots:
+private Q_SLOTS:
     void addCurves();
     void removeCurves();
     int curveStyle();

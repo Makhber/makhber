@@ -207,7 +207,7 @@ private:
 public:
     static Matrix *fromImage(const QImage &image);
 
-public slots:
+public Q_SLOTS:
     //! Clear the whole matrix (i.e. set all cells to 0.0)
     void clear();
     void transpose();
@@ -256,7 +256,7 @@ public slots:
     void duplicate();
     void recalculateSelectedCells();
 
-signals:
+Q_SIGNALS:
     void columnsAboutToBeInserted(int before, int count);
     void columnsInserted(int first, int count);
     void columnsAboutToBeRemoved(int first, int count);
@@ -271,7 +271,7 @@ signals:
     void formatChanged();
     void recalculate();
 
-private slots:
+private Q_SLOTS:
     void adjustTabBarAction(bool visible);
 
 private:
@@ -406,13 +406,13 @@ public:
     void setNumericFormat(char format)
     {
         d_numeric_format = format;
-        emit d_owner->formatChanged();
+        Q_EMIT d_owner->formatChanged();
     }
     int displayedDigits() const { return d_displayed_digits; }
     void setDisplayedDigits(int digits)
     {
         d_displayed_digits = digits;
-        emit d_owner->formatChanged();
+        Q_EMIT d_owner->formatChanged();
     }
     //! Fill column with zeroes
     void clearColumn(int col);
@@ -447,7 +447,7 @@ public:
     //! Access to the dataChanged signal for commands
     void emitDataChanged(int top, int left, int bottom, int right)
     {
-        emit d_owner->dataChanged(top, left, bottom, right);
+        Q_EMIT d_owner->dataChanged(top, left, bottom, right);
     }
 
 private:

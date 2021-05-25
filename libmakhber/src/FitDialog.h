@@ -65,7 +65,7 @@ protected:
     //! Initialized the widget for the third dialog page
     void initAdvancedPage();
 
-public slots:
+public Q_SLOTS:
     //! Start the actual fitting
     void accept();
     //! Add a list of user defined functions
@@ -138,11 +138,11 @@ public slots:
     //! Deletes the result fit curves from the plot
     void deleteFitCurves();
 
-private slots:
+private Q_SLOTS:
     //! Enable the "Apply" button
     void enableApplyChanges(int = 0);
 
-signals:
+Q_SIGNALS:
     void clearFunctionsList();
     void saveFunctionsList(const QStringList &);
 

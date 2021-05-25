@@ -89,7 +89,7 @@ void SortDialog::accept()
         leading = d_columns_list.at(ui.columns_list->currentIndex());
     else
         leading = nullptr;
-    emit sort(leading, d_columns_list, ui.box_order->currentIndex() == Ascending);
+    Q_EMIT sort(leading, d_columns_list, ui.box_order->currentIndex() == Ascending);
 }
 
 void SortDialog::setColumnsList(QList<Column *> list)

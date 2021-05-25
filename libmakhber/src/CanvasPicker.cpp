@@ -61,7 +61,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
 
     switch (e->type()) {
     case QEvent::MouseButtonPress: {
-        emit selectPlot();
+        Q_EMIT selectPlot();
 
         const auto *me = dynamic_cast<const QMouseEvent *>(e);
 
@@ -77,7 +77,7 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
 
         if (!plot()->zoomOn() && selectMarker(me)) {
             if (me->button() == Qt::RightButton)
-                emit showMarkerPopupMenu();
+                Q_EMIT showMarkerPopupMenu();
             return true;
         }
 
@@ -97,26 +97,26 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
             return d_editing_marker->eventFilter(plotWidget->canvas(), e);
         } else if (plot()->selectedMarkerKey() >= 0) {
             if (texts.contains(plot()->selectedMarkerKey())) {
-                emit viewTextDialog();
+                Q_EMIT viewTextDialog();
                 return true;
             } else if (lines.contains(plot()->selectedMarkerKey())) {
-                emit viewLineDialog();
+                Q_EMIT viewLineDialog();
                 return true;
             } else if (images.contains(plot()->selectedMarkerKey())) {
-                emit viewImageDialog();
+                Q_EMIT viewImageDialog();
                 return true;
             }
         } else if (plot()->isPiePlot()) {
-            emit showPlotDialog(plot()->curveKey(0));
+            Q_EMIT showPlotDialog(plot()->curveKey(0));
             return true;
         } else {
             const auto *me = dynamic_cast<const QMouseEvent *>(e);
             int dist = 0, point = 0;
             int curveKey = plotWidget->closestCurve(me->pos().x(), me->pos().y(), dist, point);
             if (dist < 10)
-                emit showPlotDialog(curveKey);
+                Q_EMIT showPlotDialog(curveKey);
             else
-                emit showPlotDialog(-1);
+                Q_EMIT showPlotDialog(-1);
             return true;
         }
     } break;
@@ -169,15 +169,15 @@ bool CanvasPicker::eventFilter(QObject *object, QEvent *e)
 
         long selectedMarker = plot()->selectedMarkerKey();
         if (texts.contains(selectedMarker) && (key == Qt::Key_Enter || key == Qt::Key_Return)) {
-            emit viewTextDialog();
+            Q_EMIT viewTextDialog();
             return true;
         }
         if (lines.contains(selectedMarker) && (key == Qt::Key_Enter || key == Qt::Key_Return)) {
-            emit viewLineDialog();
+            Q_EMIT viewLineDialog();
             return true;
         }
         if (images.contains(selectedMarker) && (key == Qt::Key_Enter || key == Qt::Key_Return)) {
-            emit viewImageDialog();
+            Q_EMIT viewImageDialog();
             return true;
         }
     } break;
@@ -207,7 +207,7 @@ void CanvasPicker::drawTextMarker(const QPoint &point)
     mrkT.setText(tr("enter your text here"));
     plot()->insertTextMarker(&mrkT);
     plot()->drawText(false);
-    emit drawTextOff();
+    Q_EMIT drawTextOff();
 }
 
 void CanvasPicker::drawLineMarker(const QPoint &point, bool endArrow)
@@ -236,7 +236,7 @@ void CanvasPicker::drawLineMarker(const QPoint &point, bool endArrow)
 bool CanvasPicker::selectMarker(const QMouseEvent *e)
 {
     const QPoint point = e->pos();
-    foreach (long i, plot()->textMarkerKeys()) {
+    for (long i : plot()->textMarkerKeys()) {
         auto *m = dynamic_cast<Legend *>(plotWidget->marker(i));
         if (!m)
             return false;
@@ -249,7 +249,7 @@ bool CanvasPicker::selectMarker(const QMouseEvent *e)
             return true;
         }
     }
-    foreach (long i, plot()->imageMarkerKeys()) {
+    for (long i : plot()->imageMarkerKeys()) {
         auto *m = dynamic_cast<ImageMarker *>(plotWidget->marker(i));
         if (!m)
             return false;
@@ -262,7 +262,7 @@ bool CanvasPicker::selectMarker(const QMouseEvent *e)
             return true;
         }
     }
-    foreach (long i, plot()->lineMarkerKeys()) {
+    for (long i : plot()->lineMarkerKeys()) {
         auto *mrkL = dynamic_cast<ArrowMarker *>(plotWidget->marker(i));
         if (!mrkL)
             return false;

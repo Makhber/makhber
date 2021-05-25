@@ -62,12 +62,12 @@ private:
     QCheckBox *boxPartialMatch;
     QCheckBox *boxSubfolders;
 
-public slots:
+public Q_SLOTS:
 
     //! Displays the project current folder path
     void setStartPath();
 
-protected slots:
+protected Q_SLOTS:
 
     void accept();
 };

@@ -56,7 +56,7 @@ void DataCurve::setRowRange(int startRow, int endRow)
 
     loadData();
 
-    foreach (DataCurve *c, d_error_bars)
+    for (DataCurve *c : d_error_bars)
         c->loadData();
 }
 
@@ -67,7 +67,7 @@ void DataCurve::setFullRange()
 
     loadData();
 
-    foreach (DataCurve *c, d_error_bars)
+    for (DataCurve *c : d_error_bars)
         c->loadData();
 }
 
@@ -133,7 +133,7 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
 
     int end_row = d_end_row;
     // make sure end_row is a valid index for all columns
-    foreach (Column *col, cols)
+    for (Column *col : cols)
         if (end_row >= col->rowCount())
             end_row = col->rowCount() - 1;
 
@@ -141,7 +141,7 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
     QList<int> valid_rows;
     for (int row = d_start_row; row <= end_row; row++) {
         bool all_valid = true;
-        foreach (Column *col, cols)
+        for (Column *col : cols)
             if (col->isInvalid(row)) {
                 all_valid = false;
                 break;
@@ -176,7 +176,7 @@ QList<QVector<double>> DataCurve::convertData(const QList<Column *> &cols,
             }
 
             if (!datetime.isValid()) {
-                foreach (int row, valid_rows) {
+                for (int row : valid_rows) {
                     datetime = col->dateTimeAt(row);
                     if (datetime.isValid())
                         break;
@@ -247,7 +247,7 @@ bool DataCurve::loadData()
     }
 
     setData(points[0].data(), points[1].data(), points[0].size());
-    foreach (DataCurve *c, d_error_bars)
+    for (DataCurve *c : d_error_bars)
         c->setData(points[0].data(), points[1].data(), points[0].size());
 
     return true;
@@ -268,7 +268,7 @@ void DataCurve::clearErrorBars()
     if (d_error_bars.isEmpty())
         return;
 
-    foreach (DataCurve *c, d_error_bars)
+    for (DataCurve *c : d_error_bars)
         c->remove();
 }
 
@@ -286,7 +286,7 @@ void DataCurve::remove()
 void DataCurve::setVisible(bool on)
 {
     QwtPlotCurve::setVisible(on);
-    foreach (DataCurve *c, d_error_bars)
+    for (DataCurve *c : d_error_bars)
         c->setVisible(on);
 }
 

@@ -47,7 +47,7 @@ public:
 
     void setRange(double min, double max);
 
-protected slots:
+protected Q_SLOTS:
     void updateColorMap();
     void validateLevel(int row, int col);
     void enableButtons(int row, int col, int = 0, int = 0);

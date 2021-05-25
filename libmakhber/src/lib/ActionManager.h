@@ -95,7 +95,7 @@ public:
     QList<QString> internalNames() const;
     CLASS_ACCESSOR(QString, d_title, title, Title);
 
-public slots:
+public Q_SLOTS:
     void removeAction(QAction *action);
     void removeAction(QObject *action);
 

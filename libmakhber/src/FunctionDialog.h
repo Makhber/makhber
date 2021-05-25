@@ -76,10 +76,10 @@ protected:
     QWidget *polarPage;
     QWidget *parametricPage;
 
-protected slots:
+protected Q_SLOTS:
     void raiseWidget(int index);
 
-public slots:
+public Q_SLOTS:
     bool apply();
     void accept();
     bool acceptFunction();
@@ -91,7 +91,7 @@ public slots:
     void clearList();
     void setGraph(Graph *g) { graph = g; };
 
-signals:
+Q_SIGNALS:
     void clearParamFunctionsList();
     void clearPolarFunctionsList();
 

@@ -663,7 +663,7 @@ void TableView::applyType()
         list.append(d_table->currentColumn());
     switch (new_mode) {
     case Makhber::ColumnMode::Numeric: {
-        foreach (Column *col, list) {
+        for (Column *col : list) {
             col->beginMacro(QObject::tr("%1: change column type").arg(col->name()));
             col->setColumnMode(new_mode);
             auto *filter = dynamic_cast<Double2StringFilter *>(col->outputFilter());
@@ -676,7 +676,7 @@ void TableView::applyType()
         break;
     }
     case Makhber::ColumnMode::Text:
-        foreach (Column *col, list)
+        for (Column *col : list)
             col->setColumnMode(new_mode);
         break;
     case Makhber::ColumnMode::Month:
@@ -687,7 +687,7 @@ void TableView::applyType()
             format = ui.formatLineEdit->text();
         else
             format = ui.format_box->itemData(format_index).toString();
-        foreach (Column *col, list) {
+        for (Column *col : list) {
             col->beginMacro(QObject::tr("%1: change column type").arg(col->name()));
             Makhber::ColumnMode old_mode = col->columnMode();
             AbstractFilter *converter = nullptr;
@@ -860,12 +860,11 @@ bool TableView::hasMultiSelection()
     if (indexes.size() < 2)
         return false;
 
-    QModelIndex index;
     int minrow = indexes.at(0).row();
     int maxrow = minrow;
     int mincol = indexes.at(0).column();
     int maxcol = mincol;
-    foreach (index, indexes) {
+    for (QModelIndex index : indexes) {
         minrow = std::min(minrow, index.row());
         maxrow = std::max(maxrow, index.row());
         mincol = std::min(mincol, index.column());
@@ -1004,6 +1003,6 @@ void TableViewWidget::updateHeaderGeometry(Qt::Orientation o, int first, int las
 void TableViewWidget::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Return || event->key() == Qt::Key_Enter)
-        emit advanceCell();
+        Q_EMIT advanceCell();
     QTableView::keyPressEvent(event);
 }

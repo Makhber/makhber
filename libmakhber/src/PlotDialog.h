@@ -70,11 +70,11 @@ public:
     void insertColumnsList(const QStringList &names) { columnNames = names; };
     void setMultiLayer(MultiLayer *ml);
 
-public slots:
+public Q_SLOTS:
     void showAll(bool all);
     void selectCurve(int index);
 
-private slots:
+private Q_SLOTS:
     void showStatistics();
     void customVectorsPage(bool angleMag);
     void updateEndPointColumns(const QString &text);
@@ -117,7 +117,7 @@ private slots:
     void showDefaultContourLinesBox(bool show);
     void showColorMapEditor(bool show);
 
-protected slots:
+protected Q_SLOTS:
     void setActiveLayer(LayerItem *item);
     void updateTreeWidgetItem(QTreeWidgetItem *item);
     void updateBackgroundTransparency(int alpha);

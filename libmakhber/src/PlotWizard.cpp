@@ -172,7 +172,7 @@ void PlotWizard::accept()
     }
 
     if (curves.count() > 0)
-        emit plot(curves);
+        Q_EMIT plot(curves);
 
     if (curves3D.count() > 0)
         plot3D(curves3D);

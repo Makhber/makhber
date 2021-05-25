@@ -86,7 +86,7 @@ protected:
     //! Event handler: When the dialog gets the focus the first button is set to react on [return]
     void focusInEvent(QFocusEvent *event);
 
-public slots:
+public Q_SLOTS:
     //! Change language (reset title)
     virtual void languageChange();
     //! Find and emit char from pressed button
@@ -94,7 +94,7 @@ public slots:
     //! Find and emit char from current button ([return] pressed)
     void addCurrentChar();
 
-signals:
+Q_SIGNALS:
     //! Emitted when a letter is to be added
     void addLetter(const QString &);
 };

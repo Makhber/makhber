@@ -81,7 +81,7 @@ public:
 
     //    virtual QSyntaxHighlighter syntaxHighlighter(QTextEdit *textEdit) const;
 
-public slots:
+public Q_SLOTS:
     // global variables
     virtual bool setQObject(QObject *, const char *) { return false; }
     virtual bool setInt(int, const char *) { return false; }
@@ -99,7 +99,7 @@ public slots:
     //! Decrease the reference count. This should only be called by scripted and Script to avoid segfaults.
     void decref();
 
-signals:
+Q_SIGNALS:
     //! signal an error condition / exception
     void error(const QString &message, const QString &scriptName, int lineNumber);
     //! output that is not handled by a Script

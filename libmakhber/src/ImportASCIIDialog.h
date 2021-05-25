@@ -94,7 +94,7 @@ public:
     //! Returns whether imported data should be interpreted as numbers
     bool convertToNumeric() const { return d_convert_to_numeric->isChecked(); };
 
-private slots:
+private Q_SLOTS:
     //! Display help for advanced options.
     void displayHelp();
     //! For #Overwrite mode, allow only one file to be selected.

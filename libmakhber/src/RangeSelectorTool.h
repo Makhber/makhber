@@ -68,10 +68,10 @@ public:
     //! Caller is responsible for replot.
     void setSelectedCurve(QwtPlotCurve *curve);
 
-public slots:
+public Q_SLOTS:
     virtual void pointSelected(const QPoint &point);
 
-signals:
+Q_SIGNALS:
     /*! Emitted whenever a new message should be presented to the user.
      *
      * You don't have to connect to this signal if you alreay specified a reciever during

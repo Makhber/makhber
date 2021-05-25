@@ -56,7 +56,7 @@ public:
     QLineEdit *boxEnd;
     ColorButton *btnColor;
 
-public slots:
+public Q_SLOTS:
     void activateCurve(const QString &curveName);
     void setGraph(Graph *g);
     void interpolate();

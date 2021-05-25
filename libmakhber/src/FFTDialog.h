@@ -57,7 +57,7 @@ public:
     QLineEdit *boxSampling;
     QCheckBox *boxNormalize, *boxOrder;
 
-public slots:
+public Q_SLOTS:
     void setGraph(Graph *g);
     void setTable(Table *t);
     void activateCurve(const QString &curveName);

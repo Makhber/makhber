@@ -233,7 +233,7 @@ void TableModel::handleRowsRemoved(int first, int count)
 
 void TableModel::handleDataChanged(int top, int left, int bottom, int right)
 {
-    emit dataChanged(index(top, left), index(bottom, right));
+    Q_EMIT dataChanged(index(top, left), index(bottom, right));
 }
 
 Column *TableModel::column(int index)

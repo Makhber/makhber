@@ -90,7 +90,7 @@ RangeSelectorTool::RangeSelectorTool(Graph *graph, const QObject *status_target,
 
     if (status_target)
         connect(this, SIGNAL(statusText(const QString &)), status_target, status_slot);
-    emit statusText(
+    Q_EMIT statusText(
             tr("Click or use Ctrl+arrow key to select range (arrows select active cursor)!"));
 }
 
@@ -143,7 +143,7 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
         d_active_marker.setValue(d_selected_curve->x(d_active_point),
                                  d_selected_curve->y(d_active_point));
         emitStatusText();
-        emit rangeSelectorChanged();
+        Q_EMIT rangeSelectorChanged();
     }
     d_graph->plotWidget()->replot();
 }
@@ -160,7 +160,7 @@ void RangeSelectorTool::setSelectedCurve(QwtPlotCurve *curve)
     d_inactive_marker.setValue(d_selected_curve->x(d_inactive_point),
                                d_selected_curve->y(d_inactive_point));
     emitStatusText();
-    emit rangeSelectorChanged();
+    Q_EMIT rangeSelectorChanged();
 }
 
 void RangeSelectorTool::setActivePoint(int point)
@@ -171,13 +171,13 @@ void RangeSelectorTool::setActivePoint(int point)
     d_active_marker.setValue(d_selected_curve->x(d_active_point),
                              d_selected_curve->y(d_active_point));
     emitStatusText();
-    emit rangeSelectorChanged();
+    Q_EMIT rangeSelectorChanged();
 }
 
 void RangeSelectorTool::emitStatusText()
 {
     if ((dynamic_cast<PlotCurve *>(d_selected_curve))->type() == Graph::Function) {
-        emit statusText(
+        Q_EMIT statusText(
                 QString("%1 <=> %2[%3]: x=%4; y=%5")
                         .arg(d_active_marker.xValue() > d_inactive_marker.xValue() ? tr("Right")
                                                                                    : tr("Left"),
@@ -192,7 +192,7 @@ void RangeSelectorTool::emitStatusText()
 
         int row = (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_active_point);
 
-        emit statusText(
+        Q_EMIT statusText(
                 QString("%1 <=> %2[%3]: x=%4; y=%5")
                         .arg(d_active_marker.xValue() > d_inactive_marker.xValue() ? tr("Right")
                                                                                    : tr("Left"),

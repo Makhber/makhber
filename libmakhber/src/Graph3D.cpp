@@ -773,7 +773,7 @@ void Graph3D::adjustLabels(int val)
         sp->makeCurrent();
         sp->update();
     }
-    emit modified();
+    Q_EMIT modified();
 }
 
 QFont Graph3D::numbersFont()
@@ -933,22 +933,22 @@ void Graph3D::updateTickLength(int axis, double majorLength, double minorLength)
 
 void Graph3D::rotationChanged(double, double, double)
 {
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::scaleChanged(double, double, double)
 {
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::shiftChanged(double, double, double)
 {
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::zoomChanged(double)
 {
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::resetAxesLabels()
@@ -1047,7 +1047,7 @@ void Graph3D::updateLabel(int axis, const QString &label, const QFont &f)
 
     sp->makeCurrent();
     sp->update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 QFont Graph3D::xAxisLabelFont()
@@ -1253,7 +1253,7 @@ void Graph3D::updateScale(int axis, const QStringList &options)
             targetAxe->setMinors(newMin);
 
     update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::updateScales(double xl, double xr, double yl, double yr, double zl, double zr)
@@ -1601,7 +1601,7 @@ void Graph3D::updateColors(const QColor &meshColor, const QColor &axesColor, con
 
     sp->updateData();
     sp->update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::scaleFonts(double factor)
@@ -1637,17 +1637,17 @@ void Graph3D::resizeEvent(QResizeEvent *e)
     }
 
     sp->update();
-    emit resizedWindow(this);
-    emit modified();
+    Q_EMIT resizedWindow(this);
+    Q_EMIT modified();
     QMdiSubWindow::resizeEvent(e);
 }
 
 void Graph3D::contextMenuEvent(QContextMenuEvent *e)
 {
     if (widget()->geometry().contains(e->pos())) {
-        emit showContextMenu();
+        Q_EMIT showContextMenu();
     } else {
-        emit showTitleBarMenu();
+        Q_EMIT showTitleBarMenu();
     }
     e->accept();
 }
@@ -1883,7 +1883,7 @@ void Graph3D::setGrid(Qwt3D::SIDE s, bool b)
 
     sp->coordinates()->setGridLines(sum != Qwt3D::NOSIDEGRID, false, sum);
     sp->update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::setGrid(int grids)
@@ -2010,7 +2010,7 @@ void Graph3D::exportVector(const QString &fileName, const QString &fileType)
 bool Graph3D::eventFilter(QObject *object, QEvent *e)
 {
     if (e->type() == QEvent::MouseButtonDblClick && object == (QObject *)this->sp) {
-        emit showOptionsDialog();
+        Q_EMIT showOptionsDialog();
         return true;
     }
     return MyWidget::eventFilter(object, e);
@@ -2064,8 +2064,8 @@ void Graph3D::updatePoints(double size, bool sm)
     sp->setPlotStyle(d);
 
     update();
-    emit modified();
-    emit custom3DActions(this);
+    Q_EMIT modified();
+    Q_EMIT custom3DActions(this);
 }
 
 void Graph3D::updateCones(double rad, int quality)
@@ -2078,8 +2078,8 @@ void Graph3D::updateCones(double rad, int quality)
     pointStyle = Cones;
     sp->setPlotStyle(Cone3D(conesRad, conesQuality));
     update();
-    emit modified();
-    emit custom3DActions(this);
+    Q_EMIT modified();
+    Q_EMIT custom3DActions(this);
 }
 
 void Graph3D::setConesOptions(double rad, int quality)
@@ -2102,8 +2102,8 @@ void Graph3D::updateCross(double rad, double linewidth, bool smooth, bool boxed)
 
     sp->setPlotStyle(CrossHair(rad, linewidth, smooth, boxed));
     update();
-    emit modified();
-    emit custom3DActions(this);
+    Q_EMIT modified();
+    Q_EMIT custom3DActions(this);
 }
 
 void Graph3D::setCrossOptions(double rad, double linewidth, bool smooth, bool boxed)
@@ -2525,7 +2525,7 @@ void Graph3D::showColorLegend(bool show)
 
     legendOn = show;
     sp->update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::setResolution(int r)
@@ -2537,7 +2537,7 @@ void Graph3D::setResolution(int r)
     sp->setResolution(r);
     sp->updateData();
     sp->update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::setTitle(const QStringList &lst)
@@ -2585,7 +2585,7 @@ void Graph3D::updateTitle(const QString &s, const QColor &color, const QFont &fo
 
     sp->makeCurrent();
     sp->update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::setTitleFont(const QFont &font)
@@ -2703,7 +2703,7 @@ void Graph3D::changeTransparency(double t)
     sp->showColorLegend(legendOn);
     sp->updateData();
     sp->update();
-    emit modified();
+    Q_EMIT modified();
 }
 
 void Graph3D::setTransparency(double t)

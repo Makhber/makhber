@@ -80,13 +80,13 @@ void MyWidget::closeEvent(QCloseEvent *e)
                                                  + objectName() + "'</b> ?",
                                          tr("Delete"), tr("Hide"), tr("Cancel"), 0, 2)) {
         case 0:
-            emit closedWindow(this);
+            Q_EMIT closedWindow(this);
             e->accept();
             break;
 
         case 1:
             e->ignore();
-            emit hiddenWindow(this);
+            Q_EMIT hiddenWindow(this);
             break;
 
         case 2:
@@ -94,7 +94,7 @@ void MyWidget::closeEvent(QCloseEvent *e)
             break;
         }
     } else {
-        emit closedWindow(this);
+        Q_EMIT closedWindow(this);
         e->accept();
     }
 }
@@ -132,7 +132,7 @@ void MyWidget::changeEvent(QEvent *event)
             w_status = Maximized;
         else
             w_status = Normal;
-        emit statusChanged(this);
+        Q_EMIT statusChanged(this);
     }
     QMdiSubWindow::changeEvent(event);
 }
@@ -140,7 +140,7 @@ void MyWidget::changeEvent(QEvent *event)
 void MyWidget::contextMenuEvent(QContextMenuEvent *e)
 {
     if (!this->widget()->geometry().contains(e->pos())) {
-        emit showTitleBarMenu();
+        Q_EMIT showTitleBarMenu();
         e->accept();
     }
 }
@@ -151,13 +151,13 @@ void MyWidget::setStatus(Status s)
         return;
 
     w_status = s;
-    emit statusChanged(this);
+    Q_EMIT statusChanged(this);
 }
 
 void MyWidget::setHidden()
 {
     w_status = Hidden;
-    emit statusChanged(this);
+    Q_EMIT statusChanged(this);
     hide();
 }
 
@@ -165,19 +165,19 @@ void MyWidget::setNormal()
 {
     showNormal();
     w_status = Normal;
-    emit statusChanged(this);
+    Q_EMIT statusChanged(this);
 }
 
 void MyWidget::setMinimized()
 {
     showMinimized();
     w_status = Minimized;
-    emit statusChanged(this);
+    Q_EMIT statusChanged(this);
 }
 
 void MyWidget::setMaximized()
 {
     showMaximized();
     w_status = Maximized;
-    emit statusChanged(this);
+    Q_EMIT statusChanged(this);
 }

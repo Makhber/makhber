@@ -35,7 +35,7 @@ class QwtPieCurve : public DataCurve
 public:
     QwtPieCurve(Table *t, const QString &name, int startRow, int endRow);
 
-public slots:
+public Q_SLOTS:
     QColor color(int i) const;
 
     int ray() { return d_pie_ray; };

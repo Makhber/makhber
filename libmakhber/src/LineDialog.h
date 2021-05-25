@@ -56,7 +56,7 @@ public:
     void enableHeadTab();
     void setCoordinates(int unit);
 
-public slots:
+public Q_SLOTS:
     void enableButtonDefault(int);
     void setDefaultValues();
     void displayCoordinates(int unit);

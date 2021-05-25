@@ -98,7 +98,7 @@ public:
     bool printCropmarksEnabled() { return d_print_cropmarks; };
     void printCropmarks(bool on) { d_print_cropmarks = on; };
 
-public slots:
+public Q_SLOTS:
     Graph *addLayer(int x = 0, int y = 0, int width = 0, int height = 0);
     void setLayersNumber(int n);
 
@@ -189,7 +189,7 @@ public slots:
     QString saveToString(const QString &geometry);
     QString saveAsTemplate(const QString &geometryInfo);
 
-signals:
+Q_SIGNALS:
     void showTextDialog();
     void showPlotDialog(int);
     void showSelectedAxisDialog(int);
@@ -257,7 +257,7 @@ protected:
     void mousePressEvent(QMouseEvent *);
     void mouseDoubleClickEvent(QMouseEvent *);
 
-signals:
+Q_SIGNALS:
     void showCurvesDialog();
     void layerButtonclicked(LayerButton *);
     void showContextMenu();

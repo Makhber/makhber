@@ -59,7 +59,7 @@ public:
     //! Map cursor positions to line numbers.
     int lineNumber(int pos) const;
 
-public slots:
+public Q_SLOTS:
     void execute();
     bool executeAll();
     void evaluate();
@@ -97,7 +97,7 @@ private:
     //! True iff the text is programmatically changed and handleContentsChange() should do nothing.
     bool d_changing_fmt;
 
-private slots:
+private Q_SLOTS:
     //! Insert an error message from the scripting system at printCursor.
     /**
      * After insertion, the text cursor will have the error message selected, allowing the user to

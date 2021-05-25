@@ -84,7 +84,7 @@ public:
     {
         int result = lstWindows.size();
         if (recursive) {
-            foreach (Folder *folder, folders())
+            for (Folder *folder : folders())
                 result += folder->windowCount(true);
         }
         return result;
@@ -232,7 +232,7 @@ class FolderListView : public MakhberObject<QTreeWidget>
 public:
     FolderListView(const QString &name = QString());
 
-public slots:
+public Q_SLOTS:
     void adjustColumns();
     bool isRenaming() { return state() == QAbstractItemView::EditingState; };
 
@@ -247,7 +247,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *) override { mousePressed = false; };
     void enterEvent(QEvent *) override { mousePressed = false; };
 
-signals:
+Q_SIGNALS:
     void dragItems(QList<QTreeWidgetItem *> items);
     void dropItems(QTreeWidgetItem *dest);
     void renameItem(QTreeWidgetItem *item, int);

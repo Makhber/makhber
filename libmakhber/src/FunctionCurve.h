@@ -66,7 +66,7 @@ public:
 
     bool loadData(int points = 0);
 
-protected slots:
+protected Q_SLOTS:
     void scriptError(const QString &message, const QString &scriptName, int lineNumber);
 
 private:

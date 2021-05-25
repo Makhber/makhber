@@ -108,7 +108,7 @@ public:
     int evaluate_df(const gsl_vector *x, gsl_matrix *J);
     static double evaluate_df_helper(double x, void *param);
 
-protected slots:
+protected Q_SLOTS:
     void scriptError(const QString &message, const QString &script_name, int line_number);
 
 private:

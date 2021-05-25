@@ -152,13 +152,13 @@ void Table::init()
 
 void Table::handleChange()
 {
-    emit modifiedWindow(this);
+    Q_EMIT modifiedWindow(this);
 }
 
 void Table::handleColumnChange(int first, int count)
 {
     for (int i = first; i < first + count; i++)
-        emit modifiedData(this, colName(i));
+        Q_EMIT modifiedData(this, colName(i));
 }
 
 void Table::handleColumnChange(int top, int left, int bottom, int right)
@@ -171,19 +171,19 @@ void Table::handleColumnChange(int top, int left, int bottom, int right)
 void Table::handleColumnsAboutToBeRemoved(int first, int count)
 {
     for (int i = first; i < first + count; i++)
-        emit aboutToRemoveCol(colName(i));
+        Q_EMIT aboutToRemoveCol(colName(i));
 }
 
 void Table::handleColumnsRemoved(int first, int count)
 {
     for (int i = first; i < first + count; i++)
-        emit removedCol(colName(i));
+        Q_EMIT removedCol(colName(i));
 }
 
 void Table::handleRowChange()
 {
     for (int i = 0; i < numCols(); i++)
-        emit modifiedData(this, colName(i));
+        Q_EMIT modifiedData(this, colName(i));
 }
 
 void Table::setBackgroundColor(const QColor &col)
@@ -436,10 +436,10 @@ bool Table::recalculate(int col, bool only_selected_rows)
         // remove non-selected rows from list of intervals
         QList<Interval<int>> deselected =
                 Interval<int>(0, col_ptr->rowCount() - 1) - selectedRows().intervals();
-        foreach (Interval<int> i, deselected)
+        for (Interval<int> i : deselected)
             Interval<int>::subtractIntervalFromList(&formula_intervals, i);
     }
-    foreach (Interval<int> interval, formula_intervals) {
+    for (Interval<int> interval : formula_intervals) {
         QString formula = col_ptr->formula(interval.start());
         if (formula.isEmpty())
             continue;
@@ -857,7 +857,7 @@ void Table::removeCol()
 void Table::removeCol(const QStringList &list)
 {
     if (d_future_table) {
-        foreach (QString name, list)
+        for (QString name : list)
             d_future_table->removeColumns(colIndex(name), 1);
     }
 }
@@ -954,7 +954,7 @@ void Table::importV0x0001XXHeader(QStringList header)
     for (int i = 0; i < col_label.count() && i < d_future_table->columnCount(); i++)
         quarantine << column(i);
     int i = 0;
-    foreach (Column *col, quarantine) {
+    for (Column *col : quarantine) {
         d_future_table->removeChild(col, true);
         // setting column name while col is still part of table triggers renaming
         // to prevent name clashes
@@ -973,7 +973,7 @@ void Table::setHeader(QStringList header)
     for (int i = 0; i < header.count() && i < d_future_table->columnCount(); i++)
         quarantine << column(i);
     int i = 0;
-    foreach (Column *col, quarantine) {
+    for (Column *col : quarantine) {
         d_future_table->removeChild(col, true);
         // setting column name while col is still part of table triggers renaming
         // to prevent name clashes
@@ -1078,7 +1078,7 @@ bool Table::exportASCII(const QString &fname, const QString &separator, bool wit
 
     for (i = topRow; i <= bottomRow; i++) {
         bool first = true;
-        foreach (Column *col, col_ptrs) {
+        for (Column *col : col_ptrs) {
             if (first)
                 first = false;
             else
@@ -1113,7 +1113,7 @@ void Table::closeEvent(QCloseEvent *e)
 
         case 1:
             e->ignore();
-            emit hiddenWindow(this);
+            Q_EMIT hiddenWindow(this);
             break;
 
         case 2:
@@ -1377,11 +1377,11 @@ void Table::handleAspectDescriptionChange(const AbstractAspect *aspect)
         && d_stored_column_labels.contains(col)) {
         QString old_name = d_stored_column_labels.value(col);
         QString new_name = col->name();
-        emit changedColHeader(name() + "_" + old_name, name() + "_" + new_name);
+        Q_EMIT changedColHeader(name() + "_" + old_name, name() + "_" + new_name);
 
         for (int i = 0; i < d_future_table->columnCount(); i++) {
             QList<Interval<int>> formula_intervals = column(i)->formulaIntervals();
-            foreach (Interval<int> interval, formula_intervals) {
+            for (Interval<int> interval : formula_intervals) {
                 QString formula = column(i)->formula(interval.start());
                 if (formula.contains("\"" + old_name + "\"")) {
                     formula.replace("\"" + old_name + "\"", "\"" + new_name + "\"");

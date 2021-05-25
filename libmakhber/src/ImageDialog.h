@@ -46,13 +46,13 @@ public:
     void setOrigin(const QPoint &o);
     void setSize(const QSize &size);
 
-protected slots:
+protected Q_SLOTS:
     void accept();
     void update();
     void adjustHeight(int width);
     void adjustWidth(int height);
 
-signals:
+Q_SIGNALS:
     void setImageGeometry(int, int, int, int);
 
 protected:

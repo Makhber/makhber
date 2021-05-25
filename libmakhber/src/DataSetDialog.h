@@ -54,14 +54,14 @@ public:
     QCheckBox *boxShowFormula{};
     QComboBox *boxName;
 
-public slots:
+public Q_SLOTS:
     void accept();
     void setCurveNames(const QStringList &names);
     void setOperationType(const QString &s) { operation = s; };
     void setCurentDataSet(const QString &s);
     void setGraph(Graph *g);
 
-signals:
+Q_SIGNALS:
     void options(const QString &);
 
 private:

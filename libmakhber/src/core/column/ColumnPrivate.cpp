@@ -220,7 +220,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
     if (nullptr != converter)
         filter_is_temporary = false;
 
-    emit d_owner->modeAboutToChange(d_owner);
+    Q_EMIT d_owner->modeAboutToChange(d_owner);
     // prepare new d_data, d_data_type and filters
     switch (new_mode) {
     case Makhber::ColumnMode::Numeric: {
@@ -419,7 +419,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
         copy(converter->output(0));
     }
 
-    emit d_owner->modeChanged(d_owner);
+    Q_EMIT d_owner->modeChanged(d_owner);
     if (filter_is_temporary)
         delete converter;
 }
@@ -429,7 +429,7 @@ void Column::Private::replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnD
                                       AbstractSimpleFilter *out_filter,
                                       IntervalAttribute<bool> validity)
 {
-    emit d_owner->modeAboutToChange(d_owner);
+    Q_EMIT d_owner->modeAboutToChange(d_owner);
     // disconnect formatChanged()
     switch (d_column_mode) {
     case Makhber::ColumnMode::Numeric:
@@ -474,15 +474,15 @@ void Column::Private::replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnD
     }
 
     d_validity = validity;
-    emit d_owner->modeChanged(d_owner);
+    Q_EMIT d_owner->modeChanged(d_owner);
 }
 
 void Column::Private::replaceData(void *data, IntervalAttribute<bool> validity)
 {
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     d_data = data;
     d_validity = validity;
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 bool Column::Private::copy(const AbstractColumn *other)
@@ -491,7 +491,7 @@ bool Column::Private::copy(const AbstractColumn *other)
         return false;
     int num_rows = other->rowCount();
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     resizeTo(num_rows);
 
     // copy the data
@@ -516,7 +516,7 @@ bool Column::Private::copy(const AbstractColumn *other)
     // copy the validity information
     d_validity = other->invalidIntervals();
 
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 
     return true;
 }
@@ -529,7 +529,7 @@ bool Column::Private::copy(const AbstractColumn *source, int source_start, int d
     if (num_rows == 0)
         return true;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     if (dest_start + 1 - rowCount() > 1)
         d_validity.setValue(Interval<int>(rowCount(), dest_start - 1), true);
     if (dest_start + num_rows > rowCount())
@@ -558,7 +558,7 @@ bool Column::Private::copy(const AbstractColumn *source, int source_start, int d
     for (int i = 0; i < num_rows; i++)
         d_validity.setValue(dest_start + i, source->isInvalid(source_start + i));
 
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 
     return true;
 }
@@ -569,7 +569,7 @@ bool Column::Private::copy(const Private *other)
         return false;
     int num_rows = other->rowCount();
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     resizeTo(num_rows);
 
     // copy the data
@@ -594,7 +594,7 @@ bool Column::Private::copy(const Private *other)
     // copy the validity information
     d_validity = other->invalidIntervals();
 
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 
     return true;
 }
@@ -606,7 +606,7 @@ bool Column::Private::copy(const Private *source, int source_start, int dest_sta
     if (num_rows == 0)
         return true;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     if (dest_start + 1 - rowCount() > 1)
         d_validity.setValue(Interval<int>(rowCount(), dest_start - 1), true);
     if (dest_start + num_rows > rowCount())
@@ -635,7 +635,7 @@ bool Column::Private::copy(const Private *source, int source_start, int dest_sta
     for (int i = 0; i < num_rows; i++)
         d_validity.setValue(dest_start + i, source->isInvalid(source_start + i));
 
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 
     return true;
 }
@@ -694,7 +694,7 @@ void Column::Private::insertRows(int before, int count)
     if (count == 0)
         return;
 
-    emit d_owner->rowsAboutToBeInserted(d_owner, before, count);
+    Q_EMIT d_owner->rowsAboutToBeInserted(d_owner, before, count);
     d_validity.insertRows(before, count);
     d_masking.insertRows(before, count);
     d_formulas.insertRows(before, count);
@@ -715,7 +715,7 @@ void Column::Private::insertRows(int before, int count)
             break;
         }
     }
-    emit d_owner->rowsInserted(d_owner, before, count);
+    Q_EMIT d_owner->rowsInserted(d_owner, before, count);
 }
 
 void Column::Private::removeRows(int first, int count)
@@ -723,7 +723,7 @@ void Column::Private::removeRows(int first, int count)
     if (count == 0)
         return;
 
-    emit d_owner->rowsAboutToBeRemoved(d_owner, first, count);
+    Q_EMIT d_owner->rowsAboutToBeRemoved(d_owner, first, count);
     d_validity.removeRows(first, count);
     d_masking.removeRows(first, count);
     d_formulas.removeRows(first, count);
@@ -747,14 +747,14 @@ void Column::Private::removeRows(int first, int count)
             break;
         }
     }
-    emit d_owner->rowsRemoved(d_owner, first, count);
+    Q_EMIT d_owner->rowsRemoved(d_owner, first, count);
 }
 
 void Column::Private::setPlotDesignation(Makhber::PlotDesignation pd)
 {
-    emit d_owner->plotDesignationAboutToChange(d_owner);
+    Q_EMIT d_owner->plotDesignationAboutToChange(d_owner);
     d_plot_designation = pd;
-    emit d_owner->plotDesignationChanged(d_owner);
+    Q_EMIT d_owner->plotDesignationChanged(d_owner);
 }
 
 void Column::Private::clear()
@@ -764,23 +764,23 @@ void Column::Private::clear()
 
 void Column::Private::clearValidity()
 {
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     d_validity.clear();
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 void Column::Private::clearMasks()
 {
-    emit d_owner->maskingAboutToChange(d_owner);
+    Q_EMIT d_owner->maskingAboutToChange(d_owner);
     d_masking.clear();
-    emit d_owner->maskingChanged(d_owner);
+    Q_EMIT d_owner->maskingChanged(d_owner);
 }
 
 void Column::Private::setInvalid(Interval<int> i, bool invalid)
 {
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     d_validity.setValue(i, invalid);
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 void Column::Private::setInvalid(int row, bool invalid)
@@ -790,9 +790,9 @@ void Column::Private::setInvalid(int row, bool invalid)
 
 void Column::Private::setMasked(Interval<int> i, bool mask)
 {
-    emit d_owner->maskingAboutToChange(d_owner);
+    Q_EMIT d_owner->maskingAboutToChange(d_owner);
     d_masking.setValue(i, mask);
-    emit d_owner->maskingChanged(d_owner);
+    Q_EMIT d_owner->maskingChanged(d_owner);
 }
 
 void Column::Private::setMasked(int row, bool mask)
@@ -851,7 +851,7 @@ void Column::Private::setTextAt(int row, const QString &new_value)
     if (d_data_type != Makhber::TypeQString)
         return;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     if (row >= rowCount()) {
         if (row + 1 - rowCount() > 1) // we are adding more than one row in resizeTo()
             d_validity.setValue(Interval<int>(rowCount(), row - 1), true);
@@ -860,7 +860,7 @@ void Column::Private::setTextAt(int row, const QString &new_value)
 
     static_cast<QStringList *>(d_data)->replace(row, new_value);
     d_validity.setValue(Interval<int>(row, row), false);
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 void Column::Private::replaceTexts(int first, const QStringList &new_values)
@@ -868,7 +868,7 @@ void Column::Private::replaceTexts(int first, const QStringList &new_values)
     if (d_data_type != Makhber::TypeQString)
         return;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     int num_rows = new_values.size();
     if (first + 1 - rowCount() > 1)
         d_validity.setValue(Interval<int>(rowCount(), first - 1), true);
@@ -878,7 +878,7 @@ void Column::Private::replaceTexts(int first, const QStringList &new_values)
     for (int i = 0; i < num_rows; i++)
         static_cast<QStringList *>(d_data)->replace(first + i, new_values.at(i));
     d_validity.setValue(Interval<int>(first, first + num_rows - 1), false);
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 void Column::Private::setDateAt(int row, const QDate &new_value)
@@ -902,7 +902,7 @@ void Column::Private::setDateTimeAt(int row, const QDateTime &new_value)
     if (d_data_type != Makhber::TypeQDateTime)
         return;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     if (row >= rowCount()) {
         if (row + 1 - rowCount() > 1) // we are adding more than one row in resizeTo()
             d_validity.setValue(Interval<int>(rowCount(), row - 1), true);
@@ -911,7 +911,7 @@ void Column::Private::setDateTimeAt(int row, const QDateTime &new_value)
 
     static_cast<QList<QDateTime> *>(d_data)->replace(row, new_value);
     d_validity.setValue(Interval<int>(row, row), !new_value.isValid());
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 void Column::Private::replaceDateTimes(int first, const QList<QDateTime> &new_values)
@@ -919,7 +919,7 @@ void Column::Private::replaceDateTimes(int first, const QList<QDateTime> &new_va
     if (d_data_type != Makhber::TypeQDateTime)
         return;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     int num_rows = new_values.size();
     if (first + 1 - rowCount() > 1)
         d_validity.setValue(Interval<int>(rowCount(), first - 1), true);
@@ -930,7 +930,7 @@ void Column::Private::replaceDateTimes(int first, const QList<QDateTime> &new_va
         static_cast<QList<QDateTime> *>(d_data)->replace(first + i, new_values.at(i));
         d_validity.setValue(i, !new_values.at(i).isValid());
     }
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 void Column::Private::setValueAt(int row, double new_value)
@@ -938,7 +938,7 @@ void Column::Private::setValueAt(int row, double new_value)
     if (d_data_type != Makhber::TypeDouble)
         return;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     if (row >= rowCount()) {
         if (row + 1 - rowCount() > 1) // we are adding more than one row in resizeTo()
             d_validity.setValue(Interval<int>(rowCount(), row - 1), true);
@@ -947,7 +947,7 @@ void Column::Private::setValueAt(int row, double new_value)
 
     static_cast<QVector<double> *>(d_data)->replace(row, new_value);
     d_validity.setValue(Interval<int>(row, row), false);
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 void Column::Private::replaceValues(int first, const QVector<qreal> &new_values)
@@ -955,7 +955,7 @@ void Column::Private::replaceValues(int first, const QVector<qreal> &new_values)
     if (d_data_type != Makhber::TypeDouble)
         return;
 
-    emit d_owner->dataAboutToChange(d_owner);
+    Q_EMIT d_owner->dataAboutToChange(d_owner);
     int num_rows = new_values.size();
     if (first + 1 - rowCount() > 1)
         d_validity.setValue(Interval<int>(rowCount(), first - 1), true);
@@ -966,7 +966,7 @@ void Column::Private::replaceValues(int first, const QVector<qreal> &new_values)
     for (int i = 0; i < num_rows; i++)
         ptr[first + i] = new_values.at(i);
     d_validity.setValue(Interval<int>(first, first + num_rows - 1), false);
-    emit d_owner->dataChanged(d_owner);
+    Q_EMIT d_owner->dataChanged(d_owner);
 }
 
 NumericDateTimeBaseFilter *Column::Private::getNumericDateTimeFilter()
@@ -981,9 +981,9 @@ void Column::Private::setNumericDateTimeFilter(NumericDateTimeBaseFilter *const 
 
 void Column::Private::replaceMasking(IntervalAttribute<bool> masking)
 {
-    emit d_owner->maskingAboutToChange(d_owner);
+    Q_EMIT d_owner->maskingAboutToChange(d_owner);
     d_masking = masking;
-    emit d_owner->maskingChanged(d_owner);
+    Q_EMIT d_owner->maskingChanged(d_owner);
 }
 
 void Column::Private::replaceFormulas(IntervalAttribute<QString> formulas)

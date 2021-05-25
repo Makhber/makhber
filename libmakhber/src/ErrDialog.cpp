@@ -176,8 +176,8 @@ void ErrDialog::add()
         direction = 1;
 
     if (columnBox->isChecked())
-        emit options(nameLabel->currentText(),
-                     tableNamesBox->currentText() + "_" + colNamesBox->currentText(), direction);
+        Q_EMIT options(nameLabel->currentText(),
+                       tableNamesBox->currentText() + "_" + colNamesBox->currentText(), direction);
     else {
         int type = 0;
         if (percentBox->isChecked())
@@ -185,7 +185,7 @@ void ErrDialog::add()
         else
             type = 1;
 
-        emit options(nameLabel->currentText(), type, valueBox->text(), direction);
+        Q_EMIT options(nameLabel->currentText(), type, valueBox->text(), direction);
     }
 }
 

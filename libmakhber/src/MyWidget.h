@@ -144,13 +144,13 @@ public:
     void setFolder(Folder *f) { parentFolder = f; };
 
     //! Notifies the main application that the window has been modified
-    void notifyChanges() { emit modifiedWindow(this); };
+    void notifyChanges() { Q_EMIT modifiedWindow(this); };
 
     void setNormal();
     void setMinimized();
     void setMaximized();
 
-signals:
+Q_SIGNALS:
     //! Emitted when the window was closed
     void closedWindow(MyWidget *);
     //! Emitted when the window was hidden
@@ -162,7 +162,7 @@ signals:
     //! Emitted when the title bar recieves a QContextMenuEvent
     void showTitleBarMenu();
 
-protected slots:
+protected Q_SLOTS:
     //! Set caption according to current CaptionPolicy, name and label
     void updateCaption();
 

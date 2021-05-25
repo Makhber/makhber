@@ -485,7 +485,7 @@ void Plot3DDialog::addSymbol(const QString &letter)
 
 void Plot3DDialog::worksheet()
 {
-    emit showWorksheet();
+    Q_EMIT showWorksheet();
     close();
 }
 
@@ -572,7 +572,7 @@ void Plot3DDialog::pickDataColorMap()
     QString fn = QFileDialog::getOpenFileName(this, QString(), d_plot->colorMap(),
                                               tr("Colormap files") + " (*.map *.MAP)");
     if (!fn.isEmpty())
-        emit setDataColorMap(fn);
+        Q_EMIT setDataColorMap(fn);
 }
 
 QColor Plot3DDialog::pickFromColor()
@@ -773,8 +773,8 @@ void Plot3DDialog::changeZoom(double)
     if (generalDialog->currentWidget() != (QWidget *)general)
         return;
 
-    emit updateZoom(boxZoom->value() * 0.01);
-    emit updateScaling(boxXScale->value(), boxYScale->value() * 0.01, boxZScale->value() * 0.01);
+    Q_EMIT updateZoom(boxZoom->value() * 0.01);
+    Q_EMIT updateScaling(boxXScale->value(), boxYScale->value() * 0.01, boxZScale->value() * 0.01);
 }
 
 void Plot3DDialog::changeTransparency(int val)
@@ -782,7 +782,7 @@ void Plot3DDialog::changeTransparency(int val)
     if (generalDialog->currentWidget() != (QWidget *)colors)
         return;
 
-    emit updateTransparency(val * 0.01);
+    Q_EMIT updateTransparency(val * 0.01);
 }
 
 bool Plot3DDialog::updatePlot()
@@ -790,39 +790,39 @@ bool Plot3DDialog::updatePlot()
     int axis = -1;
 
     if (generalDialog->currentWidget() == (QWidget *)bars) {
-        emit updateBars(boxBarsRad->text().toDouble());
+        Q_EMIT updateBars(boxBarsRad->text().toDouble());
     }
 
     if (generalDialog->currentWidget() == (QWidget *)points) {
         if (boxPointStyle->currentIndex() == 0)
-            emit updatePoints(boxSize->text().toDouble(), boxSmooth->isChecked());
+            Q_EMIT updatePoints(boxSize->text().toDouble(), boxSmooth->isChecked());
         else if (boxPointStyle->currentIndex() == 1)
-            emit updateCross(boxCrossRad->text().toDouble(), boxCrossLinewidth->text().toDouble(),
-                             boxCrossSmooth->isChecked(), boxBoxed->isChecked());
+            Q_EMIT updateCross(boxCrossRad->text().toDouble(), boxCrossLinewidth->text().toDouble(),
+                               boxCrossSmooth->isChecked(), boxBoxed->isChecked());
         else if (boxPointStyle->currentIndex() == 2)
-            emit updateCones(boxConesRad->text().toDouble(), boxQuality->value());
+            Q_EMIT updateCones(boxConesRad->text().toDouble(), boxQuality->value());
     }
 
     if (generalDialog->currentWidget() == (QWidget *)title) {
-        emit updateTitle(boxTitle->text(), titleColor, titleFont);
+        Q_EMIT updateTitle(boxTitle->text(), titleColor, titleFont);
     }
 
     if (generalDialog->currentWidget() == (QWidget *)colors) {
-        emit updateTransparency(boxTransparency->value() * 0.01);
-        emit updateDataColors(fromColor, toColor);
-        emit updateColors(meshColor, axesColor, numColor, labelColor, bgColor, gridColor);
+        Q_EMIT updateTransparency(boxTransparency->value() * 0.01);
+        Q_EMIT updateDataColors(fromColor, toColor);
+        Q_EMIT updateColors(meshColor, axesColor, numColor, labelColor, bgColor, gridColor);
     }
 
     if (generalDialog->currentWidget() == (QWidget *)general) {
-        emit showColorLegend(boxLegend->isChecked());
-        emit updateMeshLineWidth(boxMeshLineWidth->value());
-        emit adjustLabels(boxDistance->value());
-        emit updateResolution(boxResolution->value());
-        emit showColorLegend(boxLegend->isChecked());
-        emit setNumbersFont(numbersFont);
-        emit updateZoom(boxZoom->value() * 0.01);
-        emit updateScaling(boxXScale->value() * 0.01, boxYScale->value() * 0.01,
-                           boxZScale->value() * 0.01);
+        Q_EMIT showColorLegend(boxLegend->isChecked());
+        Q_EMIT updateMeshLineWidth(boxMeshLineWidth->value());
+        Q_EMIT adjustLabels(boxDistance->value());
+        Q_EMIT updateResolution(boxResolution->value());
+        Q_EMIT showColorLegend(boxLegend->isChecked());
+        Q_EMIT setNumbersFont(numbersFont);
+        Q_EMIT updateZoom(boxZoom->value() * 0.01);
+        Q_EMIT updateScaling(boxXScale->value() * 0.01, boxYScale->value() * 0.01,
+                             boxZScale->value() * 0.01);
     }
 
     if (generalDialog->currentWidget() == (QWidget *)scale) {
@@ -860,16 +860,16 @@ bool Plot3DDialog::updatePlot()
         }
 
         if (!error)
-            emit updateScale(axis,
-                             scaleOptions(axis, start, end, boxMajors->text(), boxMinors->text()));
+            Q_EMIT updateScale(
+                    axis, scaleOptions(axis, start, end, boxMajors->text(), boxMinors->text()));
     }
 
     if (generalDialog->currentWidget() == (QWidget *)axes) {
         axis = axesList2->currentRow();
         labels[axis] = boxLabel->text();
-        emit updateLabel(axis, boxLabel->text(), axisFont(axis));
-        emit updateTickLength(axis, boxMajorLength->text().toDouble(),
-                              boxMinorLength->text().toDouble());
+        Q_EMIT updateLabel(axis, boxLabel->text(), axisFont(axis));
+        Q_EMIT updateTickLength(axis, boxMajorLength->text().toDouble(),
+                                boxMinorLength->text().toDouble());
     }
 
     return true;

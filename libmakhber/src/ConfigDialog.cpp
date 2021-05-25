@@ -1121,7 +1121,7 @@ void ConfigDialog::apply()
     app->d_print_cropmarks = boxPrintCropmarks->isChecked();
     app->d_scale_plots_on_print = boxScaleLayersOnPrint->isChecked();
     QList<MyWidget *> windows = app->windowsList();
-    foreach (MyWidget *w, windows) {
+    for (MyWidget *w : windows) {
         if (w->inherits("MultiLayer")) {
             (dynamic_cast<MultiLayer *>(w))
                     ->setScaleLayersOnPrint(boxScaleLayersOnPrint->isChecked());

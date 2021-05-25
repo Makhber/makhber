@@ -73,14 +73,14 @@ LayerButton::LayerButton(const QString &text, QWidget *parent) : QPushButton(tex
 void LayerButton::mousePressEvent(QMouseEvent *event)
 {
     if (!isChecked())
-        emit layerButtonclicked(this);
+        Q_EMIT layerButtonclicked(this);
     if (event->button() == Qt::RightButton)
-        emit showContextMenu();
+        Q_EMIT showContextMenu();
 }
 
 void LayerButton::mouseDoubleClickEvent(QMouseEvent *)
 {
-    emit showCurvesDialog();
+    Q_EMIT showCurvesDialog();
 }
 
 MultiLayer::MultiLayer(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
@@ -228,7 +228,7 @@ void MultiLayer::setActiveGraph(Graph *g)
 
 void MultiLayer::contextMenuEvent(QContextMenuEvent *e)
 {
-    emit showWindowContextMenu();
+    Q_EMIT showWindowContextMenu();
     e->accept();
 }
 
@@ -276,8 +276,8 @@ void MultiLayer::resizeLayers(const QSize &size, const QSize &oldSize, bool scal
     }
 
     lastSize = size;
-    emit modifiedPlot();
-    emit resizedWindow(this);
+    Q_EMIT modifiedPlot();
+    Q_EMIT resizedWindow(this);
     QApplication::restoreOverrideCursor();
 }
 
@@ -326,7 +326,7 @@ void MultiLayer::removeLayer()
     }
 
     if (active_graph->zoomOn() || active_graph->activeTool())
-        emit setPointerCursor();
+        Q_EMIT setPointerCursor();
 
     int index = graphsList.indexOf(active_graph);
     graphsList.removeAt(index);
@@ -351,7 +351,7 @@ void MultiLayer::removeLayer()
         }
     }
 
-    emit modifiedPlot();
+    Q_EMIT modifiedPlot();
 }
 
 void MultiLayer::setGraphGeometry(int x, int y, int w, int h)
@@ -361,7 +361,7 @@ void MultiLayer::setGraphGeometry(int x, int y, int w, int h)
 
     active_graph->setGeometry(QRect(QPoint(x, y), QSize(w, h)));
     active_graph->plotWidget()->resize(QSize(w, h));
-    emit modifiedPlot();
+    Q_EMIT modifiedPlot();
 }
 
 QSize MultiLayer::arrangeLayers(bool userSize)
@@ -611,7 +611,7 @@ void MultiLayer::arrangeLayers(bool fit, bool userSize)
         }
     }
 
-    emit modifiedPlot();
+    Q_EMIT modifiedPlot();
     QApplication::restoreOverrideCursor();
 }
 
@@ -876,7 +876,7 @@ void MultiLayer::setFonts(const QFont &titleFnt, const QFont &scaleFnt, const QF
         }
         plot->replot();
     }
-    emit modifiedPlot();
+    Q_EMIT modifiedPlot();
 }
 
 void MultiLayer::connectLayer(Graph *g)
@@ -940,8 +940,8 @@ void MultiLayer::addTextLayer(const QPoint &pos)
     QApplication::restoreOverrideCursor();
     canvas->releaseMouse();
     addTextOn = false;
-    emit drawTextOff();
-    emit modifiedPlot();
+    Q_EMIT drawTextOff();
+    Q_EMIT modifiedPlot();
 }
 
 bool MultiLayer::eventFilter(QObject *object, QEvent *e)
@@ -985,7 +985,7 @@ void MultiLayer::keyPressEvent(QKeyEvent *e)
     }
 
     if (e->key() == Qt::Key_F11) {
-        emit showWindowContextMenu();
+        Q_EMIT showWindowContextMenu();
         return;
     }
 }
@@ -1052,7 +1052,7 @@ void MultiLayer::wheelEvent(QWheelEvent *e)
         resize_graph->setGeometry(QRect(QPoint(aux.x(), aux.y()), intSize));
         resize_graph->plotWidget()->resize(intSize);
 
-        emit modifiedPlot();
+        Q_EMIT modifiedPlot();
     }
     QApplication::restoreOverrideCursor();
 }
@@ -1112,7 +1112,7 @@ void MultiLayer::mousePressEvent(QMouseEvent *e)
 {
     if (!this->widget()->geometry().contains(e->pos())) { // event.pos is in titlebar
         if (e->button() == Qt::RightButton) {
-            emit showTitleBarMenu();
+            Q_EMIT showTitleBarMenu();
             e->accept();
         } else {
             MyWidget::mousePressEvent(e);
@@ -1234,7 +1234,7 @@ void MultiLayer::setLayersNumber(int n)
             addLayer();
     }
 
-    emit modifiedPlot();
+    Q_EMIT modifiedPlot();
 }
 
 void MultiLayer::copy(ApplicationWindow *parent, MultiLayer *ml)

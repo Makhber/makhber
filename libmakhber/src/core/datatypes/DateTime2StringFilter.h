@@ -58,7 +58,7 @@ public:
     //! Return the data type of the column
     virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQString; }
 
-signals:
+Q_SIGNALS:
     void formatChanged();
 
 private:

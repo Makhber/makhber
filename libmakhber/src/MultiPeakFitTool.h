@@ -55,14 +55,14 @@ public:
                      int num_peaks, const QObject *status_target, const char *status_slot);
     virtual RTTI rtti() const { return MultiPeak; }
     virtual ~MultiPeakFitTool();
-signals:
+Q_SIGNALS:
     /*! Emitted whenever a new message should be presented to the user.
      *
      * You don't have to connect to this signal if you alreay specified a reciever during
      * initialization.
      */
     void statusText(const QString &);
-protected slots:
+protected Q_SLOTS:
     void selectPeak(QwtPlotCurve *curve, int point_index);
 
 private:

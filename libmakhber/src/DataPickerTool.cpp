@@ -74,13 +74,13 @@ DataPickerTool::DataPickerTool(Graph *graph, ApplicationWindow *app, Mode mode,
         connect(this, SIGNAL(statusText(const QString &)), status_target, status_slot);
     switch (d_mode) {
     case Display:
-        emit statusText(tr("Click on plot or move cursor to display coordinates!"));
+        Q_EMIT statusText(tr("Click on plot or move cursor to display coordinates!"));
         break;
     case Move:
-        emit statusText(tr("Please, click on plot and move cursor!"));
+        Q_EMIT statusText(tr("Please, click on plot and move cursor!"));
         break;
     case Remove:
-        emit statusText(tr("Select point and double click to remove it!"));
+        Q_EMIT statusText(tr("Select point and double click to remove it!"));
         break;
     }
 }
@@ -127,13 +127,13 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
                                plot()->transform(yAxis(), d_selected_curve->y(d_selected_point)));
 
     if ((dynamic_cast<PlotCurve *>(d_selected_curve))->type() == Graph::Function) {
-        emit statusText(QString("%1[%2]: x=%3; y=%4")
-                                .arg(d_selected_curve->title().text())
-                                .arg(d_selected_point + 1)
-                                .arg(QLocale().toString(d_selected_curve->x(d_selected_point), 'G',
-                                                        d_app->d_decimal_digits),
-                                     QLocale().toString(d_selected_curve->y(d_selected_point), 'G',
-                                                        d_app->d_decimal_digits)));
+        Q_EMIT statusText(QString("%1[%2]: x=%3; y=%4")
+                                  .arg(d_selected_curve->title().text())
+                                  .arg(d_selected_point + 1)
+                                  .arg(QLocale().toString(d_selected_curve->x(d_selected_point),
+                                                          'G', d_app->d_decimal_digits),
+                                       QLocale().toString(d_selected_curve->y(d_selected_point),
+                                                          'G', d_app->d_decimal_digits)));
     } else {
         int row = (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_selected_point);
 
@@ -141,10 +141,10 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
         int xCol = t->colIndex((dynamic_cast<DataCurve *>(d_selected_curve))->xColumnName());
         int yCol = t->colIndex(d_selected_curve->title().text());
 
-        emit statusText(QString("%1[%2]: x=%3; y=%4")
-                                .arg(d_selected_curve->title().text())
-                                .arg(row + 1)
-                                .arg(t->text(row, xCol), t->text(row, yCol)));
+        Q_EMIT statusText(QString("%1[%2]: x=%3; y=%4")
+                                  .arg(d_selected_curve->title().text())
+                                  .arg(row + 1)
+                                  .arg(t->text(row, xCol), t->text(row, yCol)));
     }
 
     QPointF selected_point_value(d_selected_curve->x(d_selected_point),
@@ -165,7 +165,7 @@ bool DataPickerTool::eventFilter(QObject *obj, QEvent *event)
             return true;
         default:
             if (d_selected_curve)
-                emit selected(d_selected_curve, d_selected_point);
+                Q_EMIT selected(d_selected_curve, d_selected_point);
             return true;
         }
     case QEvent::MouseMove:
@@ -194,7 +194,7 @@ bool DataPickerTool::keyEventFilter(QKeyEvent *ke)
     case Qt::Key_Enter:
     case Qt::Key_Return:
         if (d_selected_curve)
-            emit selected(d_selected_curve, d_selected_point);
+            Q_EMIT selected(d_selected_curve, d_selected_point);
         return true;
 
     case Qt::Key_Up:
@@ -361,11 +361,12 @@ void DataPickerTool::move(const QPoint &point)
         d_graph->replot();
 
         int row = (dynamic_cast<DataCurve *>(d_selected_curve))->tableRow(d_selected_point);
-        emit statusText(QString("%1[%2]: x=%3; y=%4")
-                                .arg(d_selected_curve->title().text())
-                                .arg(row + 1)
-                                .arg(QLocale().toString(new_x_val, 'G', d_app->d_decimal_digits),
-                                     QLocale().toString(new_y_val, 'G', d_app->d_decimal_digits)));
+        Q_EMIT statusText(
+                QString("%1[%2]: x=%3; y=%4")
+                        .arg(d_selected_curve->title().text())
+                        .arg(row + 1)
+                        .arg(QLocale().toString(new_x_val, 'G', d_app->d_decimal_digits),
+                             QLocale().toString(new_y_val, 'G', d_app->d_decimal_digits)));
     }
 
     QwtPlotPicker::move(d_move_target_pos);

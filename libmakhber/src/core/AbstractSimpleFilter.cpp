@@ -40,46 +40,46 @@ AbstractSimpleFilter::AbstractSimpleFilter()
 
 void AbstractSimpleFilter::clearMasks()
 {
-    emit d_output_column->maskingAboutToChange(d_output_column);
+    Q_EMIT d_output_column->maskingAboutToChange(d_output_column);
     d_masking.clear();
-    emit d_output_column->maskingChanged(d_output_column);
+    Q_EMIT d_output_column->maskingChanged(d_output_column);
 }
 
 void AbstractSimpleFilter::setMasked(Interval<int> i, bool mask)
 {
-    emit d_output_column->maskingAboutToChange(d_output_column);
+    Q_EMIT d_output_column->maskingAboutToChange(d_output_column);
     d_masking.setValue(i, mask);
-    emit d_output_column->maskingChanged(d_output_column);
+    Q_EMIT d_output_column->maskingChanged(d_output_column);
 }
 
 void AbstractSimpleFilter::inputPlotDesignationAboutToChange(const AbstractColumn *)
 {
-    emit d_output_column->plotDesignationAboutToChange(d_output_column);
+    Q_EMIT d_output_column->plotDesignationAboutToChange(d_output_column);
 }
 
 void AbstractSimpleFilter::inputPlotDesignationChanged(const AbstractColumn *)
 {
-    emit d_output_column->plotDesignationChanged(d_output_column);
+    Q_EMIT d_output_column->plotDesignationChanged(d_output_column);
 }
 
 void AbstractSimpleFilter::inputModeAboutToChange(const AbstractColumn *)
 {
-    emit d_output_column->dataAboutToChange(d_output_column);
+    Q_EMIT d_output_column->dataAboutToChange(d_output_column);
 }
 
 void AbstractSimpleFilter::inputModeChanged(const AbstractColumn *)
 {
-    emit d_output_column->dataChanged(d_output_column);
+    Q_EMIT d_output_column->dataChanged(d_output_column);
 }
 
 void AbstractSimpleFilter::inputDataAboutToChange(const AbstractColumn *)
 {
-    emit d_output_column->dataAboutToChange(d_output_column);
+    Q_EMIT d_output_column->dataAboutToChange(d_output_column);
 }
 
 void AbstractSimpleFilter::inputDataChanged(const AbstractColumn *)
 {
-    emit d_output_column->dataChanged(d_output_column);
+    Q_EMIT d_output_column->dataChanged(d_output_column);
 }
 
 void AbstractSimpleFilter::inputRowsAboutToBeInserted(const AbstractColumn *source, int before,
@@ -87,35 +87,35 @@ void AbstractSimpleFilter::inputRowsAboutToBeInserted(const AbstractColumn *sour
 {
     Q_UNUSED(source);
     Q_UNUSED(count);
-    foreach (Interval<int> output_range, dependentRows(Interval<int>(before, before)))
-        emit d_output_column->rowsAboutToBeInserted(d_output_column, output_range.start(),
-                                                    output_range.size());
+    for (Interval<int> output_range : dependentRows(Interval<int>(before, before)))
+        Q_EMIT d_output_column->rowsAboutToBeInserted(d_output_column, output_range.start(),
+                                                      output_range.size());
 }
 
 void AbstractSimpleFilter::inputRowsInserted(const AbstractColumn *source, int before, int count)
 {
     Q_UNUSED(source);
     Q_UNUSED(count);
-    foreach (Interval<int> output_range, dependentRows(Interval<int>(before, before)))
-        emit d_output_column->rowsInserted(d_output_column, output_range.start(),
-                                           output_range.size());
+    for (Interval<int> output_range : dependentRows(Interval<int>(before, before)))
+        Q_EMIT d_output_column->rowsInserted(d_output_column, output_range.start(),
+                                             output_range.size());
 }
 
 void AbstractSimpleFilter::inputRowsAboutToBeRemoved(const AbstractColumn *source, int first,
                                                      int count)
 {
     Q_UNUSED(source);
-    foreach (Interval<int> output_range, dependentRows(Interval<int>(first, first + count - 1)))
-        emit d_output_column->rowsAboutToBeRemoved(d_output_column, output_range.start(),
-                                                   output_range.size());
+    for (Interval<int> output_range : dependentRows(Interval<int>(first, first + count - 1)))
+        Q_EMIT d_output_column->rowsAboutToBeRemoved(d_output_column, output_range.start(),
+                                                     output_range.size());
 }
 
 void AbstractSimpleFilter::inputRowsRemoved(const AbstractColumn *source, int first, int count)
 {
     Q_UNUSED(source);
-    foreach (Interval<int> output_range, dependentRows(Interval<int>(first, first + count - 1)))
-        emit d_output_column->rowsRemoved(d_output_column, output_range.start(),
-                                          output_range.size());
+    for (Interval<int> output_range : dependentRows(Interval<int>(first, first + count - 1)))
+        Q_EMIT d_output_column->rowsRemoved(d_output_column, output_range.start(),
+                                            output_range.size());
 }
 
 AbstractColumn *AbstractSimpleFilter::output(int port)

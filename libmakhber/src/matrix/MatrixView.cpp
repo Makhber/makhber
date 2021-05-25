@@ -229,7 +229,7 @@ void MatrixView::toggleControlTabBar()
         d_hide_button->setArrowType(Qt::RightArrow);
     else
         d_hide_button->setArrowType(Qt::LeftArrow);
-    emit controlTabBarStatusChanged(d_control_tabs->isVisible());
+    Q_EMIT controlTabBarStatusChanged(d_control_tabs->isVisible());
 }
 
 int MatrixView::selectedColumnCount(bool full)
@@ -381,7 +381,7 @@ void MatrixView::showControlCoordinatesTab()
     d_hide_button->setArrowType(Qt::RightArrow);
     ui.tab_widget->setCurrentIndex(0);
     ui.tab_widget->setFocus();
-    emit controlTabBarStatusChanged(d_control_tabs->isVisible());
+    Q_EMIT controlTabBarStatusChanged(d_control_tabs->isVisible());
 }
 
 void MatrixView::showControlFormatTab()
@@ -390,7 +390,7 @@ void MatrixView::showControlFormatTab()
     d_hide_button->setArrowType(Qt::RightArrow);
     ui.tab_widget->setCurrentIndex(1);
     ui.tab_widget->setFocus();
-    emit controlTabBarStatusChanged(d_control_tabs->isVisible());
+    Q_EMIT controlTabBarStatusChanged(d_control_tabs->isVisible());
 }
 
 void MatrixView::showControlFormulaTab()
@@ -399,7 +399,7 @@ void MatrixView::showControlFormulaTab()
     d_hide_button->setArrowType(Qt::RightArrow);
     ui.tab_widget->setCurrentIndex(2);
     ui.tab_widget->setFocus();
-    emit controlTabBarStatusChanged(d_control_tabs->isVisible());
+    Q_EMIT controlTabBarStatusChanged(d_control_tabs->isVisible());
 }
 
 void MatrixView::applyCoordinates()
@@ -533,5 +533,5 @@ void MatrixViewWidget::keyPressEvent(QKeyEvent *event)
         advance = true;
     QTableView::keyPressEvent(event);
     if (advance)
-        emit advanceCell();
+        Q_EMIT advanceCell();
 }

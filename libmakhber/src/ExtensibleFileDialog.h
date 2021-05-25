@@ -66,7 +66,7 @@ protected:
     //! Button for toggling display of extension on/off.
     QPushButton *d_extension_toggle;
 
-private slots:
+private Q_SLOTS:
     //! Resize to make/take space for the extension widget.
     void resize(bool extension_on);
 

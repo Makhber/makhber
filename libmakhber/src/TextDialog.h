@@ -71,7 +71,7 @@ public:
     //! Return rotation angle (not yet implemented)
     int angle();
 
-public slots:
+public Q_SLOTS:
     //! Set label background type
     /**
      * \param bkg label background type
@@ -97,7 +97,7 @@ public slots:
      */
     void setAlignment(int align);
 
-private slots:
+private Q_SLOTS:
     //! Let the user select another font
     void customFont();
     //! Accept changes and close dialog
@@ -109,7 +109,7 @@ private slots:
     void updateTransparency(int alpha);
     void pickBackgroundColor(const QColor &);
 
-signals:
+Q_SIGNALS:
     //! Emit all current values
     /**
      * \param text the label text

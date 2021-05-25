@@ -82,7 +82,7 @@ public:
         return false;
     }
 
-public slots:
+public Q_SLOTS:
     //! Copy current selection.
     virtual void copy() {};
     //! Cut current selection.

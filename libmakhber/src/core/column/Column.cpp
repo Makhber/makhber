@@ -154,7 +154,7 @@ void Column::clear()
 
 void Column::notifyReplacement(const AbstractColumn *replacement)
 {
-    emit aboutToBeReplaced(this, replacement);
+    Q_EMIT aboutToBeReplaced(this, replacement);
 }
 
 void Column::clearValidity()
@@ -300,14 +300,14 @@ void Column::save(QXmlStreamWriter *writer) const
     outputFilter()->save(writer);
     writer->writeEndElement();
     QList<Interval<int>> masks = maskedIntervals();
-    foreach (Interval<int> interval, masks) {
+    for (Interval<int> interval : masks) {
         writer->writeStartElement("mask");
         writer->writeAttribute("start_row", QString::number(interval.start()));
         writer->writeAttribute("end_row", QString::number(interval.end()));
         writer->writeEndElement();
     }
     QList<Interval<int>> formulas = formulaIntervals();
-    foreach (Interval<int> interval, formulas) {
+    for (Interval<int> interval : formulas) {
         writer->writeStartElement("formula");
         writer->writeAttribute("start_row", QString::number(interval.start()));
         writer->writeAttribute("end_row", QString::number(interval.end()));
@@ -666,8 +666,8 @@ QList<Interval<int>> Column::formulaIntervals() const
 
 void Column::notifyDisplayChange()
 {
-    emit dataChanged(this); // all cells must be repainted
-    emit aspectDescriptionChanged(this); // the icon for the type changed
+    Q_EMIT dataChanged(this); // all cells must be repainted
+    Q_EMIT aspectDescriptionChanged(this); // the icon for the type changed
 }
 
 QString ColumnStringIO::textAt(int row) const

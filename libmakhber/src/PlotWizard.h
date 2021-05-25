@@ -86,7 +86,7 @@ private:
     //! Internal list of columns (contains all columns in all tables)
     QStringList columns;
 
-public slots:
+public Q_SLOTS:
     //! Update the columns list box to contain the columns of 'table'
     void changeColumnsList(const QString &table);
     //! Insert a list of tables into the tables combo box
@@ -119,7 +119,7 @@ private:
     bool noCurves();
     QSize sizeHint() const;
 
-signals:
+Q_SIGNALS:
     //! Emitted when new plots need to be created
     void plot(const QStringList &);
 };

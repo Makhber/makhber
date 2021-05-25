@@ -70,7 +70,7 @@ public:
     virtual RTTI rtti() const { return LineProfile; }
     void calculateLineProfile(const QPoint &start, const QPoint &end);
 
-signals:
+Q_SIGNALS:
     /*! Emitted whenever a new message should be presented to the user.
      *
      * You don't have to connect to this signal if you alreay specified a reciever during

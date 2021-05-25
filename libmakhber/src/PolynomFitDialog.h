@@ -47,7 +47,7 @@ class PolynomFitDialog : public QDialog
 public:
     PolynomFitDialog(QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
 
-public slots:
+public Q_SLOTS:
     void fit();
     void setGraph(Graph *g);
     void activateCurve(const QString &curveName);

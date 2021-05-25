@@ -71,11 +71,11 @@ private:
     QPushButton *buttonCancel;
     QList<MyWidget *> *srcTables{};
 
-protected slots:
+protected Q_SLOTS:
     //! Set all string in the current language
     virtual void languageChange();
 
-public slots:
+public Q_SLOTS:
     //! Add a plot definition
     void add();
     //! Supply the dialog with a curves list
@@ -85,7 +85,7 @@ public slots:
     //! Select a table
     void selectSrcTable(int tabnr);
 
-signals:
+Q_SIGNALS:
     //! This is usually connected to the main window's defineErrorBars() slot
     void options(const QString &curveName, int type, const QString &percent, int direction);
     //! This is usually connected to the main window's defineErrorBars() slot

@@ -351,7 +351,7 @@ public:
     };
     //@}
 
-signals:
+Q_SIGNALS:
     //! Column plot designation will be changed
     /**
      * 'source' is always the this pointer of the column that

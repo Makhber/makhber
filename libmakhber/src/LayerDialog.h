@@ -46,7 +46,7 @@ public:
     LayerDialog(QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     void setMultiLayer(MultiLayer *g);
 
-protected slots:
+protected Q_SLOTS:
     void accept();
     void update();
     void enableLayoutOptions(bool ok);

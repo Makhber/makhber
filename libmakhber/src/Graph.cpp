@@ -192,12 +192,12 @@ Graph::Graph(QWidget *parent, QString name, Qt::WindowFlags f) : QWidget(parent,
 
 void Graph::notifyChanges()
 {
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::activateGraph()
 {
-    emit selectedGraph(this);
+    Q_EMIT selectedGraph(this);
     setFocus();
 }
 
@@ -288,7 +288,7 @@ void Graph::setAxisFont(int axis, const QFont &fnt)
 {
     d_plot->setAxisFont(axis, fnt);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 QFont Graph::axisFont(int axis)
@@ -628,7 +628,7 @@ void Graph::changeTicksLength(int minLength, int majLength)
     d_plot->replot();
     d_plot->show();
 
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::showAxis(int axis, AxisType type, const QString &formatInfo, Table *table, bool axisOn,
@@ -706,7 +706,7 @@ void Graph::showAxis(int axis, AxisType type, const QString &formatInfo, Table *
     d_plot->updateLayout(); // This is necessary in order to enable/disable tick labels
     scale->repaint();
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setLabelsDayFormat(int axis, int format)
@@ -888,7 +888,7 @@ void Graph::setYAxisTitleFont(const QFont &fnt)
     t.setFont(fnt);
     d_plot->setAxisTitle(QwtPlot::yLeft, t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setXAxisTitleFont(const QFont &fnt)
@@ -897,7 +897,7 @@ void Graph::setXAxisTitleFont(const QFont &fnt)
     t.setFont(fnt);
     d_plot->setAxisTitle(QwtPlot::xBottom, t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setRightAxisTitleFont(const QFont &fnt)
@@ -906,7 +906,7 @@ void Graph::setRightAxisTitleFont(const QFont &fnt)
     t.setFont(fnt);
     d_plot->setAxisTitle(QwtPlot::yRight, t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setTopAxisTitleFont(const QFont &fnt)
@@ -915,7 +915,7 @@ void Graph::setTopAxisTitleFont(const QFont &fnt)
     t.setFont(fnt);
     d_plot->setAxisTitle(QwtPlot::xTop, t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setAxisTitleFont(int axis, const QFont &fnt)
@@ -924,7 +924,7 @@ void Graph::setAxisTitleFont(int axis, const QFont &fnt)
     t.setFont(fnt);
     d_plot->setAxisTitle(axis, t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 QFont Graph::axisTitleFont(int axis)
@@ -1049,7 +1049,7 @@ void Graph::setTitleColor(const QColor &c)
     t.setColor(c);
     d_plot->setTitle(t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setTitleAlignment(int align)
@@ -1058,7 +1058,7 @@ void Graph::setTitleAlignment(int align)
     t.setRenderFlags(align);
     d_plot->setTitle(t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setTitleFont(const QFont &fnt)
@@ -1067,35 +1067,35 @@ void Graph::setTitleFont(const QFont &fnt)
     t.setFont(fnt);
     d_plot->setTitle(t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setYAxisTitle(const QString &text)
 {
     d_plot->setAxisTitle(QwtPlot::yLeft, text);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setXAxisTitle(const QString &text)
 {
     d_plot->setAxisTitle(QwtPlot::xBottom, text);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setRightAxisTitle(const QString &text)
 {
     d_plot->setAxisTitle(QwtPlot::yRight, text);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setTopAxisTitle(const QString &text)
 {
     d_plot->setAxisTitle(QwtPlot::xTop, text);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 int Graph::axisTitleAlignment(int axis)
@@ -1119,7 +1119,7 @@ void Graph::setXAxisTitleAlignment(int align)
     d_plot->setAxisTitle(QwtPlot::xBottom, t);
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setYAxisTitleAlignment(int align)
@@ -1129,7 +1129,7 @@ void Graph::setYAxisTitleAlignment(int align)
     d_plot->setAxisTitle(QwtPlot::yLeft, t);
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setTopAxisTitleAlignment(int align)
@@ -1138,7 +1138,7 @@ void Graph::setTopAxisTitleAlignment(int align)
     t.setRenderFlags(align);
     d_plot->setAxisTitle(QwtPlot::xTop, t);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setRightAxisTitleAlignment(int align)
@@ -1148,14 +1148,14 @@ void Graph::setRightAxisTitleAlignment(int align)
     d_plot->setAxisTitle(QwtPlot::yRight, t);
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setAxisTitle(int axis, const QString &text)
 {
     d_plot->setAxisTitle(axis, text);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 QStringList Graph::scalesTitles()
@@ -1248,7 +1248,7 @@ void Graph::setAutoScale()
     d_zoomer[1]->setZoomBase();
     updateScale();
 
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setScale(int axis, double start, double end, double step, int majorTicks,
@@ -1537,7 +1537,7 @@ void Graph::removeMarker()
         }
         d_plot->removeMarker(selectedMarker);
         d_plot->replot();
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
 
         if (selectedMarker == legendMarkerID)
             legendMarkerID = -1;
@@ -1692,7 +1692,7 @@ bool Graph::titleSelected()
 void Graph::selectTitle()
 {
     if (!d_plot->hasFocus()) {
-        emit selectedGraph(this);
+        Q_EMIT selectedGraph(this);
         QwtTextLabel *title = d_plot->titleLabel();
         title->setFocus();
     }
@@ -1703,14 +1703,14 @@ void Graph::selectTitle()
 void Graph::setTitle(const QString &t)
 {
     d_plot->setTitle(t);
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::removeTitle()
 {
     if (d_plot->titleLabel()->hasFocus()) {
         d_plot->setTitle(" ");
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
     }
 }
 
@@ -1743,7 +1743,7 @@ void Graph::updateImageMarker(int x, int y, int w, int h)
     auto *mrk = dynamic_cast<ImageMarker *>(d_plot->marker(selectedMarker));
     mrk->setRect(x, y, w, h);
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::updateTextMarker(const QString &text, int angle, int bkg, const QFont &fnt,
@@ -1758,7 +1758,7 @@ void Graph::updateTextMarker(const QString &text, int angle, int bkg, const QFon
     mrkL->setFrameStyle(bkg);
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 Legend *Graph::legend()
@@ -1845,7 +1845,7 @@ void Graph::updateCurvesData(Table *w, const QString &colName)
         } else if ((dynamic_cast<DataCurve *>(it))->updateData(w, colName))
             updated_curves++;
     }
-    foreach (PlotCurve *c, to_remove) {
+    for (PlotCurve *c : to_remove) {
         removeCurve(curveIndex(c));
         updated_curves++;
     }
@@ -1918,7 +1918,7 @@ void Graph::drawCanvasFrame(bool frameOn, int width, const QColor &color)
         pal.setColor(QPalette::WindowText, QColor(Qt::black));
         d_plot->setPalette(pal);
     }
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::drawCanvasFrame(bool frameOn, int width)
@@ -1945,7 +1945,7 @@ void Graph::drawAxesBackbones(bool yes)
     }
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::loadAxesOptions(const QString &s)
@@ -1981,7 +1981,7 @@ void Graph::setAxesLinewidth(int width)
     }
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::loadAxesLinewidth(int width)
@@ -2090,7 +2090,7 @@ void Graph::setXAxisTitleColor(const QColor &c)
         QwtText t = scale->title();
         t.setColor(c);
         scale->setTitle(t);
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
     }
 }
 
@@ -2101,7 +2101,7 @@ void Graph::setYAxisTitleColor(const QColor &c)
         QwtText t = scale->title();
         t.setColor(c);
         scale->setTitle(t);
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
     }
 }
 
@@ -2112,7 +2112,7 @@ void Graph::setRightAxisTitleColor(const QColor &c)
         QwtText t = scale->title();
         t.setColor(c);
         scale->setTitle(t);
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
     }
 }
 
@@ -2123,7 +2123,7 @@ void Graph::setTopAxisTitleColor(const QColor &c)
         QwtText t = scale->title();
         t.setColor(c);
         scale->setTitle(t);
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
     }
 }
 
@@ -2440,7 +2440,7 @@ Legend *Graph::newLegend()
     d_texts.resize(++texts);
     d_texts[texts - 1] = legendMarkerID;
 
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
     d_plot->replot();
     return mrk;
 }
@@ -2449,7 +2449,7 @@ void Graph::addTimeStamp()
 {
     Legend *mrk = newLegend(QLocale().toString(QDateTime::currentDateTime()));
     mrk->setOrigin(QPoint(d_plot->canvas()->width() / 2, 10));
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
     d_plot->replot();
 }
 
@@ -3002,7 +3002,7 @@ void Graph::updateErrorBars(QwtErrorPlotCurve *er, bool xErr, int width, int cap
     er->drawMinusSide(minus);
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 bool Graph::addErrorBars(const QString &yColName, Table *errTable, const QString &errColName,
@@ -3170,7 +3170,7 @@ bool Graph::plotHistogram(Table *w, QStringList names, int startRow, int endRow)
         endRow = w->numRows() - 1;
 
     bool success = false;
-    foreach (QString col, names) {
+    for (QString col : names) {
         Column *col_ptr = w->column(col);
         if (!col_ptr || col_ptr->columnMode() != Makhber::ColumnMode::Numeric)
             continue;
@@ -3220,7 +3220,7 @@ bool Graph::insertCurvesList(Table *w, const QStringList &names, int style, int 
         plotVectorCurve(w, names, style, startRow, endRow);
     else {
         QStringList errorCurves, otherCurves;
-        foreach (QString col, names) {
+        for (QString col : names) {
             int colIndex = w->colIndex(col);
             if (colIndex < 0)
                 continue;
@@ -3286,7 +3286,7 @@ bool Graph::insertCurve(Table *w, const QString &name, int style, int startRow, 
 
     bool succes = insertCurve(w, w->colName(xcol), w->colName(ycol), style, startRow, endRow);
     if (succes)
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
     return succes;
 }
 
@@ -3388,7 +3388,7 @@ void Graph::updateVectorsLayout(int curve, const QColor &color, int width, int a
         vect->setVectorEnd(xEndColName, yEndColName);
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::updatePlot()
@@ -3474,7 +3474,7 @@ void Graph::removePie()
     c_keys.resize(0);
     c_type.resize(0);
     n_curves = 0;
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::removeCurves(const QString &s)
@@ -3548,7 +3548,7 @@ void Graph::removeCurve(int index)
     }
     c_type.resize(n_curves);
     c_keys.resize(n_curves);
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::removeLegendItem(int index)
@@ -3614,7 +3614,7 @@ void Graph::addLegendItem(const QString &colName)
 void Graph::contextMenuEvent(QContextMenuEvent *e)
 {
     if (selectedMarker >= 0) {
-        emit showMarkerPopupMenu();
+        Q_EMIT showMarkerPopupMenu();
         return;
     }
 
@@ -3624,16 +3624,16 @@ void Graph::contextMenuEvent(QContextMenuEvent *e)
     const QwtPlotCurve *c = (QwtPlotCurve *)d_plot->curve(curve);
 
     if (c && dist < 10) // 10 pixels tolerance
-        emit showCurveContextMenu(curve);
+        Q_EMIT showCurveContextMenu(curve);
     else
-        emit showContextMenu();
+        Q_EMIT showContextMenu();
 
     e->accept();
 }
 
 void Graph::closeEvent(QCloseEvent *e)
 {
-    emit closedGraph();
+    Q_EMIT closedGraph();
     e->accept();
 }
 
@@ -3644,7 +3644,7 @@ bool Graph::zoomOn()
 
 void Graph::zoomed(const QRectF &)
 {
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::zoom(bool on)
@@ -3729,7 +3729,7 @@ ImageMarker *Graph::addImage(const QString &fileName)
     mrk->setSize(picSize);
     d_plot->replot();
 
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
     return mrk;
 }
 
@@ -3768,7 +3768,7 @@ void Graph::drawLine(bool on, bool arrow)
     drawLineOn = on;
     drawArrowOn = arrow;
     if (!on)
-        emit drawLineEnded(true);
+        Q_EMIT drawLineEnded(true);
 }
 
 bool Graph::modifyFunctionCurve(ApplicationWindow *parent, int curve, int type,
@@ -3804,7 +3804,7 @@ bool Graph::modifyFunctionCurve(ApplicationWindow *parent, int curve, int type,
         }
     }
     updatePlot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
     return true;
 }
 
@@ -3858,7 +3858,7 @@ bool Graph::addFunctionCurve(ApplicationWindow *parent, int type, const QStringL
     addLegendItem(c->legend());
     updatePlot();
 
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
     return true;
 }
 
@@ -3957,7 +3957,7 @@ void Graph::createTable(const QwtPlotCurve *curve)
         yCol->setValueAt(i, curve->y(i));
     }
     QString legend = tr("Data set generated from curve") + ": " + curve->title().text();
-    emit createTable(tr("Curve data %1").arg(1), legend, QList<Column *>() << xCol << yCol);
+    Q_EMIT createTable(tr("Curve data %1").arg(1), legend, QList<Column *>() << xCol << yCol);
 }
 
 QString Graph::saveToString(bool saveAsTemplate)
@@ -4010,7 +4010,7 @@ void Graph::showIntensityTable()
     if (!mrk)
         return;
 
-    emit createIntensityTable(mrk->fileName());
+    Q_EMIT createIntensityTable(mrk->fileName());
 }
 
 void Graph::updateMarkersBoundingRect()
@@ -4094,7 +4094,7 @@ void Graph::setMargin(int d)
         return;
 
     d_plot->setMargin(d);
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setFrame(int width, const QColor &color)
@@ -4116,13 +4116,13 @@ void Graph::setBackgroundColor(const QColor &color)
     d_plot->setPalette(p);
 
     d_plot->setAutoFillBackground(true);
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::setCanvasBackground(const QColor &color)
 {
     d_plot->setCanvasBackground(color);
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 Qt::BrushStyle Graph::getBrushStyle(int style)
@@ -4304,7 +4304,7 @@ void Graph::removeAxisTitle()
     // QwtScaleDraw::alignment and QwtPlot::Axis
     d_plot->setAxisTitle(axis, QString());
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::cutAxisTitle()
@@ -4377,12 +4377,12 @@ void Graph::showAxisContextMenu(int axis)
 
 void Graph::showAxisDialog()
 {
-    emit showSelectedAxisDialog(selectedAxis);
+    Q_EMIT showSelectedAxisDialog(selectedAxis);
 }
 
 void Graph::showScaleDialog()
 {
-    emit axisDblClicked(selectedAxis);
+    Q_EMIT axisDblClicked(selectedAxis);
 }
 
 void Graph::hideSelectedAxis()
@@ -4395,7 +4395,7 @@ void Graph::hideSelectedAxis()
 
     d_plot->enableAxis(axis, false);
     scalePicker->refresh();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::showGrids()
@@ -4425,7 +4425,7 @@ void Graph::showGrid(int axis)
         return;
 
     d_plot->replot();
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 void Graph::copy(ApplicationWindow *parent, Graph *g)
@@ -4918,7 +4918,7 @@ void Graph::addFitCurve(QwtPlotCurve *c)
 
 void Graph::deleteFitCurves()
 {
-    foreach (QwtPlotCurve *c, d_fit_curves)
+    for (QwtPlotCurve *c : d_fit_curves)
         removeCurve(curveIndex(c));
 
     d_plot->replot();
@@ -5181,7 +5181,7 @@ void Graph::setCurveFullRange(int curveIndex)
     if (c) {
         c->setFullRange();
         updatePlot();
-        emit modifiedGraph();
+        Q_EMIT modifiedGraph();
     }
 }
 
@@ -5229,7 +5229,7 @@ void Graph::showCurve(int index, bool visible)
     if (it)
         it->setVisible(visible);
 
-    emit modifiedGraph();
+    Q_EMIT modifiedGraph();
 }
 
 int Graph::visibleCurves()

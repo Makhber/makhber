@@ -126,7 +126,7 @@ public:
 
     virtual QWidget *view() { return d_future_matrix->view(); }
 
-public slots:
+public Q_SLOTS:
     void exportPDF(const QString &fileName);
     //! Print the Matrix
     void print();
@@ -293,11 +293,11 @@ public slots:
     //! Return the creation date
     virtual QString birthDate() { return QLocale().toString(d_future_matrix->creationTime()); };
 
-signals:
+Q_SIGNALS:
     //! Show the context menu
     void showContextMenu();
 
-protected slots:
+protected Q_SLOTS:
     void applyFormula();
     void addFunction();
     void addCell();

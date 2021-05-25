@@ -175,7 +175,7 @@ protected:
      */
     virtual void inputAboutToBeDisconnected(const AbstractColumn *source) { Q_UNUSED(source); }
 
-protected slots:
+protected Q_SLOTS:
 
     //!\name signal handlers
     //@{

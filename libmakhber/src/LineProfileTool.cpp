@@ -143,8 +143,8 @@ void LineProfileTool::calculateLineProfile(const QPoint &start, const QPoint &en
         }
     }
     QString caption = tr("Line profile %1").arg(1);
-    emit createTablePlot(caption, QString(),
-                         QList<Column *>() << pixelCol << xCol << yCol << intCol);
+    Q_EMIT createTablePlot(caption, QString(),
+                           QList<Column *>() << pixelCol << xCol << yCol << intCol);
 }
 
 int LineProfileTool::averageImagePixel(const QImage &image, int px, int py, bool moreHorizontal)

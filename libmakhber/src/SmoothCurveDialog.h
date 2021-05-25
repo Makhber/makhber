@@ -52,7 +52,7 @@ public:
     QSpinBox *boxPointsLeft, *boxPointsRight, *boxOrder;
     ColorButton *btnColor;
 
-public slots:
+public Q_SLOTS:
     void setGraph(Graph *g);
     void smooth();
     void activateCurve(const QString &curveName);

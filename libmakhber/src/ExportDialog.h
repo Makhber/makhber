@@ -59,7 +59,7 @@ private:
     QComboBox *boxSeparator;
     QComboBox *boxTable;
 
-public slots:
+public Q_SLOTS:
     //! Set the column delimiter
     void setColumnSeparator(const QString &sep);
     //! Set the list of tables
@@ -67,7 +67,7 @@ public slots:
     //! Select a table
     void setActiveTableName(const QString &name);
 
-private slots:
+private Q_SLOTS:
     //! Enable/disable the tables combox box
     /**
      * The tables combo box is disabled when
@@ -75,13 +75,13 @@ private slots:
      */
     void enableTableName(bool ok);
 
-protected slots:
+protected Q_SLOTS:
     //! Accept changes
     void accept();
     //! Display help
     void help();
 
-signals:
+Q_SIGNALS:
     //! Export one table
     /**
      * \param tableName name of the table to export

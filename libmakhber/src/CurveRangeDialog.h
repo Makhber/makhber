@@ -52,7 +52,7 @@ public:
     QSpinBox *boxStart;
     QSpinBox *boxEnd;
 
-public slots:
+public Q_SLOTS:
     void setCurveToModify(Graph *g, int curve);
     void accept();
 

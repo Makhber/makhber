@@ -76,11 +76,11 @@ protected:
     //@{
     virtual void inputMaskingAboutToChange(const AbstractColumn *)
     {
-        emit d_output_column->maskingAboutToChange(d_output_column);
+        Q_EMIT d_output_column->maskingAboutToChange(d_output_column);
     }
     virtual void inputMaskingChanged(const AbstractColumn *)
     {
-        emit d_output_column->maskingChanged(d_output_column);
+        Q_EMIT d_output_column->maskingChanged(d_output_column);
     }
     //@}
 };

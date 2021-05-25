@@ -51,7 +51,7 @@ public:
 
     void init(ScriptingEnv *env);
 
-public slots:
+public Q_SLOTS:
     QString saveToString(const QString &info);
     void restore(const QStringList &);
 

@@ -68,7 +68,7 @@ public:
     Qwt3D::SurfacePlot *sp {};
     UserFunction *func {};
 
-public slots:
+public Q_SLOTS:
     void copy(Graph3D *g);
     void initPlot();
     void initCoord();
@@ -352,7 +352,7 @@ public slots:
     //! Enables/Disables autoscaling using findBestLayout().
     void setAutoscale(bool on = true) { d_autoscale = on; };
 
-signals:
+Q_SIGNALS:
     void showContextMenu();
     void showOptionsDialog();
     void modified();

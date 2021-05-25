@@ -136,7 +136,7 @@ protected:
     QPushButton *buttonLabelFont {};
     TextFormatButtons *formatButtons {};
 
-public slots:
+public Q_SLOTS:
     void setAxisType(int axis);
     void updateTitleBox(int axis);
     bool updatePlot();
@@ -191,7 +191,7 @@ public slots:
      */
     int exec();
 
-private slots:
+private Q_SLOTS:
     void pageChanged(int);
 
 protected:

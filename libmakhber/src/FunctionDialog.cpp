@@ -243,13 +243,13 @@ void FunctionDialog::clearList()
     case 1:
         boxXFunction->clear();
         boxYFunction->clear();
-        emit clearParamFunctionsList();
+        Q_EMIT clearParamFunctionsList();
         break;
 
     case 2:
         boxPolarTheta->clear();
         boxPolarRadius->clear();
-        emit clearPolarFunctionsList();
+        Q_EMIT clearPolarFunctionsList();
         break;
     }
 }

@@ -66,7 +66,7 @@ bool ScalePicker::eventFilter(QObject *object, QEvent *e)
         QPoint pos = me->pos();
         if (me->button() == Qt::LeftButton) {
             scale->setFocus();
-            emit clicked();
+            Q_EMIT clicked();
 
             deselect();
 
@@ -87,23 +87,23 @@ bool ScalePicker::eventFilter(QObject *object, QEvent *e)
 void ScalePicker::mouseDblClicked(const QwtScaleWidget *scale, const QPoint &pos)
 {
     if (scaleRect(scale).contains(pos))
-        emit axisDblClicked(scale->alignment());
+        Q_EMIT axisDblClicked(scale->alignment());
     else { // Click on the title
         switch (scale->alignment()) {
         case QwtScaleDraw::LeftScale: {
-            emit yAxisTitleDblClicked();
+            Q_EMIT yAxisTitleDblClicked();
             break;
         }
         case QwtScaleDraw::RightScale: {
-            emit rightAxisTitleDblClicked();
+            Q_EMIT rightAxisTitleDblClicked();
             break;
         }
         case QwtScaleDraw::BottomScale: {
-            emit xAxisTitleDblClicked();
+            Q_EMIT xAxisTitleDblClicked();
             break;
         }
         case QwtScaleDraw::TopScale: {
-            emit topAxisTitleDblClicked();
+            Q_EMIT topAxisTitleDblClicked();
             break;
         }
         }
@@ -112,12 +112,12 @@ void ScalePicker::mouseDblClicked(const QwtScaleWidget *scale, const QPoint &pos
 
 void ScalePicker::mouseRightClicked(const QwtScaleWidget *scale, const QPoint &pos)
 {
-    emit clicked();
+    Q_EMIT clicked();
 
     if (scaleRect(scale).contains(pos))
-        emit axisRightClicked(scale->alignment());
+        Q_EMIT axisRightClicked(scale->alignment());
     else
-        emit axisTitleRightClicked(scale->alignment());
+        Q_EMIT axisTitleRightClicked(scale->alignment());
 }
 
 // The rect of a scale without the title

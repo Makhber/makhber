@@ -49,7 +49,7 @@ ScreenPickerTool::ScreenPickerTool(Graph *graph, const QObject *status_target,
 
     if (status_target)
         connect(this, SIGNAL(statusText(const QString &)), status_target, status_slot);
-    emit statusText(tr("Click on plot or move cursor to display coordinates!"));
+    Q_EMIT statusText(tr("Click on plot or move cursor to display coordinates!"));
 }
 
 ScreenPickerTool::~ScreenPickerTool()
@@ -64,7 +64,7 @@ void ScreenPickerTool::append(const QPoint &point)
     //	QwtPlotPicker::append(point);
 
     QPointF pos = invTransform(point);
-    emit statusText(trackerText(pos).text());
+    Q_EMIT statusText(trackerText(pos).text());
 
     d_selection_marker.setValue(pos);
     if (d_selection_marker.plot() == nullptr)
@@ -76,14 +76,14 @@ bool ScreenPickerTool::eventFilter(QObject *obj, QEvent *event)
 {
     switch (event->type()) {
     case QEvent::MouseButtonDblClick:
-        emit selected(d_selection_marker.value());
+        Q_EMIT selected(d_selection_marker.value());
         return true;
     case QEvent::KeyPress: {
         auto *ke = dynamic_cast<QKeyEvent *>(event);
         switch (ke->key()) {
         case Qt::Key_Enter:
         case Qt::Key_Return:
-            emit selected(d_selection_marker.value());
+            Q_EMIT selected(d_selection_marker.value());
             return true;
         default:
             break;

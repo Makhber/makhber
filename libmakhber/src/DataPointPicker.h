@@ -45,7 +45,7 @@ public:
     DataPointPicker(Graph *g, ApplicationWindow *app);
     ~DataPointPicker();
     QPointF pick();
-protected slots:
+protected Q_SLOTS:
     void pointSelected(QwtPlotCurve *curve, int pointIndex);
 
 private:

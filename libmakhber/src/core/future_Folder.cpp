@@ -138,7 +138,7 @@ bool Folder::readChildAspectElement(XmlStreamReader *reader)
         addChild(column);
         loaded = true;
     } else {
-        foreach (QObject *plugin, QPluginLoader::staticInstances()) {
+        for (QObject *plugin : QPluginLoader::staticInstances()) {
             XmlElementAspectMaker *maker = qobject_cast<XmlElementAspectMaker *>(plugin);
             if (maker && maker->canCreate(element_name)) {
                 AbstractAspect *aspect = maker->createAspectFromXml(reader);

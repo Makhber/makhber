@@ -57,13 +57,13 @@ public:
 
     QPen pen() const { return m_pen; }
 
-signals:
+Q_SIGNALS:
     void penChanged(const QPen &pen);
 
-public slots:
+public Q_SLOTS:
     void setPen(const QPen &pen);
 
-private slots:
+private Q_SLOTS:
     void updateColor(QColor);
     void updateWidth(QString);
     void updateLineStyle(int);

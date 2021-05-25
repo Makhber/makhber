@@ -119,7 +119,7 @@ public:
     }
 
     void closeEvent(QCloseEvent *);
-public slots:
+public Q_SLOTS:
     void copy(Table *m);
     int numRows();
     int numCols();
@@ -286,7 +286,7 @@ public slots:
     QString saveAsTemplate(const QString &geometryInfo);
     void restore(const QStringList &lst);
 
-signals:
+Q_SIGNALS:
     void changedColHeader(const QString &, const QString &);
     void aboutToRemoveCol(const QString &);
     void removedCol(const QString &);
@@ -294,7 +294,7 @@ signals:
     void resizedTable(QWidget *);
     void showContextMenu(bool selection);
 
-protected slots:
+protected Q_SLOTS:
     void applyFormula();
     void addFunction();
     void addReference();
