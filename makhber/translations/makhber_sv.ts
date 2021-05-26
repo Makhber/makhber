@@ -367,7 +367,7 @@
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11640"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11670"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11682"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13324"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13323"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1061,18 +1061,18 @@
         <translation>Stäng av verk&amp;tyg</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13267"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13266"/>
         <source>No updates available.
 You are already running the latest version: &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13273"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13272"/>
         <source>The version file could not be decoded into a valid version number.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13715"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13714"/>
         <source>Undo/Redo History</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1357,7 +1357,7 @@ You are already running the latest version: &quot;%1&quot;</source>
         <translation>X-axeltitel</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13618"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13617"/>
         <source>Please select a Y column to plot!</source>
         <translation>Välj en Y-kolumn för plottning!</translation>
     </message>
@@ -1475,22 +1475,22 @@ You are already running the latest version: &quot;%1&quot;</source>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="4845"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="5428"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13327"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13326"/>
         <source>&amp;Yes</source>
         <translation>&amp;Ja</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13225"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13224"/>
         <source>Makhber will now try to determine whether a new version of Makhber is available. Please modify your firewall settings in order to allow Makhber to connect to the internet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13258"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13257"/>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13327"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13326"/>
         <source>&amp;No</source>
         <translation>&amp;Nej</translation>
     </message>
@@ -1819,7 +1819,7 @@ Are you sure you want to continue?</source>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7426"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7428"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12451"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13509"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13508"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Egenskaper...</translation>
     </message>
@@ -1881,9 +1881,9 @@ Are you sure you want to continue?</source>
         <translation>&amp;Döp om fönster</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13542"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13560"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13564"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13541"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13559"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13563"/>
         <source>D&amp;epends on</source>
         <translation>B&amp;eror på</translation>
     </message>
@@ -3111,7 +3111,7 @@ Are you sure you want to continue?</source>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="6115"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="7560"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11743"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13136"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13135"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3427,22 +3427,22 @@ in file %2.</source>
         <translation>Ingen matchning hittad för strängen: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13117"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13116"/>
         <source>Cannot move an object to itself!</source>
         <translation>Kan ej flytta ett objekt till sig självt!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13123"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13122"/>
         <source>Cannot move a parent folder into a child folder!</source>
         <translation>Kan ej flytta en mapp till en av dess undermappar!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13137"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13136"/>
         <source>The destination folder already contains a folder called &apos;%1&apos;! Folder skipped!</source>
         <translation>Målmappen innehåller redan en mapp kallad &apos;%1*! Mappen hoppas över!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13241"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13240"/>
         <source>Error while fetching version file with HTTP: %1.</source>
         <translation>Fel vid hämtning av versionsfil HTTP: %1.</translation>
     </message>
@@ -3517,12 +3517,12 @@ Delar av denna fil kanske inte visas som väntat.</translation>
         <translation>&amp;Diagramdetaljer...</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13520"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13519"/>
         <source>D&amp;epending Graphs</source>
         <translation>B&amp;eroende diagram</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13531"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13530"/>
         <source>D&amp;epending 3D Graphs</source>
         <translation>B&amp;eroende 3D-diagram</translation>
     </message>
@@ -3563,7 +3563,7 @@ Delar av denna fil kanske inte visas som väntat.</translation>
         <translation>Utvärd&amp;era uttryck</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13325"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13324"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Detta kommer att rensa innehållet i alla data kopplat till tabellen. Är du säker?</translation>
     </message>
@@ -3845,13 +3845,13 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1493"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13626"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13625"/>
         <source>Please set a default X column for this table, first!</source>
         <translation>Bestäm en standard X-kolumn till denna tabell först!</translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="1501"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13612"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13611"/>
         <source>Please select a column to plot!</source>
         <translation>Välj en kolumn för plottning!</translation>
     </message>
@@ -3915,48 +3915,48 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13136"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13135"/>
         <source>Skipped moving folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13228"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13227"/>
         <source>Do you wish to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13240"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13239"/>
         <source>HTTP get version file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13257"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13256"/>
         <source>Updates Available</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13272"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13271"/>
         <source>Invalid version file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13585"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13622"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13584"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13621"/>
         <source>You need at least two columns for this operation!</source>
         <translation>Du behöver minst två kolumner för denna åtgärd!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13591"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13590"/>
         <source>Please select a Z column for this operation!</source>
         <translation>Välj en Z-kolumn för denna åtgärd!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13595"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13594"/>
         <source>You need to define a X column first!</source>
         <translation>Du måste definiera en X-kolumn först!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13599"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13598"/>
         <source>You need to define a Y column first!</source>
         <translation>Du måste definiera en Y-kolumn först!</translation>
     </message>
@@ -3983,14 +3983,14 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11791"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12537"/>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="12545"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13584"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13590"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13595"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13599"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13612"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13618"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13621"/>
-        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13625"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13583"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13589"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13594"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13598"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13611"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13617"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13620"/>
+        <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="13624"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -5917,23 +5917,23 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../../libmakhber/src/DataPickerTool.cpp" line="330"/>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="400"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="401"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="379"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="380"/>
         <source>Move point error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="380"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="381"/>
         <source>Sorry, but moving points of a function is not possible.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/DataPickerTool.cpp" line="331"/>
-        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="401"/>
+        <location filename="../../libmakhber/src/DataPickerTool.cpp" line="402"/>
         <source>This operation cannot be performed on curves plotted from columns having a non-numerical format.</source>
         <translation>Denna åtgärd kan ej utföras på kurvor ritade från kolumner med ett icke-numeriskt format.</translation>
     </message>
@@ -9910,12 +9910,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MultiPeakFitTool</name>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFitTool.cpp" line="61"/>
+        <location filename="../../libmakhber/src/MultiPeakFitTool.cpp" line="62"/>
         <source>Move cursor and click to select a point and double-click/press &apos;Enter&apos; to set the position of a peak!</source>
         <translation>Flytta markör och klicka för att välja en punkt och dubbelklicka/tryck vagnretur för att markera platsen för en topp!</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/MultiPeakFitTool.cpp" line="95"/>
+        <location filename="../../libmakhber/src/MultiPeakFitTool.cpp" line="96"/>
         <source>Peak %1 selected! Click to select a point and double-click/press &apos;Enter&apos; to set the position of the next peak!</source>
         <translation>Topp %1 vald! Klicka för att välja punkt och dubbelklicka/tryck &apos;Retur&apos; för att ställa in position för nästa punkt!</translation>
     </message>
@@ -11823,12 +11823,12 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PythonScripting</name>
     <message>
-        <location filename="../../libmakhber/src/PythonScripting.cpp" line="231"/>
+        <location filename="../../libmakhber/src/PythonScripting.cpp" line="229"/>
         <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/PythonScripting.cpp" line="232"/>
+        <location filename="../../libmakhber/src/PythonScripting.cpp" line="230"/>
         <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against;try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12228,13 +12228,13 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/globals.cpp" line="100"/>
+        <location filename="../../libmakhber/src/globals.cpp" line="99"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../libmakhber/src/ApplicationWindow.cpp" line="11738"/>
-        <location filename="../../libmakhber/src/globals.cpp" line="102"/>
+        <location filename="../../libmakhber/src/globals.cpp" line="101"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>

@@ -425,6 +425,7 @@ endif()
 if( MAKHBER_SCRIPTING_PYTHON )
 
   target_link_libraries( libmakhber Python3::Python )
+  target_compile_definitions( libmakhber PUBLIC QT_NO_KEYWORDS )
 
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
     add_dependencies( libmakhber generate_SIP_HDR )
@@ -454,14 +455,6 @@ if( MAKHBER_SCRIPTING_PYTHON )
     PROPERTY COMPILE_DEFINITIONS SCRIPTING_PYTHON
   )
 
-  set_property( SOURCE
-    "src/PythonScripting.cpp"
-    "src/PythonScript.cpp"
-    "src/globals.cpp"
-    APPEND
-    PROPERTY COMPILE_DEFINITIONS QT_NO_KEYWORDS
-  )
-
   if( MINGW )
     set_property( SOURCE "src/PythonScripting.cpp"
       APPEND
@@ -475,7 +468,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     "src/PythonScripting.h"
     "src/PythonScript.cpp"
     "src/PythonScripting.cpp"
-    )
+  )
 
 endif()
 
