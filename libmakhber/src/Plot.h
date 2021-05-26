@@ -96,8 +96,8 @@ public:
                const QwtPlotPrintFilter & = QwtPlotPrintFilter()) const override;
 
 protected:
-    void drawItems(QPainter *painter, const QRect &rect, std::array<const QwtScaleMap, axisCnt> map,
-                   const QwtPlotPrintFilter &pfilter) const;
+    void drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt],
+                   const QwtPlotPrintFilter &pfilter) const override;
 
     void drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleMap &map, int axis,
                          bool min, bool maj) const;

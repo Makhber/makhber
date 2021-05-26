@@ -9195,12 +9195,12 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="717"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="718"/>
         <source>Matrix %1</source>
         <translation>Matrix %1</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="723"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="724"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: Formel auf Auswahl angewendet</translation>
     </message>
@@ -12948,47 +12948,47 @@ Absolutbetrag von x.</translation>
 <context>
     <name>Table</name>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1010"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1011"/>
         <source>ASCII Export Error</source>
         <translation>ASCII-Export-Fehler</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1011"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1012"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;</source>
         <translation>Konnte nicht in Datei schreiben: &lt;br&gt;&lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1012"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1013"/>
         <source>&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1107"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1108"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1108"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1109"/>
         <source>Do you want to hide or delete</source>
         <translation>Wollen Sie ausblenden oder löschen</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1110"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1111"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1110"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1111"/>
         <source>Hide</source>
         <translation>Ausblenden</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1110"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1111"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1331"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1332"/>
         <source>%1: apply formula to column</source>
         <translation>%1: Formel auf Spalte angewendet</translation>
     </message>

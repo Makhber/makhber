@@ -32,13 +32,12 @@ struct TestPaintDevice : public QPaintDevice
         void drawTiledPixmap(const QRectF &, const QPixmap &, const QPointF &) override;
         bool end() override { return true; }
         Type type() const override { return QPaintEngine::User; }
-        void updateState(const QPaintEngineState &) { }
+        void updateState(const QPaintEngineState &) override { }
     };
 
     mutable PaintEngine pe;
     TestPaintDevice(std::ostream &out) : pe(out) { }
     QPaintEngine *paintEngine() const override { return &pe; }
-    int metric(PaintDeviceMetric) { return 256; }
 };
 
 #endif

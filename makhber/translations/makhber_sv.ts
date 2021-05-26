@@ -9168,12 +9168,12 @@ Gränserna måste vara inom definitionsområdet för x; om du inte vet maximum- 
         <translation>Dölja</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="717"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="718"/>
         <source>Matrix %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Matrix.cpp" line="723"/>
+        <location filename="../../libmakhber/src/Matrix.cpp" line="724"/>
         <source>%1: apply formula to selection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12859,47 +12859,47 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Table</name>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1110"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1111"/>
         <source>Cancel</source>
         <translation>Avbryt</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1011"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1012"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;</source>
         <translation>Kunde inte skriva till fil: &lt;br&gt;&lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1010"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1011"/>
         <source>ASCII Export Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1012"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1013"/>
         <source>&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1107"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1108"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1108"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1109"/>
         <source>Do you want to hide or delete</source>
         <translation>Vill du dölja eller ta bort</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1110"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1111"/>
         <source>Delete</source>
         <translation>Tabort</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1110"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1111"/>
         <source>Hide</source>
         <translation>Dölja</translation>
     </message>
     <message>
-        <location filename="../../libmakhber/src/Table.cpp" line="1331"/>
+        <location filename="../../libmakhber/src/Table.cpp" line="1332"/>
         <source>%1: apply formula to column</source>
         <translation type="unfinished"></translation>
     </message>

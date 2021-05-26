@@ -153,10 +153,10 @@ void Plot::printFrame(QPainter *painter, const QRect &rect) const
 }
 
 void Plot::drawItems(QPainter *painter, const QRect &rect,
-                     std::array<const QwtScaleMap, axisCnt> map,
+                     const QwtScaleMap map[axisCnt],
                      const QwtPlotPrintFilter &pfilter) const
 {
-    QwtPlot::drawItems(painter, rect, map.data(), pfilter);
+    QwtPlot::drawItems(painter, rect, map, pfilter);
 
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         if (!axisEnabled(i))
