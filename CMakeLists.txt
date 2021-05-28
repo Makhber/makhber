@@ -118,6 +118,15 @@ if( MAKHBER_SCRIPTING_PYTHON )
   find_package( SIP REQUIRED )
   find_package( PyQt REQUIRED )
 
+  if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
+    execute_process( COMMAND ${Python3_EXECUTABLE} -c "import pyqtbuild"
+      ERROR_VARIABLE PYQT_BUILDER_NOTFOUND
+    )
+    if( PYQT_BUILDER_NOTFOUND )
+      message( FATAL_ERROR "pyqt-builder not found" )
+    endif()
+  endif()
+
   if( MSVC )
     set( PYTHON_INSTALL_PATH ${CMAKE_INSTALL_BINDIR} )
   elseif( APPLE )

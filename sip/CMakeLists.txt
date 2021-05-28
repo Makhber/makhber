@@ -252,7 +252,7 @@ else()
   add_custom_command( OUTPUT ${module_file}
     COMMAND ${SIP_Build_EXECUTABLE} --verbose --concatenate 1
       --qmake-setting $<$<CONFIG:Release,>:"CONFIG+=release"> $<$<CONFIG:Debug>:"CONFIG+=debug">
-    DEPENDS libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
+    DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
     COMMAND_EXPAND_LISTS
     COMMENT "Building Makhber Python Module..."
   )
