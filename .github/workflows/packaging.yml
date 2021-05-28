@@ -99,7 +99,7 @@ jobs:
       - name: Packaging
         run: |
           cd build
-          cpack -G "WIX;NSIS"
+          cpack -G NSIS
 
       - name: Upload Windows installers
         uses: softprops/action-gh-release@v1
@@ -108,7 +108,6 @@ jobs:
         with:
           draft: true
           files: |
-            build/Makhber*.msi
             build/Makhber*.exe
 
   macos:
