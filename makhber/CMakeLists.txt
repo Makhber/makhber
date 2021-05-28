@@ -132,16 +132,16 @@ if( MAKHBER_SCRIPTING_PYTHON )
 
   if( MAKHBER_BUNDLE_PYQT5 )
     install( CODE
-      COMPONENT Python
-      "execute_process(   
+      "execute_process(
         COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
         --target=\${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_PATH}
-      )")
+      )"
+      COMPONENT Python
+    )
   endif()
 
   if( MSVC )
-    install( CODE 
-      COMPONENT Python
+    install( CODE
       "file( DOWNLOAD
         https://www.python.org/ftp/python/${Python3_VERSION}/python-${Python3_VERSION}-embed-amd64.zip
         python_embed.zip
@@ -150,8 +150,9 @@ if( MAKHBER_SCRIPTING_PYTHON )
         INPUT python_embed.zip
         DESTINATION \${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}
         VERBOSE
-      )
-      ")
+      )"
+      COMPONENT Python
+    )
   endif()
 
 endif()
