@@ -323,7 +323,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             }
         case Origin::Text:
             table->column(j)->setColumnMode(Makhber::ColumnMode::Text);
-            for (int i = 0; i < min((int)column.data.size(), maxrows); ++i) {
+            for (int i = 0; i < std::min((int)column.data.size(), maxrows); ++i) {
                 makhber_column->setTextAt(i, column.data[i].as_string());
             }
             break;
@@ -379,7 +379,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             default:
                 format = "dd.MM.yyyy";
             }
-            for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
+            for (int i = 0; i < std::min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
             auto *filter = dynamic_cast<DateTime2StringFilter *>(makhber_column->outputFilter());
@@ -422,7 +422,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 format = "hh:mm:ss.zzz";
                 break;
             }
-            for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
+            for (int i = 0; i < std::min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::DateTime);
             auto *filter = dynamic_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
@@ -441,7 +441,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 format = "M";
                 break;
             }
-            for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
+            for (int i = 0; i < std::min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::Month);
             auto *filter = dynamic_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
@@ -460,7 +460,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                 format = "d";
                 break;
             }
-            for (int i = 0; i < min((int)column.data.size(), maxrows); ++i)
+            for (int i = 0; i < std::min((int)column.data.size(), maxrows); ++i)
                 makhber_column->setValueAt(i, column.data[i].as_double());
             table->column(j)->setColumnMode(Makhber::ColumnMode::Day);
             auto *filter = dynamic_cast<DateTime2StringFilter *>(table->column(j)->outputFilter());
@@ -550,7 +550,7 @@ bool ImportOPJ::importTables(const OriginFile &opj)
 #endif
             QVector<qreal> values;
             values.resize(rowCount * columnCount);
-            for (int i = 0; i < min((int)values.size(), (int)layer.data.size()); i++) {
+            for (int i = 0; i < std::min((int)values.size(), (int)layer.data.size()); i++) {
                 values[i] = layer.data[i];
             }
             Matrix->setCells(values);
@@ -1003,7 +1003,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
             grid->enableZeroLineX(false);
             grid->enableZeroLineY(false);
 
-            vector<Origin::GraphAxisFormat> formats;
+            std::vector<Origin::GraphAxisFormat> formats;
             formats.push_back(layer.yAxis.formatAxis[0]); // left
             formats.push_back(layer.yAxis.formatAxis[1]); // right
             formats.push_back(layer.xAxis.formatAxis[0]); // bottom
@@ -1011,7 +1011,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
             graph->setXAxisTitle(parseOriginText(decodeMbcs(formats[2].label.text.c_str())));
             graph->setYAxisTitle(parseOriginText(decodeMbcs(formats[0].label.text.c_str())));
 
-            vector<Origin::GraphAxisTick> ticks;
+            std::vector<Origin::GraphAxisTick> ticks;
             ticks.push_back(layer.yAxis.tickAxis[0]); // left
             ticks.push_back(layer.yAxis.tickAxis[1]); // right
             ticks.push_back(layer.xAxis.tickAxis[0]); // bottom

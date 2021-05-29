@@ -36,6 +36,9 @@
 #include "core/Folder.h"
 #include "core/ColorButton.h"
 #include "core/IconLoader.h"
+#ifdef ORIGIN_IMPORT
+#include "core/importOPJ.h"
+#endif
 #include "core/dialogs/ConfigDialog.h"
 #include "core/dialogs/ImageDialog.h"
 #include "core/dialogs/ImportASCIIDialog.h"
@@ -101,11 +104,6 @@
 #include "aspects/Project.h"
 #include "aspects/column/Column.h"
 #include "lib/XmlStreamReader.h"
-// Put it here until we fix origin lib
-#ifdef ORIGIN_IMPORT
-#include "core/importOPJ.h"
-#endif
-
 #include <zlib.h>
 
 #include <QFileDialog>
