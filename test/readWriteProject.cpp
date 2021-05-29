@@ -1,11 +1,11 @@
 
 #include "utils.h"
 
-#include "ApplicationWindowTest.h"
-#include "MultiLayer.h"
-#include "Graph3D.h"
 #include "testPaintDevice.h"
-#include "Note.h"
+#include "ApplicationWindowTest.h"
+#include "plot2D/MultiLayer.h"
+#include "plot3D/Graph3D.h"
+#include "scripting/Note.h"
 
 #include <QMdiArea>
 

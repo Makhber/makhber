@@ -2,8 +2,8 @@
 #include "utils.h"
 
 #include "ApplicationWindowTest.h"
-#include "FFT.h"
-#include "MultiLayer.h"
+#include "analysis/FFT.h"
+#include "plot2D/MultiLayer.h"
 
 #include <QMdiArea>
 

@@ -2,8 +2,8 @@
 #include "utils.h"
 
 #include "ApplicationWindowTest.h"
-#include "ArrowMarker.h"
-#include "MultiLayer.h"
+#include "plot2D/ArrowMarker.h"
+#include "plot2D/MultiLayer.h"
 
 #include <iostream>
 #include <thread>

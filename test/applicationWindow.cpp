@@ -2,8 +2,8 @@
 #include "utils.h"
 
 #include "ApplicationWindowTest.h"
-#include "RenameWindowDialog.h"
-#include "Folder.h"
+#include "core/dialogs/RenameWindowDialog.h"
+#include "core/Folder.h"
 
 #include <QToolBar>
 

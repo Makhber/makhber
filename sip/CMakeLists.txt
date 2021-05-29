@@ -94,9 +94,9 @@ if( SIP_VERSION VERSION_LESS 5 )
   target_link_libraries( makhber_sip PRIVATE libmakhber )
 
   if( MULTI_CONFIG )
-    target_include_directories( makhber_sip PUBLIC "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include_@CONFIG@" )
+    target_include_directories( makhber_sip PUBLIC "${CMAKE_BINARY_DIR}/src/libmakhber_autogen/include_@CONFIG@" )
   else()
-    target_include_directories( makhber_sip PUBLIC "${CMAKE_BINARY_DIR}/libmakhber/libmakhber_autogen/include" )
+    target_include_directories( makhber_sip PUBLIC "${CMAKE_BINARY_DIR}/src/libmakhber_autogen/include" )
   endif()
 
   install( TARGETS makhber_sip
@@ -194,7 +194,7 @@ else()
   if( MULTI_CONFIG )
     set( SIP_LINK_DIRS
       ${SIP_LINK_DIRS}
-      ${CMAKE_BINARY_DIR}/libmakhber/@CONFIG@
+      ${CMAKE_BINARY_DIR}/src/@CONFIG@
       ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
       ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
       ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src/@CONFIG@
@@ -203,7 +203,7 @@ else()
   else()
     set( SIP_LINK_DIRS
       ${SIP_LINK_DIRS}
-      ${CMAKE_BINARY_DIR}/libmakhber
+      ${CMAKE_BINARY_DIR}/src
       ${CMAKE_BINARY_DIR}/3rdparty
       ${CMAKE_BINARY_DIR}/3rdparty/liborigin
       ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src

@@ -145,13 +145,11 @@ set( CMAKE_AUTORCC ON )
 
 add_subdirectory( 3rdparty )
 
-add_subdirectory( libmakhber )
+add_subdirectory( src )
 
 if( MAKHBER_SCRIPTING_PYTHON )
   add_subdirectory( sip )
 endif()
-
-add_subdirectory( makhber )
 
 add_subdirectory( fitPlugins )
 

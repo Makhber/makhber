@@ -54,8 +54,8 @@ endif()
 if( MAKHBER_SCRIPTING_PYTHON )
 
   file( COPY pythonTests/ DESTINATION ./tmp )
-  file( COPY ${CMAKE_SOURCE_DIR}/makhber/makhberrc.py DESTINATION ./tmp )
-  file( COPY ../makhber-logo.png DESTINATION ./tmp )
+  file( COPY ${CMAKE_SOURCE_DIR}/src/scripting/makhberrc.py DESTINATION ./tmp )
+  file( COPY ${CMAKE_SOURCE_DIR}/src/main/icons/makhber-logo.png DESTINATION ./tmp )
 
   file( GLOB pythonTests pythonTests/*.py )
   # qwtPlotCurve segfault with sip5 or macos

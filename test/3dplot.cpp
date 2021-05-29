@@ -1,16 +1,18 @@
+
+#include "utils.h"
 #include "ApplicationWindowTest.h"
-#include "MultiLayer.h"
-#include "Graph3D.h"
 #include "testPaintDevice.h"
-#include "Note.h"
+
+#include "plot2D/MultiLayer.h"
+#include "plot3D/Graph3D.h"
+#include "scripting/Note.h"
+
 #include <QMdiArea>
 
 #include <iostream>
 #include <fstream>
 #include <memory>
 #include <stdexcept>
-
-#include "utils.h"
 
 TEST_F(ApplicationWindowTest, plot3d)
 {
