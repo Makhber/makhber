@@ -162,15 +162,14 @@ jobs:
           submodules: true
 
       - name: Install snapcraft
-        run:
+        run: |
           sudo snap install snapcraft --classic
 
       - name: Building & Packaging
         id: snap_build
         run: |
-          sudo snapcraft --debug --destructive-mode --enable-experimental-extensions
+          snapcraft --debug --destructive-mode --enable-experimental-extensions
           echo "::set-output name=snap::$(echo $(ls *.snap))"
-          sudo rm -rf $HOME/.config/snapcraft
 
       - name: Upload Snap
         uses: softprops/action-gh-release@v1
@@ -181,6 +180,7 @@ jobs:
           files: ${{ steps.snap_build.outputs.snap }}
 
       - uses: snapcore/action-publish@v1
+        if: ${{ github.repository_owner == 'Makhber' }}
         with:
           store_login: ${{ secrets.SNAP_STORE_LOGIN }}
           snap: ${{ steps.snap_build.outputs.snap }}
