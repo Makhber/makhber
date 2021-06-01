@@ -133,7 +133,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     set( PYTHON_INSTALL_PATH  "makhber.app/Contents/Resources" )
   else() # MinGW and Linux
     get_filename_component( PYTHON_DIR ${Python3_EXECUTABLE} DIRECTORY )
-    file( REAL_PATH "${PYTHON_DIR}/.." PYTHON_PREFIX )
+    get_filename_component( PYTHON_PREFIX "${PYTHON_DIR}/.." REALPATH )
     string( REPLACE "${PYTHON_PREFIX}/" "" PYTHON_INSTALL_PATH ${Python3_SITEARCH} )
   endif()
 

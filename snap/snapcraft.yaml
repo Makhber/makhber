@@ -42,9 +42,8 @@ parts:
       - PATH: $HOME/.local/bin:$PATH
       - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
       - PYTHONPATH: $SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages:$HOME/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages
-    build-snaps:
-      - cmake
     build-packages:
+      - cmake
       - g++
       - make
       - libglu1-mesa
