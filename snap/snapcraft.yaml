@@ -60,8 +60,8 @@ parts:
       - pyqt5-sip
   gsl:
     source-type: tar
-    source: https://ftp.gnu.org/gnu/gsl/gsl-2.6.tar.gz
-    source-checksum: sha256/b782339fc7a38fe17689cb39966c4d821236c28018b6593ddb6fd59ee40786a8
+    source: https://ftp.gnu.org/gnu/gsl/gsl-2.7.tar.gz
+    source-checksum: sha256/efbbf3785da0e53038be7907500628b466152dbc3c173a87de1b5eba2e23602b
     plugin: autotools
     autotools-configure-parameters:
       - "--disable-static"
