@@ -29,7 +29,7 @@
 #ifndef MULTIPEAKFIT_H
 #define MULTIPEAKFIT_H
 
-#include "Fit.h"
+#include "analysis/Fit.h"
 
 #include <QColor>
 

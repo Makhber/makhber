@@ -29,7 +29,7 @@
 
 #include "TableDoubleHeaderView.h"
 
-#include "TableCommentsHeaderModel.h"
+#include "table/TableCommentsHeaderModel.h"
 
 #include <QApplication>
 #include <QEvent>

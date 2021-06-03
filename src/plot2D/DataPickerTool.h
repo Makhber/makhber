@@ -34,7 +34,7 @@
 #include <qwt_plot_marker.h>
 #include <qwt_plot_picker.h>
 
-#include "PlotToolInterface.h"
+#include "plot2D/PlotToolInterface.h"
 
 class ApplicationWindow;
 class QwtPlotCurve;

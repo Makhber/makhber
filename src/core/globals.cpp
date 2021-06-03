@@ -32,9 +32,9 @@
 
 #include "ui_MakhberAbout.h"
 
-#include "qwt_global.h"
-#include "muParserDef.h"
-#include "gsl/gsl_version.h"
+#include <qwt_global.h>
+#include <muParserDef.h>
+#include <gsl/gsl_version.h>
 #ifdef SCRIPTING_PYTHON
 #include <Python.h>
 #endif

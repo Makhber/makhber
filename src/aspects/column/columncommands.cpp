@@ -27,8 +27,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "ColumnPrivate.h"
 #include "columncommands.h"
+
+#include "aspects/column/ColumnPrivate.h"
 
 #include <utility>
 

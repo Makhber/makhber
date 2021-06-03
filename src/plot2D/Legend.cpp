@@ -27,8 +27,9 @@
  *                                                                         *
  ***************************************************************************/
 #include "Legend.h"
-#include "QwtPieCurve.h"
-#include "VectorCurve.h"
+
+#include "plot2D/QwtPieCurve.h"
+#include "plot2D/VectorCurve.h"
 
 #include <qwt_plot.h>
 #include <qwt_scale_widget.h>

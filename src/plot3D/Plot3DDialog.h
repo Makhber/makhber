@@ -29,7 +29,7 @@
 #ifndef PLOT3DDIALOG_H
 #define PLOT3DDIALOG_H
 
-#include "Graph3D.h"
+#include "plot3D/Graph3D.h"
 
 #include <QCheckBox>
 

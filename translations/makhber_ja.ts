@@ -4672,43 +4672,43 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>ColorMapEditor</name>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="60"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="60"/>
         <source>Level</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="60"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="60"/>
         <source>Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="69"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="69"/>
         <source>&amp;Insert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="73"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="73"/>
         <source>&amp;Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="81"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="81"/>
         <source>&amp;Scale Colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="227"/>
-        <location filename="../src/core/ColorMapEditor.cpp" line="240"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="227"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="240"/>
         <source>Input Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="227"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="227"/>
         <source>Sorry, you cannot edit this value!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ColorMapEditor.cpp" line="241"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="241"/>
         <source>Please enter a valid color level value!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11907,20 +11907,20 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/aspects/column/Column.cpp" line="90"/>
-        <location filename="../src/aspects/column/columncommands.cpp" line="42"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="43"/>
         <location filename="../src/table/TableView.cpp" line="667"/>
         <location filename="../src/table/TableView.cpp" line="691"/>
         <source>%1: change column type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="121"/>
-        <location filename="../src/aspects/column/columncommands.cpp" line="176"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="122"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="177"/>
         <source>%1: change cell value(s)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="221"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="222"/>
         <location filename="../src/matrix/future_Matrix.cpp" line="134"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="66"/>
         <location filename="../src/table/future_Table.cpp" line="217"/>
@@ -11928,7 +11928,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="247"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="248"/>
         <location filename="../src/matrix/future_Matrix.cpp" line="123"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="124"/>
         <location filename="../src/table/future_Table.cpp" line="202"/>
@@ -11936,74 +11936,74 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="297"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="298"/>
         <source>%1: set plot designation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="323"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="324"/>
         <source>%1: clear column</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="385"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="386"/>
         <source>%1: mark all cells valid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="415"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="416"/>
         <source>%1: clear masks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="447"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="448"/>
         <source>%1: mark cells invalid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="449"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="450"/>
         <source>%1: mark cells valid</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="481"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="482"/>
         <source>%1: mask cells</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="483"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="484"/>
         <source>%1: unmask cells</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="517"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="518"/>
         <source>%1: set cell formula</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="547"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="548"/>
         <source>%1: clear all formulas</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="578"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="579"/>
         <source>%1: set text for row %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="609"/>
-        <location filename="../src/aspects/column/columncommands.cpp" line="640"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="610"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="641"/>
         <source>%1: set value for row %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="671"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="672"/>
         <source>%1: replace the texts for rows %2 to %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/columncommands.cpp" line="711"/>
-        <location filename="../src/aspects/column/columncommands.cpp" line="751"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="712"/>
+        <location filename="../src/aspects/column/columncommands.cpp" line="752"/>
         <source>%1: replace the values for rows %2 to %3</source>
         <translation type="unfinished"></translation>
     </message>
@@ -12772,82 +12772,82 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>SymbolBox</name>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="66"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="66"/>
         <source>No Symbol</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="70"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="70"/>
         <source>Ellipse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="75"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="75"/>
         <source>Rectangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="80"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="80"/>
         <source>Diamond</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="85"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="85"/>
         <source>Triangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="90"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="90"/>
         <source>Down Triangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="95"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="95"/>
         <source>Up Triangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="100"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="100"/>
         <source>Left Triangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="105"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="105"/>
         <source>Right Triangle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="110"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="110"/>
         <source>Cross</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="115"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="115"/>
         <source>Diagonal Cross</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="120"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="120"/>
         <source>Horizontal Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="125"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="125"/>
         <source>Vertical Line</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="130"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="130"/>
         <source>Star 1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="135"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="135"/>
         <source>Star 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/SymbolBox.cpp" line="140"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="140"/>
         <source>Hexagon</source>
         <translation type="unfinished"></translation>
     </message>

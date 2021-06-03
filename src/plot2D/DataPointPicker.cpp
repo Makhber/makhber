@@ -29,8 +29,8 @@
 
 #include "DataPointPicker.h"
 
-#include "Graph.h"
-#include "DataPickerTool.h"
+#include "plot2D/Graph.h"
+#include "plot2D/DataPickerTool.h"
 
 /**
  * \class DataPointPicker

@@ -30,7 +30,7 @@
 
 #include "PenWidget.h"
 
-#include "ColorButton.h"
+#include "core/ColorButton.h"
 
 #include <QApplication>
 #include <QComboBox>

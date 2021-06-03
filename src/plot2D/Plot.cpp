@@ -28,11 +28,11 @@
  ***************************************************************************/
 #include "Plot.h"
 
-#include "Graph.h"
-#include "Grid.h"
-#include "ScaleDraw.h"
-#include "Spectrogram.h"
-#include "PlotCurve.h"
+#include "plot2D/Graph.h"
+#include "plot2D/Grid.h"
+#include "plot2D/ScaleDraw.h"
+#include "plot2D/Spectrogram.h"
+#include "plot2D/PlotCurve.h"
 
 #include <qwt_plot.h>
 #include <qwt_painter.h>

@@ -29,7 +29,7 @@
 #ifndef SIGMOIDALFIT_H
 #define SIGMOIDALFIT_H
 
-#include "Fit.h"
+#include "analysis/Fit.h"
 
 class SigmoidalFit : public Fit
 {

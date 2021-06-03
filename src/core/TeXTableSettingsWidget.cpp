@@ -29,7 +29,7 @@
 
 #include "TeXTableSettingsWidget.h"
 
-#include "TeXTableSettings.h"
+#include "core/TeXTableSettings.h"
 
 #include <QCheckBox>
 #include <QRadioButton>

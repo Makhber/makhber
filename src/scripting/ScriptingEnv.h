@@ -31,7 +31,7 @@
 #ifndef SCRIPTINGENV_H
 #define SCRIPTINGENV_H
 
-#include "customevents.h"
+#include "scripting/customevents.h"
 
 #include <QVariant>
 #include <QString>

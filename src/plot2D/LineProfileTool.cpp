@@ -31,9 +31,9 @@
  ***************************************************************************/
 #include "LineProfileTool.h"
 
-#include "ImageMarker.h"
-#include "ArrowMarker.h"
-#include "Graph.h"
+#include "plot2D/ImageMarker.h"
+#include "plot2D/ArrowMarker.h"
+#include "plot2D/Graph.h"
 
 #include <QPoint>
 #include <QImage>

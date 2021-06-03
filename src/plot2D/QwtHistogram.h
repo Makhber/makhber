@@ -27,7 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "QwtBarCurve.h"
+#include "plot2D/QwtBarCurve.h"
 
 //! Histogram class
 class QwtHistogram : public QwtBarCurve

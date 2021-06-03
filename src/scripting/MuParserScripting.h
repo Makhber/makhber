@@ -33,16 +33,16 @@
 #ifndef MUPARSER_SCRIPTING_H
 #define MUPARSER_SCRIPTING_H
 
-#include "ScriptingEnv.h"
-#include "Script.h"
-#include "MuParserScript.h"
+#include "scripting/ScriptingEnv.h"
+#include "scripting/Script.h"
+#include "scripting/MuParserScript.h"
 
 #include <muParser.h>
 
 #include <gsl/gsl_sf.h>
 #include <gsl/gsl_errno.h>
 
-#include "math.h"
+#include <math.h>
 #include <array>
 
 //! TODO

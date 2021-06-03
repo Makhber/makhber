@@ -29,7 +29,7 @@
 #ifndef DIFFERENTIATION_H
 #define DIFFERENTIATION_H
 
-#include "Filter.h"
+#include "analysis/Filter.h"
 
 class Differentiation : public Filter
 {

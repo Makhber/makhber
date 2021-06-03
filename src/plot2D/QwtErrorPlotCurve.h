@@ -29,7 +29,7 @@
 #ifndef ERRORBARS_H
 #define ERRORBARS_H
 
-#include "PlotCurve.h"
+#include "plot2D/PlotCurve.h"
 
 #include <qwt_plot.h>
 

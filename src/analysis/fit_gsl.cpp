@@ -33,7 +33,7 @@
 
 #include "fit_gsl.h"
 
-#include "Fit.h"
+#include "analysis/Fit.h"
 
 #include <gsl/gsl_blas.h>
 #include <gsl/gsl_math.h>

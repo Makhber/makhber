@@ -48,10 +48,10 @@
 #include "plot2D/SelectionMoveResizer.h"
 #include "plot2D/RangeSelectorTool.h"
 #include "plot2D/PlotCurve.h"
+#include "plot2D/SymbolBox.h"
 #include "core/ApplicationWindow.h"
 #include "core/ColorButton.h"
 #include "core/PatternBox.h"
-#include "core/SymbolBox.h"
 #include "aspects/column/Column.h"
 
 #include <qwt_painter.h>

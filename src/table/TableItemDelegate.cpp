@@ -29,7 +29,7 @@
 
 #include "TableItemDelegate.h"
 
-#include "TableModel.h"
+#include "table/TableModel.h"
 
 #include <QPainter>
 #include <QModelIndex>

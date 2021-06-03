@@ -27,7 +27,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PlotCurve.h"
+#include "plot2D/PlotCurve.h"
 
 #include <qwt_plot.h>
 

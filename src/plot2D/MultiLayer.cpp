@@ -29,9 +29,9 @@
 
 #include "MultiLayer.h"
 
-#include "Plot.h"
-#include "Legend.h"
-#include "SelectionMoveResizer.h"
+#include "plot2D/Plot.h"
+#include "plot2D/Legend.h"
+#include "plot2D/SelectionMoveResizer.h"
 
 #include <qwt_plot.h>
 #include <qwt_plot_canvas.h>

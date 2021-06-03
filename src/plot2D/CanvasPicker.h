@@ -26,7 +26,7 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "Plot.h"
+#include "plot2D/Plot.h"
 
 #include <QObject>
 

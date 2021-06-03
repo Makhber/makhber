@@ -29,7 +29,7 @@
 #ifndef POLYNOMIALFIT_H
 #define POLYNOMIALFIT_H
 
-#include "Fit.h"
+#include "analysis/Fit.h"
 
 class PolynomialFit : public Fit
 {

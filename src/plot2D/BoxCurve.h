@@ -29,7 +29,7 @@
 #ifndef BOXCURVE_H
 #define BOXCURVE_H
 
-#include "PlotCurve.h"
+#include "plot2D/PlotCurve.h"
 
 #include <qwt_plot.h>
 #include <qwt_symbol.h>

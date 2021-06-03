@@ -28,9 +28,9 @@
  ***************************************************************************/
 #include "ScalePicker.h"
 
-#include "ScaleDraw.h"
-#include "Plot.h"
-#include "Graph.h"
+#include "plot2D/ScaleDraw.h"
+#include "plot2D/Plot.h"
+#include "plot2D/Graph.h"
 
 #include <qwt_plot.h>
 #include <qwt_scale_widget.h>

@@ -31,7 +31,7 @@
 #ifndef IMPORTOPJ_H
 #define IMPORTOPJ_H
 
-#include "ApplicationWindow.h"
+#include "core/ApplicationWindow.h"
 
 #include <OriginFile.h>
 

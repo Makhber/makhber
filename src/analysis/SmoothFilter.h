@@ -29,7 +29,7 @@
 #ifndef SMOOTHFILTER_H
 #define SMOOTHFILTER_H
 
-#include "Filter.h"
+#include "analysis/Filter.h"
 
 #include <gsl/gsl_matrix_double.h>
 

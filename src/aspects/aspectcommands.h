@@ -28,7 +28,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "AspectPrivate.h"
+#include "aspects/AspectPrivate.h"
 
 #include <QUndoCommand>
 

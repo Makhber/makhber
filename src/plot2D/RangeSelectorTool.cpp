@@ -30,9 +30,9 @@
  ***************************************************************************/
 #include "RangeSelectorTool.h"
 
-#include "Graph.h"
-#include "Plot.h"
-#include "PlotCurve.h"
+#include "plot2D/Graph.h"
+#include "plot2D/Plot.h"
+#include "plot2D/PlotCurve.h"
 
 #include <qwt_symbol.h>
 #include <QPoint>

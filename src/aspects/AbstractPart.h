@@ -29,7 +29,7 @@
 #ifndef ABSTRACT_PART_H
 #define ABSTRACT_PART_H
 
-#include "AbstractAspect.h"
+#include "aspects/AbstractAspect.h"
 
 class PartMdiView;
 class QMenu;

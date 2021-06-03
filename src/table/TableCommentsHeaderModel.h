@@ -31,7 +31,7 @@
 #ifndef TABLECOMMENTSHEADERMODEL_H
 #define TABLECOMMENTSHEADERMODEL_H
 
-#include "TableModel.h"
+#include "table/TableModel.h"
 
 #include <QAbstractTableModel>
 

@@ -29,7 +29,7 @@
 
 #include "AbstractPart.h"
 
-#include "PartMdiView.h"
+#include "aspects/PartMdiView.h"
 
 #include <QMenu>
 #include <QStyle>

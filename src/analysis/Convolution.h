@@ -29,7 +29,7 @@
 #ifndef CONVOLUTION_H
 #define CONVOLUTION_H
 
-#include "Filter.h"
+#include "analysis/Filter.h"
 
 class Convolution : public Filter
 {

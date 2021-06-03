@@ -30,7 +30,7 @@
 #ifndef TABLEDOUBLEHEADERVIEW_H
 #define TABLEDOUBLEHEADERVIEW_H
 
-#include "TableModel.h"
+#include "table/TableModel.h"
 
 #include <QHeaderView>
 

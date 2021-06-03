@@ -30,7 +30,7 @@
  ***************************************************************************/
 #include "MyWidget.h"
 
-#include "Folder.h"
+#include "core/Folder.h"
 
 #include <QMessageBox>
 #include <QEvent>

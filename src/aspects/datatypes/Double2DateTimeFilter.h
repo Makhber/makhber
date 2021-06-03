@@ -28,7 +28,7 @@
 #ifndef DOUBLE2DATE_TIME_FILTER_H
 #define DOUBLE2DATE_TIME_FILTER_H
 
-#include "NumericDateTimeBaseFilter.h"
+#include "aspects/datatypes/NumericDateTimeBaseFilter.h"
 
 /**
  * \brief Conversion filter double -> QDateTime.

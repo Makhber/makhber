@@ -31,7 +31,7 @@
  ***************************************************************************/
 #include "ScriptEdit.h"
 
-#include "Note.h"
+#include "scripting/Note.h"
 
 #include <QAction>
 #include <QMenu>

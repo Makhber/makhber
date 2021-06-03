@@ -29,7 +29,7 @@
 
 #include "ProjectConfigPage.h"
 
-#include "Project.h"
+#include "aspects/Project.h"
 
 ProjectConfigPage::ProjectConfigPage()
 {

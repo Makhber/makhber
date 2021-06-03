@@ -29,7 +29,7 @@
 #ifndef CORRELATION_H
 #define CORRELATION_H
 
-#include "Filter.h"
+#include "analysis/Filter.h"
 
 class Correlation : public Filter
 {

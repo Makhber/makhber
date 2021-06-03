@@ -29,7 +29,7 @@
 #ifndef IMAGEMARKER_H
 #define IMAGEMARKER_H
 
-#include "PlotEnrichement.h"
+#include "plot2D/PlotEnrichement.h"
 
 #include <qwt_plot.h>
 

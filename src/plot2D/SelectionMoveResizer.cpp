@@ -29,10 +29,10 @@
 
 #include "SelectionMoveResizer.h"
 
-#include "Legend.h"
-#include "ArrowMarker.h"
-#include "ImageMarker.h"
-#include "PlotEnrichement.h"
+#include "plot2D/Legend.h"
+#include "plot2D/ArrowMarker.h"
+#include "plot2D/ImageMarker.h"
+#include "plot2D/PlotEnrichement.h"
 
 #include <qwt_scale_map.h>
 #include <qwt_plot.h>

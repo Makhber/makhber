@@ -29,7 +29,7 @@
 #ifndef FFTFILTER_H
 #define FFTFILTER_H
 
-#include "Filter.h"
+#include "analysis/Filter.h"
 
 class FFTFilter : public Filter
 {

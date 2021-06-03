@@ -29,9 +29,9 @@
 #ifndef LEGENDMARKER_H
 #define LEGENDMARKER_H
 
-#include "Graph.h"
-#include "Plot.h"
-#include "PlotEnrichement.h"
+#include "plot2D/Graph.h"
+#include "plot2D/Plot.h"
+#include "plot2D/PlotEnrichement.h"
 
 #include <qwt_plot.h>
 #include <qwt_text.h>

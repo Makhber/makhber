@@ -30,9 +30,9 @@
  ***************************************************************************/
 #include "CanvasPicker.h"
 
-#include "ImageMarker.h"
-#include "Legend.h"
-#include "ArrowMarker.h"
+#include "plot2D/ImageMarker.h"
+#include "plot2D/Legend.h"
+#include "plot2D/ArrowMarker.h"
 
 #include <qwt_text_label.h>
 #include <qwt_plot_canvas.h>

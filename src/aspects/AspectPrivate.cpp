@@ -28,7 +28,7 @@
  ***************************************************************************/
 #include "AspectPrivate.h"
 
-#include "AbstractAspect.h"
+#include "aspects/AbstractAspect.h"
 
 #include <QRegExp>
 #include <QStringList>

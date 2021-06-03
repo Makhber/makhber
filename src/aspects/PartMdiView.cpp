@@ -30,7 +30,7 @@
  ***************************************************************************/
 #include "PartMdiView.h"
 
-#include "AbstractPart.h"
+#include "aspects/AbstractPart.h"
 
 #include <QCloseEvent>
 #include <QMenu>

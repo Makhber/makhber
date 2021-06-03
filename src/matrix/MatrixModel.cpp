@@ -29,7 +29,7 @@
 #include "matrix/MatrixModel.h"
 
 #include "matrix/future_Matrix.h"
-#include "Matrix.h"
+#include "matrix/Matrix.h"
 
 #include <QString>
 #include <QBrush>

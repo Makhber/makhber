@@ -31,7 +31,7 @@
 #ifndef SCREEN_PICKER_TOOL_H
 #define SCREEN_PICKER_TOOL_H
 
-#include "PlotToolInterface.h"
+#include "plot2D/PlotToolInterface.h"
 
 #include <qwt_plot_marker.h>
 #include <qwt_plot_picker.h>

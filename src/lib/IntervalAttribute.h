@@ -30,7 +30,7 @@
 #ifndef INTERVALATTRIBUTE_H
 #define INTERVALATTRIBUTE_H
 
-#include "Interval.h"
+#include "lib/Interval.h"
 
 #include <QList>
 

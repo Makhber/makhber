@@ -28,7 +28,7 @@
  ***************************************************************************/
 #include "ExponentialFit.h"
 
-#include "fit_gsl.h"
+#include "analysis/fit_gsl.h"
 
 #include <cassert>
 

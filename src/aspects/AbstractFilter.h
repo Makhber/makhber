@@ -29,8 +29,8 @@
 #ifndef ABSTRACT_FILTER_H
 #define ABSTRACT_FILTER_H
 
-#include "AbstractAspect.h"
-#include "AbstractColumn.h"
+#include "aspects/AbstractAspect.h"
+#include "aspects/AbstractColumn.h"
 
 #include <QVector>
 

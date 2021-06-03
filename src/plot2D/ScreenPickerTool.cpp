@@ -30,8 +30,8 @@
  ***************************************************************************/
 #include "ScreenPickerTool.h"
 
-#include "Graph.h"
-#include "Plot.h"
+#include "plot2D/Graph.h"
+#include "plot2D/Plot.h"
 
 #include <qwt_symbol.h>
 #include <qwt_scale_draw.h>
