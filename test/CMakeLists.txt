@@ -63,6 +63,11 @@ if( MAKHBER_SCRIPTING_PYTHON )
     list( REMOVE_ITEM pythonTests ${CMAKE_CURRENT_SOURCE_DIR}/pythonTests/qwtPlotCurve.py )
   endif()
 
+  find_package( Python3 COMPONENTS NumPy QUIET )
+  if( NOT Python3_NumPy_FOUND )
+    list( REMOVE_ITEM pythonTests ${CMAKE_CURRENT_SOURCE_DIR}/pythonTests/simulate_a_Hydrogen_spectrum.py )
+  endif()
+
   foreach( pythonTest ${pythonTests} )
     get_filename_component( test_name ${pythonTest} NAME_WLE )
     add_test( NAME python_${test_name}
