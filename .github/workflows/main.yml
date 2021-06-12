@@ -154,15 +154,27 @@ jobs:
         with:
           submodules: true
 
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{ runner.os }}-QtCache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: 5.15.2
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
       - name: Install prerequisties
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
-          brew install --display-times qt@5 muparser gsl gl2ps googletest
+          brew install --display-times muparser gsl gl2ps googletest
 
       - name: Configuring
         run: |
-          export PATH=/usr/local/opt/qt@5/bin:$PATH
           mkdir build && cd build
           cmake .. \
             -DMAKHBER_BUILD_TESTS=ON
