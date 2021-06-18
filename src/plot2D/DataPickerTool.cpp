@@ -64,10 +64,10 @@ DataPickerTool::DataPickerTool(Graph *graph, ApplicationWindow *app, Mode mode,
 
     setTrackerMode(QwtPicker::AlwaysOn);
     if (d_mode == Move) {
-        setSelectionFlags(QwtPicker::PointSelection | QwtPicker::DragSelection);
+        // setSelectionFlags(QwtPicker::PointSelection | QwtPicker::DragSelection);
         d_graph->plotWidget()->canvas()->setCursor(Qt::PointingHandCursor);
     } else {
-        setSelectionFlags(QwtPicker::PointSelection | QwtPicker::ClickSelection);
+        // setSelectionFlags(QwtPicker::PointSelection | QwtPicker::ClickSelection);
         d_graph->plotWidget()->canvas()->setCursor(QCursor(QPixmap(":/vizor.xpm"), -1, -1));
     }
 
@@ -207,7 +207,7 @@ bool DataPickerTool::keyEventFilter(QKeyEvent *ke)
             QwtPlotCurve *c = nullptr;
             for (int i = start; i < start + n_curves; ++i)
                 if ((c = d_graph->curve(i % n_curves))->dataSize() > 0) {
-                    setSelection(c, qMin(c->dataSize() - 1, d_selected_point));
+                    setSelection(c, qMin(static_cast<int>(c->dataSize() - 1), d_selected_point));
                     break;
                 }
             d_graph->plotWidget()->replot();
@@ -221,7 +221,7 @@ bool DataPickerTool::keyEventFilter(QKeyEvent *ke)
             QwtPlotCurve *c = nullptr;
             for (int i = start; i > start - n_curves; --i)
                 if ((c = d_graph->curve(i % n_curves))->dataSize() > 0) {
-                    setSelection(c, qMin(c->dataSize() - 1, d_selected_point));
+                    setSelection(c, qMin(static_cast<int>(c->dataSize() - 1), d_selected_point));
                     break;
                 }
             d_graph->plotWidget()->replot();

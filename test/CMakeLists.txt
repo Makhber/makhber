@@ -58,10 +58,6 @@ if( MAKHBER_SCRIPTING_PYTHON )
   file( COPY ${CMAKE_SOURCE_DIR}/src/main/icons/makhber-logo.png DESTINATION ./tmp )
 
   file( GLOB pythonTests pythonTests/*.py )
-  # qwtPlotCurve segfault with sip5 or macos
-  if( SIP_VERSION VERSION_GREATER_EQUAL 5 OR APPLE )
-    list( REMOVE_ITEM pythonTests ${CMAKE_CURRENT_SOURCE_DIR}/pythonTests/qwtPlotCurve.py )
-  endif()
 
   find_package( Python3 COMPONENTS NumPy QUIET )
   if( NOT Python3_NumPy_FOUND )

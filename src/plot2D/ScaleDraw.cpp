@@ -44,8 +44,7 @@ ScaleDraw::ScaleDraw(QString s)
 }
 
 ScaleDraw::ScaleDraw(const ScaleDraw &other, QString s)
-    : QwtScaleDraw(other),
-      formula_string(std::move(s)),
+    : formula_string(std::move(s)),
       d_minTicks(other.majorTicksStyle()),
       d_majTicks(other.minorTicksStyle())
 {

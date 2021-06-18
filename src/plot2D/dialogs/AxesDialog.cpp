@@ -1505,22 +1505,22 @@ void AxesDialog::updateScale()
     const QwtScaleEngine *sc_eng = d_plot->axisScaleEngine(a);
     btnInvert->setChecked(sc_eng->testAttribute(QwtScaleEngine::Inverted));
 
-    QwtScaleTransformation *tr = sc_eng->transformation();
-    boxScaleType->setCurrentIndex((int)tr->type());
+    QwtTransform *tr = sc_eng->transformation();
+    // boxScaleType->setCurrentIndex((int)tr->type());
 
     boxMinorValue->clear();
-    if (tr->type()) // log scale
+    /*if (tr->type()) // log scale
         boxMinorValue->addItems(QStringList() << "0"
                                               << "2"
                                               << "4"
                                               << "8");
-    else
-        boxMinorValue->addItems(QStringList() << "0"
-                                              << "1"
-                                              << "4"
-                                              << "9"
-                                              << "14"
-                                              << "19");
+    else*/
+    boxMinorValue->addItems(QStringList() << "0"
+                                          << "1"
+                                          << "4"
+                                          << "9"
+                                          << "14"
+                                          << "19");
 
     boxMinorValue->setEditText(QString::number(d_plot->axisMaxMinor(a)));
 }

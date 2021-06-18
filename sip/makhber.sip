@@ -668,15 +668,18 @@ class QwtSymbol
         VLine, 
         Star1, 
         Star2, 
-        Hexagon, 
-
-        StyleCnt 
+        Hexagon,
+        Path,
+        Pixmap,
+        Graphic,
+        SvgDocument,
+        UserStyle = 1000
     };
 
     QwtSymbol();
     QwtSymbol(Style st, const QBrush &bd, const QPen &pn, const QSize &s);
 
-    virtual QwtSymbol *clone() const;
+    // virtual QwtSymbol *clone() const;
 
     void setSize(const QSize &s);
     void setSize(int a, int b = -1);
@@ -746,8 +749,8 @@ class QwtPlotCurve
 %End
 	public:
 		int dataSize() const;
-		double x(int i) const;
-		double y(int i) const;
+		// double x(int i) const;
+		// double y(int i) const;
 		double minXValue() const;
 		double maxXValue() const;
 		double minYValue() const;
@@ -767,6 +770,8 @@ class QwtPlotCurve
 
 		void setSymbol(QwtSymbol *s);
 		const QwtSymbol *symbol() const;
+
+        QPointF sample (int index) const;
 
 	 // convenience methods for scripting
 	 
@@ -1029,7 +1034,7 @@ public:
   void setScale(int axis, double start, double end, double step = 0.0,
                 int majorTicks = 5, int minorTicks = 5, int type = 0, bool inverted = false);
 
-  void setMargin(int);
+  // void setMargin(int);
   void setFrame(int width = 1, const QColor& color = QColor(Qt::black));
   void setBackgroundColor(const QColor& color);
   void setCanvasBackground(const QColor& color) /PyName=setCanvasColor/;

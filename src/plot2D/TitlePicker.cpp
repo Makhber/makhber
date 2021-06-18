@@ -83,9 +83,9 @@ void TitlePicker::setSelected(bool select)
 
     QwtText text = title->text();
     if (select)
-        text.setBackgroundPen(QPen(Qt::blue));
+        text.setBackgroundBrush(QBrush(Qt::blue));
     else
-        text.setBackgroundPen(QPen(Qt::NoPen));
+        text.setBackgroundBrush(QBrush());
 
     (dynamic_cast<QwtPlot *>(parent()))->setTitle(text);
 }

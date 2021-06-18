@@ -99,15 +99,15 @@ Plot::Plot(QWidget *parent, QString) : QwtPlot(parent)
     pLayout->setCanvasMargin(0);
     pLayout->setAlignCanvasToScales(true);
 
-    QwtPlotCanvas *plCanvas = canvas();
+    QWidget *plCanvas = canvas();
     plCanvas->setFocusPolicy(Qt::StrongFocus);
-    plCanvas->setFocusIndicator(QwtPlotCanvas::ItemFocusIndicator);
+    // plCanvas->setFocusIndicator(QwtPlotCanvas::ItemFocusIndicator);
     plCanvas->setFocus();
-    plCanvas->setFrameShadow(QwtPlot::Plain);
+    // plCanvas->setFrameShadow(QwtPlot::Plain);
     plCanvas->setCursor(Qt::ArrowCursor);
-    plCanvas->setLineWidth(0);
-    plCanvas->setPaintAttribute(QwtPlotCanvas::PaintCached, false);
-    plCanvas->setPaintAttribute(QwtPlotCanvas::PaintPacked, false);
+    // plCanvas->setLineWidth(0);
+    // plCanvas->setPaintAttribute(QwtPlotCanvas::BackingStore, false);
+    // plCanvas->setPaintAttribute(QwtPlotCanvas::ImmediatePaint, false);
 
     auto background = QColor(Qt::white);
     background.setAlpha(255);
@@ -152,11 +152,9 @@ void Plot::printFrame(QPainter *painter, const QRect &rect) const
     painter->restore();
 }
 
-void Plot::drawItems(QPainter *painter, const QRect &rect,
-                     const QwtScaleMap map[axisCnt],
-                     const QwtPlotPrintFilter &pfilter) const
+void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt]) const
 {
-    QwtPlot::drawItems(painter, rect, map, pfilter);
+    // QwtPlot::drawItems(painter, rect, map, pfilter);
 
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         if (!axisEnabled(i))
@@ -179,8 +177,8 @@ void Plot::drawItems(QPainter *painter, const QRect &rect,
         painter->setPen(QPen(canvas()->palette().color(QPalette::Active, QPalette::WindowText),
                              axesLinewidth(), Qt::SolidLine, Qt::RoundCap, Qt::RoundJoin));
         painter->setClipping(false);
-        if (pfilter.options() & QwtPlotPrintFilter::PrintFrameWithScales)
-            painter->drawRect(rect.adjusted(-(apw2 + 1), -(apw2 + 1), apw2, apw2));
+        /*if (pfilter.options() & QwtPlotPrintFilter::PrintFrameWithScales)
+            painter->drawRect(rect.adjusted(-(apw2 + 1), -(apw2 + 1), apw2, apw2));*/
         painter->restore();
         painter->setClipping(clp);
     }
@@ -341,7 +339,7 @@ void Plot::setAxesLinewidth(int width)
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         auto *scale = (QwtScaleWidget *)this->axisWidget(i);
         if (scale) {
-            scale->setPenWidth(width);
+            // scale->setPenWidth(width);
             scale->repaint();
         }
     }
@@ -351,8 +349,8 @@ int Plot::axesLinewidth() const
 {
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
         const QwtScaleWidget *scale = this->axisWidget(axis);
-        if (scale)
-            return scale->penWidth();
+        /*if (scale)
+            return scale->penWidth();*/
     }
     return 0;
 }
@@ -376,11 +374,11 @@ void Plot::setTickLength(int minLength, int majLength)
     minTickLength = minLength;
 }
 
-void Plot::print(QPainter *painter, const QRect &plotRect, const QwtPlotPrintFilter &pfilter) const
+void Plot::print(QPainter *painter, const QRect &plotRect) const
 {
     // QwtText t = title();
     printFrame(painter, plotRect);
-    QwtPlot::print(painter, plotRect, pfilter);
+    // QwtPlot::print(painter, plotRect);
     // setTitle(t);  WTF??
 }
 
@@ -451,7 +449,7 @@ int Plot::insertCurve(QwtPlotItem *c)
     if (!d_curves.contains(curve_key))
         d_curves.insert(curve_key, c);
     if (c->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
-        (dynamic_cast<QwtPlotCurve *>(c))->setPaintAttribute(QwtPlotCurve::PaintFiltered);
+        (dynamic_cast<QwtPlotCurve *>(c))->setPaintAttribute(QwtPlotCurve::FilterPoints);
 
     c->setRenderHint(QwtPlotItem::RenderAntialiased,
                      (dynamic_cast<Graph *>(parent()))->antialiasing());

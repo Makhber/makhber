@@ -621,7 +621,7 @@ public Q_SLOTS:
 
     //! \name Border and Margin
     //@{
-    void setMargin(int d);
+    // void setMargin(int d);
     void setFrame(int width = 1, const QColor &color = QColor(Qt::black));
     void setBackgroundColor(const QColor &color);
     void setCanvasBackground(const QColor &color);
@@ -682,7 +682,7 @@ public Q_SLOTS:
 
     bool plotHistogram(Table *w, QStringList names, int startRow = 0, int endRow = -1);
 
-    void setCurveSymbol(int index, const QwtSymbol &s);
+    void setCurveSymbol(int index, QwtSymbol *s);
     void setCurvePen(int index, const QPen &p);
     void setCurveBrush(int index, const QBrush &b);
     void setCurveStyle(int index, int s);
@@ -742,8 +742,7 @@ public Q_SLOTS:
     void setAntialiasing(bool on = true, bool update = true);
 
     void deselect();
-    void print(QPainter *, const QRect &rect,
-               const QwtPlotPrintFilter &pfilter = QwtPlotPrintFilter());
+    void print(QPainter *, const QRect &rect);
 Q_SIGNALS:
     void selectedGraph(Graph *);
     void closedGraph();

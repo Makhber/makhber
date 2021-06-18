@@ -2408,7 +2408,7 @@ void ApplicationWindow::setPreferences(Graph *g)
                         defaultArrowHeadLength, defaultArrowHeadAngle, defaultArrowHeadFill);
     g->initTitle(titleOn, plotTitleFont);
     g->drawCanvasFrame(canvasFrameOn, canvasFrameWidth);
-    g->plotWidget()->setMargin(defaultPlotMargin);
+    // g->plotWidget()->setMargin(defaultPlotMargin);
     g->enableAutoscaling(autoscale2DPlots);
     g->setAutoscaleFonts(autoScaleFonts);
     g->setIgnoreResizeEvents(!autoResizeLayers);
@@ -9298,7 +9298,7 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
             ag->setBackgroundColor(c);
         } else if (s.startsWith("Margin")) {
             QStringList fList = s.split("\t");
-            ag->plotWidget()->setMargin(fList[1].toInt());
+            // ag->plotWidget()->setMargin(fList[1].toInt());
         } else if (s.startsWith("Border")) {
             QStringList fList = s.split("\t");
             ag->setFrame(fList[1].toInt(), QColor(COLORVALUE(fList[2])));

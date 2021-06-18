@@ -387,37 +387,37 @@ QSize MultiLayer::arrangeLayers(bool userSize)
         auto *gr = dynamic_cast<Graph *>(graphsList.at(i));
         QwtPlot *plot = gr->plotWidget();
         QwtPlotLayout *plotLayout = plot->plotLayout();
-        QRect cRect = plotLayout->canvasRect();
+        QRect cRect = plotLayout->canvasRect().toRect();
         auto ch = (double)cRect.height();
         auto cw = (double)cRect.width();
 
-        QRect tRect = plotLayout->titleRect();
+        QRect tRect = plotLayout->titleRect().toRect();
         auto *scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::xTop);
 
         int topHeight = 0;
         if (!tRect.isNull())
             topHeight += tRect.height() + plotLayout->spacing();
         if (scale) {
-            QRect sRect = plotLayout->scaleRect(QwtPlot::xTop);
+            QRect sRect = plotLayout->scaleRect(QwtPlot::xTop).toRect();
             topHeight += sRect.height();
         }
         gsl_vector_set(xTopR, i, double(topHeight) / ch);
 
         scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::xBottom);
         if (scale) {
-            QRect sRect = plotLayout->scaleRect(QwtPlot::xBottom);
+            QRect sRect = plotLayout->scaleRect(QwtPlot::xBottom).toRect();
             gsl_vector_set(xBottomR, i, double(sRect.height()) / ch);
         }
 
         scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::yLeft);
         if (scale) {
-            QRect sRect = plotLayout->scaleRect(QwtPlot::yLeft);
+            QRect sRect = plotLayout->scaleRect(QwtPlot::yLeft).toRect();
             gsl_vector_set(yLeftR, i, double(sRect.width()) / cw);
         }
 
         scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::yRight);
         if (scale) {
-            QRect sRect = plotLayout->scaleRect(QwtPlot::yRight);
+            QRect sRect = plotLayout->scaleRect(QwtPlot::yRight).toRect();
             gsl_vector_set(yRightR, i, double(sRect.width()) / cw);
         }
 
@@ -934,7 +934,7 @@ void MultiLayer::addTextLayer(const QPoint &pos)
     g->setTextMarkerDefaults(defaultTextMarkerFrame, defaultTextMarkerFont, defaultTextMarkerColor,
                              defaultTextMarkerBackground);
     Legend *mrk = g->newLegend(tr("enter your text here"));
-    QSize size = mrk->rect().size();
+    QSizeF size = mrk->rect().size();
     setGraphGeometry(pos.x(), pos.y(), size.width() + 10, size.height() + 10);
     g->setIgnoreResizeEvents(false);
     g->show();

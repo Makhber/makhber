@@ -47,7 +47,7 @@ CanvasPicker::CanvasPicker(Graph *graph) : QObject(graph)
 
     plotWidget = graph->plotWidget();
 
-    QwtPlotCanvas *canvas = plotWidget->canvas();
+    QWidget *canvas = plotWidget->canvas();
     canvas->installEventFilter(this);
 }
 
@@ -217,9 +217,9 @@ void CanvasPicker::drawLineMarker(const QPoint &point, bool endArrow)
     ArrowMarker mrk;
     mrk.attach(plotWidget);
 
-    int clw = plotWidget->canvas()->lineWidth();
-    mrk.setStartPoint(QPoint(startLinePoint.x() + clw, startLinePoint.y() + clw));
-    mrk.setEndPoint(QPoint(point.x() + clw, point.y() + clw));
+    // int clw = plotWidget->canvas()->width();
+    mrk.setStartPoint(QPoint(startLinePoint.x(), startLinePoint.y()));
+    mrk.setEndPoint(QPoint(point.x(), point.y()));
     mrk.setWidth(1);
     mrk.setStyle(Qt::SolidLine);
     mrk.drawEndArrow(endArrow);

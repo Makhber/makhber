@@ -85,7 +85,7 @@ RangeSelectorTool::RangeSelectorTool(Graph *graph, const QObject *status_target,
     d_inactive_marker.attach(d_graph->plotWidget());
 
     setTrackerMode(QwtPicker::AlwaysOn);
-    setSelectionFlags(QwtPicker::PointSelection | QwtPicker::ClickSelection);
+    // setSelectionFlags(QwtPicker::PointSelection | QwtPicker::ClickSelection);
     d_graph->plotWidget()->canvas()->setCursor(QCursor(QPixmap(":/vizor.xpm"), -1, -1));
     d_graph->plotWidget()->canvas()->setFocus();
     d_graph->plotWidget()->replot();

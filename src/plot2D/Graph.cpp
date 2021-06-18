@@ -139,13 +139,9 @@ Graph::Graph(QWidget *parent, QString name, Qt::WindowFlags f) : QWidget(parent,
     titlePicker = new TitlePicker(d_plot);
     scalePicker = new ScalePicker(d_plot);
 
-    d_zoomer[0] = new QwtPlotZoomer(QwtPlot::xBottom, QwtPlot::yLeft,
-                                    QwtPicker::DragSelection | QwtPicker::CornerToCorner,
-                                    QwtPicker::AlwaysOff, d_plot->canvas());
+    d_zoomer[0] = new QwtPlotZoomer(QwtPlot::xBottom, QwtPlot::yLeft, d_plot->canvas());
     d_zoomer[0]->setRubberBandPen(QPen(Qt::black));
-    d_zoomer[1] = new QwtPlotZoomer(QwtPlot::xTop, QwtPlot::yRight,
-                                    QwtPicker::DragSelection | QwtPicker::CornerToCorner,
-                                    QwtPicker::AlwaysOff, d_plot->canvas());
+    d_zoomer[1] = new QwtPlotZoomer(QwtPlot::xTop, QwtPlot::yRight, d_plot->canvas());
     zoom(false);
 
     setGeometry(0, 0, 500, 400);
@@ -1213,10 +1209,10 @@ void Graph::updateSecondaryAxis(int axis)
     const QwtScaleDiv sd = d_plot->axisScaleDiv(a);
 
     QwtScaleEngine *sc_engine = nullptr;
-    if (se->transformation()->type() == QwtScaleTransformation::Log10)
-        sc_engine = new QwtLog10ScaleEngine();
+    /* if (se->transformation()->type() == QwtScaleTransformation::Log10)
+        sc_engine = new QwtLogScaleEngine();
     else if (se->transformation()->type() == QwtScaleTransformation::Linear)
-        sc_engine = new QwtLinearScaleEngine();
+        sc_engine = new QwtLinearScaleEngine();*/
 
     if (sc_engine && se->testAttribute(QwtScaleEngine::Inverted))
         sc_engine->setAttribute(QwtScaleEngine::Inverted);
@@ -1252,7 +1248,7 @@ void Graph::setScale(int axis, double start, double end, double step, int majorT
 {
     QwtScaleEngine *sc_engine = nullptr;
     if (type)
-        sc_engine = new QwtLog10ScaleEngine();
+        sc_engine = new QwtLogScaleEngine();
     else
         sc_engine = new QwtLinearScaleEngine();
 
@@ -1971,7 +1967,7 @@ void Graph::setAxesLinewidth(int width)
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         auto *scale = (QwtScaleWidget *)d_plot->axisWidget(i);
         if (scale) {
-            scale->setPenWidth(width);
+            // scale->setPenWidth(width);
             scale->repaint();
         }
     }
@@ -1988,13 +1984,13 @@ void Graph::loadAxesLinewidth(int width)
 QString Graph::saveCanvas()
 {
     QString s = "";
-    int w = d_plot->canvas()->lineWidth();
+    /*int w = d_plot->canvas()->lineWidth();
     if (w > 0) {
         s += "CanvasFrame\t" + QString::number(w) + "\t";
         s += COLORNAME(canvasFrameColor()) + "\n";
-    }
-    s += "CanvasBackground\t" + COLORNAME(d_plot->canvasBackground()) + "\t";
-    s += QString::number(d_plot->canvasBackground().alpha()) + "\n";
+    }*/
+    s += "CanvasBackground\t" + COLORNAME(d_plot->canvasBackground().color()) + "\t";
+    s += QString::number(d_plot->canvasBackground().color().alpha()) + "\n";
     return s;
 }
 
@@ -2072,8 +2068,9 @@ QString Graph::saveScale()
         s += QString::number(d_plot->axisMaxMinor(i)) + "\t";
 
         const QwtScaleEngine *sc_eng = d_plot->axisScaleEngine(i);
-        QwtScaleTransformation *tr = sc_eng->transformation();
-        s += QString::number((int)tr->type()) + "\t";
+        QwtTransform *tr = sc_eng->transformation();
+        // s += QString::number((int)tr->type()) + "\t";
+        s += QString::number(0) + "\t";
         s += QString::number(sc_eng->testAttribute(QwtScaleEngine::Inverted)) + "\n";
     }
     return s;
@@ -2381,7 +2378,8 @@ QString Graph::saveCurves()
                     // the 2 last tabs are legacy code, kept for compatibility with old project
                     // files
                 } else if (c->type() == Box)
-                    s += "curve\t" + QString::number(c->data()->sample(0).x()) + "\t" + c->title().text() + "\t";
+                    s += "curve\t" + QString::number(c->data()->sample(0).x()) + "\t"
+                            + c->title().text() + "\t";
                 else
                     s += "curve\t" + dynamic_cast<DataCurve *>(c)->xColumnName() + "\t"
                             + c->title().text() + "\t";
@@ -2773,7 +2771,7 @@ int Graph::range(int index, double *start, double *end)
 CurveLayout Graph::initCurveLayout()
 {
     CurveLayout cl;
-    cl.connectType = 1;
+    cl.connectType = 0;
     cl.lStyle = 0;
     cl.lWidth = 1;
     cl.sSize = 7;
@@ -2803,9 +2801,9 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
     if (style == Graph::Line)
         cl.sType = 0;
     else if (style == Graph::VerticalDropLines)
-        cl.connectType = 2;
+        cl.connectType = 1;
     else if (style == Graph::HorizontalSteps || style == Graph::VerticalSteps) {
-        cl.connectType = 3;
+        cl.connectType = 2;
         cl.sType = 0;
     } else if (style == Graph::Spline)
         cl.connectType = 5;
@@ -3115,7 +3113,7 @@ void Graph::plotPie(Table *w, const QString &name, int startRow, int endRow)
     c_type[n_curves - 1] = Pie;
 
     // This has to be synced with QwtPieCurve::drawPie() for now... until we have a clean solution.
-    QRect canvas_rect = d_plot->plotLayout()->canvasRect();
+    QRectF canvas_rect = d_plot->plotLayout()->canvasRect();
     float radius = 0.45 * qMin(canvas_rect.width(), canvas_rect.height());
 
     double PI = 4 * atan(1.0);
@@ -3133,7 +3131,7 @@ void Graph::plotPie(Table *w, const QString &name, int startRow, int endRow)
         d_texts.resize(++texts);
         d_texts[texts - 1] = d_plot->insertMarker(aux);
 
-        aux->setOrigin(canvas_rect.center()
+        aux->setOrigin(canvas_rect.center().toPoint()
                        + QPoint(int(radius * cos(alabel) - 0.5 * aux->rect().width()),
                                 int(-radius * sin(alabel) - 0.5 * aux->rect().height())));
 
@@ -3970,7 +3968,7 @@ QString Graph::saveToString(bool saveAsTemplate)
     s += "<Antialiasing>" + QString::number(d_antialiasing) + "</Antialiasing>\n";
     s += "Background\t" + COLORNAME(d_plot->paletteBackgroundColor()) + "\t";
     s += QString::number(d_plot->paletteBackgroundColor().alpha()) + "\n";
-    s += "Margin\t" + QString::number(d_plot->margin()) + "\n";
+    // s += "Margin\t" + QString::number(d_plot->margin()) + "\n";
     s += "Border\t" + QString::number(d_plot->lineWidth()) + "\t" + COLORNAME(d_plot->frameColor())
             + "\n";
     s += grid()->saveToString();
@@ -4085,7 +4083,7 @@ void Graph::scaleFonts(double factor)
 
     d_plot->replot();
 }
-
+/*
 void Graph::setMargin(int d)
 {
     if (d_plot->margin() == d)
@@ -4094,7 +4092,7 @@ void Graph::setMargin(int d)
     d_plot->setMargin(d);
     Q_EMIT modifiedGraph();
 }
-
+*/
 void Graph::setFrame(int width, const QColor &color)
 {
     if (d_plot->frameColor() == color && width == d_plot->lineWidth())
@@ -4430,14 +4428,14 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
 {
     int i = 0;
     Plot *plot = g->plotWidget();
-    d_plot->setMargin(plot->margin());
+    // d_plot->setMargin(plot->margin());
 
     setAntialiasing(g->antialiasing());
     autoScaleFonts = g->autoscaleFonts();
 
     setBackgroundColor(plot->paletteBackgroundColor());
     setFrame(plot->lineWidth(), plot->frameColor());
-    setCanvasBackground(plot->canvasBackground());
+    setCanvasBackground(plot->canvasBackground().color());
 
     enableAxes(g->enabledAxes());
     setAxesColors(g->axesColors());
@@ -4524,8 +4522,8 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             } else if (style == Box) {
                 c = new BoxCurve(cv->table(), cv->title().text(), cv->startRow(), cv->endRow());
                 (dynamic_cast<BoxCurve *>(c))->copy(dynamic_cast<const BoxCurve *>(cv));
-                QwtSingleArrayData dat(x[0], y, n);
-                c->setData(dat);
+                // QwtSingleArrayData dat(x[0], y, n);
+                // c->setData(dat);
             } else
                 c = new DataCurve(cv->table(), cv->xColumnName(), cv->title().text(),
                                   cv->startRow(), cv->endRow());
@@ -4607,10 +4605,10 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             continue;
 
         QwtScaleEngine *sc_engine = nullptr;
-        if (se->transformation()->type() == QwtScaleTransformation::Log10)
-            sc_engine = new QwtLog10ScaleEngine();
-        else if (se->transformation()->type() == QwtScaleTransformation::Linear)
-            sc_engine = new QwtLinearScaleEngine();
+        /*if (se->transformation()->type() == QwtScaleTransformation::Log10)
+            sc_engine = new QwtLogScaleEngine();
+        else if (se->transformation()->type() == QwtScaleTransformation::Linear)*/
+        sc_engine = new QwtLinearScaleEngine();
 
         int majorTicks = plot->axisMaxMajor(i);
         int minorTicks = plot->axisMaxMinor(i);
@@ -4685,7 +4683,7 @@ void Graph::plotBoxDiagram(Table *w, const QStringList &names, int startRow, int
 
     for (int j = 0; j < (int)names.count(); j++) {
         auto *c = new BoxCurve(w, names[j], startRow, endRow);
-        c->setData(QwtSingleArrayData(double(j + 1), QVector<double>(), 0));
+        // c->setData(QwtSingleArrayData(double(j + 1), QVector<double>(), 0));
         c->loadData();
 
         c_keys.resize(++n_curves);
@@ -4783,8 +4781,8 @@ void Graph::openBoxDiagram(Table *w, const QStringList &l, int fileVersion)
     }
 
     auto *c = new BoxCurve(w, l[2], startRow, endRow);
-    c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
-    c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
+    // c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
+    // c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
     c->loadData();
 
     c_keys.resize(++n_curves);
@@ -4945,13 +4943,13 @@ void Graph::plotSpectrogram(Matrix *m, CurveType type)
 
     QwtScaleWidget *rightAxis = d_plot->axisWidget(QwtPlot::yRight);
     rightAxis->setColorBarEnabled(type != ContourMap);
-    rightAxis->setColorMap(d_spectrogram->data().range(), d_spectrogram->colorMap());
+    // rightAxis->setColorMap(d_spectrogram->data().range(), d_spectrogram->colorMap());
 
     d_plot->setAxisScale(QwtPlot::xBottom, m->xStart(), m->xEnd());
     d_plot->setAxisScale(QwtPlot::yLeft, m->yStart(), m->yEnd());
 
-    d_plot->setAxisScale(QwtPlot::yRight, d_spectrogram->data().range().minValue(),
-                         d_spectrogram->data().range().maxValue());
+    // d_plot->setAxisScale(QwtPlot::yRight, d_spectrogram->data().range().minValue(),
+    //                     d_spectrogram->data().range().maxValue());
     d_plot->enableAxis(QwtPlot::yRight, type != ContourMap);
 
     d_plot->replot();
@@ -5017,7 +5015,7 @@ void Graph::restoreSpectrogram(ApplicationWindow *app, const QStringList &lst)
                 s = (*(++line)).trimmed();
                 int defaultPen = s.remove("<DefaultPen>").remove("</DefaultPen>").toInt();
                 if (!defaultPen)
-                    sp->setDefaultContourPen(Qt::NoPen);
+                    sp->setDefaultContourPen(QPen(Qt::NoPen));
                 else {
                     s = (*(++line)).trimmed();
                     QColor c = QColor(COLORVALUE(s.remove("<PenColor>").remove("</PenColor>")));
@@ -5336,9 +5334,9 @@ int Graph::mapToQwtAxis(int axis)
     return a;
 }
 
-void Graph::print(QPainter *painter, const QRect &plotRect, const QwtPlotPrintFilter &pfilter)
+void Graph::print(QPainter *painter, const QRect &plotRect)
 {
-    d_plot->print(painter, plotRect, pfilter);
+    d_plot->print(painter, plotRect);
 }
 
 void Graph::deselect()

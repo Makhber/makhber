@@ -112,10 +112,9 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
             int y_minus = yMap.transform(sample(i).y() - err[i]);
             bool y_minus_is_finite = true;
 
-            if (yMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= y(i)) {
-                y_minus = yMap.transform(qMin(yMap.s1(), yMap.s2()));
-                y_minus_is_finite = false;
-            }
+            /*if (yMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= y(i))
+            { y_minus = yMap.transform(qMin(yMap.s1(), yMap.s2())); y_minus_is_finite = false;
+            }*/
 
             // draw caps
             if (plus)
@@ -147,10 +146,9 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
             int x_minus = xMap.transform(sample(i).x() - err[i]);
             bool x_minus_is_finite = true;
 
-            if (xMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= x(i)) {
-                x_minus = xMap.transform(qMin(xMap.s1(), xMap.s2()));
-                x_minus_is_finite = false;
-            }
+            /*if (xMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= x(i))
+            { x_minus = xMap.transform(qMin(xMap.s1(), xMap.s2())); x_minus_is_finite = false;
+            }*/
 
             // draw caps
             if (plus)
@@ -239,7 +237,7 @@ QRectF QwtErrorPlotCurve::boundingRect() const
         }
     }
 
-    QwtArrayData *erMin = nullptr, *erMax = nullptr;
+    /* QwtArrayData *erMin = nullptr, *erMax = nullptr;
     if (type == Vertical) {
         erMin = new QwtArrayData(X, min);
         erMax = new QwtArrayData(X, max);
@@ -257,7 +255,7 @@ QRectF QwtErrorPlotCurve::boundingRect() const
     rect.setRight(qMax(minrect.right(), maxrect.right()));
 
     delete erMin;
-    delete erMax;
+    delete erMax;*/
 
     return rect;
 }

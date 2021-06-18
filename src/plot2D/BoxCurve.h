@@ -93,7 +93,7 @@ private:
 };
 
 //! Single array data (extension to QwtData)
-class QwtSingleArrayData : public QwtData
+/* class QwtSingleArrayData : public QwtData
 {
 public:
     QwtSingleArrayData(const double x, QVector<double> y, size_t)
@@ -112,5 +112,5 @@ private:
     QVector<double> d_y;
     double d_x;
 };
-
+*/
 #endif

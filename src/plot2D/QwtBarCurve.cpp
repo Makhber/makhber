@@ -74,19 +74,19 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     double bar_width = 0;
 
     if (bar_style == Vertical) {
-        ref1 = yMap.xTransform(1e-100); // smallest positive value for log scales
+        ref1 = yMap.transform(1e-100); // smallest positive value for log scales
         ref2 = ref1;
-        if (yMap.xTransform(yMap.s1()) < ref1)
-            ref1 = yMap.xTransform(yMap.s1());
-        if (yMap.xTransform(yMap.s2()) > ref2)
-            ref2 = yMap.xTransform(yMap.s2());
+        if (yMap.transform(yMap.s1()) < ref1)
+            ref1 = yMap.transform(yMap.s1());
+        if (yMap.transform(yMap.s2()) > ref2)
+            ref2 = yMap.transform(yMap.s2());
     } else {
-        ref1 = xMap.xTransform(1e-100);
+        ref1 = xMap.transform(1e-100);
         ref2 = ref1;
-        if (xMap.xTransform(xMap.s1()) > ref1)
-            ref1 = xMap.xTransform(xMap.s1());
-        if (xMap.xTransform(xMap.s2()) < ref2)
-            ref2 = xMap.xTransform(xMap.s2());
+        if (xMap.transform(xMap.s1()) > ref1)
+            ref1 = xMap.transform(xMap.s1());
+        if (xMap.transform(xMap.s2()) < ref2)
+            ref2 = xMap.transform(xMap.s2());
     }
 
     if (bar_style == Vertical) {

@@ -165,7 +165,7 @@ void ScalePicker::refresh()
 
 QRect ScalePicker::scaleTicksRect(const QwtScaleWidget *scale) const
 {
-    int majTickLength = scale->scaleDraw()->majTickLength();
+    int majTickLength = static_cast<int>(scale->scaleDraw()->maxTickLength());
     QRect rect = scale->rect();
     switch (scale->alignment()) {
     case QwtScaleDraw::LeftScale:
@@ -232,9 +232,9 @@ void ScalePicker::selectTitle(QwtScaleWidget *scale, bool select)
 
     QwtText title = scale->title();
     if (select) {
-        title.setBackgroundPen(QPen(Qt::blue));
+        title.setBackgroundBrush(QBrush(Qt::blue));
     } else
-        title.setBackgroundPen(QPen(Qt::NoPen));
+        title.setBackgroundBrush(QBrush());
 
     scale->setTitle(title);
 }
@@ -270,7 +270,7 @@ void ScalePicker::deselect()
     d_labels_selected = false;
 
     QwtText title = d_selected_axis->title();
-    title.setBackgroundPen(QPen(Qt::NoPen));
+    title.setBackgroundBrush(QBrush());
     d_selected_axis->setTitle(title);
     /*
             ScaleDraw *sc_draw = (ScaleDraw *)d_selected_axis->scaleDraw();

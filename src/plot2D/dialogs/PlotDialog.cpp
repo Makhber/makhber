@@ -42,6 +42,7 @@
 #include "plot2D/BoxCurve.h"
 #include "plot2D/FunctionCurve.h"
 #include "plot2D/Spectrogram.h"
+#include "plot2D/QwtBarCurve.h"
 #include "plot2D/QwtPieCurve.h"
 #include "lib/QStringStdString.h"
 #include "aspects/column/Column.h"
@@ -1458,7 +1459,7 @@ void PlotDialog::setActiveLayer(LayerItem *item)
     boxBorderWidth->blockSignals(true);
 
     Plot *p = g->plotWidget();
-    boxMargin->setValue(p->margin());
+    // boxMargin->setValue(p->margin());
     boxBorderWidth->setValue(p->lineWidth());
     boxBorderColor->setColor(p->frameColor());
 
@@ -1467,7 +1468,7 @@ void PlotDialog::setActiveLayer(LayerItem *item)
     boxBackgroundColor->setEnabled(c.alpha());
     boxBackgroundColor->setColor(c);
 
-    c = p->canvasBackground();
+    c = p->canvasBackground().color();
     boxCanvasTransparency->setValue(c.alpha());
     boxCanvasColor->setEnabled(c.alpha());
     boxCanvasColor->setColor(c);
@@ -1517,8 +1518,8 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
         defaultScaleBox->setChecked(sp->colorMapPolicy() == Spectrogram::Default);
         customScaleBox->setChecked(sp->colorMapPolicy() == Spectrogram::Custom);
 
-        colorMapEditor->setRange(sp->data().range().minValue(), sp->data().range().maxValue());
-        colorMapEditor->setColorMap(dynamic_cast<const QwtLinearColorMap &>(sp->colorMap()));
+        // colorMapEditor->setRange(sp->data().range().minValue(), sp->data().range().maxValue());
+        // colorMapEditor->setColorMap(dynamic_cast<const QwtLinearColorMap &>(sp->colorMap()));
 
         levelsGroupBox->setChecked(sp->testDisplayMode(QwtPlotSpectrogram::ContourMode));
         levelsBox->setValue(sp->levels());
@@ -1698,7 +1699,7 @@ bool PlotDialog::acceptParams()
             auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g) {
                 g->setFrame(boxBorderWidth->value(), boxBorderColor->color());
-                g->setMargin(boxMargin->value());
+                // g->setMargin(boxMargin->value());
 
                 QColor c = boxBackgroundColor->color();
                 c.setAlpha(boxBackgroundTransparency->value());
@@ -1738,7 +1739,7 @@ bool PlotDialog::acceptParams()
 
         sp->setLevelsNumber(levelsBox->value());
         if (autoContourBox->isChecked())
-            sp->setDefaultContourPen(Qt::NoPen);
+            sp->setDefaultContourPen(QPen(Qt::NoPen));
         else
             sp->setDefaultContourPen(QPen(levelsColorBox->color(), contourWidthBox->value(),
                                           Graph::getPenStyle(boxContourStyle->currentIndex())));
@@ -1752,8 +1753,8 @@ bool PlotDialog::acceptParams()
         } else if (defaultScaleBox->isChecked()) {
             sp->setDefaultColorMap();
             colorMapEditor->setColorMap(Spectrogram::defaultColorMap());
-        } else
-            sp->setCustomColorMap(colorMapEditor->colorMap());
+        } /*else
+            sp->setCustomColorMap(colorMapEditor->colorMap());*/
 
         sp->showColorScale((QwtPlot::Axis)colorScaleBox->currentIndex(), axisScaleBox->isChecked());
         sp->setColorBarWidth(colorScaleWidthBox->value());
@@ -2327,16 +2328,16 @@ void PlotDialog::changeMargin(int width)
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
             auto *g = dynamic_cast<Graph *>(allPlots.at(i));
-            if (g)
-                g->setMargin(width);
+            /*if (g)
+                g->setMargin(width);*/
         }
     } else {
         auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
         Graph *g = item->graph();
-        if (g)
-            g->setMargin(width);
+        /*if (g)
+            g->setMargin(width);*/
     }
 }
 

@@ -131,7 +131,7 @@ bool QwtHistogram::loadData()
             Y[i] = 0;
             X[i] = 0;
         }
-        setData(X.data(), Y.data(), 2);
+        // setData(X.data(), Y.data(), 2);
         return false;
     }
 

@@ -65,7 +65,7 @@ void VectorCurve::copy(const VectorCurve *vc)
     d_headAngle = vc->d_headAngle;
     d_position = vc->d_position;
     pen = vc->pen;
-    vectorEnd = dynamic_cast<QwtArrayData *>(vc->vectorEnd->copy());
+    // vectorEnd = dynamic_cast<QwtArrayData *>(vc->vectorEnd->copy());
 }
 
 void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
@@ -77,14 +77,14 @@ void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     if (to < 0)
         to = dataSize() - 1;
 
-    QwtPlotCurve::draw(painter, xMap, yMap, from, to);
+    // QwtPlotCurve::draw(painter, xMap, yMap, from, to);
 
     painter->save();
     painter->setPen(pen);
-    drawVector(painter, xMap, yMap, from, to);
+    // drawVector(painter, xMap, yMap, from, to);
     painter->restore();
 }
-
+/*
 void VectorCurve::drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                              int from, int to) const
 {
@@ -134,7 +134,7 @@ void VectorCurve::drawVector(QPainter *painter, const QwtScaleMap &xMap, const Q
         }
     }
 }
-
+*/
 void VectorCurve::drawArrowHead(QPainter *p, int xs, int ys, int xe, int ye) const
 {
     p->save();
@@ -186,7 +186,7 @@ void VectorCurve::setVectorEnd(const QString &xColName, const QString &yColName)
 
 void VectorCurve::setVectorEnd(const QVector<double> &x, const QVector<double> &y)
 {
-    vectorEnd = new QwtArrayData(x, y);
+    // vectorEnd = new Qwt QwtArrayData(x, y);
 }
 
 int VectorCurve::width()
@@ -227,7 +227,7 @@ void VectorCurve::fillArrowHead(bool fill)
     if (filledArrow != fill)
         filledArrow = fill;
 }
-
+/*
 QRectF VectorCurve::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
@@ -259,7 +259,7 @@ QRectF VectorCurve::boundingRect() const
     }
     return rect;
 }
-
+*/
 void VectorCurve::updateColumnNames(const QString &oldName, const QString &newName,
                                     bool updateTableName)
 {
@@ -378,5 +378,5 @@ bool VectorCurve::loadData()
 
 VectorCurve::~VectorCurve()
 {
-    delete vectorEnd;
+    // delete vectorEnd;
 }

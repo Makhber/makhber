@@ -383,9 +383,9 @@ bool CurvesDialog::addCurve(const QString &name)
             cl.aCol = color;
             cl.sType = 0;
         } else if (style == Graph::VerticalDropLines)
-            cl.connectType = 2;
+            cl.connectType = 1;
         else if (style == Graph::VerticalSteps || style == Graph::HorizontalSteps) {
-            cl.connectType = 3;
+            cl.connectType = 2;
             cl.sType = 0;
         } else if (style == Graph::Spline)
             cl.connectType = 5;

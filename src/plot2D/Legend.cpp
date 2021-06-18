@@ -36,7 +36,6 @@
 #include <qwt_painter.h>
 #include <qwt_plot_layout.h>
 #include <qwt_plot_canvas.h>
-#include <qwt_layout_metrics.h>
 #include <qwt_symbol.h>
 
 #include <QPainter>
@@ -50,7 +49,7 @@ Legend::Legend(Plot *plot) : d_plot(plot), d_frame(0), d_angle(0)
     d_text->setRenderFlags(Qt::AlignTop | Qt::AlignLeft);
     d_text->setBackgroundBrush(QBrush(Qt::NoBrush));
     d_text->setColor(Qt::black);
-    d_text->setBackgroundPen(QPen(Qt::NoPen));
+    d_text->setBackgroundBrush(QBrush(Qt::NoPen));
     d_text->setPaintAttribute(QwtText::PaintBackground);
 
     hspace = 30;
@@ -66,15 +65,15 @@ void Legend::draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
     const int x = xMap.transform(xValue());
     const int y = yMap.transform(yValue());
 
-    QwtPainter::setMetricsMap(plot(), p->device());
-    const QwtMetricsMap map = QwtPainter::metricsMap();
+    /*QwtPainter::setMetricsMap(plot(), p->device());
+    const QwtMetricsMap map = QwtPainter::metricsMap();*/
 
     const int symbolLineLength = symbolsMaxLineLength();
 
     int width = 0, height = 0;
-    QVector<long> heights = itemsHeight(map.deviceToLayoutY(y), symbolLineLength, width, height);
+    QVector<long> heights = itemsHeight(y, symbolLineLength, width, height);
 
-    QRect rs = QRect(map.deviceToLayout(QPoint(x, y)), QSize(width, height));
+    QRect rs = QRect(QPoint(x, y), QSize(width, height));
 
     drawFrame(p, d_frame, rs);
     drawSymbols(p, rs, heights, symbolLineLength);
@@ -310,8 +309,8 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
                         symb_size = 15;
                     else if (symb_size < 3)
                         symb_size = 3;
-                    symb.setSize(symb_size);
-                    symb.draw(p, w + l / 2, height[i]);
+                    // symb->setSize(symb_size);
+                    // symb->draw(p, w + l / 2, height[i]);
                     p->restore();
                 }
             }
@@ -363,16 +362,16 @@ void Legend::drawLegends(QPainter *p, const QRect &rect, QVector<long> height,
         aux.setFont(d_text->font());
         aux.setColor(d_text->color());
 
-        QSize size = aux.textSize();
+        QSize size = aux.textSize().toSize();
         // bug in Qwt; workaround in QwtText::textSize() only works for short texts.
         // Thus, we work around the workaround.
-        const QwtMetricsMap map = QwtPainter::metricsMap();
+        /*const QwtMetricsMap map = QwtPainter::metricsMap();
         if (!map.isIdentity()) {
             int screen_width = map.layoutToScreenX(size.width());
             screen_width -= 3;
             screen_width *= 1.1;
             size = QSize(map.screenToLayoutX(screen_width), size.height());
-        }
+        }*/
 
         QRect tr = QRect(QPoint(x, height[i] - size.height() / 2), size);
         aux.draw(p, tr);
@@ -404,16 +403,16 @@ QVector<long> Legend::itemsHeight(int y, int symbolLineLength, int &width, int &
             textL = symbolLineLength + hspace;
 
         QwtText aux(parse(str));
-        QSize size = aux.textSize(d_text->font());
+        QSize size = aux.textSize(d_text->font()).toSize();
         // bug in Qwt; workaround in QwtText::textSize() only works for short texts.
         // Thus, we work around the workaround.
-        const QwtMetricsMap map = QwtPainter::metricsMap();
+        /*const QwtMetricsMap map = QwtPainter::metricsMap();
         if (!map.isIdentity()) {
             int screen_width = map.layoutToScreenX(size.width());
             screen_width -= 3;
             screen_width *= 1.1;
             size = QSize(map.screenToLayoutX(screen_width), size.height());
-        }
+        }*/
         textL += size.width();
         if (textL > maxL)
             maxL = textL;
@@ -421,7 +420,7 @@ QVector<long> Legend::itemsHeight(int y, int symbolLineLength, int &width, int &
         int textH = size.height();
         height += textH;
 
-        heights[i] = y + h + textH / 2;
+        heights[i] = static_cast<int>(y) + h + textH / 2;
         h += textH;
     }
 
@@ -460,13 +459,14 @@ int Legend::symbolsMaxLineLength() const
                 continue;
 
             const QwtPlotCurve *c = (QwtPlotCurve *)d_plot->curve(cvs[cv]);
-            if (c && c->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
-                int l = c->symbol().size().width();
+            if (c != nullptr && c->symbol() != nullptr
+                && c->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
+                int l = c->symbol()->size().width();
                 if (l < 3)
                     l = 3;
                 else if (l > 15)
                     l = 15;
-                if (l > maxL && c->symbol().style() != QwtSymbol::NoSymbol)
+                if (l > maxL && c->symbol()->style() != QwtSymbol::NoSymbol)
                     maxL = l;
             }
         }

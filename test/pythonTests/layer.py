@@ -59,7 +59,7 @@ layer.setAxisNumericFormat(QwtPlot.yLeft,3,3)
 layer.setAxisNumericFormat(QwtPlot.xBottom,2,1)
 layer.setScale(QwtPlot.xBottom,1,1e6,0,5,5,1) #logarithmic
 layer.setFrame(2)
-layer.setMargin(5)
+#layer.setMargin(5)
 layer.setBackgroundColor(Qt.yellow)
 layer.setCanvasColor(Qt.cyan)
 layer.replot()

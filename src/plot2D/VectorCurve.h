@@ -49,13 +49,13 @@ public:
 
     void copy(const VectorCurve *vc);
 
-    QRectF boundingRect() const;
+    // QRectF boundingRect() const;
 
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;
 
-    void drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
-                    int to) const;
+    /* void drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int
+       from, int to) const; */
 
     void drawArrowHead(QPainter *p, int xs, int ys, int xe, int ye) const;
     double theta(int x0, int y0, int x1, int y1) const;
@@ -90,7 +90,7 @@ public:
     void updateColumnNames(const QString &oldName, const QString &newName, bool updateTableName);
 
 protected:
-    QwtArrayData *vectorEnd {};
+    // QwtArrayData *vectorEnd {};
     QPen pen;
     bool filledArrow;
     int d_headLength, d_headAngle, d_position;

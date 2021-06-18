@@ -49,11 +49,11 @@ public:
     bool yZeroLineEnabled() { return (mrkY >= 0) ? true : false; };
     void enableZeroLineY(bool enable = true);
 
-    void setMajPenX(const QPen &p) { setMajPen(p); };
-    const QPen &majPenX() const { return majPen(); };
+    void setMajPenX(const QPen &p) { setMajorPen(p); };
+    const QPen &majPenX() const { return majorPen(); };
 
-    void setMinPenX(const QPen &p) { setMinPen(p); };
-    const QPen &minPenX() const { return minPen(); };
+    void setMinPenX(const QPen &p) { setMinorPen(p); };
+    const QPen &minPenX() const { return minorPen(); };
 
     void setMajPenY(const QPen &p)
     {

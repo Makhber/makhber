@@ -90,7 +90,7 @@ protected:
 class MatrixData : public QwtRasterData
 {
 public:
-    MatrixData(Matrix *m) : QwtRasterData(m->boundingRect()), d_matrix(m)
+    MatrixData(Matrix *m) : d_matrix(m)
     {
         n_rows = d_matrix->numRows();
         n_cols = d_matrix->numCols();

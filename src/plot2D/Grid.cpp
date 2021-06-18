@@ -59,7 +59,7 @@ void Grid::draw(QPainter *painter, const QwtScaleMap &mx, const QwtScaleMap &my,
                 const QRect &r) const
 {
     //  draw minor X gridlines
-    painter->setPen(minPen());
+    painter->setPen(minorPen());
 
     if (xMinEnabled()) {
         drawLines(painter, r, Qt::Vertical, mx, xScaleDiv().ticks(QwtScaleDiv::MinorTick));
@@ -75,7 +75,7 @@ void Grid::draw(QPainter *painter, const QwtScaleMap &mx, const QwtScaleMap &my,
     }
 
     //  draw major X gridlines
-    painter->setPen(majPen());
+    painter->setPen(majorPen());
 
     if (xEnabled()) {
         drawLines(painter, r, Qt::Vertical, mx, xScaleDiv().ticks(QwtScaleDiv::MajorTick));
@@ -188,9 +188,10 @@ void Grid::enableZeroLineX(bool enable)
         m->setValue(0.0, 0.0);
 
         int width = 1;
-        if (d_plot->canvas()->lineWidth())
+        /*if (d_plot->canvas()->lineWidth())
             width = d_plot->canvas()->lineWidth();
-        else if (d_plot->axisEnabled(QwtPlot::yLeft) || d_plot->axisEnabled(QwtPlot::yRight))
+        else*/
+        if (d_plot->axisEnabled(QwtPlot::yLeft) || d_plot->axisEnabled(QwtPlot::yRight))
             width = d_plot->axesLinewidth();
 
         m->setLinePen(QPen(Qt::black, width, Qt::SolidLine));
@@ -215,9 +216,10 @@ void Grid::enableZeroLineY(bool enable)
         m->setValue(0.0, 0.0);
 
         int width = 1;
-        if (d_plot->canvas()->lineWidth())
+        /*if (d_plot->canvas()->lineWidth())
             width = d_plot->canvas()->lineWidth();
-        else if (d_plot->axisEnabled(QwtPlot::xBottom) || d_plot->axisEnabled(QwtPlot::xTop))
+        else*/
+        if (d_plot->axisEnabled(QwtPlot::xBottom) || d_plot->axisEnabled(QwtPlot::xTop))
             width = d_plot->axesLinewidth();
 
         m->setLinePen(QPen(Qt::black, width, Qt::SolidLine));

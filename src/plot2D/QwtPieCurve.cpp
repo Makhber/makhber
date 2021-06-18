@@ -66,7 +66,7 @@ void QwtPieCurve::drawPie(QPainter *painter, const QwtScaleMap &, const QwtScale
                           int to) const
 {
     // This has to be synced with Graph::plotPie() for now... until we have a clean solution.
-    QRect canvas_rect = plot()->plotLayout()->canvasRect();
+    QRect canvas_rect = plot()->plotLayout()->canvasRect().toRect();
     int radius = 0.4 * qMin(canvas_rect.width(), canvas_rect.height());
 
     QRect pieRect;

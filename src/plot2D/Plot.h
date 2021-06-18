@@ -92,12 +92,10 @@ public:
     QColor frameColor();
     const QColor &paletteBackgroundColor() const;
 
-    void print(QPainter *, const QRect &rect,
-               const QwtPlotPrintFilter & = QwtPlotPrintFilter()) const override;
+    void print(QPainter *, const QRect &rect) const;
 
 protected:
-    void drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt],
-                   const QwtPlotPrintFilter &pfilter) const override;
+    void drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt]) const;
 
     void drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleMap &map, int axis,
                          bool min, bool maj) const;

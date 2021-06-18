@@ -47,7 +47,7 @@ ScreenPickerTool::ScreenPickerTool(Graph *graph, const QObject *status_target,
     d_selection_marker.setLineStyle(QwtPlotMarker::Cross);
     d_selection_marker.setLinePen(QPen(Qt::red, 1));
     setTrackerMode(QwtPicker::AlwaysOn);
-    setSelectionFlags(QwtPicker::PointSelection | QwtPicker::ClickSelection);
+    // setSelectionFlags(QwtPicker::PointSelection | QwtPicker::ClickSelection);
     d_graph->plotWidget()->canvas()->setCursor(QCursor(QPixmap(":/cursor.xpm"), -1, -1));
 
     if (status_target)
