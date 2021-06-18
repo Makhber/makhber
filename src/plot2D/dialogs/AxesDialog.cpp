@@ -1051,7 +1051,7 @@ void AxesDialog::updateGrid()
     grid->enableZeroLineX(boxXLine->isChecked());
     grid->enableZeroLineY(boxYLine->isChecked());
 
-    grid->setAxis(boxGridXAxis->currentIndex() + 2, boxGridYAxis->currentIndex());
+    grid->setAxes(boxGridXAxis->currentIndex() + 2, boxGridYAxis->currentIndex());
     d_graph->replot();
     d_graph->notifyChanges();
 }

@@ -167,7 +167,7 @@ void Grid::load(const QStringList &grid)
     enableY(majorOnY);
     enableYMin(minorOnY);
 
-    setAxis(xAxis, yAxis);
+    setAxes(xAxis, yAxis);
 
     enableZeroLineX(xZeroOn);
     enableZeroLineY(yZeroOn);
@@ -183,7 +183,7 @@ void Grid::enableZeroLineX(bool enable)
         auto *m = new QwtPlotMarker();
         mrkX = d_plot->insertMarker(m);
         m->setRenderHint(QwtPlotItem::RenderAntialiased, false);
-        m->setAxis(xAxis(), yAxis());
+        m->setAxes(xAxis(), yAxis());
         m->setLineStyle(QwtPlotMarker::VLine);
         m->setValue(0.0, 0.0);
 
@@ -210,7 +210,7 @@ void Grid::enableZeroLineY(bool enable)
         auto *m = new QwtPlotMarker();
         mrkY = d_plot->insertMarker(m);
         m->setRenderHint(QwtPlotItem::RenderAntialiased, false);
-        m->setAxis(xAxis(), yAxis());
+        m->setAxes(xAxis(), yAxis());
         m->setLineStyle(QwtPlotMarker::HLine);
         m->setValue(0.0, 0.0);
 
@@ -242,7 +242,7 @@ void Grid::copy(Grid *grid)
     enableY(grid->yEnabled());
     enableYMin(grid->yMinEnabled());
 
-    setAxis(grid->xAxis(), grid->yAxis());
+    setAxes(grid->xAxis(), grid->yAxis());
 
     enableZeroLineX(grid->xZeroLineEnabled());
     enableZeroLineY(grid->yZeroLineEnabled());

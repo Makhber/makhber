@@ -131,7 +131,7 @@ void Spectrogram::showColorScale(int axis, bool on)
     }
 
     // First we switch axes
-    setAxis(xAxis, yAxis);
+    setAxes(xAxis, yAxis);
 
     // Next we switch axes scales
     QwtScaleDiv *scDiv = plot->axisScaleDiv(oldMainAxis);
@@ -185,7 +185,7 @@ Spectrogram *Spectrogram::copy()
     new_s->setDisplayMode(QwtPlotSpectrogram::ContourMode,
                           testDisplayMode(QwtPlotSpectrogram::ContourMode));
     new_s->setColorMap(colorMap());
-    new_s->setAxis(xAxis(), yAxis());
+    new_s->setAxes(xAxis(), yAxis());
     new_s->setDefaultContourPen(defaultContourPen());
     new_s->setLevelsNumber(levels());
     new_s->color_map_policy = color_map_policy;

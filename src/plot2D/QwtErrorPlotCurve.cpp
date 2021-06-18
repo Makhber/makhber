@@ -268,7 +268,7 @@ void QwtErrorPlotCurve::setMasterCurve(DataCurve *c)
         return;
 
     d_master_curve = c;
-    setAxis(c->xAxis(), c->yAxis());
+    setAxes(c->xAxis(), c->yAxis());
     d_start_row = c->startRow();
     d_end_row = c->endRow();
     c->addErrorBars(this);

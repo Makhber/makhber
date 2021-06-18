@@ -1728,7 +1728,7 @@ bool PlotDialog::acceptParams()
         return false;
 
     if (privateTabWidget->currentWidget() == axesPage) {
-        plotItem->setAxis(boxXAxis->currentIndex() + 2, boxYAxis->currentIndex());
+        plotItem->setAxes(boxXAxis->currentIndex() + 2, boxYAxis->currentIndex());
         graph->setAutoScale();
         return true;
     } else if (privateTabWidget->currentWidget() == spectrogramPage) {

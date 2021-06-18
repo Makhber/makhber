@@ -4547,7 +4547,7 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             else if (cv->testCurveAttribute(QwtPlotCurve::Inverted))
                 c->setCurveAttribute(QwtPlotCurve::Inverted, true);
 
-            c->setAxis(cv->xAxis(), cv->yAxis());
+            c->setAxes(cv->xAxis(), cv->yAxis());
             c->setVisible(cv->isVisible());
 
             QList<QwtPlotCurve *> lst = g->fitCurvesList();

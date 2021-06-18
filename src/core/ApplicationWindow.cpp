@@ -9542,10 +9542,10 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
                         QwtPlotCurve *c = ag->curve(curveID);
                         if (c && c->rtti() == QwtPlotItem::Rtti_PlotCurve) {
                             if (d_file_version < 90)
-                                c->setAxis(curve[curve.count() - 2].toInt(),
+                                c->setAxes(curve[curve.count() - 2].toInt(),
                                            curve[curve.count() - 1].toInt());
                             else {
-                                c->setAxis(curve[curve.count() - 5].toInt(),
+                                c->setAxes(curve[curve.count() - 5].toInt(),
                                            curve[curve.count() - 4].toInt());
                                 c->setVisible(curve.last().toInt());
                             }
@@ -9616,7 +9616,7 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
                     QwtPlotCurve *c = ag->curve(curveID);
                     if (c) {
                         if (current_index + 1 < curve.size())
-                            c->setAxis(curve[current_index].toInt(),
+                            c->setAxes(curve[current_index].toInt(),
                                        curve[current_index + 1].toInt());
                         if (d_file_version >= 90 && current_index + 2 < curve.size())
                             c->setVisible(curve.last().toInt());

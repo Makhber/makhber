@@ -1067,7 +1067,7 @@ public:
 	{
         QwtPlotItem* pItem;
 		pItem = sipCpp->plotItem(a0);
-		pItem->setAxis(a1, a2);
+		pItem->setAxes(a1, a2);
 		sipCpp->setAutoScale();
 	}
 %End

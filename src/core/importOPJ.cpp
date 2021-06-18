@@ -999,7 +999,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                          Graph::getPenStyle(translateOrigin2MakhberLineStyle(
                                  (Origin::GraphCurve::LineStyle)layer.yAxis.minorGrid.style))));
 
-            grid->setAxis(2, 0);
+            grid->setAxes(2, 0);
             grid->enableZeroLineX(false);
             grid->enableZeroLineY(false);
 
