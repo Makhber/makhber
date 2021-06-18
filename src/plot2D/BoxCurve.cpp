@@ -220,7 +220,7 @@ void BoxCurve::drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const Qwt
 {
     const int px = xMap.transform(sample(0).x());
 
-    QwtSymbol s = this->symbol();
+    const QwtSymbol *s = this->symbol();
     if (min_style != QwtSymbol::NoSymbol) {
         const int py_min = yMap.transform(sample(0).y());
         s.setStyle(min_style);

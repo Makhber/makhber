@@ -90,9 +90,9 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
 {
     int sh = 0;
     // int sw = 0;
-    const QwtSymbol symbol = d_master_curve->symbol();
-    if (symbol.style() != QwtSymbol::NoSymbol) {
-        sh = symbol.size().height();
+    const QwtSymbol *symbol = d_master_curve->symbol();
+    if (symbol->style() != QwtSymbol::NoSymbol) {
+        sh = symbol->size().height();
         // sw = symbol.size().width();
     }
 

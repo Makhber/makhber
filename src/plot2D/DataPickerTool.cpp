@@ -57,8 +57,8 @@ DataPickerTool::DataPickerTool(Graph *graph, ApplicationWindow *app, Mode mode,
 {
     d_selected_curve = nullptr;
 
-    d_selection_marker.setSymbol(QwtSymbol(QwtSymbol::Ellipse, QBrush(QColor(255, 255, 0, 128)),
-                                           QPen(Qt::black, 2), QSize(20, 20)));
+    d_selection_marker.setSymbol(new QwtSymbol(QwtSymbol::Ellipse, QBrush(QColor(255, 255, 0, 128)),
+                                               QPen(Qt::black, 2), QSize(20, 20)));
     d_selection_marker.setLineStyle(QwtPlotMarker::Cross);
     d_selection_marker.setLinePen(QPen(Qt::red, 1));
 

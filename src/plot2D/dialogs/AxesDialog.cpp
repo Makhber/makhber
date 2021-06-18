@@ -1428,9 +1428,9 @@ void AxesDialog::updateScale()
 
     Plot *d_plot = d_graph->plotWidget();
     int a = Graph::mapToQwtAxis(axis);
-    const QwtScaleDiv *scDiv = d_plot->axisScaleDiv(a);
-    double astart = std::min(scDiv->lowerBound(), scDiv->upperBound());
-    double aend = std::max(scDiv->lowerBound(), scDiv->upperBound());
+    const QwtScaleDiv scDiv = d_plot->axisScaleDiv(a);
+    double astart = std::min(scDiv.lowerBound(), scDiv.upperBound());
+    double aend = std::max(scDiv.lowerBound(), scDiv.upperBound());
     double astep = d_graph->axisStep(a);
 
     switch (axesType[a]) {
@@ -1449,7 +1449,7 @@ void AxesDialog::updateScale()
     }
     }
 
-    QList<double> lst = scDiv->ticks(QwtScaleDiv::MajorTick);
+    QList<double> lst = scDiv.ticks(QwtScaleDiv::MajorTick);
     boxStep->setText(QString::number(d_graph->axisStep(a)));
     boxMajorValue->setValue(lst.count());
 

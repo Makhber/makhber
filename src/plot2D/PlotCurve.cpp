@@ -302,12 +302,12 @@ int DataCurve::tableRow(int point)
 QRectF PlotCurve::boundingRect() const
 {
     QRectF r = QwtPlotCurve::boundingRect();
-    if (symbol().style() == QwtSymbol::NoSymbol)
+    if (symbol() == nullptr || symbol()->style() == QwtSymbol::NoSymbol)
         return r;
 
     int margin = 1;
-    if (symbol().style() != QwtSymbol::NoSymbol)
-        margin += symbol().size().width();
+    if (symbol()->style() != QwtSymbol::NoSymbol)
+        margin += symbol()->size().width();
 
     const QwtScaleMap &xMap = plot()->canvasMap(xAxis());
     const QwtScaleMap &yMap = plot()->canvasMap(yAxis());

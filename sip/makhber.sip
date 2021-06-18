@@ -765,8 +765,8 @@ class QwtPlotCurve
 		void setBrush(const QBrush &);
 		const QBrush &brush() const;
 
-		void setSymbol(const QwtSymbol &s);
-		const QwtSymbol& symbol() const;
+		void setSymbol(QwtSymbol *s);
+		const QwtSymbol *symbol() const;
 
 	 // convenience methods for scripting
 	 
@@ -1259,13 +1259,13 @@ public:
 			 QPen pen = curve->pen();
 			 pen.setColor(ColorButton::color(a3));
 			 curve->setPen(pen);
-			 QwtSymbol symbol = curve->symbol();
-			 pen = symbol.pen();
+			 QwtSymbol *symbol = new QwtSymbol(curve->symbol()->style());
+			 pen = symbol->pen();
 			 pen.setColor(ColorButton::color(a3));
-			 symbol.setPen(pen);
-			 QBrush brush = symbol.brush();
+			 symbol->setPen(pen);
+			 QBrush brush = symbol->brush();
 			 brush.setColor(ColorButton::color(a3));
-			 symbol.setBrush(brush);
+			 symbol->setBrush(brush);
 			 curve->setSymbol(symbol);
 		 }
     }
@@ -1285,13 +1285,13 @@ public:
        QPen pen = c->pen();
        pen.setColor(ColorButton::color(a3));
        c->setPen(pen);
-		 QwtSymbol symbol = c->symbol();
-		 pen = symbol.pen();
+		 QwtSymbol *symbol = new QwtSymbol(c->symbol()->style());
+		 pen = symbol->pen();
 		 pen.setColor(ColorButton::color(a3));
-		 symbol.setPen(pen);
-		 QBrush brush = symbol.brush();
+		 symbol->setPen(pen);
+		 QBrush brush = symbol->brush();
 		 brush.setColor(ColorButton::color(a3));
-		 symbol.setBrush(brush);
+		 symbol->setBrush(brush);
 		 c->setSymbol(symbol);
     }
   }

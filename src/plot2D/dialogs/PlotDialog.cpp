@@ -1423,8 +1423,8 @@ int PlotDialog::setPlotType(CurveTreeItem *item)
             if (!c)
                 return -1;
 
-            QwtSymbol s = c->symbol();
-            if (s.style() == QwtSymbol::NoSymbol) {
+            const QwtSymbol *s = c->symbol();
+            if (s->style() == QwtSymbol::NoSymbol) {
                 boxPlotType->setCurrentIndex(0);
                 return Graph::Line;
             } else if (c->style() == QwtPlotCurve::NoCurve) {
@@ -1561,14 +1561,14 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     boxPattern->setPattern(c->brush().style());
 
     // symbol page
-    const QwtSymbol s = c->symbol();
-    boxSymbolSize->setValue(s.size().width() / 2);
-    boxSymbolStyle->setStyle(s.style());
-    boxSymbolColor->setColor(s.pen().color());
-    boxPenWidth->setValue(s.pen().width());
-    boxFillSymbol->setChecked(s.brush() != Qt::NoBrush);
-    boxFillColor->setEnabled(s.brush() != Qt::NoBrush);
-    boxFillColor->setColor(s.brush().color());
+    const QwtSymbol *s = c->symbol();
+    boxSymbolSize->setValue(s->size().width() / 2);
+    boxSymbolStyle->setStyle(s->style());
+    boxSymbolColor->setColor(s->pen().color());
+    boxPenWidth->setValue(s->pen().width());
+    boxFillSymbol->setChecked(s->brush() != Qt::NoBrush);
+    boxFillColor->setEnabled(s->brush() != Qt::NoBrush);
+    boxFillColor->setColor(s->brush().color());
 
     if (curveType == Graph::VerticalBars || curveType == Graph::HorizontalBars
         || curveType == Graph::Histogram) { // spacing page
@@ -1625,12 +1625,12 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
             box99Style->setStyle(b->p99Style());
             box1Style->setStyle(b->p1Style());
 
-            boxPercSize->setValue(s.size().width() / 2);
-            boxFillSymbols->setChecked(s.brush() != Qt::NoBrush);
-            boxPercFillColor->setEnabled(s.brush() != Qt::NoBrush);
-            boxPercFillColor->setColor(s.brush().color());
-            boxEdgeColor->setColor(s.pen().color());
-            boxEdgeWidth->setValue(s.pen().width());
+            boxPercSize->setValue(s->size().width() / 2);
+            boxFillSymbols->setChecked(s->brush() != Qt::NoBrush);
+            boxPercFillColor->setEnabled(s->brush() != Qt::NoBrush);
+            boxPercFillColor->setColor(s->brush().color());
+            boxEdgeColor->setColor(s->pen().color());
+            boxEdgeWidth->setValue(s->pen().width());
 
             boxRange->setCurrentIndex(b->boxRangeType() - 1);
             boxType->setCurrentIndex(b->boxStyle());
@@ -1783,9 +1783,9 @@ bool PlotDialog::acceptParams()
             if (!boxFillSymbol->isChecked())
                 br = QBrush();
             QPen pen = QPen(boxSymbolColor->color(), boxPenWidth->value(), Qt::SolidLine);
-            QwtSymbol s = QwtSymbol(boxSymbolStyle->selectedSymbol(), br, pen, QSize(size, size));
             auto *curve = dynamic_cast<QwtPlotCurve *>(plotItem);
-            curve->setSymbol(s);
+            curve->setSymbol(
+                    new QwtSymbol(boxSymbolStyle->selectedSymbol(), br, pen, QSize(size, size)));
         }
     } else if (privateTabWidget->currentWidget() == histogramPage) {
         auto *h = dynamic_cast<QwtHistogram *>(plotItem);
@@ -1888,11 +1888,10 @@ bool PlotDialog::acceptParams()
             QBrush br = QBrush(boxPercFillColor->color(), Qt::SolidPattern);
             if (!boxFillSymbols->isChecked())
                 br = QBrush();
-            QwtSymbol s =
-                    QwtSymbol(QwtSymbol::NoSymbol, br,
-                              QPen(boxEdgeColor->color(), boxEdgeWidth->value(), Qt::SolidLine),
-                              QSize(size, size));
-            b->setSymbol(s);
+            b->setSymbol(
+                    new QwtSymbol(QwtSymbol::NoSymbol, br,
+                                  QPen(boxEdgeColor->color(), boxEdgeWidth->value(), Qt::SolidLine),
+                                  QSize(size, size)));
         }
     } else if (privateTabWidget->currentWidget() == boxPage) {
         auto *b = dynamic_cast<BoxCurve *>(plotItem);

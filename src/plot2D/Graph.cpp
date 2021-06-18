@@ -1210,7 +1210,7 @@ void Graph::updateSecondaryAxis(int axis)
         return;
 
     QwtScaleEngine *se = d_plot->axisScaleEngine(a);
-    const QwtScaleDiv *sd = d_plot->axisScaleDiv(a);
+    const QwtScaleDiv sd = d_plot->axisScaleDiv(a);
 
     QwtScaleEngine *sc_engine = nullptr;
     if (se->transformation()->type() == QwtScaleTransformation::Log10)
@@ -1222,7 +1222,7 @@ void Graph::updateSecondaryAxis(int axis)
         sc_engine->setAttribute(QwtScaleEngine::Inverted);
 
     d_plot->setAxisScaleEngine(axis, sc_engine);
-    d_plot->setAxisScaleDiv(axis, *sd);
+    d_plot->setAxisScaleDiv(axis, sd);
 
     d_user_step[axis] = d_user_step[a];
 
@@ -2058,11 +2058,11 @@ QString Graph::saveScale()
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         s += "scale\t" + QString::number(i) + "\t";
 
-        const QwtScaleDiv *scDiv = d_plot->axisScaleDiv(i);
+        const QwtScaleDiv scDiv = d_plot->axisScaleDiv(i);
 
 #if QWT_VERSION >= 0x050200
-        s += QString::number(qMin(scDiv->lowerBound(), scDiv->upperBound()), 'g', 15) + "\t";
-        s += QString::number(qMax(scDiv->lowerBound(), scDiv->upperBound()), 'g', 15) + "\t";
+        s += QString::number(qMin(scDiv.lowerBound(), scDiv.upperBound()), 'g', 15) + "\t";
+        s += QString::number(qMax(scDiv.lowerBound(), scDiv.upperBound()), 'g', 15) + "\t";
 #else
         s += QString::number(qMin(scDiv->lBound(), scDiv->hBound()), 'g', 15) + "\t";
         s += QString::number(qMax(scDiv->lBound(), scDiv->hBound()), 'g', 15) + "\t";
@@ -2278,12 +2278,12 @@ QString Graph::saveCurveLayout(int index)
     s += QString::number(c->pen().style() - 1) + "\t";
     s += QString::number(c->pen().width()) + "\t";
 
-    const QwtSymbol symbol = c->symbol();
-    s += QString::number(symbol.size().width()) + "\t";
-    s += QString::number(SymbolBox::symbolIndex(symbol.style())) + "\t";
-    s += COLORNAME(symbol.pen().color()) + "\t";
-    if (symbol.brush().style() != Qt::NoBrush)
-        s += COLORNAME(symbol.brush().color()) + "\t";
+    const QwtSymbol *symbol = c->symbol();
+    s += QString::number(symbol->size().width()) + "\t";
+    s += QString::number(SymbolBox::symbolIndex(symbol->style())) + "\t";
+    s += COLORNAME(symbol->pen().color()) + "\t";
+    if (symbol->brush().style() != Qt::NoBrush)
+        s += COLORNAME(symbol->brush().color()) + "\t";
     else
         s += QString::number(-1) + "\t";
 
@@ -2293,7 +2293,7 @@ QString Graph::saveCurveLayout(int index)
     s += COLORNAME(c->brush().color()) + "\t";
     s += QString::number(PatternBox::patternIndex(c->brush().style())) + "\t";
     if (style <= LineSymbols || style == Box)
-        s += QString::number(symbol.pen().width()) + "\t";
+        s += QString::number(symbol->pen().width()) + "\t";
     // extension for custom dash pattern
     s += QString::number(static_cast<int>(c->pen().capStyle())) + "\t";
     s += QString::number(static_cast<int>(c->pen().joinStyle())) + "\t";
@@ -2938,11 +2938,12 @@ void Graph::updateCurveLayout(int index, const CurveLayout *cL)
 
     QPen pen = QPen(ColorButton::color(cL->symCol), cL->penWidth, Qt::SolidLine);
     if (cL->symbolFill)
-        c->setSymbol(QwtSymbol(SymbolBox::style(cL->sType), QBrush(ColorButton::color(cL->fillCol)),
-                               pen, QSize(cL->sSize, cL->sSize)));
+        c->setSymbol(new QwtSymbol(SymbolBox::style(cL->sType),
+                                   QBrush(ColorButton::color(cL->fillCol)), pen,
+                                   QSize(cL->sSize, cL->sSize)));
     else
-        c->setSymbol(
-                QwtSymbol(SymbolBox::style(cL->sType), QBrush(), pen, QSize(cL->sSize, cL->sSize)));
+        c->setSymbol(new QwtSymbol(SymbolBox::style(cL->sType), QBrush(), pen,
+                                   QSize(cL->sSize, cL->sSize)));
 
     // custom dash pattern
     pen = QPen(ColorButton::color(cL->lCol), cL->lWidth, getPenStyle(cL->lStyle));
@@ -3322,6 +3323,7 @@ bool Graph::insertCurve(Table *w, const QString &xColName, const QString &yColNa
     c_keys[n_curves - 1] = d_plot->insertCurve(c);
 
     c->setPen(QPen(Qt::black, widthLine));
+    c->setSymbol(new QwtSymbol());
 
     if (!c->loadData())
         return false;
@@ -3411,26 +3413,26 @@ void Graph::updatePlot()
 
 void Graph::updateScale()
 {
-    const QwtScaleDiv *scDiv = d_plot->axisScaleDiv(QwtPlot::xBottom);
-    QList<double> lst = scDiv->ticks(QwtScaleDiv::MajorTick);
+    QwtScaleDiv scDiv = d_plot->axisScaleDiv(QwtPlot::xBottom);
+    QList<double> lst = scDiv.ticks(QwtScaleDiv::MajorTick);
 
     double step = fabs(lst[1] - lst[0]);
 
     if (!m_autoscale)
 #if QWT_VERSION >= 0x050200
-        d_plot->setAxisScale(QwtPlot::xBottom, scDiv->lowerBound(), scDiv->upperBound(), step);
+        d_plot->setAxisScale(QwtPlot::xBottom, scDiv.lowerBound(), scDiv.upperBound(), step);
 #else
         d_plot->setAxisScale(QwtPlot::xBottom, scDiv->lBound(), scDiv->hBound(), step);
 #endif
 
     scDiv = d_plot->axisScaleDiv(QwtPlot::yLeft);
-    lst = scDiv->ticks(QwtScaleDiv::MajorTick);
+    lst = scDiv.ticks(QwtScaleDiv::MajorTick);
 
     step = fabs(lst[1] - lst[0]);
 
     if (!m_autoscale)
 #if QWT_VERSION >= 0x050200
-        d_plot->setAxisScale(QwtPlot::yLeft, scDiv->lowerBound(), scDiv->upperBound(), step);
+        d_plot->setAxisScale(QwtPlot::yLeft, scDiv.lowerBound(), scDiv.upperBound(), step);
 #else
         d_plot->setAxisScale(QwtPlot::yLeft, scDiv->lBound(), scDiv->hBound(), step);
 #endif
@@ -4540,7 +4542,7 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             c->setPen(cv->pen());
             c->setBrush(cv->brush());
             c->setStyle(cv->style());
-            c->setSymbol(cv->symbol());
+            c->setSymbol(new QwtSymbol(cv->symbol()->style()));
 
             if (cv->testCurveAttribute(QwtPlotCurve::Fitted))
                 c->setCurveAttribute(QwtPlotCurve::Fitted, true);
@@ -4615,14 +4617,14 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
         d_plot->setAxisMaxMajor(i, majorTicks);
         d_plot->setAxisMaxMinor(i, minorTicks);
 
-        const QwtScaleDiv *sd = plot->axisScaleDiv(i);
+        const QwtScaleDiv sd = plot->axisScaleDiv(i);
 
         d_user_step[i] = g->axisStep(i);
 
 #if QWT_VERSION >= 0x050200
-        QwtScaleDiv div = sc_engine->divideScale(qMin(sd->lowerBound(), sd->upperBound()),
-                                                 qMax(sd->lowerBound(), sd->upperBound()),
-                                                 majorTicks, minorTicks, d_user_step[i]);
+        QwtScaleDiv div = sc_engine->divideScale(qMin(sd.lowerBound(), sd.upperBound()),
+                                                 qMax(sd.lowerBound(), sd.upperBound()), majorTicks,
+                                                 minorTicks, d_user_step[i]);
 #else
         QwtScaleDiv div = sc_engine->divideScale(qMin(sd->lBound(), sd->hBound()),
                                                  qMax(sd->lBound(), sd->hBound()), majorTicks,
@@ -4692,8 +4694,8 @@ void Graph::plotBoxDiagram(Table *w, const QStringList &names, int startRow, int
         c_type[n_curves - 1] = Box;
 
         c->setPen(QPen(ColorButton::color(j), 1));
-        c->setSymbol(QwtSymbol(QwtSymbol::NoSymbol, QBrush(), QPen(ColorButton::color(j), 1),
-                               QSize(7, 7)));
+        c->setSymbol(new QwtSymbol(QwtSymbol::NoSymbol, QBrush(), QPen(ColorButton::color(j), 1),
+                                   QSize(7, 7)));
     }
 
     auto *mrk = dynamic_cast<Legend *>(d_plot->marker(legendMarkerID));
@@ -4740,7 +4742,7 @@ void Graph::setCurveStyle(int index, int s)
     c->setStyle((QwtPlotCurve::CurveStyle)s);
 }
 
-void Graph::setCurveSymbol(int index, const QwtSymbol &s)
+void Graph::setCurveSymbol(int index, QwtSymbol *s)
 {
     QwtPlotCurve *c = curve(index);
     if (!c)
@@ -4890,8 +4892,7 @@ void Graph::guessUniqueCurveLayout(int &colorIndex, int &symbolIndex)
             if (index > colorIndex)
                 colorIndex = index;
 
-            QwtSymbol symb = c->symbol();
-            index = SymbolBox::symbolIndex(symb.style());
+            index = SymbolBox::symbolIndex(c->symbol()->style());
             if (index > symbolIndex)
                 symbolIndex = index;
         }

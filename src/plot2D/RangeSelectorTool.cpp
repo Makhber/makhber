@@ -69,12 +69,12 @@ RangeSelectorTool::RangeSelectorTool(Graph *graph, const QObject *status_target,
             marker_size += qMax(ssize.width(), ssize.height());
     }
     */
-    d_active_marker.setSymbol(QwtSymbol(QwtSymbol::Ellipse, QBrush(QColor(255, 255, 0, 128)),
-                                        QPen(Qt::red, 2), QSize(marker_size, marker_size)));
+    d_active_marker.setSymbol(new QwtSymbol(QwtSymbol::Ellipse, QBrush(QColor(255, 255, 0, 128)),
+                                            QPen(Qt::red, 2), QSize(marker_size, marker_size)));
     d_active_marker.setLineStyle(QwtPlotMarker::VLine);
     d_active_marker.setLinePen(QPen(Qt::red, 1, Qt::DashLine));
-    d_inactive_marker.setSymbol(QwtSymbol(QwtSymbol::Ellipse, QBrush(QColor(255, 255, 0, 128)),
-                                          QPen(Qt::black, 2), QSize(marker_size, marker_size)));
+    d_inactive_marker.setSymbol(new QwtSymbol(QwtSymbol::Ellipse, QBrush(QColor(255, 255, 0, 128)),
+                                              QPen(Qt::black, 2), QSize(marker_size, marker_size)));
     d_inactive_marker.setLineStyle(QwtPlotMarker::VLine);
     d_inactive_marker.setLinePen(QPen(Qt::black, 1, Qt::DashLine));
     d_active_marker.setValue(d_selected_curve->sample(d_active_point).x(),
@@ -118,8 +118,8 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
         setActivePoint(point);
     else {
         // try to be intelligent about selecting the inactive point
-        double min_x = curve->data().boundingRect().left();
-        double max_x = curve->data().boundingRect().right();
+        double min_x = curve->data()->boundingRect().left();
+        double max_x = curve->data()->boundingRect().right();
         int n = curve->dataSize();
         double second_x = NAN;
         if (curve->sample(point).x() == min_x)

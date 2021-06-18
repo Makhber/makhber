@@ -134,12 +134,12 @@ void Spectrogram::showColorScale(int axis, bool on)
     setAxes(xAxis, yAxis);
 
     // Next we switch axes scales
-    QwtScaleDiv *scDiv = plot->axisScaleDiv(oldMainAxis);
+    QwtScaleDiv scDiv = plot->axisScaleDiv(oldMainAxis);
 #if QWT_VERSION >= 0x050200
     if (axis == QwtPlot::xBottom || axis == QwtPlot::xTop)
-        plot->setAxisScale(xAxis, scDiv->lowerBound(), scDiv->upperBound());
+        plot->setAxisScale(xAxis, scDiv.lowerBound(), scDiv.upperBound());
     else if (axis == QwtPlot::yLeft || color_axis == QwtPlot::yRight)
-        plot->setAxisScale(yAxis, scDiv->lowerBound(), scDiv->upperBound());
+        plot->setAxisScale(yAxis, scDiv.lowerBound(), scDiv.upperBound());
 #else
     if (axis == QwtPlot::xBottom || axis == QwtPlot::xTop)
         plot->setAxisScale(xAxis, scDiv->lBound(), scDiv->hBound());

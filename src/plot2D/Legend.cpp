@@ -157,14 +157,14 @@ void Legend::updateOrigin()
     const QwtScaleMap &xMap = d_plot->canvasMap(xAxis());
     const QwtScaleMap &yMap = d_plot->canvasMap(yAxis());
 
-    const QwtScaleDiv *xScDiv = d_plot->axisScaleDiv(xAxis());
+    const QwtScaleDiv xScDiv = d_plot->axisScaleDiv(xAxis());
     double xVal = xMap.invTransform(d_pos.x());
-    if (!xScDiv->contains(xVal))
+    if (!xScDiv.contains(xVal))
         return;
 
-    const QwtScaleDiv *yScDiv = d_plot->axisScaleDiv(yAxis());
+    const QwtScaleDiv yScDiv = d_plot->axisScaleDiv(yAxis());
     double yVal = yMap.invTransform(d_pos.y());
-    if (!yScDiv->contains(yVal))
+    if (!yScDiv.contains(yVal))
         return;
 
     setXValue(xVal);
@@ -290,7 +290,7 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
             else {
                 const QwtPlotCurve *curve = g->curve(cv);
                 if (curve && curve->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
-                    QwtSymbol symb = curve->symbol();
+                    const QwtSymbol *symb = curve->symbol();
                     const QBrush br = curve->brush();
                     QPen pen = curve->pen();
 
@@ -305,7 +305,7 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
                         } else
                             QwtPainter::drawLine(p, w, height[i], w + l, height[i]);
                     }
-                    int symb_size = symb.size().width();
+                    int symb_size = symb->size().width();
                     if (symb_size > 15)
                         symb_size = 15;
                     else if (symb_size < 3)
