@@ -1072,11 +1072,11 @@ void PlotDialog::showStatistics()
                              tr("Histogram and Probabilities for") + " " + h->title().text());
     if (t) {
         double h_sum = 0.0;
-        for (int i = 0; i < h->dataSize(); i++)
+        for (int i = 0; i < static_cast<int>(h->dataSize()); i++)
             h_sum += h->sample(i).y();
 
         double sum = 0.0;
-        for (int i = 0; i < h->dataSize(); i++) {
+        for (int i = 0; i < static_cast<int>(h->dataSize()); i++) {
             sum += h->sample(i).y();
             t->column(0)->setValueAt(i, h->sample(i).x());
             t->column(1)->setValueAt(i, h->sample(i).y());
@@ -1737,7 +1737,7 @@ bool PlotDialog::acceptParams()
         if (!sp || sp->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
             return false;
 
-        sp->setLevelsNumber(levelsBox->value());
+        sp->setLevelsNumber(); // levelsBox->value());
         if (autoContourBox->isChecked())
             sp->setDefaultContourPen(QPen(Qt::NoPen));
         else
@@ -2319,7 +2319,7 @@ void PlotDialog::updateBorder(int width)
     d_ml->notifyChanges();
 }
 
-void PlotDialog::changeMargin(int width)
+void PlotDialog::changeMargin() // int width)
 {
     if (privateTabWidget->currentWidget() != layerPage)
         return;
@@ -2327,16 +2327,16 @@ void PlotDialog::changeMargin(int width)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
-            /*if (g)
+            /* auto *g = dynamic_cast<Graph *>(allPlots.at(i));
+            if (g)
                 g->setMargin(width);*/
         }
     } else {
         auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
-        Graph *g = item->graph();
-        /*if (g)
+        /* Graph *g = item->graph();
+        if (g)
             g->setMargin(width);*/
     }
 }

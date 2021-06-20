@@ -171,7 +171,7 @@ void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map
             drawInwardTicks(painter, rect, map[i], i, min, maj);
     }
     if ((dynamic_cast<Graph *>(parent()))->axesBackbones()) {
-        int apw2 = axesLinewidth() / 2;
+        // int apw2 = axesLinewidth() / 2;
         bool clp = painter->hasClipping();
         painter->save();
         painter->setPen(QPen(canvas()->palette().color(QPalette::Active, QPalette::WindowText),
@@ -334,7 +334,7 @@ void Plot::drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleM
     painter->restore();
 }
 
-void Plot::setAxesLinewidth(int width)
+void Plot::setAxesLinewidth() // int width)
 {
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         auto *scale = (QwtScaleWidget *)this->axisWidget(i);
@@ -348,8 +348,8 @@ void Plot::setAxesLinewidth(int width)
 int Plot::axesLinewidth() const
 {
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
-        const QwtScaleWidget *scale = this->axisWidget(axis);
-        /*if (scale)
+        /* const QwtScaleWidget *scale = this->axisWidget(axis);
+        if (scale)
             return scale->penWidth();*/
     }
     return 0;
@@ -407,7 +407,7 @@ int Plot::closestCurve(int xpos, int ypos, int &dist, int &point)
 
         if (item->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
             auto *c = dynamic_cast<PlotCurve *>(item);
-            for (int i = 0; i < c->dataSize(); i++) {
+            for (int i = 0; i < static_cast<int>(c->dataSize()); i++) {
                 double cx = map[c->xAxis()].transform(c->sample(i).x()) - double(xpos);
                 double cy = map[c->yAxis()].transform(c->sample(i).y()) - double(ypos);
                 double f = qwtSqr(cx) + qwtSqr(cy);

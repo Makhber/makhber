@@ -68,8 +68,9 @@ void VectorCurve::copy(const VectorCurve *vc)
     // vectorEnd = dynamic_cast<QwtArrayData *>(vc->vectorEnd->copy());
 }
 
-void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       int from, int to) const
+/* void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                       int from, int to) const*/
+void VectorCurve::draw(QPainter *painter, int to) const
 {
     if (!painter || dataSize() <= 0)
         return;
@@ -184,7 +185,7 @@ void VectorCurve::setVectorEnd(const QString &xColName, const QString &yColName)
     loadData();
 }
 
-void VectorCurve::setVectorEnd(const QVector<double> &x, const QVector<double> &y)
+void VectorCurve::setVectorEnd() // const QVector<double> &x, const QVector<double> &y)
 {
     // vectorEnd = new Qwt QwtArrayData(x, y);
 }
@@ -371,7 +372,7 @@ bool VectorCurve::loadData()
     setSamples(X.data(), Y.data(), size);
     for (DataCurve *c : d_error_bars)
         c->setSamples(X.data(), Y.data(), size);
-    setVectorEnd(X2, Y2);
+    setVectorEnd(); // X2, Y2);
 
     return true;
 }

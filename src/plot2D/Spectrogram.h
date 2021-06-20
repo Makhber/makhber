@@ -53,7 +53,7 @@ public:
     Matrix *matrix() { return d_matrix; };
 
     int levels() { return (int)contourLevels().size() + 1; };
-    void setLevelsNumber(int levels);
+    void setLevelsNumber(); // int levels);
 
     bool hasColorScale();
     int colorScaleAxis() { return color_axis; };
@@ -66,7 +66,7 @@ public:
     void setDefaultColorMap();
     static QwtLinearColorMap defaultColorMap();
 
-    void setCustomColorMap(const QwtLinearColorMap &map);
+    void setCustomColorMap(); // const QwtLinearColorMap &map);
     void updateData(Matrix *m);
 
     //! Used when saving a project file

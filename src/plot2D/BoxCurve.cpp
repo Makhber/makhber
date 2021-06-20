@@ -89,7 +89,7 @@ void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMa
         dat[i] = sample(i).y();
 
     drawBox(painter, xMap, yMap, dat, size);
-    drawSymbols(painter, xMap, yMap, dat, size);
+    // drawSymbols(painter, xMap, yMap, dat, size);
 
     painter->restore();
     delete[] dat;
@@ -214,7 +214,7 @@ void BoxCurve::drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     else
         painter->drawLine(px - hbw, median, px + hbw, median);
 }
-
+/*
 void BoxCurve::drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                            double *dat, int size) const
 {
@@ -247,7 +247,7 @@ void BoxCurve::drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const Qwt
         // s.draw(painter, px, mean);
     }
 }
-
+*/
 void BoxCurve::setBoxStyle(int style)
 {
     if (b_style == style)

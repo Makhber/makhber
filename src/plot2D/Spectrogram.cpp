@@ -73,17 +73,17 @@ void Spectrogram::updateData(Matrix *m)
         return;
 
     setData(new MatrixData(m));
-    setLevelsNumber(levels());
+    setLevelsNumber(); // levels());
 
-    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
-    /* if (colorAxis)
+    /* QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    if (colorAxis)
         colorAxis->setColorMap(data()->range(), colorMap()); */
 
     // plot->setAxisScale(color_axis, data()->range().minValue(), data()->range().maxValue());
     plot->replot();
 }
 
-void Spectrogram::setLevelsNumber(int levels)
+void Spectrogram::setLevelsNumber() // int levels)
 {
     // double step = fabs(data().range().maxValue() - data().range().minValue()) / levels;
 
@@ -187,7 +187,7 @@ Spectrogram *Spectrogram::copy()
     // new_s->setColorMap(colorMap());
     new_s->setAxes(xAxis(), yAxis());
     new_s->setDefaultContourPen(defaultContourPen());
-    new_s->setLevelsNumber(levels());
+    new_s->setLevelsNumber(); // levels());
     new_s->color_map_policy = color_map_policy;
     return new_s;
 }
@@ -202,8 +202,8 @@ void Spectrogram::setGrayScale()
     if (!plot)
         return;
 
-    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
-    /* if (colorAxis)
+    /*QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    if (colorAxis)
         colorAxis->setColorMap(data()->range(), colorMap()); */
 }
 
@@ -217,12 +217,12 @@ void Spectrogram::setDefaultColorMap()
     if (!plot)
         return;
 
-    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
-    /* if (colorAxis)
+    /* QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    if (colorAxis)
         colorAxis->setColorMap(this->data()->range(), this->colorMap()); */
 }
 
-void Spectrogram::setCustomColorMap(const QwtLinearColorMap &map)
+void Spectrogram::setCustomColorMap() // const QwtLinearColorMap &map)
 {
     // setColorMap(map);
     // color_map = map;
@@ -232,8 +232,8 @@ void Spectrogram::setCustomColorMap(const QwtLinearColorMap &map)
     if (!plot)
         return;
 
-    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
-    /* if (colorAxis)
+    /* QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    if (colorAxis)
         colorAxis->setColorMap(this->data()->range(), this->colorMap()); */
 }
 

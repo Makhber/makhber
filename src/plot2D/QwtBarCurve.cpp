@@ -169,7 +169,7 @@ double QwtBarCurve::dataOffset()
         int dx = abs(xMap.transform(sample(1).x()) - xMap.transform(sample(0).x()));
         double bar_width = dx * (1 - bar_gap * 0.01);
         if (plot()->isVisible()) {
-            for (int i = 2; i < dataSize(); i++) {
+            for (int i = 2; i < static_cast<int>(dataSize()); i++) {
                 int min = abs(xMap.transform(sample(i).x()) - xMap.transform(sample(i - 1).x()));
                 if (min <= dx)
                     dx = min;
@@ -183,7 +183,7 @@ double QwtBarCurve::dataOffset()
         int dy = abs(yMap.transform(sample(1).y()) - yMap.transform(sample(0).y()));
         double bar_width = dy * (1 - bar_gap * 0.01);
         if (plot()->isVisible()) {
-            for (int i = 2; i < dataSize(); i++) {
+            for (int i = 2; i < static_cast<int>(dataSize()); i++) {
                 int min = abs(yMap.transform(sample(i).y()) - yMap.transform(sample(i - 1).y()));
                 if (min <= dy)
                     dy = min;

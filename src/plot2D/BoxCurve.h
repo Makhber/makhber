@@ -84,8 +84,8 @@ private:
     void drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, double *dat,
                  int size) const;
     using QwtPlotCurve::drawSymbols;
-    void drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                     double *dat, int size) const;
+    /*void drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                     double *dat, int size) const;*/
 
     QwtSymbol::Style min_style, max_style, mean_style, p99_style, p1_style;
     double b_coeff, w_coeff;

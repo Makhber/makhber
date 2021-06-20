@@ -79,7 +79,7 @@ public:
     void setTickLength(int minLength, int majLength);
 
     int axesLinewidth() const;
-    void setAxesLinewidth(int width);
+    void setAxesLinewidth(); // int width);
 
     void setAxisLabelFormat(int axis, char f, int prec);
     void axisLabelFormat(int axis, char &f, int &prec) const;

@@ -1505,7 +1505,7 @@ void AxesDialog::updateScale()
     const QwtScaleEngine *sc_eng = d_plot->axisScaleEngine(a);
     btnInvert->setChecked(sc_eng->testAttribute(QwtScaleEngine::Inverted));
 
-    QwtTransform *tr = sc_eng->transformation();
+    // QwtTransform *tr = sc_eng->transformation();
     // boxScaleType->setCurrentIndex((int)tr->type());
 
     boxMinorValue->clear();

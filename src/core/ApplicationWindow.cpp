@@ -9747,7 +9747,7 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
             ag->loadAxesOptions(fList[1]);
         } else if (s.contains("AxesLineWidth")) {
             QStringList fList = s.split("\t");
-            ag->loadAxesLinewidth(fList[1].toInt());
+            ag->loadAxesLinewidth(); // fList[1].toInt());
         } else if (s.contains("CanvasFrame")) {
             QStringList list = s.split("\t");
             ag->drawCanvasFrame(list);

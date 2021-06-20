@@ -1962,7 +1962,7 @@ void Graph::setAxesLinewidth(int width)
     if (d_plot->axesLinewidth() == width)
         return;
 
-    d_plot->setAxesLinewidth(width);
+    d_plot->setAxesLinewidth(); // width);
 
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         auto *scale = (QwtScaleWidget *)d_plot->axisWidget(i);
@@ -1976,9 +1976,9 @@ void Graph::setAxesLinewidth(int width)
     Q_EMIT modifiedGraph();
 }
 
-void Graph::loadAxesLinewidth(int width)
+void Graph::loadAxesLinewidth() // int width)
 {
-    d_plot->setAxesLinewidth(width);
+    d_plot->setAxesLinewidth(); // width);
 }
 
 QString Graph::saveCanvas()
@@ -2068,7 +2068,7 @@ QString Graph::saveScale()
         s += QString::number(d_plot->axisMaxMinor(i)) + "\t";
 
         const QwtScaleEngine *sc_eng = d_plot->axisScaleEngine(i);
-        QwtTransform *tr = sc_eng->transformation();
+        // QwtTransform *tr = sc_eng->transformation();
         // s += QString::number((int)tr->type()) + "\t";
         s += QString::number(0) + "\t";
         s += QString::number(sc_eng->testAttribute(QwtScaleEngine::Inverted)) + "\n";
@@ -3776,7 +3776,8 @@ bool Graph::modifyFunctionCurve(ApplicationWindow *parent, int curve, int type,
         return false;
 
     if (c->functionType() == type && c->variable() == var && c->formulas() == formulas
-        && c->startRange() == ranges[0] && c->endRange() == ranges[1] && c->dataSize() == points)
+        && c->startRange() == ranges[0] && c->endRange() == ranges[1]
+        && static_cast<int>(c->dataSize()) == points)
         return true;
 
     FunctionCurve backup(parent);
@@ -4999,7 +5000,7 @@ void Graph::restoreSpectrogram(ApplicationWindow *app, const QStringList &lst)
                 QStringList l = s.remove("<Stop>").remove("</Stop>").split("\t");
                 colorMap.addColorStop(l[0].toDouble(), QColor(COLORVALUE(l[1])));
             }
-            sp->setCustomColorMap(colorMap);
+            sp->setCustomColorMap(); // colorMap);
             line++;
         } else if (s.contains("<Image>")) {
             int mode = s.remove("<Image>").remove("</Image>").trimmed().toInt();
@@ -5009,8 +5010,8 @@ void Graph::restoreSpectrogram(ApplicationWindow *app, const QStringList &lst)
             sp->setDisplayMode(QwtPlotSpectrogram::ContourMode, contours);
             if (contours) {
                 s = (*(++line)).trimmed();
-                int levels = s.remove("<Levels>").remove("</Levels>").toInt();
-                sp->setLevelsNumber(levels);
+                // int levels = s.remove("<Levels>").remove("</Levels>").toInt();
+                sp->setLevelsNumber(); // levels);
 
                 s = (*(++line)).trimmed();
                 int defaultPen = s.remove("<DefaultPen>").remove("</DefaultPen>").toInt();

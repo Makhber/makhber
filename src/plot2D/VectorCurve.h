@@ -51,8 +51,9 @@ public:
 
     // QRectF boundingRect() const;
 
-    void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
-              int to) const;
+    /*void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
+              int to) const;*/
+    void draw(QPainter *painter, int to) const;
 
     /* void drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int
        from, int to) const; */
@@ -63,7 +64,7 @@ public:
     QString vectorEndXAColName() { return d_end_x_a; };
     QString vectorEndYMColName() { return d_end_y_m; };
     void setVectorEnd(const QString &xColName, const QString &yColName);
-    void setVectorEnd(const QVector<double> &x, const QVector<double> &y);
+    void setVectorEnd(); // const QVector<double> &x, const QVector<double> &y);
 
     int width();
     void setWidth(int w);

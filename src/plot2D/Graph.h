@@ -531,7 +531,7 @@ public Q_SLOTS:
 
     void setAxesLinewidth(int width);
     //! used when opening a project file
-    void loadAxesLinewidth(int width);
+    void loadAxesLinewidth(); // int width);
 
     void drawAxesBackbones(bool yes);
     bool axesBackbones() { return drawAxesBackbone; };
