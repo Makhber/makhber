@@ -7624,7 +7624,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1336"/>
         <location filename="../src/plot2D/Graph.cpp" line="1354"/>
         <location filename="../src/plot2D/Graph.cpp" line="1369"/>
-        <location filename="../src/plot2D/Graph.cpp" line="5063"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5064"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
@@ -7646,9 +7646,9 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/plot2D/Graph.cpp" line="1380"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4266"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4270"/>
-        <location filename="../src/plot2D/Graph.cpp" line="5051"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4267"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4271"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5052"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
@@ -7675,107 +7675,107 @@ p, li { white-space: pre-wrap; }
         <translation>Die Bilddatei: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; existiert nicht mehr!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3946"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3947"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3948"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3949"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3955"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3956"/>
         <source>Data set generated from curve</source>
         <translation>Aus der Kurve generierter Datensatz</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3956"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3957"/>
         <source>Curve data %1</source>
         <translation>Kurvendaten %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4267"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4268"/>
         <source>The columns</source>
         <translation>Die Spalten</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4268"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4269"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>sind leer und werden nicht zum Diagramm hinzugefügt!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4271"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4272"/>
         <source>The column</source>
         <translation>Die Spalte</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4272"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4273"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>ist leer und wird nicht zum Diagramm hinzugefügt!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4278"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4324"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4279"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
         <source>&amp;Cut</source>
         <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4279"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4280"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4326"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopieren</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4280"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4326"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4281"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4327"/>
         <source>&amp;Delete</source>
         <translation>&amp;Löschen</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4282"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4330"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4334"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4338"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4342"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4370"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4283"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4331"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4335"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4339"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4343"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4371"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Eigenschaften...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4354"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4355"/>
         <source>&amp;Rescale to show all</source>
         <translation>Auf Komplettansicht &amp;reskalieren</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4355"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4356"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4357"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4358"/>
         <source>&amp;Hide axis</source>
         <translation>Achse &amp;verbergen</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4359"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4360"/>
         <source>&amp;Show grids</source>
         <translation>Gitter &amp;anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4369"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4370"/>
         <source>&amp;Scale...</source>
         <translation>&amp;Skala...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="5052"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5053"/>
         <source>There are no curves available on this plot!</source>
         <translation>In diesem Diagramm existieren keine Kurven!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="5064"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5065"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>Es gibt keine Kurven mit mehr als 2 Punkten in diesem Diagramm. Operation abgebrochen!</translation>
     </message>

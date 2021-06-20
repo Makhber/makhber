@@ -92,7 +92,7 @@ public:
     void setAngle(int ang) { d_angle = ang; };
 
 private:
-    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap, const QRect &r) const;
+    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap, const QRectF &r) const;
 
     void drawFrame(QPainter *p, int type, const QRect &rect) const;
     void drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,

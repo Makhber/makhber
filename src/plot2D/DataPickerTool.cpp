@@ -415,7 +415,13 @@ void DataPickerTool::moveBy(int dx, int dy)
     end(true);
 }
 
-QwtText DataPickerTool::trackerText(const QPointF &point) const
+QwtText DataPickerTool::trackerText(const QPoint &point) const
+{
+    return plot()->axisScaleDraw(xAxis())->label(point.x()).text() + ", "
+            + plot()->axisScaleDraw(yAxis())->label(point.y()).text();
+}
+
+QwtText DataPickerTool::trackerTextF(const QPointF &point) const
 {
     return plot()->axisScaleDraw(xAxis())->label(point.x()).text() + ", "
             + plot()->axisScaleDraw(yAxis())->label(point.y()).text();

@@ -110,7 +110,7 @@ void ScaleDraw::labelFormat(char &f, int &prec) const
     prec = d_prec;
 }
 
-void ScaleDraw::drawTick(QPainter *p, double value, int len) const
+void ScaleDraw::drawTick(QPainter *p, double value, double len) const
 {
     QwtScaleDiv scDiv = scaleDiv();
     QList<double> majTicks = scDiv.ticks(QwtScaleDiv::MajorTick);

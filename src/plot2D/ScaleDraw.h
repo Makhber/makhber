@@ -68,7 +68,7 @@ public:
     void setMinorTicksStyle(TicksStyle type) { d_minTicks = type; };
 
 protected:
-    void drawTick(QPainter *p, double value, int len) const;
+    void drawTick(QPainter *p, double value, double len) const;
 
 private:
     QString formula_string;

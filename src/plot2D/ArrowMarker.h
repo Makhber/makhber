@@ -130,7 +130,7 @@ public:
     bool eventFilter(QObject *o, QEvent *e);
 
 private:
-    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap, const QRect &r) const;
+    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap, const QRectF &r) const;
     double theta(int xs, int ys, int xe, int ye) const;
 
     //! Flag specifying if the start arrow is visible

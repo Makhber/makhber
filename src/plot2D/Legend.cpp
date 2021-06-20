@@ -60,7 +60,7 @@ Legend::Legend(Plot *plot) : d_plot(plot), d_frame(0), d_angle(0)
 }
 
 void Legend::draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                  const QRect &) const
+                  const QRectF &) const
 {
     const int x = xMap.transform(xValue());
     const int y = yMap.transform(yValue());

@@ -46,7 +46,7 @@ ImageMarker::ImageMarker(const QString &fn) : d_pos(QPoint(0, 0)), d_x_right(0),
 }
 
 void ImageMarker::draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       const QRect &) const
+                       const QRectF &) const
 {
     const int x0 = xMap.transform(xValue());
     const int y0 = yMap.transform(yValue());

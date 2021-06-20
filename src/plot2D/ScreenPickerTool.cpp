@@ -67,7 +67,7 @@ void ScreenPickerTool::append(const QPoint &point)
     //	QwtPlotPicker::append(point);
 
     QPointF pos = invTransform(point);
-    Q_EMIT statusText(trackerText(pos).text());
+    Q_EMIT statusText(trackerTextF(pos).text());
 
     d_selection_marker.setValue(pos);
     if (d_selection_marker.plot() == nullptr)
@@ -98,7 +98,13 @@ bool ScreenPickerTool::eventFilter(QObject *obj, QEvent *event)
     return QwtPlotPicker::eventFilter(obj, event);
 }
 
-QwtText ScreenPickerTool::trackerText(const QPointF &point) const
+QwtText ScreenPickerTool::trackerText(const QPoint &point) const
+{
+    return plot()->axisScaleDraw(xAxis())->label(point.x()).text() + ", "
+            + plot()->axisScaleDraw(yAxis())->label(point.y()).text();
+}
+
+QwtText ScreenPickerTool::trackerTextF(const QPointF &point) const
 {
     return plot()->axisScaleDraw(xAxis())->label(point.x()).text() + ", "
             + plot()->axisScaleDraw(yAxis())->label(point.y()).text();

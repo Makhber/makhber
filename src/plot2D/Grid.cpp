@@ -56,7 +56,7 @@ Grid::Grid() : QwtPlotGrid(), mrkX(-1), mrkY(-1)
   \param r Contents rect of the plot canvas
   */
 void Grid::draw(QPainter *painter, const QwtScaleMap &mx, const QwtScaleMap &my,
-                const QRect &r) const
+                const QRectF &r) const
 {
     //  draw minor X gridlines
     painter->setPen(minorPen());
@@ -89,7 +89,7 @@ void Grid::draw(QPainter *painter, const QwtScaleMap &mx, const QwtScaleMap &my,
     }
 }
 
-void Grid::drawLines(QPainter *painter, const QRect &rect, Qt::Orientation orientation,
+void Grid::drawLines(QPainter *painter, const QRectF &rect, Qt::Orientation orientation,
                      const QwtScaleMap &map, const QList<double> &values) const
 {
     const int x1 = rect.left();

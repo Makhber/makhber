@@ -40,8 +40,8 @@ public:
     Grid();
 
     void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-              const QRect &rect) const;
-    void drawLines(QPainter *painter, const QRect &rect, Qt::Orientation orientation,
+              const QRectF &rect) const;
+    void drawLines(QPainter *painter, const QRectF &rect, Qt::Orientation orientation,
                    const QwtScaleMap &map, const QList<double> &values) const;
 
     bool xZeroLineEnabled() { return (mrkX >= 0) ? true : false; };

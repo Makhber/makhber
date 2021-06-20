@@ -152,7 +152,7 @@ void Plot::printFrame(QPainter *painter, const QRect &rect) const
     painter->restore();
 }
 
-void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt]) const
+void Plot::drawItems(QPainter *painter, const QRectF &rect, const QwtScaleMap map[axisCnt]) const
 {
     // QwtPlot::drawItems(painter, rect, map, pfilter);
 
@@ -184,7 +184,7 @@ void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map
     }
 }
 
-void Plot::drawInwardTicks(QPainter *painter, const QRect &rect, const QwtScaleMap &map, int axis,
+void Plot::drawInwardTicks(QPainter *painter, const QRectF &rect, const QwtScaleMap &map, int axis,
                            bool min, bool maj) const
 {
     int x1 = rect.left();
