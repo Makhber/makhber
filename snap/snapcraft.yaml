@@ -56,6 +56,7 @@ parts:
     after:
       - gsl
       - muparser
+      - qwt
       - pyqt5
       - pyqt5-sip
   gsl:
@@ -87,6 +88,25 @@ parts:
     prime:
       - -usr/include
       - -usr/lib/x86_64-linux-gnu/pkgconfig
+  qwt:
+    source-type: tar
+    source: https://downloads.sourceforge.net/qwt/qwt-6.1.6.tar.bz2
+    source-checksum: sha256/99460d31c115ee4117b0175d885f47c2c590d784206f09815dc058fbe5ede1f6
+    plugin: make
+    build-packages:
+      - g++
+    override-build: |
+      sed -i "s|^\\s*QWT_INSTALL_PREFIX.*$|QWT_INSTALL_PREFIX=$SNAPCRAFT_PART_INSTALL/usr|g" qwtconfig.pri
+      sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
+      /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/qt5/bin/qmake \
+        CONFIG-=debug_and_release \
+        CONFIG+=release \
+        qwt.pro
+      snapcraftctl build
+    prime:
+      - -usr/include
+      - -usr/doc
+      - -usr/features
   pyqt5:
     source-type: tar
     source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz

@@ -52,19 +52,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1
-        with:
-          path: ../Qt
-          key: ${{ runner.os }}-QtCache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: 5.15.2
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
       - name: Setup NuGet Credentials
         run: |
           & $(vcpkg fetch nuget | select -last 1) sources add `
@@ -76,7 +63,11 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps openssl --triplet x64-windows
+          vcpkg install zlib gsl muparser qwt opengl gl2ps openssl --triplet x64-windows
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
 
       - name: Install Python packages
         run: |
@@ -120,27 +111,15 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v1
-        with:
-          path: ../Qt
-          key: ${{ runner.os }}-QtCache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: 5.15.2
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-
       - name: Install prerequisties
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
-          brew install --display-times muparser gsl gl2ps
+          brew install --display-times qwt muparser gsl gl2ps
 
       - name: Configuring
         run: |
+          export PATH=/usr/local/opt/qt@5/bin:$PATH
           mkdir build && cd build
           cmake .. \
             -DCMAKE_BUILD_TYPE=Release
@@ -295,6 +274,25 @@ jobs:
             wget
           pip3 install pyqt5 sip pyqt-builder
 
+      - name: Cache Qwt
+        id: cache-qwt
+        uses: actions/cache@v1
+        with:
+          path: ../Qwt
+          key: ${{ runner.os }}-Qwt-9
+
+      - name: Build and install Qwt
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+        run: |
+          wget https://downloads.sourceforge.net/qwt/qwt-6.1.6.tar.bz2
+          tar -xf qwt-6.1.6.tar.bz2 && cd qwt-6.1.6
+          sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDll$|#|g" qwtconfig.pri
+          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
+          make -j$(nproc)
+          make install
+
       - name: Setup NuGet Credentials
         run: |
           mono `vcpkg fetch nuget | tail -n 1` sources add \
@@ -316,7 +314,8 @@ jobs:
             -DCMAKE_INSTALL_PREFIX=/usr \
             -DCMAKE_BUILD_TYPE=Release \
             -DOpenGL_GL_PREFERENCE=LEGACY \
-            -DCMAKE_TOOLCHAIN_FILE=$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake
+            -DCMAKE_TOOLCHAIN_FILE=$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake \
+            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/../Qwt
 
       - name: Building
         run: |
@@ -361,6 +360,7 @@ jobs:
             qttools5-dev \
             libgsl-dev \
             libmuparser-dev \
+            libqwt-qt5-dev \
             libgl2ps-dev \
             pyqt5-dev \
             python3-pyqt5 \
@@ -413,6 +413,7 @@ jobs:
             qt5-qttools-devel \
             gsl-devel \
             muParser-devel \
+            qwt-devel \
             gl2ps-devel \
             zlib-devel \
             mesa-libGLU-devel \

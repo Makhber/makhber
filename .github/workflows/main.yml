@@ -63,7 +63,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt
+          key: ${{ runner.os }}-Qwt-9
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -73,7 +73,7 @@ jobs:
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
           make -j$(nproc)
-          sudo make install
+          make install
 
       - name: Install Python packages
         run: |
@@ -139,8 +139,7 @@ jobs:
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
-            -DMAKHBER_BUILD_TESTS=ON `
-            -DCMAKE_SYSTEM_VERSION="10.0"
+            -DMAKHBER_BUILD_TESTS=ON
 
       - name: Building
         run: |
@@ -198,7 +197,7 @@ jobs:
           sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
           make -j$(sysctl -n hw.logicalcpu)
-          sudo make install
+          make install
 
       - name: Configuring
         run: |
