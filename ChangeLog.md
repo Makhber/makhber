@@ -1,5 +1,15 @@
 # Changelog
 
+## Makhber 0.10.0
+
+Released: DD-MM-YYYY
+
+### General
+
+### Core
+
+- Move to Qwt 6.1
+
 ## Makhber 0.9.4
 
 Released: 24-05-2021

@@ -4,7 +4,7 @@ cmake_policy(SET CMP0083 NEW)
 cmake_policy(SET CMP0091 NEW)
 
 project( makhber
-  VERSION 0.9.4
+  VERSION 0.10.0
   DESCRIPTION "Free application for Visualization and Analysis of Scientific Data"
   HOMEPAGE_URL "https://github.com/Makhber/makhber"
   LANGUAGES CXX C
@@ -13,7 +13,7 @@ project( makhber
 math( EXPR PROJECT_VERSION_NO "${PROJECT_VERSION_MAJOR} * 65536 + \
   ${PROJECT_VERSION_MINOR} * 256 + ${PROJECT_VERSION_PATCH}" )
 
-set( PROJECT_RELEASE_DATE "May, 24 2021" )
+set( PROJECT_RELEASE_DATE "MMM, DD YYYY" )
 
 set( CMAKE_CXX_STANDARD 17 )
 set( CMAKE_CXX_STANDARD_REQUIRED TRUE )
