@@ -1,6 +1,3 @@
-[submodule "3rdparty/qwt5-qt5"]
-	path = 3rdparty/qwt5-qt5
-	url = https://github.com/Makhber/qwt5-qt5
 [submodule "3rdparty/qwtplot3d"]
 	path = 3rdparty/qwtplot3d
 	url = https://github.com/Makhber/qwtplot3d
