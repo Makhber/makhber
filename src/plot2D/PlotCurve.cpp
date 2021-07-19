@@ -33,6 +33,7 @@
 #include "aspects/datatypes/DateTime2StringFilter.h"
 
 #include <qwt_symbol.h>
+#include <qwt_scale_map.h>
 
 #include <QDateTime>
 #include <QMessageBox>

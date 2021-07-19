@@ -31,10 +31,11 @@
 
 #include "matrix/Matrix.h"
 
-#include <qwt_raster_data.h>
+#include <qwt_matrix_raster_data.h>
 #include <qwt_plot.h>
 #include <qwt_plot_spectrogram.h>
 #include <qwt_color_map.h>
+#include <qwt_interval.h>
 
 #include <limits>
 #include <cmath>
@@ -87,7 +88,7 @@ protected:
     QwtLinearColorMap color_map;
 };
 
-class MatrixData : public QwtRasterData
+class MatrixData : public QwtMatrixRasterData
 {
 public:
     MatrixData(Matrix *m) : d_matrix(m)

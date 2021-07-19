@@ -29,6 +29,8 @@
 
 #include "PlotEnrichement.h"
 
+#include <qwt_scale_map.h>
+
 PlotEnrichement::PlotEnrichement() : d_x_right(0), d_y_bottom(0), d_pos(QPoint()), d_size(QSize())
 {
 }

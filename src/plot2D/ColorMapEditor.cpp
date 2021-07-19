@@ -29,6 +29,8 @@
 
 #include "core/ColorButton.h"
 
+#include <qwt_interval.h>
+
 #include <QPushButton>
 #include <QTableWidget>
 #include <QHeaderView>

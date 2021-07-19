@@ -63,13 +63,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-9
+          key: ${{ runner.os }}-Qwt-6.2.0-gcc-9
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
-          wget https://downloads.sourceforge.net/qwt/qwt-6.1.6.tar.bz2
-          tar -xf qwt-6.1.6.tar.bz2 && cd qwt-6.1.6
+          wget https://downloads.sourceforge.net/qwt/qwt-6.2.0.tar.bz2
+          tar -xf qwt-6.2.0.tar.bz2 && cd qwt-6.2.0
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
           make -j$(nproc)
@@ -187,13 +187,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt
+          key: ${{ runner.os }}-Qwt-6.2.0
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
-          wget https://downloads.sourceforge.net/qwt/qwt-6.1.6.tar.bz2
-          tar -xf qwt-6.1.6.tar.bz2 && cd qwt-6.1.6
+          wget https://downloads.sourceforge.net/qwt/qwt-6.2.0.tar.bz2
+          tar -xf qwt-6.2.0.tar.bz2 && cd qwt-6.2.0
           sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
           make -j$(sysctl -n hw.logicalcpu)

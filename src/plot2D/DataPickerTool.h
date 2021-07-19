@@ -31,10 +31,12 @@
 #ifndef DATA_PICKER_TOOL_H
 #define DATA_PICKER_TOOL_H
 
+#include "plot2D/PlotToolInterface.h"
+
 #include <qwt_plot_marker.h>
 #include <qwt_plot_picker.h>
 
-#include "plot2D/PlotToolInterface.h"
+#include <QPoint>
 
 class ApplicationWindow;
 class QwtPlotCurve;

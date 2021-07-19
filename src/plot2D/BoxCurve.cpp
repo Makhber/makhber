@@ -33,8 +33,12 @@
 #include <gsl/gsl_sort.h>
 #include <gsl/gsl_statistics.h>
 
+#include <qwt_scale_map.h>
+
 #include <QPainter>
 #include <QLocale>
+
+#include <cmath>
 
 BoxCurve::BoxCurve(Table *t, QString name, int startRow, int endRow)
     : DataCurve(t, QString(), name, startRow, endRow)

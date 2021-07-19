@@ -31,6 +31,8 @@
 
 #include "plot2D/PlotEnrichement.h"
 
+#include <QPen>
+
 /*!\brief Draws lines and arrows on a QwtPlot.
  *
  * \section design Design Ideas

@@ -33,6 +33,8 @@
 #include <qwt_plot_grid.h>
 #include <qwt_plot_marker.h>
 
+#include <QPen>
+
 //! 2D Grid class
 class Grid : public QwtPlotGrid
 {

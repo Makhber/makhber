@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <thread>
+#include <cmath>
 
 static double sqr(double x)
 {

@@ -32,6 +32,8 @@
 #include "plot2D/Graph.h"
 #include "plot2D/DataPickerTool.h"
 
+#include <cmath>
+
 /**
  * \class DataPointPicker
  * \brief Let the user pick single data points from a plot.

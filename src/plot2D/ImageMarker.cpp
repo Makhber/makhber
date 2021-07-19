@@ -29,6 +29,8 @@
 
 #include "ImageMarker.h"
 
+#include <qwt_scale_map.h>
+
 #include <QPainter>
 #include <QImageReader>
 

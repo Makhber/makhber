@@ -33,6 +33,7 @@
 #include <qwt_plot.h>
 #include <qwt_plot_canvas.h>
 #include <qwt_painter.h>
+#include <qwt_scale_map.h>
 
 #include <QPainter>
 #include <QMouseEvent>

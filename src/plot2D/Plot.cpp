@@ -41,6 +41,7 @@
 #include <qwt_scale_widget.h>
 #include <qwt_scale_map.h>
 #include <qwt_text_label.h>
+#include <qwt_math.h>
 
 #include <QPainter>
 
@@ -516,7 +517,11 @@ void Plot::setMinorTicksType(int axis, int type)
 
 int Plot::axisLabelFormat(int axis)
 {
+#if QWT_VERSION >= 0x060200
+    if (isAxisValid(axis)) {
+#else
     if (axisValid(axis)) {
+#endif
         int prec = 0;
         char format = 0;
 
@@ -538,7 +543,11 @@ int Plot::axisLabelFormat(int axis)
 
 int Plot::axisLabelPrecision(int axis)
 {
+#if QWT_VERSION >= 0x060200
+    if (isAxisValid(axis)) {
+#else
     if (axisValid(axis)) {
+#endif
         auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
         return sd->labelNumericPrecision();
     }
@@ -555,7 +564,11 @@ int Plot::axisLabelPrecision(int axis)
   */
 void Plot::axisLabelFormat(int axis, char &f, int &prec) const
 {
+#if QWT_VERSION >= 0x060200
+    if (isAxisValid(axis)) {
+#else
     if (axisValid(axis)) {
+#endif
         auto *sd = (ScaleDraw *)axisScaleDraw(axis);
         sd->labelFormat(f, prec);
     } else {
@@ -573,7 +586,11 @@ void Plot::axisLabelFormat(int axis, char &f, int &prec) const
   */
 void Plot::setAxisLabelFormat(int axis, char f, int prec)
 {
+#if QWT_VERSION >= 0x060200
+    if (isAxisValid(axis)) {
+#else
     if (axisValid(axis)) {
+#endif
         auto *sd = dynamic_cast<ScaleDraw *>(axisScaleDraw(axis));
         sd->setLabelFormat(f, prec);
     }

@@ -121,9 +121,11 @@ void DataPickerTool::setSelection(QwtPlotCurve *curve, int point_index)
         d_graph->plotWidget()->replot();
         return;
     }
-
+#if QWT_VERSION >= 0x060200
+    setAxes(d_selected_curve->xAxis(), d_selected_curve->yAxis());
+#else
     setAxis(d_selected_curve->xAxis(), d_selected_curve->yAxis());
-
+#endif
     d_move_target_pos =
             QPoint(plot()->transform(xAxis(), d_selected_curve->sample(d_selected_point).x()),
                    plot()->transform(yAxis(), d_selected_curve->sample(d_selected_point).y()));

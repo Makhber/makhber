@@ -33,6 +33,7 @@
 #include "aspects/column/Column.h"
 
 #include <qwt_plot_layout.h>
+#include <qwt_scale_map.h>
 
 #include <QPaintDevice>
 #include <QPainter>

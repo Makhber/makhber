@@ -33,6 +33,7 @@
 
 #include <qwt_painter.h>
 #include <qwt_symbol.h>
+#include <qwt_scale_map.h>
 
 #include <QPainter>
 #include <QLocale>

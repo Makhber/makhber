@@ -28,6 +28,8 @@
  ***************************************************************************/
 #include "QwtBarCurve.h"
 
+#include <qwt_scale_map.h>
+
 #include <QPainter>
 
 #include <cmath>

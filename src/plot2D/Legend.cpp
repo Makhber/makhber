@@ -37,10 +37,13 @@
 #include <qwt_plot_layout.h>
 #include <qwt_plot_canvas.h>
 #include <qwt_symbol.h>
+#include <qwt_scale_map.h>
 
 #include <QPainter>
 #include <QPolygon>
 #include <QMessageBox>
+
+#include <cmath>
 
 Legend::Legend(Plot *plot) : d_plot(plot), d_frame(0), d_angle(0)
 {

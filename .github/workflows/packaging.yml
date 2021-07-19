@@ -279,13 +279,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-9
+          key: ${{ runner.os }}-Qwt-6.2.0-gcc-9
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
-          wget https://downloads.sourceforge.net/qwt/qwt-6.1.6.tar.bz2
-          tar -xf qwt-6.1.6.tar.bz2 && cd qwt-6.1.6
+          wget https://downloads.sourceforge.net/qwt/qwt-6.2.0.tar.bz2
+          tar -xf qwt-6.2.0.tar.bz2 && cd qwt-6.2.0
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
           sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDll$|#|g" qwtconfig.pri

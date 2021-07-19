@@ -8,6 +8,7 @@
 #include <QMdiArea>
 
 #include <iostream>
+#include <cmath>
 
 TEST_F(ApplicationWindowTest, fft)
 {
