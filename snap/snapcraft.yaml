@@ -109,37 +109,14 @@ parts:
         --api-dir=$SNAPCRAFT_PART_INSTALL/usr/share/qt5/qsci/api/python \
         --concatenate 1 \
         --no-make \
-        --no-designer-plugin \
-        --no-qml-plugin \
         --no-tools \
-        --disable QtQml \
-        --disable QtBluetooth \
-        --disable QtDBus \
-        --disable QtDesigner \
-        --disable QtHelp \
-        --disable QtMultimedia \
-        --disable QtMultimediaWidgets \
-        --disable QtNfc \
-        --disable QtPositioning \
-        --disable QtLocation \
-        --disable QtQuick \
-        --disable QtQuickWidgets \
-        --disable QtSensors \
-        --disable QtSerialPort \
-        --disable QtSql \
-        --disable QtTest \
-        --disable QtWebChannel \
-        --disable QtWebKit \
-        --disable QtWebKitWidgets \
-        --disable QtWebSockets \
-        --disable QtX11Extras \
-        --disable QtXml \
-        --disable QtXmlPatterns \
-        --disable _QOpenGLFunctions_2_0 \
-        --disable _QOpenGLFunctions_2_1 \
-        --disable _QOpenGLFunctions_4_1_Core \
-        --disable pylupdate \
-        --disable pyrcc \
+        --enable QtCore \
+        --enable QtWidgets \
+        --enable QtGui \
+        --enable QtPrintSupport \
+        --enable QtOpenGL \
+        --enable QtSvg \
+        --enable QtNetwork \
         --verbose
       cd $SNAPCRAFT_PART_BUILD
       snapcraftctl build
