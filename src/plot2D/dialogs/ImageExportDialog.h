@@ -82,11 +82,11 @@ public:
     bool color() const { return d_color->isChecked(); }
     //! For vector formats: returns whether the output should preserve aspect ratio of the plot (default: true).
     bool keepAspect() const { return d_keep_aspect->isChecked(); }
-    //! For vector formats: returns a standard output page size (default: QPrinter::Custom).
+    //! For vector formats: returns a standard output page size (default: QPageSize::Custom).
     QPageSize pageSize() const;
     void setPageSize(QPageSize size);
     QPageLayout::Orientation pageOrientation() const;
-    void setOrientation(QPrinter::Orientation orientation);
+    void setOrientation(QPageLayout::Orientation orientation);
     //! Return the quality (in percent) the user selected for export to raster formats.
     int quality() const { return d_quality->value(); }
 

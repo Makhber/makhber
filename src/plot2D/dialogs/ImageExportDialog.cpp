@@ -151,7 +151,7 @@ void ImageExportDialog::initAdvancedOptions()
     d_box_page_orientation->addItem(tr("Landscape", "page orientation"),
                                     QVariant(QPageLayout::Landscape));
     d_box_page_orientation->setCurrentIndex(app->d_export_orientation);
-    d_box_page_orientation->setEnabled(app->d_export_vector_size != QPrinter::Custom);
+    d_box_page_orientation->setEnabled(app->d_export_vector_size != QPageSize::Custom);
     vector_layout->addWidget(d_box_page_orientation, 5, 1, 1, 2);
 
     connect(d_standard_page, SIGNAL(toggled(bool)), d_box_page_size, SLOT(setEnabled(bool)));
@@ -256,7 +256,7 @@ void ImageExportDialog::setPageSize(QPageSize size)
     }
 }
 
-void ImageExportDialog::setOrientation(QPrinter::Orientation orientation)
+void ImageExportDialog::setOrientation(QPageLayout::Orientation orientation)
 {
     int index = d_box_page_orientation->findData(QVariant(orientation));
     if (index != -1)

@@ -5245,7 +5245,7 @@ int Graph::visibleCurves()
     return c;
 }
 
-QPrinter::PageSize Graph::minPageSize(const QPrinter &printer, const QRect &r)
+QPageSize::PageSizeId Graph::minPageSize(const QPrinter &printer, const QRect &r)
 {
     double x_margin = 0.2 / 2.54 * printer.logicalDpiX(); // 2 mm margins
     double y_margin = 0.2 / 2.54 * printer.logicalDpiY();
@@ -5261,61 +5261,61 @@ QPrinter::PageSize Graph::minPageSize(const QPrinter &printer, const QRect &r)
         w = (int)ceil(h_mm);
     }
 
-    QPrinter::PageSize size = QPrinter::A5;
+    QPageSize::PageSizeId size = QPageSize::A5;
     if (w < 45 && h < 32)
-        size = QPrinter::B10;
+        size = QPageSize::B10;
     else if (w < 52 && h < 37)
-        size = QPrinter::A9;
+        size = QPageSize::A9;
     else if (w < 64 && h < 45)
-        size = QPrinter::B9;
+        size = QPageSize::B9;
     else if (w < 74 && h < 52)
-        size = QPrinter::A8;
+        size = QPageSize::A8;
     else if (w < 91 && h < 64)
-        size = QPrinter::B8;
+        size = QPageSize::B8;
     else if (w < 105 && h < 74)
-        size = QPrinter::A7;
+        size = QPageSize::A7;
     else if (w < 128 && h < 91)
-        size = QPrinter::B7;
+        size = QPageSize::B7;
     else if (w < 148 && h < 105)
-        size = QPrinter::A6;
+        size = QPageSize::A6;
     else if (w < 182 && h < 128)
-        size = QPrinter::B6;
+        size = QPageSize::B6;
     else if (w < 210 && h < 148)
-        size = QPrinter::A5;
+        size = QPageSize::A5;
     else if (w < 220 && h < 110)
-        size = QPrinter::DLE;
+        size = QPageSize::DLE;
     else if (w < 229 && h < 163)
-        size = QPrinter::C5E;
+        size = QPageSize::C5E;
     else if (w < 241 && h < 105)
-        size = QPrinter::Comm10E;
+        size = QPageSize::Comm10E;
     else if (w < 257 && h < 182)
-        size = QPrinter::B5;
+        size = QPageSize::B5;
     else if (w < 279 && h < 216)
-        size = QPrinter::Letter;
+        size = QPageSize::Letter;
     else if (w < 297 && h < 210)
-        size = QPrinter::A4;
+        size = QPageSize::A4;
     else if (w < 330 && h < 210)
-        size = QPrinter::Folio;
+        size = QPageSize::Folio;
     else if (w < 356 && h < 216)
-        size = QPrinter::Legal;
+        size = QPageSize::Legal;
     else if (w < 364 && h < 257)
-        size = QPrinter::B4;
+        size = QPageSize::B4;
     else if (w < 420 && h < 297)
-        size = QPrinter::A3;
+        size = QPageSize::A3;
     else if (w < 515 && h < 364)
-        size = QPrinter::B3;
+        size = QPageSize::B3;
     else if (w < 594 && h < 420)
-        size = QPrinter::A2;
+        size = QPageSize::A2;
     else if (w < 728 && h < 515)
-        size = QPrinter::B2;
+        size = QPageSize::B2;
     else if (w < 841 && h < 594)
-        size = QPrinter::A1;
+        size = QPageSize::A1;
     else if (w < 1030 && h < 728)
-        size = QPrinter::B1;
+        size = QPageSize::B1;
     else if (w < 1189 && h < 841)
-        size = QPrinter::A0;
+        size = QPageSize::A0;
     else if (w < 1456 && h < 1030)
-        size = QPrinter::B0;
+        size = QPageSize::B0;
 
     return size;
 }

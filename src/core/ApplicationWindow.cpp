@@ -4411,9 +4411,9 @@ void ApplicationWindow::readSettings()
     d_export_quality = settings.value("/ImageQuality", 100).toInt();
     d_export_resolution = settings.value("/Resolution", 72).toInt();
     d_export_color = settings.value("/ExportColor", true).toBool();
-    d_export_vector_size = settings.value("/ExportPageSize", QPrinter::Custom).toInt();
+    d_export_vector_size = settings.value("/ExportPageSize", QPageSize::Custom).toInt();
     d_keep_plot_aspect = settings.value("/KeepAspect", true).toBool();
-    d_export_orientation = settings.value("/Orientation", QPrinter::Landscape).toInt();
+    d_export_orientation = settings.value("/Orientation", QPageLayout::Landscape).toInt();
     settings.endGroup(); // ExportImage
 }
 
