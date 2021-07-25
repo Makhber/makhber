@@ -100,9 +100,18 @@ option( MAKHBER_BUILD_TRANSLATIONS "Build Translations" ON )
 
 option( MAKHBER_BUILD_TESTS "Build tests" OFF )
 
-find_package( Qt5 5.12
+find_package( Qt6 6.2 COMPONENTS Core QUIET )
+if( Qt6_FOUND )
+  set( QT_VERSION_MAJOR 6 )
+  set( MINIMUM_QWT 6.2 )
+else()
+  find_package( Qt5 5.12 COMPONENTS Core REQUIRED )
+  set( QT_VERSION_MAJOR 5 )
+  set( MINIMUM_QWT 6.1 )
+endif()
+
+find_package( Qt${QT_VERSION_MAJOR}
   COMPONENTS
-    Core
     Gui
     Widgets
     Svg
@@ -117,15 +126,15 @@ find_package( OpenGL COMPONENTS OpenGL REQUIRED )
 
 find_package( muparser REQUIRED )
 
-find_package( Qwt 6.1 REQUIRED )
+find_package( Qwt ${MINIMUM_QWT} REQUIRED )
 
 if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
-  find_package( Qt5 COMPONENTS Network REQUIRED )
+  find_package( Qt${QT_VERSION_MAJOR} COMPONENTS Network REQUIRED )
 endif()
 
 if( MAKHBER_BUILD_TRANSLATIONS )
-  find_package( Qt5 OPTIONAL_COMPONENTS LinguistTools )
-  if( NOT Qt5LinguistTools_FOUND )
+  find_package( Qt${QT_VERSION_MAJOR} OPTIONAL_COMPONENTS LinguistTools )
+  if( NOT Qt${QT_VERSION_MAJOR}LinguistTools_FOUND )
     set( MAKHBER_BUILD_TRANSLATIONS OFF CACHE BOOL "Build Translations" FORCE )
   endif()
 endif()

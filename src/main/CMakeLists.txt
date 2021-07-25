@@ -4,21 +4,26 @@ if( WIN32 )
   list( APPEND RESOURCES "makhber.rc" )
 endif()
 
-if( MAKHBER_BUILD_TRANSLATIONS )
-  file( GLOB TS_FILES "${CMAKE_SOURCE_DIR}/translations/*.ts" )
-  qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} OPTIONS "-no-obsolete")
-endif()
-
 add_executable( makhber
   WIN32 MACOSX_BUNDLE
   "main.cpp"
   "${RESOURCES}"
-  "${QM_FILES}"
 )
 
 target_link_libraries( makhber libmakhber )
 
 if( MAKHBER_BUILD_TRANSLATIONS )
+  file( GLOB TS_FILES "${CMAKE_SOURCE_DIR}/translations/*.ts" )
+  if( QT_VERSION_MAJOR VERSION_GREATER_EQUAL 6 )
+    qt_add_translations( makhber
+      TS_FILES ${TS_FILES}
+      QM_FILES_OUTPUT_VARIABLE QM_FILES
+      LUPDATE_OPTIONS "-no-obsolete"
+    )
+  else()
+    qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} OPTIONS "-no-obsolete" )
+    target_sources( makhber PRIVATE "${QM_FILES}" )
+  endif()
   add_custom_command( TARGET makhber
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E

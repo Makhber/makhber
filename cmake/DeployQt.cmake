@@ -1,6 +1,7 @@
 # The MIT License (MIT)
 #
 # Copyright (c) 2017 Nathan Osman
+#               2020-2021 Mehdi Chinoune
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,35 +21,43 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-find_package(Qt5Core REQUIRED)
+if( WIN32 AND QT_VERSION_MAJOR VERSION_GREATER_EQUAL 6 )
+    find_package(Qt${QT_VERSION_MAJOR}Tools REQUIRED)
+    get_target_property(WINDEPLOYQT_EXECUTABLE Qt${QT_VERSION_MAJOR}::windeployqt IMPORTED_LOCATION)
+    get_filename_component(_qt_bin_dir "${WINDEPLOYQT_EXECUTABLE}" DIRECTORY)
+else()
+    find_package(Qt${QT_VERSION_MAJOR}Core REQUIRED)
+    # Retrieve the absolute path to qmake and then use that path to find
+    # the windeployqt and macdeployqt binaries
+    get_target_property(_qmake_executable Qt${QT_VERSION_MAJOR}::qmake IMPORTED_LOCATION)
+    get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
 
-# Retrieve the absolute path to qmake and then use that path to find
-# the windeployqt and macdeployqt binaries
-get_target_property(_qmake_executable Qt5::qmake IMPORTED_LOCATION)
-get_filename_component(_qt_bin_dir "${_qmake_executable}" DIRECTORY)
+    if( WIN32 )
+        find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${_qt_bin_dir}" REQUIRED)
+    endif()
 
-find_program(WINDEPLOYQT_EXECUTABLE windeployqt HINTS "${_qt_bin_dir}")
-if(WIN32 AND NOT WINDEPLOYQT_EXECUTABLE)
-    message(FATAL_ERROR "windeployqt not found")
-endif()
-
-find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}")
-if(APPLE AND NOT MACDEPLOYQT_EXECUTABLE)
-    message(FATAL_ERROR "macdeployqt not found")
+    if(APPLE)
+        find_program(MACDEPLOYQT_EXECUTABLE macdeployqt HINTS "${_qt_bin_dir}" REQUIRED)
+    endif()
 endif()
 
 # Add commands that copy the Qt runtime to the target's output directory after
 # build and install the Qt runtime to the specified directory
 function(windeployqt target directory)
 
+    if( QT_VERSION_MAJOR VERSION_GREATER_EQUAL 6 )
+        set( no_angle "" )
+    else()
+        set( no_angle "--no-angle" )
+    endif()
     # Run windeployqt immediately after build
     add_custom_command(TARGET ${target} POST_BUILD
         COMMAND "${CMAKE_COMMAND}" -E
             env PATH="${_qt_bin_dir}" "${WINDEPLOYQT_EXECUTABLE}"
                 --verbose 0
                 --no-compiler-runtime
-                --no-angle
                 --no-opengl-sw
+                ${no_angle}
                 \"$<TARGET_FILE:${target}>\"
         COMMENT "Deploying Qt...\n"
     )
@@ -69,8 +78,8 @@ function(windeployqt target directory)
                 env PATH=\"${_qt_bin_dir}\" \"${WINDEPLOYQT_EXECUTABLE}\"
                     --dry-run
                     --no-compiler-runtime
-                    --no-angle
                     --no-opengl-sw
+                    ${no_angle}
                     --list mapping
                     \${_file}
             OUTPUT_VARIABLE _output

@@ -12,8 +12,8 @@
 ]]
 
 set( QWT_LIBRARY_NAMES
-  qwt-qt5
-  qwt6-qt5
+  qwt-qt${QT_VERSION_MAJOR}
+  qwt6-qt${QT_VERSION_MAJOR}
   qwt
   qwt6
 )
@@ -21,21 +21,21 @@ set( QWT_LIB_PATHS
   /usr/lib
   /usr/local/lib
   /usr/local/lib/qwt.framework
-  /usr/local/lib/qt5
+  /usr/local/lib/qt${QT_VERSION_MAJOR}
   "$ENV{LIB_DIR}"
 )
 set( QWT_INCLUDE_PATHS
   /usr/include
-  /usr/include/qt5
+  /usr/include/qt${QT_VERSION_MAJOR}
   /usr/local/include
-  /usr/local/include/qt5
+  /usr/local/include/qt${QT_VERSION_MAJOR}
   "$ENV{LIB_DIR}/include"
   "$ENV{INCLUDE}"
 )
 
 find_package(PkgConfig QUIET)
 if( PkgConfig_FOUND )
-  pkg_search_module(PC_QWT QUIET Qt5Qwt6)
+  pkg_search_module(PC_QWT QUIET Qt${QT_VERSION_MAJOR}Qwt6)
 endif()
 
 if( PC_QWT_FOUND )
@@ -50,7 +50,7 @@ find_library( QWT_LIBRARY_RELEASE
 
 if( MSVC )
   find_library( QWT_LIBRARY_DEBUG
-    NAMES qwtd qwt-qt5d qwt6d qwt6-qt5d
+    NAMES qwtd qwt-qt${QT_VERSION_MAJOR}d qwt6d qwt6-qt${QT_VERSION_MAJOR}d
     PATHS "$ENV{LIB_DIR}" "${PC_QWT_LIBDIR}"
   )
 endif()

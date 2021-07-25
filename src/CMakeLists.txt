@@ -322,13 +322,17 @@ add_library( libmakhber
 )
 
 set_target_properties( libmakhber PROPERTIES OUTPUT_NAME makhber )
+# couldn't link to muParser library built without Unicode on MinGW
+if( QT_VERSION_MAJOR VERSION_EQUAL 6 )
+  set_target_properties( libmakhber PROPERTIES QT_NO_UNICODE_DEFINES ON )
+endif()
 
 target_link_libraries( libmakhber
-  Qt5::Core
-  Qt5::Gui
-  Qt5::PrintSupport
-  Qt5::OpenGL
-  Qt5::Svg
+  Qt${QT_VERSION_MAJOR}::Core
+  Qt${QT_VERSION_MAJOR}::Gui
+  Qt${QT_VERSION_MAJOR}::PrintSupport
+  Qt${QT_VERSION_MAJOR}::OpenGL
+  Qt${QT_VERSION_MAJOR}::Svg
   OpenGL::GL
   OpenGL::GLU
   muparser::muparser
@@ -388,7 +392,7 @@ if( WIN32 )
 endif()
 
 if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
-  target_link_libraries( libmakhber Qt5::Network )
+  target_link_libraries( libmakhber Qt${QT_VERSION_MAJOR}::Network )
 endif()
 
 if( MAKHBER_SEARCH_FOR_UPDATES )

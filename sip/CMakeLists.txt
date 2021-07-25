@@ -114,7 +114,7 @@ if( SIP_VERSION VERSION_LESS 5 )
 
 else()
 
-  get_target_property( QMAKE_EXECUTABLE Qt5::qmake IMPORTED_LOCATION )
+  get_target_property( QMAKE_EXECUTABLE Qt${QT_VERSION_MAJOR}::qmake IMPORTED_LOCATION )
 
   macro( get_lib_properties LIB LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
     get_target_property( IS_IMPORTED ${LIB} IMPORTED )
@@ -146,7 +146,7 @@ else()
     list( APPEND qt_libs Network )
   endif()
   foreach( lib ${qt_libs} )
-    get_lib_properties( Qt5::${lib} LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
+    get_lib_properties( Qt${QT_VERSION_MAJOR}::${lib} LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
     if( NOT APPLE )
       string( JOIN "\n," SIP_LINK_LIBS \"${LIB_NAME}\" ${SIP_LINK_LIBS} )
       set( SIP_LINK_DIRS ${SIP_LINK_DIRS} ${LIB_DIR} )
