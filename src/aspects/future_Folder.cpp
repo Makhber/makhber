@@ -77,7 +77,7 @@ void Folder::save(QXmlStreamWriter *writer) const
 
 bool Folder::load(XmlStreamReader *reader)
 {
-    if (reader->isStartElement() && reader->name() == "folder") {
+    if (reader->isStartElement() && reader->name().toString() == "folder") {
         setComment("");
         removeAllChildAspects();
 
@@ -92,10 +92,10 @@ bool Folder::load(XmlStreamReader *reader)
                 break;
 
             if (reader->isStartElement()) {
-                if (reader->name() == "comment") {
+                if (reader->name().toString() == "comment") {
                     if (!readCommentElement(reader))
                         return false;
-                } else if (reader->name() == "child_aspect") {
+                } else if (reader->name().toString() == "child_aspect") {
                     if (!readChildAspectElement(reader))
                         return false;
                 } else // unknown element
@@ -115,11 +115,11 @@ bool Folder::load(XmlStreamReader *reader)
 bool Folder::readChildAspectElement(XmlStreamReader *reader)
 {
     bool loaded = false;
-    Q_ASSERT(reader->isStartElement() && reader->name() == "child_aspect");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "child_aspect");
 
     if (!reader->skipToNextTag())
         return false;
-    if (reader->isEndElement() && reader->name() == "child_aspect")
+    if (reader->isEndElement() && reader->name().toString() == "child_aspect")
         return true; // empty element tag
     QString element_name = reader->name().toString();
     if (element_name == "folder") {
@@ -162,7 +162,7 @@ bool Folder::readChildAspectElement(XmlStreamReader *reader)
     }
     if (!reader->skipToNextTag())
         return false;
-    Q_ASSERT(reader->isEndElement() && reader->name() == "child_aspect");
+    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "child_aspect");
     return !reader->hasError();
 }
 

@@ -141,7 +141,7 @@ void AbstractSimpleFilter::save(QXmlStreamWriter *writer) const
 
 bool AbstractSimpleFilter::load(XmlStreamReader *reader)
 {
-    if (reader->isStartElement() && reader->name() == "simple_filter") {
+    if (reader->isStartElement() && reader->name().toString() == "simple_filter") {
         if (!readBasicAttributes(reader))
             return false;
 
@@ -160,7 +160,7 @@ bool AbstractSimpleFilter::load(XmlStreamReader *reader)
                 break;
 
             if (reader->isStartElement()) {
-                if (reader->name() == "comment") {
+                if (reader->name().toString() == "comment") {
                     if (!readCommentElement(reader))
                         return false;
                 } else // unknown element

@@ -377,7 +377,7 @@ void Column::save(QXmlStreamWriter *writer) const
 
 bool Column::load(XmlStreamReader *reader)
 {
-    if (reader->isStartElement() && reader->name() == "column") {
+    if (reader->isStartElement() && reader->name().toString() == "column") {
         if (!readBasicAttributes(reader))
             return false;
 
@@ -437,19 +437,19 @@ bool Column::load(XmlStreamReader *reader)
 
             if (reader->isStartElement()) {
                 bool ret_val = true;
-                if (reader->name() == "comment")
+                if (reader->name().toString() == "comment")
                     ret_val = readCommentElement(reader);
-                else if (reader->name() == "numericDateTimeFilter")
+                else if (reader->name().toString() == "numericDateTimeFilter")
                     ret_val = XmlReadNumericDateTimeFilter(reader);
-                else if (reader->name() == "input_filter")
+                else if (reader->name().toString() == "input_filter")
                     ret_val = XmlReadInputFilter(reader);
-                else if (reader->name() == "output_filter")
+                else if (reader->name().toString() == "output_filter")
                     ret_val = XmlReadOutputFilter(reader);
-                else if (reader->name() == "mask")
+                else if (reader->name().toString() == "mask")
                     ret_val = XmlReadMask(reader);
-                else if (reader->name() == "formula")
+                else if (reader->name().toString() == "formula")
                     ret_val = XmlReadFormula(reader);
-                else if (reader->name() == "row")
+                else if (reader->name().toString() == "row")
                     ret_val = XmlReadRow(reader);
                 else // unknown element
                 {
@@ -469,46 +469,46 @@ bool Column::load(XmlStreamReader *reader)
 
 bool Column::XmlReadNumericDateTimeFilter(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "numericDateTimeFilter");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "numericDateTimeFilter");
     if (!reader->skipToNextTag())
         return false;
     if (!d_column_private->getNumericDateTimeFilter()->load(reader))
         return false;
     if (!reader->skipToNextTag())
         return false;
-    Q_ASSERT(reader->isEndElement() && reader->name() == "numericDateTimeFilter");
+    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "numericDateTimeFilter");
     return true;
 }
 
 bool Column::XmlReadInputFilter(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "input_filter");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "input_filter");
     if (!reader->skipToNextTag())
         return false;
     if (!d_column_private->inputFilter()->load(reader))
         return false;
     if (!reader->skipToNextTag())
         return false;
-    Q_ASSERT(reader->isEndElement() && reader->name() == "input_filter");
+    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "input_filter");
     return true;
 }
 
 bool Column::XmlReadOutputFilter(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "output_filter");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "output_filter");
     if (!reader->skipToNextTag())
         return false;
     if (!outputFilter()->load(reader))
         return false;
     if (!reader->skipToNextTag())
         return false;
-    Q_ASSERT(reader->isEndElement() && reader->name() == "output_filter");
+    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "output_filter");
     return true;
 }
 
 bool Column::XmlReadMask(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "mask");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "mask");
 
     bool ok1 = false, ok2 = false;
     int start = 0, end = 0;
@@ -527,7 +527,7 @@ bool Column::XmlReadMask(XmlStreamReader *reader)
 
 bool Column::XmlReadFormula(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "formula");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "formula");
 
     bool ok1 = false, ok2 = false;
     int start = 0, end = 0;
@@ -544,7 +544,7 @@ bool Column::XmlReadFormula(XmlStreamReader *reader)
 
 bool Column::XmlReadRow(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "row");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "row");
 
     QString str;
     int type_code = 0;

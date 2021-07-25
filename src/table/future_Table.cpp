@@ -2237,7 +2237,7 @@ void Table::save(QXmlStreamWriter *writer) const
 
 bool Table::load(XmlStreamReader *reader)
 {
-    if (reader->isStartElement() && reader->name() == "table") {
+    if (reader->isStartElement() && reader->name().toString() == "table") {
         setColumnCount(0);
         setRowCount(0);
         setComment("");
@@ -2264,10 +2264,10 @@ bool Table::load(XmlStreamReader *reader)
                 break;
 
             if (reader->isStartElement()) {
-                if (reader->name() == "comment") {
+                if (reader->name().toString() == "comment") {
                     if (!readCommentElement(reader))
                         return false;
-                } else if (reader->name() == "column") {
+                } else if (reader->name().toString() == "column") {
                     auto *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
                     if (!column->load(reader)) {
                         setColumnCount(0);
@@ -2276,7 +2276,7 @@ bool Table::load(XmlStreamReader *reader)
                     QList<Column *> columns;
                     columns.append(column);
                     appendColumns(columns);
-                } else if (reader->name() == "column_width") {
+                } else if (reader->name().toString() == "column_width") {
                     if (!readColumnWidthElement(reader))
                         return false;
                 } else // unknown element
@@ -2316,7 +2316,7 @@ void Table::adjustActionNames()
 
 bool Table::readColumnWidthElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "column_width");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "column_width");
     bool ok = false;
     int col = reader->readAttributeInt("column", &ok);
     if (!ok) {

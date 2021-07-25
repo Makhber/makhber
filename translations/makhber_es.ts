@@ -11936,17 +11936,17 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
         <translation>versión de projecto inválida o perdida</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="178"/>
+        <location filename="../src/aspects/Project.cpp" line="179"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>elemento &apos;%1&apos; desconocido</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="185"/>
+        <location filename="../src/aspects/Project.cpp" line="186"/>
         <source>no makhber_project element found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="187"/>
+        <location filename="../src/aspects/Project.cpp" line="188"/>
         <source>no valid XML document found</source>
         <translation>ningún documento XML válido hallado</translation>
     </message>

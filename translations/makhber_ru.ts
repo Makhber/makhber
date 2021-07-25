@@ -11952,17 +11952,17 @@ p, li { white-space: pre-wrap; }
         <translation>неверная или отсутствующая версия проекта</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="178"/>
+        <location filename="../src/aspects/Project.cpp" line="179"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>неизвестный элемент &quot;%1&quot;</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="185"/>
+        <location filename="../src/aspects/Project.cpp" line="186"/>
         <source>no makhber_project element found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="187"/>
+        <location filename="../src/aspects/Project.cpp" line="188"/>
         <source>no valid XML document found</source>
         <translation>не найден пригодный XML-документ</translation>
     </message>

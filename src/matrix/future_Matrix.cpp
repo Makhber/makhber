@@ -1170,7 +1170,7 @@ void Matrix::save(QXmlStreamWriter *writer) const
 
 bool Matrix::load(XmlStreamReader *reader)
 {
-    if (reader->isStartElement() && reader->name() == "matrix") {
+    if (reader->isStartElement() && reader->name().toString() == "matrix") {
         setDimensions(0, 0);
         setComment("");
         setFormula("");
@@ -1202,19 +1202,19 @@ bool Matrix::load(XmlStreamReader *reader)
 
             if (reader->isStartElement()) {
                 bool ret_val = true;
-                if (reader->name() == "comment")
+                if (reader->name().toString() == "comment")
                     ret_val = readCommentElement(reader);
-                else if (reader->name() == "formula")
+                else if (reader->name().toString() == "formula")
                     ret_val = readFormulaElement(reader);
-                else if (reader->name() == "display")
+                else if (reader->name().toString() == "display")
                     ret_val = readDisplayElement(reader);
-                else if (reader->name() == "coordinates")
+                else if (reader->name().toString() == "coordinates")
                     ret_val = readCoordinatesElement(reader);
-                else if (reader->name() == "cell")
+                else if (reader->name().toString() == "cell")
                     ret_val = readCellElement(reader);
-                else if (reader->name() == "row_height")
+                else if (reader->name().toString() == "row_height")
                     ret_val = readRowHeightElement(reader);
-                else if (reader->name() == "column_width")
+                else if (reader->name().toString() == "column_width")
                     ret_val = readColumnWidthElement(reader);
                 else // unknown element
                 {
@@ -1235,7 +1235,7 @@ bool Matrix::load(XmlStreamReader *reader)
 
 bool Matrix::readDisplayElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "display");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "display");
     QXmlStreamAttributes attribs = reader->attributes();
 
     QString str = attribs.value(reader->namespaceUri().toString(), "numeric_format").toString();
@@ -1260,7 +1260,7 @@ bool Matrix::readDisplayElement(XmlStreamReader *reader)
 
 bool Matrix::readCoordinatesElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "coordinates");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "coordinates");
 
     bool ok = false;
     double val = NAN;
@@ -1300,14 +1300,14 @@ bool Matrix::readCoordinatesElement(XmlStreamReader *reader)
 
 bool Matrix::readFormulaElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "formula");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "formula");
     setFormula(reader->readElementText());
     return true;
 }
 
 bool Matrix::readRowHeightElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "row_height");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "row_height");
     bool ok = false;
     int row = reader->readAttributeInt("row", &ok);
     if (!ok) {
@@ -1329,7 +1329,7 @@ bool Matrix::readRowHeightElement(XmlStreamReader *reader)
 
 bool Matrix::readColumnWidthElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "column_width");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "column_width");
     bool ok = false;
     int col = reader->readAttributeInt("column", &ok);
     if (!ok) {
@@ -1351,7 +1351,7 @@ bool Matrix::readColumnWidthElement(XmlStreamReader *reader)
 
 bool Matrix::readCellElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "cell");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "cell");
 
     QString str;
     int row = 0, col = 0;

@@ -147,7 +147,7 @@ bool Project::load(XmlStreamReader *reader)
         if (!reader->skipToNextTag())
             return false;
 
-        if (reader->name() == "makhber_project") {
+        if (reader->name().toString() == "makhber_project") {
             bool ok = false;
             reader->readAttributeInt("version", &ok);
             if (!ok) {
@@ -164,14 +164,15 @@ bool Project::load(XmlStreamReader *reader)
                     break;
 
                 if (reader->isStartElement()) {
-                    if (reader->name() == "project_root") {
+                    if (reader->name().toString() == "project_root") {
                         if (!reader->skipToNextTag())
                             return false;
                         if (!future::Folder::load(reader))
                             return false;
                         if (!reader->skipToNextTag())
                             return false;
-                        Q_ASSERT(reader->isEndElement() && reader->name() == "project_root");
+                        Q_ASSERT(reader->isEndElement()
+                                 && reader->name().toString() == "project_root");
                     } else // unknown element
                     {
                         reader->raiseWarning(

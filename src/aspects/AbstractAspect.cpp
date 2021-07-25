@@ -58,7 +58,7 @@ void AbstractAspect::writeCommentElement(QXmlStreamWriter *writer) const
 
 bool AbstractAspect::readCommentElement(XmlStreamReader *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name() == "comment");
+    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "comment");
     QString temp = reader->readElementText();
     temp.replace("\\n", "\n");
     setComment(temp);

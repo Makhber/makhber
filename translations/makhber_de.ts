@@ -11892,17 +11892,17 @@ Absolutbetrag von x.</translation>
         <translation>ungültige oder fehlende Projektversion</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="178"/>
+        <location filename="../src/aspects/Project.cpp" line="179"/>
         <source>unknown element &apos;%1&apos;</source>
         <translation>unbekanntes Element: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="185"/>
+        <location filename="../src/aspects/Project.cpp" line="186"/>
         <source>no makhber_project element found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="187"/>
+        <location filename="../src/aspects/Project.cpp" line="188"/>
         <source>no valid XML document found</source>
         <translation>kein gültiges XML-Dokument gefunden</translation>
     </message>
