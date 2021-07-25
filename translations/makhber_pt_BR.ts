@@ -11681,9 +11681,9 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <location filename="../src/scripting/PythonScripting.cpp" line="181"/>
         <location filename="../src/scripting/PythonScripting.cpp" line="202"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="231"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="249"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="260"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="235"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="253"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="264"/>
         <source>Loading Module Failure</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11694,37 +11694,37 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="232"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="236"/>
         <source>Failed to load sip module.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="242"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="246"/>
         <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="243"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="247"/>
         <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against; try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="250"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="254"/>
         <source>Failed to load makhber module.Try exporting PYTHONPATH to the directory of makhber module.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="261"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="265"/>
         <source>Failed to load sys module.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="307"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="311"/>
         <source>File opening error</source>
         <translation type="unfinished">Erro na abertura de arquivo</translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="308"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="312"/>
         <source>Could not find &apos;makhberrc.py&apos; file to initialize Python environment
 Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or working directory</source>
         <translation type="unfinished"></translation>

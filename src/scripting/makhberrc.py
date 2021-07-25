@@ -56,7 +56,11 @@ import_to_global("math", None, True)
 
 # make Qt API available (it gets imported in any case by the makhber module)
 global QtGui, QtCore, Qt
-if (makhber.app.qtVersion() >= 0x050000):
+if (makhber.app.qtVersion() >= 0x060000):
+	global QtWidgets
+	from PyQt6 import QtGui, QtWidgets, QtCore
+	from PyQt6.QtCore import Qt
+elif (makhber.app.qtVersion() >= 0x050000):
 	global QtWidgets
 	from PyQt5 import QtGui, QtWidgets, QtCore
 	from PyQt5.QtCore import Qt

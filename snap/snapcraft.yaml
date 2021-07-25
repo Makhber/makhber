@@ -42,7 +42,6 @@ parts:
       - "-DMAKHBER_SCRIPTING_PYTHON=ON"
       - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
       - "-DCMAKE_PREFIX_PATH=$SNAPCRAFT_STAGE/usr"
-      - "-DPyQt_INCLUDE_DIR=$SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages/PyQt5/bindings"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
       - LD_LIBRARY_PATH: /snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBARARY_PATH

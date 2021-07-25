@@ -445,7 +445,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
       PYTHONPATH="${PYTHONPATH}"
   )
 
-  if( PyQt_SIP )
+  if( PyQt5_SIP )
     set_property( SOURCE "scripting/PythonScripting.cpp"
       APPEND
       PROPERTY COMPILE_DEFINITIONS
@@ -499,11 +499,14 @@ if( MAKHBER_SCRIPTING_PYTHON )
     DESTINATION "${PYTHON_INSTALL_PATH}"
   )
 
-  if( MAKHBER_BUNDLE_PYQT5 )
+  if( MAKHBER_BUNDLE_PYQT )
     install( CODE
       "execute_process(
-        COMMAND ${Python3_EXECUTABLE} -m pip install pyqt5 pyqt5-sip --no-deps
-        --target=\${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_PATH}
+        COMMAND ${Python3_EXECUTABLE} -m pip install
+          pyqt${QT_MAJOR_VERSION}
+          pyqt${QT_MAJOR_VERSION}-sip
+          --no-deps
+          --target=\${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_PATH}
       )"
       COMPONENT Python
     )

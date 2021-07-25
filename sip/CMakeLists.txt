@@ -7,10 +7,18 @@ execute_process( COMMAND ${Python3_EXECUTABLE} -c "import sysconfig; print(sysco
 if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
   set( makhber_SIP_HDR ${CMAKE_CURRENT_BINARY_DIR}/sip.h )
   set_source_files_properties( ${makhber_SIP_HDR} PROPERTIES GENERATED ON )
+  if( QT_VERSION_MAJOR VERSION_EQUAL 6 )
+    set( sip_abi 13 )
+  else()
+    set( sip_abi 12 )
+  endif()
   add_custom_command(
     OUTPUT ${makhber_SIP_HDR}
-    COMMAND ${SIP_Module_EXECUTABLE} --sip-h --abi-version 12 ${CMAKE_CURRENT_SOURCE_DIR}/makhber.sip
-    )
+    COMMAND ${SIP_Module_EXECUTABLE}
+      --sip-h
+      --abi-version ${sip_abi}
+      ${CMAKE_CURRENT_SOURCE_DIR}/makhber${QT_VERSION_MAJOR}.sip
+  )
   add_custom_target( generate_SIP_HDR DEPENDS ${makhber_SIP_HDR} )
 endif()
 
@@ -73,9 +81,9 @@ if( SIP_VERSION VERSION_LESS 5 )
 
   add_custom_command(
     OUTPUT ${makhber_PyQt_HDR} ${makhber_PyQt_SRCS}
-    COMMAND ${SIP_Legacy_EXECUTABLE} -c . -I${PyQt_INCLUDE_DIRS} ${PyQt_FLAGS}
-      ${CMAKE_CURRENT_SOURCE_DIR}/makhber.sip
-    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/makhber.sip
+    COMMAND ${SIP_Legacy_EXECUTABLE} -c . -I${PyQt5_INCLUDE_DIRS} ${PyQt5_FLAGS}
+      ${CMAKE_CURRENT_SOURCE_DIR}/makhber5.sip
+    DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/makhber5.sip
   )
 
   add_custom_target(generate_PyQt_source
@@ -144,6 +152,11 @@ else()
   set( qt_libs Core Gui Widgets PrintSupport Svg )
   if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
     list( APPEND qt_libs Network )
+  endif()
+  # Dependency of QwtPlot3D
+  if( QT_VERSION_MAJOR VERSION_EQUAL 6 )
+    find_package( Qt6OpenGLWidgets REQUIRED )
+    list( APPEND qt_libs OpenGLWidgets )
   endif()
   foreach( lib ${qt_libs} )
     get_lib_properties( Qt${QT_VERSION_MAJOR}::${lib} LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
@@ -250,6 +263,8 @@ else()
     set( SIP_COMPILE_OPTIONS "${SIP_COMPILE_OPTIONS} -Wno-attributes" )
   endif()
 
+  set( PyQt_INCLUDE_DIRS ${PyQt${QT_VERSION_MAJOR}_INCLUDE_DIRS} )
+
   if( MULTI_CONFIG )
     configure_file( pyproject.toml.in pyproject_tmp.toml @ONLY )
     add_custom_target( pyproject_toml ALL
@@ -299,7 +314,7 @@ else()
       --qmake-setting $<IF:$<CONFIG:Debug>,"CONFIG+=debug","CONFIG+=release">
       --qmake-setting CONFIG+=$<$<BOOL:${CMAKE_INTERPROCEDURAL_OPTIMIZATION}>:"ltcg">
       --build-dir $<IF:$<BOOL:${MULTI_CONFIG}>,"build/$<CONFIG>","build">
-    DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
+    DEPENDS "makhber${QT_VERSION_MAJOR}.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
     COMMAND_EXPAND_LISTS
     COMMENT "Building Makhber Python Module...\n"
   )

@@ -146,9 +146,9 @@ if( MAKHBER_SCRIPTING_PYTHON )
   endif()
 
   if( MSVC OR APPLE )
-    option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" ON )
+    option( MAKHBER_BUNDLE_PYQT "Bundle PyQt Python module" ON )
   else()
-    option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" OFF )
+    option( MAKHBER_BUNDLE_PYQT "Bundle PyQt Python module" OFF )
   endif()
 
   if( MINGW )
@@ -156,8 +156,15 @@ if( MAKHBER_SCRIPTING_PYTHON )
   endif()
 
   find_package( Python3 COMPONENTS Interpreter Development REQUIRED )
-  find_package( SIP REQUIRED )
-  find_package( PyQt REQUIRED )
+
+  if( QT_VERSION_MAJOR VERSION_GREATER_EQUAL 6 )
+    set( SIP_VERSION_MIN 5 )
+  else()
+    set( SIP_VERSION_MIN 4.19 )
+  endif()
+  find_package( SIP ${SIP_VERSION_MIN} REQUIRED )
+
+  find_package( PyQt${QT_VERSION_MAJOR} REQUIRED )
 
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
     find_package( PyQtBuild REQUIRED )

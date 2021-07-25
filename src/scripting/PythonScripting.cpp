@@ -219,10 +219,14 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     if (!math)
         PyErr_Print();
 
+#if QT_VERSION_MAJOR >= 6
+    sipmod = PyImport_ImportModule("PyQt6.sip");
+#else
 #ifdef PYQT_SIP
     sipmod = PyImport_ImportModule("PyQt5.sip");
 #else
     sipmod = PyImport_ImportModule("sip");
+#endif
 #endif
     if (sipmod) {
         sip = PyModule_GetDict(sipmod);
@@ -350,18 +354,22 @@ bool PythonScripting::setQObject(QObject *val, const char *name, PyObject *dict)
     PyGILState_STATE state = PyGILState_Ensure();
 
     // sipWrapperType * klass = sipFindClass(val->className());
-#ifdef PYQT_SIP
-    auto *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt5.sip._C_API", 0));
+#if QT_VERSION_MAJOR >= 6
+    auto *PyQt_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt6.sip._C_API", 0));
 #else
-    auto *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("sip._C_API", 0));
+#ifdef PYQT_SIP
+    auto *PyQt_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt5.sip._C_API", 0));
+#else
+    auto *PyQt_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("sip._C_API", 0));
 #endif
-    if (!PyQt5_sip_CAPI)
+#endif
+    if (!PyQt_sip_CAPI)
         return false;
-    const sipTypeDef *klass = PyQt5_sip_CAPI->api_find_type(val->metaObject()->className());
+    const sipTypeDef *klass = PyQt_sip_CAPI->api_find_type(val->metaObject()->className());
     if (!klass)
         return false;
     // pyobj = sipConvertFromInstance(val, klass, NULL);
-    pyobj = PyQt5_sip_CAPI->api_convert_from_type(val, klass, NULL);
+    pyobj = PyQt_sip_CAPI->api_convert_from_type(val, klass, NULL);
     if (!pyobj)
         return false;
 
