@@ -55,4 +55,10 @@ protected Q_SLOTS:
     void updateAdvancedOptions(const QString &filter);
 };
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+const std::array<QString, 9> encodings = { "UTF-8",    "UTF-16",     "UTF-16BE",
+                                           "UTF-16LE", "UTF-32",     "UTF-32BE",
+                                           "UTF-32LE", "ISO-8859-1", "System" };
+#endif
+
 #endif // ifndef OPEN_PROJECT_DIALOG_H

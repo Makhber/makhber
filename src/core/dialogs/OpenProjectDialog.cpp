@@ -35,7 +35,11 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QCloseEvent>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QStringConverter>
+#else
 #include <QTextCodec>
+#endif
 
 OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowFlags flags)
     : ExtensibleFileDialog(parent, extended, flags)
@@ -75,8 +79,16 @@ OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowF
     auto *codec_layout = new QHBoxLayout();
     codec_layout->addWidget(new QLabel(tr("Codepage")));
     d_open_codec = new QComboBox();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    for (int id = 0; id < static_cast<int>(encodings.size()); id++) {
+        auto encoding = QStringConverter::encodingForName(encodings[id].toUtf8());
+        if (encoding.has_value())
+            d_open_codec->addItem(QStringConverter::nameForEncoding(encoding.value()), id);
+    }
+#else
     for (const int id : QTextCodec::availableMibs())
         d_open_codec->addItem(QString::fromLocal8Bit(QTextCodec::codecForMib(id)->name()), id);
+#endif
     codec_layout->addWidget(d_open_codec);
     codec_layout->setEnabled(false);
     advanced_layout->addLayout(codec_layout);
@@ -122,16 +134,27 @@ void OpenProjectDialog::closeEvent(QCloseEvent *e)
 
 QString OpenProjectDialog::codec() const
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    auto encoding = static_cast<QStringConverter::Encoding>(d_open_codec->currentData().toInt());
+    return QString::fromLocal8Bit(QStringConverter::nameForEncoding(encoding));
+#else
     return QString::fromLocal8Bit(
             QTextCodec::codecForMib(d_open_codec->currentData().toInt())->name());
+#endif
 }
 
 bool OpenProjectDialog::setCodec(const QString &codec)
 {
     if ("" == codec)
         return false;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    for (int id = 0; id < static_cast<int>(encodings.size()); id++)
+        if (codec
+            == QStringConverter::nameForEncoding(static_cast<QStringConverter::Encoding>(id))) {
+#else
     for (const int id : QTextCodec::availableMibs())
         if (codec == QString::fromLocal8Bit(QTextCodec::codecForMib(id)->name())) {
+#endif
             // search data only if codec matches
             int ind = d_open_codec->findData(id);
             if (-1 != ind) {

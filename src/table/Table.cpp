@@ -42,7 +42,11 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include <QTextStream>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QStringConverter>
+#else
 #include <QTextCodec>
+#endif
 #include <QClipboard>
 #include <QApplication>
 #include <QPainter>
@@ -553,7 +557,11 @@ QString Table::saveToString(const QString &geometry)
 void Table::saveToDevice(QIODevice *device, const QString &geometry)
 {
     QTextStream stream(device);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    stream.setEncoding(QStringConverter::Utf8);
+#else
     stream.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
 
     // write start tag
     stream << "<table>\n";
@@ -577,7 +585,11 @@ void Table::saveToDevice(QIODevice *device, const QString &geometry)
     if (tmp_file.isOpen()) {
         tmp_file.seek(0);
         QTextStream count(&tmp_file);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        count.setEncoding(QStringConverter::Utf8);
+#else
         count.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
         while (!count.atEnd())
             xml_chars += count.read(1024).length();
     } else

@@ -40,7 +40,11 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QTextStream>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QStringConverter>
+#else
 #include <QTextCodec>
+#endif
 #include <QTextBlock>
 #include <QKeyEvent>
 
@@ -342,7 +346,11 @@ QString ScriptEdit::importASCII(const QString &filename)
         return QString();
     }
     QTextStream s(&file);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    s.setEncoding(QStringConverter::Utf8);
+#else
     s.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
     while (!s.atEnd())
         insertPlainText(s.readLine() + "\n");
     file.close();
@@ -383,7 +391,11 @@ QString ScriptEdit::exportASCII(const QString &filename)
         }
 
         QTextStream t(&f);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        t.setEncoding(QStringConverter::Utf8);
+#else
         t.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
         t << toPlainText();
         f.close();
     }

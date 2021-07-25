@@ -144,7 +144,11 @@
 #include <QUndoStack>
 #include <QTemporaryFile>
 #include <QDebug>
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QStringConverter>
+#else
 #include <QTextCodec>
+#endif
 #include <QScrollBar>
 #include <QMimeData>
 #include <QElapsedTimer>
@@ -3565,7 +3569,11 @@ bool ApplicationWindow::loadProject(const QString &fn)
     }
 
     QTextStream t(file.get());
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    t.setEncoding(QStringConverter::Utf8);
+#else
     t.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
     QString s;
     QStringList list;
 
@@ -3982,7 +3990,11 @@ void ApplicationWindow::openTemplate()
             }
             QFile f(fn);
             QTextStream t(&f);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            t.setEncoding(QStringConverter::Utf8);
+#else
             t.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
             f.open(QIODevice::ReadOnly);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
             QStringList l = t.readLine().split(QRegularExpression("\\s"), Qt::SkipEmptyParts);
@@ -5078,7 +5090,11 @@ void ApplicationWindow::saveAsTemplate()
         QString text = Makhber::schemaVersion() + " template file\n";
         text += w->saveAsTemplate(windowGeometryInfo(w));
         QTextStream t(&f);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        t.setEncoding(QStringConverter::Utf8);
+#else
         t.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
         t << text;
         f.close();
         QApplication::restoreOverrideCursor();
@@ -9161,7 +9177,11 @@ Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
         QString tmp_string;
         if (tmp_file.open()) {
             QTextStream tmp(&tmp_file);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            tmp.setEncoding(QStringConverter::Utf8);
+#else
             tmp.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
             int read = 0;
             while (length - read >= 1024) {
                 tmp << stream.read(1024);
@@ -12083,7 +12103,11 @@ void ApplicationWindow::appendProject(const QString &fn)
 #endif
     else {
         QTextStream t(file);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        t.setEncoding(QStringConverter::Utf8);
+#else
         t.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
 
         QString s = t.readLine();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
@@ -12248,7 +12272,11 @@ void ApplicationWindow::appendProject(const QString &fn)
 void ApplicationWindow::rawSaveFolder(Folder *folder, QIODevice *device)
 {
     QTextStream stream(device);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    stream.setEncoding(QStringConverter::Utf8);
+#else
     stream.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
     for (MyWidget *w : folder->windowsList()) {
         auto *t = qobject_cast<Table *>(w);
         if (t)
@@ -12293,7 +12321,11 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
     QTextStream t(&f);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    t.setEncoding(QStringConverter::Utf8);
+#else
     t.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
     t << Makhber::schemaVersion() + " project file\n";
     t << "<scripting-lang>\t" + QString(scriptEnv->objectName()) + "\n";
     t << "<windows>\t" + QString::number(folder->windowCount(true)) + "\n";

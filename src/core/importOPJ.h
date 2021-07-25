@@ -35,7 +35,11 @@
 
 #include <OriginFile.h>
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+#include <QStringConverter>
+#else
 #include <QTextCodec>
+#endif
 
 //! Origin project import class
 class ImportOPJ
@@ -59,7 +63,11 @@ private:
     int parse_error;
     int xoffset;
     ApplicationWindow *mw;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    QStringConverter::Encoding d_codec;
+#else
     QTextCodec *d_codec; // the codec object is owned by Qt, this is actually a weak pointer.
+#endif
 };
 
 #endif // IMPORTOPJ_H

@@ -54,9 +54,15 @@
 
 bool ImportOPJ::setCodec(const QString &codecName)
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    auto codec = QStringConverter::encodingForName(codecName.toUtf8());
+    if (codec.has_value()) {
+        d_codec = codec.value();
+#else
     auto codec = QTextCodec::codecForName(codecName.toUtf8());
     if (nullptr != codec) {
         d_codec = codec;
+#endif
         return true;
     }
     return false;
@@ -64,9 +70,14 @@ bool ImportOPJ::setCodec(const QString &codecName)
 
 QString ImportOPJ::decodeMbcs(char const *const input) const
 {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    auto decoder = QStringDecoder(d_codec);
+    return decoder(input);
+#else
     if (nullptr != d_codec)
         return d_codec->toUnicode(input);
     return QString(input);
+#endif
 }
 
 QString strreverse(const QString &str) // QString reversing
@@ -84,7 +95,11 @@ QString posixTimeToString(time_t pt)
 }
 
 ImportOPJ::ImportOPJ(ApplicationWindow *app, const QString &filename, const QString &codec)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    : mw(app)
+#else
     : mw(app), d_codec(nullptr)
+#endif
 {
     setCodec(codec);
     xoffset = 0;
