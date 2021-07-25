@@ -124,10 +124,10 @@ private:
         bool ok;
         auto tstr = QString(str);
         if (accept_any_decimal_separator) {
-            QChar decimalSeparator =
+            QString decimalSeparator =
                     locale.decimalPoint(); // get the decimal separator for this locale
-            QChar foreignSeparator = decimalSeparator; // safeguard initialization just in case
-                                                       // there are other decimal separators.
+            QString foreignSeparator = decimalSeparator; // safeguard initialization just in case
+                                                         // there are other decimal separators.
             if ('.' == decimalSeparator)
                 foreignSeparator = ',';
             if (',' == decimalSeparator)

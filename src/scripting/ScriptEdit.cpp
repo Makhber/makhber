@@ -285,7 +285,7 @@ void ScriptEdit::evaluate()
         codeCursor.mergeBlockFormat(d_fmt_success);
 
     if (res.isValid())
-        if (!res.isNull() && res.canConvert(QVariant::String)) {
+        if (!res.isNull() && res.canConvert<QString>()) {
             QString strVal = res.toString();
             strVal.replace("\n", "\n#> ");
             printCursor.insertText("\n");

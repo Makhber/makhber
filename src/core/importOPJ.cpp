@@ -79,7 +79,7 @@ QString strreverse(const QString &str) // QString reversing
 QString posixTimeToString(time_t pt)
 {
     QDateTime qdt;
-    qdt.setTime_t(pt);
+    qdt.setSecsSinceEpoch(pt);
     return qdt.toString("dd.MM.yyyy hh.mm.ss");
 }
 
@@ -106,7 +106,7 @@ ImportOPJ::ImportOPJ(ApplicationWindow *app, const QString &filename, const QStr
     }
 }
 
-inline uint qHash(const tree<Origin::ProjectNode>::iterator &key)
+inline size_t qHash(const tree<Origin::ProjectNode>::iterator &key)
 {
     return qHash(key->name.c_str());
 }

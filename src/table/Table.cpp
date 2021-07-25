@@ -476,7 +476,7 @@ bool Table::recalculate(int col, bool only_selected_rows)
                     QApplication::restoreOverrideCursor();
                     return false;
                 }
-                if (ret.canConvert(QVariant::Double))
+                if (ret.canConvert<double>())
                     results[i - start_row] = ret.toDouble();
                 else
                     results[i - start_row] = NAN;
@@ -496,7 +496,7 @@ bool Table::recalculate(int col, bool only_selected_rows)
                 }
                 if (ret.type() == QVariant::Double)
                     results << QLocale().toString(ret.toDouble(), 'g', 14);
-                else if (ret.canConvert(QVariant::String))
+                else if (ret.canConvert<QString>())
                     results << ret.toString();
                 else
                     results << QString();

@@ -4401,7 +4401,7 @@ void ApplicationWindow::readSettings()
     strip_spaces = settings.value("/StripSpaces", false).toBool();
     simplify_spaces = settings.value("/SimplifySpaces", false).toBool();
     d_ASCII_file_filter = settings.value("/AsciiFileTypeFilter", "*").toString();
-    d_ASCII_import_locale = settings.value("/AsciiImportLocale", "C").toString();
+    d_ASCII_import_locale = QLocale(settings.value("/AsciiImportLocale", "C").toString());
     d_convert_to_numeric = settings.value("/ConvertToNumeric", true).toBool();
     settings.endGroup(); // Import ASCII
 
@@ -7368,7 +7368,7 @@ void ApplicationWindow::windowsMenuAboutToShow()
     windowsMenu->addAction(actionResizeActiveWindow);
     windowsMenu->addAction(tr("&Hide Window"), this, SLOT(hideActiveWindow()));
     windowsMenu->addAction(QPixmap(":/close.xpm"), tr("Close &Window"), this,
-                           SLOT(closeActiveWindow()), Qt::CTRL + Qt::Key_W);
+                           SLOT(closeActiveWindow()), Qt::CTRL | Qt::Key_W);
 
     if (n > 0 && n < 10) {
         windowsMenu->addSeparator();
@@ -10483,7 +10483,7 @@ void ApplicationWindow::createActions()
     connect(actionAddImage, SIGNAL(triggered()), this, SLOT(addImage()));
 
     d_plot_mapper = new QSignalMapper;
-    connect(d_plot_mapper, SIGNAL(mapped(int)), this, SLOT(selectPlotType(int)));
+    connect(d_plot_mapper, SIGNAL(mappedInt(int)), this, SLOT(selectPlotType(int)));
 
     actionPlotL = new QAction(QIcon(QPixmap(":/lPlot.xpm")), tr("&Line"), this);
     connect(actionPlotL, SIGNAL(triggered()), d_plot_mapper, SLOT(map()));
