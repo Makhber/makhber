@@ -102,7 +102,11 @@ bool FunctionCurve::loadData(int points)
             X[i] = x;
             script->setDouble(x, d_variable.toUtf8().constData());
             QVariant result = script->eval();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            if (result.metaType().id() != QMetaType::Double) {
+#else
             if (result.type() != QVariant::Double) {
+#endif
                 delete[] X;
                 delete[] Y;
                 return false;
@@ -122,7 +126,12 @@ bool FunctionCurve::loadData(int points)
             script_y->setDouble(par, d_variable.toUtf8().constData());
             QVariant result_x = script_x->eval();
             QVariant result_y = script_y->eval();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+            if (result_x.metaType().id() != QMetaType::Double
+                || result_y.metaType().id() != QMetaType::Double) {
+#else
             if (result_x.type() != QVariant::Double || result_y.type() != QVariant::Double) {
+#endif
                 delete[] X;
                 delete[] Y;
                 return false;

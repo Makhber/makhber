@@ -4550,7 +4550,7 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>CanvasPicker</name>
     <message>
-        <location filename="../src/plot2D/CanvasPicker.cpp" line="214"/>
+        <location filename="../src/plot2D/CanvasPicker.cpp" line="218"/>
         <source>enter your text here</source>
         <translation>Geben Sie hier Ihren Text ein</translation>
     </message>
@@ -7395,7 +7395,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FunctionCurve</name>
     <message>
-        <location filename="../src/plot2D/FunctionCurve.cpp" line="149"/>
+        <location filename="../src/plot2D/FunctionCurve.cpp" line="158"/>
         <source>Input function error</source>
         <translation>Fehler bei der Funktionseingabe</translation>
     </message>
@@ -12978,47 +12978,47 @@ Absolutbetrag von x.</translation>
 <context>
     <name>Table</name>
     <message>
-        <location filename="../src/table/Table.cpp" line="1024"/>
+        <location filename="../src/table/Table.cpp" line="1028"/>
         <source>ASCII Export Error</source>
         <translation>ASCII-Export-Fehler</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1025"/>
+        <location filename="../src/table/Table.cpp" line="1029"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;</source>
         <translation>Konnte nicht in Datei schreiben: &lt;br&gt;&lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1026"/>
+        <location filename="../src/table/Table.cpp" line="1030"/>
         <source>&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1121"/>
+        <location filename="../src/table/Table.cpp" line="1125"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1122"/>
+        <location filename="../src/table/Table.cpp" line="1126"/>
         <source>Do you want to hide or delete</source>
         <translation>Wollen Sie ausblenden oder löschen</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1124"/>
+        <location filename="../src/table/Table.cpp" line="1128"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1124"/>
+        <location filename="../src/table/Table.cpp" line="1128"/>
         <source>Hide</source>
         <translation>Ausblenden</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1124"/>
+        <location filename="../src/table/Table.cpp" line="1128"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1345"/>
+        <location filename="../src/table/Table.cpp" line="1349"/>
         <source>%1: apply formula to column</source>
         <translation>%1: Formel auf Spalte angewendet</translation>
     </message>

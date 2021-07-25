@@ -158,8 +158,9 @@ struct Application : public QApplication
 
 int main(int argc, char **argv)
 {
-
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling, true);
+#endif
     QCoreApplication::setOrganizationName("Makhber");
     QCoreApplication::setApplicationName("Makhber");
 

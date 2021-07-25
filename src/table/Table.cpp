@@ -498,7 +498,11 @@ bool Table::recalculate(int col, bool only_selected_rows)
                     QApplication::restoreOverrideCursor();
                     return false;
                 }
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+                if (ret.metaType().id() == QMetaType::Double)
+#else
                 if (ret.type() == QVariant::Double)
+#endif
                     results << QLocale().toString(ret.toDouble(), 'g', 14);
                 else if (ret.canConvert<QString>())
                     results << ret.toString();
