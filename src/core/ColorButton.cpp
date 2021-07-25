@@ -117,7 +117,7 @@ void ColorButton::init()
     setColor(QColor(Qt::white));
 
     auto *l = new QHBoxLayout(this);
-    l->setMargin(0);
+    l->setContentsMargins(0, 0, 0, 0);
     l->addWidget(display);
     l->addWidget(selectButton);
 

@@ -113,7 +113,7 @@ ConfigDialog::ConfigDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
 
     auto *topLayout = new QHBoxLayout();
     topLayout->setSpacing(5);
-    topLayout->setMargin(5);
+    topLayout->setContentsMargins(5, 5, 5, 5);
     topLayout->addWidget(itemsList);
     topLayout->addLayout(rightLayout);
 

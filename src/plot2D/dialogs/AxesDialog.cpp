@@ -416,7 +416,7 @@ void AxesDialog::initAxesPage()
     labelBoxLayout->addWidget(boxTitle);
 
     auto *hl = new QHBoxLayout();
-    hl->setMargin(0);
+    hl->setContentsMargins(0, 0, 0, 0);
     hl->setSpacing(2);
     buttonLabelFont = new QPushButton(tr("&Font"));
     hl->addWidget(buttonLabelFont);

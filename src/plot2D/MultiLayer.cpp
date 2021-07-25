@@ -130,7 +130,7 @@ MultiLayer::MultiLayer(const QString &label, QWidget *parent, const QString name
     d_main_widget->setLayout(layout);
     layout->addLayout(hbox);
     layout->addWidget(canvas, 1);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     layout->setSpacing(0);
     this->setWidget(d_main_widget);
 
