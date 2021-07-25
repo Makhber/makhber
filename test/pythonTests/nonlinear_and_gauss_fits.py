@@ -46,7 +46,7 @@ f2=NonLinearFit(l1,curve1)
 f2.setFormula("y0+A*sqrt(2/PI)/w*exp(-2*((x-xc)/w)^2)")
 f2.setParameters("A","xc","w","y0")
 f2.setInitialValues(11,49.1,11,1)
-f2.setYErrorSource(0) #** using 0 or Fit.UnknownErrors in the argument disable the use of error bar in the fit
+f2.setYErrorSource(Fit.ErrorSource.UnknownErrors) #** using 0 or Fit.UnknownErrors in the argument disable the use of error bar in the fit
 f2.setColor("blue")
 f2.fit()
 #assert f2.chiSquare() < 1e-4

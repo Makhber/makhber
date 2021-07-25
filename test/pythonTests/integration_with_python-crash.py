@@ -4,7 +4,7 @@ upper_limit = 30.
 g=graph("Graph1")
 curveName="Table1_2"
 integral = Integration(g.activeLayer(),curveName,lower_limit,upper_limit)
-integral.setMethod(0) #method = 1 -> Linear interpolation
+integral.setMethod(Integration.InterpolationMethod.Linear) #method = 1 -> Linear interpolation
 integral.run()
 print("#",integral.result())
 app.exit()

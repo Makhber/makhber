@@ -15,10 +15,8 @@ assert t.windowLabel() == ""
 tNewLabel = "a table"
 t.setWindowLabel(tNewLabel)
 assert t.windowLabel() == tNewLabel
-for i in range(2,-1,-1):
-  assert t.captionPolicy() == i
-  if (i > 0):
-    t.setCaptionPolicy(i-1)
+assert t.captionPolicy() == MDIWindow.CaptionPolicy.Both
+t.setCaptionPolicy(MDIWindow.CaptionPolicy.Name)
 ## default captionPolicy is 2: show both name and label
 
 # t.folder() will return something like 
@@ -32,7 +30,7 @@ for i in range(2,-1,-1):
 t.setCell(1,1,10.0)
 t2 = t.clone()
 t2.confirmClose(False)
-assert t2.captionPolicy() == 0
+assert t2.captionPolicy() == MDIWindow.CaptionPolicy.Name
 assert t2.numRows() == t.numRows()
 assert t2.numCols() == t.numCols()
 assert t2.cell(1,1) == t.cell(1,1)
@@ -50,12 +48,10 @@ assert g.windowLabel() == ""
 gNewLabel = "a graph"
 g.setWindowLabel(gNewLabel)
 assert g.windowLabel() == gNewLabel
-for i in range(2,-1,-1):
-  assert g.captionPolicy() == i
-  if (i > 0):
-    g.setCaptionPolicy(i-1)
+assert g.captionPolicy() == MDIWindow.CaptionPolicy.Both
+g.setCaptionPolicy(MDIWindow.CaptionPolicy.Name)
 g2 = g.clone()
-assert g2.captionPolicy() == 0
+assert g2.captionPolicy() == MDIWindow.CaptionPolicy.Name
 g2.confirmClose(False)
 
 # matrix...
@@ -70,12 +66,10 @@ assert m.windowLabel() == ""
 mNewLabel = "a matrix"
 m.setWindowLabel(mNewLabel)
 assert m.windowLabel() == mNewLabel
-for i in range(2,-1,-1):
-  assert m.captionPolicy() == i
-  if (i > 0):
-    m.setCaptionPolicy(i-1)
+assert m.captionPolicy() == MDIWindow.CaptionPolicy.Both
+m.setCaptionPolicy(MDIWindow.CaptionPolicy.Name)
 m2 = m.clone()
-assert m2.captionPolicy() == 0
+assert m2.captionPolicy() == MDIWindow.CaptionPolicy.Name
 m2.confirmClose(False)
 
 # note...
@@ -90,11 +84,9 @@ assert n.windowLabel() == ""
 nNewLabel = "a note"
 n.setWindowLabel(nNewLabel)
 assert n.windowLabel() == nNewLabel
-for i in range(2,-1,-1):
-  assert n.captionPolicy() == i
-  if (i > 0):
-    n.setCaptionPolicy(i-1)
+assert n.captionPolicy() == MDIWindow.CaptionPolicy.Both
+n.setCaptionPolicy(MDIWindow.CaptionPolicy.Name)
 n2 = n.clone()
-assert n2.captionPolicy() == 0
+assert n2.captionPolicy() == MDIWindow.CaptionPolicy.Name
 n2.confirmClose(False)
 app.exit()

@@ -44,8 +44,8 @@ layer.setXTitle("such and such")
 layer.setYTitle("too much")
 layer.setRightTitle("right!!!!")
 layer.setTopTitle("top of the world")
-layer.enableAxis(QwtPlot.yRight,True)
-layer.enableAxis(QwtPlot.xTop,True)
+layer.enableAxis(1,True) # Right
+layer.enableAxis(3,True) # Top
 layer.replot()
 graph.export("layer7.png")
 
@@ -55,13 +55,13 @@ graph=newGraph()
 layer=graph.activeLayer()
 layer.enableAutoscaling()
 layer.insertFunctionCurve("tanh(x)",0,1e6)
-layer.setAxisNumericFormat(QwtPlot.yLeft,3,3)
-layer.setAxisNumericFormat(QwtPlot.xBottom,2,1)
-layer.setScale(QwtPlot.xBottom,1,1e6,0,5,5,1) #logarithmic
+layer.setAxisNumericFormat(0,3,3) # Left
+layer.setAxisNumericFormat(2,2,1) # Bottom
+layer.setScale(2,1,1e6,0,5,5,1) #logarithmic
 layer.setFrame(2)
 #layer.setMargin(5)
-layer.setBackgroundColor(Qt.yellow)
-layer.setCanvasColor(Qt.cyan)
+layer.setBackgroundColor(Qt.GlobalColor.yellow)
+layer.setCanvasColor(Qt.GlobalColor.cyan)
 layer.replot()
 graph.export("layer8.png")
 

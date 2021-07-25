@@ -142,7 +142,7 @@ c4.setColumnFormat('yyyy-MM-dd hh:mm')
 assert t.columnFormat(3) == c4.columnFormat()
 
 # print(c4.dateTimeAt(8))
-assert c4.dateTimeAt(8).toString(QtCore.Qt.ISODate) == "2018-05-06T10:12:23"
+assert c4.dateTimeAt(8).toString(QtCore.Qt.DateFormat.ISODate) == "2018-05-06T10:12:23"
 
 # check rowCount insertRows
 assert c4.rowCount() == 16
@@ -167,7 +167,7 @@ c5.setDateAt(2,QtCore.QDate(2018,11,20))
 c5.setDateAt(3,QtCore.QDate(2018,5,4))
 # possible formats for 'Month': ['M', 'MM', 'MMM', 'MMMM']
 c5.setColumnFormat("MMM")
-assert c5.dateAt(2).toString(QtCore.Qt.ISODate) == "2018-11-20"
+assert c5.dateAt(2).toString(QtCore.Qt.DateFormat.ISODate) == "2018-11-20"
 
 c6.setColumnMode("Day")
 # print(c6.columnMode())

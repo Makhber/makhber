@@ -24,18 +24,18 @@ layer = g1.activeLayer()
 layer.insertCurve(t1,'3',0,1)
 
 symbol = QwtSymbol()
-symbol.setStyle(QwtSymbol.Triangle)
-symbol.setOutlineColor(QtGui.QColor(Qt.red))
-symbol.setFillColor(QtGui.QColor(Qt.green))
+symbol.setStyle(QwtSymbol.Style.Triangle)
+symbol.setOutlineColor(QtGui.QColor(Qt.GlobalColor.red))
+symbol.setFillColor(QtGui.QColor(Qt.GlobalColor.green))
 symbol.setSize(20)
 curve=layer.curve(0)
 curve.setSymbol(symbol)
 
 # enable RHS curve and axes
-layer.curve(1).setXAxis(Layer.Top)
-layer.curve(1).setYAxis(Layer.Right)
-layer.enableAxis(QwtPlot.xTop,True)
-layer.enableAxis(QwtPlot.yRight,True)
+layer.curve(1).setXAxis(3) # Top
+layer.curve(1).setYAxis(1) # Right
+layer.enableAxis(3,True) # xTop
+layer.enableAxis(1,True) # xRight
 
 layer.replot()
 
@@ -44,10 +44,10 @@ g1.exportImage("triangle.png")
 # OK now extract the pen and brush
 pen=symbol.pen()
 brush=pen.brush()
-assert brush.color()==Qt.red
+assert brush.color()==Qt.GlobalColor.red
 brush=symbol.brush()
-assert brush.color()==Qt.green
-assert symbol.style()==QwtSymbol.Triangle
+assert brush.color()==Qt.GlobalColor.green
+assert symbol.style()==QwtSymbol.Style.Triangle
 assert symbol.size()==QtCore.QSize(20,20)
 
 assert curve.dataSize()==NP
@@ -62,51 +62,51 @@ for i in range(t1.numRows()):
 symbol=curve.symbol()
 pen=symbol.pen()
 brush=pen.brush()
-assert brush.color()==Qt.red
+assert brush.color()==Qt.GlobalColor.red
 brush=symbol.brush()
-assert brush.color()==Qt.green
-assert symbol.style()==QwtSymbol.Triangle
+assert brush.color()==Qt.GlobalColor.green
+assert symbol.style()==QwtSymbol.Style.Triangle
 assert symbol.size()==QtCore.QSize(20,20)
 
 
 pen=curve.pen()
-pen.setColor(Qt.blue)
+pen.setColor(Qt.GlobalColor.blue)
 pen.setWidth(5)
-pen.setStyle(Qt.DashLine)
-pen.setJoinStyle(Qt.RoundJoin)
-pen.setCapStyle(Qt.RoundCap)
+pen.setStyle(Qt.PenStyle.DashLine)
+pen.setJoinStyle(Qt.PenJoinStyle.RoundJoin)
+pen.setCapStyle(Qt.PenCapStyle.RoundCap)
 pen.setMiterLimit(3)
 curve.setPen(pen)
 assert curve.pen()==pen
 pen=curve.pen()
-assert pen.color()==Qt.blue
+assert pen.color()==Qt.GlobalColor.blue
 assert pen.width()==5
-assert pen.style()==Qt.DashLine
-assert pen.joinStyle()==Qt.RoundJoin
-assert pen.capStyle()==Qt.RoundCap
+assert pen.style()==Qt.PenStyle.DashLine
+assert pen.joinStyle()==Qt.PenJoinStyle.RoundJoin
+assert pen.capStyle()==Qt.PenCapStyle.RoundCap
 assert pen.miterLimit()==3
 
 pen.setDashPattern([3,1,2,1])
 pen.setDashOffset(2)
 assert pen.dashPattern()==[3,1,2,1]
 assert pen.dashOffset()==2
-assert pen.style()==Qt.CustomDashLine
+assert pen.style()==Qt.PenStyle.CustomDashLine
 
 brush=curve.brush()
-brush.setColor(Qt.red)
+brush.setColor(Qt.GlobalColor.red)
 brush.setTransform(QtGui.QTransform(0,1,0,1,10,10))
-brush.setStyle(Qt.BDiagPattern)
+brush.setStyle(Qt.BrushStyle.BDiagPattern)
 curve.setBrush(brush)
 assert curve.brush()==brush
 brush=curve.brush()
-assert brush.color()==Qt.red
+assert brush.color()==Qt.GlobalColor.red
 assert brush.transform()==QtGui.QTransform(0,1,0,1,10,10)
-assert brush.style()==Qt.BDiagPattern
+assert brush.style()==Qt.BrushStyle.BDiagPattern
 
-curve.setOutlineColor(Qt.blue)
-curve.setFillColor(Qt.green)
-curve.setFillStyle(Qt.CrossPattern)
-assert curve.pen().color()==Qt.blue
-assert curve.brush().color()==Qt.green
-assert curve.brush().style()==Qt.CrossPattern
+curve.setOutlineColor(Qt.GlobalColor.blue)
+curve.setFillColor(Qt.GlobalColor.green)
+curve.setFillStyle(Qt.BrushStyle.CrossPattern)
+assert curve.pen().color()==Qt.GlobalColor.blue
+assert curve.brush().color()==Qt.GlobalColor.green
+assert curve.brush().style()==Qt.BrushStyle.CrossPattern
 app.exit()
