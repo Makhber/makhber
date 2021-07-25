@@ -9099,7 +9099,7 @@ Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
                 w->setCommands(*line);
             } else if (fields[0] == "<com>") {
                 for (line++; line != flist.end() && *line != "</com>"; line++) {
-                    int col = (*line).midRef(9, (*line).length() - 11).toInt();
+                    int col = (*line).mid(9, (*line).length() - 11).toInt();
                     QString formula;
                     for (line++; line != flist.end() && *line != "</col>"; line++)
                         formula += *line + "\n";
@@ -9245,7 +9245,7 @@ TableStatistics *ApplicationWindow::openTableStatistics(const QStringList &flist
             w->setCommands(*line);
         } else if (fields[0] == "<com>") {
             for (line++; line != flist.end() && *line != "</com>"; line++) {
-                int col = (*line).midRef(9, (*line).length() - 11).toInt();
+                int col = (*line).mid(9, (*line).length() - 11).toInt();
                 QString formula;
                 for (line++; line != flist.end() && *line != "</col>"; line++)
                     formula += *line + "\n";
@@ -9713,7 +9713,7 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
             fnt.setUnderline(fList[5].toInt());
             fnt.setStrikeOut(fList[6].toInt());
 
-            int axis = (fList[0].rightRef(1)).toInt();
+            int axis = (fList[0].right(1)).toInt();
             ag->setAxisTitleFont(axis, fnt);
         } else if (s.contains("AxisFont")) {
             QStringList fList = s.split("\t");
@@ -9721,14 +9721,14 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
             fnt.setUnderline(fList[5].toInt());
             fnt.setStrikeOut(fList[6].toInt());
 
-            int axis = (fList[0].rightRef(1)).toInt();
+            int axis = (fList[0].right(1)).toInt();
             ag->setAxisFont(axis, fnt);
         } else if (s.contains("AxesFormulas")) {
             QStringList fList = s.split("\t");
             fList.removeAll(fList.first());
             ag->setAxesFormulas(fList);
         } else if (s.startsWith("<AxisFormula ")) {
-            int pos = s.midRef(18, s.length() - 20).toInt();
+            int pos = s.mid(18, s.length() - 20).toInt();
             QString formula;
             for (j++; j < (int)list.count() && list[j] != "</AxisFormula>"; j++)
                 formula += list[j] + "\n";

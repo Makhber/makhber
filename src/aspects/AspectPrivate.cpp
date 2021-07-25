@@ -233,7 +233,7 @@ QString AbstractAspect::Private::uniqueNameFor(const QString &current_name) cons
     if (last_non_digit >= 0 && base[last_non_digit].category() != QChar::Separator_Space)
         base.append(" ");
 
-    int new_nr = current_name.rightRef(current_name.size() - base.size()).toInt();
+    int new_nr = current_name.right(current_name.size() - base.size()).toInt();
     QString new_name;
     do
         new_name = base + QString::number(++new_nr);

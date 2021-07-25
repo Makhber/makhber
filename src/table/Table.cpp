@@ -1193,7 +1193,7 @@ void Table::restore(const QStringList &list_in)
         for (int col = 0; col < numCols(); col++)
             commands << "";
         for (; iterator != list_in.end() && *iterator != "</com>"; iterator++) {
-            int col = (*iterator).midRef(9, (*iterator).length() - 11).toInt();
+            int col = (*iterator).mid(9, (*iterator).length() - 11).toInt();
             QString formula;
             for (iterator++; iterator != list_in.end() && *iterator != "</col>"; iterator++)
                 formula += *iterator + "\n";
