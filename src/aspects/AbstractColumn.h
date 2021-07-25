@@ -36,13 +36,13 @@
 
 #include <QList>
 #include <QString>
+#include <QStringList>
 #include <QDateTime>
 #include <QDate>
 #include <QTime>
 
 class Column;
 class AbstractSimpleFilter;
-class QStringList;
 class AbstractFilter;
 
 //! Interface definition for data with column logic

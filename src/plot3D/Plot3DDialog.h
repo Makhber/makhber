@@ -43,7 +43,6 @@ class QSpinBox;
 class QDoubleSpinBox;
 class QTabWidget;
 class QWidget;
-class QStringList;
 class QStackedWidget;
 class QGroupBox;
 

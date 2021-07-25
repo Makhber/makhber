@@ -37,7 +37,6 @@
 #include <QString>
 #include <QStringList>
 #include <QObject>
-#include <QStringList>
 #include <QEvent>
 
 class ApplicationWindow;

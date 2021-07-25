@@ -51,7 +51,6 @@ class QRadioButton;
 class QSpinBox;
 class QTabWidget;
 class QWidget;
-class QStringList;
 class ColorButton;
 class TextFormatButtons;
 
