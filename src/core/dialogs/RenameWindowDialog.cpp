@@ -38,7 +38,7 @@
 #include <QRadioButton>
 #include <QMessageBox>
 #include <QButtonGroup>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QHBoxLayout>
 #include <QGridLayout>
 
@@ -126,7 +126,7 @@ MyWidget::CaptionPolicy RenameWindowDialog::getCaptionPolicy()
 void RenameWindowDialog::accept()
 {
     QString name = window->name();
-    QString text = boxNameLine->text().remove("=").remove(QRegExp("\\s"));
+    QString text = boxNameLine->text().remove("=").remove(QRegularExpression("\\s"));
     QString label = boxLabelEdit->toPlainText();
 
     MyWidget::CaptionPolicy policy = getCaptionPolicy();

@@ -261,7 +261,7 @@ void Matrix::pasteIntoSelection()
     if (mimeData->hasText()) {
         QString input_str = QString(clipboard->text());
         QList<QStringList> cell_texts;
-        QStringList input_rows(input_str.split(QRegExp(R"(\n|\r\n|\r)")));
+        QStringList input_rows(input_str.split(QRegularExpression(R"(\n|\r\n|\r)")));
         input_row_count = input_rows.count();
         input_col_count = 0;
         for (int i = 0; i < input_row_count; i++) {

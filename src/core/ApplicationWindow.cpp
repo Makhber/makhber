@@ -2137,7 +2137,7 @@ MultiLayer *ApplicationWindow::multilayerPlot(const QString &caption)
     auto *ml = new MultiLayer("", &d_workspace, nullptr);
     ml->setAttribute(Qt::WA_DeleteOnClose);
     QString label = caption;
-    initMultilayerPlot(ml, label.replace(QRegExp("_"), "-"));
+    initMultilayerPlot(ml, label.replace(QRegularExpression("_"), "-"));
     return ml;
 }
 
@@ -3571,7 +3571,7 @@ bool ApplicationWindow::loadProject(const QString &fn)
 
     s = t.readLine();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    list = s.split(QRegExp("\\s"), Qt::SkipEmptyParts);
+    list = s.split(QRegularExpression("\\s"), Qt::SkipEmptyParts);
 #else
     list = s.split(QRegExp("\\s"), QString::SkipEmptyParts);
 #endif
@@ -3985,7 +3985,7 @@ void ApplicationWindow::openTemplate()
             t.setCodec(QTextCodec::codecForName("UTF-8"));
             f.open(QIODevice::ReadOnly);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList l = t.readLine().split(QRegExp("\\s"), Qt::SkipEmptyParts);
+            QStringList l = t.readLine().split(QRegularExpression("\\s"), Qt::SkipEmptyParts);
 #else
             QStringList l = t.readLine().split(QRegExp("\\s"), QString::SkipEmptyParts);
 #endif
@@ -4039,7 +4039,7 @@ void ApplicationWindow::openTemplate()
                     w->setAttribute(Qt::WA_DeleteOnClose);
                     QString label = generateUniqueName(tr("Graph"));
                     initBareMultilayerPlot(dynamic_cast<MultiLayer *>(w),
-                                           label.replace(QRegExp("_"), "-"));
+                                           label.replace(QRegularExpression("_"), "-"));
                     if (w) {
                         (dynamic_cast<MultiLayer *>(w))->setCols(cols);
                         (dynamic_cast<MultiLayer *>(w))->setRows(rows);
@@ -4154,7 +4154,7 @@ void ApplicationWindow::readSettings()
 #endif
     else if (recentProjects.count() == 1) {
         QString s = recentProjects[0];
-        if (s.remove(QRegExp("\\s")).isEmpty())
+        if (s.remove(QRegularExpression("\\s")).isEmpty())
             recentProjects = QStringList();
     }
 #endif
@@ -5117,7 +5117,7 @@ bool ApplicationWindow::renameWindow(MyWidget *w, const QString &text)
     if (newName.isEmpty()) {
         QMessageBox::critical(this, tr("Error"), tr("Please enter a valid name!"));
         return false;
-    } else if (newName.contains(QRegExp("\\W"))) {
+    } else if (newName.contains(QRegularExpression("\\W"))) {
         QMessageBox::critical(
                 this, tr("Error"),
                 tr("The name you chose is not valid: only letters and digits are allowed!") + "<p>"
@@ -7731,7 +7731,7 @@ QStringList ApplicationWindow::dependingPlots(const QString &name)
             for (QWidget *widget : lst) {
                 auto *g = dynamic_cast<Graph *>(widget);
                 onPlot = g->curvesList();
-                onPlot = onPlot.filter(QRegExp("^" + name + "_.*"));
+                onPlot = onPlot.filter(QRegularExpression("^" + name + "_.*"));
                 if (onPlot.count() > 0 && !plots.contains(w->name()))
                     plots << w->name();
             }
@@ -12087,7 +12087,7 @@ void ApplicationWindow::appendProject(const QString &fn)
 
         QString s = t.readLine();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-        lst = s.split(QRegExp("\\s"), Qt::SkipEmptyParts);
+        lst = s.split(QRegularExpression("\\s"), Qt::SkipEmptyParts);
         QString version = lst[1];
         lst = version.split(".", Qt::SkipEmptyParts);
 #else

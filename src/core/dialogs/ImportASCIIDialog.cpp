@@ -38,7 +38,6 @@
 #include <QHBoxLayout>
 #include <QGroupBox>
 #include <QPushButton>
-#include <QRegExp>
 #include <QMessageBox>
 #include <QCloseEvent>
 

@@ -97,8 +97,8 @@ void PenWidget::createWidgets()
     dashLineEdit = new QLineEdit(this);
     dashLineEdit->setText(d_custom_dash);
     // # https://snorfalorpagus.net/blog/2014/08/09/validating-user-input-in-pyqt4-using-qvalidator/
-    QRegExp rx(R"(^(\d+\s+\d+\b\s*)*$)");
-    dashValidator = new QRegExpValidator(rx, this);
+    QRegularExpression rx(R"(^(\d+\s+\d+\b\s*)*$)");
+    dashValidator = new QRegularExpressionValidator(rx, this);
     // dashLineEdit->setValidator(validator);
 
     dashLineEdit->setMinimumWidth(80);

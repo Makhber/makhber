@@ -44,6 +44,7 @@
 #include <QObject>
 #include <QMetaObject>
 #include <QMetaEnum>
+#include <QRegularExpression>
 #include <QtDebug>
 
 const QString Makhber::copyright_string = "";
@@ -73,7 +74,7 @@ QString Makhber::extraVersion()
 void Makhber::about()
 {
     QString text = Makhber::copyright_string;
-    text.replace(QRegExp("\\[1\\]"), "<sup>1</sup>");
+    text.replace(QRegularExpression("\\[1\\]"), "<sup>1</sup>");
     text.replace("é", "&eacute;");
     text.replace("á", "&aacute;");
     text.replace("ö", "&ouml;");

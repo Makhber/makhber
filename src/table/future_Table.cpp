@@ -414,13 +414,13 @@ void Table::pasteIntoSelection()
     if (mimeData->hasText()) {
         QString input_str = clipboard->text().trimmed();
         QList<QStringList> cell_texts;
-        QStringList input_rows(input_str.split(QRegExp(R"(\n|\r\n|\r)")));
+        QStringList input_rows(input_str.split(QRegularExpression(R"(\n|\r\n|\r)")));
         input_row_count = input_rows.count();
         input_col_count = 0;
         for (int i = 0; i < input_row_count; i++) {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            cell_texts.append(
-                    input_rows.at(i).trimmed().split(QRegExp("( +|\\s)"), Qt::KeepEmptyParts));
+            cell_texts.append(input_rows.at(i).trimmed().split(QRegularExpression("( +|\\s)"),
+                                                               Qt::KeepEmptyParts));
 #else
             cell_texts.append(
                     input_rows.at(i).trimmed().split(QRegExp("( +|\\s)"), QString::KeepEmptyParts));

@@ -78,7 +78,7 @@
 #include <QPrintDialog>
 #include <QImageWriter>
 #include <QFileInfo>
-#include <QRegExp>
+#include <QRegularExpression>
 #include <QVarLengthArray>
 #include <QSvgGenerator>
 
@@ -3491,7 +3491,9 @@ void Graph::removeCurves(const QString &s)
         if ((dynamic_cast<PlotCurve *>(it))->type() == Function)
             continue;
 
-        if ((dynamic_cast<DataCurve *>(it))->plotAssociation().contains(QRegExp("\b" + s + "\b")))
+        if ((dynamic_cast<DataCurve *>(it))
+                    ->plotAssociation()
+                    .contains(QRegularExpression("\b" + s + "\b")))
             removeCurve(i);
     }
     d_plot->replot();
@@ -3576,16 +3578,19 @@ void Graph::removeLegendItem(int index)
         items.removeAll(l[0]); // remove the corresponding legend string
     text = items.join("\n") + "\n";
 
-    QRegExp itemCmd(R"(\\c\{(\d+)\})");
-    int pos = 0;
-    while ((pos = itemCmd.indexIn(text, pos)) != -1) {
-        int nr = itemCmd.cap(1).toInt();
+    QRegularExpression itemCmd(R"(\\c\{(\d+)\})");
+    auto match = itemCmd.match(text);
+    int pos = match.capturedStart();
+    while (pos != -1) {
+        int nr = match.captured(1).toInt();
         if (nr > index) {
             QString subst = QString("\\c{") + QString::number(nr - 1) + "}";
-            text.replace(pos, itemCmd.matchedLength(), subst);
+            text.replace(pos, match.capturedLength(), subst);
             pos += subst.length();
         } else
-            pos += itemCmd.matchedLength();
+            pos += match.capturedLength();
+        match = itemCmd.match(text, pos);
+        pos = match.capturedStart();
     }
 
     mrk->setText(text);

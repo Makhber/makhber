@@ -238,7 +238,7 @@ void ColorMapEditor::validateLevel(int row, int col)
 
     bool user_input_error = false;
     QString s = table->item(row, 0)->text().remove("-").remove(".").remove(",").remove("+");
-    if (s.isEmpty() || s.contains(QRegExp("\\D"))) {
+    if (s.isEmpty() || s.contains(QRegularExpression("\\D"))) {
         QMessageBox::critical(this, tr("Input Error"),
                               tr("Please enter a valid color level value!"));
         user_input_error = true;

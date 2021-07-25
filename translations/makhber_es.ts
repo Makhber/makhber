@@ -4550,7 +4550,7 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>CanvasPicker</name>
     <message>
-        <location filename="../src/plot2D/CanvasPicker.cpp" line="208"/>
+        <location filename="../src/plot2D/CanvasPicker.cpp" line="214"/>
         <source>enter your text here</source>
         <translation>introduzca su texto aquí</translation>
     </message>
@@ -4681,43 +4681,43 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>ColorMapEditor</name>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="60"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="62"/>
         <source>Level</source>
         <translation>Nivel</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="60"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="62"/>
         <source>Color</source>
         <translation>Color</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="69"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="71"/>
         <source>&amp;Insert</source>
         <translation>&amp;Insertar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="73"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="75"/>
         <source>&amp;Delete</source>
         <translation>&amp;Eliminar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="81"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="83"/>
         <source>&amp;Scale Colors</source>
         <translation>E&amp;scalar colores</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="227"/>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="240"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="229"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="242"/>
         <source>Input Error</source>
         <translation>Error de entrada</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="227"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="229"/>
         <source>Sorry, you cannot edit this value!</source>
         <translation>¡Lo siento, no puede editar este valor!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/ColorMapEditor.cpp" line="241"/>
+        <location filename="../src/plot2D/ColorMapEditor.cpp" line="243"/>
         <source>Please enter a valid color level value!</source>
         <translation>¡Por favor, introduzca un valor válido del nivel de color!</translation>
     </message>
@@ -5971,34 +5971,34 @@ p, li { white-space: pre-wrap; }
         <translation>¡Seleccione un punto y haga doble click para borrarlo!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="316"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="318"/>
         <source>Remove point error</source>
         <translation>Error al borrar punto</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="317"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="319"/>
         <source>Sorry, but removing points of a function is not possible.</source>
         <translation>Perdón, pero no es posible borrar puntos de una función. </translation>
     </message>
     <message>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="332"/>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="403"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="334"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="405"/>
         <source>Warning</source>
         <translation>Atención</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="333"/>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="404"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="335"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="406"/>
         <source>This operation cannot be performed on curves plotted from columns having a non-numerical format.</source>
         <translation>Esta operación no puede ser realizada en curvas dibujadas a partir de columnas con un formato no numérico.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="382"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="384"/>
         <source>Move point error</source>
         <translation>Error al mover punto</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/DataPickerTool.cpp" line="383"/>
+        <location filename="../src/plot2D/DataPickerTool.cpp" line="385"/>
         <source>Sorry, but moving points of a function is not possible.</source>
         <translation>Perdón, pero no es posible mover puntos de una función. </translation>
     </message>
@@ -6731,68 +6731,68 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FindDialog</name>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="46"/>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="58"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="45"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="57"/>
         <source>Find</source>
         <translation>Buscar</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="46"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="45"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="52"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="51"/>
         <source>Start From</source>
         <translation>Empezar desde</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="68"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="67"/>
         <source>Search in</source>
         <translation>Buscar en</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="71"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="70"/>
         <source>&amp;Window Names</source>
         <translation>Nombres de las &amp;ventanas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="75"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="74"/>
         <source>Window &amp;Labels</source>
         <translation>&amp;Etiquetas de las ventanas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="79"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="78"/>
         <source>Folder &amp;Names</source>
         <translation>&amp;Nombres de las carpetas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="85"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="84"/>
         <source>Case &amp;Sensitive</source>
         <translation>&amp;Sensible a mayúscula/minuscula</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="89"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="88"/>
         <source>&amp;Partial Match Allowed</source>
         <translation>Coincidencia &amp;parcial permitida</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="93"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="92"/>
         <source>&amp;Include Subfolders</source>
         <translation>&amp;Incluir subcarpetas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="97"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="96"/>
         <source>&amp;Find</source>
         <translation>&amp;Buscar</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="101"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="100"/>
         <source>&amp;Update Start Path</source>
         <translation>&amp;Actualizar ruta de inicio</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/FindDialog.cpp" line="103"/>
+        <location filename="../src/core/dialogs/FindDialog.cpp" line="102"/>
         <source>&amp;Close</source>
         <translation>&amp;Cerrar</translation>
     </message>
@@ -7649,7 +7649,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1336"/>
         <location filename="../src/plot2D/Graph.cpp" line="1354"/>
         <location filename="../src/plot2D/Graph.cpp" line="1369"/>
-        <location filename="../src/plot2D/Graph.cpp" line="5064"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5069"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
@@ -7671,9 +7671,9 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/plot2D/Graph.cpp" line="1380"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4267"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4271"/>
-        <location filename="../src/plot2D/Graph.cpp" line="5052"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4272"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4276"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5057"/>
         <source>Warning</source>
         <translation>Atención</translation>
     </message>
@@ -7688,124 +7688,124 @@ p, li { white-space: pre-wrap; }
         <translation>Título</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3706"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3736"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3711"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3741"/>
         <source>File open error</source>
         <translation>Error de apertura de archivo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3707"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3737"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3712"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3742"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>¡El archivo de imagen: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; ya no existe!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3947"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3952"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3949"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3954"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3956"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3961"/>
         <source>Data set generated from curve</source>
         <translation>Conjunto de datos generados a partir de la curva </translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3957"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3962"/>
         <source>Curve data %1</source>
         <translation>Datos de curva %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4268"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4273"/>
         <source>The columns</source>
         <translation>Las columnas</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4269"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4274"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>están vacías y no serán añadidas al gráfico!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4272"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4277"/>
         <source>The column</source>
         <translation>La columna</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4273"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4278"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>está vacía y no será añadida al gráfico!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4279"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4284"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4330"/>
         <source>&amp;Cut</source>
         <translation>&amp;Cortar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4280"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4326"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4285"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4331"/>
         <source>&amp;Copy</source>
         <translation>&amp;Copiar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4281"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4327"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4286"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4332"/>
         <source>&amp;Delete</source>
         <translation>&amp;Eliminar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4283"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4331"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4335"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4339"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4343"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4371"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4288"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4336"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4340"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4344"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4348"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4376"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Propiedades...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4355"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4360"/>
         <source>&amp;Rescale to show all</source>
         <translation>&amp;Reescalar para mostrar todo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4356"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4361"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4358"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4363"/>
         <source>&amp;Hide axis</source>
         <translation>&amp;Ocultar eje</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4360"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4365"/>
         <source>&amp;Show grids</source>
         <translation>Mo&amp;strar mallas</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4370"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4375"/>
         <source>&amp;Scale...</source>
         <translation>E&amp;scala...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="5053"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5058"/>
         <source>There are no curves available on this plot!</source>
         <translation>¡No hay curvas disponibles en este gráfico!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="5065"/>
+        <location filename="../src/plot2D/Graph.cpp" line="5070"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>No hay curvas con más de dos puntos en este gráfico. ¡Operación abortada!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.h" line="659"/>
+        <location filename="../src/plot2D/Graph.h" line="660"/>
         <source>F</source>
         <translation>F</translation>
     </message>
@@ -8127,79 +8127,79 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>ImportASCIIDialog</name>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="49"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="48"/>
         <source>Import ASCII File(s)</source>
         <translation>Importar archivo(s) ASCII</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="52"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="51"/>
         <source>All files</source>
         <translation>Todos los archivos</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="53"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="52"/>
         <source>Text files</source>
         <translation>Archivos de texto </translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="54"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="53"/>
         <source>Data files</source>
         <translation>Archivos de datos</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="55"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="54"/>
         <source>Comma Separated Values</source>
         <translation>Valores Separados por Comas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="91"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="90"/>
         <source>Import each file as: </source>
         <translation>Importar cada archivo como: </translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="94"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="93"/>
         <source>New Table</source>
         <translation>Nueva Tabla</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="95"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="94"/>
         <source>New Columns</source>
         <translation>Nuevas columnas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="96"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="95"/>
         <source>New Rows</source>
         <translation>Nuevas filas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="97"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="96"/>
         <source>Overwrite Current Table</source>
         <translation>Sobrescribir tabla actual</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="100"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="99"/>
         <source>Separator:</source>
         <translation>Separador:</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="103"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="102"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="104"/>
         <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="105"/>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="106"/>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="229"/>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="231"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="228"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="230"/>
         <source>TAB</source>
         <translation>TAB</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="104"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="103"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="106"/>
         <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="107"/>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="108"/>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="233"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="232"/>
         <source>SPACE</source>
         <translation>ESPACIO</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="116"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="115"/>
         <source>The column separator can be customized. 
 The following special codes can be used:
 \t for a TAB character 
@@ -8207,33 +8207,33 @@ The following special codes can be used:
         <translation>El separador de columna puede ser personalizado. Los siguientes códigos pueden usarse:\t para un carácter TAB\s para un espacio</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="119"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="118"/>
         <source>The separator must not contain the following characters: 
 0-9eE.+-</source>
         <translation>El separador no puede contener los siguientes caracteres: 0-9eE.+-</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="125"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="124"/>
         <source>Ignore first</source>
         <translation>Ignorar las primeras</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="129"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="128"/>
         <source>lines</source>
         <translation>líneas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="133"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="132"/>
         <source>Use first row to &amp;name columns</source>
         <translation>Usar primera fila para &amp;nombrar columnas</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="136"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="135"/>
         <source>&amp;Remove white spaces from line ends</source>
         <translation>Quita&amp;r espacios en blanco de los finales de línea</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="140"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="139"/>
         <source>By checking this option all white spaces will be 
 removed from the beginning and the end of 
 the lines in the ASCII file.</source>
@@ -8244,7 +8244,7 @@ serán quitados, los del comienzo y los del
 final de las líneas, en archivos ASCII.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="145"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="144"/>
         <source>Warning: checking this option leads to column 
 overlaping if the columns in the ASCII file don&apos;t 
 have the same number of rows.</source>
@@ -8253,8 +8253,8 @@ superposición de columnas, si las del archivo
 ASCII no tienen el mismo número de filas.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="148"/>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="170"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="147"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="169"/>
         <source>To avoid this problem you should precisely 
 define the column separator using TAB and 
 SPACE characters.</source>
@@ -8265,12 +8265,12 @@ con precisión el separador de columnas
 usando los caracteres TAB o ESPACIO.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="155"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="154"/>
         <source>&amp;Simplify white spaces</source>
         <translation>&amp;Simplificar espacios en blanco</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="159"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="158"/>
         <source>By checking this option all white spaces will be 
 removed from the beginning and the end of the 
 lines and each sequence of internal 
@@ -8284,7 +8284,7 @@ y cada secuencia de espacios internos (incluyendo el carácter TAB)
 serán reemplazados por un único espacio en blanco.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="165"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="164"/>
         <source>Warning: checking this option leads to column 
 overlaping if the columns in the ASCII file don&apos;t 
 have the same number of rows.</source>
@@ -8295,79 +8295,79 @@ superposición de columnas, si las del archivo
 ASCII no tienen el mismo número de filas.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="177"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="176"/>
         <source>&amp;Numeric data</source>
         <translation>Datos &amp;numéricos</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="180"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="179"/>
         <source>Decimal Separators</source>
         <translation>Separadores decimales</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="182"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="181"/>
         <source>default</source>
         <translation>defecto</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="191"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="190"/>
         <source>Re&amp;member the above options</source>
         <translation>Re&amp;cordar las opciones de arriba </translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="193"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="192"/>
         <source>&amp;Help</source>
         <translation>A&amp;yuda</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="249"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="248"/>
         <source>The column separator can be customized. The following special codes can be used:
 \t for a TAB character 
 \s for a SPACE</source>
         <translation>El separador de columnas puede ser personalizado. Los siguientes códigos pueden usarse:\t para un caracter TAB\s para un ESPACIO</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="251"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="250"/>
         <source>The separator must not contain the following characters: 0-9eE.+-</source>
         <translation>El separador no puede contener los siguientes caracteres: 0-9eE.+-</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="252"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="251"/>
         <source>Remove white spaces from line ends</source>
         <translation>Quitar espacios en blanco de los finales de línea</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="253"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="252"/>
         <source>By checking this option all white spaces will be removed from the beginning and the end of the lines in the ASCII file.</source>
         <translation>Marcando esta opción todos los espacios en blanco serán eliminados del principio y el final de las líneas en el archivo ASCII.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="256"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="255"/>
         <source>Simplify white spaces</source>
         <translation>Simplificar espacios en blanco</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="257"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="256"/>
         <source>By checking this option each sequence of internal whitespaces (including the TAB character) will be replaced with a single space.</source>
         <translation>Marcando esta opción cada secuencia de espacios en blanco internos (incluyendo el carácter TAB) será reemplazada por un único espacio.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="259"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="258"/>
         <source>By checking this option all white spaces will be removed from the beginning and the end of the lines and each sequence of internal whitespaces (including the TAB character) will be replaced with a single space.</source>
         <translation>Marcando esta opción todos los espacios en blanco serán eliminados del principio y el final de las líneas y cada secuencia de espacios internos (incluyendo el carácter TAB) serán reemplazados por un único espacio en blanco.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="264"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="263"/>
         <source>Warning: using these two last options leads to column overlaping if the columns in the ASCII file don&apos;t have the same number of rows.</source>
         <translation>Atención: usar estas dos últimas opciones conducen a la superposición de columnas si las del archivo ASCII no tienen el mismo número de filas.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="267"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="266"/>
         <source>To avoid this problem you should precisely define the column separator using TAB and SPACE characters.</source>
         <translation>Para evitar este problema debería definir con precisión el separador de columnas usando los caracteres TAB o ESPACIO.</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="270"/>
+        <location filename="../src/core/dialogs/ImportASCIIDialog.cpp" line="269"/>
         <source>Help</source>
         <translation>Ayuda</translation>
     </message>
@@ -8513,96 +8513,96 @@ Los límites deben estar dentro del rango de x; si no conoce el máximo (mínimo
 <context>
     <name>Integration</name>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="68"/>
+        <location filename="../src/analysis/Integration.cpp" line="69"/>
         <source>Integration</source>
         <translation>Integración</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="103"/>
-        <location filename="../src/analysis/Integration.cpp" line="113"/>
-        <location filename="../src/analysis/Integration.cpp" line="145"/>
+        <location filename="../src/analysis/Integration.cpp" line="104"/>
+        <location filename="../src/analysis/Integration.cpp" line="114"/>
+        <location filename="../src/analysis/Integration.cpp" line="146"/>
         <source>Error</source>
         <translation>Error</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="103"/>
-        <location filename="../src/analysis/Integration.cpp" line="113"/>
-        <location filename="../src/analysis/Integration.cpp" line="145"/>
+        <location filename="../src/analysis/Integration.cpp" line="104"/>
+        <location filename="../src/analysis/Integration.cpp" line="114"/>
+        <location filename="../src/analysis/Integration.cpp" line="146"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="104"/>
+        <location filename="../src/analysis/Integration.cpp" line="105"/>
         <source>Unknown interpolation method. Valid values are: 0 - Linear, 1 - Cubic, 2 - Akima.</source>
         <translation>Metodo de interpolación desconocido. Los valores válidos son: 0 - Lineal, 1 - Cúbico, 2 - Akima.</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="114"/>
+        <location filename="../src/analysis/Integration.cpp" line="115"/>
         <source>Several data points have the same x value causing divisions by zero, operation aborted!</source>
         <translation>¡Varios puntos tienen el mismo valor de x causando división por cero, integración abortada!</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="129"/>
+        <location filename="../src/analysis/Integration.cpp" line="130"/>
         <source>Linear</source>
         <translation>Lineal</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="133"/>
+        <location filename="../src/analysis/Integration.cpp" line="134"/>
         <source>Cubic</source>
         <translation>Cúbica</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="137"/>
+        <location filename="../src/analysis/Integration.cpp" line="138"/>
         <source>Akima</source>
         <translation>Akima</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="146"/>
+        <location filename="../src/analysis/Integration.cpp" line="147"/>
         <source>You need at least %1 points in order to perform this operation!</source>
         <translation>¡Necesita al menos %1 puntos para realizar esta operación!</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="155"/>
+        <location filename="../src/analysis/Integration.cpp" line="156"/>
         <source>Plot</source>
         <translation>Gráfica</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="157"/>
+        <location filename="../src/analysis/Integration.cpp" line="158"/>
         <source>Numerical integration of</source>
         <translation>Integración numérica de</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="158"/>
+        <location filename="../src/analysis/Integration.cpp" line="159"/>
         <source> using </source>
         <translation>usando</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="158"/>
+        <location filename="../src/analysis/Integration.cpp" line="159"/>
         <source>Interpolation</source>
         <translation>Interpolación</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="162"/>
+        <location filename="../src/analysis/Integration.cpp" line="163"/>
         <source>Points</source>
         <translation>Puntos</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="162"/>
+        <location filename="../src/analysis/Integration.cpp" line="163"/>
         <source>from</source>
         <translation>desde</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="164"/>
+        <location filename="../src/analysis/Integration.cpp" line="165"/>
         <source>to</source>
         <translation>a</translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="176"/>
+        <location filename="../src/analysis/Integration.cpp" line="177"/>
         <source>Peak at</source>
         <translation>Pico en </translation>
     </message>
     <message>
-        <location filename="../src/analysis/Integration.cpp" line="179"/>
+        <location filename="../src/analysis/Integration.cpp" line="180"/>
         <source>Area</source>
         <translation>Área</translation>
     </message>
@@ -9469,64 +9469,64 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MuParserScript</name>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="263"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="268"/>
         <source>col() works only on tables!</source>
         <translation>col() funciona sólo en tablas!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="266"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="305"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="350"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="271"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="310"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="355"/>
         <source>There&apos;s no column %1 in table %2!</source>
         <translation>¡No hay columna llamada %1 en la tabla %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="297"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="302"/>
         <source>tablecol() works only on tables!</source>
         <translation>tablecol() trabaja sólo sobre tablas!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="301"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="447"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="456"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="462"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="306"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="452"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="461"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="467"/>
         <source>Couldn&apos;t find a table named %1.</source>
         <translation>No se pudo hallar la tabla llamada %1.</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="347"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="369"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="352"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="374"/>
         <source>cell() works only on tables and matrices!</source>
         <translation>cell() trabaja sólo sobre tablas y matrices!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="373"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="378"/>
         <source>There&apos;s no row %1 in matrix %2!</source>
         <translation>No hay fila %1 en la matriz %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="377"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="382"/>
         <source>There&apos;s no column %1 in matrix %2!</source>
         <translation>No hay columna llamada %1 en la matriz %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="426"/>
         <location filename="../src/scripting/MuParserScript.cpp" line="431"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="436"/>
         <source>Accessing table values is not (yet) supported in this context.</source>
         <translation>El acceso a los valores de las tablas no estan soportados todavía en este contexto. </translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="469"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="474"/>
         <source>There&apos;s no column named %1 in table %2!</source>
         <translation>¡No hay columna llamada %1 en la tabla %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="583"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="589"/>
         <source>tablecol: wrong number of arguments (need 2, got %1)</source>
         <translation>tablecol: número incorrecto de argumentos (necesita 2, obtuvo %1) </translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="612"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="618"/>
         <source>cell: wrong number of arguments (need 2, got %1)</source>
         <translation>cell: número de argumentos erróneo (necesita 2, ubtuvo %1)</translation>
     </message>
@@ -10401,12 +10401,12 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
 <context>
     <name>Plot</name>
     <message>
-        <location filename="../src/plot2D/Plot.cpp" line="62"/>
+        <location filename="../src/plot2D/Plot.cpp" line="63"/>
         <source>Y Axis Title</source>
         <translation>título eje Y</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Plot.cpp" line="63"/>
+        <location filename="../src/plot2D/Plot.cpp" line="64"/>
         <source>X Axis Title</source>
         <translation>título eje X</translation>
     </message>
@@ -12391,13 +12391,13 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
         <translation>%1: mover columna %2 desde  la posición %3 a la %4</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="99"/>
+        <location filename="../src/core/globals.cpp" line="100"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11736"/>
-        <location filename="../src/core/globals.cpp" line="101"/>
+        <location filename="../src/core/globals.cpp" line="102"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>
@@ -13022,47 +13022,47 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
 <context>
     <name>Table</name>
     <message>
-        <location filename="../src/table/Table.cpp" line="1011"/>
+        <location filename="../src/table/Table.cpp" line="1012"/>
         <source>ASCII Export Error</source>
         <translation>Error de exportación ASCII</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1012"/>
+        <location filename="../src/table/Table.cpp" line="1013"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;</source>
         <translation>No se pudo escribir al archivo: &lt;br&gt;&lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1013"/>
+        <location filename="../src/table/Table.cpp" line="1014"/>
         <source>&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1108"/>
+        <location filename="../src/table/Table.cpp" line="1109"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1109"/>
+        <location filename="../src/table/Table.cpp" line="1110"/>
         <source>Do you want to hide or delete</source>
         <translation>Quiere ocultar ó eliminar?</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1111"/>
+        <location filename="../src/table/Table.cpp" line="1112"/>
         <source>Delete</source>
         <translation>Borrar</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1111"/>
+        <location filename="../src/table/Table.cpp" line="1112"/>
         <source>Hide</source>
         <translation>Ocultar</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1111"/>
+        <location filename="../src/table/Table.cpp" line="1112"/>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1332"/>
+        <location filename="../src/table/Table.cpp" line="1333"/>
         <source>%1: apply formula to column</source>
         <translation>%1: aplicar formula a columna</translation>
     </message>

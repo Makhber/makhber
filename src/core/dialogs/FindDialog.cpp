@@ -35,7 +35,6 @@
 #include <QCheckBox>
 #include <QComboBox>
 #include <QGridLayout>
-#include <QRegExp>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QFrame>

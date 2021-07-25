@@ -1926,7 +1926,7 @@ bool PlotDialog::validInput()
     QString from = histogramBeginBox->text();
     QString to = histogramEndBox->text();
     QString step = binSizeBox->text();
-    QRegExp nonDigit("\\D");
+    QRegularExpression nonDigit("\\D");
 
     if (histogramBeginBox->text().isEmpty()) {
         QMessageBox::critical(this, tr("Input error"), tr("Please enter a valid start limit!"));
