@@ -274,15 +274,7 @@ jobs:
             wget
           pip3 install pyqt5 sip pyqt-builder
 
-      - name: Cache Qwt
-        id: cache-qwt
-        uses: actions/cache@v1
-        with:
-          path: ../Qwt
-          key: ${{ runner.os }}-Qwt-6.2.0-gcc-9
-
       - name: Build and install Qwt
-        if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
           wget https://downloads.sourceforge.net/qwt/qwt-6.2.0.tar.bz2
           tar -xf qwt-6.2.0.tar.bz2 && cd qwt-6.2.0
