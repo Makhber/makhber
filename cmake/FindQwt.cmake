@@ -1,21 +1,27 @@
-# Find Qwt
-# ~~~~~~~~
-# Copyright (c) 2010, Tim Sutton <tim at linfiniti.com>
-# Redistribution and use is allowed according to the terms of the BSD license.
-# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
-#
-# Once run this will define:
-#
-# QWT_FOUND       = system has QWT lib
-# QWT_LIBRARY     = full path to the QWT library
-# QWT_INCLUDE_DIR = where to find headers
-#
+#[[ Find Qwt
+ ~~~~~~~~
+ Copyright (c) 2010, Tim Sutton <tim at linfiniti.com>
+ Redistribution and use is allowed according to the terms of the BSD license.
+ For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+
+ Once run this will define:
+
+ QWT_FOUND       = system has QWT lib
+ QWT_LIBRARY     = full path to the QWT library
+ QWT_INCLUDE_DIR = where to find headers
+]]
+
+find_package(PkgConfig QUIET)
+if( PkgConfig_FOUND )
+  pkg_search_module(PC_QWT QUIET Qt5Qwt6)
+endif()
 
 set(QWT_LIBRARY_NAMES qwt-qt5 qwt6-qt5 qwt qwt6)
 
 find_library(QWT_LIBRARY
   NAMES ${QWT_LIBRARY_NAMES}
   PATHS
+    $<${PC_QWT_FOUND}:${PC_QWT_LIBDIR}>
     /usr/lib
     /usr/local/lib
     /usr/local/lib/qwt.framework
@@ -30,6 +36,7 @@ endif()
 
 FIND_PATH(QWT_INCLUDE_DIR NAMES qwt.h
   PATHS
+    $<${PC_QWT_FOUND}:${PC_QWT_INCLUDEDIR}>
     "${_qwt_fw}/Headers"
     /usr/include
     /usr/include/qt5
@@ -42,14 +49,18 @@ FIND_PATH(QWT_INCLUDE_DIR NAMES qwt.h
   )
 
 # version
-set ( _VERSION_FILE ${QWT_INCLUDE_DIR}/qwt_global.h )
-if ( EXISTS ${_VERSION_FILE} )
-  file ( STRINGS ${_VERSION_FILE} _VERSION_LINE REGEX "define[ ]+QWT_VERSION_STR" )
-  if ( _VERSION_LINE )
-    string ( REGEX REPLACE ".*define[ ]+QWT_VERSION_STR[ ]+\"([^\"]*)\".*" "\\1" QWT_VERSION_STRING "${_VERSION_LINE}" )
+if( PC_QWT_FOUND )
+  set( QWT_VERSION_STRING ${PC_QWT_VERSION} )
+else()
+  set ( _VERSION_FILE ${QWT_INCLUDE_DIR}/qwt_global.h )
+  if ( EXISTS ${_VERSION_FILE} )
+    file ( STRINGS ${_VERSION_FILE} _VERSION_LINE REGEX "define[ ]+QWT_VERSION_STR" )
+    if ( _VERSION_LINE )
+      string ( REGEX REPLACE ".*define[ ]+QWT_VERSION_STR[ ]+\"([^\"]*)\".*" "\\1" QWT_VERSION_STRING "${_VERSION_LINE}" )
+    endif ()
   endif ()
-endif ()
-unset ( _VERSION_FILE )
+  unset ( _VERSION_FILE )
+endif()
 
 include ( FindPackageHandleStandardArgs )
 find_package_handle_standard_args( Qwt
