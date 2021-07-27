@@ -10503,7 +10503,11 @@ void ApplicationWindow::createActions()
     connect(actionAddImage, SIGNAL(triggered()), this, SLOT(addImage()));
 
     d_plot_mapper = new QSignalMapper;
+#if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     connect(d_plot_mapper, SIGNAL(mappedInt(int)), this, SLOT(selectPlotType(int)));
+#else
+    connect(d_plot_mapper, SIGNAL(mapped(int)), this, SLOT(selectPlotType(int)));
+#endif
 
     actionPlotL = new QAction(QIcon(QPixmap(":/lPlot.xpm")), tr("&Line"), this);
     connect(actionPlotL, SIGNAL(triggered()), d_plot_mapper, SLOT(map()));
