@@ -6,6 +6,7 @@ In order to compile Makhber, you need to install the following
 libraries. Easiest is to use your package manager to install prebuilt versions.
 
 - Qt >= 5.12
+- Qwt >= 6.1
 - GSL
 - muParser
 - zlib
@@ -36,7 +37,7 @@ For testing:
 2. Install the required packages:
 
     ```SHELL
-    sudo apt install libgsl-dev libmuparser-dev zlib1g-dev
+    sudo apt install libqwt-qt5-dev libgsl-dev libmuparser-dev zlib1g-dev
     ```
 
 3. Install python modules (optional):
@@ -78,7 +79,7 @@ For testing:
 2. Install the required packages using vcpkg:
 
     ```SHELL
-    vcpkg install gsl muparser zlib --triplet x64-windows
+    vcpkg install qwt gsl muparser zlib --triplet x64-windows
     ```
 
 3. Install python modules (optional) using pip:
@@ -113,7 +114,7 @@ For testing:
 2. Install the required packages using homebrew:
 
     ```SHELL
-    brew install gsl muparser
+    brew install qwt gsl muparser
     ```
 
 3. Install GoogleTest (optional) using vcpkg:

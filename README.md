@@ -4,8 +4,7 @@ Makhber is a free application for Visualization and Analysis of Scientific Data.
 
 # Platforms
 
-Makhber runs on GNU/Linux, Windows and macOS; 
-possibly also on other platforms like *BSD.
+Makhber runs on GNU/Linux, Windows and macOS; possibly also on other platforms like BSD.
 
 # Installation
 
