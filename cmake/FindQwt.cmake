@@ -11,42 +11,55 @@
  QWT_INCLUDE_DIR = where to find headers
 ]]
 
+set( QWT_LIBRARY_NAMES
+  qwt-qt5
+  qwt6-qt5
+  qwt
+  qwt6
+)
+set( QWT_LIB_PATHS
+  /usr/lib
+  /usr/local/lib
+  /usr/local/lib/qwt.framework
+  /usr/local/lib/qt5
+  "$ENV{LIB_DIR}"
+)
+set( QWT_INCLUDE_PATHS
+  /usr/include
+  /usr/include/qt5
+  /usr/local/include
+  /usr/local/include/qt5
+  "$ENV{LIB_DIR}/include"
+  "$ENV{INCLUDE}"
+)
+
 find_package(PkgConfig QUIET)
 if( PkgConfig_FOUND )
   pkg_search_module(PC_QWT QUIET Qt5Qwt6)
 endif()
 
-set(QWT_LIBRARY_NAMES qwt-qt5 qwt6-qt5 qwt qwt6)
+if( PC_QWT_FOUND )
+  list( PREPEND QWT_LIB_PATHS "${PC_QWT_LIBDIR}" )
+  list( PREPEND QWT_INCLUDE_PATHS "${PC_QWT_INCLUDEDIR}" )
+endif()
 
 find_library(QWT_LIBRARY
   NAMES ${QWT_LIBRARY_NAMES}
-  PATHS
-    $<${PC_QWT_FOUND}:${PC_QWT_LIBDIR}>
-    /usr/lib
-    /usr/local/lib
-    /usr/local/lib/qwt.framework
-    /usr/local/lib/qt5
-  )
+  PATHS ${QWT_LIB_PATHS}
+)
 
 set(_qwt_fw)
 if(QWT_LIBRARY MATCHES "/qwt.*\\.framework")
   string(REGEX REPLACE "^(.*/qwt.*\\.framework).*$" "\\1" _qwt_fw "${QWT_LIBRARY}")
   set ( QWT_LIBRARY "${QWT_LIBRARY}/qwt" )
+  list( PREPEND QWT_INCLUDE_PATHS "${_qwt_fw}/Headers" )
 endif()
 
-FIND_PATH(QWT_INCLUDE_DIR NAMES qwt.h
-  PATHS
-    $<${PC_QWT_FOUND}:${PC_QWT_INCLUDEDIR}>
-    "${_qwt_fw}/Headers"
-    /usr/include
-    /usr/include/qt5
-    /usr/local/include
-    /usr/local/include/qt5
-    "$ENV{LIB_DIR}/include"
-    "$ENV{INCLUDE}"
-  PATH_SUFFIXES
-    ${QWT_LIBRARY_NAMES}
-  )
+find_path(QWT_INCLUDE_DIR
+  NAMES qwt.h
+  PATHS ${QWT_INCLUDE_PATHS}
+  PATH_SUFFIXES ${QWT_LIBRARY_NAMES}
+)
 
 # version
 if( PC_QWT_FOUND )
@@ -70,7 +83,7 @@ find_package_handle_standard_args( Qwt
     QWT_INCLUDE_DIR
   VERSION_VAR
     QWT_VERSION_STRING
-  )
+)
 
 if( Qwt_FOUND )
   set ( QWT_INCLUDE_DIRS ${QWT_INCLUDE_DIR} )
@@ -80,7 +93,7 @@ if( Qwt_FOUND )
     set_target_properties( Qwt::Qwt PROPERTIES
       IMPORTED_LOCATION "${QWT_LIBRARIES}"
       INTERFACE_INCLUDE_DIRECTORIES "${QWT_INCLUDE_DIRS}"
-      )
+    )
     if( WIN32 )
       set_target_properties( Qwt::Qwt PROPERTIES INTERFACE_COMPILE_DEFINITIONS QWT_DLL )
     endif()
@@ -90,4 +103,4 @@ endif()
 mark_as_advanced (
   QWT_LIBRARY
   QWT_INCLUDE_DIR
-  )
+)
