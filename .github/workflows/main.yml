@@ -8,10 +8,11 @@ on:
 
 jobs:
   Ubuntu:
-
     runs-on: ubuntu-20.04
-
     name: ubuntu-20.04
+    env:
+      QT_VER: 5.15.2
+      QWT_VER: 6.2.0
 
     steps:
       - name: Checkout
@@ -24,12 +25,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qt
-          key: ${{ runner.os }}-QtCache
+          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: 5.15.2
+          version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       - name: Install prerequisties
@@ -63,13 +64,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-6.2.0-gcc-9
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-9
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
-          wget https://downloads.sourceforge.net/qwt/qwt-6.2.0.tar.bz2
-          tar -xf qwt-6.2.0.tar.bz2 && cd qwt-6.2.0
+          wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
+          tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
           make -j$(nproc)
@@ -152,10 +153,11 @@ jobs:
           ctest -C Release --output-on-failure --repeat until-pass:3
 
   macos:
-
     runs-on: macos-latest
-
     name: macos
+    env:
+      QT_VER: 5.15.2
+      QWT_VER: 6.2.0
 
     steps:
       - name: Checkout
@@ -168,12 +170,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qt
-          key: ${{ runner.os }}-QtCache
+          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: 5.15.2
+          version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       - name: Install prerequisties
@@ -187,13 +189,13 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-6.2.0
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
-          wget https://downloads.sourceforge.net/qwt/qwt-6.2.0.tar.bz2
-          tar -xf qwt-6.2.0.tar.bz2 && cd qwt-6.2.0
+          wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
+          tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
           make -j$(sysctl -n hw.logicalcpu)
