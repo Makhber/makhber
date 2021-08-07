@@ -83,7 +83,7 @@ endif()
 
 option( MAKHBER_BUILD_TESTS "Build tests" OFF )
 
-find_package( Qt5
+find_package( Qt5 5.12
   COMPONENTS
     Core
     Gui

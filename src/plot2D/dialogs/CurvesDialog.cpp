@@ -208,15 +208,9 @@ void CurvesDialog::showPlotAssociations()
         curve = 0;
 
     auto *app = dynamic_cast<ApplicationWindow *>(this->parent());
-#if QT_VERSION >= 0x050000
     close();
-#endif
-
     if (app)
         app->showPlotAssociations(curve);
-#if QT_VERSION < 0x050000
-    close();
-#endif
 }
 
 void CurvesDialog::showFunctionDialog()

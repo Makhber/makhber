@@ -248,13 +248,8 @@ ApplicationWindow::ApplicationWindow()
     folders.setRootIsDecorated(true);
     folders.setColumnWidth(1, 0); // helps autoScroll
     folders.hideColumn(1); // helps autoScroll
-#if QT_VERSION >= 0x050000
     folders.header()->setSectionsClickable(false);
     folders.header()->setSectionResizeMode(QHeaderView::ResizeToContents);
-#else
-    folders.header()->setClickable(false);
-    folders.header()->setResizeMode(QHeaderView::ResizeToContents);
-#endif
     folders.header()->hide();
     folders.setSelectionMode(QTreeWidget::SingleSelection);
 
@@ -12704,11 +12699,7 @@ void ApplicationWindow::projectProperties()
 
     if (projectname != "untitled") {
         QFileInfo fi(projectname);
-#if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
-        s += tr("Created") + ": " + QLocale().toString(fi.created()) + "\n\n";
-#else
         s += tr("Created") + ": " + QLocale().toString(fi.birthTime()) + "\n\n";
-#endif
         s += tr("Modified") + ": " + QLocale().toString(fi.lastModified()) + "\n\n";
     } else
         s += tr("Created") + ": " + current_folder->birthDate() + "\n\n";

@@ -200,13 +200,8 @@ void PlotDialog::showPlotAssociations(QTreeWidgetItem *item, int)
         app->showFunctionDialog((dynamic_cast<CurveTreeItem *>(item))->graph(),
                                 (dynamic_cast<CurveTreeItem *>(item))->plotItemIndex());
     } else {
-#if QT_VERSION >= 0x050000
         close();
-#endif
         app->showPlotAssociations((dynamic_cast<CurveTreeItem *>(item))->plotItemIndex());
-#if QT_VERSION < 0x050000
-        close();
-#endif
     }
 }
 
@@ -223,9 +218,7 @@ void PlotDialog::editCurve()
     int index = item->plotItemIndex();
     int curveType = ((PlotCurve *)item->plotItem())->type();
 
-#if QT_VERSION >= 0x050000
     close();
-#endif
 
     if (app) {
         if (curveType == Graph::Function)
@@ -233,10 +226,6 @@ void PlotDialog::editCurve()
         else
             app->showPlotAssociations(index);
     }
-
-#if QT_VERSION < 0x050000
-    close();
-#endif
 }
 
 void PlotDialog::changePlotType(int new_curve_type)

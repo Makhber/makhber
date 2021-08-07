@@ -190,11 +190,7 @@ void AxesDialog::initScalesPage()
     QFontMetrics fm(axesList->font());
     int width = 32, i = 0;
     for (i = 0; i < axesList->count(); i++) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
-        auto newWidth = fm.width(axesList->item(i)->text());
-#else
         auto newWidth = fm.horizontalAdvance(axesList->item(i)->text());
-#endif
         if (newWidth > width)
             width = newWidth;
     }
@@ -317,11 +313,7 @@ void AxesDialog::initGridPage()
     QFontMetrics fm(axesGridList->font());
     int width = 32, i = 0;
     for (i = 0; i < axesGridList->count(); i++) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
-        auto newWidth = fm.width(axesGridList->item(i)->text());
-#else
         auto newWidth = fm.horizontalAdvance(axesGridList->item(i)->text());
-#endif
         if (newWidth > width)
             width = newWidth;
     }
@@ -385,11 +377,7 @@ void AxesDialog::initAxesPage()
     QFontMetrics fm(axesTitlesList->font());
     int width = 32, i = 0;
     for (i = 0; i < axesTitlesList->count(); i++) {
-#if QT_VERSION < QT_VERSION_CHECK(5, 11, 0)
-        auto newWidth = fm.width(axesTitlesList->item(i)->text());
-#else
         auto newWidth = fm.horizontalAdvance(axesTitlesList->item(i)->text());
-#endif
         if (newWidth > width)
             width = newWidth;
     }

@@ -1376,14 +1376,10 @@ void Graph::exportVector(const QString &fileName, int, bool color, bool keepAspe
 
     printer.setOutputFileName(fileName);
     if (fileName.contains(".eps")) {
-#if QT_VERSION >= 0x050000
         QMessageBox::warning(this, tr("Warning"),
                              tr("Output in postscript format is not available for Qt5, using PDF"));
         printer.setOutputFormat(QPrinter::PdfFormat);
         printer.setOutputFileName(fileName + ".pdf");
-#else
-        printer.setOutputFormat(QPrinter::PostScriptFormat);
-#endif
     }
 
     if (color)
@@ -1455,17 +1451,13 @@ void Graph::print()
 
 void Graph::exportSVG(const QString &fname)
 {
-#if QT_VERSION >= 0x040300
     QSvgGenerator svg;
     svg.setFileName(fname);
-#if QT_VERSION >= 0x040500
     svg.setSize(d_plot->size());
     svg.setViewBox(d_plot->rect());
     svg.setResolution(96); // FIXME hardcored
     svg.setTitle(this->objectName());
-#endif
     exportPainter(svg);
-#endif
 }
 
 void Graph::exportPainter(QPaintDevice &paintDevice, bool keepAspect, QRect rect)

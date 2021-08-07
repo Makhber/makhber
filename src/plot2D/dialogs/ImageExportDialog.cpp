@@ -53,9 +53,7 @@ ImageExportDialog::ImageExportDialog(QWidget *parent, bool vector_options, bool 
     list << "EPS";
     list << "PS";
     list << "PDF";
-#if QT_VERSION >= 0x040300
     list << "SVG";
-#endif
 
     QStringList filters;
     for (int i = 0; i < list.count(); i++)
@@ -69,15 +67,12 @@ ImageExportDialog::ImageExportDialog(QWidget *parent, bool vector_options, bool 
     d_vector_options->setEnabled(vector_options);
     setExtensionWidget(d_advanced_options);
 
-#if QT_VERSION >= 0x040300
     connect(this, SIGNAL(filterSelected(const QString &)), this,
             SLOT(updateAdvancedOptions(const QString &)));
-#else
     QList<QComboBox *> combo_boxes = findChildren<QComboBox *>();
     if (combo_boxes.size() >= 2)
         connect(combo_boxes[1], SIGNAL(currentIndexChanged(const QString &)), this,
                 SLOT(updateAdvancedOptions(const QString &)));
-#endif
     updateAdvancedOptions(selectedNameFilter());
 }
 

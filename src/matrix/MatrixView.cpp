@@ -115,25 +115,16 @@ void MatrixView::init()
     d_view_widget->setFocusPolicy(Qt::StrongFocus);
     setFocusPolicy(Qt::StrongFocus);
     setFocus();
-#if QT_VERSION >= 0x040300
     d_view_widget->setCornerButtonEnabled(true);
-#endif
 
     d_view_widget->setSelectionMode(QAbstractItemView::ExtendedSelection);
 
     QHeaderView *h_header = d_view_widget->horizontalHeader();
     QHeaderView *v_header = d_view_widget->verticalHeader();
-#if QT_VERSION >= 0x050000
     v_header->setSectionResizeMode(QHeaderView::Interactive);
     h_header->setSectionResizeMode(QHeaderView::Interactive);
     v_header->setSectionsMovable(false);
     h_header->setSectionsMovable(false);
-#else
-    v_header->setResizeMode(QHeaderView::Interactive);
-    h_header->setResizeMode(QHeaderView::Interactive);
-    v_header->setMovable(false);
-    h_header->setMovable(false);
-#endif
     v_header->setDefaultSectionSize(future::Matrix::defaultRowHeight());
     h_header->setDefaultSectionSize(future::Matrix::defaultColumnWidth());
 

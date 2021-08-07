@@ -61,11 +61,9 @@ QIcon IconLoader::load(const QString &name)
 
     // comment out this for now as we dont
     // want to load icons from system theme
-    // atleast not for now.
-    /*#if QT_VERSION >= 0x040600
-      ret = QIcon::fromTheme(name);
-      if (!ret.isNull()) return ret;
-    #endif*/
+    // at least not for now.
+    /*ret = QIcon::fromTheme(name);
+      if (!ret.isNull()) return ret;*/
 
     QString filename;
     (lumen_ < 100) ? filename = icon_path_.at(Dark) : filename = icon_path_.at(Light);

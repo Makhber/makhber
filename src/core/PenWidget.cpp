@@ -150,9 +150,7 @@ void PenWidget::createConnections()
 {
     connect(colorButton, SIGNAL(changed(QColor)), this, SLOT(updateColor(QColor)));
     connect(widthComboBox, SIGNAL(editTextChanged(QString)), this, SLOT(updateWidth(QString)));
-#if QT_VERSION >= 0x050000
     connect(widthComboBox, SIGNAL(currentTextChanged(QString)), this, SLOT(updateWidth(QString)));
-#endif
     connect(lineStyleComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(updateLineStyle(int)));
     connect(capStyleComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(updateCapStyle(int)));
     connect(joinStyleComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(updateJoinStyle(int)));
