@@ -8,10 +8,10 @@ on:
 
 jobs:
   Ubuntu:
-
     runs-on: ubuntu-20.04
-
     name: ubuntu-20.04
+    env:
+      QT_VER: 5.15.2
 
     steps:
       - name: Checkout
@@ -24,12 +24,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qt
-          key: ${{ runner.os }}-QtCache
+          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: 5.15.2
+          version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       - name: Install prerequisties
@@ -143,10 +143,10 @@ jobs:
           ctest -C Release --output-on-failure --repeat until-pass:3
 
   macos:
-
     runs-on: macos-latest
-
     name: macos
+    env:
+      QT_VER: 5.15.2
 
     steps:
       - name: Checkout
@@ -159,12 +159,12 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qt
-          key: ${{ runner.os }}-QtCache
+          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: 5.15.2
+          version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       - name: Install prerequisties
