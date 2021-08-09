@@ -59,12 +59,18 @@ jobs:
             libgtest-dev \
             xvfb
 
+      - name: Get GCC version
+        id: gcc-version
+        run:
+          gcc_version=
+          echo "::set-output name=gcc_version::$(gcc -dumpversion)"
+
       - name: Cache Qwt
         id: cache-qwt
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-9
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
