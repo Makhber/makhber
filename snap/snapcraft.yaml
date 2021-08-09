@@ -9,7 +9,7 @@ grade: stable
 confinement: strict
 adopt-info: makhber
 architectures:
-  - build-on: amd64 
+  - build-on: amd64
 
 apps:
   makhber:
@@ -40,7 +40,7 @@ parts:
       - "-DPyQt_INCLUDE_DIR=$SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages/PyQt5/bindings"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
-      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
+      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
       - PYTHONPATH: $SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages:$HOME/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages
     build-packages:
       - cmake
@@ -98,14 +98,14 @@ parts:
       - python3-pip
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
-      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
+      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
     override-build: |
       pip3 install sip pyqt-builder
       cd $SNAPCRAFT_PART_SRC
       sip-build --confirm-license \
         --build-dir ../build \
         --target-dir $SNAPCRAFT_PART_INSTALL/usr/lib/python3.8/site-packages \
-        --qmake=/snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/qt5/bin/qmake \
+        --qmake=/snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
         --api-dir=$SNAPCRAFT_PART_INSTALL/usr/share/qt5/qsci/api/python \
         --concatenate 1 \
         --no-make \
