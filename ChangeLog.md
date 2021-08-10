@@ -1,5 +1,16 @@
 # Changelog
 
+## Makhber 0.9.4.2
+
+Released: 10-08-2021
+
+### General
+
+- Adapt snap package to snapcraft 5.0
+- update python packages for flatpak
+- Enable APFS filesystem for packaging macOS DMG (requires cmake>=3.21)
+- Build againt the latest gsl 2.7
+
 ## Makhber 0.9.4
 
 Released: 24-05-2021
