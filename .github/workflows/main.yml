@@ -159,7 +159,7 @@ jobs:
           ctest -C Release --output-on-failure --repeat until-pass:3
 
   macos:
-    runs-on: macos-latest
+    runs-on: macos-11
     name: macos
     env:
       QT_VER: 5.15.2
