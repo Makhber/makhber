@@ -100,7 +100,11 @@ option( MAKHBER_BUILD_TRANSLATIONS "Build Translations" ON )
 
 option( MAKHBER_BUILD_TESTS "Build tests" OFF )
 
-find_package( Qt6 6.2 COMPONENTS Core QUIET )
+option( MAKHBER_FORCE_QT5 "Force to build with Qt5" OFF )
+
+if( NOT MAKHBER_FORCE_QT5 )
+  find_package( Qt6 6.2 COMPONENTS Core QUIET )
+endif()
 if( Qt6_FOUND )
   set( QT_VERSION_MAJOR 6 )
   set( MINIMUM_QWT 6.2 )
@@ -114,11 +118,11 @@ find_package( Qt${QT_VERSION_MAJOR}
   COMPONENTS
     Gui
     Widgets
-    Svg
     PrintSupport
     OpenGL
+    Svg
   REQUIRED
-  )
+)
 
 find_package( GSL REQUIRED )
 
