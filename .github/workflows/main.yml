@@ -111,12 +111,52 @@ jobs:
     runs-on: windows-latest
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      QT_VER: 5.15.2
+      QWT_VER: 6.2.0
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           submodules: true
+
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{ env.QT_VER }}
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+      - name: Cache Qwt
+        id: cache-qwt
+        uses: actions/cache@v1
+        with:
+          path: ../Qwt
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
+
+      - uses: ilammy/msvc-dev-cmd@v1
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+      - name: Build and install Qwt
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+        run: |
+          choco install wget jom
+          wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.zip
+          Expand-Archive qwt-${{ env.QWT_VER }}.zip -DestinationPath .; cd qwt-${{ env.QWT_VER }}
+          ((Get-Content -path qwtconfig.pri -Raw) `
+            -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/../Qwt" `
+            -replace 'QWT_CONFIG     \+= QwtExamples',"" `
+            -replace 'QWT_CONFIG     \+= QwtPlayground',"" `
+            -replace 'QWT_CONFIG     \+= QwtTests',"") `
+            | Set-Content -Path .\qwtconfig.pri
+          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
+          jom -j"$Env:NUMBER_OF_PROCESSORS"
+          jom install
 
       - name: Setup NuGet Credentials
         run: |
@@ -129,7 +169,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl qwt muparser opengl gl2ps gtest --triplet x64-windows
+          vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
 
       - uses: actions/setup-python@v2
         with:
@@ -140,6 +180,7 @@ jobs:
 
       - name: Configuring
         run: |
+          $Env:CMAKE_PREFIX_PATH = (Resolve-Path "$Env:GITHUB_WORKSPACE\..\Qwt")
           mkdir build; cd build
           cmake .. `
             -DCMAKE_BUILD_TYPE=Release `
@@ -154,6 +195,7 @@ jobs:
 
       - name: Testing
         run: |
+          $Env:PATH = "$Env:GITHUB_WORKSPACE}\..\Qwt\lib;$Env:PATH"
           cd build
           $Env:PYTHONPATH = "$PWD\sip\build\makhber\"
           ctest -C Release --output-on-failure --repeat until-pass:3
