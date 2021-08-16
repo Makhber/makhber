@@ -4,8 +4,10 @@ if( WIN32 )
   list( APPEND RESOURCES "makhber.rc" )
 endif()
 
-file( GLOB TS_FILES "${CMAKE_SOURCE_DIR}/translations/*.ts" )
-qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} )
+if( MAKHBER_BUILD_TRANSLATIONS )
+  file( GLOB TS_FILES "${CMAKE_SOURCE_DIR}/translations/*.ts" )
+  qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} )
+endif()
 
 add_executable( makhber
   WIN32 MACOSX_BUNDLE
@@ -106,19 +108,21 @@ if( APPLE )
 endif()
 
 # Install Translations
-if( WIN32 )
-  install( FILES ${QM_FILES}
-    COMPONENT Translations
-    DESTINATION translations
-  )
-elseif( APPLE )
-  install( FILES ${QM_FILES}
-    COMPONENT Translations
-    DESTINATION makhber.app/Contents/Resources/translations
-  )
-else()
-  install( FILES ${QM_FILES}
-    COMPONENT Translations
-    DESTINATION ${CMAKE_INSTALL_DATADIR}/makhber/translations
-  )
+if( MAKHBER_BUILD_TRANSLATIONS )
+  if( WIN32 )
+    install( FILES ${QM_FILES}
+      COMPONENT Translations
+      DESTINATION translations
+    )
+  elseif( APPLE )
+    install( FILES ${QM_FILES}
+      COMPONENT Translations
+      DESTINATION makhber.app/Contents/Resources/translations
+    )
+  else()
+    install( FILES ${QM_FILES}
+      COMPONENT Translations
+      DESTINATION ${CMAKE_INSTALL_DATADIR}/makhber/translations
+    )
+  endif()
 endif()

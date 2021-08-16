@@ -81,6 +81,8 @@ else()
   option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" OFF )
 endif()
 
+option( MAKHBER_BUILD_TRANSLATIONS "Build Translations" ON )
+
 option( MAKHBER_BUILD_TESTS "Build tests" OFF )
 
 find_package( Qt5 5.12
@@ -92,7 +94,6 @@ find_package( Qt5 5.12
     PrintSupport
     Xml
     OpenGL
-    LinguistTools
   REQUIRED
   )
 
@@ -108,6 +109,11 @@ find_package( Qwt REQUIRED )
 
 if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
   find_package( Qt5 COMPONENTS Network REQUIRED )
+endif()
+
+if( MAKHBER_BUILD_TRANSLATIONS )
+  find_package( Qt5 OPTIONAL_COMPONENTS LinguistTools )
+  set( MAKHBER_BUILD_TRANSLATIONS OFF CACHE BOOL "Build Translations" FORCE )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
