@@ -105,7 +105,7 @@ find_package( OpenGL COMPONENTS OpenGL REQUIRED )
 
 find_package( muparser REQUIRED )
 
-find_package( Qwt REQUIRED )
+find_package( Qwt 6.1 REQUIRED )
 
 if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
   find_package( Qt5 COMPONENTS Network REQUIRED )
