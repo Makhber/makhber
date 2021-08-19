@@ -11500,6 +11500,8 @@ ApplicationWindow *ApplicationWindow::importOPJ(const QString &filename [[maybe_
 {
 #ifdef ORIGIN_IMPORT
     auto codec = getSettings().value("/General/Dialogs/LastUsedOriginLocale", "").toString();
+    if (codec.isEmpty())
+        codec = QString("UTF-8");
     if (filename.endsWith(".opj", Qt::CaseInsensitive)
         || filename.endsWith(".ogg", Qt::CaseInsensitive)
         || filename.endsWith(".org", Qt::CaseInsensitive)) {
@@ -12088,6 +12090,8 @@ void ApplicationWindow::appendProject(const QString &fn)
 #ifdef ORIGIN_IMPORT
     {
         auto codec = getSettings().value("/General/Dialogs/LastUsedOriginLocale", "").toString();
+        if (codec.isEmpty())
+            codec = QString("UTF-8");
         ImportOPJ(this, fn, codec);
     }
 #else
