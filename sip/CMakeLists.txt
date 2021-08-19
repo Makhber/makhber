@@ -249,9 +249,18 @@ else()
     set( module_file ${CMAKE_CURRENT_BINARY_DIR}/build/makhber/makhber${_Python3_EXT_SUFFIX} )
   endif()
 
+  if( NOT MSVC )
+    set( QMAKE_CXX "${CMAKE_CXX_COMPILER}" )
+  elseif( ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" )
+    set( QMAKE_CXX "clang-cl" )
+  else()
+    set( QMAKE_CXX "cl" )
+  endif()
+
   add_custom_command( OUTPUT ${module_file}
     COMMAND ${SIP_Build_EXECUTABLE} --verbose --concatenate 1
       --qmake-setting $<$<CONFIG:Release>:"CONFIG+=release"> $<$<CONFIG:>:"CONFIG+=release"> $<$<CONFIG:Debug>:"CONFIG+=debug">
+      --qmake-setting QMAKE_CXX=${QMAKE_CXX}
     DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
     COMMAND_EXPAND_LISTS
     COMMENT "Building Makhber Python Module..."
