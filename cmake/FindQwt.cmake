@@ -43,19 +43,29 @@ if( PC_QWT_FOUND )
   list( PREPEND QWT_INCLUDE_PATHS "${PC_QWT_INCLUDEDIR}" )
 endif()
 
-find_library(QWT_LIBRARY
+find_library( QWT_LIBRARY_RELEASE
   NAMES ${QWT_LIBRARY_NAMES}
   PATHS ${QWT_LIB_PATHS}
 )
 
-set(_qwt_fw)
-if(QWT_LIBRARY MATCHES "/qwt.*\\.framework")
-  string(REGEX REPLACE "^(.*/qwt.*\\.framework).*$" "\\1" _qwt_fw "${QWT_LIBRARY}")
-  set ( QWT_LIBRARY "${QWT_LIBRARY}/qwt" )
+if( MSVC )
+  find_library( QWT_LIBRARY_DEBUG
+    NAMES qwtd qwt-qt5d qwt6d qwt6-qt5d
+    PATHS "$ENV{LIB_DIR}" "${PC_QWT_LIBDIR}"
+  )
+endif()
+
+include(SelectLibraryConfigurations)
+select_library_configurations(QWT)
+
+set( _qwt_fw )
+if( QWT_LIBRARY_RELEASE MATCHES "/qwt.*\\.framework" )
+  string( REGEX REPLACE "^(.*/qwt.*\\.framework).*$" "\\1" _qwt_fw "${QWT_LIBRARY}" )
+  set ( QWT_LIBRARY_RELEASE "${QWT_LIBRARY_RELEASE}/qwt" )
   list( PREPEND QWT_INCLUDE_PATHS "${_qwt_fw}/Headers" )
 endif()
 
-find_path(QWT_INCLUDE_DIR
+find_path( QWT_INCLUDE_DIR
   NAMES qwt.h
   PATHS ${QWT_INCLUDE_PATHS}
   PATH_SUFFIXES ${QWT_LIBRARY_NAMES}
@@ -87,15 +97,31 @@ find_package_handle_standard_args( Qwt
 
 if( Qwt_FOUND )
   set ( QWT_INCLUDE_DIRS ${QWT_INCLUDE_DIR} )
-  set ( QWT_LIBRARIES ${QWT_LIBRARY} )
-  if ( NOT TARGET Qwt::Qwt)
+  if ( NOT TARGET Qwt::Qwt )
     add_library( Qwt::Qwt UNKNOWN IMPORTED )
     set_target_properties( Qwt::Qwt PROPERTIES
-      IMPORTED_LOCATION "${QWT_LIBRARIES}"
       INTERFACE_INCLUDE_DIRECTORIES "${QWT_INCLUDE_DIRS}"
     )
     if( WIN32 )
-      set_target_properties( Qwt::Qwt PROPERTIES INTERFACE_COMPILE_DEFINITIONS QWT_DLL )
+      set_target_properties( Qwt::Qwt PROPERTIES
+        INTERFACE_COMPILE_DEFINITIONS QWT_DLL
+      )
+    endif()
+    if( QWT_LIBRARY_RELEASE )
+      set_property( TARGET Qwt::Qwt APPEND PROPERTY
+        IMPORTED_CONFIGURATIONS RELEASE
+      )
+      set_target_properties( Qwt::Qwt PROPERTIES
+        IMPORTED_LOCATION_RELEASE "${QWT_LIBRARY_RELEASE}"
+      )
+    endif()
+    if( QWT_LIBRARY_DEBUG )
+      set_property( TARGET Qwt::Qwt APPEND PROPERTY
+        IMPORTED_CONFIGURATIONS DEBUG
+      )
+      set_target_properties( Qwt::Qwt PROPERTIES
+        IMPORTED_LOCATION_DEBUG "${QWT_LIBRARY_DEBUG}"
+      )
     endif()
   endif ()
 endif()
