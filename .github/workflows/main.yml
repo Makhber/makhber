@@ -70,7 +70,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}-Cache
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -78,7 +78,10 @@ jobs:
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
-          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
+          sed -i "s|QWT_CONFIG     \+= QwtExamples||g" qwtconfig.pri
+          sed -i "s|QWT_CONFIG     \+= QwtPlayground||g" qwtconfig.pri
+          sed -i "s|QWT_CONFIG     \+= QwtTests||g" qwtconfig.pri
+          qmake qwt.pro
           make -j$(nproc)
           make install
 
@@ -138,7 +141,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
 
       - uses: ilammy/msvc-dev-cmd@v1
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -154,8 +157,8 @@ jobs:
             -replace 'QWT_CONFIG     \+= QwtPlayground',"" `
             -replace 'QWT_CONFIG     \+= QwtTests',"") `
             | Set-Content -Path .\qwtconfig.pri
-          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
-          jom -j"$Env:NUMBER_OF_PROCESSORS"
+          qmake qwt.pro
+          jom /J "$Env:NUMBER_OF_PROCESSORS"
           jom install
 
       - name: Setup NuGet Credentials
@@ -183,7 +186,6 @@ jobs:
           $Env:CMAKE_PREFIX_PATH = (Resolve-Path "$Env:GITHUB_WORKSPACE\..\Qwt")
           mkdir build; cd build
           cmake .. `
-            -DCMAKE_BUILD_TYPE=Release `
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
@@ -237,7 +239,7 @@ jobs:
         uses: actions/cache@v1
         with:
           path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -245,7 +247,10 @@ jobs:
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
-          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
+          sed -i .bak "s|QWT_CONFIG     \+= QwtExamples||g" qwtconfig.pri
+          sed -i .bak "s|QWT_CONFIG     \+= QwtPlayground||g" qwtconfig.pri
+          sed -i .bak "s|QWT_CONFIG     \+= QwtTests||g" qwtconfig.pri
+          qmake qwt.pro
           make -j$(sysctl -n hw.logicalcpu)
           make install
 
