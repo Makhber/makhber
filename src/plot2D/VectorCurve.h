@@ -53,6 +53,7 @@ public:
 
     /*void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;*/
+    using QwtPlotSeriesItem::draw; // To Silent Clang warnings
     void draw(QPainter *painter, int to) const;
 
     /* void drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int

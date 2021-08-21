@@ -79,6 +79,7 @@ public:
     virtual bool loadData();
 
 private:
+    using QwtPlotSeriesItem::draw; // To Silent Clang warnings
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;
     void drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, double *dat,
