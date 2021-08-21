@@ -420,9 +420,10 @@ jobs:
             qt5-qttools-devel \
             gsl-devel \
             muParser-devel \
-            qwt-devel \
+            qwt-qt5-devel \
             gl2ps-devel \
             zlib-devel \
+            python3-qt5-devel \
             mesa-libGLU-devel \
             rpm-build \
             git
@@ -432,7 +433,8 @@ jobs:
           mkdir build && cd build
           cmake .. \
             -GNinja \
-            -DCMAKE_BUILD_TYPE=Release
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_SCRIPTING_PYTHON=ON
 
       - name: Building
         run: |

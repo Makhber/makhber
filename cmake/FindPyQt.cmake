@@ -36,9 +36,10 @@ execute_process(
   )
 
 set( _PyQt_HINTS
-  "${_Python3_PREFIX}/share/python3-sip"
-  "${_Python3_PREFIX}/share/sip"
+  "${_Python3_PREFIX}/share/python3-sip" # Fedora < 35
+  "${_Python3_PREFIX}/share/sip" # Ubuntu < 21.04
   "${Python3_SITELIB}"
+  "${Python3_SITEARCH}"
   )
 
 find_path( PyQt_INCLUDE_DIR
