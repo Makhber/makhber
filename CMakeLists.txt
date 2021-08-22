@@ -113,7 +113,9 @@ endif()
 
 if( MAKHBER_BUILD_TRANSLATIONS )
   find_package( Qt5 OPTIONAL_COMPONENTS LinguistTools )
-  set( MAKHBER_BUILD_TRANSLATIONS OFF CACHE BOOL "Build Translations" FORCE )
+  if( NOT Qt5LinguistTools_FOUND )
+    set( MAKHBER_BUILD_TRANSLATIONS OFF CACHE BOOL "Build Translations" FORCE )
+  endif()
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
