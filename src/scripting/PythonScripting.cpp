@@ -210,7 +210,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     math = PyDict_New();
     if (!math)
         PyErr_Print();
-#if SIP_VERSION >= 0x050000
+#ifdef PYQT_SIP
     sipmod = PyImport_ImportModule("PyQt5.sip");
 #else
     sipmod = PyImport_ImportModule("sip");
@@ -331,10 +331,10 @@ bool PythonScripting::setQObject(QObject *val, const char *name, PyObject *dict)
     PyGILState_STATE state = PyGILState_Ensure();
 
     // sipWrapperType * klass = sipFindClass(val->className());
-#if SIP_VERSION >= 0x050000
+#ifdef PYQT_SIP
     auto *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt5.sip._C_API", 0));
 #else
-    const sipAPIDef *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("sip._C_API", 0));
+    auto *PyQt5_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("sip._C_API", 0));
 #endif
     if (!PyQt5_sip_CAPI)
         return false;

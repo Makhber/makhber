@@ -445,6 +445,14 @@ if( MAKHBER_SCRIPTING_PYTHON )
       PYTHONPATH="${PYTHONPATH}"
   )
 
+  if( PyQt_SIP )
+    set_property( SOURCE "scripting/PythonScripting.cpp"
+      APPEND
+      PROPERTY COMPILE_DEFINITIONS
+        PYQT_SIP
+    )
+  endif()
+
   set_property( SOURCE
     "scripting/PythonScripting.cpp"
     "scripting/Script.cpp"
