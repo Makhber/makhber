@@ -13,6 +13,8 @@ This will define the following variables:
   The directory containing PyQt sip files.
 ``PyQt_FLAGS``
   The required flags to compile generated c++ files.
+``PyQt_SIP``
+  whether PyQt include the sip module or not. (PyQt#.sip)
 
 Cache Variables
 ^^^^^^^^^^^^^^^
@@ -60,6 +62,18 @@ execute_process(
   OUTPUT_VARIABLE PyQt_VERSION
   OUTPUT_STRIP_TRAILING_WHITESPACE
   )
+
+execute_process(
+  COMMAND ${Python3_EXECUTABLE} -c "import PyQt5.sip"
+  RESULT_VARIABLE _PyQt_SIP
+  ERROR_QUIET
+)
+# An error returns 1 which considere by cmake as true
+if( _PyQt_SIP )
+  set( PyQt_SIP OFF )
+else()
+  set( PyQt_SIP ON )
+endif()
 
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args( PyQt
