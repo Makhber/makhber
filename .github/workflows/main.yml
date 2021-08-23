@@ -113,8 +113,12 @@ jobs:
           xvfb-run -a ctest --output-on-failure --repeat until-pass:3
 
   MSVC:
-    name: Windows MSVC
-    runs-on: windows-latest
+    name: Windows MSVC ${{ matrix.version }}
+    runs-on: windows-${{ matrix.version }}
+    strategy:
+      fail-fast: false
+      matrix:
+        version: [2019, 2022]
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       QT_VER: 5.15.2
