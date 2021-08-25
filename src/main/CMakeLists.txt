@@ -18,6 +18,17 @@ add_executable( makhber
 
 target_link_libraries( makhber libmakhber )
 
+if( MAKHBER_BUILD_TRANSLATIONS )
+  add_custom_command( TARGET makhber
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E
+      make_directory "$<TARGET_FILE_DIR:makhber>/translations"
+    COMMAND ${CMAKE_COMMAND} -E
+      copy ${QM_FILES} "$<TARGET_FILE_DIR:makhber>/translations/"
+    COMMENT "Copying Translation files..."
+  )
+endif()
+
 if( APPLE )
   set( MACOSX_BUNDLE_BUNDLE_NAME ${PROJECT_NAME} )
   set( MACOSX_BUNDLE_VERSION ${PROJECT_VERSION} )
