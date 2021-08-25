@@ -5179,7 +5179,7 @@ The following special codes can be used:
     </message>
     <message>
         <location filename="../src/core/dialogs/ConfigDialog.cpp" line="962"/>
-        <location filename="../src/core/dialogs/ConfigDialog.cpp" line="1594"/>
+        <location filename="../src/core/dialogs/ConfigDialog.cpp" line="1593"/>
         <source>Preview:</source>
         <comment>preview of the decimal separator</comment>
         <translation type="unfinished"></translation>

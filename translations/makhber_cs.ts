@@ -2748,18 +2748,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <source>The version file could not be decoded into a valid version number.</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>not found</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>File loading error</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>not found.</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>AsciiTableImportFilter</name>
