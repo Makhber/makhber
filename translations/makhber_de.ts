@@ -107,29 +107,29 @@
 <context>
     <name>Application</name>
     <message>
-        <location filename="../src/main/main.cpp" line="143"/>
-        <location filename="../src/main/main.cpp" line="150"/>
+        <location filename="../src/main/main.cpp" line="146"/>
+        <location filename="../src/main/main.cpp" line="153"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="144"/>
+        <location filename="../src/main/main.cpp" line="147"/>
         <source>Error </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="144"/>
+        <location filename="../src/main/main.cpp" line="147"/>
         <source> sending event </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="145"/>
-        <location filename="../src/main/main.cpp" line="152"/>
+        <location filename="../src/main/main.cpp" line="148"/>
+        <location filename="../src/main/main.cpp" line="155"/>
         <source> to object </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="151"/>
+        <location filename="../src/main/main.cpp" line="154"/>
         <source>Error &lt;unknown&gt; sending event</source>
         <translation type="unfinished"></translation>
     </message>

@@ -132,6 +132,9 @@ for him/herself.
 
 struct Application : public QApplication
 {
+    Q_OBJECT
+
+public:
     Application(int &argc, char **argv) : QApplication(argc, argv) { }
 
     // catch exception, and display their contents as modal dialogue
@@ -155,6 +158,7 @@ struct Application : public QApplication
         return false;
     }
 };
+#include "main.moc"
 
 int main(int argc, char **argv)
 {
