@@ -2635,7 +2635,7 @@ Tem certeza que quer continuar?</translation>
     <message>
         <source>English</source>
         <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translation>Português</translation>
+        <translation type="vanished">Português</translation>
     </message>
     <message>
         <source>Makhber - untitled</source>

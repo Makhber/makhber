@@ -1531,17 +1531,15 @@ void ConfigDialog::insertLanguagesList()
     QStringList locales = app->locales;
     QStringList languages;
     int lang = 0;
-    for (int i = 0; i < (int)locales.size(); i++) {
+    for (int i = 0; i < locales.size(); i++) {
         if (locales[i] == "en")
             languages.push_back("English");
         else {
+            QLocale loc = QLocale(locales[i]);
             QTranslator translator;
-            translator.load("makhber_" + locales[i], app->qmPath);
+            translator.load(loc, "makhber", "_", app->qmPath);
 
-            QString language =
-                    translator.translate("ApplicationWindow", "English",
-                                         "translate this to the language of the translation file, "
-                                         "NOT to the meaning of English!");
+            QString language = loc.nativeLanguageName() + "(" + loc.nativeCountryName() + ")";
             if (!language.isEmpty())
                 languages.push_back(language);
             else

@@ -2632,7 +2632,7 @@ Jste si jist, že chcete pokračovat?</translation>
     <message>
         <source>English</source>
         <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translation>Český</translation>
+        <translation type="vanished">Český</translation>
     </message>
     <message>
         <source>Makhber - untitled</source>

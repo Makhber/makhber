@@ -2625,7 +2625,7 @@ Are you sure you want to continue?</source>
         <source>English</source>
         <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
         <translatorcomment>把它翻譯為翻譯檔的語言，而 不 是 English 的意思。</translatorcomment>
-        <translation>繁體中文</translation>
+        <translation type="vanished">繁體中文</translation>
     </message>
     <message>
         <source>Invalid WindowLabel line:

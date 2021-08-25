@@ -153,6 +153,7 @@
 #include <QMimeData>
 #include <QElapsedTimer>
 #include <QJsonDocument>
+#include <QLibraryInfo>
 
 #include <iostream>
 #include <memory>
@@ -11870,24 +11871,6 @@ void ApplicationWindow::createLanguagesList()
 
     qmPath = qApp->applicationDirPath() + TS_PATH;
 
-    QString lng; // lang, as en_GB
-    QString slng; // short lang, as en
-    lng = QLocale().name();
-    {
-        if (lng == "C")
-            lng = "en";
-        int i = lng.indexOf(QString("."));
-        if (i >= 0)
-            lng = lng.left(i);
-        i = lng.indexOf(QString("_"));
-        if (i >= 0)
-            slng = lng.left(i);
-        else
-            slng = lng;
-    }
-    if (slng.size() > 2)
-        slng = slng.left(2);
-
     QDir dir(qmPath);
     QStringList fileNames = dir.entryList(QStringList("makhber_*.qm"));
     if (fileNames.size() == 0) {
@@ -11906,18 +11889,17 @@ void ApplicationWindow::createLanguagesList()
     locales.sort();
 
     if (appLanguage != "en") {
-        if (!appTranslator->load("makhber_" + appLanguage, qmPath))
-            if (!appTranslator->load("makhber_" + appLanguage))
-                if (!appTranslator->load("makhber_" + lng, qmPath))
-                    if (!appTranslator->load("makhber_" + lng))
-                        if (!appTranslator->load("makhber_" + slng, qmPath))
-                            appTranslator->load("makhber_" + slng);
-        if (!qtTranslator->load("qt_" + appLanguage, qmPath + "/qt"))
-            if (!qtTranslator->load("qt_" + appLanguage))
-                if (!qtTranslator->load("qt_" + lng, qmPath + "/qt"))
-                    if (!qtTranslator->load("qt_" + lng))
-                        if (!qtTranslator->load("qt_" + slng, qmPath + "/qt"))
-                            qtTranslator->load("qt_" + slng);
+        QLocale loc = QLocale(appLanguage);
+        if (!appTranslator->load(loc, "makhber", "_", qmPath))
+            appTranslator->load(loc, "makhber", "_");
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        auto qt_ts_path = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+#else
+        auto qt_ts_path = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+#endif
+        if (!qtTranslator->load(loc, "qt", "_", qmPath))
+            if (!qtTranslator->load(loc, "qt", "_", qt_ts_path))
+                qtTranslator->load(loc, "qt", "_");
     }
 }
 
@@ -11943,10 +11925,17 @@ void ApplicationWindow::switchToLanguage(const QString &locale)
         qApp->installTranslator(appTranslator);
         qApp->installTranslator(qtTranslator);
     } else {
-        if (!appTranslator->load("makhber_" + appLanguage, qmPath))
-            appTranslator->load("makhber_" + appLanguage);
-        if (!qtTranslator->load("qt_" + appLanguage, qmPath + "/qt"))
-            qtTranslator->load("qt_" + appLanguage);
+        QLocale loc = QLocale(appLanguage);
+        if (!appTranslator->load(loc, "makhber", "_", qmPath))
+            appTranslator->load(loc, "makhber", "_");
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+        auto qt_ts_path = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+#else
+        auto qt_ts_path = QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+#endif
+        if (!qtTranslator->load(loc, "qt", "_", qmPath))
+            if (!qtTranslator->load(loc, "qt", "_", qt_ts_path))
+                qtTranslator->load(loc, "qt", "_");
     }
     insertTranslatedStrings();
 }
