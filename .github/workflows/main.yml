@@ -15,6 +15,10 @@ jobs:
       QWT_VER: 6.2.0
 
     steps:
+      - name: Get Processor Info
+        run : |
+          lscpu | grep name
+          nproc
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -118,6 +122,10 @@ jobs:
       QWT_VER: 6.2.0
 
     steps:
+      - name: Get Processor Info
+        run : |
+          Get-CIMInstance -Class Win32_Processor | Select-Object -Property Name
+          echo $Env:NUMBER_OF_PROCESSORS
       - name: Checkout
         uses: actions/checkout@v2
         with:
@@ -210,6 +218,10 @@ jobs:
       QWT_VER: 6.2.0
 
     steps:
+      - name: Get Processor Info
+        run : |
+          sysctl -n machdep.cpu.brand_string
+          sysctl -n hw.logicalcpu
       - name: Checkout
         uses: actions/checkout@v2
         with:
