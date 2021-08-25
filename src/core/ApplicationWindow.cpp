@@ -11891,7 +11891,10 @@ void ApplicationWindow::createLanguagesList()
     if (appLanguage != "en") {
         QLocale loc = QLocale(appLanguage);
         if (!appTranslator->load(loc, "makhber", "_", qmPath))
-            appTranslator->load(loc, "makhber", "_");
+            if (!qtTranslator->load(loc, "makhber", "_"))
+                qDebug("createLanguagesList: makhber_%s.qm file not found\n qmPath: %s",
+                       appLanguage.toLatin1().data(),
+                       qmPath.toLatin1().data());
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         auto qt_ts_path = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 #else
@@ -11899,7 +11902,11 @@ void ApplicationWindow::createLanguagesList()
 #endif
         if (!qtTranslator->load(loc, "qt", "_", qmPath))
             if (!qtTranslator->load(loc, "qt", "_", qt_ts_path))
-                qtTranslator->load(loc, "qt", "_");
+                if (!qtTranslator->load(loc, "qt", "_"))
+                    qDebug("createLanguagesList: qm_%s.qm file not found\n qmPath: %s\n tsPath: %s",
+                           appLanguage.toLatin1().data(),
+                           qmPath.toLatin1().data(),
+                           qt_ts_path.toLatin1().data());
     }
 }
 
@@ -11927,7 +11934,10 @@ void ApplicationWindow::switchToLanguage(const QString &locale)
     } else {
         QLocale loc = QLocale(appLanguage);
         if (!appTranslator->load(loc, "makhber", "_", qmPath))
-            appTranslator->load(loc, "makhber", "_");
+            if (!qtTranslator->load(loc, "makhber", "_"))
+                qDebug("switchToLanguage: makhber_%s.qm file not found\n qmPath: %s",
+                       appLanguage.toLatin1().data(),
+                       qmPath.toLatin1().data());
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         auto qt_ts_path = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 #else
@@ -11935,7 +11945,11 @@ void ApplicationWindow::switchToLanguage(const QString &locale)
 #endif
         if (!qtTranslator->load(loc, "qt", "_", qmPath))
             if (!qtTranslator->load(loc, "qt", "_", qt_ts_path))
-                qtTranslator->load(loc, "qt", "_");
+                if (!qtTranslator->load(loc, "qt", "_"))
+                    qDebug("switchToLanguage: makhber_%s.qm file not found\n qmPath: %s\n tsPath: %s",
+                           appLanguage.toLatin1().data(),
+                           qmPath.toLatin1().data(),
+                           qt_ts_path.toLatin1().data());
     }
     insertTranslatedStrings();
 }
