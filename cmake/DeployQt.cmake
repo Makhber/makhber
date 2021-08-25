@@ -50,7 +50,7 @@ function(windeployqt target directory)
                 --no-angle
                 --no-opengl-sw
                 \"$<TARGET_FILE:${target}>\"
-        COMMENT "Deploying Qt..."
+        COMMENT "Deploying Qt...\n"
     )
 
     # install(CODE ...) doesn't support generator expressions, but
@@ -92,14 +92,11 @@ function(windeployqt target directory)
     # windeployqt doesn't work correctly with the system runtime libraries,
     # so we fall back to one of CMake's own modules for copying them over
     include(InstallRequiredSystemLibraries)
-    foreach(lib ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS})
-        get_filename_component(filename "${lib}" NAME)
-        add_custom_command(TARGET ${target} POST_BUILD
-            COMMAND "${CMAKE_COMMAND}" -E
-                copy_if_different "${lib}" \"$<TARGET_FILE_DIR:${target}>\"
-            COMMENT "Copying ${filename}..."
-        )
-    endforeach()
+    add_custom_command(TARGET ${target} POST_BUILD
+        COMMAND "${CMAKE_COMMAND}" -E
+            copy_if_different ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} \"$<TARGET_FILE_DIR:${target}>\"
+        COMMENT "Copying System Libraries...\n"
+    )
 endfunction()
 
 # Add commands that copy the required Qt files to the application bundle
@@ -109,7 +106,7 @@ function(macdeployqt target)
         COMMAND "${MACDEPLOYQT_EXECUTABLE}"
             \"$<TARGET_BUNDLE_DIR:${target}>\"
             -always-overwrite
-        COMMENT "Deploying Qt..."
+        COMMENT "Deploying Qt...\n"
     )
 endfunction()
 

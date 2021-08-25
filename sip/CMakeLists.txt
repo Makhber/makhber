@@ -237,7 +237,7 @@ else()
       BYPRODUCTS pyproject.toml
       COMMAND ${CMAKE_COMMAND} -DCONFIG=$<CONFIG> -P ${CMAKE_CURRENT_SOURCE_DIR}/configure_toml.cmake
       DEPENDS libmakhber
-      COMMENT "Generating pyproject.toml file..."
+      COMMENT "Generating pyproject.toml file...\n"
     )
   else()
     configure_file( pyproject.toml.in pyproject.toml @ONLY )
@@ -263,7 +263,7 @@ else()
       --qmake-setting QMAKE_CXX=${QMAKE_CXX}
     DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
     COMMAND_EXPAND_LISTS
-    COMMENT "Building Makhber Python Module..."
+    COMMENT "Building Makhber Python Module...\n"
   )
 
   add_custom_target( makhber_sip
