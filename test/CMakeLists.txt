@@ -73,7 +73,10 @@ if( MAKHBER_SCRIPTING_PYTHON )
     add_test( NAME python_${test_name}
       COMMAND makhber -l=en -x ${pythonTest}
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/tmp
-      )
+    )
+    set_tests_properties( python_${test_name} PROPERTIES
+      ENVIRONMENT PYTHONPATH=${PYTHONPATH_TEST}
+    )
   endforeach()
 
 endif()
