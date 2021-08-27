@@ -52,8 +52,6 @@
 
 #include <stdexcept>
 
-using namespace std;
-
 Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owner)
 {
     Q_ASSERT(owner != nullptr); // a Column::Private without owner is not allowed
@@ -258,7 +256,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
                 converter = new DateTime2DoubleFilter(*getNumericDateTimeFilter());
                 break;
             case Makhber::ColumnMode::Numeric:
-                throw logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
+                throw std::logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
             }
         }
         break;
@@ -299,7 +297,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
             case Makhber::ColumnMode::Day:
                 break;
             case Makhber::ColumnMode::DateTime:
-                throw logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
+                throw std::logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
             }
         }
         // converter is provided, need to store for possible double -> datetime conversion later
@@ -333,7 +331,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
                 converter = new String2MonthFilter();
                 break;
             case Makhber::ColumnMode::Month:
-                throw logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
+                throw std::logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
             case Makhber::ColumnMode::DateTime:
                 break;
             case Makhber::ColumnMode::Day:
@@ -366,7 +364,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
             case Makhber::ColumnMode::DateTime:
                 break;
             case Makhber::ColumnMode::Day:
-                throw logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
+                throw std::logic_error("Unreachable line is reached in ColumnPrivate.cpp!");
             }
         }
         break;

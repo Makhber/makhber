@@ -39,8 +39,6 @@
 
 #include <cmath>
 
-using namespace std;
-
 MultiPeakFit::MultiPeakFit(ApplicationWindow *parent, Graph *g, PeakProfile profile, int peaks)
     : Fit(parent, g), d_profile(profile)
 {
@@ -190,7 +188,7 @@ void MultiPeakFit::guessInitialValues()
     gsl_vector_set(d_param_init, 3, min_out);
 }
 
-void MultiPeakFit::storeCustomFitResults(const vector<double> &par)
+void MultiPeakFit::storeCustomFitResults(const std::vector<double> &par)
 {
     d_results = par;
 
@@ -230,7 +228,7 @@ void MultiPeakFit::insertPeakFunctionCurve(double *x, double *y, int peak)
     d_graph->addFitCurve(c);
 }
 
-void MultiPeakFit::generateFitCurve(const vector<double> &par)
+void MultiPeakFit::generateFitCurve(const std::vector<double> &par)
 {
     auto *app = dynamic_cast<ApplicationWindow *>(parent());
     if (!d_gen_function)
@@ -353,7 +351,7 @@ void MultiPeakFit::generateFitCurve(const vector<double> &par)
     gsl_matrix_free(m);
 }
 
-QString MultiPeakFit::logFitInfo(const vector<double> &par, int iterations, int status,
+QString MultiPeakFit::logFitInfo(const std::vector<double> &par, int iterations, int status,
                                  const QString &plotName)
 {
     QString info = Fit::logFitInfo(par, iterations, status, plotName);
@@ -499,7 +497,7 @@ void GaussAmpFit::init()
     d_formula = "y0+A*exp(-(x-xc)^2/(2*w^2))";
 }
 
-void GaussAmpFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void GaussAmpFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     double w2 = par[3] * par[3];
     if (d_gen_function) {

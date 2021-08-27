@@ -49,8 +49,6 @@
 #include <memory>
 #include <cmath>
 
-using namespace std;
-
 FFTDialog::FFTDialog(int type, QWidget *parent, Qt::WindowFlags fl) : QDialog(parent, fl)
 {
     setWindowTitle(tr("FFT Options"));
@@ -147,7 +145,7 @@ void FFTDialog::accept()
     }
 
     auto *app = dynamic_cast<ApplicationWindow *>(parent());
-    unique_ptr<FFT> fft;
+    std::unique_ptr<FFT> fft;
     if (graph) {
         fft = std::make_unique<FFT>(app, graph, boxName->currentText());
     } else if (d_table) {

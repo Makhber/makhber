@@ -33,8 +33,6 @@
 
 #include <QBitmap>
 
-using namespace Qwt3D;
-
 /////////////////////////////////////////////////////////////////
 //
 //  3D Bars  (modified enrichement example from QwtPlot3D archive)
@@ -71,8 +69,8 @@ void Bar::draw(Qwt3D::Triple const &pos)
 {
     GLdouble minz = plot->hull().minVertex.z;
 
-    RGBA rgbat = (*plot->dataColor())(pos);
-    RGBA rgbab = (*plot->dataColor())(pos.x, pos.y, minz);
+    Qwt3D::RGBA rgbat = (*plot->dataColor())(pos);
+    Qwt3D::RGBA rgbab = (*plot->dataColor())(pos.x, pos.y, minz);
 
     glBegin(GL_QUADS);
     glColor4d(rgbab.r, rgbab.g, rgbab.b, rgbab.a);

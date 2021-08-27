@@ -43,8 +43,6 @@
 
 #include <iostream>
 
-using namespace std;
-
 PythonScript::PythonScript(PythonScripting *env, const QString &code, QObject *context,
                            const QString &name)
     : Script(env, code, context, name)
@@ -178,7 +176,7 @@ bool PythonScript::compile(bool for_eval)
     if (!success) {
         compiled = compileErr;
         if (batchMode)
-            cerr << env()->errorMsg().toStdString() << endl;
+            std::cerr << env()->errorMsg().toStdString() << std::endl;
         else
             emit_error(env()->errorMsg(), 0);
     } else
@@ -289,7 +287,7 @@ bool PythonScript::exec()
         return true;
     }
     if (batchMode)
-        cerr << env()->errorMsg().toStdString() << endl;
+        std::cerr << env()->errorMsg().toStdString() << std::endl;
     else
         emit_error(env()->errorMsg(), 0);
 

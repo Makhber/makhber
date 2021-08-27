@@ -35,8 +35,6 @@
 #include <vector>
 #include <cmath>
 
-using namespace std;
-
 SigmoidalFit::SigmoidalFit(ApplicationWindow *parent, Graph *g) : Fit(parent, g)
 {
     init();
@@ -80,7 +78,7 @@ void SigmoidalFit::init()
     d_formula = "(A1-A2)/(1+exp((x-x0)/dx))+A2";
 }
 
-void SigmoidalFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void SigmoidalFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     if (d_gen_function) {
         double X0 = d_x[0];

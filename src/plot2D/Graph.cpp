@@ -88,8 +88,6 @@
 #include <cstdio>
 #include <cstddef>
 
-using namespace std;
-
 Graph::Graph(QWidget *parent, QString name, Qt::WindowFlags f) : QWidget(parent, f)
 {
     if (name.isEmpty())
@@ -4166,7 +4164,7 @@ Qt::BrushStyle Graph::getBrushStyle(int style)
         brushStyle = Qt::Dense7Pattern;
         break;
     default:
-        throw runtime_error("invalid brush style");
+        throw std::runtime_error("invalid brush style");
     }
     return brushStyle;
 }
@@ -4212,7 +4210,7 @@ Qt::PenStyle Graph::getPenStyle(int style)
         linePen = Qt::CustomDashLine;
         break;
     default:
-        throw runtime_error("invalid pen style");
+        throw std::runtime_error("invalid pen style");
     }
     return linePen;
 }

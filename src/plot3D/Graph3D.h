@@ -39,8 +39,6 @@
 #include <QVector>
 #include <QEvent>
 
-using namespace Qwt3D;
-
 class UserFunction;
 
 /*!\brief 3D graph widget.
@@ -391,10 +389,10 @@ private:
 };
 
 //! Class for user defined functions
-class UserFunction : public Function
+class UserFunction : public Qwt3D::Function
 {
 public:
-    UserFunction(const QString &s, SurfacePlot &pw);
+    UserFunction(const QString &s, Qwt3D::SurfacePlot &pw);
     ~UserFunction();
     double operator()(double x, double y);
     QString function() { return formula; };

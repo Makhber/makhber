@@ -50,8 +50,6 @@
 
 #include <cmath>
 
-using namespace std;
-
 Fit::Fit(ApplicationWindow *parent, Graph *g, QString name)
     : Filter(parent, g, name), scripted(ScriptingLangManager::newEnv("muParser", parent))
 {
@@ -75,9 +73,9 @@ Fit::Fit(ApplicationWindow *parent, Graph *g, QString name)
     d_sort_data = true;
 }
 
-vector<double> Fit::fitGslMultifit(int &iterations, int &status)
+std::vector<double> Fit::fitGslMultifit(int &iterations, int &status)
 {
-    vector<double> result(d_p);
+    std::vector<double> result(d_p);
 
     // declare input data
     struct FitData data = { size_t(d_n), size_t(d_p), d_x, d_y, &d_y_errors[0], this };
@@ -142,9 +140,9 @@ vector<double> Fit::fitGslMultifit(int &iterations, int &status)
     return result;
 }
 
-vector<double> Fit::fitGslMultimin(int &iterations, int &status)
+std::vector<double> Fit::fitGslMultimin(int &iterations, int &status)
 {
-    vector<double> result(d_p);
+    std::vector<double> result(d_p);
 
     // declare input data
     struct FitData data = { size_t(d_n), size_t(d_p), d_x, d_y, &d_y_errors[0], this };
@@ -218,7 +216,7 @@ void Fit::generateFunction(bool yes, int points)
         d_points = points;
 }
 
-QString Fit::logFitInfo(const vector<double> &par, int iterations, int status,
+QString Fit::logFitInfo(const std::vector<double> &par, int iterations, int status,
                         const QString &plotName)
 {
     QDateTime dt = QDateTime::currentDateTime();
@@ -433,7 +431,7 @@ Matrix *Fit::covarianceMatrix(const QString &matrixName)
     return m;
 }
 
-const vector<double> &Fit::errors()
+const std::vector<double> &Fit::errors()
 {
     if (d_result_errors.empty()) {
         d_result_errors.resize(d_p);
@@ -482,7 +480,7 @@ void Fit::fit()
     QApplication::setOverrideCursor(Qt::WaitCursor);
 
     int status {}, iterations = 0;
-    vector<double> par;
+    std::vector<double> par;
     d_script.reset(scriptEnv->newScript(d_formula, this, metaObject()->className()));
     connect(d_script.get(), SIGNAL(error(const QString &, const QString &, int)), this,
             SLOT(scriptError(const QString &, const QString &, int)));
@@ -583,7 +581,7 @@ int Fit::evaluate_df(const gsl_vector *x, gsl_matrix *J)
     return GSL_SUCCESS;
 }
 
-void Fit::generateFitCurve(const vector<double> &par)
+void Fit::generateFitCurve(const std::vector<double> &par)
 {
     if (!d_gen_function)
         d_points = d_n;

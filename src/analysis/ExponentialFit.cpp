@@ -32,8 +32,6 @@
 
 #include <cassert>
 
-using namespace std;
-
 /*****************************************************************************
  *
  * Class ExponentialFit
@@ -92,7 +90,7 @@ void ExponentialFit::init()
     }
 }
 
-void ExponentialFit::storeCustomFitResults(const vector<double> &par)
+void ExponentialFit::storeCustomFitResults(const std::vector<double> &par)
 {
     d_results = par;
     assert(d_results.size() >= 2);
@@ -103,7 +101,7 @@ void ExponentialFit::storeCustomFitResults(const vector<double> &par)
         d_results[1] = 1.0 / d_results[1];
 }
 
-void ExponentialFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void ExponentialFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     if (d_gen_function) {
         double X0 = d_x[0];
@@ -170,7 +168,7 @@ void TwoExpFit::init()
                     << tr("(second lifetime)") << tr("(offset)");
 }
 
-void TwoExpFit::storeCustomFitResults(const vector<double> &par)
+void TwoExpFit::storeCustomFitResults(const std::vector<double> &par)
 {
     d_results = par;
     assert(d_results.size() > 3);
@@ -178,7 +176,7 @@ void TwoExpFit::storeCustomFitResults(const vector<double> &par)
     d_results[3] = 1.0 / d_results[3];
 }
 
-void TwoExpFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void TwoExpFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     if (d_gen_function) {
         double X0 = d_x[0];
@@ -248,7 +246,7 @@ void ThreeExpFit::init()
                     << tr("(offset)");
 }
 
-void ThreeExpFit::storeCustomFitResults(const vector<double> &par)
+void ThreeExpFit::storeCustomFitResults(const std::vector<double> &par)
 {
     d_results = par;
     assert(d_results.size() > 5);
@@ -257,7 +255,7 @@ void ThreeExpFit::storeCustomFitResults(const vector<double> &par)
     d_results[5] = 1.0 / d_results[5];
 }
 
-void ThreeExpFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void ThreeExpFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     if (d_gen_function) {
         double X0 = d_x[0];

@@ -31,8 +31,6 @@
 #include <QLibrary>
 #include <QMessageBox>
 
-using namespace std;
-
 PluginFit::PluginFit(ApplicationWindow *parent, Graph *g) : Fit(parent, g)
 {
     init();
@@ -149,7 +147,7 @@ bool PluginFit::load(const QString &pluginName)
     return true;
 }
 
-void PluginFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void PluginFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     if (d_gen_function) {
         double X0 = d_x[0];

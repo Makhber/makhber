@@ -47,8 +47,6 @@
 
 #include <iostream>
 
-using namespace std;
-
 Plot::Plot(QWidget *parent, QString) : QwtPlot(parent)
 {
     setAutoReplot(false);

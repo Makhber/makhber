@@ -34,8 +34,6 @@
 
 #include <cmath>
 
-using namespace Qwt3D;
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Cone3D (code from Cone class  in QwtPlot3D library with modified destructor)
@@ -77,7 +75,7 @@ void Cone3D::configure(double rad, unsigned quality)
 
 void Cone3D::draw(Qwt3D::Triple const &pos)
 {
-    RGBA rgba = (*plot->dataColor())(pos);
+    Qwt3D::RGBA rgba = (*plot->dataColor())(pos);
     glColor4d(rgba.r, rgba.g, rgba.b, rgba.a);
 
     GLint mode = 0;

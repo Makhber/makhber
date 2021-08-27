@@ -1540,8 +1540,8 @@ void ConfigDialog::insertLanguagesList()
             if (translator.load(loc, "makhber", "_", app->qmPath)) {
 
                 QString language = loc.nativeLanguageName();
-                if ( locales[i].size() > 2 )
-                    language.append( " (" + loc.nativeCountryName() + ")" );
+                if (locales[i].size() > 2)
+                    language.append(" (" + loc.nativeCountryName() + ")");
                 languages.push_back(language);
             }
         }

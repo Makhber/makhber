@@ -36,8 +36,6 @@
 
 #include <cmath>
 
-using namespace std;
-
 PolynomialFit::PolynomialFit(ApplicationWindow *parent, Graph *g, int order, bool legend)
     : Fit(parent, g), d_order(order), show_legend(legend)
 {
@@ -102,7 +100,7 @@ QStringList PolynomialFit::generateParameterList(int order)
     return lst;
 }
 
-void PolynomialFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void PolynomialFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     if (d_gen_function) {
         double X0 = d_x[0];
@@ -293,7 +291,7 @@ void LinearFit::fit()
     generateFitCurve(d_results);
 }
 
-void LinearFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void LinearFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     if (d_gen_function) {
         double X0 = d_x[0];

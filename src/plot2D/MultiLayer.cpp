@@ -58,8 +58,6 @@
 
 #include <iostream>
 
-using namespace std;
-
 LayerButton::LayerButton(const QString &text, QWidget *parent) : QPushButton(text, parent)
 {
     int btn_size = 20;

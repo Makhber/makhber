@@ -37,8 +37,6 @@
 
 #include <QStringList>
 
-using namespace mu;
-
 /*!\brief Mathematical parser class based on muParser.
  *
  * \section future_plans Future Plans
@@ -48,12 +46,12 @@ using namespace mu;
  * should be implemented (maybe by making it a property of Project; see ApplicationWindow).
  * [ assigned to knut ]
  */
-class MyParser : public Parser
+class MyParser : public mu::Parser
 {
 public:
     MyParser();
 
-    void SetExpr(const QString &x) { Parser::SetExpr(toString<string_type>(x)); }
+    void SetExpr(const QString &x) { mu::Parser::SetExpr(toString<mu::string_type>(x)); }
 
     static QStringList functionsList();
     static QString explainFunction(int index);

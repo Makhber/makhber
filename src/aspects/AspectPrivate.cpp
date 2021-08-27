@@ -35,8 +35,6 @@
 
 #include <stdexcept>
 
-using namespace std;
-
 QHash<QString, QVariant> AbstractAspect::Private::g_defaults;
 
 AbstractAspect::Private::Private(AbstractAspect *owner, const QString &name)
@@ -200,7 +198,7 @@ QString AbstractAspect::Private::caption() const
             replacement = d_comment.isEmpty() ? "" : result.mid(pos + 3, length - 4);
             break;
         default:
-            throw runtime_error("Invalid magic cap");
+            throw std::runtime_error("Invalid magic cap");
         }
         result.replace(pos, length, replacement);
         pos += replacement.size();

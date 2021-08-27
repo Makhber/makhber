@@ -46,8 +46,6 @@ class QWidget;
 class QStackedWidget;
 class QGroupBox;
 
-using namespace Qwt3D;
-
 //! Surface plot options dialog
 class Plot3DDialog : public QDialog
 {

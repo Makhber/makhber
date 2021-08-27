@@ -42,8 +42,6 @@
 #include <vector>
 #include <iostream>
 
-using namespace std;
-
 QStringList AsciiTableImportFilter::fileExtensions() const
 {
     return QStringList() << "txt"
@@ -124,8 +122,8 @@ void readCols(QList<Column *> &cols, MakhberTextStream &stream, bool readColName
     row = stream.readRow();
 
     int dataSize = row.size();
-    vector<AP<C>> data(dataSize);
-    vector<IntervalAttribute<bool>> invalid_cells(row.size());
+    std::vector<AP<C>> data(dataSize);
+    std::vector<IntervalAttribute<bool>> invalid_cells(row.size());
 
     if (readColNames)
         column_names = row;
@@ -150,7 +148,7 @@ void readCols(QList<Column *> &cols, MakhberTextStream &stream, bool readColName
     }
 
     for (i = 0; i < dataSize; ++i) {
-        cols << new Column(std::move(column_names[i]), unique_ptr<C>(std::move(data[i])),
+        cols << new Column(std::move(column_names[i]), std::unique_ptr<C>(std::move(data[i])),
                            std::move(invalid_cells[i]));
         if (i == 0)
             cols.back()->setPlotDesignation(Makhber::X);

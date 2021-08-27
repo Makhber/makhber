@@ -39,8 +39,6 @@
 
 #include <QStringList>
 
-using namespace mu;
-
 const char *MuParserScripting::langName = "muParser";
 
 // functions without function pointer (fun1,fun2,fun3 == nullptr,nullptr,NULL) are implemented

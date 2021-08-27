@@ -33,8 +33,6 @@
 
 #include <QMessageBox>
 
-using namespace std;
-
 NonLinearFit::NonLinearFit(ApplicationWindow *parent, Graph *g) : Fit(parent, g)
 {
     init();
@@ -102,7 +100,7 @@ void NonLinearFit::setParametersList(const QStringList &lst)
         d_param_explain << "";
 }
 
-void NonLinearFit::calculateFitCurveData(const vector<double> &par, double *X, double *Y)
+void NonLinearFit::calculateFitCurveData(const std::vector<double> &par, double *X, double *Y)
 {
     for (unsigned i = 0; i < d_p; i++)
         d_script->setDouble(par[i], d_param_names[i].toUtf8());

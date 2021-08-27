@@ -167,15 +167,11 @@
 #include <unistd.h> // for fsync()
 #endif
 
-using namespace std;
-
 const QString MANUAL_URI("https://github.com/Makhber/makhber-handbook/releases/latest");
 const QString HOMEPAGE_URI("https://github.com/Makhber/makhber");
 const QString FORUM_URI("https://github.com/Makhber/makhber/discussions");
 const QString BUGREPORT_URI("https://github.com/Makhber/makhber/issues");
 const QString DOWNLOAD_URI("https://github.com/Makhber/makhber/releases/latest");
-
-using namespace Qwt3D;
 
 extern "C" {
 void file_compress(const char *file, const char *mode);
@@ -3550,7 +3546,7 @@ QFile *ApplicationWindow::openCompressedFile(const QString &fn)
 
 bool ApplicationWindow::loadProject(const QString &fn)
 {
-    unique_ptr<QFile> file;
+    std::unique_ptr<QFile> file;
 
     if (fn.endsWith(".gz", Qt::CaseInsensitive) || fn.endsWith(".gz~", Qt::CaseInsensitive)) {
         file.reset(openCompressedFile(fn));
@@ -3882,7 +3878,7 @@ bool ApplicationWindow::loadProject(const QString &fn)
 
 ApplicationWindow *ApplicationWindow::openProject(const QString &fn)
 {
-    unique_ptr<ApplicationWindow> app(new ApplicationWindow);
+    std::unique_ptr<ApplicationWindow> app(new ApplicationWindow);
     app->applyUserSettings();
     return app->loadProject(fn) ? app.release() : nullptr;
 }
@@ -8532,7 +8528,7 @@ void ApplicationWindow::custom3DActions(MyWidget *w)
         actionAnimate->setChecked(plot->isAnimated());
         actionPerspective->setChecked(!plot->isOrthogonal());
         switch (plot->plotStyle()) {
-        case FILLEDMESH:
+        case Qwt3D::FILLEDMESH:
             wireframe->setChecked(false);
             hiddenline->setChecked(false);
             polygon->setChecked(false);
@@ -8543,7 +8539,7 @@ void ApplicationWindow::custom3DActions(MyWidget *w)
             crossHairStyle->setChecked(false);
             break;
 
-        case FILLED:
+        case Qwt3D::FILLED:
             wireframe->setChecked(false);
             hiddenline->setChecked(false);
             polygon->setChecked(true);
@@ -8583,7 +8579,7 @@ void ApplicationWindow::custom3DActions(MyWidget *w)
             }
             break;
 
-        case WIREFRAME:
+        case Qwt3D::WIREFRAME:
             wireframe->setChecked(true);
             hiddenline->setChecked(false);
             polygon->setChecked(false);
@@ -8594,7 +8590,7 @@ void ApplicationWindow::custom3DActions(MyWidget *w)
             crossHairStyle->setChecked(false);
             break;
 
-        case HIDDENLINE:
+        case Qwt3D::HIDDENLINE:
             wireframe->setChecked(false);
             hiddenline->setChecked(true);
             polygon->setChecked(false);
@@ -8630,19 +8626,19 @@ void ApplicationWindow::custom3DActions(MyWidget *w)
         }
 
         switch (plot->floorStyle()) {
-        case NOFLOOR:
+        case Qwt3D::NOFLOOR:
             floornone->setChecked(true);
             flooriso->setChecked(false);
             floordata->setChecked(false);
             break;
 
-        case FLOORISO:
+        case Qwt3D::FLOORISO:
             floornone->setChecked(false);
             flooriso->setChecked(true);
             floordata->setChecked(false);
             break;
 
-        case FLOORDATA:
+        case Qwt3D::FLOORDATA:
             floornone->setChecked(false);
             flooriso->setChecked(false);
             floordata->setChecked(true);
@@ -11893,8 +11889,7 @@ void ApplicationWindow::createLanguagesList()
         if (!appTranslator->load(loc, "makhber", "_", qmPath))
             if (!qtTranslator->load(loc, "makhber", "_"))
                 qDebug("createLanguagesList: makhber_%s.qm file not found\n qmPath: %s",
-                       appLanguage.toLatin1().data(),
-                       qmPath.toLatin1().data());
+                       appLanguage.toLatin1().data(), qmPath.toLatin1().data());
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         auto qt_ts_path = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 #else
@@ -11904,8 +11899,7 @@ void ApplicationWindow::createLanguagesList()
             if (!qtTranslator->load(loc, "qt", "_", qt_ts_path))
                 if (!qtTranslator->load(loc, "qt", "_"))
                     qDebug("createLanguagesList: qm_%s.qm file not found\n qmPath: %s\n tsPath: %s",
-                           appLanguage.toLatin1().data(),
-                           qmPath.toLatin1().data(),
+                           appLanguage.toLatin1().data(), qmPath.toLatin1().data(),
                            qt_ts_path.toLatin1().data());
     }
 }
@@ -11936,8 +11930,7 @@ void ApplicationWindow::switchToLanguage(const QString &locale)
         if (!appTranslator->load(loc, "makhber", "_", qmPath))
             if (!qtTranslator->load(loc, "makhber", "_"))
                 qDebug("switchToLanguage: makhber_%s.qm file not found\n qmPath: %s",
-                       appLanguage.toLatin1().data(),
-                       qmPath.toLatin1().data());
+                       appLanguage.toLatin1().data(), qmPath.toLatin1().data());
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
         auto qt_ts_path = QLibraryInfo::path(QLibraryInfo::TranslationsPath);
 #else
@@ -11946,9 +11939,9 @@ void ApplicationWindow::switchToLanguage(const QString &locale)
         if (!qtTranslator->load(loc, "qt", "_", qmPath))
             if (!qtTranslator->load(loc, "qt", "_", qt_ts_path))
                 if (!qtTranslator->load(loc, "qt", "_"))
-                    qDebug("switchToLanguage: makhber_%s.qm file not found\n qmPath: %s\n tsPath: %s",
-                           appLanguage.toLatin1().data(),
-                           qmPath.toLatin1().data(),
+                    qDebug("switchToLanguage: makhber_%s.qm file not found\n qmPath: %s\n tsPath: "
+                           "%s",
+                           appLanguage.toLatin1().data(), qmPath.toLatin1().data(),
                            qt_ts_path.toLatin1().data());
     }
     insertTranslatedStrings();

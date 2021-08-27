@@ -42,8 +42,6 @@
 #include <stdexcept>
 #include <cmath>
 
-using namespace std;
-
 Integration::Integration(ApplicationWindow *parent, Graph *g) : Filter(parent, g)
 {
     init();
@@ -75,7 +73,7 @@ void Integration::init()
 double Integration::trapezoid()
 {
     double sum = 0.0;
-    vector<double> result;
+    std::vector<double> result;
     result.reserve(d_n);
     int size = d_n - 1;
     for (int i = 0; i < size; i++) {
@@ -138,7 +136,7 @@ QString Integration::logInfo()
         method_name = tr("Akima");
         break;
     default:
-        throw runtime_error("invalid method");
+        throw std::runtime_error("invalid method");
     }
 
     if (d_n < gsl_interp_type_min_size(method_t)) {

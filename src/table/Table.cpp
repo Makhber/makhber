@@ -64,8 +64,6 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std;
-
 Table::Table(ScriptingEnv *env, const QString &fname, const QString &sep, int ignoredLines,
              bool renameCols, bool stripSpaces, bool simplifySpaces, bool convertToNumeric,
              QLocale numericLocale, const QString &label, QWidget *parent, const char *name,
@@ -1038,7 +1036,7 @@ bool Table::exportASCII(const QString &fname, const QString &separator, bool wit
     int cols = numCols();
     int selectedCols = 0;
     int topRow = 0, bottomRow = 0;
-    vector<int> sCols;
+    std::vector<int> sCols;
     if (exportSelection) {
         for (i = 0; i < cols; i++) {
             if (isColumnSelected(i))

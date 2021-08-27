@@ -46,8 +46,6 @@
 #include <stdexcept>
 #include <cmath>
 
-using namespace std;
-
 TranslateCurveTool::TranslateCurveTool(Graph *graph, ApplicationWindow *app, Direction dir,
                                        const QObject *status_target, const char *status_slot)
     : PlotToolInterface(graph), d_dir(dir), d_app(app)
@@ -120,7 +118,7 @@ void TranslateCurveTool::selectDestination(const QPointF &point)
             break;
         }
         default:
-            throw runtime_error("Invalid direction");
+            throw std::runtime_error("Invalid direction");
         }
         Table *tab = d_app->table(col_name);
         if (!tab)

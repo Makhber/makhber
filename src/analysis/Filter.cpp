@@ -42,7 +42,6 @@
 #include <QLocale>
 
 #include <algorithm>
-using namespace std;
 
 Filter::Filter(ApplicationWindow *parent, Graph *g, QString name) : QObject(parent)
 {
@@ -110,8 +109,8 @@ void Filter::setDataCurve(int curve, double start, double end)
 
     // ensure range is within data range
     if (d_n > 0) {
-        d_from = max(start, *min_element(d_x, d_x + d_n));
-        d_to = min(end, *max_element(d_x, d_x + d_n));
+        d_from = std::max(start, *std::min_element(d_x, d_x + d_n));
+        d_to = std::min(end, *std::max_element(d_x, d_x + d_n));
     }
 }
 
@@ -225,8 +224,8 @@ bool Filter::run()
 
 void Filter::output()
 {
-    vector<double> X(d_points);
-    vector<double> Y(d_points);
+    std::vector<double> X(d_points);
+    std::vector<double> Y(d_points);
 
     // do the data analysis
     calculateOutputData(&X[0], &Y[0]);
@@ -241,11 +240,11 @@ int Filter::sortedCurveData(QwtPlotCurve *c, double start, double end, double **
 
     // start/end finding only works on nondecreasing data, so sort first
     int datasize = static_cast<int>(c->dataSize());
-    vector<double> xtemp;
+    std::vector<double> xtemp;
     for (int i = 0; i < datasize; i++) {
         xtemp.push_back(c->sample(i).x());
     }
-    vector<size_t> p(datasize);
+    std::vector<size_t> p(datasize);
     gsl_sort_index(&p[0], &xtemp[0], 1, datasize);
 
     // find indices that, when permuted by the sort result, give start and end
