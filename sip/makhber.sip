@@ -1,14 +1,14 @@
 /* vim: set filetype=cpp : */
 /* due to a limitation of sip, this file has to use Unix style line endings */
 /***************************************************************************
-	File                 : makhber.sip
-	Project              : Makhber
-	Description          : Specifications for Python bindings
+    File                 : makhber.sip
+    Project              : Makhber
+    Description          : Specifications for Python bindings
     --------------------------------------------------------------------
     Copyright            : (C) 2006-2009 Knut Franke (knut.franke*gmx.de)
     Copyright            : (C) 2008-2009 Tilman Benkert (thzs*gmx.net)
     Copyright            : (C) 2006-2007 Ion Vasilief (ion_vasilief*yahoo.fr)
-                           (replace * with @ in the email addresses) 
+                           (replace * with @ in the email addresses)
 
  ***************************************************************************/
 
@@ -60,71 +60,71 @@ class AbstractAspect : QObject
 %TypeHeaderCode
 #include "aspects/AbstractAspect.h"
 %End
-	public:
+    public:
 /*
-		AbstractAspect(const QString &name);
-		AbstractAspect * parentAspect() const;
+        AbstractAspect(const QString &name);
+        AbstractAspect * parentAspect() const;
 //		future::Folder * folder();
-		bool isDescendantOf(AbstractAspect *other);
-		void addChild(AbstractAspect* child /Transfer/);
-		void insertChild(AbstractAspect *child /Transfer/, int index);
-		void removeChild(AbstractAspect* child, bool detach=false);
-		void removeChild(int index);
-		AbstractAspect* child(int index) const;
-		int childCount() const;
-		int indexOfChild(const AbstractAspect * child) const;
-		*/
-		int index() const;
-		/*
-		void moveChild(int from, int to);
-		void reparentChild(AbstractAspect *new_parent, AbstractAspect *child, int d_new_index);
-		void reparentChild(AbstractAspect *new_parent, AbstractAspect *child);
-		QList<AbstractAspect *> descendantsThatInherit(const char *class_name);
-		void removeAllChildAspects();
+        bool isDescendantOf(AbstractAspect *other);
+        void addChild(AbstractAspect* child /Transfer/);
+        void insertChild(AbstractAspect *child /Transfer/, int index);
+        void removeChild(AbstractAspect* child, bool detach=false);
+        void removeChild(int index);
+        AbstractAspect* child(int index) const;
+        int childCount() const;
+        int indexOfChild(const AbstractAspect * child) const;
+        */
+        int index() const;
+        /*
+        void moveChild(int from, int to);
+        void reparentChild(AbstractAspect *new_parent, AbstractAspect *child, int d_new_index);
+        void reparentChild(AbstractAspect *new_parent, AbstractAspect *child);
+        QList<AbstractAspect *> descendantsThatInherit(const char *class_name);
+        void removeAllChildAspects();
 //		const Project *project() const;
 //		Project *project();
-		QString path() const;
-		*/
-		QIcon icon() const;
-		/*
-		QMenu *createContextMenu() const;
-		*/
-		QString name() const;
-		QString comment() const;
-		QString captionSpec() const;
-		QDateTime creationTime() const;
-		QString caption() const;
-		/*
-		QUndoStack *undoStack() const;
-		void exec(QUndoCommand *command);
-		void beginMacro(const QString& text);
-		void endMacro();
-		static QVariant global(const QString &key);
-		static void setGlobal(const QString &key, const QVariant &value);
-		static void setGlobalDefault(const QString &key, const QVariant &value);
+        QString path() const;
+        */
+        QIcon icon() const;
+        /*
+        QMenu *createContextMenu() const;
+        */
+        QString name() const;
+        QString comment() const;
+        QString captionSpec() const;
+        QDateTime creationTime() const;
+        QString caption() const;
+        /*
+        QUndoStack *undoStack() const;
+        void exec(QUndoCommand *command);
+        void beginMacro(const QString& text);
+        void endMacro();
+        static QVariant global(const QString &key);
+        static void setGlobal(const QString &key, const QVariant &value);
+        static void setGlobalDefault(const QString &key, const QVariant &value);
 //		void save(QXmlStreamWriter *) const;
 //		bool load(XmlStreamReader *);
-		*/
-	public slots:
-		void setName(const QString &value);
-		void setComment(const QString &value);
-		void setCaptionSpec(const QString &value);
-		void remove();
-		/*
-		QString uniqueNameFor(const QString &current_name) const;
-		*/
-	signals:
-		void aspectDescriptionAboutToChange(const AbstractAspect *aspect);
-		void aspectDescriptionChanged(const AbstractAspect *aspect);
-		void aspectAboutToBeAdded(const AbstractAspect *parent, int index);
-		void aspectAdded(const AbstractAspect *aspect);
-		void aspectAdded(const AbstractAspect *parent, int index);
-		void aspectAboutToBeRemoved(const AbstractAspect *aspect);
-		void aspectAboutToBeRemoved(const AbstractAspect *parent, int index);
-		void aspectRemoved(const AbstractAspect *parent, int index);
-		void statusInfo(const QString &text);
-	private:
-		AbstractAspect(const AbstractAspect&);
+        */
+    public slots:
+        void setName(const QString &value);
+        void setComment(const QString &value);
+        void setCaptionSpec(const QString &value);
+        void remove();
+        /*
+        QString uniqueNameFor(const QString &current_name) const;
+        */
+    signals:
+        void aspectDescriptionAboutToChange(const AbstractAspect *aspect);
+        void aspectDescriptionChanged(const AbstractAspect *aspect);
+        void aspectAboutToBeAdded(const AbstractAspect *parent, int index);
+        void aspectAdded(const AbstractAspect *aspect);
+        void aspectAdded(const AbstractAspect *parent, int index);
+        void aspectAboutToBeRemoved(const AbstractAspect *aspect);
+        void aspectAboutToBeRemoved(const AbstractAspect *parent, int index);
+        void aspectRemoved(const AbstractAspect *parent, int index);
+        void statusInfo(const QString &text);
+    private:
+        AbstractAspect(const AbstractAspect&);
 };
 
 class Column: AbstractAspect
@@ -135,80 +135,80 @@ class Column: AbstractAspect
 #include "aspects/datatypes/DateTime2StringFilter.h"
 #include "table/future_Table.h"
 %End
-	public:
+    public:
 /* will be removed in favour of columMode() - don't encourage anyone to start using it
-		SIP_PYOBJECT dataType() const;
+        SIP_PYOBJECT dataType() const;
 %MethodCode
-		int mode = sipCpp->dataType();
-		sipRes = PYUNICODE_FromString(Makhber::enumValueToString(mode, "ColumnDataType").toUtf8().constData());
+        int mode = sipCpp->dataType();
+        sipRes = PYUNICODE_FromString(Makhber::enumValueToString(mode, "ColumnDataType").toUtf8().constData());
 %End
 */
-		SIP_PYOBJECT columnMode() const;
+        SIP_PYOBJECT columnMode() const;
 %MethodCode
-		int mode = static_cast<int>(sipCpp->columnMode());
-		sipRes = PYUNICODE_FromString(Makhber::enumValueToString(mode, "ColumnMode").toUtf8().constData());
+        int mode = static_cast<int>(sipCpp->columnMode());
+        sipRes = PYUNICODE_FromString(Makhber::enumValueToString(mode, "ColumnMode").toUtf8().constData());
 %End
-		void setColumnMode(QString mode);
+        void setColumnMode(QString mode);
 %MethodCode
-		int mode_code = Makhber::enumStringToValue(*a0, "ColumnMode");
-		if(mode_code != -1)
-			sipCpp->setColumnMode((Makhber::ColumnMode)mode_code);
+        int mode_code = Makhber::enumStringToValue(*a0, "ColumnMode");
+        if(mode_code != -1)
+            sipCpp->setColumnMode((Makhber::ColumnMode)mode_code);
 %End
-		bool copy(const Column * other);
-		bool copy(const Column * source, int source_start, int dest_start, int num_rows);
-		int rowCount() const;
-		void insertRows(int before, int count);
-		void removeRows(int first, int count);
-		SIP_PYOBJECT columnFormat() const;
+        bool copy(const Column * other);
+        bool copy(const Column * source, int source_start, int dest_start, int num_rows);
+        int rowCount() const;
+        void insertRows(int before, int count);
+        void removeRows(int first, int count);
+        SIP_PYOBJECT columnFormat() const;
 %MethodCode
-		QString filterformat=QString();
-		if (auto filter = dynamic_cast<DateTime2StringFilter*>(sipCpp->outputFilter()))
-		{
-			filterformat = filter->format();
-		}
-		sipRes = PYUNICODE_FromString(filterformat.toUtf8().constData());
+        QString filterformat=QString();
+        if (auto filter = dynamic_cast<DateTime2StringFilter*>(sipCpp->outputFilter()))
+        {
+            filterformat = filter->format();
+        }
+        sipRes = PYUNICODE_FromString(filterformat.toUtf8().constData());
 %End
-		void setColumnFormat(QString cformat);
+        void setColumnFormat(QString cformat);
 %MethodCode
-		if (auto filter = dynamic_cast<DateTime2StringFilter*>(sipCpp->outputFilter()))
-		{
-			filter->setFormat(*a0);
-		}
+        if (auto filter = dynamic_cast<DateTime2StringFilter*>(sipCpp->outputFilter()))
+        {
+            filter->setFormat(*a0);
+        }
 %End
-		SIP_PYOBJECT plotDesignation() const;
+        SIP_PYOBJECT plotDesignation() const;
 %MethodCode
-		int pd = sipCpp->plotDesignation();
-		sipRes = PYUNICODE_FromString(Makhber::enumValueToString(pd, "PlotDesignation").toUtf8().constData());
+        int pd = sipCpp->plotDesignation();
+        sipRes = PYUNICODE_FromString(Makhber::enumValueToString(pd, "PlotDesignation").toUtf8().constData());
 %End
-		void setPlotDesignation(QString pd);
+        void setPlotDesignation(QString pd);
 %MethodCode
-		int mode_code = Makhber::enumStringToValue(*a0, "PlotDesignation");
-		if(mode_code != -1)
-			sipCpp->setPlotDesignation((Makhber::PlotDesignation)mode_code);
+        int mode_code = Makhber::enumStringToValue(*a0, "PlotDesignation");
+        if(mode_code != -1)
+            sipCpp->setPlotDesignation((Makhber::PlotDesignation)mode_code);
 %End
-		void clear();
-		bool isInvalid(int row) const;
+        void clear();
+        bool isInvalid(int row) const;
 //		bool isMasked(int row) const;
-		void clearValidity();
+        void clearValidity();
 //		void clearMasks();
-		void setInvalid(int row, bool invalid = true);
+        void setInvalid(int row, bool invalid = true);
 //		void setMasked(int row, bool mask = true);
-		QString formula(int row) const;
-		void setFormula(int row, QString formula);
-		void clearFormulas();
-		QString textAt(int row) const;
-		void setTextAt(int row, const QString& new_value);
-		void replaceTexts(int first, const QStringList& new_values);
-		QDate dateAt(int row) const;
-		void setDateAt(int row, const QDate& new_value);
-		QTime timeAt(int row) const;
-		void setTimeAt(int row, const QTime& new_value);
-		QDateTime dateTimeAt(int row) const;
-		void setDateTimeAt(int row, const QDateTime& new_value);
-		void replaceDateTimes(int first, const QList<QDateTime>& new_values);
-		double valueAt(int row) const;
-		void setValueAt(int row, double new_value);
-		void replaceValues(int first, const QVector<qreal>& new_values);
+        QString formula(int row) const;
+        void setFormula(int row, QString formula);
+        void clearFormulas();
+        QString textAt(int row) const;
+        void setTextAt(int row, const QString& new_value);
+        void replaceTexts(int first, const QStringList& new_values);
+        QDate dateAt(int row) const;
+        void setDateAt(int row, const QDate& new_value);
+        QTime timeAt(int row) const;
+        void setTimeAt(int row, const QTime& new_value);
+        QDateTime dateTimeAt(int row) const;
+        void setDateTimeAt(int row, const QDateTime& new_value);
+        void replaceDateTimes(int first, const QList<QDateTime>& new_values);
+        double valueAt(int row) const;
+        void setValueAt(int row, double new_value);
+        void replaceValues(int first, const QVector<qreal>& new_values);
 
   Column * x() const;
 %MethodCode
@@ -262,14 +262,14 @@ public:
   QString name();
   void setName(const QString& s);
 %MethodCode
-	ApplicationWindow *app = sipmakhber_app();
-	if (app) app->renameWindow(sipCpp, *a0);
+    ApplicationWindow *app = sipmakhber_app();
+    if (app) app->renameWindow(sipCpp, *a0);
 %End
 
-	MyWidget *clone();
+    MyWidget *clone();
 %MethodCode
-	ApplicationWindow *app = sipmakhber_app();
-	if (app) sipRes = app->clone(sipCpp);
+    ApplicationWindow *app = sipmakhber_app();
+    if (app) sipRes = app->clone(sipCpp);
 %End
 
   CaptionPolicy captionPolicy();
@@ -307,31 +307,31 @@ class Table: MyWidget
     int col;\
     if (PYLong_Check(arg)) {\
       col = (int)PYLong_AsLong(arg) - 1;\
-		if (col < 0 || col >= sipCpp->numCols()) {\
-			sipIsErr = 1;\
-			PyErr_Format(PyExc_ValueError, "There's no column %d in table %s!", col+1, sipCpp->objectName().toUtf8().constData());\
-		}\
-	 } else {\
+        if (col < 0 || col >= sipCpp->numCols()) {\
+            sipIsErr = 1;\
+            PyErr_Format(PyExc_ValueError, "There's no column %d in table %s!", col+1, sipCpp->objectName().toUtf8().constData());\
+        }\
+     } else {\
       PyObject *tmp = PyObject_Str(arg);\
-		if (!tmp) {\
-			sipIsErr = 1;\
-			PyErr_Format(PyExc_TypeError, "Column argument must be either int or string.");\
-		} else {\
-			col = sipCpp->colNames().indexOf(PYUNICODE_AsUTF8(tmp));\
-			if (col < 0) {\
-				sipIsErr = 1;\
-				PyErr_Format(PyExc_ValueError, "There's no column named %s in table %s!", PYUNICODE_AsUTF8(tmp),\
-						sipCpp->name().toUtf8().constData());\
-				Py_DECREF(tmp);\
-			}\
-		}\
-	 }
+        if (!tmp) {\
+            sipIsErr = 1;\
+            PyErr_Format(PyExc_TypeError, "Column argument must be either int or string.");\
+        } else {\
+            col = sipCpp->colNames().indexOf(PYUNICODE_AsUTF8(tmp));\
+            if (col < 0) {\
+                sipIsErr = 1;\
+                PyErr_Format(PyExc_ValueError, "There's no column named %s in table %s!", PYUNICODE_AsUTF8(tmp),\
+                        sipCpp->name().toUtf8().constData());\
+                Py_DECREF(tmp);\
+            }\
+        }\
+     }
 #define CHECK_TABLE_ROW(arg)\
    int row = arg-1;\
-	if (row < 0 || row >= sipCpp->numRows()) {\
-		sipIsErr = 1;\
-		PyErr_Format(PyExc_ValueError, "There's no row %d in table %s!", row+1, sipCpp->objectName().toUtf8().constData());\
-	}
+    if (row < 0 || row >= sipCpp->numRows()) {\
+        sipIsErr = 1;\
+        PyErr_Format(PyExc_ValueError, "There's no row %d in table %s!", row+1, sipCpp->objectName().toUtf8().constData());\
+    }
 
 %End
 
@@ -364,50 +364,50 @@ public:
   CHECK_TABLE_COL(a0);
   CHECK_TABLE_ROW(a1);
   if (sipIsErr == 0) {
-		sipRes = PYUNICODE_FromString(sipCpp->text(row, col).toUtf8().constData());
-		if (!sipRes) {
-			sipIsErr = 1;
-		}
-	}
+        sipRes = PYUNICODE_FromString(sipCpp->text(row, col).toUtf8().constData());
+        if (!sipRes) {
+            sipIsErr = 1;
+        }
+    }
 %End
   double cell(SIP_PYOBJECT, int) /Deprecated/;
 %MethodCode
   sipIsErr = 0;
   CHECK_TABLE_COL(a0);
   CHECK_TABLE_ROW(a1);
-	if (sipIsErr == 0)
-		sipRes = sipCpp->cell(row, col);
+    if (sipIsErr == 0)
+        sipRes = sipCpp->cell(row, col);
 %End
   void setText(SIP_PYOBJECT, int, const QString&) /Deprecated/;
 %MethodCode
   sipIsErr = 0;
   CHECK_TABLE_COL(a0);
   CHECK_TABLE_ROW(a1);
-	if (sipIsErr == 0)
-		sipCpp->setText(row, col, *a2);
+    if (sipIsErr == 0)
+        sipCpp->setText(row, col, *a2);
 %End
   void setCell(SIP_PYOBJECT, int, double) /Deprecated/;
 %MethodCode
   sipIsErr = 0;
   CHECK_TABLE_COL(a0);
   CHECK_TABLE_ROW(a1);
-	if (sipIsErr == 0)
-		sipCpp->setCell(row, col, a2);
+    if (sipIsErr == 0)
+        sipCpp->setCell(row, col, a2);
 %End
   SIP_PYOBJECT colName(int) /Deprecated/;
 %MethodCode
    if (a0 < 1 || a0 > sipCpp->numCols()) {\
-		sipIsErr = 1;\
-		PyErr_SetString(PyExc_ValueError, "Invalid column argument");\
-	} else
-		sipRes = PYUNICODE_FromString(sipCpp->colLabel(a0-1).toUtf8().constData());
+        sipIsErr = 1;\
+        PyErr_SetString(PyExc_ValueError, "Invalid column argument");\
+    } else
+        sipRes = PYUNICODE_FromString(sipCpp->colLabel(a0-1).toUtf8().constData());
 %End
   void setColName(SIP_PYOBJECT, const QString&) /Deprecated/;
 %MethodCode
-	sipIsErr = 0;
+    sipIsErr = 0;
    CHECK_TABLE_COL(a0);
-	if (sipIsErr == 0)
-		sipCpp->setColName(col, *a1);
+    if (sipIsErr == 0)
+        sipCpp->setColName(col, *a1);
 %End
   void notifyChanges() /Deprecated/;
 
@@ -415,73 +415,73 @@ public:
   bool exportASCII(const QString&, const QString&="\t", bool=false, bool=false);
   void normalize(SIP_PYOBJECT);
 %MethodCode
-	sipIsErr = 0;
-	CHECK_TABLE_COL(a0);
-	if (sipIsErr == 0)
-		sipCpp->d_future_table->normalizeColumns(QList< Column* >() << sipCpp->column(col));
+    sipIsErr = 0;
+    CHECK_TABLE_COL(a0);
+    if (sipIsErr == 0)
+        sipCpp->d_future_table->normalizeColumns(QList< Column* >() << sipCpp->column(col));
 %End
   void normalize();
 %MethodCode
-	QList< Column* > cols;
-	for (int i=0; i<sipCpp->numCols(); i++)
-		cols << sipCpp->column(i);
-	sipCpp->d_future_table->normalizeColumns(cols);
+    QList< Column* > cols;
+    for (int i=0; i<sipCpp->numCols(); i++)
+        cols << sipCpp->column(i);
+    sipCpp->d_future_table->normalizeColumns(cols);
 %End
 
   void sortColumn(SIP_PYOBJECT, int order = 0);
 %MethodCode
-  	sipIsErr = 0;
-  	CHECK_TABLE_COL(a0);
-	if (sipIsErr == 0)
-		sipCpp->d_future_table->sortColumns(0, QList<Column*>() << sipCpp->column(col), a1==0);
+      sipIsErr = 0;
+      CHECK_TABLE_COL(a0);
+    if (sipIsErr == 0)
+        sipCpp->d_future_table->sortColumns(0, QList<Column*>() << sipCpp->column(col), a1==0);
 %End
   void sort(int type = 0, int order = 0, const QString& leadCol = QString());
 %MethodCode
-	Column * lead;
-	if (a0 == 0)
-		lead = 0; // sort separately
-	else
-		lead = sipCpp->column(*a2);
-	QList< Column* > cols;
-	for (int i=0; i<sipCpp->numCols(); i++)
-		cols << sipCpp->column(i);
-	sipCpp->d_future_table->sortColumns(lead, cols, a1==0);
+    Column * lead;
+    if (a0 == 0)
+        lead = 0; // sort separately
+    else
+        lead = sipCpp->column(*a2);
+    QList< Column* > cols;
+    for (int i=0; i<sipCpp->numCols(); i++)
+        cols << sipCpp->column(i);
+    sipCpp->d_future_table->sortColumns(lead, cols, a1==0);
 %End
   void sortColumns(SIP_PYTUPLE, int=0, int=0, const QString&=QString());
 %MethodCode
-	Column * lead;
-	if (a1 == 0)
-		lead = 0; // sort separately
-	else
-		lead = sipCpp->column(*a3);
-	QList< Column* > cols;
+    Column * lead;
+    if (a1 == 0)
+        lead = 0; // sort separately
+    else
+        lead = sipCpp->column(*a3);
+    QList< Column* > cols;
   int n = PyTuple_Size(a0);
   for (int i=0; i<n; i++) {
-	  PyObject *str = PyObject_Str(PyTuple_GET_ITEM(a0,i));
-	  if (str) {
-		  cols << sipCpp->column(PYUNICODE_AsUTF8(str));
-		  Py_DECREF(str);
-	  } else {
-		  sipIsErr = 1;
-		  break;
-	  }
+      PyObject *str = PyObject_Str(PyTuple_GET_ITEM(a0,i));
+      if (str) {
+          cols << sipCpp->column(PYUNICODE_AsUTF8(str));
+          Py_DECREF(str);
+      } else {
+          sipIsErr = 1;
+          break;
+      }
   }
   sipCpp->d_future_table->sortColumns(lead, cols, a2==0);
 %End
-	void setCommand(SIP_PYOBJECT, const QString&) /Deprecated/;
+    void setCommand(SIP_PYOBJECT, const QString&) /Deprecated/;
 %MethodCode
-  	sipIsErr = 0;
-  	CHECK_TABLE_COL(a0);
-	if (sipIsErr == 0)
-		sipCpp->setCommand(col, *a1);
+      sipIsErr = 0;
+      CHECK_TABLE_COL(a0);
+    if (sipIsErr == 0)
+        sipCpp->setCommand(col, *a1);
 %End
 
-	void setComment(SIP_PYOBJECT, const QString&) /Deprecated/;
+    void setComment(SIP_PYOBJECT, const QString&) /Deprecated/;
 %MethodCode
-  	sipIsErr = 0;
-  	CHECK_TABLE_COL(a0);
-	if (sipIsErr == 0)
-		sipCpp->setColComment(col, *a1);
+      sipIsErr = 0;
+      CHECK_TABLE_COL(a0);
+    if (sipIsErr == 0)
+        sipCpp->setColComment(col, *a1);
 %End
 
 private:
@@ -493,17 +493,17 @@ class Matrix: MyWidget
 %TypeHeaderCode
 #include "matrix/Matrix.h"
 #define CHECK_MATRIX_COL(arg)\
-	int col = arg-1;\
+    int col = arg-1;\
    if (col < 0 || col >= sipCpp->numCols()) {\
-		sipIsErr = 1;\
-		PyErr_Format(PyExc_ValueError, "There's no column %d in matrix %s!", col+1, sipCpp->objectName().toUtf8().constData());\
-	}
+        sipIsErr = 1;\
+        PyErr_Format(PyExc_ValueError, "There's no column %d in matrix %s!", col+1, sipCpp->objectName().toUtf8().constData());\
+    }
 #define CHECK_MATRIX_ROW(arg)\
    int row = arg-1;\
-	if (row < 0 || row >= sipCpp->numRows()) {\
-		sipIsErr = 1;\
-		PyErr_Format(PyExc_ValueError, "There's no row %d in matrix %s!", row+1, sipCpp->objectName().toUtf8().constData());\
-	}
+    if (row < 0 || row >= sipCpp->numRows()) {\
+        sipIsErr = 1;\
+        PyErr_Format(PyExc_ValueError, "There's no row %d in matrix %s!", row+1, sipCpp->objectName().toUtf8().constData());\
+    }
 %End
 public:
   int numRows();
@@ -514,68 +514,68 @@ public:
 
   SIP_PYOBJECT text(int, int);
 %MethodCode
-	sipIsErr = 0;
-	CHECK_MATRIX_ROW(a0);
-	CHECK_MATRIX_COL(a1);
-	if (sipIsErr == 0)
-		sipRes = PYUNICODE_FromString(sipCpp->text(row, col).toUtf8().constData());
+    sipIsErr = 0;
+    CHECK_MATRIX_ROW(a0);
+    CHECK_MATRIX_COL(a1);
+    if (sipIsErr == 0)
+        sipRes = PYUNICODE_FromString(sipCpp->text(row, col).toUtf8().constData());
 %End
   double cell(int, int);
 %MethodCode
-	sipIsErr = 0;
-	CHECK_MATRIX_ROW(a0);
-	CHECK_MATRIX_COL(a1);
-	if (sipIsErr == 0)
-		sipRes = sipCpp->cell(row, col);
+    sipIsErr = 0;
+    CHECK_MATRIX_ROW(a0);
+    CHECK_MATRIX_COL(a1);
+    if (sipIsErr == 0)
+        sipRes = sipCpp->cell(row, col);
 %End
   void setText(int, int, const QString&);
 %MethodCode
-	sipIsErr = 0;
-	CHECK_MATRIX_ROW(a0);
-	CHECK_MATRIX_COL(a1);
-	if (sipIsErr == 0)
-		sipCpp->setText(row, col, *a2);
+    sipIsErr = 0;
+    CHECK_MATRIX_ROW(a0);
+    CHECK_MATRIX_COL(a1);
+    if (sipIsErr == 0)
+        sipCpp->setText(row, col, *a2);
 %End
   void setCell(int, int, double);
 %MethodCode
-	sipIsErr = 0;
-	CHECK_MATRIX_ROW(a0);
-	CHECK_MATRIX_COL(a1);
-	if (sipIsErr == 0)
-		sipCpp->setCell(row, col, a2);
+    sipIsErr = 0;
+    CHECK_MATRIX_ROW(a0);
+    CHECK_MATRIX_COL(a1);
+    if (sipIsErr == 0)
+        sipCpp->setCell(row, col, a2);
 %End
 
-	QVector<qreal> column(int col, int first_row, int last_row);
+    QVector<qreal> column(int col, int first_row, int last_row);
 %MethodCode
-	sipRes = new QVector<qreal>(sipCpp->d_future_matrix->columnCells(a0, a1, a2));
+    sipRes = new QVector<qreal>(sipCpp->d_future_matrix->columnCells(a0, a1, a2));
 %End
-	void setColumn(int col, int first_row, const QVector<qreal> &values);
+    void setColumn(int col, int first_row, const QVector<qreal> &values);
 %MethodCode
-	sipCpp->d_future_matrix->setColumnCells(a0, a1, a1+a2->size()-1, *a2);
+    sipCpp->d_future_matrix->setColumnCells(a0, a1, a1+a2->size()-1, *a2);
 %End
-	QVector<qreal> row(int row, int first_column, int last_column);
+    QVector<qreal> row(int row, int first_column, int last_column);
 %MethodCode
-	sipRes = new QVector<qreal>(sipCpp->d_future_matrix->rowCells(a0, a1, a2));
+    sipRes = new QVector<qreal>(sipCpp->d_future_matrix->rowCells(a0, a1, a2));
 %End
-	void setRow(int row, int first_column, const QVector<qreal> & values);
+    void setRow(int row, int first_column, const QVector<qreal> & values);
 %MethodCode
-	sipCpp->d_future_matrix->setRowCells(a0, a1, a1+a2->size()-1, *a2);
+    sipCpp->d_future_matrix->setRowCells(a0, a1, a1+a2->size()-1, *a2);
 %End
 
     double xStart();
-	double xEnd();
-	double yStart();
-	double yEnd();
+    double xEnd();
+    double yStart();
+    double yEnd();
     void setCoordinates(double xs, double xe, double ys, double ye);
 
     void setFormula(const QString &s);
-	 bool recalculate();
+     bool recalculate();
 
     void setNumericPrecision(int prec);
 
     void transpose();
-	void invert();
-	double determinant();
+    void invert();
+    double determinant();
 
 private:
   Matrix(const Matrix&);
@@ -615,12 +615,12 @@ public:
 
   ImageMarker(const QString&);
   QString fileName();
-  
+
   QSize size();
   void setSize(int, int);
-  
+
   void setBoundingRect(double, double, double, double) /PyName=setCoordinates/;
-  
+
 private:
   ImageMarker(const ImageMarker&);
 };
@@ -649,25 +649,25 @@ class QwtSymbol
 #include "core/ColorButton.h"
 #include <qwt_symbol.h>
 %End
-	public:
-    enum Style 
-    { 
-        NoSymbol = -1, 
+    public:
+    enum Style
+    {
+        NoSymbol = -1,
 
-        Ellipse, 
-        Rect, 
-        Diamond, 
-        Triangle, 
+        Ellipse,
+        Rect,
+        Diamond,
+        Triangle,
         DTriangle,
-        UTriangle, 
-        LTriangle, 
-        RTriangle, 
-        Cross, 
-        XCross, 
-        HLine, 
-        VLine, 
-        Star1, 
-        Star2, 
+        UTriangle,
+        LTriangle,
+        RTriangle,
+        Cross,
+        XCross,
+        HLine,
+        VLine,
+        Star1,
+        Star2,
         Hexagon,
         Path,
         Pixmap,
@@ -692,52 +692,52 @@ class QwtSymbol
     const QSize& size() const;
     Style style() const;
 
-	 // convenience methods for scripting
+     // convenience methods for scripting
 
-	 void setColor(const QColor& color);
+     void setColor(const QColor& color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(*a0);
-	sipCpp->setPen(pen);
-	QBrush brush = sipCpp->brush();
-	brush.setColor(*a0);
-	sipCpp->setBrush(brush);
+    QPen pen = sipCpp->pen();
+    pen.setColor(*a0);
+    sipCpp->setPen(pen);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(*a0);
+    sipCpp->setBrush(brush);
 %End
-	 void setColor(int color);
+     void setColor(int color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(ColorButton::color(a0));
-	sipCpp->setPen(pen);
-	QBrush brush = sipCpp->brush();
-	brush.setColor(ColorButton::color(a0));
-	sipCpp->setBrush(brush);
+    QPen pen = sipCpp->pen();
+    pen.setColor(ColorButton::color(a0));
+    sipCpp->setPen(pen);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(ColorButton::color(a0));
+    sipCpp->setBrush(brush);
 %End
-	 void setOutlineColor(const QColor& color);
+     void setOutlineColor(const QColor& color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(*a0);
-	sipCpp->setPen(pen);
+    QPen pen = sipCpp->pen();
+    pen.setColor(*a0);
+    sipCpp->setPen(pen);
 %End
-	 void setOutlineColor(int color);
+     void setOutlineColor(int color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(ColorButton::color(a0));
-	sipCpp->setPen(pen);
+    QPen pen = sipCpp->pen();
+    pen.setColor(ColorButton::color(a0));
+    sipCpp->setPen(pen);
 %End
-	 void setFillColor(const QColor& color);
+     void setFillColor(const QColor& color);
 %MethodCode
-	QBrush brush = sipCpp->brush();
-	brush.setColor(*a0);
-	sipCpp->setBrush(brush);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(*a0);
+    sipCpp->setBrush(brush);
 %End
-	 void setFillColor(int color);
+     void setFillColor(int color);
 %MethodCode
-	QBrush brush = sipCpp->brush();
-	brush.setColor(ColorButton::color(a0));
-	sipCpp->setBrush(brush);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(ColorButton::color(a0));
+    sipCpp->setBrush(brush);
 %End
 
-	private:
+    private:
 QwtSymbol(const QwtSymbol&);
 };
 
@@ -747,102 +747,102 @@ class QwtPlotCurve
 #include "plot2D/Graph.h"
 #include <qwt_plot_curve.h>
 %End
-	public:
-		int dataSize() const;
-		// double x(int i) const;
-		// double y(int i) const;
-		double minXValue() const;
-		double maxXValue() const;
-		double minYValue() const;
-		double maxYValue() const;
+    public:
+        size_t dataSize() const;
+        // double x(int i) const;
+        // double y(int i) const;
+        double minXValue() const;
+        double maxXValue() const;
+        double minYValue() const;
+        double maxYValue() const;
 
-		int xAxis() const;
-		void setXAxis(int);
+        int xAxis() const;
+        void setXAxis(int);
 
-		int yAxis () const;
-		void setYAxis(int);
+        int yAxis () const;
+        void setYAxis(int);
 
-		void setPen(const QPen &);
-		const QPen &pen() const;
+        void setPen(const QPen &);
+        const QPen &pen() const;
 
-		void setBrush(const QBrush &);
-		const QBrush &brush() const;
+        void setBrush(const QBrush &);
+        const QBrush &brush() const;
 
-		void setSymbol(QwtSymbol *s);
-		const QwtSymbol *symbol() const;
+        void setSymbol(QwtSymbol *s);
+        const QwtSymbol *symbol() const;
 
         QPointF sample (int index) const;
 
-	 // convenience methods for scripting
-	 
-	 void setColor(const QColor& color);
+     // convenience methods for scripting
+
+     void setColor(const QColor& color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(*a0);
-	sipCpp->setPen(pen);
-	QBrush brush = sipCpp->brush();
-	brush.setColor(*a0);
-	sipCpp->setBrush(brush);
+    QPen pen = sipCpp->pen();
+    pen.setColor(*a0);
+    sipCpp->setPen(pen);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(*a0);
+    sipCpp->setBrush(brush);
 %End
-	 void setColor(int color);
+     void setColor(int color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(ColorButton::color(a0));
-	sipCpp->setPen(pen);
-	QBrush brush = sipCpp->brush();
-	brush.setColor(ColorButton::color(a0));
-	sipCpp->setBrush(brush);
+    QPen pen = sipCpp->pen();
+    pen.setColor(ColorButton::color(a0));
+    sipCpp->setPen(pen);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(ColorButton::color(a0));
+    sipCpp->setBrush(brush);
 %End
-	 void setOutlineColor(const QColor& color);
+     void setOutlineColor(const QColor& color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(*a0);
-	sipCpp->setPen(pen);
+    QPen pen = sipCpp->pen();
+    pen.setColor(*a0);
+    sipCpp->setPen(pen);
 %End
-	 void setOutlineColor(int color);
+     void setOutlineColor(int color);
 %MethodCode
-	QPen pen = sipCpp->pen();
-	pen.setColor(ColorButton::color(a0));
-	sipCpp->setPen(pen);
+    QPen pen = sipCpp->pen();
+    pen.setColor(ColorButton::color(a0));
+    sipCpp->setPen(pen);
 %End
-	 void setFillColor(const QColor& color);
+     void setFillColor(const QColor& color);
 %MethodCode
-	QBrush brush = sipCpp->brush();
-	brush.setColor(*a0);
-	sipCpp->setBrush(brush);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(*a0);
+    sipCpp->setBrush(brush);
 %End
-	 void setFillColor(int color);
+     void setFillColor(int color);
 %MethodCode
-	QBrush brush = sipCpp->brush();
-	brush.setColor(ColorButton::color(a0));
-	sipCpp->setBrush(brush);
+    QBrush brush = sipCpp->brush();
+    brush.setColor(ColorButton::color(a0));
+    sipCpp->setBrush(brush);
 %End
-	 void setFillStyle(Qt::BrushStyle style);
+     void setFillStyle(Qt::BrushStyle style);
 %MethodCode
-	QBrush brush = sipCpp->brush();
-	brush.setStyle(a0);
-	sipCpp->setBrush(brush);
+    QBrush brush = sipCpp->brush();
+    brush.setStyle(a0);
+    sipCpp->setBrush(brush);
 %End
 
-	private:
-		QwtPlotCurve(const QwtPlotCurve&);
+    private:
+        QwtPlotCurve(const QwtPlotCurve&);
 };
 
 class QwtPlot {
 %TypeHeaderCode
 #include <qwt_plot.h>
 %End
-	public:
-  enum Axis 
-  { 
-  	yLeft,
-  	yRight,
-  	xBottom,
-  	xTop,
-  
-  	axisCnt
+    public:
+  enum Axis
+  {
+      yLeft,
+      yRight,
+      xBottom,
+      xTop,
+
+      axisCnt
   };
-	private:
+    private:
   QwtPlot(const QwtPlot&);
 };
 
@@ -851,61 +851,61 @@ class Grid
 %TypeHeaderCode
 #include "plot2D/Grid.h"
 %End
-	public:
-		void enableX(bool) /PyName=setXMajor/;
-		bool xEnabled() /PyName=xMajor/;
+    public:
+        void enableX(bool) /PyName=setXMajor/;
+        bool xEnabled() /PyName=xMajor/;
 
-		void enableY(bool) /PyName=setYMajor/;
-		bool yEnabled() /PyName=yMajor/;
+        void enableY(bool) /PyName=setYMajor/;
+        bool yEnabled() /PyName=yMajor/;
 
-		void enableXMin(bool) /PyName=setXMinor/;
-		bool xMinEnabled() /PyName=xMinor/;
+        void enableXMin(bool) /PyName=setXMinor/;
+        bool xMinEnabled() /PyName=xMinor/;
 
-		void enableYMin(bool) /PyName=setYMinor/;
-		bool yMinEnabled() /PyName=yMinor/;
+        void enableYMin(bool) /PyName=setYMinor/;
+        bool yMinEnabled() /PyName=yMinor/;
 
-		void enableZeroLineX(bool enable = true) /PyName=setXZeroLine/;
-		bool xZeroLineEnabled() /PyName=xZeroLine/;
+        void enableZeroLineX(bool enable = true) /PyName=setXZeroLine/;
+        bool xZeroLineEnabled() /PyName=xZeroLine/;
 
-		void enableZeroLineY(bool enable = true) /PyName=setYZeroLine/;
-		bool yZeroLineEnabled() /PyName=yZeroLine/;
+        void enableZeroLineY(bool enable = true) /PyName=setYZeroLine/;
+        bool yZeroLineEnabled() /PyName=yZeroLine/;
 
-		void setMajPenX(const QPen &p) /PyName=setXMajorPen/;
-		const QPen& majPenX() const /PyName=xMajorPen/;
+        void setMajPenX(const QPen &p) /PyName=setXMajorPen/;
+        const QPen& majPenX() const /PyName=xMajorPen/;
 
-		void setMinPenX(const QPen &p) /PyName=setXMinorPen/;
-		const QPen& minPenX() const /PyName=xMinorPen/;
+        void setMinPenX(const QPen &p) /PyName=setXMinorPen/;
+        const QPen& minPenX() const /PyName=xMinorPen/;
 
-		void setMajPenY(const QPen &p) /PyName=setYMajorPen/;
-		const QPen& majPenY() const /PyName=yMajorPen/;
+        void setMajPenY(const QPen &p) /PyName=setYMajorPen/;
+        const QPen& majPenY() const /PyName=yMajorPen/;
 
-		void setMinPenY(const QPen &p) /PyName=setYMinorPen/;
-		const QPen& minPenY() const /PyName=yMinorPen/;
+        void setMinPenY(const QPen &p) /PyName=setYMinorPen/;
+        const QPen& minPenY() const /PyName=yMinorPen/;
 
-		void setMajor(bool);
+        void setMajor(bool);
 %MethodCode
-	sipCpp->enableX(a0);
-	sipCpp->enableY(a0);
+    sipCpp->enableX(a0);
+    sipCpp->enableY(a0);
 %End
 
-		void setMinor(bool);
+        void setMinor(bool);
 %MethodCode
-	sipCpp->enableXMin(a0);
-	sipCpp->enableYMin(a0);
+    sipCpp->enableXMin(a0);
+    sipCpp->enableYMin(a0);
 %End
 
-		void setMajorPen(const QPen &p);
+        void setMajorPen(const QPen &p);
 %MethodCode
-	sipCpp->setMajPenX(*a0);
-	sipCpp->setMajPenY(*a0);
+    sipCpp->setMajPenX(*a0);
+    sipCpp->setMajPenY(*a0);
 %End
-		void setMinorPen(const QPen &p);
+        void setMinorPen(const QPen &p);
 %MethodCode
-	sipCpp->setMinPenX(*a0);
-	sipCpp->setMinPenY(*a0);
+    sipCpp->setMinPenX(*a0);
+    sipCpp->setMinPenY(*a0);
 %End
-	private:
-		Grid(const Grid&);
+    private:
+        Grid(const Grid&);
 };
 
 class Graph : QWidget /PyName=Layer/
@@ -928,63 +928,63 @@ public:
 
   bool insertCurve(Table*, const QString&, int=1, int color=-1);
 %MethodCode
-	if (sipCpp->insertCurve(a0, *a1, a2)) {
-		CurveLayout cl = sipCpp->initCurveLayout(a2, 1);
-		if (a3 >= 0) {
-			cl.lCol = a3;
-			cl.symCol = a3;
-			cl.fillCol = a3;
-		}
-		sipCpp->updateCurveLayout(sipCpp->curves()-1, &cl);
-		sipRes = true;
-	} else
-		sipRes = false;
+    if (sipCpp->insertCurve(a0, *a1, a2)) {
+        CurveLayout cl = sipCpp->initCurveLayout(a2, 1);
+        if (a3 >= 0) {
+            cl.lCol = a3;
+            cl.symCol = a3;
+            cl.fillCol = a3;
+        }
+        sipCpp->updateCurveLayout(sipCpp->curves()-1, &cl);
+        sipRes = true;
+    } else
+        sipRes = false;
 %End
   bool insertCurve(Table*, const QString&, const QString&, int=1, int color=-1);
 %MethodCode
-	if (sipCpp->insertCurve(a0, *a1, *a2, a3)) {
-		CurveLayout cl = sipCpp->initCurveLayout(a3, 1);
-		if (a4 >= 0) {
-			cl.lCol = a4;
-			cl.symCol = a4;
-			cl.fillCol = a4;
-		}
-		sipCpp->updateCurveLayout(sipCpp->curves()-1, &cl);
-		sipRes = true;
-	} else
-		sipRes = false;
+    if (sipCpp->insertCurve(a0, *a1, *a2, a3)) {
+        CurveLayout cl = sipCpp->initCurveLayout(a3, 1);
+        if (a4 >= 0) {
+            cl.lCol = a4;
+            cl.symCol = a4;
+            cl.fillCol = a4;
+        }
+        sipCpp->updateCurveLayout(sipCpp->curves()-1, &cl);
+        sipRes = true;
+    } else
+        sipRes = false;
 %End
-	bool insertFunctionCurve(const QString &formula, double from=0, double to=1, int points=100,
-			const QString &title = QString());
+    bool insertFunctionCurve(const QString &formula, double from=0, double to=1, int points=100,
+            const QString &title = QString());
 %MethodCode
-	ApplicationWindow *app = sipmakhber_app();
-	if (app)
-		sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Normal, QStringList() << *a0, "x",
-				QList<double>() << a1 << a2, a3, *a4);
-	else
-		sipRes = false;
+    ApplicationWindow *app = sipmakhber_app();
+    if (app)
+        sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Normal, QStringList() << *a0, "x",
+                QList<double>() << a1 << a2, a3, *a4);
+    else
+        sipRes = false;
 %End
-	bool insertPolarCurve(const QString &radial, const QString &angular,
-			double from=0, double to=2*M_PI, const QString &parameter="t", int points=100,
-			const QString &title = QString());
+    bool insertPolarCurve(const QString &radial, const QString &angular,
+            double from=0, double to=2*M_PI, const QString &parameter="t", int points=100,
+            const QString &title = QString());
 %MethodCode
-	ApplicationWindow *app = sipmakhber_app();
-	if (app)
-		sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Polar, QStringList() << *a0 << *a1,
-				*a4, QList<double>() << a2 << a3, a5, *a6);
-	else
-		sipRes = false;
+    ApplicationWindow *app = sipmakhber_app();
+    if (app)
+        sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Polar, QStringList() << *a0 << *a1,
+                *a4, QList<double>() << a2 << a3, a5, *a6);
+    else
+        sipRes = false;
 %End
-	bool insertParametricCurve(const QString &x, const QString &y,
-			double from=0, double to=1, const QString &parameter="t", int points=100,
-			const QString &title =QString());
+    bool insertParametricCurve(const QString &x, const QString &y,
+            double from=0, double to=1, const QString &parameter="t", int points=100,
+            const QString &title =QString());
 %MethodCode
-	ApplicationWindow *app = sipmakhber_app();
-	if (app)
-		sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Parametric, QStringList() << *a0 << *a1,
-				*a4, QList<double>() << a2 << a3, a5, *a6);
-	else
-		sipRes = false;
+    ApplicationWindow *app = sipmakhber_app();
+    if (app)
+        sipRes = sipCpp->addFunctionCurve(app, FunctionCurve::Parametric, QStringList() << *a0 << *a1,
+                *a4, QList<double>() << a2 << a3, a5, *a6);
+    else
+        sipRes = false;
 %End
 
   void removeCurve(int);
@@ -993,9 +993,9 @@ public:
   int curves() /PyName=numCurves/;
   QList<QwtPlotCurve*> curves() const;
 %MethodCode
-	sipRes = new QList<QwtPlotCurve*>();
-	for (int i = 0; i<sipCpp->curves(); i++)
-		sipRes->append(sipCpp->curve(i));
+    sipRes = new QList<QwtPlotCurve*>();
+    for (int i = 0; i<sipCpp->curves(); i++)
+        sipRes->append(sipCpp->curve(i));
 %End
   void showCurve(int index, bool visible=true);
 
@@ -1003,14 +1003,14 @@ public:
   QwtPlotCurve* curve(const QString &title);
 
   void addErrorBars(const QString&, Table *, const QString&,
-		  int type = 1, int width = 1, int cap = 8, const QColor& color = QColor(Qt::black),
-		  bool through = true, bool minus = true, bool plus = true);
+          int type = 1, int width = 1, int cap = 8, const QColor& color = QColor(Qt::black),
+          bool through = true, bool minus = true, bool plus = true);
 
   void addArrow(ArrowMarker*);
 
   ImageMarker* addImage(ImageMarker*);
   ImageMarker* addImage(const QString& fileName);
-  
+
   void setTitle(const QString& t);
   Legend* newLegend();
   Legend* newLegend(const QString&);
@@ -1057,37 +1057,37 @@ public:
 
     void setCurveAxes(int,int,int);
 %MethodCode
-	sipIsErr = 0;
-	if ((a1 > 3) || (a1 < 2) || (a2 > 1) || (a2 < 0))
+    sipIsErr = 0;
+    if ((a1 > 3) || (a1 < 2) || (a2 > 1) || (a2 < 0))
     {
          sipIsErr=1;
          PyErr_Format(PyExc_ValueError, "Invalid axis attachment!");\
     }
-	if (a0>=sipCpp->curves())
-	{
+    if (a0>=sipCpp->curves())
+    {
          sipIsErr=1;
          PyErr_Format(PyExc_ValueError, "Invalid curve index! is %d, should be less than %d",a0,sipCpp->curves());\
-	}
-	if (sipIsErr == 0)
-	{
+    }
+    if (sipIsErr == 0)
+    {
         QwtPlotItem* pItem;
-		pItem = sipCpp->plotItem(a0);
-		pItem->setAxes(a1, a2);
-		sipCpp->setAutoScale();
-	}
+        pItem = sipCpp->plotItem(a0);
+        pItem->setAxes(a1, a2);
+        sipCpp->setAutoScale();
+    }
 %End
 
   QWidget * canvas() const;
 %MethodCode
-	sipRes = sipCpp->d_plot->canvas();
+    sipRes = sipCpp->d_plot->canvas();
 %End
 
-	QPointF pickPoint() const;
+    QPointF pickPoint() const;
 %MethodCode
-	ApplicationWindow *app = sipmakhber_app();
-	sipRes = new QPointF();
-	if (app)
-		*sipRes = DataPointPicker(const_cast<Graph*>(sipCpp), app).pick();
+    ApplicationWindow *app = sipmakhber_app();
+    sipRes = new QPointF();
+    if (app)
+        *sipRes = DataPointPicker(const_cast<Graph*>(sipCpp), app).pick();
 %End
 
 private:
@@ -1107,9 +1107,9 @@ public:
   Graph* layer(int num);
   Graph* addLayer(int = 0, int = 0, int = 0, int = 0);
 %MethodCode
-	sipRes = sipCpp->addLayer(a0, a1, a2, a3);
-	ApplicationWindow *app = sipmakhber_app();
-	if (app) app->setPreferences(sipRes);
+    sipRes = sipCpp->addLayer(a0, a1, a2, a3);
+    ApplicationWindow *app = sipmakhber_app();
+    if (app) app->setPreferences(sipRes);
 %End
 
   void setCols(int);
@@ -1118,17 +1118,17 @@ public:
   void setMargins (int, int, int, int);
   void setLayerCanvasSize (int, int);
 %MethodCode
-	sipCpp->setLayerCanvasSize(a0, a1);
-	sipCpp->arrangeLayers(true, true);
+    sipCpp->setLayerCanvasSize(a0, a1);
+    sipCpp->arrangeLayers(true, true);
 %End
-	// for backwards-compatibility
+    // for backwards-compatibility
   void setAlignement (int, int);
   void setAlignement (int, int) /PyName=setAlignment/;
   void arrangeLayers(bool fit = true);
 %MethodCode
-	sipCpp->arrangeLayers(a0, false);
+    sipCpp->arrangeLayers(a0, false);
 %End
-	// for backwards-compatibility
+    // for backwards-compatibility
   void arrangeLayers(bool fit, bool user_size);
 
   void exportToFile(const QString& fileName) /PyName=export/;
@@ -1209,24 +1209,24 @@ public:
   MultiLayer* newGraph();
   MultiLayer* newGraph(const QString &name);
 %MethodCode
-	// Code copied from ApplicationWindow::newGraph() and modified to actually use the requested
-	// name if it is already unique.
-	if (sipCpp->alreadyUsedName(*a0))
-		sipRes = sipCpp->multilayerPlot(sipCpp->generateUniqueName(*a0));
-	else
-		sipRes = sipCpp->multilayerPlot(*a0);
-	if (sipRes) {
-		Graph *g = sipRes->addLayer();
-		sipCpp->setPreferences(g);
-		g->newLegend();
-		g->setAutoscaleFonts(false);
-		g->setIgnoreResizeEvents(false);
-		sipRes->arrangeLayers(false, false);
-		sipRes->adjustSize();
-		g->setAutoscaleFonts(sipCpp->autoScaleFonts);//restore user defined fonts behaviour
-		g->setIgnoreResizeEvents(!sipCpp->autoResizeLayers);
-		sipCpp->customMenu(sipRes);
-	}
+    // Code copied from ApplicationWindow::newGraph() and modified to actually use the requested
+    // name if it is already unique.
+    if (sipCpp->alreadyUsedName(*a0))
+        sipRes = sipCpp->multilayerPlot(sipCpp->generateUniqueName(*a0));
+    else
+        sipRes = sipCpp->multilayerPlot(*a0);
+    if (sipRes) {
+        Graph *g = sipRes->addLayer();
+        sipCpp->setPreferences(g);
+        g->newLegend();
+        g->setAutoscaleFonts(false);
+        g->setIgnoreResizeEvents(false);
+        sipRes->arrangeLayers(false, false);
+        sipRes->adjustSize();
+        g->setAutoscaleFonts(sipCpp->autoScaleFonts);//restore user defined fonts behaviour
+        g->setIgnoreResizeEvents(!sipCpp->autoResizeLayers);
+        sipCpp->customMenu(sipRes);
+    }
 %End
   Note *note(const QString&);
 %MethodCode
@@ -1234,10 +1234,10 @@ public:
   if(!sipRes)
     sipRes = sipCpp->projectFolder()->note(*a0, true);
 %End
-	// TODO: If name is already taken, this chooses a default name like "Notes1",
-	// which is inconsistent with newTable, newMatrix and newGraph. Not changing in
-	// a bugfix release though, since an unexpected change in behaviour may be even
-	// more confusing than the inconsistency.
+    // TODO: If name is already taken, this chooses a default name like "Notes1",
+    // which is inconsistent with newTable, newMatrix and newGraph. Not changing in
+    // a bugfix release though, since an unexpected change in behaviour may be even
+    // more confusing than the inconsistency.
   Note* newNote(const QString& = QString());
   MultiLayer *plot(Table*, SIP_PYTUPLE, int style=1, int color=-1);
 %MethodCode
@@ -1247,40 +1247,40 @@ public:
     PyObject *str = PyObject_Str(PyTuple_GET_ITEM(a1,i));
     if (str) {
       l << PYUNICODE_AsUTF8(str);
-		Py_DECREF(str);
-	 } else {
+        Py_DECREF(str);
+     } else {
       sipIsErr = 1;
       break;
     }
   }
   if (a0==0) {
-	  sipIsErr = 1;
-	  PyErr_Format(PyExc_ValueError, "Invalid table in argument to plot().");
+      sipIsErr = 1;
+      PyErr_Format(PyExc_ValueError, "Invalid table in argument to plot().");
   } else {
     sipRes = sipCpp->multilayerPlot(a0, l, a2);
     if (sipRes && sipRes->activeGraph() && a3 >= 0) {
-		 for (int c =0; c < sipRes->activeGraph()->curves(); c++) {
-			 QwtPlotCurve *curve = sipRes->activeGraph()->curve(c);
-			 QPen pen = curve->pen();
-			 pen.setColor(ColorButton::color(a3));
-			 curve->setPen(pen);
-			 QwtSymbol *symbol = new QwtSymbol(curve->symbol()->style());
-			 pen = symbol->pen();
-			 pen.setColor(ColorButton::color(a3));
-			 symbol->setPen(pen);
-			 QBrush brush = symbol->brush();
-			 brush.setColor(ColorButton::color(a3));
-			 symbol->setBrush(brush);
-			 curve->setSymbol(symbol);
-		 }
+         for (int c =0; c < sipRes->activeGraph()->curves(); c++) {
+             QwtPlotCurve *curve = sipRes->activeGraph()->curve(c);
+             QPen pen = curve->pen();
+             pen.setColor(ColorButton::color(a3));
+             curve->setPen(pen);
+             QwtSymbol *symbol = new QwtSymbol(curve->symbol()->style());
+             pen = symbol->pen();
+             pen.setColor(ColorButton::color(a3));
+             symbol->setPen(pen);
+             QBrush brush = symbol->brush();
+             brush.setColor(ColorButton::color(a3));
+             symbol->setBrush(brush);
+             curve->setSymbol(symbol);
+         }
     }
   }
 %End
   MultiLayer *plot(Table*, const QString&, int style=1, int color=-1);
 %MethodCode
   if (a0==0) {
-	  sipIsErr = 1;
-	  PyErr_Format(PyExc_ValueError, "Invalid table in argument to plot().");
+      sipIsErr = 1;
+      PyErr_Format(PyExc_ValueError, "Invalid table in argument to plot().");
   } else {
     QStringList l;
     l << *a1;
@@ -1290,23 +1290,23 @@ public:
        QPen pen = c->pen();
        pen.setColor(ColorButton::color(a3));
        c->setPen(pen);
-		 QwtSymbol *symbol = new QwtSymbol(c->symbol()->style());
-		 pen = symbol->pen();
-		 pen.setColor(ColorButton::color(a3));
-		 symbol->setPen(pen);
-		 QBrush brush = symbol->brush();
-		 brush.setColor(ColorButton::color(a3));
-		 symbol->setBrush(brush);
-		 c->setSymbol(symbol);
+         QwtSymbol *symbol = new QwtSymbol(c->symbol()->style());
+         pen = symbol->pen();
+         pen.setColor(ColorButton::color(a3));
+         symbol->setPen(pen);
+         QBrush brush = symbol->brush();
+         brush.setColor(ColorButton::color(a3));
+         symbol->setBrush(brush);
+         c->setSymbol(symbol);
     }
   }
 %End
 
-	Matrix* importImage();
-	Matrix* importImage(const QString&);
-	MultiLayer* plotContour(Matrix*);
-	MultiLayer* plotColorMap(Matrix*);
-	MultiLayer* plotGrayScale(Matrix*);
+    Matrix* importImage();
+    Matrix* importImage(const QString&);
+    MultiLayer* plotContour(Matrix*);
+    MultiLayer* plotColorMap(Matrix*);
+    MultiLayer* plotGrayScale(Matrix*);
 
   QList<MyWidget*> windowsList() /PyName=windows/;
 
@@ -1434,7 +1434,7 @@ if(sipRes)
 
   //! Returns the sum of squares of the residuals from the best-fit line
   double chiSquare();
-  
+
   //! Returns the coefficient of determination of the dataset fitted
   double rSquare();
 
@@ -1758,8 +1758,8 @@ public:
   SIPMAKHBER_APP(new sipIntegration(app, a0, *a1, a2, a3))
 %End
 
-	enum InterpolationMethod{Linear, Cubic, Akima};
-	InterpolationMethod method();
+    enum InterpolationMethod{Linear, Cubic, Akima};
+    InterpolationMethod method();
     void setMethod(InterpolationMethod method);
 
   bool run();
@@ -1980,30 +1980,30 @@ public:
 
   void save(const QString &filename);
 %MethodCode
-	ApplicationWindow *app = sipmakhber_app();
-	if (app)
-		app->saveFolder(sipCpp, *a0);
+    ApplicationWindow *app = sipmakhber_app();
+    if (app)
+        app->saveFolder(sipCpp, *a0);
 %End
 
-	void addChild(Folder *f /Transfer/);
+    void addChild(Folder *f /Transfer/);
 %MethodCode
-	QString name = a0->objectName();
-	int i = 1;
-	while (sipCpp->subfolders().contains(name))
-		name = a0->objectName() + QString::number(i++);
-	if (a0->parent() == 0) { // adding newly constructed folder
-		a0->setParent(sipCpp);
-		a0->setObjectName(name);
-		ApplicationWindow *app = sipmakhber_app();
-		if (app) {
-			app->addFolderListViewItem(a0);
-			a0->setFolderListItem(new FolderListItem(sipCpp->folderListItem(), a0));
-		}
-	} else { // moving existing folder
-		ApplicationWindow *app = sipmakhber_app();
-		if (app)
-			app->moveFolder(a0->folderListItem(), sipCpp->folderListItem());
-	}
+    QString name = a0->objectName();
+    int i = 1;
+    while (sipCpp->subfolders().contains(name))
+        name = a0->objectName() + QString::number(i++);
+    if (a0->parent() == 0) { // adding newly constructed folder
+        a0->setParent(sipCpp);
+        a0->setObjectName(name);
+        ApplicationWindow *app = sipmakhber_app();
+        if (app) {
+            app->addFolderListViewItem(a0);
+            a0->setFolderListItem(new FolderListItem(sipCpp->folderListItem(), a0));
+        }
+    } else { // moving existing folder
+        ApplicationWindow *app = sipmakhber_app();
+        if (app)
+            app->moveFolder(a0->folderListItem(), sipCpp->folderListItem());
+    }
 %End
 
 private:
