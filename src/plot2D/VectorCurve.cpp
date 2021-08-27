@@ -72,11 +72,11 @@ void VectorCurve::copy(const VectorCurve *vc)
                        int from, int to) const*/
 void VectorCurve::draw(QPainter *painter, int to) const
 {
-    if (!painter || dataSize() <= 0)
+    if (!painter || dataSize() == 0)
         return;
 
     if (to < 0)
-        to = dataSize() - 1;
+        to = static_cast<int>(dataSize()) - 1;
 
     // QwtPlotCurve::draw(painter, xMap, yMap, from, to);
 

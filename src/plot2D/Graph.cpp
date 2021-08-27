@@ -2756,7 +2756,7 @@ int Graph::range(int index, double *start, double *end)
 
         *start = c->data()->sample(0).x();
         *end = c->data()->sample(c->dataSize() - 1).x();
-        return c->dataSize();
+        return static_cast<int>(c->dataSize());
     }
 }
 
@@ -3938,7 +3938,7 @@ void Graph::createTable(const QwtPlotCurve *curve)
     if (!curve)
         return;
 
-    int size = curve->dataSize();
+    int size = static_cast<int>(curve->dataSize());
 
     auto *xCol =
             new Column(tr("1", "curve data table x column name"), Makhber::ColumnMode::Numeric);
@@ -4474,7 +4474,7 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
         auto *it = (QwtPlotItem *)g->plotItem(i);
         if (it->rtti() == QwtPlotItem::Rtti_PlotCurve) {
             auto *cv = dynamic_cast<DataCurve *>(it);
-            int n = cv->dataSize();
+            int n = static_cast<int>(cv->dataSize());
             int style = (dynamic_cast<PlotCurve *>(it))->type();
             QVector<double> x(n);
             QVector<double> y(n);

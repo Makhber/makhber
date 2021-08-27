@@ -1057,7 +1057,7 @@ void PlotDialog::showStatistics()
         return;
 
     QString tableName = app->generateUniqueName(tr("Bins"));
-    Table *t = app->newTable(h->dataSize(), 4, tableName,
+    Table *t = app->newTable(static_cast<int>(h->dataSize()), 4, tableName,
                              tr("Histogram and Probabilities for") + " " + h->title().text());
     if (t) {
         double h_sum = 0.0;

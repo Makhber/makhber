@@ -61,7 +61,7 @@ RangeSelectorTool::RangeSelectorTool(Graph *graph, const QObject *status_target,
     }
 
     d_active_point = 0;
-    d_inactive_point = d_selected_curve->dataSize() - 1;
+    d_inactive_point = static_cast<int>(d_selected_curve->dataSize()) - 1;
     int marker_size = 20;
     /* If we want this, it should also be added setSelectedCurve and pointSelected
     if (d_selected_curve->symbol().style() != QwtSymbol::NoSymbol) {
@@ -120,8 +120,8 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
         // try to be intelligent about selecting the inactive point
         double min_x = curve->data()->boundingRect().left();
         double max_x = curve->data()->boundingRect().right();
-        int n = curve->dataSize();
-        double second_x = NAN;
+        int n = static_cast<int>(curve->dataSize());
+        double second_x {};
         if (curve->sample(point).x() == min_x)
             second_x = max_x;
         else if (curve->sample(point).x() == max_x)
@@ -157,7 +157,7 @@ void RangeSelectorTool::setSelectedCurve(QwtPlotCurve *curve)
         return;
     d_selected_curve = curve;
     d_active_point = 0;
-    d_inactive_point = d_selected_curve->dataSize() - 1;
+    d_inactive_point = static_cast<int>(d_selected_curve->dataSize()) - 1;
     d_active_marker.setValue(d_selected_curve->sample(d_active_point).x(),
                              d_selected_curve->sample(d_active_point).y());
     d_inactive_marker.setValue(d_selected_curve->sample(d_inactive_point).x(),
@@ -264,7 +264,7 @@ bool RangeSelectorTool::keyEventFilter(QKeyEvent *ke)
     case Qt::Key_Right:
     case Qt::Key_Plus: {
         if (ke->modifiers() & Qt::ControlModifier) {
-            int n_points = d_selected_curve->dataSize();
+            int n_points = static_cast<int>(d_selected_curve->dataSize());
             setActivePoint((d_active_point + 1) % n_points);
             d_graph->plotWidget()->replot();
         } else
@@ -274,7 +274,7 @@ bool RangeSelectorTool::keyEventFilter(QKeyEvent *ke)
     case Qt::Key_Left:
     case Qt::Key_Minus: {
         if (ke->modifiers() & Qt::ControlModifier) {
-            int n_points = d_selected_curve->dataSize();
+            int n_points = static_cast<int>(d_selected_curve->dataSize());
             setActivePoint((d_active_point - 1 + n_points) % n_points);
             d_graph->plotWidget()->replot();
         } else

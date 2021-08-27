@@ -74,11 +74,11 @@ void QwtErrorPlotCurve::copy(const QwtErrorPlotCurve *e)
 void QwtErrorPlotCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                              int from, int to) const
 {
-    if (!painter || dataSize() <= 0)
+    if (!painter || dataSize() == 0)
         return;
 
     if (to < 0)
-        to = dataSize() - 1;
+        to = static_cast<int>(dataSize()) - 1;
 
     painter->save();
     painter->setPen(pen());
@@ -223,7 +223,7 @@ QRectF QwtErrorPlotCurve::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
 
-    int size = dataSize();
+    int size = static_cast<int>(dataSize());
 
     QVector<double> X(size), Y(size), min(size), max(size);
     for (int i = 0; i < size; i++) {

@@ -240,7 +240,7 @@ int Filter::sortedCurveData(QwtPlotCurve *c, double start, double end, double **
         return 0;
 
     // start/end finding only works on nondecreasing data, so sort first
-    int datasize = c->dataSize();
+    int datasize = static_cast<int>(c->dataSize());
     vector<double> xtemp;
     for (int i = 0; i < datasize; i++) {
         xtemp.push_back(c->sample(i).x());
@@ -274,7 +274,7 @@ int Filter::curveData(QwtPlotCurve *c, double start, double end, double **x, dou
     if (!c || c->rtti() != QwtPlotItem::Rtti_PlotCurve)
         return 0;
 
-    int datasize = c->dataSize();
+    int datasize = static_cast<int>(c->dataSize());
     int i_start = 0, i_end = 0;
     for (i_start = 0; i_start < datasize; i_start++)
         if (c->sample(i_start).x() >= start)

@@ -85,7 +85,7 @@ QString FunctionCurve::legend() const
 bool FunctionCurve::loadData(int points)
 {
     if (!points)
-        points = dataSize();
+        points = static_cast<int>(dataSize());
 
     auto *X = new double[points];
     auto *Y = new double[points];

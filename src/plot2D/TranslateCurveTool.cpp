@@ -134,7 +134,7 @@ void TranslateCurveTool::selectDestination(const QPointF &point)
         }
 
         int row_start = c->tableRow(0);
-        int row_end = row_start + c->dataSize();
+        int row_end = row_start + static_cast<int>(c->dataSize());
         for (int i = row_start; i < row_end; i++) {
             if (!tab->column(col)->isInvalid(i))
                 tab->column(col)->setValueAt(i,

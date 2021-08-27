@@ -78,10 +78,10 @@ void BoxCurve::copy(const BoxCurve *b)
 void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
                     int to) const
 {
-    if (!painter || dataSize() <= 0)
+    if (!painter || dataSize() == 0)
         return;
 
-    int size = dataSize();
+    int size = static_cast<int>(dataSize());
     if (to < 0)
         to = size - 1;
 

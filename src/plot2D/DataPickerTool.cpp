@@ -234,7 +234,7 @@ bool DataPickerTool::keyEventFilter(QKeyEvent *ke)
     case Qt::Key_Plus:
         if (d_graph) {
             if (d_selected_curve) {
-                int n_points = d_selected_curve->dataSize();
+                int n_points = static_cast<int>(d_selected_curve->dataSize());
                 setSelection(d_selected_curve, (d_selected_point + 1) % n_points);
                 d_graph->plotWidget()->replot();
             } else
@@ -246,7 +246,7 @@ bool DataPickerTool::keyEventFilter(QKeyEvent *ke)
     case Qt::Key_Minus:
         if (d_graph) {
             if (d_selected_curve) {
-                int n_points = d_selected_curve->dataSize();
+                int n_points = static_cast<int>(d_selected_curve->dataSize());
                 setSelection(d_selected_curve, (d_selected_point - 1 + n_points) % n_points);
                 d_graph->plotWidget()->replot();
             } else

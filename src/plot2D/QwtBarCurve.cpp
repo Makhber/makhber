@@ -61,11 +61,11 @@ void QwtBarCurve::copy(const QwtBarCurve *b)
 void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                        int from, int to) const
 {
-    if (!painter || dataSize() <= 0)
+    if (!painter || dataSize() == 0)
         return;
 
     if (to < 0)
-        to = dataSize() - 1;
+        to = static_cast<int>(dataSize()) - 1;
 
     painter->save();
     painter->setPen(QwtPlotCurve::pen());

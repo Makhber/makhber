@@ -60,11 +60,11 @@ void QwtHistogram::copy(const QwtHistogram *h)
 void QwtHistogram::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                         int from, int to) const
 {
-    if (!painter || dataSize() <= 0)
+    if (!painter || dataSize() == 0)
         return;
 
     if (to < 0)
-        to = dataSize() - 1;
+        to = static_cast<int>(dataSize()) - 1;
 
     painter->save();
     painter->setPen(QwtPlotCurve::pen());
@@ -89,7 +89,7 @@ QRectF QwtHistogram::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
     rect.setLeft(rect.left() - sample(1).x());
-    rect.setRight(rect.right() + sample(dataSize() - 1).x());
+    rect.setRight(rect.right() + sample(static_cast<int>(dataSize()) - 1).x());
     rect.setTop(0);
     rect.setBottom(1.2 * rect.bottom());
     return rect;
