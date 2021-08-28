@@ -372,7 +372,10 @@ else()
     )
 endif()
 
-target_compile_definitions( libmakhber PUBLIC DYNAMIC_PLUGIN_PATH )
+target_compile_definitions( libmakhber PUBLIC
+  QT_NO_KEYWORDS
+  DYNAMIC_PLUGIN_PATH
+)
 # target_compile_definitions( libmakhber PUBLIC DYNAMIC_MANUAL_PATH )
 
 if( WIN32 )
@@ -426,7 +429,6 @@ endif()
 if( MAKHBER_SCRIPTING_PYTHON )
 
   target_link_libraries( libmakhber Python3::Python )
-  target_compile_definitions( libmakhber PUBLIC QT_NO_KEYWORDS )
 
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
     add_dependencies( libmakhber generate_SIP_HDR )
