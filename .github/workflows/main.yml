@@ -82,9 +82,9 @@ jobs:
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
-          sed -i "s|QWT_CONFIG     \+= QwtExamples||g" qwtconfig.pri
-          sed -i "s|QWT_CONFIG     \+= QwtPlayground||g" qwtconfig.pri
-          sed -i "s|QWT_CONFIG     \+= QwtTests||g" qwtconfig.pri
+          sed -i "s|QWT_CONFIG     += QwtExamples||g" qwtconfig.pri
+          sed -i "s|QWT_CONFIG     += QwtPlayground||g" qwtconfig.pri
+          sed -i "s|QWT_CONFIG     += QwtTests||g" qwtconfig.pri
           qmake qwt.pro
           make -j$(nproc)
           make install
@@ -257,9 +257,9 @@ jobs:
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
-          sed -i .bak "s|QWT_CONFIG     \+= QwtExamples||g" qwtconfig.pri
-          sed -i .bak "s|QWT_CONFIG     \+= QwtPlayground||g" qwtconfig.pri
-          sed -i .bak "s|QWT_CONFIG     \+= QwtTests||g" qwtconfig.pri
+          sed -i .bak "s|QWT_CONFIG     += QwtExamples||g" qwtconfig.pri
+          sed -i .bak "s|QWT_CONFIG     += QwtPlayground||g" qwtconfig.pri
+          sed -i .bak "s|QWT_CONFIG     += QwtTests||g" qwtconfig.pri
           qmake qwt.pro
           make -j$(sysctl -n hw.logicalcpu)
           make install
