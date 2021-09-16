@@ -151,7 +151,7 @@ void Plot::printFrame(QPainter *painter, const QRect &rect) const
     painter->restore();
 }
 
-void Plot::drawItems(QPainter *painter, const QRectF &rect, const QwtScaleMap map[axisCnt]) const
+void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt]) const
 {
     // QwtPlot::drawItems(painter, rect, map, pfilter);
 
@@ -186,10 +186,10 @@ void Plot::drawItems(QPainter *painter, const QRectF &rect, const QwtScaleMap ma
 void Plot::drawInwardTicks(QPainter *painter, const QRectF &rect, const QwtScaleMap &map, int axis,
                            bool min, bool maj) const
 {
-    int x1 = rect.left();
-    int x2 = rect.right();
-    int y1 = rect.top();
-    int y2 = rect.bottom();
+    double x1 = rect.left();
+    double x2 = rect.right();
+    double y1 = rect.top();
+    double y2 = rect.bottom();
 
     QPalette pal = axisWidget(axis)->palette();
     QColor color = pal.color(QPalette::Active, QPalette::WindowText);
@@ -207,7 +207,8 @@ void Plot::drawInwardTicks(QPainter *painter, const QRectF &rect, const QwtScale
     const QList<double> majTickList = scDiv.ticks(QwtScaleDiv::MajorTick);
     int majTicks = (int)majTickList.count();
 
-    int j = 0, x = 0, y = 0, low = 0, high = 0;
+    int j = 0;
+    double x = 0, y = 0, low = 0, high = 0;
     switch (axis) {
     case QwtPlot::yLeft:
         x = x1;

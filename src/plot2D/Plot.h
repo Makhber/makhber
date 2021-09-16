@@ -95,7 +95,8 @@ public:
     void print(QPainter *, const QRect &rect) const;
 
 protected:
-    void drawItems(QPainter *painter, const QRectF &rect, const QwtScaleMap map[axisCnt]) const;
+    using QwtPlot::drawItems; // To Silent Clang warnings
+    void drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt]) const;
 
     void drawInwardTicks(QPainter *painter, const QRectF &rect, const QwtScaleMap &map, int axis,
                          bool min, bool maj) const;
