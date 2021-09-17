@@ -28,6 +28,8 @@
  ***************************************************************************/
 #include "FunctionCurve.h"
 
+#include <qwt_symbol.h>
+
 #include <QMessageBox>
 
 #include <cmath>
@@ -41,6 +43,7 @@ FunctionCurve::FunctionCurve(ApplicationWindow *parent, QString name)
 {
     d_variable = "x";
     setType(Graph::Function);
+    setSymbol(new QwtSymbol());
 }
 
 FunctionCurve::FunctionCurve(ApplicationWindow *parent, const FunctionType &t, QString name)
@@ -50,6 +53,7 @@ FunctionCurve::FunctionCurve(ApplicationWindow *parent, const FunctionType &t, Q
 {
     d_variable = "x";
     setType(Graph::Function);
+    setSymbol(new QwtSymbol());
 }
 
 void FunctionCurve::setRange(double from, double to)

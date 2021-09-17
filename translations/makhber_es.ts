@@ -7418,7 +7418,7 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>FunctionCurve</name>
     <message>
-        <location filename="../src/plot2D/FunctionCurve.cpp" line="158"/>
+        <location filename="../src/plot2D/FunctionCurve.cpp" line="162"/>
         <source>Input function error</source>
         <translation>Error de función de entrada</translation>
     </message>
