@@ -267,6 +267,7 @@ else()
     COMMAND ${SIP_Build_EXECUTABLE} --verbose --jobs ${ncpu} --concatenate $<IF:$<BOOL:${WIN32}>,1,${ncpu}>
       --qmake-setting QMAKE_CXX=${QMAKE_CXX}
       --qmake-setting $<IF:$<CONFIG:Debug>,"CONFIG+=debug","CONFIG+=release">
+      --qmake-setting CONFIG+=$<$<BOOL:${CMAKE_INTERPROCEDURAL_OPTIMIZATION}>:"ltcg">
     DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
     COMMAND_EXPAND_LISTS
     COMMENT "Building Makhber Python Module...\n"
