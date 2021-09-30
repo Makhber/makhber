@@ -1,0 +1,31 @@
+name: Delete
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Delete:
+    name: Delete
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: smartsquaregmbh/delete-old-packages@v0.3.3
+        with:
+          keep: 2
+          names: |
+            freeglut_x64-windows
+            gl2ps_x64-windows
+            gsl_x64-linux
+            gsl_x64-windows
+            gtest_x64-windows
+            libpng_x64-windows
+            muparser_x64-linux
+            muparser_x64-windows
+            opengl_x64-windows
+            openssl_x64-windows
+            vcpkg-cmake-config_x64-linux
+            vcpkg-cmake-config_x64-windows
+            vcpkg-cmake_x64-linux
+            vcpkg-cmake_x64-windows
+            vcpkg-pkgconfig-get-modules_x64-windows
+            zlib_x64-windows
