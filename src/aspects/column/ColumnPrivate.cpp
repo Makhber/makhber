@@ -372,7 +372,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
 #ifdef _DEBUG
     default:
         // And this is very unlikely to happen, but
-        throw runtime_error("Switching column to an invalid mode!");
+        throw std::runtime_error("Switching column to an invalid mode!");
 #else
     default:
         return;
