@@ -530,28 +530,26 @@ void Matrix::customEvent(QEvent *e)
 void Matrix::closeEvent(QCloseEvent *e)
 {
     if (askOnClose) {
-        switch (QMessageBox::information(this, tr("Makhber"),
-                                         tr("Do you want to hide or delete") + "<p><b>'"
-                                                 + objectName() + "'</b> ?",
-                                         tr("Delete"), tr("Hide"), tr("Cancel"), 0, 2)) {
-        case 0:
-            e->accept();
-            d_future_matrix->remove();
-            return;
-
-        case 1:
+        QMessageBox msgBox(QMessageBox::Information, tr("Makhber"),
+                           tr("Do you want to hide or delete") + "<p><b>'" + objectName()
+                                   + "'</b> ?",
+                           QMessageBox::Cancel, this);
+        QPushButton *hideButton = msgBox.addButton(tr("Hide"), QMessageBox::AcceptRole);
+        QPushButton *deleteButton = msgBox.addButton(tr("Delete"), QMessageBox::DestructiveRole);
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+        msgBox.exec();
+        if (msgBox.clickedButton() == hideButton) {
             e->ignore();
             Q_EMIT hiddenWindow(this);
-            break;
-
-        case 2:
+        } else if (msgBox.clickedButton() == deleteButton) {
+            e->accept();
+            d_future_matrix->remove();
+        } else {
             e->ignore();
-            break;
         }
     } else {
         e->accept();
         d_future_matrix->remove();
-        return;
     }
 }
 

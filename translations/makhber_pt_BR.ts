@@ -703,7 +703,7 @@ in file %2.</source>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Cancelar</translation>
+        <translation type="vanished">&amp;Cancelar</translation>
     </message>
     <message>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
@@ -815,11 +815,11 @@ Tem certeza que quer continuar?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation>Continuar</translation>
+        <translation type="vanished">Continuar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
@@ -939,11 +939,11 @@ Tem certeza que quer continuar?</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Sim</translation>
+        <translation type="vanished">Sim</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Não</translation>
+        <translation type="vanished">Não</translation>
     </message>
     <message>
         <source>&amp;Delete Selection</source>
@@ -2594,7 +2594,7 @@ Tem certeza que quer continuar?</translation>
     </message>
     <message>
         <source>&amp;No</source>
-        <translation>&amp;Não</translation>
+        <translation type="vanished">&amp;Não</translation>
     </message>
     <message>
         <source>D&amp;epending Graphs</source>
@@ -2694,11 +2694,6 @@ Tem certeza que quer continuar?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Do you want Makhber to guess the best position for the new layer?
- Warning: this will rearrange existing layers!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2749,6 +2744,11 @@ You are already running the latest version: &quot;%1&quot;</source>
     </message>
     <message>
         <source>The version file could not be decoded into a valid version number.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want Makhber to guess the best position for the new layer?
+Warning: this will rearrange existing layers!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6583,7 +6583,7 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
     </message>
     <message>
         <source>&amp;Continue</source>
-        <translation>&amp;Continuar</translation>
+        <translation type="vanished">&amp;Continuar</translation>
     </message>
     <message>
         <source>Columns input error</source>
@@ -6813,7 +6813,7 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Matrix %1</source>
@@ -7362,15 +7362,15 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <source>&amp;Yes</source>
-        <translation>&amp;Sim</translation>
+        <translation type="vanished">&amp;Sim</translation>
     </message>
     <message>
         <source>&amp;No</source>
-        <translation>&amp;Não</translation>
+        <translation type="vanished">&amp;Não</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Cancelar</translation>
+        <translation type="vanished">&amp;Cancelar</translation>
     </message>
     <message>
         <source>Error</source>
@@ -7529,7 +7529,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -9764,7 +9764,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Cancelar</translation>
+        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <source>%1: apply formula to column</source>

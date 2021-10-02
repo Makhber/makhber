@@ -693,7 +693,7 @@ Various parts of this file may not be displayed as expected.</source>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
@@ -805,11 +805,11 @@ Are you sure you want to continue?</source>
     </message>
     <message>
         <source>Continue</source>
-        <translation>繼續</translation>
+        <translation type="vanished">繼續</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
@@ -929,11 +929,11 @@ Are you sure you want to continue?</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation>是</translation>
+        <translation type="vanished">是</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>否</translation>
+        <translation type="vanished">否</translation>
     </message>
     <message>
         <source>&amp;Delete Selection</source>
@@ -2583,7 +2583,7 @@ Are you sure you want to continue?</source>
     </message>
     <message>
         <source>&amp;No</source>
-        <translation>否(&amp;N)</translation>
+        <translation type="vanished">否(&amp;N)</translation>
     </message>
     <message>
         <source>D&amp;epending Graphs</source>
@@ -2690,11 +2690,6 @@ in file %2.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Do you want Makhber to guess the best position for the new layer?
- Warning: this will rearrange existing layers!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2745,6 +2740,11 @@ You are already running the latest version: &quot;%1&quot;</source>
     </message>
     <message>
         <source>The version file could not be decoded into a valid version number.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want Makhber to guess the best position for the new layer?
+Warning: this will rearrange existing layers!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6565,7 +6565,7 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     </message>
     <message>
         <source>&amp;Continue</source>
-        <translation>繼續(&amp;C)</translation>
+        <translation type="vanished">繼續(&amp;C)</translation>
     </message>
     <message>
         <source>Columns input error</source>
@@ -6795,7 +6795,7 @@ The limits must be within the range of x; If you do not know the maximum (minimu
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Matrix %1</source>
@@ -7345,15 +7345,15 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     </message>
     <message>
         <source>&amp;Yes</source>
-        <translation>是(&amp;Y)</translation>
+        <translation type="vanished">是(&amp;Y)</translation>
     </message>
     <message>
         <source>&amp;No</source>
-        <translation>否(&amp;N)</translation>
+        <translation type="vanished">否(&amp;N)</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>取消(&amp;C)</translation>
+        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <source>Error</source>
@@ -7514,7 +7514,7 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -9747,7 +9747,7 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation type="vanished">取消</translation>
     </message>
     <message>
         <source>%1: apply formula to column</source>

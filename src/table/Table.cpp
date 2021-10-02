@@ -1120,30 +1120,28 @@ void Table::customEvent(QEvent *e)
 void Table::closeEvent(QCloseEvent *e)
 {
     if (askOnClose) {
-        switch (QMessageBox::information(this, tr("Makhber"),
-                                         tr("Do you want to hide or delete") + "<p><b>'"
-                                                 + objectName() + "'</b> ?",
-                                         tr("Delete"), tr("Hide"), tr("Cancel"), 0, 2)) {
-        case 0:
+        QMessageBox msgBox(QMessageBox::Information, tr("Makhber"),
+                           tr("Do you want to hide or delete") + "<p><b>'" + objectName()
+                                   + "'</b> ?",
+                           QMessageBox::Cancel, this);
+        QPushButton *hideButton = msgBox.addButton(tr("Hide"), QMessageBox::AcceptRole);
+        QPushButton *deleteButton = msgBox.addButton(tr("Delete"), QMessageBox::DestructiveRole);
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+        msgBox.exec();
+        if (msgBox.clickedButton() == hideButton) {
+            e->ignore();
+            Q_EMIT hiddenWindow(this);
+        } else if (msgBox.clickedButton() == deleteButton) {
             e->accept();
             if (d_future_table)
                 d_future_table->remove();
-            return;
-
-        case 1:
+        } else {
             e->ignore();
-            Q_EMIT hiddenWindow(this);
-            break;
-
-        case 2:
-            e->ignore();
-            break;
         }
     } else {
         e->accept();
         if (d_future_table)
             d_future_table->remove();
-        return;
     }
 }
 

@@ -39,6 +39,7 @@
 #include <QLocale>
 #include <QIcon>
 #include <QtDebug>
+#include <QPushButton>
 
 MyWidget::MyWidget(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
     : QMdiSubWindow(parent, f)
@@ -76,23 +77,22 @@ void MyWidget::updateCaption()
 void MyWidget::closeEvent(QCloseEvent *e)
 {
     if (askOnClose) {
-        switch (QMessageBox::information(this, tr("Makhber"),
-                                         tr("Do you want to hide or delete") + "<p><b>'"
-                                                 + objectName() + "'</b> ?",
-                                         tr("Delete"), tr("Hide"), tr("Cancel"), 0, 2)) {
-        case 0:
+        QMessageBox msgBox(QMessageBox::Information, tr("Makhber"),
+                           tr("Do you want to hide or delete") + "<p><b>'" + objectName()
+                                   + "'</b> ?",
+                           QMessageBox::Cancel, this);
+        QPushButton *hideButton = msgBox.addButton(tr("Hide"), QMessageBox::AcceptRole);
+        QPushButton *deleteButton = msgBox.addButton(tr("Delete"), QMessageBox::DestructiveRole);
+        msgBox.setDefaultButton(QMessageBox::Cancel);
+        msgBox.exec();
+        if (msgBox.clickedButton() == hideButton) {
+            Q_EMIT hiddenWindow(this);
+            e->ignore();
+        } else if (msgBox.clickedButton() == deleteButton) {
             Q_EMIT closedWindow(this);
             e->accept();
-            break;
-
-        case 1:
+        } else {
             e->ignore();
-            Q_EMIT hiddenWindow(this);
-            break;
-
-        case 2:
-            e->ignore();
-            break;
         }
     } else {
         Q_EMIT closedWindow(this);

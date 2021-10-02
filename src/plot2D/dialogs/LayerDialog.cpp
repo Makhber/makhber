@@ -207,8 +207,7 @@ void LayerDialog::update()
     if (dn > 0
         && QMessageBox::question(nullptr, tr("Delete Layers?"),
                                  tr("You are about to delete %1 existing layers.").arg(dn) + "\n"
-                                         + tr("Are you sure you want to continue this operation?"),
-                                 tr("&Continue"), tr("&Cancel"), QString(), 0, 1))
+                                         + tr("Are you sure you want to continue this operation?")))
         return;
 
     multi_layer->setLayersNumber(graphs);

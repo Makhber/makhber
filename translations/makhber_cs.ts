@@ -699,7 +699,7 @@ in file %2.</source>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Zrušit</translation>
+        <translation type="vanished">&amp;Zrušit</translation>
     </message>
     <message>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
@@ -811,11 +811,11 @@ Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
         <source>Continue</source>
-        <translation>Pokračovat</translation>
+        <translation type="vanished">Pokračovat</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation type="vanished">Zrušit</translation>
     </message>
     <message>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
@@ -935,11 +935,11 @@ Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
         <source>Yes</source>
-        <translation>Ano</translation>
+        <translation type="vanished">Ano</translation>
     </message>
     <message>
         <source>No</source>
-        <translation>Ne</translation>
+        <translation type="vanished">Ne</translation>
     </message>
     <message>
         <source>&amp;Delete Selection</source>
@@ -2591,7 +2591,7 @@ Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
         <source>&amp;No</source>
-        <translation>&amp;Ne</translation>
+        <translation type="vanished">&amp;Ne</translation>
     </message>
     <message>
         <source>D&amp;epending Graphs</source>
@@ -2691,11 +2691,6 @@ Jste si jist, že chcete pokračovat?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Do you want Makhber to guess the best position for the new layer?
- Warning: this will rearrange existing layers!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2746,6 +2741,11 @@ You are already running the latest version: &quot;%1&quot;</source>
     </message>
     <message>
         <source>The version file could not be decoded into a valid version number.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do you want Makhber to guess the best position for the new layer?
+Warning: this will rearrange existing layers!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6553,7 +6553,7 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
     </message>
     <message>
         <source>&amp;Continue</source>
-        <translation>&amp;Pokračovat</translation>
+        <translation type="vanished">&amp;Pokračovat</translation>
     </message>
     <message>
         <source>Columns input error</source>
@@ -6783,7 +6783,7 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation type="vanished">Zrušit</translation>
     </message>
     <message>
         <source>Matrix %1</source>
@@ -7308,15 +7308,15 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
     <message>
         <source>&amp;Yes</source>
-        <translation>&amp;Ano</translation>
+        <translation type="vanished">&amp;Ano</translation>
     </message>
     <message>
         <source>&amp;No</source>
-        <translation>&amp;Ne</translation>
+        <translation type="vanished">&amp;Ne</translation>
     </message>
     <message>
         <source>&amp;Cancel</source>
-        <translation>&amp;Zrušit</translation>
+        <translation type="vanished">&amp;Zrušit</translation>
     </message>
     <message>
         <source>Error</source>
@@ -7475,7 +7475,7 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation type="vanished">Zrušit</translation>
     </message>
     <message>
         <source>Normal</source>
@@ -9712,7 +9712,7 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Zrušit</translation>
+        <translation type="vanished">Zrušit</translation>
     </message>
     <message>
         <source>%1: apply formula to column</source>

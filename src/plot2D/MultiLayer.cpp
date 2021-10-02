@@ -285,23 +285,24 @@ void MultiLayer::confirmRemoveLayer()
     if (graphs > 1) {
         switch (QMessageBox::information(
                 this, tr("Guess best layout?"),
-                tr("Do you want Makhber to rearrange the remaining layers?"), tr("&Yes"), tr("&No"),
-                tr("&Cancel"), 0, 2)) {
-        case 0:
+                tr("Do you want Makhber to rearrange the remaining layers?"),
+                QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel, QMessageBox::Yes)) {
+        case QMessageBox::Yes:
             removeLayer();
             arrangeLayers(true, false);
             break;
 
-        case 1:
+        case QMessageBox::No:
             removeLayer();
             break;
 
-        case 2:
+        default:
             return;
             break;
         }
-    } else
+    } else {
         removeLayer();
+    }
 }
 
 void MultiLayer::removeLayer()
