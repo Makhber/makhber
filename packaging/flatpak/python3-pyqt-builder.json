@@ -8,27 +8,47 @@
         {
             "type": "file",
             "url": "https://files.pythonhosted.org/packages/df/86/aef78bab3afd461faecf9955a6501c4999933a48394e90f03cd512aad844/packaging-21.0.tar.gz",
-            "sha256": "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7"
+            "sha256": "7dc96269f53a4ccec5c0670940a4281106dd0bb343f47b7471f779df49c2fbe7",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "packaging"
+            }
         },
         {
             "type": "file",
             "url": "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz",
-            "sha256": "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+            "sha256": "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "pyparsing"
+            }
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/27/c2/9fcaf0f4eb96dc06dc38ca66e4f1bb890b9852f62b93069b81646f7bff65/PyQt-builder-1.10.3.tar.gz",
-            "sha256": "6ade47445b7d8c08eb96e91ebda5f8b3494b3e7a9da2be343b9d0704419cb5c7"
+            "url": "https://files.pythonhosted.org/packages/62/fd/e74d789fa6ca10be33f2d782a96482a4bcf0104c9287bac151f3062d3984/PyQt-builder-1.11.0.tar.gz",
+            "sha256": "40f6df88c00e6aa9ac9a8bc5688f9fe2a4bd56c06cdb0a0b00ce8955ec34ffe5",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "PyQt-builder"
+            }
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/f8/b2/fcd5e964eefce0737512fb4ea263308769c671c3b1b9b1e380a5008ffef0/sip-6.1.1.tar.gz",
-            "sha256": "52d25af2fcd764c4e15cc9cd1350bdb0e63f52dfa2aa3c5e7679af7fde9f7e20"
+            "url": "https://files.pythonhosted.org/packages/98/3a/f1b69503d6129ba3b06cf066740f5188aa20bd32cfd2e788ca58c073b2ba/sip-6.2.0.tar.gz",
+            "sha256": "34d2270b4ed8d7f8e55cc4ba821d718ee40d9bb2449c6b5cf8a10139d5c121ac",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "sip"
+            }
         },
         {
             "type": "file",
             "url": "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz",
-            "sha256": "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+            "sha256": "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "toml"
+            }
         }
     ],
     "cleanup": [
