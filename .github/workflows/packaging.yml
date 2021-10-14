@@ -115,7 +115,7 @@ jobs:
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
-          brew install --display-times qwt muparser gsl gl2ps
+          brew install --display-times qwt-qt5 muparser gsl gl2ps
 
       - name: Configuring
         run: |
