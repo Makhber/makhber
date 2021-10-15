@@ -295,7 +295,9 @@ jobs:
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
           sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
-          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDll$|#|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtExamples$|#|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtPlayground$|#|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtTests$|#|g" qwtconfig.pri
           qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
           make -j$(nproc)
           make install
@@ -332,6 +334,7 @@ jobs:
         run: |
           cd build
           make install DESTDIR=AppDir
+          export LD_LIBRARY_PATH=${GITHUB_WORKSPACE}/../Qwt/lib:$LD_LIBRARY_PATH
           wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
@@ -360,6 +363,7 @@ jobs:
 
       - name: Install prerequisties
         run: |
+          sudo apt update
           sudo apt install -y --no-install-recommends \
             qtbase5-dev \
             libqt5svg5-dev \
