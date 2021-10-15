@@ -100,7 +100,10 @@ parts:
     override-build: |
       sed -i "s|^\\s*QWT_INSTALL_PREFIX.*$|QWT_INSTALL_PREFIX=$SNAPCRAFT_PART_INSTALL/usr|g" qwtconfig.pri
       sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
-      /snap/kde-frameworks-5-qt-5-15-core20-sdk/current/usr/lib/qt5/bin/qmake \
+      sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtExamples$|#|g" qwtconfig.pri
+      sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtPlayground$|#|g" qwtconfig.pri
+      sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtTests$|#|g" qwtconfig.pri
+      /snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
         CONFIG-=debug_and_release \
         CONFIG+=release \
         qwt.pro
