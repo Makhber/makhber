@@ -79,6 +79,7 @@ jobs:
           cmake .. `
             -DCMAKE_BUILD_TYPE=Release `
             -DCMAKE_SYSTEM_VERSION="10.0" `
+            -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin"
