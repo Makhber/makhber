@@ -196,7 +196,8 @@ jobs:
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
-            -DMAKHBER_BUILD_TESTS=ON
+            -DMAKHBER_BUILD_TESTS=ON `
+            -DPython3_ROOT_DIR=${{ env.pythonLocation }}
 
       - name: Building
         run: |
