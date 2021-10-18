@@ -1,7 +1,7 @@
 app-id: com.github.makhber.Makhber
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 command: makhber
 finish-args:
   - --share=ipc
@@ -25,6 +25,11 @@ modules:
       - type: archive
         url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.tar.gz
         sha256: efbbf3785da0e53038be7907500628b466152dbc3c173a87de1b5eba2e23602b
+        x-checker-data:
+          type: anitya
+          project-id: 1267
+          stable-only: true
+          url-template: https://ftp.gnu.org/gnu/gsl/gsl-$version.tar.gz
 
   - name: muparser
     buildsystem: cmake-ninja
@@ -37,16 +42,26 @@ modules:
       - type: archive
         url: https://github.com/beltoforion/muparser/archive/v2.3.2.tar.gz
         sha256: b35fc84e3667d432e3414c8667d5764dfa450ed24a99eeef7ee3f6647d44f301
+        x-checker-data:
+          type: anitya
+          project-id: 2033
+          stable-only: true
+          url-template: https://github.com/beltoforion/muparser/archive/v$version.tar.gz
 
   - name: glu
-    config-opts: 
+    config-opts:
       - --disable-static
       - --disable-debug
     sources:
       - type: archive
-        url: https://mesa.freedesktop.org/archive/glu/glu-9.0.1.tar.xz
-        sha256: fb5a4c2dd6ba6d1c21ab7c05129b0769544e1d68e1e3b0ffecb18e73c93055bc
-    cleanup: 
+        url: https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
+        sha256: 24effdfb952453cc00e275e1c82ca9787506aba0282145fff054498e60e19a65
+        x-checker-data:
+          type: anitya
+          project-id: 13518
+          stable-only: true
+          url-template: https://mesa.freedesktop.org/archive/glu/glu-$version.tar.gz
+    cleanup:
       - /include
       - /lib/*.a
       - /lib/*.la
@@ -60,34 +75,31 @@ modules:
       - python3 setup.py install --prefix=/app
     sources:
       - type: archive
-        url: https://pypi.python.org/packages/source/P/PyQt5_sip/PyQt5_sip-12.9.0.tar.gz
+        url: https://files.pythonhosted.org/packages/b1/40/dd8f081f04a12912b65417979bf2097def0af0f20c89083ada3670562ac5/PyQt5_sip-12.9.0.tar.gz
         sha256: d3e4489d7c2b0ece9d203ae66e573939f7f60d4d29e089c9f11daa17cfeaae32
+        x-checker-data:
+          type: pypi
+          name: PyQt5-sip
 
   - name: pyqt5
     buildsystem: simple
     build-commands:
-      - pwd
-      - sip-build --confirm-license
-        --build-dir ./build
-        --target-dir /app/lib/python3.8/site-packages
-        --api-dir /app/share/qt5/qsci/api/python
-        --concatenate 1
-        --no-make
-        --no-tools
-        --enable QtCore
-        --enable QtWidgets
-        --enable QtGui
-        --enable QtPrintSupport
-        --enable QtOpenGL
-        --enable QtSvg
-        --enable QtNetwork
-        --verbose
-      - make -j$(nproc) -C build
-      - make install -C build
+      - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.9/site-packages
+        --concatenate 1 --no-designer-plugin --no-qml-plugin --no-tools --disable QtQml
+        --disable QtBluetooth --disable QtDBus --disable QtDesigner --disable QtHelp
+        --disable QtMultimedia --disable QtMultimediaWidgets --disable QtNfc --disable QtRemoteObjects
+        --disable QtPositioning --disable QtLocation --disable QtQuick --disable QtQuickWidgets
+        --disable QtSensors --disable QtSerialPort --disable QtSql --disable QtTest
+        --disable QtTextToSpeech --disable QtWebChannel --disable QtWebKit
+        --disable QtWebKitWidgets --disable QtWebSockets --disable QtX11Extras --disable QtXml
+        --disable QtXmlPatterns --verbose --jobs $(nproc)
     sources:
       - type: archive
-        url: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz
+        url: https://files.pythonhosted.org/packages/8e/a4/d5e4bf99dd50134c88b95e926d7b81aad2473b47fde5e3e4eac2c69a8942/PyQt5-5.15.4.tar.gz
         sha256: 2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be
+        x-checker-data:
+          type: pypi
+          name: PyQt5
 
   - name: makhber
     buildsystem: cmake-ninja
