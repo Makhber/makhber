@@ -90,6 +90,10 @@ jobs:
           make -j$(nproc)
           make install
 
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
       - name: Install Python packages
         run: |
           pip3 install sip pyqt5 pyqt-builder numpy
