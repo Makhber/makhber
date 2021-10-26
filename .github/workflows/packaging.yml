@@ -63,6 +63,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\x64-windows.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install zlib gsl muparser qwt opengl gl2ps openssl --triplet x64-windows
 
       - uses: actions/setup-python@v2
