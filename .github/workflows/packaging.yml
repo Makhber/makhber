@@ -94,7 +94,7 @@ jobs:
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DBUILD_SHARED_LIBS=ON `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
-            -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin"
+            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin;$Env:Qt5_DIR\bin"
 
       - name: Building
         run: |
