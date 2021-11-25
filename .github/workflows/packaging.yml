@@ -45,12 +45,52 @@ jobs:
     runs-on: windows-latest
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      QT_VER: 5.15.2
+      QWT_VER: 6.2.0
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           submodules: true
+
+      - name: Cache Qt
+        id: cache-qt
+        uses: actions/cache@v1
+        with:
+          path: ../Qt
+          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          version: ${{ env.QT_VER }}
+          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+      - name: Cache Qwt
+        id: cache-qwt
+        uses: actions/cache@v1
+        with:
+          path: ../Qwt
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
+
+      - uses: ilammy/msvc-dev-cmd@v1
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+      - name: Build and install Qwt
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+        run: |
+          choco install wget jom
+          wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.zip
+          Expand-Archive qwt-${{ env.QWT_VER }}.zip -DestinationPath .; cd qwt-${{ env.QWT_VER }}
+          ((Get-Content -path qwtconfig.pri -Raw) `
+            -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/../Qwt" `
+            -replace 'QWT_CONFIG     \+= QwtExamples',"" `
+            -replace 'QWT_CONFIG     \+= QwtPlayground',"" `
+            -replace 'QWT_CONFIG     \+= QwtTests',"") `
+            | Set-Content -Path .\qwtconfig.pri
+          qmake qwt.pro
+          jom /J "$Env:NUMBER_OF_PROCESSORS"
+          jom install
 
       - name: Setup NuGet Credentials
         run: |
@@ -64,7 +104,7 @@ jobs:
       - name: vcpkg package restore
         run: |
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\x64-windows.cmake "set(VCPKG_BUILD_TYPE release)"
-          vcpkg install zlib gsl muparser qwt opengl gl2ps openssl --triplet x64-windows
+          vcpkg install zlib gsl muparser opengl gl2ps openssl --triplet x64-windows
 
       - uses: actions/setup-python@v2
         with:
@@ -76,6 +116,8 @@ jobs:
 
       - name: Configuring
         run: |
+          $Env:QWT_PATH = (Resolve-Path "$Env:GITHUB_WORKSPACE\..\Qwt")
+          echo $Env:QWT_PATH
           mkdir build; cd build
           cmake .. `
             -DCMAKE_BUILD_TYPE=Release `
@@ -83,7 +125,8 @@ jobs:
             -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
-            -DRUNTIME_DIR="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin"
+            -DCMAKE_PREFIX_PATH="$Env:QWT_PATH" `
+            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin;$Env:QWT_PATH\lib;$Env:Qt5_DIR\bin"
 
       - name: Building
         run: |
