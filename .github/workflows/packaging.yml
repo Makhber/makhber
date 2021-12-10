@@ -396,7 +396,7 @@ jobs:
           files: build/Makhber*.deb
 
   RPM:
-    name: Fedora 34 RPM
+    name: Fedora 35 RPM
     runs-on: ubuntu-20.04
     container: fedora
 
@@ -437,7 +437,7 @@ jobs:
         run: |
           cd build
           cpack -G RPM
-          mv Makhber*.rpm makhber-$(git describe --tags).fc34.x86_64.rpm
+          mv Makhber*.rpm makhber-$(git describe --tags).fc35.x86_64.rpm
 
       - name: Upload RPM package
         uses: softprops/action-gh-release@v1
