@@ -11982,13 +11982,13 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
 <context>
     <name>PythonScripting</name>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="229"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="230"/>
         <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="230"/>
-        <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against;try updating SIP or recompiling Makhber.</source>
+        <location filename="../src/scripting/PythonScripting.cpp" line="231"/>
+        <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against; try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

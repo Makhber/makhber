@@ -11990,13 +11990,13 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
 <context>
     <name>PythonScripting</name>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="229"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="230"/>
         <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="230"/>
-        <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against;try updating SIP or recompiling Makhber.</source>
+        <location filename="../src/scripting/PythonScripting.cpp" line="231"/>
+        <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against; try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

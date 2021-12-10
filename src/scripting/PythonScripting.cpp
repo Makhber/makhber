@@ -169,12 +169,13 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     math = NULL;
     sys = NULL;
     d_initialized = false;
+    PyGILState_STATE gstate;
     if (Py_IsInitialized()) {
-        //		PyEval_AcquireLock();
+        gstate = PyGILState_Ensure();
         mainmod = PyImport_ImportModule("__main__");
         if (!mainmod) {
             PyErr_Print();
-            //			PyEval_ReleaseLock();
+            PyGILState_Release(gstate);
             return;
         }
         globals = PyModule_GetDict(mainmod);
@@ -185,14 +186,14 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
 #ifdef PYTHONHOME
         Py_SetPythonHome(Py_DecodeLocale(str(PYTHONHOME), NULL));
 #endif
-        //		PyEval_InitThreads ();
         Py_Initialize();
         if (!Py_IsInitialized())
             return;
 
+        gstate = PyGILState_Ensure();
         mainmod = PyImport_AddModule("__main__");
         if (!mainmod) {
-            //			PyEval_ReleaseLock();
+            PyGILState_Release(gstate);
             PyErr_Print();
             return;
         }
@@ -201,7 +202,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
 
     if (!globals) {
         PyErr_Print();
-        //		PyEval_ReleaseLock();
+        PyGILState_Release(gstate);
         return;
     }
     Py_INCREF(globals);
@@ -229,8 +230,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
                     d_parent, tr("Failed to export Makhber API"),
                     tr("Accessing Makhber functions or objects from Python code won't work."
                        "Probably your version of SIP differs from the one Makhber was compiled "
-                       "against;"
-                       "try updating SIP or recompiling Makhber."));
+                       "against; try updating SIP or recompiling Makhber."));
         PyDict_SetItemString(makhberDict, "mathFunctions", math);
         Py_DECREF(makhbermod);
     } else
@@ -243,7 +243,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     } else
         PyErr_Print();
 
-    //	PyEval_ReleaseLock();
+    PyGILState_Release(gstate);
     d_initialized = true;
 }
 
@@ -293,6 +293,7 @@ PythonScripting::~PythonScripting()
 
 bool PythonScripting::loadInitFile(const QString &path)
 {
+    PyGILState_STATE gstate = PyGILState_Ensure();
     PyRun_SimpleString("import sys\nsys.path.append('" PYTHONPATH "')");
     QFileInfo pyFile(path + ".py");
     bool success = false;
@@ -301,6 +302,7 @@ bool PythonScripting::loadInitFile(const QString &path)
         success = PyRun_SimpleFile(f, pyFile.filePath().toLocal8Bit()) == 0;
         fclose(f);
     }
+    PyGILState_Release(gstate);
     return success;
 }
 
