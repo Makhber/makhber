@@ -60,6 +60,7 @@ jobs:
             libxcb1 \
             libmuparser-dev \
             libgsl-dev \
+            libgl2ps-dev \
             libgtest-dev \
             xvfb
 
