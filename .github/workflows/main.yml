@@ -58,6 +58,10 @@ jobs:
             libgtest-dev \
             xvfb
 
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
       - name: Install Python packages
         run: |
           pip3 install sip pyqt5 pyqt-builder numpy
@@ -118,6 +122,10 @@ jobs:
         run: |
           vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
 
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
       - name: Install Python packages
         run: pip install sip pyqt5 pyqt-builder numpy
 
@@ -127,6 +135,7 @@ jobs:
           cmake .. `
             -DCMAKE_BUILD_TYPE=Release `
             -DCMAKE_SYSTEM_VERSION="10.0" `
+            -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DMAKHBER_BUILD_TESTS=ON
