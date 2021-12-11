@@ -1,5 +1,18 @@
 # Changelog
 
+## Makhber 0.9.4.3
+
+Released: 11-12-2021
+
+### General
+
+- Update dependencies (GSL 2.7.1, PyQt5 5.15.6)
+- RPM for Fedora 35
+
+### Python
+
+- Fix a segfault when loading a project from a Python script with PyQt5>5.15.4
+
 ## Makhber 0.9.4.2
 
 Released: 10-08-2021
