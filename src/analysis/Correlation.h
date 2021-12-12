@@ -31,7 +31,7 @@
 
 #include "analysis/Filter.h"
 
-class Correlation : public Filter
+class MAKHBER_EXPORT Correlation : public Filter
 {
     Q_OBJECT
 

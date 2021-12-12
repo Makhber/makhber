@@ -29,6 +29,8 @@
 #ifndef DATASETDIALOG_H
 #define DATASETDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QGroupBox;
@@ -40,7 +42,7 @@ class QComboBox;
 class Graph;
 
 //! Multi purpose dialog for choosing a data set
-class DataSetDialog : public QDialog
+class MAKHBER_EXPORT DataSetDialog : public QDialog
 {
     Q_OBJECT
 

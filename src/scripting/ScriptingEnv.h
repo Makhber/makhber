@@ -31,6 +31,7 @@
 #ifndef SCRIPTINGENV_H
 #define SCRIPTINGENV_H
 
+#include "core/MakhberDefs.h"
 #include "scripting/customevents.h"
 
 #include <QVariant>
@@ -49,7 +50,7 @@ class Script;
  * variables, and are responsible for generating Script objects (which do
  * the actual evaluation of code).
  */
-class ScriptingEnv : public QObject
+class MAKHBER_EXPORT ScriptingEnv : public QObject
 {
     Q_OBJECT
 

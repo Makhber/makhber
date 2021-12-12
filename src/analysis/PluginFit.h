@@ -31,7 +31,7 @@
 
 #include "analysis/Fit.h"
 
-class PluginFit : public Fit
+class MAKHBER_EXPORT PluginFit : public Fit
 {
     Q_OBJECT
 

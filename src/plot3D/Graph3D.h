@@ -53,7 +53,7 @@ class UserFunction;
  * documentation of Graph. Big problem here: export to vector formats. Qwt3D's export filters write
  * directly to a file, so they can't be combined with output generated via QPrinter.
  */
-class Graph3D : public MyWidget
+class MAKHBER_EXPORT Graph3D : public MyWidget
 {
     Q_OBJECT
 
@@ -391,7 +391,7 @@ private:
 };
 
 //! Class for user defined functions
-class UserFunction : public Function
+class MAKHBER_EXPORT UserFunction : public Function
 {
 public:
     UserFunction(const QString &s, SurfacePlot &pw);

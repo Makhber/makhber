@@ -38,7 +38,7 @@ class QCheckBox;
 class QComboBox;
 
 //! Arrange layers dialog
-class LayerDialog : public QDialog
+class MAKHBER_EXPORT LayerDialog : public QDialog
 {
     Q_OBJECT
 

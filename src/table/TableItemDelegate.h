@@ -26,6 +26,10 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#ifndef TABLE_ITEM_DELEGATE_H
+#define TABLE_ITEM_DELEGATE_H
+
+#include "core/MakhberDefs.h"
 
 #include <QItemDelegate>
 #include <QtDebug>
@@ -33,7 +37,7 @@
 #include <QAbstractItemModel>
 
 //! Item delegate for TableView
-class TableItemDelegate : public QItemDelegate
+class MAKHBER_EXPORT TableItemDelegate : public QItemDelegate
 {
     Q_OBJECT
 
@@ -54,3 +58,5 @@ private:
     //! The color for masked cells
     QColor d_masking_color;
 };
+
+#endif // ifndef TABLE_ITEM_DELEGATE_H

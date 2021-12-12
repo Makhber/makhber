@@ -30,10 +30,12 @@
 #ifndef MYCONES_H
 #define MYCONES_H
 
+#include "core/MakhberDefs.h"
+
 #include <qwt3d_plot.h>
 
 //! 3D cone class (based on QwtPlot3D)
-class Cone3D : public Qwt3D::VertexEnrichment
+class MAKHBER_EXPORT Cone3D : public Qwt3D::VertexEnrichment
 {
 public:
     Cone3D();

@@ -29,6 +29,7 @@
 #ifndef SURFACEDIALOG_H
 #define SURFACEDIALOG_H
 
+#include "core/MakhberDefs.h"
 #include <QVariant>
 #include <QDialog>
 
@@ -37,7 +38,7 @@ class QLineEdit;
 class QComboBox;
 
 //! Define surface plot dialog
-class SurfaceDialog : public QDialog
+class MAKHBER_EXPORT SurfaceDialog : public QDialog
 {
     Q_OBJECT
 

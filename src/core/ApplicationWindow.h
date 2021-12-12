@@ -31,10 +31,6 @@
 #ifndef APPLICATION_H
 #define APPLICATION_H
 
-#ifdef _MSC_VER
-#define NOMINMAX
-#endif
-
 #include "core/Folder.h"
 #include "core/MakhberObject.h"
 #include "table/Table.h"
@@ -92,10 +88,6 @@ class Project;
 class AbstractAspect;
 class AxesDialog;
 
-#ifndef TS_PATH
-#define TS_PATH "/translations"
-#endif
-
 /**
  * \brief Makhber's main window.
  *
@@ -129,7 +121,7 @@ class AxesDialog;
  * is left in ApplicationWindow after the above reorganizations. Think about whether a Model/View
  * approach can be used for Project/ProjectExplorer.
  */
-class ApplicationWindow : public MakhberObject<QMainWindow>, public scripted
+class MAKHBER_EXPORT ApplicationWindow : public MakhberObject<QMainWindow>, public scripted
 {
     Q_OBJECT
 public:

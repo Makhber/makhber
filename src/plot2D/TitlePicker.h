@@ -26,12 +26,17 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#ifndef TITLE_PICKER_H
+#define TITLE_PICKER_H
+
+#include "core/MakhberDefs.h"
+
 #include <QObject>
 
 class QwtPlot;
 class QwtTextLabel;
 
-class TitlePicker : public QObject
+class MAKHBER_EXPORT TitlePicker : public QObject
 {
     Q_OBJECT
 
@@ -52,3 +57,5 @@ private:
     QwtTextLabel *title;
     bool d_selected;
 };
+
+#endif // ifndef TITLE_PICKER_H

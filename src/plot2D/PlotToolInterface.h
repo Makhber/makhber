@@ -29,6 +29,8 @@
 #ifndef PLOT_TOOL_INTERFACE_H
 #define PLOT_TOOL_INTERFACE_H
 
+#include "core/MakhberDefs.h"
+
 class Graph;
 
 /*! Interface for tools operating on a Graph.
@@ -55,7 +57,7 @@ class Graph;
  * Currently, plot tools are instantiated by ApplicationWindow and handed to the Graph in question;
  * this scheme will have to be revised for dynamically adding new tools via plugins.
  */
-class PlotToolInterface
+class MAKHBER_EXPORT PlotToolInterface
 {
 public:
     enum RTTI { DataPicker, ScreenPicker, LineProfile, MultiPeak, RangeSelector, TranslateCurve };

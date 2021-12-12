@@ -34,7 +34,7 @@
 #include <qwt_plot.h>
 
 //! Error bars curve
-class QwtErrorPlotCurve : public DataCurve
+class MAKHBER_EXPORT QwtErrorPlotCurve : public DataCurve
 {
 public:
     enum Orientation { Horizontal = 0, Vertical = 1 };

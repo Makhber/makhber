@@ -59,7 +59,7 @@ class TextFormatButtons;
 /**
  * Remark: Don't use this dialog as a non modal dialog!
  */
-class AxesDialog : public QDialog // MakhberObject<QDialog>
+class MAKHBER_EXPORT AxesDialog : public QDialog // MakhberObject<QDialog>
 {
     Q_OBJECT
 

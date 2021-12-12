@@ -75,7 +75,7 @@ of the user interaction are handled by actions provides by Table, e.g., via a co
 Selections are handled by TableView and can be queried by Table. All selection based functions
 do nothing unless the view exists. The view is created by the first call to view();
 */
-class Table : public AbstractPart
+class MAKHBER_EXPORT Table : public AbstractPart
 {
     Q_OBJECT
 

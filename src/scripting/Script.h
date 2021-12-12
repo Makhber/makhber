@@ -31,6 +31,7 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
+#include "core/MakhberDefs.h"
 #include "scripting/customevents.h"
 #include "scripting/ScriptingEnv.h"
 
@@ -49,7 +50,7 @@ class ApplicationWindow;
  * variables. The code may be changed and executed multiple times during the
  * lifetime of an object.
  */
-class Script : public QObject
+class MAKHBER_EXPORT Script : public QObject
 {
     Q_OBJECT
 
@@ -140,7 +141,7 @@ protected:
 };
 
 //! keeps a static list of available interpreters and instantiates them on demand
-class ScriptingLangManager
+class MAKHBER_EXPORT ScriptingLangManager
 {
 public:
     //! Return an instance of the first implementation we can find.
@@ -155,7 +156,7 @@ public:
 };
 
 //! notify an object that it should update its scripting environment (see class scripted)
-class ScriptingChangeEvent : public QEvent
+class MAKHBER_EXPORT ScriptingChangeEvent : public QEvent
 {
 public:
     ScriptingChangeEvent(ScriptingEnv *e) : QEvent(SCRIPTING_CHANGE_EVENT), env(e) { }
@@ -172,7 +173,7 @@ private:
  * implement slot customEvent(QEvent*) such that it forwards any
  * ScriptingChangeEvents to scripted::scriptingChangeEvent.
  */
-class scripted
+class MAKHBER_EXPORT scripted
 {
 public:
     scripted(ScriptingEnv *env);

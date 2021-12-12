@@ -37,7 +37,7 @@
 #include <QXmlStreamWriter>
 
 //! Conversion filter double -> QDateTime, interpreting the input numbers as days of the week (1 = Monday).
-class Double2DayOfWeekFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT Double2DayOfWeekFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 public:

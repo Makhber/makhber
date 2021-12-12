@@ -29,6 +29,8 @@
 #ifndef PLOT_H
 #define PLOT_H
 
+#include "core/MakhberDefs.h"
+
 #include <qwt_plot.h>
 #include <qwt_plot_curve.h>
 #include <qwt_plot_grid.h>
@@ -42,7 +44,7 @@
 class Grid;
 
 //! Plot window class
-class Plot : public QwtPlot
+class MAKHBER_EXPORT Plot : public QwtPlot
 {
     Q_OBJECT
 

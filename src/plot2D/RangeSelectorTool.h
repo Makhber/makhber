@@ -51,7 +51,7 @@ class QEvent;
  * In any case, gathering the code specific to range selection in a seperate class makes
  * Graph/CanvasPicker more manageable; maybe something similar can be done for zooming.
  */
-class RangeSelectorTool : public QwtPlotPicker, public PlotToolInterface
+class MAKHBER_EXPORT RangeSelectorTool : public QwtPlotPicker, public PlotToolInterface
 {
     Q_OBJECT
 public:

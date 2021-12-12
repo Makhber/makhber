@@ -28,10 +28,6 @@
  ***************************************************************************/
 #include "Graph3D.h"
 
-#ifdef _MSC_VER
-#define NOMINMAX
-#endif
-
 #include "plot3D/Bar.h"
 #include "plot3D/Cone3D.h"
 #include "scripting/MyParser.h"

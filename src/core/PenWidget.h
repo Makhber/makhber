@@ -29,6 +29,8 @@
 #ifndef PENWIDGET_H
 #define PENWIDGET_H
 
+#include "core/MakhberDefs.h"
+
 #include <QPen>
 #include <QWidget>
 #include <QPixmap>
@@ -48,7 +50,7 @@ QPixmap penCapSample(const Qt::PenCapStyle capStyle, const QPen &pen,
 QPixmap penJoinSample(const Qt::PenJoinStyle joinStyle, const QPen &pen,
                       const QSize &size = DefaultSampleSize);
 
-class PenWidget : public QWidget
+class MAKHBER_EXPORT PenWidget : public QWidget
 {
     Q_OBJECT
 

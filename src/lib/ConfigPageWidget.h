@@ -30,10 +30,12 @@
 #ifndef CONFIG_PAGE_WIDGET
 #define CONFIG_PAGE_WIDGET
 
+#include "core/MakhberDefs.h"
+
 #include <QWidget>
 
 //! Widget for configuration pages that has an apply slot
-class ConfigPageWidget : public QWidget
+class MAKHBER_EXPORT ConfigPageWidget : public QWidget
 {
     Q_OBJECT
 

@@ -31,7 +31,7 @@
 
 #include "analysis/Filter.h"
 
-class FFT : public Filter
+class MAKHBER_EXPORT FFT : public Filter
 {
     Q_OBJECT
 

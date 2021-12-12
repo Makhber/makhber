@@ -29,12 +29,13 @@
 #ifndef PROJECT_CONFIG_PAGE_H
 #define PROJECT_CONFIG_PAGE_H
 
+#include "core/MakhberDefs.h"
 #include "lib/ConfigPageWidget.h"
 
 #include "ui_ProjectConfigPage.h"
 
 //! Helper class for Project
-class ProjectConfigPage : public ConfigPageWidget
+class MAKHBER_EXPORT ProjectConfigPage : public ConfigPageWidget
 {
     Q_OBJECT
 

@@ -33,7 +33,7 @@
 
 #include <QColor>
 
-class MultiPeakFit : public Fit
+class MAKHBER_EXPORT MultiPeakFit : public Fit
 {
     Q_OBJECT
 
@@ -78,7 +78,7 @@ private:
     PeakProfile d_profile;
 };
 
-class LorentzFit : public MultiPeakFit
+class MAKHBER_EXPORT LorentzFit : public MultiPeakFit
 {
     Q_OBJECT
 
@@ -92,7 +92,7 @@ private:
     void init();
 };
 
-class GaussFit : public MultiPeakFit
+class MAKHBER_EXPORT GaussFit : public MultiPeakFit
 {
     Q_OBJECT
 
@@ -106,7 +106,7 @@ private:
     void init();
 };
 
-class GaussAmpFit : public Fit
+class MAKHBER_EXPORT GaussAmpFit : public Fit
 {
     Q_OBJECT
 

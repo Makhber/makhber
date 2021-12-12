@@ -29,6 +29,8 @@
 #ifndef LINEDIALOG_H
 #define LINEDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QCheckBox;
@@ -43,7 +45,7 @@ class ArrowMarker;
 class PenWidget;
 
 //! Line options dialog
-class LineDialog : public QDialog
+class MAKHBER_EXPORT LineDialog : public QDialog
 {
     Q_OBJECT
 

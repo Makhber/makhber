@@ -43,7 +43,7 @@
  * This is a rather thin wrapper around QwtPlotPicker, providing selection of points
  * on a Graph/Plot and displaying coordinates.
  */
-class ScreenPickerTool : public QwtPlotPicker, public PlotToolInterface
+class MAKHBER_EXPORT ScreenPickerTool : public QwtPlotPicker, public PlotToolInterface
 {
     Q_OBJECT
 public:

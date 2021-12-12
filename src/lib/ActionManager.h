@@ -30,6 +30,7 @@
 #ifndef ACTIONMANAGER_H
 #define ACTIONMANAGER_H
 
+#include "core/MakhberDefs.h"
 #include "lib/macros.h"
 
 #include <QObject>
@@ -82,7 +83,7 @@ class QKeySequence;
  * be a good idea to create an instance of the corresponding widget at application
  * startup, create all actions for it, and immediately delete it again.
  */
-class ActionManager : public QObject
+class MAKHBER_EXPORT ActionManager : public QObject
 {
     Q_OBJECT
 

@@ -46,7 +46,7 @@
 #include <array>
 
 //! TODO
-class MuParserScripting : public ScriptingEnv
+class MAKHBER_EXPORT MuParserScripting : public ScriptingEnv
 {
     Q_OBJECT
 
@@ -186,7 +186,7 @@ private:
     }
 };
 
-class EmptySourceError : public mu::ParserError
+class MAKHBER_EXPORT EmptySourceError : public mu::ParserError
 {
 public:
     EmptySourceError() { }

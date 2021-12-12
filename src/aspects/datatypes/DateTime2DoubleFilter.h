@@ -33,7 +33,7 @@
 #include "aspects/datatypes/NumericDateTimeBaseFilter.h"
 
 //! Conversion filter QDateTime -> double (using offset from selected datetime).
-class DateTime2DoubleFilter : public NumericDateTimeBaseFilter
+class MAKHBER_EXPORT DateTime2DoubleFilter : public NumericDateTimeBaseFilter
 {
     Q_OBJECT
 

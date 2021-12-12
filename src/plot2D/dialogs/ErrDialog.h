@@ -44,7 +44,7 @@ class QButtonGroup;
 class QWidget;
 
 //! Add error bars dialog
-class ErrDialog : public QDialog
+class MAKHBER_EXPORT ErrDialog : public QDialog
 {
     Q_OBJECT
 

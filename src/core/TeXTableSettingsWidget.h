@@ -29,6 +29,8 @@
 #ifndef TEX_TABLE_SETTINGS_WIDGET_H
 #define TEX_TABLE_SETTINGS_WIDGET_H
 
+#include "core/MakhberDefs.h"
+
 #include <QWidget>
 
 class TeXTableSettings;
@@ -41,7 +43,7 @@ class QRadioButton;
  * choose TeX table parameters. It can be inserted into the other
  * widgets( dialogs ) layout, for example, in the TeX table export dialog.
  */
-class TeXTableSettingsWidget : public QWidget
+class MAKHBER_EXPORT TeXTableSettingsWidget : public QWidget
 {
     Q_OBJECT
 

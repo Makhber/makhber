@@ -48,7 +48,7 @@
 /**
  * The number of inserted columns is cols.size().
  */
-class TableInsertColumnsCmd : public QUndoCommand
+class MAKHBER_EXPORT TableInsertColumnsCmd : public QUndoCommand
 {
 public:
     TableInsertColumnsCmd(future::Table::Private &private_obj, int before, QList<Column *> cols,
@@ -76,7 +76,7 @@ private:
 // class TableSetNumberOfRowsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set the number of rows in the table
-class TableSetNumberOfRowsCmd : public QUndoCommand
+class MAKHBER_EXPORT TableSetNumberOfRowsCmd : public QUndoCommand
 {
 public:
     TableSetNumberOfRowsCmd(future::Table::Private &private_obj, int rows,
@@ -102,7 +102,7 @@ private:
 // class TableRemoveColumnsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Remove columns
-class TableRemoveColumnsCmd : public QUndoCommand
+class MAKHBER_EXPORT TableRemoveColumnsCmd : public QUndoCommand
 {
 public:
     TableRemoveColumnsCmd(future::Table::Private &private_obj, int first, int count,
@@ -130,7 +130,7 @@ private:
 // class TableMoveColumnCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Move a column
-class TableMoveColumnCmd : public QUndoCommand
+class MAKHBER_EXPORT TableMoveColumnCmd : public QUndoCommand
 {
 public:
     TableMoveColumnCmd(future::Table::Private &private_obj, int from, int to,

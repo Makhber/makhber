@@ -30,6 +30,7 @@
 #ifndef PROJECT_H
 #define PROJECT_H
 
+#include "core/MakhberDefs.h"
 #include "aspects/future_Folder.h"
 #include "aspects/interfaces.h"
 
@@ -43,7 +44,7 @@ class AbstractScriptingEngine;
  * Project manages an undo stack and is responsible for creating ProjectWindow instances
  * as views on itself.
  */
-class Project : public ::future::Folder
+class MAKHBER_EXPORT Project : public ::future::Folder
 {
     Q_OBJECT
 

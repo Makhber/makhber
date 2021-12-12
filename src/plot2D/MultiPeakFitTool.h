@@ -48,7 +48,7 @@ class QwtPlotCurve;
  * Maybe some other parts of the multi-peak fitting process (namely, specifying the number of peaks
  * and optionally the peak profile) could be moved here as well.
  */
-class MultiPeakFitTool : public QObject, public PlotToolInterface
+class MAKHBER_EXPORT MultiPeakFitTool : public QObject, public PlotToolInterface
 {
     Q_OBJECT
 public:

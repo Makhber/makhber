@@ -31,6 +31,7 @@
 #ifndef ASPECT_VIEW_H
 #define ASPECT_VIEW_H
 
+#include "core/MakhberDefs.h"
 #include "lib/macros.h"
 
 #include <QMdiSubWindow>
@@ -47,7 +48,7 @@ class AbstractPart;
  * is closed (the user is asked then whether he wants to hide the window
  * or remove the aspect). It also provides access to the aspect's context menu.
  */
-class PartMdiView : public QMdiSubWindow
+class MAKHBER_EXPORT PartMdiView : public QMdiSubWindow
 {
     Q_OBJECT
 

@@ -29,6 +29,7 @@
 #ifndef INTERFACES_H
 #define INTERFACES_H
 
+#include "core/MakhberDefs.h"
 #include "aspects/AbstractAspect.h"
 #include "lib/ConfigPageWidget.h"
 #include "lib/XmlStreamReader.h"
@@ -45,7 +46,7 @@ class AbstractExportFilter;
 class ActionManager;
 
 //! Factory for AbstractPart objects.
-class PartMaker
+class MAKHBER_EXPORT PartMaker
 {
 public:
     virtual ~PartMaker() { }
@@ -66,7 +67,7 @@ Q_DECLARE_INTERFACE(PartMaker, "net.sf.makhber.partmaker/0.1")
 /**
  * A FilterMaker introduces one or more filters to the kernel.
  */
-class FilterMaker
+class MAKHBER_EXPORT FilterMaker
 {
 public:
     virtual ~FilterMaker() { }
@@ -78,7 +79,7 @@ public:
 Q_DECLARE_INTERFACE(FilterMaker, "net.sf.makhber.filtermaker/0.1")
 
 //! Factory for import/export filters.
-class FileFormat
+class MAKHBER_EXPORT FileFormat
 {
 public:
     virtual ~FileFormat() { }
@@ -89,7 +90,7 @@ public:
 Q_DECLARE_INTERFACE(FileFormat, "net.sf.makhber.fileformat/0.1")
 
 //! A module (typically a PartMaker) that has an ActionManager
-class ActionManagerOwner
+class MAKHBER_EXPORT ActionManagerOwner
 {
 public:
     //! Return the action manager of the module
@@ -101,7 +102,7 @@ public:
 Q_DECLARE_INTERFACE(ActionManagerOwner, "net.sf.makhber.actionmanagerowner/0.1")
 
 //! A module with application-wide settings
-class ConfigPageMaker
+class MAKHBER_EXPORT ConfigPageMaker
 {
 public:
     virtual ConfigPageWidget *makeConfigPage() = 0;
@@ -115,7 +116,7 @@ public:
 Q_DECLARE_INTERFACE(ConfigPageMaker, "net.sf.makhber.configpagemaker/0.1")
 
 //! Factory that creates an aspect out of an XML element.
-class XmlElementAspectMaker
+class MAKHBER_EXPORT XmlElementAspectMaker
 {
 public:
     virtual ~XmlElementAspectMaker() { }

@@ -56,7 +56,7 @@ class ColumnStringIO;
   of the corresponding Table in the aspect hierarchy. Columns don't
   have a view as they are intended to be displayed inside a table.
  */
-class Column : public AbstractColumn
+class MAKHBER_EXPORT Column : public AbstractColumn
 {
     Q_OBJECT
 
@@ -342,7 +342,7 @@ private:
 };
 
 //! String-IO interface of Column.
-class ColumnStringIO : public AbstractColumn
+class MAKHBER_EXPORT ColumnStringIO : public AbstractColumn
 {
     Q_OBJECT
 

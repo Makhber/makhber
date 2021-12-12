@@ -28,6 +28,8 @@
 #ifndef COLORMAPEDITOR_H
 #define COLORMAPEDITOR_H
 
+#include "core/MakhberDefs.h"
+
 #include <qwt_color_map.h>
 
 #include <QWidget>
@@ -36,7 +38,7 @@ class QPushButton;
 class QTableWidget;
 class QCheckBox;
 
-class ColorMapEditor : public QWidget
+class MAKHBER_EXPORT ColorMapEditor : public QWidget
 {
     Q_OBJECT
 

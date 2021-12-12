@@ -30,9 +30,11 @@
 #ifndef ICONLOADER_H
 #define ICONLOADER_H
 
+#include "core/MakhberDefs.h"
+
 #include <QIcon>
 
-class IconLoader
+class MAKHBER_EXPORT IconLoader
 {
 public:
     static void init();

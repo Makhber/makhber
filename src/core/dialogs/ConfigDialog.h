@@ -29,6 +29,8 @@
 #ifndef ConfigDialog_H
 #define ConfigDialog_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 #include <QCheckBox>
 
@@ -44,12 +46,8 @@ class QRadioButton;
 class QListWidget;
 class ColorButton;
 
-#ifndef TS_PATH
-#define TS_PATH "/translations"
-#endif
-
 //! Preferences dialog
-class ConfigDialog : public QDialog
+class MAKHBER_EXPORT ConfigDialog : public QDialog
 {
     Q_OBJECT
 

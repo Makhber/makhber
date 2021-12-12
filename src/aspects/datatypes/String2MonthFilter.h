@@ -39,7 +39,7 @@
 #include <math.h>
 
 //! Conversion filter String -> QDateTime, interpreting the input as months of the year (either numeric or "Jan" etc).
-class String2MonthFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT String2MonthFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 

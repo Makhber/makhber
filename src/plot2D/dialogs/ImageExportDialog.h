@@ -42,7 +42,7 @@ class QStackedWidget;
 class QGroupBox;
 
 //! QFileDialog extended with options for image export
-class ImageExportDialog : public ExtensibleFileDialog
+class MAKHBER_EXPORT ImageExportDialog : public ExtensibleFileDialog
 {
     Q_OBJECT
 

@@ -38,7 +38,7 @@
 // class MatrixInsertColumnsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Insert columns
-class MatrixInsertColumnsCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixInsertColumnsCmd : public QUndoCommand
 {
 public:
     MatrixInsertColumnsCmd(future::Matrix::Private *private_obj, int before, int count,
@@ -65,7 +65,7 @@ private:
 // class MatrixInsertRowsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Insert rows
-class MatrixInsertRowsCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixInsertRowsCmd : public QUndoCommand
 {
 public:
     MatrixInsertRowsCmd(future::Matrix::Private *private_obj, int before, int count,
@@ -92,7 +92,7 @@ private:
 // class MatrixRemoveColumnsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Remove columns
-class MatrixRemoveColumnsCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixRemoveColumnsCmd : public QUndoCommand
 {
 public:
     MatrixRemoveColumnsCmd(future::Matrix::Private *private_obj, int first, int count,
@@ -121,7 +121,7 @@ private:
 // class MatrixRemoveRowsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Remove rows
-class MatrixRemoveRowsCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixRemoveRowsCmd : public QUndoCommand
 {
 public:
     MatrixRemoveRowsCmd(future::Matrix::Private *private_obj, int first, int count,
@@ -150,7 +150,7 @@ private:
 // class MatrixClearCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Clear matrix
-class MatrixClearCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixClearCmd : public QUndoCommand
 {
 public:
     MatrixClearCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
@@ -174,7 +174,7 @@ private:
 // class MatrixClearColumnCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Clear matrix column
-class MatrixClearColumnCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixClearColumnCmd : public QUndoCommand
 {
 public:
     MatrixClearColumnCmd(future::Matrix::Private *private_obj, int col, QUndoCommand *parent = 0);
@@ -200,7 +200,7 @@ private:
 // class MatrixSetCellValueCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set cell value
-class MatrixSetCellValueCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixSetCellValueCmd : public QUndoCommand
 {
 public:
     MatrixSetCellValueCmd(future::Matrix::Private *private_obj, int row, int col, double value,
@@ -231,7 +231,7 @@ private:
 // class MatrixSetCoordinatesCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set matrix coordinates
-class MatrixSetCoordinatesCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixSetCoordinatesCmd : public QUndoCommand
 {
 public:
     MatrixSetCoordinatesCmd(future::Matrix::Private *private_obj, double x1, double x2, double y1,
@@ -262,7 +262,7 @@ private:
 // class MatrixSetFormatCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set numeric format
-class MatrixSetFormatCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixSetFormatCmd : public QUndoCommand
 {
 public:
     MatrixSetFormatCmd(future::Matrix::Private *private_obj, char new_format);
@@ -283,7 +283,7 @@ private:
 // class MatrixSetDigitsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set displayed digits
-class MatrixSetDigitsCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixSetDigitsCmd : public QUndoCommand
 {
 public:
     MatrixSetDigitsCmd(future::Matrix::Private *private_obj, int new_digits);
@@ -304,7 +304,7 @@ private:
 // class MatrixSetFormulaCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set matrix formula
-class MatrixSetFormulaCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixSetFormulaCmd : public QUndoCommand
 {
 public:
     MatrixSetFormulaCmd(future::Matrix::Private *private_obj, QString formula);
@@ -325,7 +325,7 @@ private:
 // class MatrixSetColumnCellsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set cell values for (a part of) a column at once
-class MatrixSetColumnCellsCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixSetColumnCellsCmd : public QUndoCommand
 {
 public:
     MatrixSetColumnCellsCmd(future::Matrix::Private *private_obj, int col, int first_row,
@@ -358,7 +358,7 @@ private:
 // class MatrixSetRowCellsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set cell values for (a part of) a row at once
-class MatrixSetRowCellsCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixSetRowCellsCmd : public QUndoCommand
 {
 public:
     MatrixSetRowCellsCmd(future::Matrix::Private *private_obj, int row, int first_column,
@@ -391,7 +391,7 @@ private:
 // class MatrixTransposeCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Transpose the matrix
-class MatrixTransposeCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixTransposeCmd : public QUndoCommand
 {
 public:
     MatrixTransposeCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
@@ -413,7 +413,7 @@ private:
 // class MatrixMirrorHorizontallyCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Mirror the matrix horizontally
-class MatrixMirrorHorizontallyCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixMirrorHorizontallyCmd : public QUndoCommand
 {
 public:
     MatrixMirrorHorizontallyCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
@@ -435,7 +435,7 @@ private:
 // class MatrixMirrorVerticallyCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Mirror the matrix vertically
-class MatrixMirrorVerticallyCmd : public QUndoCommand
+class MAKHBER_EXPORT MatrixMirrorVerticallyCmd : public QUndoCommand
 {
 public:
     MatrixMirrorVerticallyCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);

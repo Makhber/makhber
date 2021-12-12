@@ -35,7 +35,7 @@
 #include <qwt_symbol.h>
 
 //! Box curve
-class BoxCurve : public DataCurve
+class MAKHBER_EXPORT BoxCurve : public DataCurve
 {
 public:
     enum BoxStyle { NoBox, Rect, Diamond, WindBox, Notch };

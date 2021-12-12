@@ -36,7 +36,7 @@
 class QwtPlot;
 
 //! Vector curve class
-class VectorCurve : public DataCurve
+class MAKHBER_EXPORT VectorCurve : public DataCurve
 {
 public:
     enum VectorStyle { XYXY, XYAM };

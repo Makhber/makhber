@@ -29,6 +29,8 @@
 #ifndef FFTDIALOG_H
 #define FFTDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -40,7 +42,7 @@ class Graph;
 class Table;
 
 //! Fast Fourier transform options dialog
-class FFTDialog : public QDialog
+class MAKHBER_EXPORT FFTDialog : public QDialog
 {
     Q_OBJECT
 

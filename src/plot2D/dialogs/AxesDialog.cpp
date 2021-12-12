@@ -61,10 +61,6 @@
 #include <array>
 #include <cmath>
 
-#ifndef M_PI
-#define M_PI 3.141592653589793238462643
-#endif
-
 AxesDialog::AxesDialog()
 {
     setWindowTitle(tr("General Plot Options"));

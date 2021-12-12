@@ -31,7 +31,7 @@
 
 #include "analysis/Fit.h"
 
-class SigmoidalFit : public Fit
+class MAKHBER_EXPORT SigmoidalFit : public Fit
 {
     Q_OBJECT
 

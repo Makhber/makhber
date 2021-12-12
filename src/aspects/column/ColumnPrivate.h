@@ -44,7 +44,7 @@ class QString;
 /**
  The writing interface defined here is only to be used by column commands and Column contructors.
 */
-class Column::Private
+class MAKHBER_EXPORT Column::Private
 {
 public:
     //! Ctor

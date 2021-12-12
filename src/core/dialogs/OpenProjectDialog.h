@@ -33,7 +33,7 @@
 
 #include <QComboBox>
 
-class OpenProjectDialog : public ExtensibleFileDialog
+class MAKHBER_EXPORT OpenProjectDialog : public ExtensibleFileDialog
 {
     Q_OBJECT
 public:

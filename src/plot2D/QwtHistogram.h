@@ -30,7 +30,7 @@
 #include "plot2D/QwtBarCurve.h"
 
 //! Histogram class
-class QwtHistogram : public QwtBarCurve
+class MAKHBER_EXPORT QwtHistogram : public QwtBarCurve
 {
 public:
     QwtHistogram(Table *t, const QString &name, int startRow, int endRow);

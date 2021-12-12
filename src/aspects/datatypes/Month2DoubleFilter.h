@@ -41,7 +41,7 @@
  *
  * \sa QDate::month()
  */
-class Month2DoubleFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT Month2DoubleFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 

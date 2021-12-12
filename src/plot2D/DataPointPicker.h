@@ -30,6 +30,8 @@
 #ifndef DATA_POINT_PICKER_H
 #define DATA_POINT_PICKER_H
 
+#include "core/MakhberDefs.h"
+
 #include <QEventLoop>
 #include <QPointF>
 
@@ -37,7 +39,7 @@ class Graph;
 class ApplicationWindow;
 class QwtPlotCurve;
 
-class DataPointPicker : public QObject
+class MAKHBER_EXPORT DataPointPicker : public QObject
 {
     Q_OBJECT
 

@@ -44,7 +44,7 @@
  * a master-slave relationship to it. This would be an inner class
  * of TableDoubleHeaderView if Qt allowed this.
  */
-class TableCommentsHeaderView : public QHeaderView
+class MAKHBER_EXPORT TableCommentsHeaderView : public QHeaderView
 {
     Q_OBJECT
 
@@ -68,7 +68,7 @@ public:
  * \sa TableCommentsHeaderView
  * \sa QHeaderView
  */
-class TableDoubleHeaderView : public QHeaderView
+class MAKHBER_EXPORT TableDoubleHeaderView : public QHeaderView
 {
     Q_OBJECT
 

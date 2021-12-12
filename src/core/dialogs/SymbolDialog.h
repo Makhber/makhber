@@ -29,6 +29,8 @@
 #ifndef SYMBOLDIALOG_H
 #define SYMBOLDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -41,7 +43,7 @@ class QGridLayout;
 class QButtonGroup;
 
 //! Tools window to select special text characters
-class SymbolDialog : public QDialog
+class MAKHBER_EXPORT SymbolDialog : public QDialog
 {
     Q_OBJECT
 

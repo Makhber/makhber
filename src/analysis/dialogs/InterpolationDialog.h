@@ -29,6 +29,8 @@
 #ifndef INTERPOLATIONDIALOG_H
 #define INTERPOLATIONDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -39,7 +41,7 @@ class Graph;
 class ColorButton;
 
 //! Interpolation options dialog
-class InterpolationDialog : public QDialog
+class MAKHBER_EXPORT InterpolationDialog : public QDialog
 {
     Q_OBJECT
 

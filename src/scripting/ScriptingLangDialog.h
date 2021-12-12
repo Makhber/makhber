@@ -39,7 +39,7 @@ class ApplicationWindow;
 class QListWidget;
 class QPushButton;
 
-class ScriptingLangDialog : public QDialog, public scripted
+class MAKHBER_EXPORT ScriptingLangDialog : public QDialog, public scripted
 {
     Q_OBJECT
 

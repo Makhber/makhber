@@ -43,7 +43,7 @@ class QLabel;
 class QSpinBox;
 
 //! Options dialog for text labels/axes labels
-class TextDialog : public QDialog
+class MAKHBER_EXPORT TextDialog : public QDialog
 {
     Q_OBJECT
 

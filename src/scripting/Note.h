@@ -41,7 +41,7 @@ class ScriptingEnv;
  * \section future_plans Future Plans
  * - Search and replace
  */
-class Note : public MyWidget
+class MAKHBER_EXPORT Note : public MyWidget
 {
     Q_OBJECT
 

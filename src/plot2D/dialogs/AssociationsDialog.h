@@ -42,7 +42,7 @@ class Table;
 class Graph;
 
 //! Plot associations dialog
-class AssociationsDialog : public QDialog
+class MAKHBER_EXPORT AssociationsDialog : public QDialog
 {
     Q_OBJECT
 

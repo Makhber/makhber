@@ -29,6 +29,8 @@
 #ifndef EXPORTDIALOG_H
 #define EXPORTDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -36,7 +38,7 @@ class QCheckBox;
 class QComboBox;
 
 //! Export ASCII dialog
-class ExportDialog : public QDialog
+class MAKHBER_EXPORT ExportDialog : public QDialog
 {
     Q_OBJECT
 

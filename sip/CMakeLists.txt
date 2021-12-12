@@ -200,23 +200,42 @@ else()
     )
 
   if( MULTI_CONFIG )
-    set( SIP_LINK_DIRS
-      ${SIP_LINK_DIRS}
-      ${CMAKE_BINARY_DIR}/src/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d/@CONFIG@
+    if( BUILD_SHARED_LIBS )
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/bin/@CONFIG@
+        ${CMAKE_BINARY_DIR}/lib/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
       )
+    else()
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/src/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d/@CONFIG@
+      )
+    endif()
   else()
-    set( SIP_LINK_DIRS
-      ${SIP_LINK_DIRS}
-      ${CMAKE_BINARY_DIR}/src
-      ${CMAKE_BINARY_DIR}/3rdparty
-      ${CMAKE_BINARY_DIR}/3rdparty/liborigin
-      ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src
-      ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d
+    if( BUILD_SHARED_LIBS )
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/bin
+        ${CMAKE_BINARY_DIR}/lib
+        ${CMAKE_BINARY_DIR}/3rdparty
       )
+    else()
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/src
+        ${CMAKE_BINARY_DIR}/3rdparty
+        ${CMAKE_BINARY_DIR}/3rdparty/liborigin
+        ${CMAKE_BINARY_DIR}/3rdparty/qwt5-qt5/src
+        ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d
+      )
+    endif()
   endif()
   list( REMOVE_DUPLICATES SIP_LINK_DIRS )
   string( JOIN "\"\n,\"" SIP_LINK_DIRS ${SIP_LINK_DIRS} )

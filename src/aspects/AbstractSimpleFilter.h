@@ -124,7 +124,7 @@ class SimpleFilterColumn;
  * 14 	}
  * \endcode
  */
-class AbstractSimpleFilter : public AbstractFilter
+class MAKHBER_EXPORT AbstractSimpleFilter : public AbstractFilter
 {
     Q_OBJECT
 
@@ -281,7 +281,7 @@ protected:
     SimpleFilterColumn *d_output_column;
 };
 
-class SimpleFilterColumn : public AbstractColumn
+class MAKHBER_EXPORT SimpleFilterColumn : public AbstractColumn
 {
     Q_OBJECT
 

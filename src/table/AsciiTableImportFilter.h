@@ -30,6 +30,7 @@
 #ifndef ASCII_TABLE_IMPORT_FILTER_H
 #define ASCII_TABLE_IMPORT_FILTER_H
 
+#include "core/MakhberDefs.h"
 #include "aspects/AbstractImportFilter.h"
 
 #include <QLocale>
@@ -49,7 +50,7 @@
  *
  * TODO: port options GUI from ImportTableDialog
  */
-class AsciiTableImportFilter : public AbstractImportFilter
+class MAKHBER_EXPORT AsciiTableImportFilter : public AbstractImportFilter
 {
     Q_OBJECT
 

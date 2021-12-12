@@ -60,7 +60,7 @@ class ColorMapEditor;
 class QwtPlotItem;
 
 //! Custom plot/curves dialog
-class PlotDialog : public QDialog
+class MAKHBER_EXPORT PlotDialog : public QDialog
 {
     Q_OBJECT
 
@@ -234,7 +234,7 @@ private:
  *
  *****************************************************************************/
 //! LayerItem tree widget item class
-class LayerItem : public QTreeWidgetItem
+class MAKHBER_EXPORT LayerItem : public QTreeWidgetItem
 {
 public:
     enum { LayerTreeItem = 1001 };
@@ -254,7 +254,7 @@ protected:
  *
  *****************************************************************************/
 //! CurveTreeItem tree widget item class
-class CurveTreeItem : public QTreeWidgetItem
+class MAKHBER_EXPORT CurveTreeItem : public QTreeWidgetItem
 {
 public:
     enum { PlotCurveTreeItem = 1002 };

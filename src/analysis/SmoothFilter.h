@@ -33,7 +33,7 @@
 
 #include <gsl/gsl_matrix_double.h>
 
-class SmoothFilter : public Filter
+class MAKHBER_EXPORT SmoothFilter : public Filter
 {
     Q_OBJECT
 

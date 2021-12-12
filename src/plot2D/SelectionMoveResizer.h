@@ -30,6 +30,8 @@
 #ifndef SELECTION_MOVE_RESIZER_H
 #define SELECTION_MOVE_RESIZER_H
 
+#include "core/MakhberDefs.h"
+
 #include <QWidget>
 #include <QList>
 #include <QRect>
@@ -86,7 +88,7 @@ class ImageMarker;
  * Markers could implement this using QPainter's coordinate transformations.
  * Definitely not a priority, though.
  */
-class SelectionMoveResizer : public QWidget
+class MAKHBER_EXPORT SelectionMoveResizer : public QWidget
 {
     Q_OBJECT
 
