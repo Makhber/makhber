@@ -11760,13 +11760,43 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PythonScripting</name>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="230"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="177"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="198"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="227"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="245"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="256"/>
+        <source>Loading Module Failure</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="178"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="199"/>
+        <source>Failed to load __main__ module.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="228"/>
+        <source>Failed to load sip module.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="238"/>
         <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="231"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="239"/>
         <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against; try updating SIP or recompiling Makhber.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="246"/>
+        <source>Failed to load makhber module.Try exporting PYTHONPATH to the directory of makhber module.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="257"/>
+        <source>Failed to load sys module.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

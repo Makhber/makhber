@@ -174,8 +174,10 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
         gstate = PyGILState_Ensure();
         mainmod = PyImport_ImportModule("__main__");
         if (!mainmod) {
-            PyErr_Print();
+            QMessageBox::warning(d_parent, tr("Loading Module Failure"),
+                                 tr("Failed to load __main__ module."));
             PyGILState_Release(gstate);
+            PyErr_Print();
             return;
         }
         globals = PyModule_GetDict(mainmod);
@@ -193,6 +195,8 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
         gstate = PyGILState_Ensure();
         mainmod = PyImport_AddModule("__main__");
         if (!mainmod) {
+            QMessageBox::warning(d_parent, tr("Loading Module Failure"),
+                                 tr("Failed to load __main__ module."));
             PyGILState_Release(gstate);
             PyErr_Print();
             return;
@@ -210,6 +214,7 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     math = PyDict_New();
     if (!math)
         PyErr_Print();
+
 #ifdef PYQT_SIP
     sipmod = PyImport_ImportModule("PyQt5.sip");
 #else
@@ -218,8 +223,11 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
     if (sipmod) {
         sip = PyModule_GetDict(sipmod);
         Py_INCREF(sip);
-    } else
+    } else {
+        QMessageBox::warning(d_parent, tr("Loading Module Failure"),
+                             tr("Failed to load sip module."));
         PyErr_Print();
+    }
 
     makhbermod = PyImport_ImportModule("makhber");
     if (makhbermod) {
@@ -233,15 +241,22 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
                        "against; try updating SIP or recompiling Makhber."));
         PyDict_SetItemString(makhberDict, "mathFunctions", math);
         Py_DECREF(makhbermod);
-    } else
+    } else {
+        QMessageBox::warning(d_parent, tr("Loading Module Failure"),
+                             tr("Failed to load makhber module."
+                                "Try exporting PYTHONPATH to the directory of makhber module."));
         PyErr_Print();
+    }
 
     sysmod = PyImport_ImportModule("sys");
     if (sysmod) {
         sys = PyModule_GetDict(sysmod);
         Py_INCREF(sys);
-    } else
+    } else {
+        QMessageBox::warning(d_parent, tr("Loading Module Failure"),
+                             tr("Failed to load sys module."));
         PyErr_Print();
+    }
 
     PyGILState_Release(gstate);
     d_initialized = true;
