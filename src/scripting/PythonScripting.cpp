@@ -385,12 +385,14 @@ const QStringList PythonScripting::mathFunctions() const
 
 const QString PythonScripting::mathFunctionDoc(const QString &name) const
 {
+    PyGILState_STATE state = PyGILState_Ensure();
     PyObject *mathf = PyDict_GetItemString(math, name.toLocal8Bit()); // borrowed
     if (!mathf)
         return "";
     PyObject *pydocstr = PyObject_GetAttrString(mathf, "__doc__"); // new
     QString qdocstr = PyUnicode_AsUTF8(pydocstr);
     Py_XDECREF(pydocstr);
+    PyGILState_Release(state);
     return qdocstr;
 }
 
