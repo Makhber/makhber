@@ -213,7 +213,8 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DCMAKE_PREFIX_PATH="$Env:GITHUB_WORKSPACE\Qwt" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
-            -DMAKHBER_BUILD_TESTS=ON
+            -DMAKHBER_BUILD_TESTS=ON `
+            -DBUILD_SHARED_LIBS=ON
 
       - name: Building
         run: |
