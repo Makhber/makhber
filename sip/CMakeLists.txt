@@ -260,8 +260,11 @@ else()
     set( QMAKE_CXX "cl" )
   endif()
 
+  include( ProcessorCount )
+  ProcessorCount( ncpu )
+
   add_custom_command( OUTPUT ${module_file}
-    COMMAND ${SIP_Build_EXECUTABLE} --verbose
+    COMMAND ${SIP_Build_EXECUTABLE} --verbose --jobs ${ncpu} --concatenate $<IF:$<BOOL:${WIN32}>,1,${ncpu}>
       --qmake-setting QMAKE_CXX=${QMAKE_CXX}
       --qmake-setting $<IF:$<CONFIG:Debug>,"CONFIG+=debug","CONFIG+=release">
     DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
