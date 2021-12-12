@@ -29,6 +29,7 @@
 #ifndef FOLDER_H
 #define FOLDER_H
 
+#include "core/MakhberDefs.h"
 #include "core/MyWidget.h"
 #include "core/MakhberObject.h"
 
@@ -57,7 +58,7 @@ class QDragLeaveEvent;
 class QDropEvent;
 
 //! Folder for the project explorer
-class Folder : public MakhberObject<QObject>
+class MAKHBER_EXPORT Folder : public MakhberObject<QObject>
 {
     Q_OBJECT
 
@@ -168,7 +169,7 @@ protected:
  *
  *****************************************************************************/
 //! Windows list item class
-class WindowListItem : public QTreeWidgetItem
+class MAKHBER_EXPORT WindowListItem : public QTreeWidgetItem
 {
 public:
     WindowListItem(QTreeWidget *parent, MyWidget *w);
@@ -189,7 +190,7 @@ protected:
  *
  *****************************************************************************/
 //! Folders list item class
-class FolderListItem : public QTreeWidgetItem
+class MAKHBER_EXPORT FolderListItem : public QTreeWidgetItem
 {
 public:
     FolderListItem(QTreeWidget *parent, Folder *f);
@@ -221,7 +222,7 @@ protected:
  *
  *****************************************************************************/
 //! Folder list view class
-class FolderListView : public MakhberObject<QTreeWidget>
+class MAKHBER_EXPORT FolderListView : public MakhberObject<QTreeWidget>
 {
     Q_OBJECT
 

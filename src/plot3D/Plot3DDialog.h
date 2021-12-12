@@ -47,7 +47,7 @@ class QStackedWidget;
 class QGroupBox;
 
 //! Surface plot options dialog
-class Plot3DDialog : public QDialog
+class MAKHBER_EXPORT Plot3DDialog : public QDialog
 {
     Q_OBJECT
 

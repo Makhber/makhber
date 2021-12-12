@@ -37,7 +37,7 @@
  * date/time if none is specified, or an invalid one is given, is the noon of January 1st, 4713 BC
  * as per Julian Day Number convention.
  */
-class Double2DateTimeFilter : public NumericDateTimeBaseFilter
+class MAKHBER_EXPORT Double2DateTimeFilter : public NumericDateTimeBaseFilter
 {
     Q_OBJECT
 

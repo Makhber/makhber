@@ -29,6 +29,8 @@
 #ifndef POLINOMFITDIALOG_H
 #define POLINOMFITDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QCheckBox;
@@ -40,7 +42,7 @@ class Graph;
 class ColorButton;
 
 //! Fit polynomial dialog
-class PolynomFitDialog : public QDialog
+class MAKHBER_EXPORT PolynomFitDialog : public QDialog
 {
     Q_OBJECT
 

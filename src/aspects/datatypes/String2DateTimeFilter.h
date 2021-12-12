@@ -47,7 +47,7 @@
  * tries to guess the format, using internal lists of common date and time formats (#date_formats
  * and #time_formats).
  */
-class String2DateTimeFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT String2DateTimeFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 
@@ -124,7 +124,7 @@ protected:
     }
 };
 
-class String2DateTimeFilterSetFormatCmd : public QUndoCommand
+class MAKHBER_EXPORT String2DateTimeFilterSetFormatCmd : public QUndoCommand
 {
 public:
     String2DateTimeFilterSetFormatCmd(String2DateTimeFilter *target, const QString &new_format);

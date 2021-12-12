@@ -40,7 +40,7 @@
 class QByteArray;
 class Column;
 
-class MuParserScript : public Script
+class MAKHBER_EXPORT MuParserScript : public Script
 {
     Q_OBJECT
 

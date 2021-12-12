@@ -32,7 +32,7 @@
 #include "analysis/Filter.h"
 
 class QwtPlotCurve;
-class Interpolation : public Filter
+class MAKHBER_EXPORT Interpolation : public Filter
 {
     Q_OBJECT
 

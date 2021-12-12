@@ -38,7 +38,7 @@
 #include <QHash>
 
 //! Private data managed by AbstractAspect.
-class AbstractAspect::Private
+class MAKHBER_EXPORT AbstractAspect::Private
 {
 public:
     Private(AbstractAspect *owner, const QString &name);

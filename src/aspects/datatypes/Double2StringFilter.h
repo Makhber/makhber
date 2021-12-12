@@ -36,7 +36,7 @@
 #include <QtDebug>
 
 //! Locale-aware conversion filter double -> QString.
-class Double2StringFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT Double2StringFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 
@@ -95,7 +95,7 @@ protected:
     }
 };
 
-class Double2StringFilterSetFormatCmd : public QUndoCommand
+class MAKHBER_EXPORT Double2StringFilterSetFormatCmd : public QUndoCommand
 {
 public:
     Double2StringFilterSetFormatCmd(Double2StringFilter *target, char new_format);
@@ -108,7 +108,7 @@ private:
     char d_other_format;
 };
 
-class Double2StringFilterSetDigitsCmd : public QUndoCommand
+class MAKHBER_EXPORT Double2StringFilterSetDigitsCmd : public QUndoCommand
 {
 public:
     Double2StringFilterSetDigitsCmd(Double2StringFilter *target, int new_digits);

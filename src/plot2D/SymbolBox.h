@@ -29,6 +29,8 @@
 #ifndef SYMBOLBOX_H
 #define SYMBOLBOX_H
 
+#include "core/MakhberDefs.h"
+
 #include <qwt_symbol.h>
 
 #include <QComboBox>
@@ -36,7 +38,7 @@
 #include <array>
 
 //! Plot symbol combo box
-class SymbolBox : public QComboBox
+class MAKHBER_EXPORT SymbolBox : public QComboBox
 {
     Q_OBJECT
 public:

@@ -40,7 +40,7 @@
  * versa.
  */
 
-class NumericDateTimeBaseFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT NumericDateTimeBaseFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 public:

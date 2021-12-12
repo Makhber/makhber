@@ -29,10 +29,12 @@
 #ifndef BARS_H
 #define BARS_H
 
+#include "core/MakhberDefs.h"
+
 #include <qwt3d_plot.h>
 
 //! 3D bars (modifed enrichment from QwtPlot3D)
-class Bar : public Qwt3D::VertexEnrichment
+class MAKHBER_EXPORT Bar : public Qwt3D::VertexEnrichment
 {
 public:
     Bar();

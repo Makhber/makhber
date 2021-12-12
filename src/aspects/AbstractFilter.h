@@ -74,7 +74,7 @@
  *
  * \sa AbstractSimpleFilter
  */
-class AbstractFilter : public AbstractAspect
+class MAKHBER_EXPORT AbstractFilter : public AbstractAspect
 {
     Q_OBJECT
 

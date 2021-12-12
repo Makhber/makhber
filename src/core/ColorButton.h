@@ -30,6 +30,8 @@
 #ifndef COLORBUTTON_H
 #define COLORBUTTON_H
 
+#include "core/MakhberDefs.h"
+
 #include <QWidget>
 
 #include <array>
@@ -60,7 +62,7 @@ static inline uint COLORUINT(QString s)
  * 1) A frame reflecting the current color
  * 2) A button showing a color wheel to select the color
  */
-class ColorButton : public QWidget
+class MAKHBER_EXPORT ColorButton : public QWidget
 {
     Q_OBJECT
 

@@ -29,6 +29,8 @@
 #ifndef EXPDECAYDIALOG_H
 #define EXPDECAYDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -40,7 +42,7 @@ class ColorButton;
 class Fit;
 
 //! Fit exponential decay dialog
-class ExpDecayDialog : public QDialog
+class MAKHBER_EXPORT ExpDecayDialog : public QDialog
 {
     Q_OBJECT
 

@@ -30,6 +30,8 @@
 #ifndef MATRIXMODEL_H
 #define MATRIXMODEL_H
 
+#include "core/MakhberDefs.h"
+
 #include <QAbstractItemModel>
 #include <QVector>
 #include <QColor>
@@ -46,7 +48,7 @@ class Matrix;
         and translating calls to the QAbstractItemModel read/write API into calls
         in the public API of Matrix.
 */
-class MatrixModel : public QAbstractItemModel
+class MAKHBER_EXPORT MatrixModel : public QAbstractItemModel
 {
     Q_OBJECT
 

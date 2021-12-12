@@ -30,6 +30,8 @@
 #ifndef ABSTRACT_IMPORT_FILTER_H
 #define ABSTRACT_IMPORT_FILTER_H
 
+#include "core/MakhberDefs.h"
+
 #include <QObject>
 #include <QStringList>
 
@@ -73,7 +75,7 @@ class QIODevice;
  * to inherit from QObject and use the Q_OBJECT macro, since otherwise there's no way of testing for
  * the presence of this method.
  */
-class AbstractImportFilter : public QObject
+class MAKHBER_EXPORT AbstractImportFilter : public QObject
 {
     Q_OBJECT
 

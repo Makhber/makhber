@@ -40,7 +40,7 @@ class TeXTableSettings;
  * The TeXTableExportDialog class is a dialog window which that allow users to select
  * the TeX table parameters and file in wich the table data will be exported in the TeX format.
  */
-class TeXTableExportDialog : public ExtensibleFileDialog
+class MAKHBER_EXPORT TeXTableExportDialog : public ExtensibleFileDialog
 {
     Q_OBJECT
 

@@ -39,7 +39,7 @@
 #include <math.h>
 
 //! Conversion filter double -> QDateTime, interpreting the input numbers as months of the year.
-class Double2MonthFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT Double2MonthFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 public:

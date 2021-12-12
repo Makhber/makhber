@@ -39,7 +39,7 @@
 #include <math.h>
 
 //! Conversion filter String -> QDateTime, interpreting the input as days of the week (either numeric or "Mon" etc).
-class String2DayOfWeekFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT String2DayOfWeekFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 

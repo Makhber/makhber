@@ -41,10 +41,6 @@
 
 #include <cmath>
 
-#ifndef M_PI
-#define M_PI 3.141592653589793238462643
-#endif
-
 ArrowMarker::ArrowMarker()
     : d_end_arrow(true),
       d_fill_head(true),

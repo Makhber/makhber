@@ -48,7 +48,7 @@ class ActionManager;
 // TODO: move all selection related stuff to the primary view
 
 namespace future {
-class Matrix : public AbstractPart
+class MAKHBER_EXPORT Matrix : public AbstractPart
 {
     Q_OBJECT
 
@@ -351,7 +351,7 @@ private:
   be contiguous in memory to allow easier copying between
   column and matrix data.
   */
-class Matrix::Private
+class MAKHBER_EXPORT Matrix::Private
 {
 public:
     Private(Matrix *owner);

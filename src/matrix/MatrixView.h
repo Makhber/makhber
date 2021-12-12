@@ -30,6 +30,7 @@
 #ifndef MATRIXVIEW_H
 #define MATRIXVIEW_H
 
+#include "core/MakhberDefs.h"
 #include "core/globals.h"
 #include "core/MyWidget.h"
 
@@ -61,7 +62,7 @@ class Matrix;
 class MatrixModel;
 
 //! Helper class for MatrixView
-class MatrixViewWidget : public QTableView
+class MAKHBER_EXPORT MatrixViewWidget : public QTableView
 {
     Q_OBJECT
 
@@ -81,7 +82,7 @@ public Q_SLOTS:
 };
 
 //! View class for Matrix
-class MatrixView : public MyWidget
+class MAKHBER_EXPORT MatrixView : public MyWidget
 {
     Q_OBJECT
 

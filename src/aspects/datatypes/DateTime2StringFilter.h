@@ -38,7 +38,7 @@
 class DateTime2StringFilterSetFormatCmd;
 
 //! Conversion filter QDateTime -> QString.
-class DateTime2StringFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT DateTime2StringFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 
@@ -92,7 +92,7 @@ protected:
     }
 };
 
-class DateTime2StringFilterSetFormatCmd : public QUndoCommand
+class MAKHBER_EXPORT DateTime2StringFilterSetFormatCmd : public QUndoCommand
 {
 public:
     DateTime2StringFilterSetFormatCmd(DateTime2StringFilter *target, const QString &new_format);

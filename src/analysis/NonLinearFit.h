@@ -31,7 +31,7 @@
 
 #include "analysis/Fit.h"
 
-class NonLinearFit : public Fit
+class MAKHBER_EXPORT NonLinearFit : public Fit
 {
     Q_OBJECT
 

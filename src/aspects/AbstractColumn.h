@@ -79,7 +79,7 @@ class AbstractFilter;
   make deriving a read-only class very easy without bothering about the
   writing interface.
   */
-class AbstractColumn : public AbstractAspect
+class MAKHBER_EXPORT AbstractColumn : public AbstractAspect
 {
     Q_OBJECT
 

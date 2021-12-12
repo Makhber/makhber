@@ -37,7 +37,7 @@
  * \section tablestats_future Future Plans
  * Make it possible to add new columns/rows to be monitored.
  */
-class TableStatistics : public Table
+class MAKHBER_EXPORT TableStatistics : public Table
 {
     Q_OBJECT
 

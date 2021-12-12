@@ -29,6 +29,7 @@
 #ifndef PYTHON_SCRIPTING_H
 #define PYTHON_SCRIPTING_H
 
+#include "core/MakhberDefs.h"
 #include "scripting/ScriptingEnv.h"
 #include "scripting/PythonScript.h"
 
@@ -37,7 +38,7 @@ class QString;
 
 typedef struct _object PyObject;
 
-class PythonScripting : public ScriptingEnv
+class MAKHBER_EXPORT PythonScripting : public ScriptingEnv
 {
     Q_OBJECT
 

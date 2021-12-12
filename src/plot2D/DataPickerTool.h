@@ -43,7 +43,7 @@ class QwtPlotCurve;
 class QPoint;
 
 //! Plot tool for selecting, moving or removing individual points of a curve.
-class DataPickerTool : public QwtPlotPicker, public PlotToolInterface
+class MAKHBER_EXPORT DataPickerTool : public QwtPlotPicker, public PlotToolInterface
 {
     Q_OBJECT
 public:

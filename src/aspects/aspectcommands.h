@@ -32,7 +32,7 @@
 
 #include <QUndoCommand>
 
-class AspectNameChangeCmd : public QUndoCommand
+class MAKHBER_EXPORT AspectNameChangeCmd : public QUndoCommand
 {
 public:
     AspectNameChangeCmd(AbstractAspect::Private *target, const QString &new_name)
@@ -55,7 +55,7 @@ private:
     QString d_other_name;
 };
 
-class AspectCommentChangeCmd : public QUndoCommand
+class MAKHBER_EXPORT AspectCommentChangeCmd : public QUndoCommand
 {
 public:
     AspectCommentChangeCmd(AbstractAspect::Private *target, const QString &new_comment)
@@ -78,7 +78,7 @@ private:
     QString d_other_comment;
 };
 
-class AspectCaptionSpecChangeCmd : public QUndoCommand
+class MAKHBER_EXPORT AspectCaptionSpecChangeCmd : public QUndoCommand
 {
 public:
     AspectCaptionSpecChangeCmd(AbstractAspect::Private *target, const QString &new_caption_spec)
@@ -101,7 +101,7 @@ private:
     QString d_other_caption_spec;
 };
 
-class AspectCreationTimeChangeCmd : public QUndoCommand
+class MAKHBER_EXPORT AspectCreationTimeChangeCmd : public QUndoCommand
 {
 public:
     AspectCreationTimeChangeCmd(AbstractAspect::Private *target, const QDateTime &new_creation_time)
@@ -124,7 +124,7 @@ private:
     QDateTime d_other_creation_time;
 };
 
-class AspectChildRemoveCmd : public QUndoCommand
+class MAKHBER_EXPORT AspectChildRemoveCmd : public QUndoCommand
 {
 public:
     AspectChildRemoveCmd(AbstractAspect::Private *target, AbstractAspect *child, bool detach)
@@ -160,7 +160,7 @@ protected:
     bool d_removed, d_detach;
 };
 
-class AspectChildAddCmd : public AspectChildRemoveCmd
+class MAKHBER_EXPORT AspectChildAddCmd : public AspectChildRemoveCmd
 {
 public:
     AspectChildAddCmd(AbstractAspect::Private *target, AbstractAspect *child, int index)
@@ -175,7 +175,7 @@ public:
     virtual void undo() { AspectChildRemoveCmd::redo(); }
 };
 
-class AspectChildMoveCmd : public QUndoCommand
+class MAKHBER_EXPORT AspectChildMoveCmd : public QUndoCommand
 {
 public:
     AspectChildMoveCmd(AbstractAspect::Private *target, int from, int to)
@@ -208,7 +208,7 @@ private:
     int d_from, d_to;
 };
 
-class AspectChildReparentCmd : public QUndoCommand
+class MAKHBER_EXPORT AspectChildReparentCmd : public QUndoCommand
 {
 public:
     AspectChildReparentCmd(AbstractAspect::Private *target, AbstractAspect::Private *new_parent,

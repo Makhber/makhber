@@ -46,7 +46,7 @@
 
 #define NOT_IMPL (QMessageBox::information(0, "info", "not yet implemented"))
 
-class Project::Private
+class MAKHBER_EXPORT Project::Private
 {
 public:
     Private()

@@ -42,7 +42,7 @@
 #endif
 
 //! Origin project import class
-class ImportOPJ
+class MAKHBER_EXPORT ImportOPJ
 {
 public:
     ImportOPJ(ApplicationWindow *app, const QString &filename, const QString &codec);

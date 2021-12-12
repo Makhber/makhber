@@ -35,7 +35,7 @@
 #include <QObject>
 
 // Function curve class
-class FunctionCurve : public QObject, public PlotCurve, public scripted
+class MAKHBER_EXPORT FunctionCurve : public QObject, public PlotCurve, public scripted
 {
     Q_OBJECT
 public:

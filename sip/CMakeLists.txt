@@ -199,21 +199,40 @@ else()
     )
 
   if( MULTI_CONFIG )
-    set( SIP_LINK_DIRS
-      ${SIP_LINK_DIRS}
-      ${CMAKE_BINARY_DIR}/src/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
-      ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d/@CONFIG@
+    if( BUILD_SHARED_LIBS )
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/bin/@CONFIG@
+        ${CMAKE_BINARY_DIR}/lib/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
       )
+    else()
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/src/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
+        ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d/@CONFIG@
+      )
+    endif()
   else()
-    set( SIP_LINK_DIRS
-      ${SIP_LINK_DIRS}
-      ${CMAKE_BINARY_DIR}/src
-      ${CMAKE_BINARY_DIR}/3rdparty
-      ${CMAKE_BINARY_DIR}/3rdparty/liborigin
-      ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d
+    if( BUILD_SHARED_LIBS )
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/bin
+        ${CMAKE_BINARY_DIR}/lib
+        ${CMAKE_BINARY_DIR}/3rdparty
       )
+    else()
+      set( SIP_LINK_DIRS
+        ${SIP_LINK_DIRS}
+        ${CMAKE_BINARY_DIR}/src
+        ${CMAKE_BINARY_DIR}/3rdparty
+        ${CMAKE_BINARY_DIR}/3rdparty/liborigin
+        ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d
+      )
+    endif()
   endif()
   list( REMOVE_DUPLICATES SIP_LINK_DIRS )
   string( JOIN "\"\n,\"" SIP_LINK_DIRS ${SIP_LINK_DIRS} )
@@ -228,9 +247,6 @@ else()
 
   get_target_property( COMPILE_DEFINITIONS libmakhber INTERFACE_COMPILE_DEFINITIONS )
   set( SIP_COMPILE_DEFINITIONS ${SIP_COMPILE_DEFINITIONS} ${COMPILE_DEFINITIONS} )
-  if( MSVC )
-    set( SIP_COMPILE_DEFINITIONS ${SIP_COMPILE_DEFINITIONS}  "_USE_MATH_DEFINES" )
-  endif()
   list( TRANSFORM SIP_COMPILE_DEFINITIONS REPLACE "\"" "\\\\\"" )
   string( JOIN "\"\n,\"" SIP_COMPILE_DEFINITIONS ${SIP_COMPILE_DEFINITIONS} )
 

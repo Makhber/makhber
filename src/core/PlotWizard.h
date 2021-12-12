@@ -30,6 +30,8 @@
 #ifndef PLOTWIZARD_H
 #define PLOTWIZARD_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QGroupBox;
@@ -38,7 +40,7 @@ class QListWidget;
 class QComboBox;
 
 //! A wizard type dialog class to create new plots
-class PlotWizard : public QDialog
+class MAKHBER_EXPORT PlotWizard : public QDialog
 {
     Q_OBJECT
 

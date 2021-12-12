@@ -43,7 +43,7 @@ class MyWidget;
 class QButtonGroup;
 
 //! Rename window dialog
-class RenameWindowDialog : public QDialog
+class MAKHBER_EXPORT RenameWindowDialog : public QDialog
 {
     Q_OBJECT
 

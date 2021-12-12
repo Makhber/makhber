@@ -48,7 +48,7 @@
 #define _Matrix_initial_columns_ 3
 
 //! Matrix worksheet class
-class Matrix : public MatrixView, public scripted
+class MAKHBER_EXPORT Matrix : public MatrixView, public scripted
 {
     Q_OBJECT
 

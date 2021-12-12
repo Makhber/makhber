@@ -26,6 +26,11 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
+#ifndef SCALE_PICKER_H
+#define SCALE_PICKER_H
+
+#include "core/MakhberDefs.h"
+
 #include <QObject>
 
 class QRect;
@@ -39,7 +44,7 @@ class Graph;
  * This class is used by Graph to catch events for the scales on its Plot.
  * ScalePicker doesn't take any actions beyond emitting signals, which are then processed by Graph.
  */
-class ScalePicker : public QObject
+class MAKHBER_EXPORT ScalePicker : public QObject
 {
     Q_OBJECT
 public:
@@ -125,3 +130,5 @@ private:
     bool d_labels_selected;
     QwtScaleWidget *d_selected_axis, *d_current_axis;
 };
+
+#endif // ifndef SCALE_PICKER_H

@@ -29,6 +29,7 @@
 #ifndef ARROWMARKER_H
 #define ARROWMARKER_H
 
+#include "core/MakhberDefs.h"
 #include "plot2D/PlotEnrichement.h"
 
 #include <QPen>
@@ -42,7 +43,7 @@
  *
  * \sa ImageMarker, Legend
  */
-class ArrowMarker : public QObject, public PlotEnrichement
+class MAKHBER_EXPORT ArrowMarker : public QObject, public PlotEnrichement
 {
 public:
     enum Operation { None, MoveStart, MoveEnd, MoveBoth };

@@ -30,13 +30,15 @@
 #ifndef TEXTFORMATBUTTONS_H
 #define TEXTFORMATBUTTONS_H
 
+#include "core/MakhberDefs.h"
+
 #include <QWidget>
 
 class QTextEdit;
 class QPushButton;
 
 //! Widget with text format buttons (connected to a QTextEdit)
-class TextFormatButtons : public QWidget
+class MAKHBER_EXPORT TextFormatButtons : public QWidget
 {
     Q_OBJECT
 

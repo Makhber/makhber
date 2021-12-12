@@ -60,6 +60,7 @@ set( HEADERS
   "core/ColorButton.h"
   "core/Folder.h"
   "core/IconLoader.h"
+  "core/MakhberDefs.h"
   "core/MakhberObject.h"
   "core/MyWidget.h"
   "core/PatternBox.h"
@@ -339,14 +340,6 @@ target_link_libraries( libmakhber
   qwtplot3d
 )
 
-if( BUILD_SHARED_LIBS AND WIN32 )
-  target_compile_definitions( libmakhber PUBLIC QWT_DLL )
-  set_target_properties( libmakhber
-    PROPERTIES
-      WINDOWS_EXPORT_ALL_SYMBOLS ON
-  )
-endif()
-
 if( MINGW AND CMAKE_GENERATOR STREQUAL "Ninja")
   target_link_libraries( libmakhber ${GSL_LIBRARIES} )
   target_include_directories( libmakhber PUBLIC ${GSL_INCLUDE_DIRS} )
@@ -378,10 +371,18 @@ target_compile_definitions( libmakhber PUBLIC
 )
 # target_compile_definitions( libmakhber PUBLIC DYNAMIC_MANUAL_PATH )
 
+if( BUILD_SHARED_LIBS AND WIN32 )
+  target_compile_definitions( libmakhber
+    PUBLIC MAKHBER_DLL
+    PRIVATE MAKHBER_DLL_EXPORT
+  )
+endif()
+
 if( WIN32 )
   target_compile_definitions( libmakhber PUBLIC
     TS_PATH="/../translations"
     PLUGIN_PATH="/../fitPlugins"
+    "_USE_MATH_DEFINES"
     )
 elseif( APPLE )
   target_compile_definitions( libmakhber PUBLIC

@@ -47,7 +47,7 @@
 
 /*!\brief MDI window providing a spreadsheet table with column logic.
  */
-class Table : public TableView, public scripted
+class MAKHBER_EXPORT Table : public TableView, public scripted
 {
     Q_OBJECT
 

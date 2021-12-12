@@ -39,7 +39,7 @@ class QComboBox;
 namespace future {
 
 //! Sorting options dialog
-class SortDialog : public QDialog
+class MAKHBER_EXPORT SortDialog : public QDialog
 {
     Q_OBJECT
 

@@ -29,13 +29,15 @@
 #ifndef IMAGEDIALOG_H
 #define IMAGEDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 #include <QSpinBox>
 #include <QCheckBox>
 #include <QPushButton>
 
 //! Image geometry dialog
-class ImageDialog : public QDialog
+class MAKHBER_EXPORT ImageDialog : public QDialog
 {
     Q_OBJECT
 

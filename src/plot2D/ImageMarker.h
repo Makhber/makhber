@@ -62,7 +62,7 @@
  *
  * \sa Legend, ArrowMarker
  */
-class ImageMarker : public PlotEnrichement
+class MAKHBER_EXPORT ImageMarker : public PlotEnrichement
 {
 public:
     //! Construct an image marker from a file name.

@@ -29,6 +29,8 @@
 #ifndef PLOTENRICHEMENT_H
 #define PLOTENRICHEMENT_H
 
+#include "core/MakhberDefs.h"
+
 #include <qwt_plot.h>
 #include <qwt_plot_marker.h>
 
@@ -59,7 +61,7 @@
  *
  * \sa Legend, ArrowMarker
  */
-class PlotEnrichement : public QwtPlotMarker
+class MAKHBER_EXPORT PlotEnrichement : public QwtPlotMarker
 {
 public:
     PlotEnrichement();

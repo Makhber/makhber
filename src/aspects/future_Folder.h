@@ -34,7 +34,7 @@
 
 namespace future {
 //! Folder in a project
-class Folder : public AbstractAspect
+class MAKHBER_EXPORT Folder : public AbstractAspect
 {
     Q_OBJECT
 

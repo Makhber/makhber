@@ -29,6 +29,7 @@
 #ifndef XML_STREAM_READER_H
 #define XML_STREAM_READER_H
 
+#include "core/MakhberDefs.h"
 #include "lib/macros.h"
 
 #include <QXmlStreamReader>
@@ -39,7 +40,7 @@
 /**
  * This class also adds line and column numbers to the error message.
  */
-class XmlStreamReader : public QXmlStreamReader
+class MAKHBER_EXPORT XmlStreamReader : public QXmlStreamReader
 {
 public:
     XmlStreamReader();

@@ -51,7 +51,7 @@
  *
  * \sa ImageMarker, ArrowMarker
  */
-class Legend : public PlotEnrichement
+class MAKHBER_EXPORT Legend : public PlotEnrichement
 {
 public:
     Legend(Plot *);

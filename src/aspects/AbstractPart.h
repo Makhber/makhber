@@ -29,6 +29,8 @@
 #ifndef ABSTRACT_PART_H
 #define ABSTRACT_PART_H
 
+#include "core/MakhberDefs.h"
+
 #include "aspects/AbstractAspect.h"
 
 class PartMdiView;
@@ -40,7 +42,7 @@ class QToolBar;
  * Makhber's Parts are somewhat similar to KDE's KParts in that they are independent application
  * components running on top of a kernel (a bit like KOffice's shell).
  */
-class AbstractPart : public AbstractAspect
+class MAKHBER_EXPORT AbstractPart : public AbstractAspect
 {
     Q_OBJECT
 

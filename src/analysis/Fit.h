@@ -45,7 +45,7 @@ class ApplicationWindow;
 class Script;
 
 //! Fit base class
-class Fit : public Filter, public scripted
+class MAKHBER_EXPORT Fit : public Filter, public scripted
 {
     Q_OBJECT
 

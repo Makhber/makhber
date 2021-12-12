@@ -66,7 +66,7 @@ class TableDoubleHeaderView;
 class AbstractAspect;
 
 //! Helper class for TableView
-class TableViewWidget : public QTableView
+class MAKHBER_EXPORT TableViewWidget : public QTableView
 {
     Q_OBJECT
 
@@ -89,7 +89,7 @@ public Q_SLOTS:
 };
 
 //! View class for Table
-class TableView : public MyWidget
+class MAKHBER_EXPORT TableView : public MyWidget
 {
     Q_OBJECT
 

@@ -35,7 +35,7 @@
 #include <qwt_text.h>
 
 //! Abstract 2D plot curve class
-class PlotCurve : public QwtPlotCurve
+class MAKHBER_EXPORT PlotCurve : public QwtPlotCurve
 {
 
 public:
@@ -50,7 +50,7 @@ protected:
     int d_type;
 };
 
-class DataCurve : public PlotCurve
+class MAKHBER_EXPORT DataCurve : public PlotCurve
 {
 
 public:

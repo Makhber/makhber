@@ -29,6 +29,8 @@
 #ifndef ABSTRACT_ASPECT_H
 #define ABSTRACT_ASPECT_H
 
+#include "core/MakhberDefs.h"
+
 #include <QObject>
 #include <QDateTime>
 #include <QLocale>
@@ -83,7 +85,7 @@ class QAction;
  * The write access to AbstractAspect::Private should always be done using aspect commands
  * to allow undo/redo.
  */
-class AbstractAspect : public QObject
+class MAKHBER_EXPORT AbstractAspect : public QObject
 {
     Q_OBJECT
 

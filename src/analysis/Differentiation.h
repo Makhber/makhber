@@ -31,7 +31,7 @@
 
 #include "analysis/Filter.h"
 
-class Differentiation : public Filter
+class MAKHBER_EXPORT Differentiation : public Filter
 {
     Q_OBJECT
 

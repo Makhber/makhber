@@ -31,7 +31,7 @@
 
 #include "analysis/Fit.h"
 
-class ExponentialFit : public Fit
+class MAKHBER_EXPORT ExponentialFit : public Fit
 {
     Q_OBJECT
 
@@ -50,7 +50,7 @@ private:
     bool is_exp_growth;
 };
 
-class TwoExpFit : public Fit
+class MAKHBER_EXPORT TwoExpFit : public Fit
 {
     Q_OBJECT
 
@@ -66,7 +66,7 @@ private:
     void calculateFitCurveData(const std::vector<double> &, double *, double *) override;
 };
 
-class ThreeExpFit : public Fit
+class MAKHBER_EXPORT ThreeExpFit : public Fit
 {
     Q_OBJECT
 

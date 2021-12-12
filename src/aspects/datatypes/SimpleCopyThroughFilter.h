@@ -45,7 +45,7 @@
  * this inherits AbstractColumn and thus can be directly used
  * as input for other filters and plot functions.
  */
-class SimpleCopyThroughFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT SimpleCopyThroughFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 

@@ -3482,7 +3482,7 @@ in file %2.</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="11478"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="13001"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="13039"/>
-        <location filename="../src/core/ApplicationWindow.h" line="527"/>
+        <location filename="../src/core/ApplicationWindow.h" line="519"/>
         <source>Graph</source>
         <translation>Diagram</translation>
     </message>
@@ -4101,427 +4101,427 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
 <context>
     <name>AxesDialog</name>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="81"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="77"/>
         <source>&amp;Apply</source>
         <translation>&amp;Tillämpa</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="85"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="81"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="90"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="86"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Avbryt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="112"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="108"/>
         <source>From</source>
         <translation>Från</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="116"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="112"/>
         <source>To</source>
         <translation>Till</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="120"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="426"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="116"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="422"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="122"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="118"/>
         <source>linear</source>
         <translation>linjär</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="123"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
         <source>logarithmic</source>
         <translation>logaritmisk</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="128"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="124"/>
         <source>Inverted</source>
         <translation>Inverterad</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="140"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="136"/>
         <source>Step</source>
         <translation>Steg</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="153"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="149"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="436"/>
         <source>Major Ticks</source>
         <translation>Huvudskalstreck</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="160"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="156"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="445"/>
         <source>Minor Ticks</source>
         <translation>Delskalstreck</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="181"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="279"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="366"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="177"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="275"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="362"/>
         <source>Bottom</source>
         <translation>Botten</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="182"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="284"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="367"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="280"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
         <source>Left</source>
         <translation>Vänster</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="183"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="280"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="368"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
         <source>Top</source>
         <translation>Topp</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="184"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="285"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="369"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
         <source>Right</source>
         <translation>Höger</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="207"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="203"/>
         <source>Scale</source>
         <translation>Skala</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="226"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="222"/>
         <source>Major Grids</source>
         <translation>Huvudrutnät</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="231"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="227"/>
         <source>Minor Grids</source>
         <translation>Delrutnät</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="235"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="231"/>
         <source>Line Color</source>
         <translation>Linjefärg</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="244"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="240"/>
         <source>Line Type</source>
         <translation>Linjetyp</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="263"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="259"/>
         <source>Thickness</source>
         <translation>Tjocklek</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="574"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="272"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="570"/>
         <source>Axes</source>
         <translation>Axlar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="288"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="284"/>
         <source>Additional lines</source>
         <translation>Ytterligare linjer</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="291"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="287"/>
         <source>X=0</source>
         <translation>X=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="296"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="292"/>
         <source>Y=0</source>
         <translation>Y=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="306"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="302"/>
         <source>Horizontal</source>
         <translation>Horisontell</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="307"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
         <source>Vertical</source>
         <translation>Vertikal</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="328"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="324"/>
         <source>Grid</source>
         <translation>Rutnät</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="362"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
         <source>Date &amp; Time</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="390"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="386"/>
         <source>Show</source>
         <translation>Visa</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="394"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="390"/>
         <source>Title</source>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="409"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="405"/>
         <source>&amp;Font</source>
         <translation>&amp;Teckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1183"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1179"/>
         <source>Start limit error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1192"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1188"/>
         <source>End limit error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1202"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1209"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1198"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1205"/>
         <source>Step input error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1287"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1283"/>
         <source>Formula input error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="352"/>
         <source>Numeric</source>
         <translation>Numerisk</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="70"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="66"/>
         <source>General Plot Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
         <source>Text from table</source>
         <translation>Text från tabell</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
         <source>Day of the week</source>
         <translation>Veckodag</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
         <source>Month</source>
         <translation>Månad</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="360"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
         <source>Time</source>
         <translation>Tid</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="361"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
         <source>Column Headings</source>
         <translation>Kolumnrubrik</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="430"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="426"/>
         <source>Font</source>
         <translation>Teckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="433"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="429"/>
         <source>Axis &amp;Font</source>
         <translation>A&amp;xelteckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="436"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="502"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="563"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="432"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="498"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="559"/>
         <source>Color</source>
         <translation>Färg</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="443"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="452"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="439"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="448"/>
         <source>None</source>
         <translation>Ingen</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="444"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="453"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
         <source>Out</source>
         <translation>Ut</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="445"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
         <source>In &amp; Out</source>
         <translation>In &amp; ut</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="446"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="455"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
         <source>In</source>
         <translation>In</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="458"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="454"/>
         <source>Stand-off</source>
         <translation>&quot;Stand-off&quot;</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="463"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="459"/>
         <source>Show Labels</source>
         <translation>Visa etiketter</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="470"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="466"/>
         <source>Column</source>
         <translation>Kolumn</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="476"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="472"/>
         <source>Table</source>
         <translation>Tabell</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="482"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="478"/>
         <source>Format</source>
         <translation>Format</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="489"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="485"/>
         <source>Precision</source>
         <translation>Precision</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="495"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="491"/>
         <source>Angle</source>
         <translation>Vinkel</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="506"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="502"/>
         <source>For&amp;mula</source>
         <translation>For&amp;mel</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="525"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="521"/>
         <source>Axis</source>
         <translation>Axel</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="559"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="555"/>
         <source>Canvas frame</source>
         <translation>Dukkant</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="567"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="563"/>
         <source>Width</source>
         <translation>Bredd</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="577"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="573"/>
         <source>Draw backbones</source>
         <translation>Rita grunder</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="580"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="576"/>
         <source>Line Width</source>
         <translation>Linjebredd</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="585"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="581"/>
         <source>Major ticks length</source>
         <translation>Huvudskalstreckslängd</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="590"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="586"/>
         <source>Minor ticks length</source>
         <translation>Delskalstreckslängd</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="601"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="597"/>
         <source>General</source>
         <translation>Allmänt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="695"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="691"/>
         <source>Automatic</source>
         <translation>Automatiskt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="696"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
         <source>Decimal: 100.0</source>
         <translation>Decimal: 100.0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="697"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
         <source>Scientific: 1e2</source>
         <translation>Vetenskapligt: 1E2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="698"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
         <source>Scientific: 10^2</source>
         <translation>Vetenskalpligt: 10^2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1210"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
         <source>Please enter a positive step value!</source>
         <translation>Mata in ett positivt stegvärde!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1289"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1285"/>
         <source>Valid variables are &apos;x&apos; for Top/Bottom axes and &apos;y&apos; for Left/Right axes!</source>
         <translation>Giltiga variabler är &apos;x&apos; för topp/botten-axlar och &apos;y&apos; för vänster/höger-axlar!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1446"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1442"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1452"/>
         <source>millisec.</source>
         <translation>millisek.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1447"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
         <source>sec.</source>
         <translation>sek.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1448"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1458"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
         <source>min.</source>
         <translation>min.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1459"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
         <source>hours</source>
         <translation>timmar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1452"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1460"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1448"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
         <source>days</source>
         <translation>dagar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1461"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
         <source>weeks</source>
         <translation>veckor</translation>
     </message>
@@ -4529,7 +4529,7 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
 <context>
     <name>CanvasPicker</name>
     <message>
-        <location filename="../src/plot2D/CanvasPicker.cpp" line="218"/>
+        <location filename="../src/plot2D/CanvasPicker.cpp" line="214"/>
         <source>enter your text here</source>
         <translation>&amp;Importera ASCII</translation>
     </message>
@@ -7755,7 +7755,7 @@ p, li { white-space: pre-wrap; }
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.h" line="660"/>
+        <location filename="../src/plot2D/Graph.h" line="661"/>
         <source>F</source>
         <translation type="unfinished"></translation>
     </message>
@@ -7763,42 +7763,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph3D</name>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="190"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="186"/>
         <source>X axis</source>
         <translation>X-axel</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="197"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="193"/>
         <source>Y axis</source>
         <translation>Y-axel</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="204"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="200"/>
         <source>Z axis</source>
         <translation>Z-axel</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1946"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1942"/>
         <source>IO Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1999"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1995"/>
         <source>Please provide a valid file name!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="2011"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="2007"/>
         <source> not supported</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1947"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1943"/>
         <source>Could not print: &lt;h4&gt;</source>
         <translation>Kunde inte skriva: &lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1999"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1995"/>
         <source>Error</source>
         <translation>Fel</translation>
     </message>
@@ -9372,64 +9372,64 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MuParserScript</name>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="268"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="261"/>
         <source>col() works only on tables!</source>
         <translation>col() fungerar bara för tabeller!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="271"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="310"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="355"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="264"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="303"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="348"/>
         <source>There&apos;s no column %1 in table %2!</source>
         <translation>Det finns ingen kolumn %1 i tabell %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="302"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="295"/>
         <source>tablecol() works only on tables!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="306"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="452"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="461"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="467"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="299"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="445"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="454"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="460"/>
         <source>Couldn&apos;t find a table named %1.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="352"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="374"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="345"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="367"/>
         <source>cell() works only on tables and matrices!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="378"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="371"/>
         <source>There&apos;s no row %1 in matrix %2!</source>
         <translation>Det finns ingen rad %1 i matris %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="382"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="375"/>
         <source>There&apos;s no column %1 in matrix %2!</source>
         <translation>Det finns ingen kolumn %1 i matris %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="431"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="436"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="424"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="429"/>
         <source>Accessing table values is not (yet) supported in this context.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="474"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="467"/>
         <source>There&apos;s no column named %1 in table %2!</source>
         <translation>Det finns ingen kolumn kallad %1 i tabell %2!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="589"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="582"/>
         <source>tablecol: wrong number of arguments (need 2, got %1)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="618"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="611"/>
         <source>cell: wrong number of arguments (need 2, got %1)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10261,343 +10261,343 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Plot3DDialog</name>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="62"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="58"/>
         <source>Surface Plot Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="72"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="68"/>
         <source>&amp;Apply</source>
         <translation>&amp;Tillämpa</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="74"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="70"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="77"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="73"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Avbryt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="101"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="152"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="97"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="148"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="102"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="153"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="98"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="149"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="103"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="154"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="99"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="150"/>
         <source>Z</source>
         <translation>Z</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="108"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="104"/>
         <source>From</source>
         <translation>Från</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="112"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="108"/>
         <source>To</source>
         <translation>Till</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="116"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="112"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="118"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="114"/>
         <source>linear</source>
         <translation>linjär</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="119"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="115"/>
         <source>logarithmic</source>
         <translation>logaritmisk</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="128"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="124"/>
         <source>Major Ticks</source>
         <translation>Huvudskalstreck</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="131"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="127"/>
         <source>Minor Ticks</source>
         <translation>Delskalstreck</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="146"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="142"/>
         <source>&amp;Scale</source>
         <translation>&amp;Skala</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="159"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="155"/>
         <source>Title</source>
         <translation>Titel</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="162"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="158"/>
         <source>Axis Font</source>
         <translation>Axelteckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="165"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="161"/>
         <source>&amp;Choose font</source>
         <translation>&amp;Välj teckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="174"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="170"/>
         <source>Major Ticks Length</source>
         <translation>Huvudskalstreckslängd</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="177"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="173"/>
         <source>Minor Ticks Length</source>
         <translation>Delskalstreckslängd</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="191"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="187"/>
         <source>&amp;Axis</source>
         <translation>&amp;Axel</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="208"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="204"/>
         <source>&amp;Color</source>
         <translation>&amp;Färg</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="210"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="206"/>
         <source>&amp;Font</source>
         <translation>&amp;Teckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="222"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="218"/>
         <source>&amp;Title</source>
         <translation>&amp;Titel</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="233"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="229"/>
         <source>Ma&amp;x</source>
         <translation>Ma&amp;x</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="235"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="231"/>
         <source>&amp;Min</source>
         <translation>&amp;Min</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="237"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="233"/>
         <source>Color Ma&amp;p</source>
         <translation>Färg&amp;karta</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="241"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="237"/>
         <source>Data</source>
         <translation>Data</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="245"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="241"/>
         <source>&amp;Line</source>
         <translation>&amp;Linje</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="247"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="243"/>
         <source>&amp;Background</source>
         <translation>&amp;Bakgrund</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="251"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="247"/>
         <source>General</source>
         <translation>Allmänt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="255"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="251"/>
         <source>&amp;Axes</source>
         <translation>&amp;Axlar</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="257"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="253"/>
         <source>Lab&amp;els</source>
         <translation>Etikett&amp;er</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="259"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="255"/>
         <source>&amp;Numbers</source>
         <translation>T&amp;al</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="261"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="257"/>
         <source>&amp;Grid</source>
         <translation>&amp;Rutnät</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="265"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="261"/>
         <source>Coordinate System</source>
         <translation>Koordinatsystem</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="275"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="271"/>
         <source>Opacity</source>
         <translation>Genomskinlighet</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="287"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="283"/>
         <source>&amp;Colors</source>
         <translation>&amp;Färg</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="304"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="300"/>
         <source>Show Legend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="306"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="302"/>
         <source>Orthogonal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="309"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="420"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="305"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="416"/>
         <source>Line Width</source>
         <translation>Linjebredd</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="314"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="310"/>
         <source>Resolution</source>
         <translation>Upplösning</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="320"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="316"/>
         <source>Numbers Font</source>
         <translation>Talteckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="321"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="317"/>
         <source>&amp;Choose Font</source>
         <translation>&amp;Välj teckensnitt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="324"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="320"/>
         <source>Distance labels - axis</source>
         <translation>Avstånd etiketter - axlar</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="335"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="331"/>
         <source>Zoom (%)</source>
         <translation>Zoom (%)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="342"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="338"/>
         <source>X Zoom (%)</source>
         <translation>X Zoom (%)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="349"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="345"/>
         <source>Y Zoom (%)</source>
         <translation>Y Zoom (%)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="356"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="352"/>
         <source>Z Zoom (%)</source>
         <translation>Z Zoom (%)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="373"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="369"/>
         <source>&amp;General</source>
         <translation>&amp;Allmänt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="391"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="387"/>
         <source>Style</source>
         <translation>Stil</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="393"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="389"/>
         <source>Dot</source>
         <translation>Punkt</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="394"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="390"/>
         <source>Cross Hair</source>
         <translation>Hårkors</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="395"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="391"/>
         <source>Cone</source>
         <translation>Kon</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="403"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="437"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="523"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="399"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="433"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="519"/>
         <source>Width</source>
         <translation>Bredd</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="407"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="403"/>
         <source>Smooth angles</source>
         <translation>Jämna vinklar</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="417"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="413"/>
         <source>Radius</source>
         <translation>Radie</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="423"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="419"/>
         <source>Smooth line</source>
         <translation>Jämn linje</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="427"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="423"/>
         <source>Boxed</source>
         <translation>&quot;Fyrkantad&quot;</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="440"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="436"/>
         <source>Quality</source>
         <translation>Kvalitet</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="457"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="453"/>
         <source>Points</source>
         <translation>Punkter</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="528"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="524"/>
         <source>Bars</source>
         <translation>Staplar</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="576"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="572"/>
         <source>Colormap files</source>
         <translation>Färgkartefiler</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="842"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="838"/>
         <source>Start limit error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="852"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="848"/>
         <source>End limit error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="859"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="855"/>
         <source>Input error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="860"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="856"/>
         <source>Please enter scale limits that satisfy: from &lt; to!</source>
         <translation>Mata in skal-gränser som tillfredställer villkoret: från &lt; till!</translation>
     </message>
@@ -12193,7 +12193,7 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/table/AsciiTableImportFilter.h" line="69"/>
+        <location filename="../src/table/AsciiTableImportFilter.h" line="70"/>
         <source>ASCII table</source>
         <translation type="unfinished"></translation>
     </message>

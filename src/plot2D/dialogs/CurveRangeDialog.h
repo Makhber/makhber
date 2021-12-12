@@ -29,6 +29,8 @@
 #ifndef CURVERANGEDIALOG_H
 #define CURVERANGEDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -38,7 +40,7 @@ class Graph;
 class DataCurve;
 
 //! Curve range dialog
-class CurveRangeDialog : public QDialog
+class MAKHBER_EXPORT CurveRangeDialog : public QDialog
 {
     Q_OBJECT
 

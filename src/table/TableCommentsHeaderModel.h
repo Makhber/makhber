@@ -36,7 +36,7 @@
 #include <QAbstractTableModel>
 
 //! Model class wrapping a TableModel to display column comments in a TableCommentsHeaderView
-class TableCommentsHeaderModel : public QAbstractTableModel
+class MAKHBER_EXPORT TableCommentsHeaderModel : public QAbstractTableModel
 {
     Q_OBJECT
 

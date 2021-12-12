@@ -29,12 +29,14 @@
 #ifndef COLORBOX_H
 #define COLORBOX_H
 
+#include "core/MakhberDefs.h"
+
 #include <QComboBox>
 
 #include <array>
 
 //! A combo box to select a standard color
-class ColorBox : public QComboBox
+class MAKHBER_EXPORT ColorBox : public QComboBox
 {
     Q_OBJECT
 

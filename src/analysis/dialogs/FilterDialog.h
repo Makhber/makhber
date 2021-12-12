@@ -29,6 +29,8 @@
 #ifndef FILTERDIALOG_H
 #define FILTERDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -39,7 +41,7 @@ class Graph;
 class ColorButton;
 
 //! Filter options dialog
-class FilterDialog : public QDialog
+class MAKHBER_EXPORT FilterDialog : public QDialog
 {
     Q_OBJECT
 

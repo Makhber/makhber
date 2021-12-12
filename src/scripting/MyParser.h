@@ -31,6 +31,8 @@
 
 #include "lib/QStringStdString.h"
 
+#include "core/MakhberDefs.h"
+
 #include <muParser.h>
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_sf.h>
@@ -46,7 +48,7 @@
  * should be implemented (maybe by making it a property of Project; see ApplicationWindow).
  * [ assigned to knut ]
  */
-class MyParser : public mu::Parser
+class MAKHBER_EXPORT MyParser : public mu::Parser
 {
 public:
     MyParser();

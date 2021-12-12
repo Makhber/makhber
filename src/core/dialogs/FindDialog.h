@@ -29,6 +29,8 @@
 #ifndef FINDDIALOG_H
 #define FINDDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 #include <QLabel>
 
@@ -38,7 +40,7 @@ class QComboBox;
 class QLabel;
 
 //! Find dialog
-class FindDialog : public QDialog
+class MAKHBER_EXPORT FindDialog : public QDialog
 {
     Q_OBJECT
 

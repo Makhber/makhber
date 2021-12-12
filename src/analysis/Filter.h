@@ -38,7 +38,7 @@ class Graph;
 class Table;
 
 //! Abstract base class for data analysis operations
-class Filter : public QObject
+class MAKHBER_EXPORT Filter : public QObject
 {
     Q_OBJECT
 

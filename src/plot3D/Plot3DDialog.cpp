@@ -28,10 +28,6 @@
  ***************************************************************************/
 #include "Plot3DDialog.h"
 
-#ifdef _MSC_VER
-#define NOMINMAX
-#endif
-
 #include "plot2D/dialogs/TextDialog.h"
 #include "scripting/MyParser.h"
 #include "core/dialogs/SymbolDialog.h"

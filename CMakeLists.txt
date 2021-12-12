@@ -70,11 +70,9 @@ set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
 include( GNUInstallDirs )
 
 if( BUILD_SHARED_LIBS )
-  if( MSVC )
-    message( FATAL_ERROR "Building Shared Libararies is not supported with MSVC" )
-  endif()
   set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
   set( CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
+  set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib" )
 endif()
 
 option( MAKHBER_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )

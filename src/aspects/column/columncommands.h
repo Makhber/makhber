@@ -41,7 +41,7 @@
 // class ColumnSetModeCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set the column mode
-class ColumnSetModeCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetModeCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -97,7 +97,7 @@ private:
 // class ColumnFullCopyCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Copy a complete column
-class ColumnFullCopyCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnFullCopyCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -133,7 +133,7 @@ private:
 // class ColumnPartialCopyCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Copy parts of a column
-class ColumnPartialCopyCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnPartialCopyCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -189,7 +189,7 @@ private:
 // class ColumnInsertEmptyRowsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Insert empty rows
-class ColumnInsertEmptyRowsCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnInsertEmptyRowsCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -218,7 +218,7 @@ private:
 // class ColumnRemoveRowsCmd
 ///////////////////////////////////////////////////////////////////////////
 //!
-class ColumnRemoveRowsCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnRemoveRowsCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -264,7 +264,7 @@ private:
 // class ColumnSetPlotDesignationCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Sets a column's plot designation
-class ColumnSetPlotDesignationCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetPlotDesignationCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -294,7 +294,7 @@ private:
 // class ColumnClearCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Clear the column
-class ColumnClearCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnClearCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -329,7 +329,7 @@ private:
 // class ColumnClearValidityCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Clear validity information
-class ColumnClearValidityCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnClearValidityCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -358,7 +358,7 @@ private:
 // class ColumnClearMasksCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Clear validity information
-class ColumnClearMasksCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnClearMasksCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -387,7 +387,7 @@ private:
 // class ColumnSetInvalidCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Mark an interval of rows as invalid
-class ColumnSetInvalidCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetInvalidCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -421,7 +421,7 @@ private:
 // class ColumnSetMaskedCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Mark an interval of rows as masked
-class ColumnSetMaskedCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetMaskedCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -455,7 +455,7 @@ private:
 // class ColumnSetFormulaCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set the formula for a given interval
-class ColumnSetFormulaCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetFormulaCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -489,7 +489,7 @@ private:
 // class ColumnClearFormulasCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Clear all associated formulas
-class ColumnClearFormulasCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnClearFormulasCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -518,7 +518,7 @@ private:
 // class ColumnSetTextCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set the text for a string cell
-class ColumnSetTextCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetTextCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -553,7 +553,7 @@ private:
 // class ColumnSetValueCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set the value for a double cell
-class ColumnSetValueCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetValueCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -588,7 +588,7 @@ private:
 // class ColumnSetDateTimeCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Set the value of a date-time cell
-class ColumnSetDateTimeCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnSetDateTimeCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -624,7 +624,7 @@ private:
 // class ColumnReplaceTextsCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Replace a range of strings in a string column
-class ColumnReplaceTextsCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnReplaceTextsCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -662,7 +662,7 @@ private:
 // class ColumnReplaceValuesCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Replace a range of doubles in a double column
-class ColumnReplaceValuesCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnReplaceValuesCmd : public QUndoCommand
 {
 public:
     //! Ctor
@@ -700,7 +700,7 @@ private:
 // class ColumnReplaceDateTimesCmd
 ///////////////////////////////////////////////////////////////////////////
 //! Replace a range of date-times in a date-time column
-class ColumnReplaceDateTimesCmd : public QUndoCommand
+class MAKHBER_EXPORT ColumnReplaceDateTimesCmd : public QUndoCommand
 {
 public:
     //! Ctor

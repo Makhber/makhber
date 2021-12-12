@@ -29,6 +29,8 @@
 #ifndef SMOOTHDIALOG_H
 #define SMOOTHDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -38,7 +40,7 @@ class Graph;
 class ColorButton;
 
 //! Smoothing options dialog
-class SmoothCurveDialog : public QDialog
+class MAKHBER_EXPORT SmoothCurveDialog : public QDialog
 {
     Q_OBJECT
 

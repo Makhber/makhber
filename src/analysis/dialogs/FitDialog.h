@@ -48,7 +48,7 @@ class ColorButton;
 class Fit;
 
 //! Fit Wizard
-class FitDialog : public QDialog
+class MAKHBER_EXPORT FitDialog : public QDialog
 {
     Q_OBJECT
 

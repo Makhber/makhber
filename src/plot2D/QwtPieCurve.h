@@ -32,7 +32,7 @@
 #include <qwt_plot.h>
 
 //! Pie plot class
-class QwtPieCurve : public DataCurve
+class MAKHBER_EXPORT QwtPieCurve : public DataCurve
 {
 public:
     QwtPieCurve(Table *t, const QString &name, int startRow, int endRow);

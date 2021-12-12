@@ -31,6 +31,8 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
+#include "core/MakhberDefs.h"
+
 #include <QMdiSubWindow>
 
 class QEvent;
@@ -49,7 +51,7 @@ class Folder;
  *
  * \sa Folder, ApplicationWindow
  */
-class MyWidget : public QMdiSubWindow
+class MAKHBER_EXPORT MyWidget : public QMdiSubWindow
 {
     Q_OBJECT
 

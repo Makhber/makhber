@@ -42,7 +42,7 @@
 
 class MatrixData;
 
-class Spectrogram : public QwtPlotSpectrogram
+class MAKHBER_EXPORT Spectrogram : public QwtPlotSpectrogram
 {
 public:
     Spectrogram();
@@ -88,7 +88,7 @@ protected:
     QwtLinearColorMap color_map;
 };
 
-class MatrixData : public QwtMatrixRasterData
+class MAKHBER_EXPORT MatrixData : public QwtMatrixRasterData
 {
 public:
     MatrixData(Matrix *m) : d_matrix(m)

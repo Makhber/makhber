@@ -29,6 +29,8 @@
 #ifndef CURVESDIALOG_H
 #define CURVESDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QComboBox;
@@ -38,7 +40,7 @@ class QCheckBox;
 class Graph;
 
 //! Add/remove curves dialog
-class CurvesDialog : public QDialog
+class MAKHBER_EXPORT CurvesDialog : public QDialog
 {
     Q_OBJECT
 

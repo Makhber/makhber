@@ -29,6 +29,7 @@
 #ifndef GRAPH_H
 #define GRAPH_H
 
+#include "core/MakhberDefs.h"
 #include "plot2D/Plot.h"
 #include "plot2D/PlotToolInterface.h"
 #include "aspects/column/Column.h"
@@ -118,7 +119,7 @@ typedef struct CurveLayout_struct
  * [ assigned to thzs ]
  */
 
-class Graph : public QWidget
+class MAKHBER_EXPORT Graph : public QWidget
 {
     Q_OBJECT
 

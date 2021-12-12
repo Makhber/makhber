@@ -29,12 +29,14 @@
 #ifndef PATTERNBOX_H
 #define PATTERNBOX_H
 
+#include "core/MakhberDefs.h"
+
 #include <QComboBox>
 
 #include <array>
 
 //! Pattern combo box
-class PatternBox : public QComboBox
+class MAKHBER_EXPORT PatternBox : public QComboBox
 {
     Q_OBJECT
 public:

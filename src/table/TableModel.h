@@ -53,7 +53,7 @@ class Table;
         is obtained by calling Table::column() and the manipulation is done using the
         public API of column.
   */
-class TableModel : public QAbstractItemModel
+class MAKHBER_EXPORT TableModel : public QAbstractItemModel
 {
     Q_OBJECT
 

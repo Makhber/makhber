@@ -31,7 +31,7 @@
 
 #include "analysis/Fit.h"
 
-class PolynomialFit : public Fit
+class MAKHBER_EXPORT PolynomialFit : public Fit
 {
     Q_OBJECT
 
@@ -56,7 +56,7 @@ private:
     bool show_legend;
 };
 
-class LinearFit : public Fit
+class MAKHBER_EXPORT LinearFit : public Fit
 {
     Q_OBJECT
 

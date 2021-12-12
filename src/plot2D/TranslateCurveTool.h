@@ -40,7 +40,7 @@ class ApplicationWindow;
 class QwtPlotCurve;
 
 //! Plot tool for translating curves.
-class TranslateCurveTool : public QObject, public PlotToolInterface
+class MAKHBER_EXPORT TranslateCurveTool : public QObject, public PlotToolInterface
 {
     Q_OBJECT
 public:

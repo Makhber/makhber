@@ -29,6 +29,8 @@
 #ifndef INTDIALOG_H
 #define INTDIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QDialog>
 
 class QPushButton;
@@ -39,7 +41,7 @@ class QSpinBox;
 class Graph;
 
 //! Integration options dialog
-class IntDialog : public QDialog
+class MAKHBER_EXPORT IntDialog : public QDialog
 {
     Q_OBJECT
 

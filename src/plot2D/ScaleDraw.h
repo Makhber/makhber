@@ -29,6 +29,8 @@
 #ifndef SCALES_H
 #define SCALES_H
 
+#include "core/MakhberDefs.h"
+
 #include <qwt_scale_draw.h>
 #include <qwt_text.h>
 
@@ -38,7 +40,7 @@
 #include <QMap>
 
 //! Extension to QwtScaleDraw
-class ScaleDraw : public QwtScaleDraw
+class MAKHBER_EXPORT ScaleDraw : public QwtScaleDraw
 {
 public:
     enum TicksStyle { None = 0, Out = 1, Both = 2, In = 3 };
@@ -78,7 +80,7 @@ private:
     int d_minTicks, d_majTicks;
 };
 
-class QwtTextScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT QwtTextScaleDraw : public ScaleDraw
 {
 public:
     QwtTextScaleDraw(const QMap<int, QString> &list);
@@ -98,7 +100,7 @@ private:
     QMap<int, QString> labels;
 };
 
-class TimeScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT TimeScaleDraw : public ScaleDraw
 {
 public:
     TimeScaleDraw(const QTime &t, QString format);
@@ -118,7 +120,7 @@ private:
     QString t_format;
 };
 
-class DateScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT DateScaleDraw : public ScaleDraw
 {
 public:
     DateScaleDraw(const QDate &t, QString format);
@@ -138,7 +140,7 @@ private:
     QString t_format;
 };
 
-class DateTimeScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT DateTimeScaleDraw : public ScaleDraw
 {
 public:
     DateTimeScaleDraw(QDateTime origin, QString format);
@@ -158,7 +160,7 @@ private:
     QString d_format;
 };
 
-class WeekDayScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT WeekDayScaleDraw : public ScaleDraw
 {
 public:
     enum NameFormat { ShortName, LongName, Initial };
@@ -177,7 +179,7 @@ private:
     NameFormat d_format;
 };
 
-class MonthScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT MonthScaleDraw : public ScaleDraw
 {
 public:
     enum NameFormat { ShortName, LongName, Initial };
@@ -196,7 +198,7 @@ private:
     NameFormat d_format;
 };
 
-class QwtSupersciptsScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT QwtSupersciptsScaleDraw : public ScaleDraw
 {
 public:
     QwtSupersciptsScaleDraw(const QString &s = {});

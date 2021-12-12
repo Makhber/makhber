@@ -29,6 +29,8 @@
 #ifndef EXTENSIBLE_FILE_DIALOG_H
 #define EXTENSIBLE_FILE_DIALOG_H
 
+#include "core/MakhberDefs.h"
+
 #include <QFileDialog>
 #include <QPushButton>
 
@@ -41,7 +43,7 @@
  * QGridLayout as its top-level layout. Other layouts will probably lead to a strange outlook,
  * although the functionality should stay intact.
  */
-class ExtensibleFileDialog : public QFileDialog
+class MAKHBER_EXPORT ExtensibleFileDialog : public QFileDialog
 {
     Q_OBJECT
 

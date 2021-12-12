@@ -65,7 +65,7 @@ class ApplicationWindow;
  * exposes its parent Project to the widgets it manages, they could handle things like creating
  * tables by calling methods of Project instead of sending signals.
  */
-class MultiLayer : public MyWidget
+class MAKHBER_EXPORT MultiLayer : public MyWidget
 {
     Q_OBJECT
 
@@ -244,7 +244,7 @@ private:
 };
 
 //! Button with layer number
-class LayerButton : public QPushButton
+class MAKHBER_EXPORT LayerButton : public QPushButton
 {
     Q_OBJECT
 

@@ -38,7 +38,7 @@
 #include <QtDebug>
 
 //! Locale-aware conversion filter QString -> double.
-class String2DoubleFilter : public AbstractSimpleFilter
+class MAKHBER_EXPORT String2DoubleFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 

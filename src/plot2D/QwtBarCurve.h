@@ -34,7 +34,7 @@
 #include <qwt_plot.h>
 
 //! Bar curve
-class QwtBarCurve : public DataCurve
+class MAKHBER_EXPORT QwtBarCurve : public DataCurve
 {
 public:
     enum BarStyle { Vertical = 0, Horizontal = 1 };

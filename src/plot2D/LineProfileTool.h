@@ -60,7 +60,7 @@ class ImageMarker;
  * (if that's really needed).
  * [ postponed until after the redesign of project handling ]
  */
-class LineProfileTool : public QWidget, public PlotToolInterface
+class MAKHBER_EXPORT LineProfileTool : public QWidget, public PlotToolInterface
 {
     Q_OBJECT
 

@@ -273,7 +273,7 @@
         <location filename="../src/core/ApplicationWindow.cpp" line="11478"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="13001"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="13039"/>
-        <location filename="../src/core/ApplicationWindow.h" line="527"/>
+        <location filename="../src/core/ApplicationWindow.h" line="519"/>
         <source>Graph</source>
         <translation>图片</translation>
     </message>
@@ -4111,427 +4111,427 @@ Warning: this will rearrange existing layers!</source>
 <context>
     <name>AxesDialog</name>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="70"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="66"/>
         <source>General Plot Options</source>
         <translation>常规绘图选项</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="81"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="77"/>
         <source>&amp;Apply</source>
         <translation>应用(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="85"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="81"/>
         <source>&amp;OK</source>
         <translation>确定(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="90"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="86"/>
         <source>&amp;Cancel</source>
         <translation>取消(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="112"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="108"/>
         <source>From</source>
         <translation>从</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="116"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="112"/>
         <source>To</source>
         <translation>到</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="120"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="426"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="116"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="422"/>
         <source>Type</source>
         <translation>类型</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="122"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="118"/>
         <source>linear</source>
         <translation>线性</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="123"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
         <source>logarithmic</source>
         <translation>对数</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="128"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="124"/>
         <source>Inverted</source>
         <translation>逆</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="140"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="136"/>
         <source>Step</source>
         <translation>步长</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="153"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="149"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="436"/>
         <source>Major Ticks</source>
         <translation>主刻度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="160"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="156"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="445"/>
         <source>Minor Ticks</source>
         <translation>次刻度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="181"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="279"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="366"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="177"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="275"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="362"/>
         <source>Bottom</source>
         <translation>底</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="182"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="284"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="367"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="280"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="183"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="280"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="368"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
         <source>Top</source>
         <translation>顶</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="184"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="285"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="369"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="207"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="203"/>
         <source>Scale</source>
         <translation>比例</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="226"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="222"/>
         <source>Major Grids</source>
         <translation>主栅格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="231"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="227"/>
         <source>Minor Grids</source>
         <translation>次栅格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="235"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="231"/>
         <source>Line Color</source>
         <translation>线条颜色</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="244"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="240"/>
         <source>Line Type</source>
         <translation>线形</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="263"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="259"/>
         <source>Thickness</source>
         <translation>线宽</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="574"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="272"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="570"/>
         <source>Axes</source>
         <translation>轴</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="288"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="284"/>
         <source>Additional lines</source>
         <translation>附加线</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="291"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="287"/>
         <source>X=0</source>
         <translation>X=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="296"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="292"/>
         <source>Y=0</source>
         <translation>Y=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="306"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="302"/>
         <source>Horizontal</source>
         <translation>水平</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="307"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
         <source>Vertical</source>
         <translation>垂直</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="328"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="324"/>
         <source>Grid</source>
         <translation>栅格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="352"/>
         <source>Numeric</source>
         <translation>数字</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
         <source>Text from table</source>
         <translation>来自表格的文本</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
         <source>Day of the week</source>
         <translation>周几</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
         <source>Month</source>
         <translation>月</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="360"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
         <source>Time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="361"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
         <source>Date</source>
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="362"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
         <source>Date &amp; Time</source>
         <translation>日期 &amp; 时间</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
         <source>Column Headings</source>
         <translation>列头</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="390"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="386"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="394"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="390"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="409"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="405"/>
         <source>&amp;Font</source>
         <translation>字体(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="430"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="426"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="433"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="429"/>
         <source>Axis &amp;Font</source>
         <translation>轴字体(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="436"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="502"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="563"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="432"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="498"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="559"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="443"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="452"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="439"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="448"/>
         <source>None</source>
         <translation>不选</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="444"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="453"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
         <source>Out</source>
         <translation>外</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="445"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
         <source>In &amp; Out</source>
         <translation>内 &amp; 外</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="446"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="455"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
         <source>In</source>
         <translation>内</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="458"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="454"/>
         <source>Stand-off</source>
         <translation>远离</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="463"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="459"/>
         <source>Show Labels</source>
         <translation>显示标签</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="470"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="466"/>
         <source>Column</source>
         <translation>列</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="476"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="472"/>
         <source>Table</source>
         <translation>表格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="482"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="478"/>
         <source>Format</source>
         <translation>格式</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="489"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="485"/>
         <source>Precision</source>
         <translation>精度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="495"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="491"/>
         <source>Angle</source>
         <translation>角度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="506"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="502"/>
         <source>For&amp;mula</source>
         <translation>公式(&amp;m)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="525"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="521"/>
         <source>Axis</source>
         <translation>轴</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="559"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="555"/>
         <source>Canvas frame</source>
         <translation>画布框架</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="567"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="563"/>
         <source>Width</source>
         <translation>宽度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="577"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="573"/>
         <source>Draw backbones</source>
         <translation>画出干线</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="580"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="576"/>
         <source>Line Width</source>
         <translation>线宽</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="585"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="581"/>
         <source>Major ticks length</source>
         <translation>主刻度长度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="590"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="586"/>
         <source>Minor ticks length</source>
         <translation>次刻度长度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="601"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="597"/>
         <source>General</source>
         <translation>常规</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="695"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="691"/>
         <source>Automatic</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="696"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
         <source>Decimal: 100.0</source>
         <translation>十进制： 100.0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="697"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
         <source>Scientific: 1e2</source>
         <translation>科学计数法：1E2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="698"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
         <source>Scientific: 10^2</source>
         <translation>科学计数法：10^2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1183"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1179"/>
         <source>Start limit error</source>
         <translation>起始极限误差</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1192"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1188"/>
         <source>End limit error</source>
         <translation>终末极限误差</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1202"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1209"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1198"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1205"/>
         <source>Step input error</source>
         <translation>步长输入错误</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1210"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
         <source>Please enter a positive step value!</source>
         <translation>请输入正的步长值！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1287"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1283"/>
         <source>Formula input error</source>
         <translation>公式输入错误</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1289"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1285"/>
         <source>Valid variables are &apos;x&apos; for Top/Bottom axes and &apos;y&apos; for Left/Right axes!</source>
         <translation>对于顶轴和底轴的有效变量是 &apos;x&apos;，左轴和右轴的是 &apos;y&apos; ！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1446"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1442"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1452"/>
         <source>millisec.</source>
         <translation>毫秒。</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1447"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
         <source>sec.</source>
         <translation>秒。</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1448"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1458"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
         <source>min.</source>
         <translation>分。</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1459"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
         <source>hours</source>
         <translation>小时</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1452"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1460"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1448"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
         <source>days</source>
         <translation>天</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1461"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
         <source>weeks</source>
         <translation>周</translation>
     </message>
@@ -4539,7 +4539,7 @@ Warning: this will rearrange existing layers!</source>
 <context>
     <name>CanvasPicker</name>
     <message>
-        <location filename="../src/plot2D/CanvasPicker.cpp" line="218"/>
+        <location filename="../src/plot2D/CanvasPicker.cpp" line="214"/>
         <source>enter your text here</source>
         <translation>在这里输入文本</translation>
     </message>
@@ -7796,7 +7796,7 @@ p, li { white-space: pre-wrap; }
         <translation>此绘图中没有包含多于两个点的曲线。操作终止！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.h" line="660"/>
+        <location filename="../src/plot2D/Graph.h" line="661"/>
         <source>F</source>
         <translation>F</translation>
     </message>
@@ -7814,42 +7814,42 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph3D</name>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="190"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="186"/>
         <source>X axis</source>
         <translation>X 轴</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="197"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="193"/>
         <source>Y axis</source>
         <translation>Y 轴</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="204"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="200"/>
         <source>Z axis</source>
         <translation>Z 轴</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1946"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1942"/>
         <source>IO Error</source>
         <translation>输入/输出 错误</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1947"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1943"/>
         <source>Could not print: &lt;h4&gt;</source>
         <translation>无法打印：&lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1999"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1995"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1999"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1995"/>
         <source>Please provide a valid file name!</source>
         <translation>请提供有效的文件名！</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="2011"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="2007"/>
         <source> not supported</source>
         <translation> 不支持</translation>
     </message>
@@ -9454,64 +9454,64 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>MuParserScript</name>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="268"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="261"/>
         <source>col() works only on tables!</source>
         <translation>col() 仅适用于表格！</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="271"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="310"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="355"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="264"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="303"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="348"/>
         <source>There&apos;s no column %1 in table %2!</source>
         <translation>表格 %2 中没有列 %1！</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="302"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="295"/>
         <source>tablecol() works only on tables!</source>
         <translation>tablecol() 仅适用于表格！</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="306"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="452"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="461"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="467"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="299"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="445"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="454"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="460"/>
         <source>Couldn&apos;t find a table named %1.</source>
         <translation>找不到名为 %1 的表格。</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="352"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="374"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="345"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="367"/>
         <source>cell() works only on tables and matrices!</source>
         <translation>cell() 只能用于表格和矩阵！</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="378"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="371"/>
         <source>There&apos;s no row %1 in matrix %2!</source>
         <translation>矩阵 %2 中没有行 %1 ！</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="382"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="375"/>
         <source>There&apos;s no column %1 in matrix %2!</source>
         <translation>矩阵 %2 中没有列 %1！</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="431"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="436"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="424"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="429"/>
         <source>Accessing table values is not (yet) supported in this context.</source>
         <translation>在此上下文中不支持访问表值。</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="474"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="467"/>
         <source>There&apos;s no column named %1 in table %2!</source>
         <translation>表格 %2 中没有名为 %1 的列！</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="589"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="582"/>
         <source>tablecol: wrong number of arguments (need 2, got %1)</source>
         <translation>tablecol: 错误的参数数量 (需要 2 个, 但是得到 %1 个)</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="618"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="611"/>
         <source>cell: wrong number of arguments (need 2, got %1)</source>
         <translation>单元格: 参数个数错误 (需要 2 个, 但得到 %1 个)</translation>
     </message>
@@ -10398,343 +10398,343 @@ n 阶正则圆柱贝塞尔函数的第 s 个正零 x_s，J_n（x_s）= 0</transl
 <context>
     <name>Plot3DDialog</name>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="62"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="58"/>
         <source>Surface Plot Options</source>
         <translation>曲面图选项</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="72"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="68"/>
         <source>&amp;Apply</source>
         <translation>应用(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="74"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="70"/>
         <source>&amp;OK</source>
         <translation>确定(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="77"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="73"/>
         <source>&amp;Cancel</source>
         <translation>取消(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="101"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="152"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="97"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="148"/>
         <source>X</source>
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="102"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="153"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="98"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="149"/>
         <source>Y</source>
         <translation>Y</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="103"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="154"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="99"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="150"/>
         <source>Z</source>
         <translation>Z</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="108"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="104"/>
         <source>From</source>
         <translation>从</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="112"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="108"/>
         <source>To</source>
         <translation>到</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="116"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="112"/>
         <source>Type</source>
         <translation>类型</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="118"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="114"/>
         <source>linear</source>
         <translation>线性</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="119"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="115"/>
         <source>logarithmic</source>
         <translation>对数</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="128"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="124"/>
         <source>Major Ticks</source>
         <translation>主刻度</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="131"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="127"/>
         <source>Minor Ticks</source>
         <translation>次刻度</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="146"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="142"/>
         <source>&amp;Scale</source>
         <translation>比例(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="159"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="155"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="162"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="158"/>
         <source>Axis Font</source>
         <translation>轴字体</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="165"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="161"/>
         <source>&amp;Choose font</source>
         <translation>选择字体(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="174"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="170"/>
         <source>Major Ticks Length</source>
         <translation>主刻度长度</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="177"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="173"/>
         <source>Minor Ticks Length</source>
         <translation>次刻度长度</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="191"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="187"/>
         <source>&amp;Axis</source>
         <translation>轴(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="208"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="204"/>
         <source>&amp;Color</source>
         <translation>颜色(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="210"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="206"/>
         <source>&amp;Font</source>
         <translation>字体(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="222"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="218"/>
         <source>&amp;Title</source>
         <translation>标题(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="233"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="229"/>
         <source>Ma&amp;x</source>
         <translation>最大值(&amp;x)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="235"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="231"/>
         <source>&amp;Min</source>
         <translation>最小值(&amp;M)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="237"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="233"/>
         <source>Color Ma&amp;p</source>
         <translation>颜色表(&amp;p)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="241"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="237"/>
         <source>Data</source>
         <translation>数据</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="245"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="241"/>
         <source>&amp;Line</source>
         <translation>线(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="247"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="243"/>
         <source>&amp;Background</source>
         <translation>背景(&amp;B)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="251"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="247"/>
         <source>General</source>
         <translation>常规</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="255"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="251"/>
         <source>&amp;Axes</source>
         <translation>轴(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="257"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="253"/>
         <source>Lab&amp;els</source>
         <translation>标签(&amp;e)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="259"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="255"/>
         <source>&amp;Numbers</source>
         <translation>数字(&amp;N)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="261"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="257"/>
         <source>&amp;Grid</source>
         <translation>网格(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="265"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="261"/>
         <source>Coordinate System</source>
         <translation>坐标系</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="275"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="271"/>
         <source>Opacity</source>
         <translation>不透明度</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="287"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="283"/>
         <source>&amp;Colors</source>
         <translation>颜色(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="304"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="300"/>
         <source>Show Legend</source>
         <translation>显示图例</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="306"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="302"/>
         <source>Orthogonal</source>
         <translation>正交</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="309"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="420"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="305"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="416"/>
         <source>Line Width</source>
         <translation>线宽</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="314"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="310"/>
         <source>Resolution</source>
         <translation>分辨率</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="320"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="316"/>
         <source>Numbers Font</source>
         <translation>数字字体</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="321"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="317"/>
         <source>&amp;Choose Font</source>
         <translation>选择字体(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="324"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="320"/>
         <source>Distance labels - axis</source>
         <translation>标签 - 轴距离</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="335"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="331"/>
         <source>Zoom (%)</source>
         <translation>缩放（%）</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="342"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="338"/>
         <source>X Zoom (%)</source>
         <translation>X 缩放（%）</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="349"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="345"/>
         <source>Y Zoom (%)</source>
         <translation>Y 缩放（%）</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="356"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="352"/>
         <source>Z Zoom (%)</source>
         <translation>Z 缩放（%）</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="373"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="369"/>
         <source>&amp;General</source>
         <translation>常规(&amp;G)</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="391"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="387"/>
         <source>Style</source>
         <translation>样式</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="393"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="389"/>
         <source>Dot</source>
         <translation>点</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="394"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="390"/>
         <source>Cross Hair</source>
         <translation>叉丝</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="395"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="391"/>
         <source>Cone</source>
         <translation>圆锥体</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="403"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="437"/>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="523"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="399"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="433"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="519"/>
         <source>Width</source>
         <translation>宽度</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="407"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="403"/>
         <source>Smooth angles</source>
         <translation>平滑角</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="417"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="413"/>
         <source>Radius</source>
         <translation>半径</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="423"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="419"/>
         <source>Smooth line</source>
         <translation>平滑线</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="427"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="423"/>
         <source>Boxed</source>
         <translation>箱形框</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="440"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="436"/>
         <source>Quality</source>
         <translation>质量</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="457"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="453"/>
         <source>Points</source>
         <translation>点</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="528"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="524"/>
         <source>Bars</source>
         <translation>棒</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="576"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="572"/>
         <source>Colormap files</source>
         <translation>颜色表文件</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="842"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="838"/>
         <source>Start limit error</source>
         <translation>起始极限误差</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="852"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="848"/>
         <source>End limit error</source>
         <translation>终末极限误差</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="859"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="855"/>
         <source>Input error</source>
         <translation>输入错误</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Plot3DDialog.cpp" line="860"/>
+        <location filename="../src/plot3D/Plot3DDialog.cpp" line="856"/>
         <source>Please enter scale limits that satisfy: from &lt; to!</source>
         <translation>请输入满足以下要求的比例限制：从 &lt; 到！</translation>
     </message>
@@ -12324,7 +12324,7 @@ n 阶正则圆柱贝塞尔函数的第 s 个正零 x_s，J_n（x_s）= 0</transl
         <translation>%1：垂直镜像</translation>
     </message>
     <message>
-        <location filename="../src/table/AsciiTableImportFilter.h" line="69"/>
+        <location filename="../src/table/AsciiTableImportFilter.h" line="70"/>
         <source>ASCII table</source>
         <translation>ASCII 表格</translation>
     </message>

@@ -31,6 +31,8 @@
 #ifndef MAKHBER_GLOBALS_H
 #define MAKHBER_GLOBALS_H
 
+#include "core/MakhberDefs.h"
+
 #include <QObject>
 #include <QString>
 
@@ -38,7 +40,7 @@
 /**
  * This class must not be instanced. All members are static.
  */
-class Makhber : public QObject
+class MAKHBER_EXPORT Makhber : public QObject
 {
     Q_OBJECT
 

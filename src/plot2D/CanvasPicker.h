@@ -40,7 +40,7 @@ class ArrowMarker;
  * CanvasPicker relies heavily on its parent being the Graph that owns the Plot it operates on.
  * Additionally, parts of the code use Graph::plotWidget instead of CanvasPicker::plotWidget.
  */
-class CanvasPicker : public QObject
+class MAKHBER_EXPORT CanvasPicker : public QObject
 {
     Q_OBJECT
 public:

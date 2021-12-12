@@ -41,7 +41,7 @@ class QGroupBox;
 class QPushButton;
 
 //! Import ASCII file(s) dialog
-class ImportASCIIDialog : public ExtensibleFileDialog
+class MAKHBER_EXPORT ImportASCIIDialog : public ExtensibleFileDialog
 {
     Q_OBJECT
 

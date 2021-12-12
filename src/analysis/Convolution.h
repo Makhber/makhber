@@ -31,7 +31,7 @@
 
 #include "analysis/Filter.h"
 
-class Convolution : public Filter
+class MAKHBER_EXPORT Convolution : public Filter
 {
     Q_OBJECT
 
@@ -59,7 +59,7 @@ private:
     int d_n_response {};
 };
 
-class Deconvolution : public Convolution
+class MAKHBER_EXPORT Deconvolution : public Convolution
 {
     Q_OBJECT
 

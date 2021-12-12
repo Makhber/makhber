@@ -30,6 +30,8 @@
 #ifndef TEX_TABLE_SETTINGS_H
 #define TEX_TABLE_SETTINGS_H
 
+#include "core/MakhberDefs.h"
+
 //! Definition of TeX table column alignment.
 enum ColumAlignment { ALIGN_LEFT = 0, ALIGN_CENTER = 1, ALIGN_RIGHT = 2 };
 
@@ -38,7 +40,7 @@ enum ColumAlignment { ALIGN_LEFT = 0, ALIGN_CENTER = 1, ALIGN_RIGHT = 2 };
  *  The TeXTableSettings calss stores the information about the parameters of a TeX table, for
  *example, the columns aligment or whether the TeX table contains the columns labels, etc.
  **/
-class TeXTableSettings
+class MAKHBER_EXPORT TeXTableSettings
 {
 public:
     TeXTableSettings(void);
