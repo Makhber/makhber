@@ -75,7 +75,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
       WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/tmp
     )
     set_tests_properties( python_${test_name} PROPERTIES
-      ENVIRONMENT PYTHONPATH=${PYTHONPATH_TEST}
+      ENVIRONMENT PYTHONPATH=$<IF:$<BOOL:${MULTI_CONFIG}>,${SIP_BUILD_PATH}/$<CONFIG>/makhber,${SIP_BUILD_PATH}>
     )
   endforeach()
 

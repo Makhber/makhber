@@ -258,9 +258,15 @@ else()
   endif()
 
   if( WIN32 )
-    set( module_file ${CMAKE_CURRENT_BINARY_DIR}/build/makhber/makhber.pyd )
+    set( module_name makhber.pyd )
   else()
-    set( module_file ${CMAKE_CURRENT_BINARY_DIR}/build/makhber/makhber${_Python3_EXT_SUFFIX} )
+    set( module_name makhber${_Python3_EXT_SUFFIX} )
+  endif()
+
+  if( MULTI_CONFIG )
+    set( module_file ${SIP_BUILD_PATH}/$<CONFIG>/makhber/${module_name} )
+  else()
+    set( module_file ${SIP_BUILD_PATH}/${module_name} )
   endif()
 
   if( NOT MSVC )
@@ -286,6 +292,7 @@ else()
       --qmake-setting "CONFIG += c++17 strict_c++"
       --qmake-setting $<IF:$<CONFIG:Debug>,"CONFIG+=debug","CONFIG+=release">
       --qmake-setting CONFIG+=$<$<BOOL:${CMAKE_INTERPROCEDURAL_OPTIMIZATION}>:"ltcg">
+      --build-dir $<IF:$<BOOL:${MULTI_CONFIG}>,"build/$<CONFIG>","build">
     DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
     COMMAND_EXPAND_LISTS
     COMMENT "Building Makhber Python Module...\n"
