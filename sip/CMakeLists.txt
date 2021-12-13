@@ -276,12 +276,21 @@ else()
     set( QMAKE_CXX "cl" )
   endif()
 
-  include( ProcessorCount )
-  ProcessorCount( ncpu )
+  if( MSVC AND NOT(CMAKE_CXX_COMPILER_ID STREQUAL "Clang") )
+    set( SIP_EXTRA_OPTIONS --qmake-setting QMAKE_CXXFLAGS+="/MP" )
+  elseif( MINGW )
+    set( SIP_EXTRA_OPTIONS --concatenate 1 )
+  else()
+    include( ProcessorCount )
+    ProcessorCount( ncpu )
+    set( SIP_EXTRA_OPTIONS --jobs ${ncpu} )
+  endif()
 
   add_custom_command( OUTPUT ${module_file}
-    COMMAND ${SIP_Build_EXECUTABLE} --verbose --jobs ${ncpu} --concatenate $<IF:$<BOOL:${WIN32}>,1,${ncpu}>
+    COMMAND ${SIP_Build_EXECUTABLE} --verbose
+      ${SIP_EXTRA_OPTIONS}
       --qmake-setting QMAKE_CXX=${QMAKE_CXX}
+      --qmake-setting "CONFIG += c++17 strict_c++"
       --qmake-setting $<IF:$<CONFIG:Debug>,"CONFIG+=debug","CONFIG+=release">
       --qmake-setting CONFIG+=$<$<BOOL:${CMAKE_INTERPROCEDURAL_OPTIMIZATION}>:"ltcg">
     DEPENDS "makhber.sip" libmakhber ${CMAKE_CURRENT_BINARY_DIR}/pyproject.toml
