@@ -78,10 +78,10 @@ public:
         return input_value.toString(d_format);
     }
 
-    //! \name XML related functions
+    //! \name Json related functions
     //@{
     virtual void writeExtraAttributes(QJsonObject *) const;
-    virtual bool load(XmlStreamReader *reader);
+    virtual bool load(QJsonObject *reader);
     //@}
 
 protected:

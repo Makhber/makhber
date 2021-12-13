@@ -139,13 +139,13 @@ public Q_SLOTS:
     void setYAxisLabelFont(const QFont &fnt);
     void setZAxisLabelFont(const QFont &fnt);
 
-    void setXAxisLabelFont(const QStringList &lst);
-    void setYAxisLabelFont(const QStringList &lst);
-    void setZAxisLabelFont(const QStringList &lst);
+    void setXAxisLabelFont(QJsonObject *jsFont);
+    void setYAxisLabelFont(QJsonObject *jsFont);
+    void setZAxisLabelFont(QJsonObject *jsFont);
 
     QFont numbersFont();
     void setNumbersFont(const QFont &font);
-    void setNumbersFont(const QStringList &lst);
+    void setNumbersFont(QJsonObject *jsFont);
 
     double xStart();
     double xStop();
@@ -205,7 +205,7 @@ public Q_SLOTS:
 
     void setStyle(Qwt3D::COORDSTYLE coord, Qwt3D::FLOORSTYLE floor, Qwt3D::PLOTSTYLE plot,
                   Graph3D::PointStyle point);
-    void setStyle(const QStringList &st);
+    void setStyle(QJsonObject *jsStyle);
     void customPlotStyle(int style);
     void resetNonEmptyStyle();
 
@@ -272,7 +272,7 @@ public Q_SLOTS:
     void setDataColorMap(const QString &fileName);
     bool openColorMap(Qwt3D::ColorVector &cv, QString fname);
 
-    void setColors(const QStringList &colors);
+    void setColors(QJsonObject *jsColors);
     void setColors(const QColor &meshColor, const QColor &axesColor, const QColor &numColor,
                    const QColor &labelColor, const QColor &bgColor, const QColor &gridColor);
     //@}
@@ -301,7 +301,7 @@ public Q_SLOTS:
     //@}
 
     void setOptions(bool legend, int r, int dist);
-    void setOptions(const QStringList &lst);
+    void setOptions(QJsonObject *jsOptions);
     void update();
 
     //! \name Bars

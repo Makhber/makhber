@@ -175,7 +175,7 @@ public Q_SLOTS:
 
     void setColName(int col, const QString &text);
     void setHeader(QStringList header);
-    void importV0x0001XXHeader(QStringList header);
+    void importV0x0001XXHeader(QJsonArray *jsHeaders);
     void setText(int row, int col, const QString &text);
 
     void clearCell(int row, int col);
@@ -203,7 +203,7 @@ public Q_SLOTS:
     int colY(int col);
 
     //! Set all column formulae.
-    void setCommands(const QStringList &com);
+    void setCommands(QJsonArray *jsCommands);
     //! Set all column formulae.
     void setCommands(const QString &com);
     //! Set formula for column col.
@@ -240,7 +240,7 @@ public Q_SLOTS:
     int selectedColsNumber();
 
     int columnWidth(int col);
-    void setColWidths(const QStringList &widths);
+    void setColWidths(QJsonArray *jsColWidths);
 
     int numSelectedRows();
 
@@ -248,7 +248,7 @@ public Q_SLOTS:
 
     QList<Makhber::ColumnMode> columnTypes();
     void setColumnTypes(QList<Makhber::ColumnMode> ctl);
-    void setColumnTypes(const QStringList &ctl);
+    void setColumnTypes(QJsonArray *jsColTypes);
     void setColumnType(int col, Makhber::ColumnMode mode);
 
     QString columnFormat(int col);
@@ -279,11 +279,11 @@ public Q_SLOTS:
     QString colComment(int col);
     void setColComment(int col, const QString &s);
     QStringList colComments();
-    void setColComments(const QStringList &lst);
+    void setColComments(QJsonArray *jsComments);
     bool commentsEnabled();
 
     void saveAsTemplate(QJsonObject *, const QJsonObject &);
-    void restore(const QStringList &lst);
+    void restore(QJsonObject *jsTable);
 
 Q_SIGNALS:
     void changedColHeader(const QString &, const QString &);

@@ -4,66 +4,57 @@
 <context>
     <name>AbstractAspect</name>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="74"/>
         <source>XML read error: </source>
         <comment>prefix for XML error messages</comment>
-        <translation>Fehler beim Lesen von XML-Daten:</translation>
+        <translation type="vanished">Fehler beim Lesen von XML-Daten:</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="75"/>
         <source> (non-critical)</source>
         <comment>postfix for XML error messages</comment>
-        <translation> (unkritisch)</translation>
+        <translation type="vanished"> (unkritisch)</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="83"/>
         <source>aspect name missing or empty</source>
-        <translation>Name des Aspekts fehlt oder ist leer</translation>
+        <translation type="vanished">Name des Aspekts fehlt oder ist leer</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="90"/>
         <source>Invalid creation time for &apos;%1&apos;. Using current time.</source>
-        <translation>Ungültiger Erstellzeitpunkt für &apos;%1&apos;. Aktueller Zeitpunkt wird stattdessen verwendet.</translation>
+        <translation type="vanished">Ungültiger Erstellzeitpunkt für &apos;%1&apos;. Aktueller Zeitpunkt wird stattdessen verwendet.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="110"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="96"/>
         <source>%1: add %2.</source>
         <translation>%1: füge %2 hinzu.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="112"/>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="127"/>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="159"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="98"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="113"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="145"/>
         <source>Renaming &quot;%1&quot; to &quot;%2&quot; in order to avoid name collision.</source>
         <translation>&quot;%1&quot; wird umbenannt nach &quot;%2&quot;, um eine Namenskollision zu vermeiden.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="125"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="111"/>
         <source>%1: insert %2 at position %3.</source>
         <translation>%1: füge %2 an Position %3 ein.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="139"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="125"/>
         <source>%1: remove %2.</source>
         <translation>%1: entferne %2.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="157"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="143"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1: verschiebe %2 nach %3.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="247"/>
-        <source>Tabs and line breaks in object names are currently not supported. They have been removed.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="252"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="227"/>
         <source>Intended name &quot;%1&quot; diverted to &quot;%2&quot; in order to avoid name collision.</source>
         <translation>Beabsichtigter Name &quot;%1&quot; wird geändert nach &quot;%2&quot;, um eine Namenskollision zu vermeiden.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="358"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="333"/>
         <source>%1: remove all children.</source>
         <translation>%1: entferne alle Kindelemente.</translation>
     </message>
@@ -89,47 +80,44 @@
 <context>
     <name>AbstractSimpleFilter</name>
     <message>
-        <location filename="../src/aspects/AbstractSimpleFilter.cpp" line="149"/>
         <source>incompatible filter type</source>
-        <translation>inkompatibler Filter-Typ</translation>
+        <translation type="vanished">inkompatibler Filter-Typ</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractSimpleFilter.cpp" line="166"/>
         <source>unknown element &apos;%1&apos;</source>
-        <translation>unbekanntes Element: &apos;%1&apos;</translation>
+        <translation type="vanished">unbekanntes Element: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractSimpleFilter.cpp" line="173"/>
         <source>no simple filter element found</source>
-        <translation>Kein Element vom Typ SimpleFilter gefunden</translation>
+        <translation type="vanished">Kein Element vom Typ SimpleFilter gefunden</translation>
     </message>
 </context>
 <context>
     <name>Application</name>
     <message>
-        <location filename="../src/main/main.cpp" line="146"/>
-        <location filename="../src/main/main.cpp" line="153"/>
+        <location filename="../src/main/main.cpp" line="142"/>
+        <location filename="../src/main/main.cpp" line="149"/>
         <source>Error!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="147"/>
+        <location filename="../src/main/main.cpp" line="143"/>
         <source>Error </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="147"/>
+        <location filename="../src/main/main.cpp" line="143"/>
         <source> sending event </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="148"/>
-        <location filename="../src/main/main.cpp" line="155"/>
+        <location filename="../src/main/main.cpp" line="144"/>
+        <location filename="../src/main/main.cpp" line="151"/>
         <source> to object </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/main/main.cpp" line="154"/>
+        <location filename="../src/main/main.cpp" line="150"/>
         <source>Error &lt;unknown&gt; sending event</source>
         <translation type="unfinished"></translation>
     </message>
@@ -137,898 +125,891 @@
 <context>
     <name>ApplicationWindow</name>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="198"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="195"/>
         <source>UNTITLED</source>
         <translation>UNBENANNT</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="213"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11257"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="210"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10543"/>
         <source>&amp;Next</source>
         <comment>next window</comment>
         <translation>&amp;Nächstes</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="215"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11258"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="212"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10544"/>
         <source>&amp;Previous</source>
         <comment>previous window</comment>
         <translation>&amp;Voriges</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="236"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="719"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="233"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="716"/>
         <source>Project Explorer</source>
         <translation>Projektexplorer</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="246"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12685"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13029"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="243"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11902"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12247"/>
         <source>Folder</source>
         <translation>Ordner</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="279"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="713"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="276"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="710"/>
         <source>Name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="279"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="714"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12647"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12685"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13000"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13003"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13006"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13009"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13012"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="276"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="711"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11863"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11902"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12218"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12221"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12224"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12227"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12230"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="279"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="715"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="276"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="712"/>
         <source>View</source>
         <translation>Ansicht</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="279"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="716"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12663"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12668"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12692"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13015"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="276"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="713"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11879"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11884"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11909"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12233"/>
         <source>Created</source>
         <translation>Erstellt</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="279"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="717"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12996"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="276"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="714"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12214"/>
         <source>Label</source>
         <translation>Beschriftung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="291"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="720"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="288"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="717"/>
         <source>Results Log</source>
         <translation>Ergebnis-Log</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="301"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="722"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="298"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="719"/>
         <source>Scripting Console</source>
         <translation>Skriptkonsole</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="325"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="322"/>
         <source>F5</source>
         <comment>next window shortcut</comment>
         <translation>F5</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="328"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="325"/>
         <source>F6</source>
         <comment>previous window shortcut</comment>
         <translation>F6</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="415"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="727"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="412"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="724"/>
         <source>File</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="433"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="430"/>
         <source>New Aspect</source>
         <translation>Neuer Aspekt</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="453"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="728"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="450"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="725"/>
         <source>Edit</source>
         <translation>Bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="465"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="726"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1829"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1864"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1876"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1917"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1930"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1950"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2004"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2098"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2167"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2215"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2266"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2326"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4045"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7051"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7067"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11390"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11460"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12971"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13009"/>
-        <location filename="../src/core/ApplicationWindow.h" line="519"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="462"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="723"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1826"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1861"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1873"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1914"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1927"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1947"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2001"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2095"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2164"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2212"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2263"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2323"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3836"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6819"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6835"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10676"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10746"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12189"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12227"/>
+        <location filename="../src/core/ApplicationWindow.h" line="514"/>
         <source>Graph</source>
         <translation>Grafik</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="473"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="470"/>
         <source>Disable &amp;Tools</source>
         <translation>Werkzeuge deak&amp;tivieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="487"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="484"/>
         <source>Manage layers</source>
         <translation>Ebenen verwalten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="500"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="497"/>
         <source>Add curves / error bars</source>
         <translation>Kurve / Fehlerbalken hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="512"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="509"/>
         <source>Enrichments</source>
         <translation>Verzierung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="515"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11253"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="512"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10539"/>
         <source>Add &amp;Text</source>
         <translation>&amp;Text hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="516"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11255"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="513"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10541"/>
         <source>ALT+T</source>
         <translation>ALT+T</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="522"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11260"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="519"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10546"/>
         <source>Draw &amp;Arrow</source>
         <translation>&amp;Pfeil zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="523"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11261"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="520"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10547"/>
         <source>CTRL+ALT+A</source>
         <translation>Ctrl+Alt+A</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="529"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11264"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="526"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10550"/>
         <source>Draw &amp;Line</source>
         <translation>&amp;Linie zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="530"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11265"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="527"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10551"/>
         <source>CTRL+ALT+L</source>
         <translation>Ctrl+ALT+L</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="542"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11226"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="539"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10512"/>
         <source>&amp;Zoom In</source>
         <translation>Rein&amp;zoomen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="543"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11227"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="540"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10513"/>
         <source>Ctrl++</source>
         <translation>Ctrl++</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="549"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="546"/>
         <source>&amp;Zoom Out</source>
         <translation>Heraus&amp;zoomen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="550"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11231"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="547"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10517"/>
         <source>Ctrl+-</source>
         <translation>Ctrl+-</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="560"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11242"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="557"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10528"/>
         <source>S&amp;creen Reader</source>
         <translation>&amp;Bildschirmleser</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="566"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11234"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="563"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10520"/>
         <source>&amp;Data Reader</source>
         <translation>&amp;Datenleser</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="567"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11235"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="564"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10521"/>
         <source>CTRL+D</source>
         <translation>Ctrl+D</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="573"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11238"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="570"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10524"/>
         <source>&amp;Select Data Range</source>
         <translation>Datenbereich au&amp;swählen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="574"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11239"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="571"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10525"/>
         <source>ALT+S</source>
         <translation>ALT+S</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="580"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11245"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="577"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10531"/>
         <source>&amp;Move Data Points...</source>
         <translation>Datenpunkte &amp;verschieben...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="581"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11246"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="578"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10532"/>
         <source>Ctrl+ALT+M</source>
         <translation>Ctrl+Alt+M</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="586"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11249"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="583"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10535"/>
         <source>Remove &amp;Bad Data Points...</source>
         <translation>Datenausreißer &amp;entfernen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="587"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11250"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="584"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10536"/>
         <source>Alt+B</source>
         <translation>Alt+B</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="594"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="725"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="591"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="722"/>
         <source>Plot</source>
         <translation>Diagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="604"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="601"/>
         <source>Lines and/or symbols</source>
         <translation>Linien und/oder Symbole</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="644"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="724"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2439"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2452"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2674"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7055"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12965"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13003"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="641"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="721"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2436"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2449"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2671"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6823"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12183"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12221"/>
         <source>Table</source>
         <translation>Tabelle</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="662"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="729"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="659"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="726"/>
         <source>Matrix Plot</source>
         <translation>Matrix-Diagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="730"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8665"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="727"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8430"/>
         <source>3D Surface</source>
         <translation>3D-Oberflächendiagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="732"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="772"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="729"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="769"/>
         <source>&amp;File</source>
         <translation>&amp;Datei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="733"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="823"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="730"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="820"/>
         <source>&amp;Edit</source>
         <translation>B&amp;earbeiten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="734"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="845"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="731"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="842"/>
         <source>&amp;View</source>
         <translation>&amp;Ansicht</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="735"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="984"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="732"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="981"/>
         <source>Scripting</source>
         <translation>Skriptunterstützung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="736"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="864"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="733"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="861"/>
         <source>&amp;Graph</source>
         <translation>&amp;Grafik</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="737"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="886"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8015"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="734"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="883"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7780"/>
         <source>3D &amp;Plot</source>
         <translation>3D-Dia&amp;gramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="738"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="906"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5783"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="735"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="903"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5550"/>
         <source>&amp;Matrix</source>
         <translation>&amp;Matrix</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="739"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="910"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="736"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="907"/>
         <source>&amp;Table</source>
         <translation>&amp;Tabelle</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="740"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1042"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="737"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1039"/>
         <source>&amp;Plot</source>
         <translation>D&amp;iagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="741"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="743"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="918"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1093"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="738"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="740"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="915"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1090"/>
         <source>&amp;Analysis</source>
         <translation>Ana&amp;lyse</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="742"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1020"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="739"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1017"/>
         <source>&amp;Tools</source>
         <translation>&amp;Werkzeuge</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="744"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="950"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="741"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="947"/>
         <source>&amp;Quick Fit</source>
         <translation>&amp;Schnellanpassung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="745"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="980"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="742"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="977"/>
         <source>For&amp;mat</source>
         <translation>For&amp;mat</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="746"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="988"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="743"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="985"/>
         <source>&amp;Windows</source>
         <translation>&amp;Fenster</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="747"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="993"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10660"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11148"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="744"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="990"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9946"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10434"/>
         <source>&amp;Help</source>
         <translation>&amp;Hilfe</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="749"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="775"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="746"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="772"/>
         <source>&amp;New</source>
         <translation>&amp;Neu</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="750"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="787"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="747"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="784"/>
         <source>&amp;Recent Projects</source>
         <translation>&amp;Zuletzt geöffnete Projekte</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="751"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="805"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="748"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="802"/>
         <source>&amp;Export Graph</source>
         <translation>Grafik &amp;exportieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="753"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1048"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="750"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1045"/>
         <source>Special Line/Symb&amp;ol</source>
         <translation>Spezielle Linie/Symb&amp;ol</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="754"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1066"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="751"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1063"/>
         <source>Statistical &amp;Graphs</source>
         <translation>Statistische &amp;Diagramme</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="755"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1072"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="752"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1069"/>
         <source>Pa&amp;nel</source>
         <translation>&amp;Feld</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="756"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1081"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="753"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1078"/>
         <source>3&amp;D Plot</source>
         <translation>3&amp;D-Diagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="758"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="920"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7777"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7892"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="755"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="917"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7542"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7657"/>
         <source>&amp;Translate</source>
         <translation>&amp;Verschieben</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="759"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="931"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7786"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7901"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="756"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="928"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7551"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7666"/>
         <source>&amp;Smooth</source>
         <translation>&amp;Glätten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="760"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="937"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7791"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7906"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="757"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="934"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7556"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7671"/>
         <source>&amp;FFT Filter</source>
         <translation>&amp;FFT Filter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="761"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="957"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7805"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7920"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="758"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="954"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7570"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7685"/>
         <source>Fit E&amp;xponential Decay</source>
         <translation>E&amp;ponentiellen Abfall anpassen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="762"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7815"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7930"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="759"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7580"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7695"/>
         <source>Fit &amp;Multi-Peak</source>
         <translation>Anpassung mit &amp;mehreren Scheitelpunkten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="849"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11017"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="846"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10303"/>
         <source>Toolbars</source>
         <translation>Toolbars</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="968"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="965"/>
         <source>Fit &amp;Multi-peak</source>
         <translation>Anpassung mit &amp;mehreren Scheitelpunkten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1392"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1430"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1450"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1470"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1483"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1389"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1427"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1447"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1467"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1480"/>
         <source>Plot error</source>
         <translation>Darstellungsfehler</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1393"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1431"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1451"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1471"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1484"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1390"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1428"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1448"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1468"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1481"/>
         <source>You must select exactly one column for plotting!</source>
         <translation>Sie müssen exakt ein Spalte für dieses Diagramm auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1488"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1497"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1515"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1534"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2898"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2905"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2914"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5106"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5110"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5119"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5131"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5190"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5201"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5470"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5488"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5506"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5525"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11724"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11779"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11785"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12527"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12535"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13558"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13564"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13569"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13573"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13586"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13592"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13595"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13599"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1485"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1494"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1512"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1531"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2895"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2902"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2911"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4871"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4875"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4884"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4896"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4955"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4966"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5237"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5255"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5273"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5292"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11010"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11062"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11068"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11743"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11751"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12778"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12784"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12789"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12793"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12806"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12812"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12815"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12819"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1489"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13600"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1486"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12820"/>
         <source>Please set a default X column for this table, first!</source>
         <translation>Bitte zuerst eine Spalte als Standard X-Spalte der Tabelle auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1497"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13586"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1494"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12806"/>
         <source>Please select a column to plot!</source>
         <translation>Bitte wählen Sie eine zu plottende Spalte aus!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1516"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1535"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1513"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1532"/>
         <source>Please select four columns for this operation!</source>
         <translation>Bitte vier Spalten für diese Operation auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1684"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1693"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1749"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2802"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2813"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2819"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4827"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5674"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5975"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5984"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6018"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6037"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6051"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6079"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6093"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6124"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6160"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6492"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6513"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6524"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6529"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6545"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6553"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6577"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6595"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6634"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6658"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6696"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6718"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6762"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8138"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8225"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11588"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11600"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11620"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11632"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11662"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11674"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13299"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1681"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1690"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1746"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2799"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2810"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2816"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4601"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5441"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5742"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5751"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5785"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5804"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5818"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5846"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5860"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5891"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5927"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6259"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6280"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6291"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6296"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6312"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6320"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6344"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6362"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6399"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6426"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6464"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6486"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6530"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7903"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7990"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10874"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10886"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10906"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10918"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10948"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10960"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12518"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1685"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8139"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1682"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7904"/>
         <source>&lt;h4&gt;There are no tables available in this project.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Please create a table and try again!&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;Keine Tabellen vorhanden in diesem Projekt&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Bitte erstellen Sie eine Tabelle und versuchen Sie es noch einmal.&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1694"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1691"/>
         <source>There are no available columns with plot designation set to Z!</source>
         <translation>Es gibt keine verfügbaren Spalten mit Darstellungszuordnung Z!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1698"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1708"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1695"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1705"/>
         <source>Column</source>
         <translation>Spalte</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1701"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1712"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1698"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1709"/>
         <source>Choose data set</source>
         <translation>Datensatz wählen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1720"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1755"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2605"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2607"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8873"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12962"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13000"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1717"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1752"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2602"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2604"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8638"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12180"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12218"/>
         <source>Matrix</source>
         <translation>Matrix</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1724"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1759"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1721"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1756"/>
         <source>Choose matrix to plot</source>
         <translation>Sarzustellende Matrix auswählen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="1750"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="1747"/>
         <source>&lt;h4&gt;There are no matrices available in this project.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Please create a matrix and try again!&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;Es sind keine Matrizen in diesem Projekt vorhanden.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Bitte eine Matrix erzeugen und noch einemal versuchen!&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2056"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2077"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6669"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2053"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2074"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6437"/>
         <source>Images</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2065"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2062"/>
         <source>Import image from file</source>
         <translation>Bild aus Datei importieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2086"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2083"/>
         <source>Load image from file</source>
         <translation>Bild aus Datei laden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2128"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5316"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2125"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5081"/>
         <source>Y Axis Title</source>
         <translation>Y-Achsentitel</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2129"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5291"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2126"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5056"/>
         <source>X Axis Title</source>
         <translation>X-Achsentitel</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2424"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2421"/>
         <source>pixels</source>
         <translation>Pixel</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2425"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2422"/>
         <source>pixel intensity (a.u.)</source>
         <translation>Pixelintensität (a.u.)</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2470"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2467"/>
         <source>Renamed Window</source>
         <translation>Umbenanntes Fenster</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2471"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2468"/>
         <source>The table &apos;%1&apos; already exists. It has been renamed &apos;%2&apos;.</source>
         <translation>Die Tabelle &apos;%1&apos; existiert bereits. Sie wurde in &apos;%2&apos; umbenannt.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2570"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2581"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2567"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2578"/>
         <source>Notes</source>
         <translation>Notizen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2639"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2636"/>
         <source>Determinant of </source>
         <translation>Determinante von</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2803"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5191"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5976"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6038"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6080"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6493"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6546"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6578"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6596"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6635"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6659"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6697"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6719"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8226"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11589"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11621"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11663"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2800"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4956"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5743"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5805"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5847"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6260"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6313"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6345"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6363"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6400"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6427"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6465"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6487"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7991"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10875"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10907"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10949"/>
         <source>&lt;h4&gt;There are no plot layers available in this window.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Please add a layer and try again!&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;Keine Ebenen in diesem Fenster verfügbar.&lt;/h4&gt;&lt;p&gt;&lt;h4&gt;Bitte fügen Sie eine Ebene hinzu und versuchen Sie es noch einmal.&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2814"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6525"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2811"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6292"/>
         <source>There are no curves available on this plot!</source>
         <translation>In diesem Diagramm existieren keine Kurven!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2820"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5202"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5985"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6052"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6094"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6530"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6554"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11601"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11633"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11675"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2817"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4967"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5752"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5819"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5861"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6297"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6321"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10887"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10919"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10961"/>
         <source>This functionality is not available for pie plots!</source>
         <translation>Diese Funktionalität existiert nicht für Tortendiagramme!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2849"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2846"/>
         <source>Error bars error</source>
         <translation>Fehlerbalken-Fehler</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2850"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2899"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2847"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2896"/>
         <source>This feature is not available for user defined function curves!</source>
         <translation>Diese Funktion steht für benutzerdefinierte Funktionskurven nicht zur Verfügung!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2906"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2903"/>
         <source>The selected columns have different numbers of rows!</source>
         <translation>Die ausgewählten Spalen haben eine unterschiedliche Anzahl Zeilen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="2915"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="2912"/>
         <source>You can only define error bars for numeric columns.</source>
         <translation>Spalten für Fehlerbalken müssen numerischen Typ haben.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3275"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3285"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3272"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3282"/>
         <source>ASCII Import Failed</source>
         <translation>ASCII-Import fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3276"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3273"/>
         <source>Numeric data cannot be imported into non-numeric column &quot;%1&quot;.</source>
         <translation>Numerische Daten können nicht in nicht-numerische Splate &quot;%1&quot; importiert werden.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3286"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3283"/>
         <source>Non-numeric data cannot be imported into non-text column &quot;%1&quot;.</source>
         <translation>Nicht-numerische Daten können nicht in nicht-Text-Spalte &quot;%1&quot; importiert werden.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3305"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3302"/>
         <source>new_by_import</source>
         <translation>neu_aus_import</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3373"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3389"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3412"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3434"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3481"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3512"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3519"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3529"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3537"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3562"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3586"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3600"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3615"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3642"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3783"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3980"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4000"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4012"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4129"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11809"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11813"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11818"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12018"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12024"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12075"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3370"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3381"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3399"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3421"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3462"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3485"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3492"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3501"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3516"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3538"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3788"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3806"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3903"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11092"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11096"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11101"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11292"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11304"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11310"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11352"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11363"/>
         <source>File opening error</source>
         <translation>Fehler beim Öffnen der Datei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3374"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3371"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; is the current file!</source>
         <translation>Die Datei &lt;b&gt;%1&lt;/b&gt; ist die aktuelle Datei!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3390"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3981"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11819"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12019"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3382"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3789"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11102"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11305"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; doesn&apos;t exist!</source>
         <translation>Die Datei &lt;b&gt;%1&lt;/b&gt; existiert nicht!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3413"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3601"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3400"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3517"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is not a valid project file.</source>
         <translation>Die Datei &lt;b&gt;%1&lt;/b&gt; ist keine gültige Projektdatei.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3467"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3448"/>
         <source>File Open Error</source>
         <translation>Fehler beim Öffnen der Datei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3468"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3449"/>
         <source>The file: &lt;b&gt; %1 &lt;/b&gt; &lt;p&gt;does not exist anymore!&lt;p&gt;It will be removed from the list.</source>
         <translation>Die Datei &lt;b&gt; %1 &lt;/b&gt; &lt;p&gt; existiert nicht mehr!&lt;p&gt;Sie wird aus der Liste entfernt.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3482"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3463"/>
         <source>The file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; is the current file!</source>
         <translation>Die Datei &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; ist die aktuelle!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3512"/>
         <source>zlib can&apos;t open %1.</source>
-        <translation>zlib kann %1 nicht öffnen.</translation>
+        <translation type="vanished">zlib kann %1 nicht öffnen.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3520"/>
         <source>Can&apos;t create temporary file for writing uncompressed copy of %1.</source>
-        <translation>Kann keine temporäre Datei anlegen für entpackte Kopie von %1.</translation>
+        <translation type="vanished">Kann keine temporäre Datei anlegen für entpackte Kopie von %1.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3538"/>
         <source>Error writing to temporary file: %1</source>
-        <translation>Fehler beim Schreiben der temporären Datei: %1</translation>
+        <translation type="vanished">Fehler beim Schreiben der temporären Datei: %1</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3587"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3502"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is corrupted, but there exists a backup copy.&lt;br&gt;Do you want to open the backup instead?</source>
         <translation>Die Datei &lt;b&gt;%1&lt;/b&gt; is korrupt, aber es existiert eine Sicherheitskopie.&lt;br&gt;Wollen Sie die Sicherheitskopie stattdessen öffnen?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3592"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3508"/>
         <source>Opening backup copy</source>
         <translation>Öffnen der Backup-Kopie</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3593"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3509"/>
         <source>The original (corrupt) file is being left untouched, in case you want to try rescuing data manually. If you want to continue working with the automatically restored backup copy, you have to explicitly overwrite the original file.</source>
         <translation>Die ursprüngliche (beschädigte) Datei wird nicht angefasst, für den Fall, dass Sie die Daten manuell retten wollen. Wenn Sie mit der automatisch wiederhergestellten Backup-Kopie weiterarbeiten wollen, müssen Sie die ursprüngliche Datei explizit überschreiben.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3643"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3539"/>
         <source>The file &quot;%1&quot; was created using &quot;%2&quot; as scripting language.
 
 Initializing support for this language FAILED; I&apos;m using &quot;%3&quot; instead.
@@ -1038,2640 +1019,2640 @@ Die Initialisierung dieser Sprache ist FEHLGESCHLAGEN; Es wird stattdessen &quot
 Einige Teile der Datei werden eventuell nicht wie erwartet dargestellt.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3657"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3593"/>
         <source>Window</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3664"/>
         <source>Opening file</source>
-        <translation>Datei öffnen</translation>
+        <translation type="vanished">Datei öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3784"/>
-        <source>Invalid WindowLabel line:
-&apos;%1&apos;
-in file %2.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3900"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3707"/>
         <source>Script Error</source>
         <translation>Skriptfehler</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3961"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3768"/>
         <source>Scripting Error</source>
         <translation>Skriptfehler</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3962"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3769"/>
         <source>Scripting language &quot;%1&quot; failed to initialize.</source>
         <translation>Skriptsprache &quot;%1&quot; konnte nicht initialisiert werden.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3973"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3780"/>
         <source>Open Template File</source>
         <translation>Vorlage öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4094"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3871"/>
         <source>Table1</source>
         <translation>Tabelle1</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4683"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4709"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4768"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4865"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5060"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6141"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4457"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4483"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4542"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4637"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4825"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5908"/>
         <source>Export Error</source>
         <translation>Exportfehler</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4684"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4458"/>
         <source>&lt;h4&gt;There are no plot layers available in this window!&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;Keine Ebenen in diesem Fenster vorhanden&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4710"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4769"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5061"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4484"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4543"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4826"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt; %1 &lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation>Konnte nicht in Datei &lt;br&gt;&lt;h4&gt; %1 &lt;/h4&gt; schreiben.&lt;p&gt;Bitte überprüfen Sie Ihre Schreibrechte!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4792"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4566"/>
         <source>Choose a directory to export the graphs to</source>
         <translation>Ein Verzeichnis für den Export der Grafik wählen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4796"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4570"/>
         <source>Output format:</source>
         <translation>Ausgabeformat:</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4797"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4571"/>
         <source>Directory:</source>
         <translation>Ordner:</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4828"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4602"/>
         <source>There are no plot layers available in window &lt;b&gt;%1&lt;/b&gt;.&lt;br&gt;Graph window not exported!</source>
         <translation>Es sind keine Grafikebenen mit Fenster &lt;b&gt;%1&lt;/b&gt; verfügbar.&lt;br&gt;Grafikfenster wurde nicht exportiert!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4844"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5409"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4618"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5175"/>
         <source>Overwrite file?</source>
         <translation>Datei überschreiben?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4845"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5410"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4619"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5176"/>
         <source>A file called: &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt;already exists. Do you want to overwrite it?</source>
         <translation>Eine Datei mit dem Namen &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt; existiert bereits. Wollen Sie sie überschreiben?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4849"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5414"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4622"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5179"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12521"/>
         <source>&amp;Yes</source>
         <translation>&amp;Ja</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4850"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5415"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10402"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10990"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4622"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5179"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9688"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10276"/>
         <source>&amp;All</source>
         <translation>&amp;Alle</translation>
     </message>
     <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4622"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5179"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6392"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8665"/>
         <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Abbrechen</translation>
+        <translation>&amp;Abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4866"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4638"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation>Konnte nicht in Datei &lt;br&gt;&lt;h4&gt; %1 &lt;/h4&gt; schreiben.&lt;p&gt;Bitte überprüfen Sie Ihre Schreibrechte!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4928"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4704"/>
         <source>Minimized</source>
         <translation>Minimiert</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4931"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7690"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4698"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7455"/>
         <source>Maximized</source>
         <translation>Maximiert</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4995"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3797"/>
+        <source>Template File opening error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4760"/>
         <source>Save Project As</source>
         <translation>Project speichern als</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5047"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4812"/>
         <source>Save Window As Template</source>
         <translation>Fenster als Vorlage speichern</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5106"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12527"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4871"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11743"/>
         <source>Please enter a valid name!</source>
         <translation>Bitte einen gültigen Namen eingeben!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5111"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4876"/>
         <source>The name you chose is not valid: only letters and digits are allowed!</source>
         <translation>Der eingegebene Name ist nicht gültig: Bitte nur Buchstaben und Ziffern eingeben!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5112"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5121"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5133"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12537"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4877"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4886"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4898"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11753"/>
         <source>Please choose another name!</source>
         <translation>Bitte einen anderen Namen wählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5120"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4885"/>
         <source>Name &lt;b&gt;%1&lt;/b&gt; already exists!</source>
         <translation>Der Name &lt;b&gt;%1&lt;/b&gt; existiert bereits!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5122"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4887"/>
         <source>Warning: for internal consistency reasons the underscore character is replaced with a minus sign.</source>
         <translation>Warnung: Um interne Konsistenz zu sichern, wurden Unterstriche durch ein Minuszeichen ersetzt.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5132"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4897"/>
         <source>The table name must be different from the names of its columns!</source>
         <translation>Der Name der Tabelle muss sich von den Namer seiner Spalten unterscheiden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5343"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5108"/>
         <source>Right Axis Title</source>
         <translation>Titel der rechten Achse</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5368"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5133"/>
         <source>Top Axis Title</source>
         <translation>Titel der oberen Achse</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5394"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5159"/>
         <source>Choose a directory to export the tables to</source>
         <translation>Bitte wählen Sie ein Verzeichnis für die zu exportierten Tabellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5446"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6129"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5213"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5896"/>
         <source>Choose a filename to save under</source>
         <translation>Dateiname zum Speichern auswählen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5471"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5238"/>
         <source>Please select two columns for this operation!</source>
         <translation>Bitte zwei Spalten für diese Operation auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5489"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5256"/>
         <source>Please select exactly one columns for this operation!</source>
         <translation>Bitte genau ein Spalte für diese Operation auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5507"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5526"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5274"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5293"/>
         <source>Please select two columns for this operation:
  the first represents the signal and the second the response function!</source>
         <translation>Bitte wählen Sie zwei Spalten für diese Operation aus:
 Die erste repräsentiert die Signal- und die zweite die Antwortfunktion!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5549"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5316"/>
         <source>Column selection error</source>
         <translation>Fehler bei der Spaltenauswahl</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5550"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5317"/>
         <source>Please select a column first!</source>
         <translation>Bitte zuerst eine Spalten auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5566"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5333"/>
         <source>Row selection error</source>
         <translation>Fehler bei der Zeilenauswahl</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5566"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5333"/>
         <source>Please select a row first!</source>
         <translation>Bitte zuerst eine Zeile auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5675"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5442"/>
         <source>Not available for empty 3D surface plots!</source>
         <translation>Nicht für 3D-Oberflächendiagramme ohne Daten verfügbar!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5781"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10836"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10867"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5548"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10122"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10153"/>
         <source>&amp;Worksheet</source>
         <translation>&amp;Arbeitsblatt</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6019"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6125"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6161"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5786"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5892"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5928"/>
         <source>&lt;h4&gt;There are no plot layers available in this window.&lt;/h4&gt;</source>
         <translation>&lt;h4&gt;Es sind keine Grafik-Ebenen in diesem Fenster vorhanden.&lt;/h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6057"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6100"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5824"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5867"/>
         <source>This will modify the data in the worksheets!
 Are you sure you want to continue?</source>
         <translation>Diese Operation wird die Daten des Arbeitsblattes verändern!
 Wollen Sie fortfahren?</translation>
     </message>
     <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5826"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5869"/>
         <source>Continue</source>
-        <translation type="vanished">Fortfahren</translation>
+        <translation>Fortfahren</translation>
     </message>
     <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5826"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5869"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7310"/>
         <source>Cancel</source>
-        <translation type="vanished">Abbrechen</translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6142"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5909"/>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
         <translation>Konnte in Datei nicht schreiben: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Bitte stellen Sie sicher, dass die Schreibrechte für diesen Ordner haben und dass keine andere Applikation diese Datei benutzt! </translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6467"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6234"/>
         <source>Sorry, there are no results to display!</source>
         <translation>Keine Ergebnisse zum Anzeigen vorhanden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6514"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6281"/>
         <source>There are no plot layers available in this window!</source>
         <translation>Es sind keine Grafikebenen in diesem Fenster vorhanden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6622"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6390"/>
         <source>Add new layer?</source>
         <translation>Neue Ebene hinzufügen?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6623"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6391"/>
         <source>Do you want to add the text on a new layer or on the active layer?</source>
         <translation>Wollen Sie den Text einer neuen Ebene oder der aktiven hinzufügen?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6625"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6392"/>
         <source>On &amp;New Layer</source>
         <translation>In eine &amp;neue Ebene</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6627"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6392"/>
         <source>On &amp;Active Layer</source>
         <translation>In die &amp;aktive Ebene</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6678"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6446"/>
         <source>Insert image from file</source>
         <translation>Bild aus Datei einfügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6763"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6531"/>
         <source>There are no plot layers available in this window.</source>
         <translation>Es sind keine Grafikebenen in diesem Fenster vorhanden.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6786"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6554"/>
         <source>Layer Geometry</source>
         <translation>Ebenengeometrie</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7034"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6802"/>
         <source>Duplicate window error</source>
         <translation>Fehler beim Duplizieren des Fensters</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7035"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6803"/>
         <source>There are no windows available in this project!</source>
         <translation>Keine Fenster im Projekt vorhanden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7062"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6830"/>
         <source>Duplicate error</source>
         <translation>Fehler beim Duplizieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7063"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6831"/>
         <source>Empty 3D surface plots cannot be duplicated!</source>
         <translation>Leere 3D Oberflächendiagramme können nicht dupliziert werden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7185"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7204"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6953"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="6972"/>
         <source>Window Geometry</source>
         <translation>Fenstergeometrie</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7344"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7112"/>
         <source>&amp;Cascade</source>
         <translation>Ü&amp;berlagern</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7345"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7113"/>
         <source>&amp;Tile</source>
         <translation>&amp;Nebeneinander</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7354"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10684"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11164"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7122"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9970"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10450"/>
         <source>&amp;Hide Window</source>
         <translation>Fenster &amp;ausblenden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7355"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10672"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11157"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7123"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9958"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10443"/>
         <source>Close &amp;Window</source>
         <translation>&amp;Fenster schließen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7383"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10687"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7151"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9973"/>
         <source>More windows...</source>
         <translation>Weitere Fenster...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7396"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7164"/>
         <source>&amp;View Pixel Line profile</source>
         <translation>Linienprofil &amp;anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7398"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7166"/>
         <source>&amp;Intensity Matrix</source>
         <translation>&amp;Intensitätsmatrix</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7402"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7170"/>
         <source>&amp;Cut</source>
         <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7403"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7840"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7956"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8041"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7171"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7605"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7721"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7806"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7404"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10845"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10868"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7172"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10131"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10154"/>
         <source>&amp;Delete</source>
         <translation>&amp;Löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7407"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7409"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7411"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12441"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13483"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7175"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7177"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7179"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11657"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12703"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Eigenschaften...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7420"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7188"/>
         <source>Please use the project explorer to select a window!</source>
         <translation>Bitte benutzen Sie den Projektexplorer, um ein Fenster auszuwählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7441"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7209"/>
         <source>Normal</source>
         <translation>Normal</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7543"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7309"/>
         <source>Save changes to project: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</source>
         <translation>Änderungen im Projekt &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; speichern?</translation>
     </message>
     <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7310"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11943"/>
         <source>Yes</source>
-        <translation type="vanished">Ja</translation>
+        <translation>Ja</translation>
     </message>
     <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7310"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11944"/>
         <source>No</source>
-        <translation type="vanished">Nein</translation>
+        <translation>Nein</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7619"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10360"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10956"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7384"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9646"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10242"/>
         <source>&amp;Delete Selection</source>
         <translation>Auswahl &amp;löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7626"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12417"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7391"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11633"/>
         <source>New &amp;Window</source>
         <translation>Neues &amp;Fenster</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7634"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12426"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7399"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11642"/>
         <source>New F&amp;older</source>
         <translation>Neuer &amp;Ordner</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7637"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7402"/>
         <source>Auto &amp;Column Width</source>
         <translation>Automatische &amp;Spaltenbreite</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7764"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7890"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7529"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7655"/>
         <source>Anal&amp;yze</source>
         <translation>Anal&amp;yse</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7768"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7881"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7533"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7646"/>
         <source>Re&amp;move Pie Curve</source>
         <translation>&amp;Tortengrafik entfernen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7825"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7940"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7990"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7590"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7705"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7755"/>
         <source>&amp;Paste Layer</source>
         <translation>Ko&amp;pierte Ebene einfügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7830"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7945"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7595"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7710"/>
         <source>&amp;Paste Text</source>
         <translation>Ko&amp;pierten Text einfügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7833"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7948"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7598"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7713"/>
         <source>&amp;Paste Line/Arrow</source>
         <translation>Ko&amp;pierte(n) Linie/Pfeil einfügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7836"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7951"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7601"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7716"/>
         <source>&amp;Paste Image</source>
         <translation>Ko&amp;piertes Bild einfügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7842"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7846"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7851"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7958"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7962"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7967"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7607"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7611"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7616"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7723"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7727"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7732"/>
         <source>&amp;Layer</source>
         <translation>&amp;Ebene</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7843"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7847"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7852"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7959"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7963"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7968"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7608"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7612"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7617"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7724"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7728"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7733"/>
         <source>&amp;Window</source>
         <translation>&amp;Fenster</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7845"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7961"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7610"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7726"/>
         <source>E&amp;xport</source>
         <translation>E&amp;xportieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7849"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7965"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10412"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11000"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7614"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7730"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9698"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10286"/>
         <source>&amp;Print</source>
         <translation>&amp;Drucken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7855"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7971"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7620"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7736"/>
         <source>&amp;Geometry...</source>
         <translation>&amp;Geometrie...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7857"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7973"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7622"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7738"/>
         <source>P&amp;roperties...</source>
         <translation>&amp;Eigenschaften...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7859"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7975"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7624"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7740"/>
         <source>&amp;Delete Layer</source>
         <translation>Ebene &amp;löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8007"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7772"/>
         <source>&amp;Copy Page</source>
         <translation>Seite &amp;kopieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8008"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7773"/>
         <source>E&amp;xport Page</source>
         <translation>Seite e&amp;xportieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8017"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7782"/>
         <source>&amp;Matrix...</source>
         <translation>&amp;Matrix...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8021"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7786"/>
         <source>Choose &amp;Data Set...</source>
         <translation>&amp;Datensatz wählen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8023"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7788"/>
         <source>Choose &amp;Matrix...</source>
         <translation>&amp;Matrix wählen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8026"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7791"/>
         <source>C&amp;lear</source>
         <translation>&amp;Leeren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8033"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7798"/>
         <source>&amp;Copy Graph</source>
         <translation>Grafik &amp;kopieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8034"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7799"/>
         <source>&amp;Export</source>
         <translation>&amp;Exportieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8040"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7805"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8042"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7807"/>
         <source>&amp;Paste</source>
         <translation>E&amp;infügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8044"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7809"/>
         <source>&amp;Insert Row</source>
         <translation>&amp;Zeile Einfügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8045"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7810"/>
         <source>&amp;Insert Column</source>
         <translation>Spalte e&amp;infügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8047"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7812"/>
         <source>&amp;Delete Rows</source>
         <translation>Zeilen &amp;löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8049"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7814"/>
         <source>&amp;Delete Columns</source>
         <translation>Spalten &amp;löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8052"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7817"/>
         <source>Clea&amp;r</source>
         <translation>&amp;Leeren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8088"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7853"/>
         <source>index.html File Not Found!</source>
         <translation>index.html nicht gefunden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8089"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7854"/>
         <source>There is no file called &lt;b&gt;index.html&lt;/b&gt; in this folder.&lt;br&gt;Please choose another folder!</source>
         <translation>Keine Datei mit dem Namen &lt;b&gt;index.html&lt;/b&gt; in diesem Ordner gefunden.&lt;br&gt;Bitte wählen Sie einen anderen Ordner!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8103"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7868"/>
         <source>Help Files Not Found!</source>
         <translation>Hilfedateien nicht gefunden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8104"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7869"/>
         <source>Please indicate the location of the help file!</source>
         <translation>Wählen Sie das Verzeichnis der Hilfedatei!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8105"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7870"/>
         <source>The manual can be downloaded from the following internet address:</source>
         <translation>Das Handbuch kann von der folgenden Adresse heruntergeladen werden:</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8119"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7884"/>
         <source>unable to open index.html!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8120"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7885"/>
         <source>&lt;b&gt;index.html&lt;/b&gt; file cannot be opened</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8200"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7965"/>
         <source>Edit function</source>
         <translation>Funktion bearbeiten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8840"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8605"/>
         <source>Set the number of pixels to average</source>
         <translation>Anzahl der zu mittelnden Pixel setzen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8841"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8606"/>
         <source>Number of averaged pixels</source>
         <translation>Anzahl der zu mittelnden Pixel</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8869"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8634"/>
         <source>Error importing image</source>
         <translation>Fehler beim Importieren des Bildes</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8870"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8635"/>
         <source>Import of image &apos;%1&apos; failed</source>
         <translation>Import des Bildes &apos;%1&apos; fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8896"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8662"/>
         <source>Guess best origin for the new layer?</source>
         <translation>Besten Ursprung für die neue Ebene bestimmen?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13246"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8663"/>
+        <source>Do you want Makhber to guess the best position for the new layer?
+ Warning: this will rearrange existing layers!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11042"/>
+        <source>can be any .mkbr, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11046"/>
+        <source>can be any .mkbr, .py or ASCII file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12465"/>
         <source>No updates available.
 You are already running the latest version: &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="221"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="711"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="218"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="708"/>
         <source>Makhber - untitled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3435"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12076"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3422"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11353"/>
         <source>Makhber currently does not support Origin import. If you are interested in reviving and maintaining an Origin import filter, contact the developers.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3616"/>
-        <source>Makhber does not support QtiPlot project files from versions later than 0.9.0.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3625"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="3900"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6056"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="6099"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="7544"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11735"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13121"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3530"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3707"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5823"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="5866"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7310"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11021"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12339"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4001"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3807"/>
         <source>The file: &lt;b&gt; %1 &lt;/b&gt; was not created using Makhber!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4013"/>
-        <source>Makhber does not support QtiPlot template files from versions later than 0.9.0.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4130"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3904"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber template file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="4992"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12358"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4757"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11574"/>
         <source>Makhber project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8079"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="7844"/>
         <source>Choose the location of the Makhber help folder!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8900"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8665"/>
         <source>&amp;Guess</source>
         <translation>&amp;Bestimmen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8901"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="8665"/>
         <source>&amp;Top-left corner</source>
         <translation>&amp;Obere, linke Ecke</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="9026"/>
         <source>Error reading matrix from project file</source>
-        <translation>Fehler beim Lesen einer Matrix aus der Projektdatei</translation>
+        <translation type="vanished">Fehler beim Lesen einer Matrix aus der Projektdatei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="9030"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="9178"/>
         <source>The following problems occured when loading the project file:
 </source>
-        <translation>Die folgenden Probleme sind aufgetreten beim Laden der Projektdatei:</translation>
+        <translation type="vanished">Die folgenden Probleme sind aufgetreten beim Laden der Projektdatei:</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="9034"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="9182"/>
         <source>Project loading partly failed</source>
-        <translation>Laden des Projekts ist teilweise fehlgeschlagen</translation>
+        <translation type="vanished">Laden des Projekts ist teilweise fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="9174"/>
         <source>Error reading table from project file</source>
-        <translation>Fehler beim Lesen einer Tabelle aus der Projektdatei</translation>
+        <translation type="vanished">Fehler beim Lesen einer Tabelle aus der Projektdatei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10051"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9337"/>
         <source>Curve</source>
         <translation>Kurve</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10269"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10878"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9555"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10164"/>
         <source>New &amp;Project</source>
         <translation>Neues &amp;Projekt</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10270"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10880"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9556"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10166"/>
         <source>Ctrl+N</source>
         <translation>Ctrl+N</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10273"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10882"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9559"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10168"/>
         <source>New &amp;Graph</source>
         <translation>Neue &amp;Grafik</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10274"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10884"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9560"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10170"/>
         <source>Ctrl+G</source>
         <translation>Ctrl+G</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10277"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10886"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9563"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10172"/>
         <source>New &amp;Note / Script</source>
         <translation>Neue &amp;Notiz / Script</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10278"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10887"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9564"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10173"/>
         <source>Ctrl+ALT+N</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10281"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10890"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9567"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10176"/>
         <source>New &amp;Table</source>
         <translation>Neue &amp;Tabelle</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10282"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10891"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9568"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10177"/>
         <source>Ctrl+T</source>
         <translation>Ctrl+T</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10285"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10894"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9571"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10180"/>
         <source>New &amp;Matrix</source>
         <translation>Neue &amp;Matrix</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10286"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10895"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9572"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10181"/>
         <source>Ctrl+M</source>
         <translation>Ctrl+M</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10290"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10898"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9576"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10184"/>
         <source>New &amp;Function Plot</source>
         <translation>Neues &amp;Funktionsdiagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10291"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10900"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9577"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10186"/>
         <source>Ctrl+F</source>
         <translation>Ctrl+F</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10295"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10902"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9581"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10188"/>
         <source>New 3D &amp;Surface Plot</source>
         <translation>Neues &amp;3D-Oberflächendiagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10296"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10904"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9582"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10190"/>
         <source>Ctrl+ALT+Z</source>
         <translation>Ctrl+Alt+Z</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10300"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10907"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9586"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10193"/>
         <source>&amp;Open</source>
         <translation>Ö&amp;ffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10301"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10908"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9587"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10194"/>
         <source>Ctrl+O</source>
         <translation>Ctrl+O</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10304"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10912"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9590"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10198"/>
         <source>Open Image &amp;File</source>
         <translation>Bilddatei ö&amp;ffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10305"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10913"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9591"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10199"/>
         <source>Ctrl+I</source>
         <translation>Ctrl+I</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10308"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10915"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9594"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10201"/>
         <source>Import I&amp;mage...</source>
         <translation>Bild i&amp;mportieren...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10311"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10917"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9597"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10203"/>
         <source>&amp;Save Project</source>
         <translation>Projekt &amp;speichern</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10312"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10919"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9598"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10205"/>
         <source>Ctrl+S</source>
         <translation>Ctrl+S</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10316"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10921"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12400"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9602"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10207"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11616"/>
         <source>Save Project &amp;As...</source>
         <translation>Projekt speichern &amp;als...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10320"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9606"/>
         <source>Open Temp&amp;late...</source>
         <translation>Vor&amp;lage öffnen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10324"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10926"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9610"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10212"/>
         <source>Save As &amp;Template...</source>
         <translation>Als &amp;Vorlage speichern...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10327"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9613"/>
         <source>Save Note As...</source>
         <translation>Notizen speichern als...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10330"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10929"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9616"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10215"/>
         <source>&amp;Import ASCII...</source>
         <translation>ASCII-&amp;Import...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10333"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10933"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9619"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10219"/>
         <source>&amp;Undo</source>
         <translation>&amp;Rückgängig</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10334"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10935"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9620"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10221"/>
         <source>Ctrl+Z</source>
         <translation>Ctrl+Z</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10338"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10937"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9624"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10223"/>
         <source>&amp;Redo</source>
         <translation>Wiede&amp;rholen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10339"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10939"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9625"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10225"/>
         <source>Ctrl+R</source>
         <translation>Ctrl+R</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10343"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10941"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9629"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10227"/>
         <source>&amp;Duplicate</source>
         <translation>&amp;Duplizieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10346"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10944"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9632"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10230"/>
         <source>Cu&amp;t Selection</source>
         <translation>Auswahl ausschnei&amp;den</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10347"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10946"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9633"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10232"/>
         <source>Ctrl+X</source>
         <translation>Ctrl+X</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10350"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10948"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9636"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10234"/>
         <source>&amp;Copy Selection</source>
         <translation>Auswahl &amp;kopieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10351"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10950"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9637"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10236"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10355"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10952"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9641"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10238"/>
         <source>&amp;Paste Selection</source>
         <translation>Auswahl ein&amp;fügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10356"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10954"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9642"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10240"/>
         <source>Ctrl+V</source>
         <translation>Ctrl+V</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10361"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10958"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9647"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10244"/>
         <source>Del</source>
         <comment>delete key</comment>
         <translation>Del</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10364"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9650"/>
         <source>&amp;Lock Toolbars</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10370"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10961"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9656"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10247"/>
         <source>Ctrl+E</source>
         <translation>Ctrl+E</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10375"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9661"/>
         <source>Undo/Redo &amp;History</source>
         <translation>Undo-Liste</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10382"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10972"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9668"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10258"/>
         <source>Add La&amp;yer</source>
         <translation>&amp;Ebene hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10383"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10974"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9669"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10260"/>
         <source>ALT+L</source>
         <translation>ALT+L</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10388"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10977"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9674"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10263"/>
         <source>Arran&amp;ge Layers</source>
         <translation>Ebenen &amp;anordnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10389"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10979"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9675"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10265"/>
         <source>ALT+A</source>
         <translation>ALT+A</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10393"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10981"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10982"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9679"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10267"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10268"/>
         <source>Automatic Layout</source>
         <translation>Automatisches Layout</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10397"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10985"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9683"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10271"/>
         <source>&amp;Current</source>
         <translation>&amp;Aktuelle</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10398"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10986"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9684"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10272"/>
         <source>Alt+G</source>
         <translation>Alt+G</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10403"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10991"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9689"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10277"/>
         <source>Alt+X</source>
         <translation>Alt+X</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10407"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10995"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9693"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10281"/>
         <source>&amp;Export PDF</source>
         <translation>&amp;Exportieren als PDF</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10408"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10996"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9694"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10282"/>
         <source>Ctrl+Alt+P</source>
         <translation>Ctrl+Alt+P</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10413"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11001"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9699"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10287"/>
         <source>Ctrl+P</source>
         <translation>Ctrl+P</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10416"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11005"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9702"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10291"/>
         <source>Print All Plo&amp;ts</source>
         <translation>Alle Grafiken aus&amp;drucken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10420"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11007"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9706"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10293"/>
         <source>E&amp;xport ASCII</source>
         <translation>ASCII-E&amp;xport</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10423"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11009"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9709"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10295"/>
         <source>&amp;Quit</source>
         <translation>&amp;Beenden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10424"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11010"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9710"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10296"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10427"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11012"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9713"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10298"/>
         <source>Clear &amp;Log Information</source>
         <translation>Alle &amp;Log-Einträge löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10431"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11013"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9717"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10299"/>
         <source>Delete &amp;Fit Tables</source>
         <translation>&amp;Anpassungstabellen löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10436"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11015"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9722"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10301"/>
         <source>Plot &amp;Wizard</source>
         <translation>Diagramm-&amp;Assistent</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10437"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11016"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9723"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10302"/>
         <source>Ctrl+Alt+W</source>
         <translation>Ctrl+Alt+R</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10440"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11019"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9726"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10305"/>
         <source>&amp;Preferences...</source>
         <translation>&amp;Einstellungen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10444"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11021"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9730"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10307"/>
         <source>Add/Remove &amp;Curve...</source>
         <translation>&amp;Kurve hinzufügen/entfernen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10445"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11022"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9731"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10308"/>
         <source>ALT+C</source>
         <translation>ALT+C</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10449"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11025"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9735"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10311"/>
         <source>Add &amp;Error Bars...</source>
         <translation>F&amp;ehlerbalken hinzufügen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10450"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11027"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9736"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10313"/>
         <source>Ctrl+B</source>
         <translation>Ctrl+B</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10453"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11029"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9739"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10315"/>
         <source>Add &amp;Function...</source>
         <translation>&amp;Funktion hinzufügen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10454"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11031"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9740"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10317"/>
         <source>Ctrl+Alt+F</source>
         <translation>Ctrl+Alt+F</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10457"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11033"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9743"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10319"/>
         <source>&amp;Rescale to Show All</source>
         <translation>Auf Komplettansicht &amp;reskalieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10458"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11034"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9744"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10320"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10461"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11037"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9747"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10323"/>
         <source>New &amp;Legend</source>
         <translation>Neue &amp;Legende</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10462"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11038"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9748"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10324"/>
         <source>Ctrl+L</source>
         <translation>Ctrl+L</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10465"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11041"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9751"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10327"/>
         <source>Add Time Stamp</source>
         <translation>Zeitstempel hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10466"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11042"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9752"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10328"/>
         <source>Ctrl+ALT+T</source>
         <translation>Ctrl+Alt+T</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10469"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11045"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9755"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10331"/>
         <source>Add &amp;Image</source>
         <translation>Bild h&amp;inzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10470"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11047"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9756"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10333"/>
         <source>ALT+I</source>
         <translation>ALT+I</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10480"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11049"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9766"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10335"/>
         <source>&amp;Line</source>
         <translation>&amp;Linie</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10484"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10562"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11052"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11095"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9770"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9848"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10338"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10381"/>
         <source>&amp;Scatter</source>
         <translation>&amp;Punkte</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10488"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11055"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9774"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10341"/>
         <source>Line + S&amp;ymbol</source>
         <translation>Linie + S&amp;ymbole</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10493"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11058"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9779"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10344"/>
         <source>Vertical &amp;Drop Lines</source>
         <translation>Vertikale &amp;Linien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10497"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11060"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9783"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10346"/>
         <source>&amp;Spline</source>
         <translation>&amp;Spline</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10501"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11062"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9787"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10348"/>
         <source>&amp;Horizontal Steps</source>
         <translation>&amp;Horizontale Schritte</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10506"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11061"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9792"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10347"/>
         <source>&amp;Vertical Steps</source>
         <translation>&amp;Vertikale Schritte</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10511"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11064"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9797"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10350"/>
         <source>&amp;Vertical Bars</source>
         <translation>&amp;Vertikale Balken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10516"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11067"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9802"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10353"/>
         <source>&amp;Horizontal Bars</source>
         <translation>&amp;Horizontale Balken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10520"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11070"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9806"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10356"/>
         <source>&amp;Area</source>
         <translation>&amp;Fläche</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10524"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11073"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9810"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10359"/>
         <source>&amp;Pie</source>
         <translation>&amp;Tortengrafik</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10527"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11079"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9813"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10365"/>
         <source>Vectors XY&amp;AM</source>
         <translation>Verktoren XY&amp;AM</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10530"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11076"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9816"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10362"/>
         <source>Vectors &amp;XYXY</source>
         <translation>Vektoren &amp;XYXY</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10533"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11082"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9819"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10368"/>
         <source>&amp;Histogram</source>
         <translation>&amp;Histogramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10538"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11083"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9824"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10369"/>
         <source>&amp;Stacked Histogram</source>
         <translation>ge&amp;stapeltes Histogramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10542"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11084"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9828"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10370"/>
         <source>&amp;Vertical 2 Layers</source>
         <translation>2 &amp;vertikale Ebenen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10546"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11085"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9832"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10371"/>
         <source>&amp;Horizontal 2 Layers</source>
         <translation>2 &amp;horizontale Ebenen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10549"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11086"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9835"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10372"/>
         <source>&amp;4 Layers</source>
         <translation>&amp;4 Ebenen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10553"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11087"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9839"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10373"/>
         <source>&amp;Stacked Layers</source>
         <translation>Ge&amp;stapelte Ebenen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10556"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11089"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9842"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10375"/>
         <source>&amp;Ribbon</source>
         <translation>&amp;Band</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10559"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11092"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9845"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10378"/>
         <source>&amp;Bars</source>
         <translation>&amp;Balken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10566"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11098"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9852"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10384"/>
         <source>&amp;Trajectory</source>
         <translation>&amp;Trajektorie</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10570"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11110"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9856"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10396"/>
         <source>Statistics on &amp;Columns</source>
         <translation>S&amp;paltenstatistik</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10574"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11113"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9860"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10399"/>
         <source>Statistics on &amp;Rows</source>
         <translation>&amp;Zeilenstatistik</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10577"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11115"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9863"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10401"/>
         <source>&amp;Integrate ...</source>
         <translation>&amp;Integrieren ...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10580"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11116"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9866"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10402"/>
         <source>Inte&amp;rpolate ...</source>
         <translation>Inte&amp;rpolieren...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10583"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11117"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9869"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10403"/>
         <source>&amp;Low Pass...</source>
         <translation>&amp;Tiefpass...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10586"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11118"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9872"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10404"/>
         <source>&amp;High Pass...</source>
         <translation>&amp;Hochpass...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10589"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11119"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9875"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10405"/>
         <source>&amp;Band Pass...</source>
         <translation>&amp;Bandpass...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10592"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11120"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9878"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10406"/>
         <source>&amp;Band Block...</source>
         <translation>&amp;Bandfilter...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10595"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11121"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9881"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10407"/>
         <source>&amp;FFT...</source>
         <translation>&amp;FFT...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10598"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11122"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9884"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10408"/>
         <source>&amp;Savitzky-Golay...</source>
         <translation>&amp;Savitzky-Golay...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10601"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11123"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9887"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10409"/>
         <source>&amp;FFT Filter...</source>
         <translation>&amp;FFT Filter...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10604"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11124"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9890"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10410"/>
         <source>Moving Window &amp;Average...</source>
         <translation>&amp;Gleitender Fensterdurchschnitt...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10607"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11125"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9893"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10411"/>
         <source>&amp;Differentiate</source>
         <translation>&amp;Differenzieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10610"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11126"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9896"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10412"/>
         <source>Fit &amp;Linear</source>
         <translation>&amp;Lineare Anpassung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10613"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11127"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9899"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10413"/>
         <source>Fit &amp;Polynomial ...</source>
         <translation>&amp;Polynomiale Anpassung...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10616"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11128"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9902"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10414"/>
         <source>&amp;First Order ...</source>
         <translation>&amp;Erster Ordnung...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10619"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11129"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9905"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10415"/>
         <source>&amp;Second Order ...</source>
         <translation>&amp;Zweiter Ordnung...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10622"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11130"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9908"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10416"/>
         <source>&amp;Third Order ...</source>
         <translation>&amp;Dritter Ordnung...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10625"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11131"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9911"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10417"/>
         <source>Fit Exponential Gro&amp;wth ...</source>
         <translation> Exponentielles &amp;Wachstum anpassen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10628"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11132"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9914"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10418"/>
         <source>Fit &amp;Boltzmann (Sigmoidal)</source>
         <translation>&amp;Boltzmann-Anpassung (Sigmoidal)</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10631"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11133"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9917"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10419"/>
         <source>Fit &amp;Gaussian</source>
         <translation>&amp;Gauss-Anpassung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10634"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11134"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9920"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10420"/>
         <source>Fit Lorent&amp;zian</source>
         <translation>Loren&amp;z-Anpassung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10637"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11136"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9923"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10422"/>
         <source>Fit &amp;Wizard...</source>
         <translation>Kurvenanpassungs&amp;assistent...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10638"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11137"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9924"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10423"/>
         <source>Ctrl+Y</source>
         <translation>Ctrl+Y</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10641"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11139"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9927"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10425"/>
         <source>&amp;Plot ...</source>
         <translation>&amp;Diagramm ...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10644"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11140"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9930"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10426"/>
         <source>&amp;Scales...</source>
         <translation>&amp;Skalen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10647"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11141"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9933"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10427"/>
         <source>&amp;Axes...</source>
         <translation>&amp;Achsen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10650"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11142"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9936"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10428"/>
         <source>&amp;Grid ...</source>
         <translation>&amp;Gitter...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10653"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11143"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9939"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10429"/>
         <source>&amp;Title ...</source>
         <translation>&amp;Titel ...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10656"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11145"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9942"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10431"/>
         <source>&amp;About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10802"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11199"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10088"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10485"/>
         <source>&amp;Makhber Homepage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10805"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10091"/>
         <source>Makhber &amp;Forums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11203"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10489"/>
         <source>Visit Makhber &amp;Forums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11746"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11032"/>
         <source>start Makhber in language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11748"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11034"/>
         <source>show Makhber manual in a standalone window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11750"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11036"/>
         <source>print Makhber version and release date</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11756"/>
-        <source>can be any .mkbr, .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11762"/>
-        <source>can be any .mkbr, .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11767"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11050"/>
         <source>Makhber - Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12025"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11311"/>
         <source>The file: &lt;b&gt;%1&lt;/b&gt; is not a Makhber or Origin project file!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13210"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12428"/>
         <source>Makhber will now try to determine whether a new version of Makhber is available. Please modify your firewall settings in order to allow Makhber to connect to the internet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13239"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12458"/>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10657"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11146"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9943"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10432"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5037"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="3600"/>
+        <source>Opening folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4802"/>
         <source>Makhber Matrix Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5039"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4804"/>
         <source>Makhber 2D Graph Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5041"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4806"/>
         <source>Makhber Table Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="5043"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="4808"/>
         <source>Makhber 3D Surface Template</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="8897"/>
-        <source>Do you want Makhber to guess the best position for the new layer?
-Warning: this will rearrange existing layers!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10661"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11149"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9947"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10435"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10665"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11152"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9951"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10438"/>
         <source>&amp;Choose Help Folder...</source>
         <translation>&amp;Bitte wählen Sie den Hilfe-Ordner aus...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10669"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11155"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9955"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10441"/>
         <source>&amp;Rename Window</source>
         <translation>&amp;Fenster umbenennen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10673"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11158"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9959"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10444"/>
         <source>Ctrl+W</source>
         <translation>Ctrl+W</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10676"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11160"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9962"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10446"/>
         <source>&amp;Remove Layer</source>
         <translation>Ebene &amp;entfernen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10677"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11161"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9963"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10447"/>
         <source>Alt+R</source>
         <translation>Alt+R</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10681"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11163"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9967"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10449"/>
         <source>Window &amp;Geometry...</source>
         <translation>Fenster&amp;geometrie...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10691"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11166"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9977"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10452"/>
         <source>&amp;View Pixel Line Profile</source>
         <translation>Linienprofil &amp;anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10694"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11167"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9980"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10453"/>
         <source>&amp;Intensity Table</source>
         <translation>&amp;Intensitätstabelle</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10697"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10700"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10703"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11168"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11169"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11170"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9983"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9986"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9989"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10454"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10455"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10456"/>
         <source>&amp;Properties</source>
         <translation>&amp;Eigenschaften</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10706"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11171"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9992"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10457"/>
         <source>&amp;Activate Window</source>
         <translation>Fenster &amp;aktivieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10709"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11172"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9995"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10458"/>
         <source>Mi&amp;nimize Window</source>
         <translation>Fenster mi&amp;nimieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10712"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11173"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9998"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10459"/>
         <source>Ma&amp;ximize Window</source>
         <translation>Fenster ma&amp;ximieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10715"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11174"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10001"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10460"/>
         <source>Re&amp;size Window...</source>
         <translation>Fen&amp;stergröße ändern...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10718"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11175"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10004"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10461"/>
         <source>&amp;Print Window</source>
         <translation>Fenster &amp;drucken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10722"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11176"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10008"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10462"/>
         <source>&amp;Layer Geometry</source>
         <translation>&amp;Ebenengeometrie</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10726"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11177"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10012"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10463"/>
         <source>&amp;Surface...</source>
         <translation>&amp;Oberfläche...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10729"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11178"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10015"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10464"/>
         <source>&amp;Data Set...</source>
         <translation>&amp;Datensatz...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10732"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11179"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10018"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10465"/>
         <source>&amp;Invert</source>
         <translation>&amp;Invertieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10735"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11180"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10021"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10466"/>
         <source>&amp;Determinant</source>
         <translation>&amp;Determinate</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10738"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11181"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10024"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10467"/>
         <source>&amp;Convert to Table</source>
         <translation>In Tabelle &amp;konvertieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10741"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11182"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10027"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10468"/>
         <source>Convert to &amp;Matrix</source>
         <translation>In &amp;Matrix konvertieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10745"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11183"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10031"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10469"/>
         <source>3D &amp;Wire Frame</source>
         <translation>3D-&amp;Drahtgitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10749"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11184"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10035"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10470"/>
         <source>3D &amp;Hidden Line</source>
         <translation>3D &amp;verdeckte Linien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10752"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11185"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10038"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10471"/>
         <source>3D &amp;Polygons</source>
         <translation>3D-&amp;Polygone</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10756"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11186"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10042"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10472"/>
         <source>3D Wire &amp;Surface</source>
         <translation>3D-Drahtgitter-&amp;Oberfläche</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10760"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10046"/>
         <source>Contour - &amp;Color Fill</source>
         <translation>&amp;Kontur - Farbfüllung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10763"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11104"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10049"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10390"/>
         <source>Contour &amp;Lines</source>
         <translation>Kontur&amp;linien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10766"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11107"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10052"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10393"/>
         <source>&amp;Gray Scale Map</source>
         <translation>&amp;Graustufenoberfläche</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10769"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11187"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10055"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10473"/>
         <source>Co&amp;rrelate</source>
         <translation>Ko&amp;rrelieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10772"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11188"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10058"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10474"/>
         <source>&amp;Autocorrelate</source>
         <translation>&amp;Autokorrelieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10775"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11189"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10061"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10475"/>
         <source>&amp;Convolute</source>
         <translation>&amp;Falten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10778"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11190"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10064"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10476"/>
         <source>&amp;Deconvolute</source>
         <translation>&amp;Entfalten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10781"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11191"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10067"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10477"/>
         <source>&amp;Horizontal</source>
         <translation>&amp;Horizontal</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10784"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11192"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10070"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10478"/>
         <source>&amp;Vertical</source>
         <translation>&amp;Vertikal</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10787"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11194"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10073"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10480"/>
         <source>&amp;Box Plot</source>
         <translation>&amp;Boxdiagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10791"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11197"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10077"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10483"/>
         <source>&amp;Gaussian...</source>
         <translation>&amp;Gauss...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10794"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11198"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10080"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10484"/>
         <source>&amp;Lorentzian...</source>
         <translation>&amp;Lorentz...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10798"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11201"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10084"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10487"/>
         <source>Search for &amp;Updates</source>
         <translation>Nach &amp;Update suchen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10808"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11204"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10094"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10490"/>
         <source>Report a &amp;Bug</source>
         <translation>Einen &amp;Bug melden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10812"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11206"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10098"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10492"/>
         <source>Download &amp;Manual</source>
         <translation>&amp;Handbuch herunterladen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10817"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11210"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10103"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10496"/>
         <source>Scripting &amp;Language</source>
         <translation>S&amp;kriptsprache</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10821"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11212"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10107"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10498"/>
         <source>&amp;Restart Scripting</source>
         <translation>Sk&amp;riptunterstützung neu starten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10824"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11214"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10110"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10500"/>
         <source>E&amp;xecute</source>
         <translation>&amp;Ausführen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10825"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11215"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10111"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10501"/>
         <source>Ctrl+J</source>
         <translation>Ctrl+J</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10827"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11217"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10113"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10503"/>
         <source>Execute &amp;All</source>
         <translation>A&amp;lle Ausführen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10828"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11218"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10114"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10504"/>
         <source>Ctrl+Shift+J</source>
         <translation>Ctrl+Shift+J</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10830"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11220"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10116"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10506"/>
         <source>&amp;Evaluate Expression</source>
         <translation>Ausdruck ausw&amp;erten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10831"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11221"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10117"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10507"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10833"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10866"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10119"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10152"/>
         <source>&amp;Plot details...</source>
         <translation>&amp;Diagramm-Details...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10839"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10872"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10125"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10158"/>
         <source>&amp;Reset to Full Range</source>
         <translation>Zurücksetzen auf gesamter Be&amp;reich </translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10842"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10873"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10128"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10159"/>
         <source>Edit &amp;Range...</source>
         <translation>Be&amp;reich ändern...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10848"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10874"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10134"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10160"/>
         <source>&amp;Hide</source>
         <translation>Aus&amp;blenden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10851"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10875"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10137"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10161"/>
         <source>Hide &amp;Other Curves</source>
         <translation>Andere &amp;Kurven ausblenden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10854"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10876"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10140"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10162"/>
         <source>&amp;Show All Curves</source>
         <translation>&amp;Alle Kurven anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10857"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10869"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10143"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10155"/>
         <source>&amp;Edit Function...</source>
         <translation>Funktion b&amp;earbeiten...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10860"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10870"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10146"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10156"/>
         <source>&amp;Copy status bar text</source>
         <translation>Text der Statusleiste &amp;kopieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10879"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10165"/>
         <source>Open a new project</source>
         <translation>Ein neues Projekt öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10883"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10169"/>
         <source>Create an empty 2D plot</source>
         <translation>Ein leeres 2D Diagramm erstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10888"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10174"/>
         <source>Create an empty note / script window</source>
         <translation>Ein leeres Notiz-/Skriptfenster erstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10892"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10178"/>
         <source>New table</source>
         <translation>Neue Tabelle</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10896"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10182"/>
         <source>New matrix</source>
         <translation>Neue Matrix</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10899"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10185"/>
         <source>Create a new 2D function plot</source>
         <translation>Eine neue 2D Funktion darstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10903"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10189"/>
         <source>Create a new 3D surface plot</source>
         <translation>Ein neues 3D Oberflächendiagramm erstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10909"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10195"/>
         <source>Open project</source>
         <translation>Projekt öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10918"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10204"/>
         <source>Save project</source>
         <translation>Projekt speichern</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10923"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10209"/>
         <source>Open Te&amp;mplate...</source>
         <translation>&amp;Vorlage öffnen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10924"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10210"/>
         <source>Open template</source>
         <translation>Vorlage öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10927"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10213"/>
         <source>Save window as template</source>
         <translation>Fenster als Vorlage speichern</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10930"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10216"/>
         <source>Import data file(s)</source>
         <translation>Datendatei(en) importieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10931"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10217"/>
         <source>Ctrl+K</source>
         <translation>Ctrl+K</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10934"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10220"/>
         <source>Undo changes</source>
         <translation>Änderungen rückgängig machen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10938"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10224"/>
         <source>Redo changes</source>
         <translation>Wiederherstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10942"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10228"/>
         <source>Duplicate window</source>
         <translation>Fenster duplizieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10945"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10231"/>
         <source>Cut selection</source>
         <translation>Auswahl ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10949"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10235"/>
         <source>Copy selection</source>
         <translation>Auswahl kopieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10953"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10239"/>
         <source>Paste selection</source>
         <translation>Einfügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10957"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10243"/>
         <source>Delete selection</source>
         <translation>Auswahl löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10960"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10246"/>
         <source>Project &amp;Explorer</source>
         <translation>Projekt&amp;explorer</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10962"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10248"/>
         <source>Show project explorer</source>
         <translation>Projektexplorer anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10964"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10250"/>
         <source>Results &amp;Log</source>
         <translation>Ergebnis-&amp;Log</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10965"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10251"/>
         <source>Show analysis results</source>
         <translation>Berechnungsergebnis anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10968"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10254"/>
         <source>&amp;Console</source>
         <translation>&amp;Konsole</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10969"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10255"/>
         <source>Show Scripting console</source>
         <translation>Skriptkonsole anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10973"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10259"/>
         <source>Add Layer</source>
         <translation>Ebene hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10978"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10264"/>
         <source>Arrange Layers</source>
         <translation>Ebenen anordnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10987"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10273"/>
         <source>Export current graph</source>
         <translation>Aktuelle Grafik exportieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10992"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10278"/>
         <source>Export all graphs</source>
         <translation>Alle Grafiken exportieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10997"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10283"/>
         <source>Export to PDF</source>
         <translation>Exportieren als PDF</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11002"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10288"/>
         <source>Print window</source>
         <translation>Fenster drucken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11023"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10309"/>
         <source>Add curve to graph</source>
         <translation>Kurve zu Grafik hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11026"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10312"/>
         <source>Add Error Bars...</source>
         <translation>Fehlerbalken hinzufügen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11030"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10316"/>
         <source>Add Function...</source>
         <translation>Funktion hinzufügen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11035"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10321"/>
         <source>Best fit</source>
         <translation>Beste Anpassung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11039"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10325"/>
         <source>Add new legend</source>
         <translation>Neue Legende hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11043"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10329"/>
         <source>Date &amp; time </source>
         <translation>Datum &amp; Zeit </translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11046"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10332"/>
         <source>Add Image</source>
         <translation>Bild hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11050"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10336"/>
         <source>Plot as line</source>
         <translation>Als Linie darstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11053"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10339"/>
         <source>Plot as symbols</source>
         <translation>Als Symbole darstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11056"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10342"/>
         <source>Plot as line + symbols</source>
         <translation>Mit Linie + Symbole darstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11065"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10351"/>
         <source>Plot with vertical bars</source>
         <translation>Mit vertikalen Balken darstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11068"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10354"/>
         <source>Plot with horizontal bars</source>
         <translation>Mit horizontalen Balken darstellen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11071"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10357"/>
         <source>Plot area</source>
         <translation>Diagrammfläche</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11074"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10360"/>
         <source>Plot pie</source>
         <translation>Tortengrafik zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11077"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10363"/>
         <source>Vectors XYXY</source>
         <translation>Vektoren XYXY</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11080"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10366"/>
         <source>Vectors XYAM</source>
         <translation>Vektoren XYAM</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11090"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10376"/>
         <source>Plot 3D ribbon</source>
         <translation>3D-Band zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11093"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10379"/>
         <source>Plot 3D bars</source>
         <translation>3D-Balken zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11096"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10382"/>
         <source>Plot 3D scatter</source>
         <translation>3D-Punkte zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11099"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10385"/>
         <source>Plot 3D trajectory</source>
         <translation>3D-Trajektorie zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11101"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10387"/>
         <source>Contour + &amp;Color Fill</source>
         <translation>&amp;Konturlinien + Farbfüllung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11102"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10388"/>
         <source>Contour Lines + Color Fill</source>
         <translation>Konturlinien + Farbfüllung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11105"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10391"/>
         <source>Contour Lines</source>
         <translation>Konturlinien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11108"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10394"/>
         <source>Gray Scale Map</source>
         <translation>Graustufenoberfläche</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11111"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10397"/>
         <source>Selected columns statistics</source>
         <translation>Statistik für ausgewählte Spalten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11114"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10400"/>
         <source>Selected rows statistics</source>
         <translation>Statistik für ausgewählte Zeilen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11165"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10451"/>
         <source>More Windows...</source>
         <translation>Weitere Fenster...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11195"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10481"/>
         <source>Box and whiskers plot</source>
         <translation>Box-and-Whiskers-Diagramm</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11223"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10509"/>
         <source>Disable &amp;tools</source>
         <translation>Werkzeuge deak&amp;tivieren</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11224"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10510"/>
         <source>Pointer</source>
         <translation>Mauszeiger</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11228"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10514"/>
         <source>Zoom In</source>
         <translation>Reinzoomen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11230"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10516"/>
         <source>Zoom &amp;Out</source>
         <translation>Herausz&amp;oomen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11232"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10518"/>
         <source>Zoom Out</source>
         <translation>Herauszoomen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11236"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10522"/>
         <source>Data reader</source>
         <translation>Datenleser</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11240"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10526"/>
         <source>Select data range</source>
         <translation>Datenbereich setzen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11243"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10529"/>
         <source>Screen reader</source>
         <translation>Bildschirmleser</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11247"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10533"/>
         <source>Move data points</source>
         <translation>Datenpunkte verschieben</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11251"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10537"/>
         <source>Remove data points</source>
         <translation>Datenpunkte löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11254"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10540"/>
         <source>Add Text</source>
         <translation>Text hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11262"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10548"/>
         <source>Draw arrow</source>
         <translation>Pfeil zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11266"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10552"/>
         <source>Draw line</source>
         <translation>Linien zeichnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11272"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11273"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11274"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11275"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10558"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10559"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10560"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10561"/>
         <source>Box</source>
         <translation>Kasten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11276"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11278"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11279"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10562"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10564"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10565"/>
         <source>Frame</source>
         <translation>Rahmen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11277"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10563"/>
         <source>&amp;Frame</source>
         <translation>&amp;Rahmen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11280"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11281"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10566"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10567"/>
         <source>No Axes</source>
         <translation>Keine Axen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11282"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11283"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10568"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10569"/>
         <source>No axes</source>
         <translation>Keine Axen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11285"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10571"/>
         <source>Front grid</source>
         <translation>Vordergrundgitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11286"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10572"/>
         <source>Back grid</source>
         <translation>Hintergrundgitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11287"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10573"/>
         <source>Right grid</source>
         <translation>Rechtes Gitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11288"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10574"/>
         <source>Left grid</source>
         <translation>Linkes Gitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11289"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10575"/>
         <source>Ceiling grid</source>
         <translation>Deckengitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11290"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10576"/>
         <source>Floor grid</source>
         <translation>Bodenflächengitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11292"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11293"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11294"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11295"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10578"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10579"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10580"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10581"/>
         <source>Wireframe</source>
         <translation>Drahtgitter</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11296"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11297"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10582"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10583"/>
         <source>Hidden Line</source>
         <translation>Versteckte Linien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11298"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11299"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10584"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10585"/>
         <source>Hidden line</source>
         <translation>Versteckte Linien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11300"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11301"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10586"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10587"/>
         <source>Polygon Only</source>
         <translation>Nur Polygon</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11302"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11303"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10588"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10589"/>
         <source>Polygon only</source>
         <translation>Nur Polygon</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11304"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11305"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10590"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10591"/>
         <source>Mesh &amp; Filled Polygons</source>
         <translation>Netz &amp; gefüllte Polygone</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11306"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11307"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10592"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10593"/>
         <source>Mesh &amp; filled Polygons</source>
         <translation>Netz &amp; gefüllte Polygone</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11308"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11309"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11310"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11311"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10594"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10595"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10596"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10597"/>
         <source>Dots</source>
         <translation>Punkte</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11312"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11313"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11314"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11315"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10598"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10599"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10600"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10601"/>
         <source>Bars</source>
         <translation>Balken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11316"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11317"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11318"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11319"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10602"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10603"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10604"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10605"/>
         <source>Cones</source>
         <translation>Kegel</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11320"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11321"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11322"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11323"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10606"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10607"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10608"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10609"/>
         <source>Crosshairs</source>
         <translation>Fadenkreuz</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11328"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11329"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10614"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10615"/>
         <source>Floor Data Projection</source>
         <translation>Bodenflächenprojektion der Daten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11330"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11331"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10616"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10617"/>
         <source>Floor data projection</source>
         <translation>Bodenflächenprojektion der Daten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11332"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11333"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10618"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10619"/>
         <source>Floor Isolines</source>
         <translation>Bodenflächenkonturlinien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11334"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11335"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10620"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10621"/>
         <source>Floor isolines</source>
         <translation>Bodenflächenkonturlinien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11336"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11337"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10622"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10623"/>
         <source>Empty Floor</source>
         <translation>Leere Bodenfläche</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11338"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11339"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10624"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10625"/>
         <source>Empty floor</source>
         <translation>Leere Bodenfläche</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11341"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11342"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11343"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11344"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10627"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10628"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10629"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10630"/>
         <source>Animation</source>
         <translation>Animation</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11346"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11347"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11348"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11349"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10632"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10633"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10634"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10635"/>
         <source>Enable perspective</source>
         <translation>Perspektive einschalten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11351"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11352"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11353"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11354"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10637"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10638"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10639"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10640"/>
         <source>Reset rotation</source>
         <translation>Rotation zurücksätzen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11356"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11357"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11358"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11359"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10642"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10643"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10644"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10645"/>
         <source>Fit frame to window</source>
         <translation>Rahmen an Fenster anpassen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11679"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10965"/>
         <source>Enter the number of peaks</source>
         <translation>Anzahl der Scheitelpunkte eingeben</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11679"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="10965"/>
         <source>Peaks</source>
         <translation>Scheitelpunkte</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11725"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11011"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: This command line option must be used without other arguments!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Diese Kommandozeilenoption kann nur ohne weitere Argumente benutzt werden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11735"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11021"/>
         <source>Version</source>
         <translation>Version</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11741"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11027"/>
         <source>Usage</source>
         <translation>Benutzung</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11742"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11028"/>
         <source>options</source>
         <translation>Optionen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11742"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11755"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11761"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11028"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11041"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11045"/>
         <source>file</source>
         <translation>Datei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11742"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11755"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11761"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11028"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11041"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11045"/>
         <source>name</source>
         <translation>Name</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11743"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11029"/>
         <source>Valid options are</source>
         <translation>Gültige Optionen sind</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11744"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11745"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11746"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11748"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11750"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11752"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11030"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11031"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11032"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11034"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11036"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11038"/>
         <source>or</source>
         <translation>oder</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11744"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11030"/>
         <source>show about dialog and exit</source>
         <translation>Über-Dialog anzeigen und beenden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11745"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11031"/>
         <source>show command line options</source>
         <translation>Kommandozeilenoptionen anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11752"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11038"/>
         <source>execute the script file given as argument</source>
         <translation>führe die Skriptdatei aus, die als Parameter übergeben wurde</translation>
     </message>
@@ -3680,262 +3661,262 @@ Warning: this will rearrange existing layers!</source>
         <translation type="vanished">kann eine beliebige .sciprj, .sciprj.gz, .qti, qti.gz, .py oder ASCII Datei sein</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11780"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11063"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Falsches Landeskürzel (locale) or keine Übersetzung vorhanden!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11786"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11069"/>
         <source>&lt;b&gt; %1 &lt;/b&gt; unknown command line option!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Unbekannte Kommandozeilenoption!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11787"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11070"/>
         <source>Type %1 to see the list of the valid options.</source>
         <translation>Geben Sie %1 ein, um die Liste der gültigen Optionen anzeigen zu lassen.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11810"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11093"/>
         <source>&lt;b&gt;%1&lt;/b&gt; is a directory, please specify a file name!</source>
         <translation>&lt;b&gt;%1&lt;/b&gt; is ein Verzeichnis, bitte geben Sie einen Dateinamen an!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11814"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11097"/>
         <source>You don&apos;t have the permission to open this file: &lt;b&gt;%1&lt;/b&gt;</source>
         <translation>Sie haben keine Berechtigung, um die Datei &lt;b&gt;%1&lt;/b&gt; zu öffnen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12285"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11500"/>
         <source>File save error</source>
         <translation>Fehler beim Speichern der Datei</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12286"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11501"/>
         <source>The file: &lt;br&gt;&lt;b&gt;%1&lt;/b&gt; is opened in read-only mode</source>
         <translation>Die Datei &lt;br&gt;&lt;b&gt;%1&lt;/b&gt; wurde im schreibgeschützten Modus geöffnet</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12316"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11532"/>
         <source>Error writing data to disk</source>
         <translation>Fehler beim Schreiben der Daten</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12317"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11533"/>
         <source>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Your data may or may not have ended up in &lt;em&gt;%2&lt;/em&gt; (%3). 					If there already was a version of this project on disk, it has not been touched.&lt;/html&gt;</source>
         <translation>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Ihre Daten sind möglicherweise in &lt;em&gt;%2&lt;/em&gt;, möglicherweise aber auch nicht.(%3) Falls bereits eine Version dieses Projektes auf der Festplatte vorhanden war, wurde sie nicht verändert.&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12338"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11554"/>
         <source>Error renaming backup files</source>
         <translation>Fehler beim Umbenennen der Backup-Dateien</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12339"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11555"/>
         <source>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Data was written to &lt;em&gt;%2&lt;/em&gt;, but saving the original file as &lt;em&gt;%3&lt;/em&gt;					and moving the new file to &lt;em&gt;%4&lt;/em&gt; failed. In case you wonder why the original file hasn&apos;t					been simply replaced, see here:					&lt;a href=&quot;http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&quot;&gt;					http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&lt;/a&gt;.&lt;/html&gt;</source>
         <translation>&lt;html&gt;%1&lt;br&gt;&lt;br&gt;Daten wurden in Datei &lt;em&gt;%2&lt;/em&gt; geschrieben, aber das Sichern der Originaldatei unter &lt;em&gt;%3&lt;/em&gt; und Verschieben der neuen Datei nach &lt;em&gt;%4&lt;/em&gt; ist fehlgeschlagen. Falls Sie sich wundern, warum die Originaldatei nicht einfach ersetzt wurde, finden Sie Hintergrundinformationen unter:
 &lt;a href=&quot;http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&quot;&gt;http://bugs.launchpad.net/ubuntu/+source/linux/+bug/317781/comments/54&lt;/a&gt;.&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12361"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11577"/>
         <source>Save project as</source>
         <translation>Project speichern als</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12394"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11610"/>
         <source>&amp;Find...</source>
         <translation>&amp;Suchen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12396"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11612"/>
         <source>App&amp;end Project...</source>
         <translation>Projekt an&amp;hängen...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12398"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11614"/>
         <source>Save &amp;As Project...</source>
         <translation>&amp;Als Projekt speichern...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12404"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11620"/>
         <source>&amp;Show All Windows</source>
         <translation>Alle Fen&amp;ster anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12405"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11621"/>
         <source>&amp;Hide All Windows</source>
         <translation>Alle Fenster a&amp;usblenden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12410"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11626"/>
         <source>&amp;Delete Folder</source>
         <translation>Or&amp;dner löschen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12412"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11628"/>
         <source>&amp;Rename</source>
         <translation>&amp;Umbenennen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12430"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11646"/>
         <source>&amp;View Windows</source>
         <translation>Fenster a&amp;nzeigen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12432"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11648"/>
         <source>&amp;None</source>
         <translation>&amp;Keine</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12432"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11648"/>
         <source>&amp;Windows in Active Folder</source>
         <translation>Fenster im aktiven &amp;Ordner</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12433"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11649"/>
         <source>Windows in &amp;Active Folder &amp;&amp; Subfolders</source>
         <translation>Fenster im &amp;aktiven Ordner &amp;&amp; Unterordnern</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12465"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11681"/>
         <source>Hidden</source>
         <translation>Ausgeblendet</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12536"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11752"/>
         <source>Name already exists!</source>
         <translation>Der Name existiert bereits!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12647"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11863"/>
         <source>Project</source>
         <translation>Projekt</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12649"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12686"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13014"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11865"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11903"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12232"/>
         <source>Path</source>
         <translation>Pfad</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12652"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11868"/>
         <source>Size</source>
         <translation>Größe</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12652"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11868"/>
         <source>bytes</source>
         <translation>Bytes</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12655"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12687"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11871"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11904"/>
         <source>Contents</source>
         <translation>Inhalt</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12655"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12688"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11871"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11905"/>
         <source>windows</source>
         <translation>Fenster</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12657"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12689"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11873"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11906"/>
         <source>folders</source>
         <translation>Ordner</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12665"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11881"/>
         <source>Modified</source>
         <translation>Geändert</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12670"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12695"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12990"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11886"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11912"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12208"/>
         <source>Properties</source>
         <translation>Eigenschaften</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12704"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11922"/>
         <source>New Folder</source>
         <translation>Neuer Ordner</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12724"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11942"/>
         <source>Delete folder?</source>
         <translation>Ordner löschen?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12725"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11943"/>
         <source>Delete folder &apos;%1&apos; and all the windows it contains?</source>
         <translation>Ordner &apos;%1&apos; und alle enthaltenen Fenster löschen?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12968"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13006"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12186"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12224"/>
         <source>Note</source>
         <translation>Notiz</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12974"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13012"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12192"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12230"/>
         <source>3D Graph</source>
         <translation>3D Grafik</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13016"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12234"/>
         <source>Status</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13084"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12302"/>
         <source>No match found</source>
         <translation>Keine Übereinstimmung gefunden</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13085"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12303"/>
         <source>Sorry, no match found for string: &apos;%1&apos;</source>
         <translation>Entschuldigung, keine Übereinstimmung für Zeichenkette gefunden: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13102"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12320"/>
         <source>Cannot move an object to itself!</source>
         <translation>Kann Object nicht auf sich selbst bewegen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13108"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12326"/>
         <source>Cannot move a parent folder into a child folder!</source>
         <translation>Kann keinen Ordner in einen seiner Unterordner bewegen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13121"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12339"/>
         <source>Skipped moving folder</source>
         <translation>Ordnerverschieben übersprungen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13122"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12340"/>
         <source>The destination folder already contains a folder called &apos;%1&apos;! Folder skipped!</source>
         <translation>Der Zielordner enthält bereits einen Ordner namens &apos;%1&apos;! Ordner übersprungen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13213"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12431"/>
         <source>Do you wish to continue?</source>
         <translation>Wollen Sie wirklich fortfahren?</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13224"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12443"/>
         <source>HTTP get version file</source>
         <translation>HTTP Versionsdatei herunterladen</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13225"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12444"/>
         <source>Error while fetching version file with HTTP: %1.</source>
         <translation>Fehler beim Herunterladen der Versionsdatei über HTTP: %1.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13238"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12457"/>
         <source>Updates Available</source>
         <translation>Aktualisierungen verfügbar</translation>
     </message>
@@ -3948,59 +3929,60 @@ Warning: this will rearrange existing layers!</source>
         <translation type="vanished">Die Versionsdatei (Inhalt: &quot;%1&quot;) konnte nicht in eine gültige Versionsnummer umgewandelt werden.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13300"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12519"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Diese Operation löscht alle der Tabelle zugeordneten Daten. Sind Sie sicher?</translation>
     </message>
     <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12521"/>
         <source>&amp;No</source>
-        <translation type="vanished">&amp;Nein</translation>
+        <translation>&amp;Nein</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13494"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12714"/>
         <source>D&amp;epending Graphs</source>
         <translation>Abhängig&amp;e Grafiken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13505"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12725"/>
         <source>D&amp;epending 3D Graphs</source>
         <translation>Abhängig&amp;e 3D-Grafiken</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13516"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13534"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13538"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12736"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12754"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12758"/>
         <source>D&amp;epends on</source>
         <translation>Häng&amp;t ab von</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13559"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13596"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12779"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12816"/>
         <source>You need at least two columns for this operation!</source>
         <translation>Es werden mindestens zwei Spalten für diese Operation benötigt!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13565"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12785"/>
         <source>Please select a Z column for this operation!</source>
         <translation>Bitte eine Z-Spalte für diese Operation wählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13569"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12789"/>
         <source>You need to define a X column first!</source>
         <translation>Sie müssen zuerst eine X-Spalte definieren!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13573"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12793"/>
         <source>You need to define a Y column first!</source>
         <translation>Sie müssen zuerst eine Y-Spalte definieren!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13592"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12812"/>
         <source>Please select a Y column to plot!</source>
         <translation>Bitte eine Y-Spalte zum Plotten auswählen!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13689"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12909"/>
         <source>Undo/Redo History</source>
         <translation>Undo-Liste</translation>
     </message>
@@ -4700,71 +4682,58 @@ Warning: this will rearrange existing layers!</source>
 <context>
     <name>Column</name>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="374"/>
         <source>column type missing</source>
-        <translation>Spaltentyp fehlt</translation>
+        <translation type="vanished">Spaltentyp fehlt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="379"/>
         <source>column type invalid</source>
-        <translation>Spaltentyp ist ungültig</translation>
+        <translation type="vanished">Spaltentyp ist ungültig</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="385"/>
         <source>column mode missing</source>
-        <translation>Spaltenmodus fehlt</translation>
+        <translation type="vanished">Spaltenmodus fehlt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="390"/>
         <source>column mode invalid</source>
-        <translation>Spaltenmodus ist ungültig</translation>
+        <translation type="vanished">Spaltenmodus ist ungültig</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="395"/>
         <source>column type or mode invalid</source>
-        <translation>Spaltentyp oder -modus ist ungültig</translation>
+        <translation type="vanished">Spaltentyp oder -modus ist ungültig</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="404"/>
         <source>column plot designation invalid</source>
-        <translation>Darstellungszuordnung der Spalte ist ungültig</translation>
+        <translation type="vanished">Darstellungszuordnung der Spalte ist ungültig</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="440"/>
         <source>unknown element &apos;%1&apos;</source>
-        <translation>unbekanntes Element: &apos;%1&apos;</translation>
+        <translation type="vanished">unbekanntes Element: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="449"/>
         <source>no column element found</source>
-        <translation>kein Spalten-Element gefunden</translation>
+        <translation type="vanished">kein Spalten-Element gefunden</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="502"/>
-        <location filename="../src/aspects/column/Column.cpp" line="521"/>
         <source>invalid or missing start or end row</source>
-        <translation>ungültige oder fehlende Anfangs- oder Endzeile</translation>
+        <translation type="vanished">ungültige oder fehlende Anfangs- oder Endzeile</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="541"/>
         <source>invalid or missing row type</source>
-        <translation>ungültiger oder fehlender Zeilentyp</translation>
+        <translation type="vanished">ungültiger oder fehlender Zeilentyp</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="548"/>
         <source>invalid or missing row index</source>
-        <translation>ungültiger oder fehlender Zeilenindex</translation>
+        <translation type="vanished">ungültiger oder fehlender Zeilenindex</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="557"/>
         <source>invalid row value</source>
-        <translation>ungültiger Zeileninhalt</translation>
+        <translation type="vanished">ungültiger Zeileninhalt</translation>
     </message>
 </context>
 <context>
     <name>Column::D</name>
     <message>
-        <location filename="../src/aspects/column/Column.h" line="351"/>
+        <location filename="../src/aspects/column/Column.h" line="348"/>
         <source>as string</source>
         <translation>Textversion</translation>
     </message>
@@ -6033,9 +6002,8 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Double2StringFilter</name>
     <message>
-        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="52"/>
         <source>missing or invalid format attribute(s)</source>
-        <translation>fehlende oder ungültige Formatattribute</translation>
+        <translation type="vanished">fehlende oder ungültige Formatattribute</translation>
     </message>
 </context>
 <context>
@@ -7585,177 +7553,177 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph</name>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="778"/>
+        <location filename="../src/plot2D/Graph.cpp" line="783"/>
         <source>Internal Error</source>
         <translation>Interner Fehler</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="779"/>
+        <location filename="../src/plot2D/Graph.cpp" line="784"/>
         <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://github.com/Makhber/makhber/issues&gt;&quot;&gt;bug tracker: https://github.com/Makhber/makhber/issues&lt;/a&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="819"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1354"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1372"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1387"/>
-        <location filename="../src/plot2D/Graph.cpp" line="5109"/>
+        <location filename="../src/plot2D/Graph.cpp" line="824"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4989"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="820"/>
+        <location filename="../src/plot2D/Graph.cpp" line="825"/>
         <source>Couldn&apos;t change the axis type to the requested format!</source>
         <translation>Konnte Format der Achsenbeschriftung nicht auf das angeforderte Format setzen!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1354"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1387"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
         <source>Please provide a valid file name!</source>
         <translation>Bitte einen gültigen Dateinamen eingeben!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1372"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
         <source>File format not handled, operation aborted!</source>
         <translation>Dateiformat konnte nicht verarbeitet werden, Operation abgebrochen!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1397"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4312"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4316"/>
-        <location filename="../src/plot2D/Graph.cpp" line="5097"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1402"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4229"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4233"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4977"/>
         <source>Warning</source>
         <translation>Warnung</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1398"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
         <source>Output in postscript format is not available for Qt5, using PDF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1724"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1729"/>
         <source>Title</source>
         <translation>Titel</translation>
     </message>
     <message>
+        <location filename="../src/plot2D/Graph.cpp" line="3707"/>
         <location filename="../src/plot2D/Graph.cpp" line="3737"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3767"/>
         <source>File open error</source>
         <translation>Fehler beim Öffnen der Datei</translation>
     </message>
     <message>
+        <location filename="../src/plot2D/Graph.cpp" line="3708"/>
         <location filename="../src/plot2D/Graph.cpp" line="3738"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3768"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>Die Bilddatei: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; existiert nicht mehr!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3978"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3895"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3980"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3897"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3987"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3904"/>
         <source>Data set generated from curve</source>
         <translation>Aus der Kurve generierter Datensatz</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3988"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3905"/>
         <source>Curve data %1</source>
         <translation>Kurvendaten %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4313"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4230"/>
         <source>The columns</source>
         <translation>Die Spalten</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4314"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4231"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>sind leer und werden nicht zum Diagramm hinzugefügt!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4317"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4234"/>
         <source>The column</source>
         <translation>Die Spalte</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4318"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4235"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>ist leer und wird nicht zum Diagramm hinzugefügt!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4324"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4370"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4241"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4287"/>
         <source>&amp;Cut</source>
         <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4371"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4242"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4288"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopieren</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4326"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4372"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4243"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4289"/>
         <source>&amp;Delete</source>
         <translation>&amp;Löschen</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4328"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4376"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4380"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4384"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4388"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4416"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4245"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4293"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4297"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4301"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4305"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4333"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Eigenschaften...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4400"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4317"/>
         <source>&amp;Rescale to show all</source>
         <translation>Auf Komplettansicht &amp;reskalieren</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4401"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4318"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4403"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4320"/>
         <source>&amp;Hide axis</source>
         <translation>Achse &amp;verbergen</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4405"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4322"/>
         <source>&amp;Show grids</source>
         <translation>Gitter &amp;anzeigen</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4415"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4332"/>
         <source>&amp;Scale...</source>
         <translation>&amp;Skala...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="5098"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4978"/>
         <source>There are no curves available on this plot!</source>
         <translation>In diesem Diagramm existieren keine Kurven!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="5110"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4990"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>Es gibt keine Kurven mit mehr als 2 Punkten in diesem Diagramm. Operation abgebrochen!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.h" line="662"/>
+        <location filename="../src/plot2D/Graph.h" line="661"/>
         <source>F</source>
         <translation>F</translation>
     </message>
@@ -7778,27 +7746,27 @@ p, li { white-space: pre-wrap; }
         <translation>Z-Achse</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1943"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1904"/>
         <source>IO Error</source>
         <translation>Eingabe/Ausgabe-Fehler</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1944"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1905"/>
         <source>Could not print: &lt;h4&gt;</source>
         <translation>Konnte nicht drucken: &lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1996"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1957"/>
         <source>Error</source>
         <translation>Fehler</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="1996"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1957"/>
         <source>Please provide a valid file name!</source>
         <translation>Bitte einen gültigen Dateinamen eingeben!</translation>
     </message>
     <message>
-        <location filename="../src/plot3D/Graph3D.cpp" line="2008"/>
+        <location filename="../src/plot3D/Graph3D.cpp" line="1969"/>
         <source> not supported</source>
         <translation type="unfinished"></translation>
     </message>
@@ -10077,9 +10045,8 @@ Absolutbetrag von x.</translation>
 <context>
     <name>NumericDateTimeBaseFilter</name>
     <message>
-        <location filename="../src/aspects/datatypes/NumericDateTimeBaseFilter.cpp" line="60"/>
         <source>missing or invalid format attribute(s)</source>
-        <translation>fehlende oder ungültige Formatattribute</translation>
+        <translation type="vanished">fehlende oder ungültige Formatattribute</translation>
     </message>
 </context>
 <context>
@@ -10095,77 +10062,65 @@ Absolutbetrag von x.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="50"/>
-        <source>SciDAVis project</source>
-        <translation type="unfinished"></translation>
+        <source>QtiPlot project</source>
+        <translation type="vanished">QtiPlot Projekt</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="51"/>
-        <source>Compressed SciDAVis project</source>
-        <translation type="unfinished"></translation>
+        <source>Compressed QtiPlot project</source>
+        <translation type="vanished">Gepacktes QtiPlot Projekt</translation>
     </message>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="52"/>
-        <source>QtiPlot project</source>
-        <translation>QtiPlot Projekt</translation>
-    </message>
-    <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="53"/>
-        <source>Compressed QtiPlot project</source>
-        <translation>Gepacktes QtiPlot Projekt</translation>
-    </message>
-    <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="55"/>
         <source>Origin project</source>
         <translation>Origin Projekt</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="55"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="52"/>
         <source>Origin matrix</source>
         <translation>Origin-Matrix</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="56"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="53"/>
         <source>Origin worksheet</source>
         <translation>Origin-Arbeitsblatt</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="56"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="53"/>
         <source>Origin graph</source>
         <translation>Origin-Grafik</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="57"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="54"/>
         <source>Origin 3.5 project</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="59"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="56"/>
         <source>Backup files</source>
         <translation>Backup-Dateien</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="61"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="58"/>
         <source>All files</source>
         <translation>Alle Dateien</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="71"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="68"/>
         <source>Open As</source>
         <translation>Öffnen als</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="75"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="72"/>
         <source>New Project Window</source>
         <translation>Neues Projektfenster</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="76"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="73"/>
         <source>New Folder</source>
         <translation>Neuer Ordner</translation>
     </message>
     <message>
-        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="80"/>
+        <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="77"/>
         <source>Codepage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11855,29 +11810,21 @@ Absolutbetrag von x.</translation>
 <context>
     <name>Project</name>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="64"/>
+        <location filename="../src/aspects/Project.cpp" line="63"/>
         <source>Unnamed</source>
         <translation>Unbenannt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="153"/>
         <source>invalid or missing project version</source>
-        <translation>ungültige oder fehlende Projektversion</translation>
+        <translation type="vanished">ungültige oder fehlende Projektversion</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="178"/>
         <source>unknown element &apos;%1&apos;</source>
-        <translation>unbekanntes Element: &apos;%1&apos;</translation>
+        <translation type="vanished">unbekanntes Element: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="185"/>
-        <source>no makhber_project element found</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/aspects/Project.cpp" line="187"/>
         <source>no valid XML document found</source>
-        <translation>kein gültiges XML-Dokument gefunden</translation>
+        <translation type="vanished">kein gültiges XML-Dokument gefunden</translation>
     </message>
 </context>
 <context>
@@ -11960,7 +11907,7 @@ Absolutbetrag von x.</translation>
         <translation></translation>
     </message>
     <message>
-        <location filename="../src/aspects/AbstractAspect.cpp" line="312"/>
+        <location filename="../src/aspects/AbstractAspect.cpp" line="287"/>
         <source>&amp;Remove</source>
         <translation>&amp;Entfernen</translation>
     </message>
@@ -11970,7 +11917,7 @@ Absolutbetrag von x.</translation>
         <translation>Ein%1</translation>
     </message>
     <message>
-        <location filename="../src/aspects/Project.cpp" line="115"/>
+        <location filename="../src/aspects/Project.cpp" line="114"/>
         <source>General</source>
         <translation>Allgemein</translation>
     </message>
@@ -12015,7 +11962,7 @@ Absolutbetrag von x.</translation>
         <translation>%1: verschiebe %2 nach %3.</translation>
     </message>
     <message>
-        <location filename="../src/aspects/column/Column.cpp" line="91"/>
+        <location filename="../src/aspects/column/Column.cpp" line="90"/>
         <location filename="../src/aspects/column/columncommands.cpp" line="43"/>
         <location filename="../src/table/TableView.cpp" line="654"/>
         <location filename="../src/table/TableView.cpp" line="678"/>
@@ -12030,7 +11977,7 @@ Absolutbetrag von x.</translation>
     </message>
     <message>
         <location filename="../src/aspects/column/columncommands.cpp" line="222"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="134"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="133"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="66"/>
         <location filename="../src/table/future_Table.cpp" line="216"/>
         <source>%1: insert %2 row(s)</source>
@@ -12038,7 +11985,7 @@ Absolutbetrag von x.</translation>
     </message>
     <message>
         <location filename="../src/aspects/column/columncommands.cpp" line="248"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="123"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="122"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="124"/>
         <location filename="../src/table/future_Table.cpp" line="201"/>
         <source>%1: remove %2 row(s)</source>
@@ -12117,73 +12064,64 @@ Absolutbetrag von x.</translation>
         <translation>%1: Werte in Zeilen %2 bis %3 geändert</translation>
     </message>
     <message>
-        <location filename="../src/aspects/datatypes/DateTime2StringFilter.cpp" line="47"/>
-        <location filename="../src/aspects/datatypes/String2DateTimeFilter.cpp" line="139"/>
+        <location filename="../src/aspects/datatypes/DateTime2StringFilter.cpp" line="45"/>
+        <location filename="../src/aspects/datatypes/String2DateTimeFilter.cpp" line="136"/>
         <source>%1: set date-time format to %2</source>
         <translation>%1: Datum/Uhrzeit-Format auf %2 gesetzt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/datatypes/DateTime2StringFilter.cpp" line="50"/>
-        <location filename="../src/aspects/datatypes/String2DateTimeFilter.cpp" line="142"/>
+        <location filename="../src/aspects/datatypes/DateTime2StringFilter.cpp" line="48"/>
+        <location filename="../src/aspects/datatypes/String2DateTimeFilter.cpp" line="139"/>
         <source>set date-time format to %1</source>
         <translation>Datum/Uhrzeit-Format auf %1 gesetzt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="78"/>
+        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="70"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="285"/>
         <source>%1: set numeric format to &apos;%2&apos;</source>
         <translation>%1: numerisches Format auf &apos;%2&apos; gesetzt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="82"/>
+        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="74"/>
         <source>set numeric format to &apos;%1&apos;</source>
         <translation>numerisches Format auf &apos;%1&apos; gesetzt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="103"/>
+        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="95"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="312"/>
         <source>%1: set decimal digits to %2</source>
         <translation>%1: Anzahl Dezimalstellen auf %2 gesetzt</translation>
     </message>
     <message>
-        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="107"/>
+        <location filename="../src/aspects/datatypes/Double2StringFilter.cpp" line="99"/>
         <source>set decimal digits to %1</source>
         <translation>Anzahl Dezimalstellen auf %1 gesetzt</translation>
     </message>
     <message>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="61"/>
         <source>XML reader error: </source>
         <comment>prefix for XML error messages</comment>
-        <translation>Fehler beim Lesen von XML-Daten:</translation>
+        <translation type="vanished">Fehler beim Lesen von XML-Daten:</translation>
     </message>
     <message>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="62"/>
         <source> (loading failed)</source>
         <comment>postfix for XML error messages</comment>
-        <translation>(öffnen ist fehlgeschlagen)</translation>
+        <translation type="vanished">(öffnen ist fehlgeschlagen)</translation>
     </message>
     <message>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="63"/>
         <source>XML reader warning: </source>
         <comment>prefix for XML warning messages</comment>
-        <translation>Warnung beim Lesen von XML-Daten:</translation>
+        <translation type="vanished">Warnung beim Lesen von XML-Daten:</translation>
     </message>
     <message>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="80"/>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="87"/>
         <source>line %1, column %2: </source>
-        <translation>Zeile %1, Spalte %2:</translation>
+        <translation type="vanished">Zeile %1, Spalte %2:</translation>
     </message>
     <message>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="94"/>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="101"/>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="133"/>
-        <location filename="../src/lib/XmlStreamReader.cpp" line="144"/>
         <source>unexpected end of document</source>
-        <translation>unerwartetes Ende der Datei</translation>
+        <translation type="vanished">unerwartetes Ende der Datei</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="101"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="100"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="41"/>
         <location filename="../src/table/future_Table.cpp" line="166"/>
         <location filename="../src/table/tablecommands.cpp" line="49"/>
@@ -12191,7 +12129,7 @@ Absolutbetrag von x.</translation>
         <translation>%1: %2 Spalte(n) eingefügt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="112"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="111"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="91"/>
         <location filename="../src/table/future_Table.cpp" line="180"/>
         <location filename="../src/table/tablecommands.cpp" line="104"/>
@@ -12199,66 +12137,66 @@ Absolutbetrag von x.</translation>
         <translation>%1: %2 Spalte(n) entfernt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="145"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="144"/>
         <source>%1: set matrix size to %2x%3</source>
         <translation>%1: Matrixabmessungen auf %2x%3 gesetzt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="173"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="172"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="156"/>
         <location filename="../src/table/future_Table.cpp" line="294"/>
         <source>%1: clear</source>
         <translation>%1: leeren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="324"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="323"/>
         <location filename="../src/table/future_Table.cpp" line="664"/>
         <source>%1: insert empty column(s)</source>
         <translation>%1: leere Spalte(n) eingefügt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="351"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="350"/>
         <location filename="../src/table/future_Table.cpp" line="692"/>
         <source>%1: remove selected column(s)</source>
         <translation>%1: gewählte Spalte(n) entfernt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="364"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="363"/>
         <location filename="../src/table/future_Table.cpp" line="707"/>
         <source>%1: clear selected column(s)</source>
         <translation>%1: gewählte Spalte(n) geleert</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="384"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="383"/>
         <location filename="../src/table/future_Table.cpp" line="864"/>
         <source>%1: insert empty rows(s)</source>
         <translation>%1: leere Zeile(n) eingefügt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="411"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="410"/>
         <location filename="../src/table/future_Table.cpp" line="887"/>
         <source>%1: remove selected rows(s)</source>
         <translation>%1: gewählte Zeile(n) entfernt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="429"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="428"/>
         <source>%1: clear selected rows(s)</source>
         <translation>%1: gewählte Zeile(n) geleert</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="872"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="871"/>
         <location filename="../src/table/future_Table.cpp" line="1750"/>
         <source>%1: copy %2</source>
         <translation>%1: Daten von %2 kopiert</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1012"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1011"/>
         <location filename="../src/table/future_Table.cpp" line="946"/>
         <source>%1: add %2 rows(s)</source>
         <translation>%1: %2 Zeile(n) hinzugefügt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1024"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1023"/>
         <location filename="../src/table/future_Table.cpp" line="317"/>
         <source>%1: add %2 column(s)</source>
         <translation>%1: %2 Spalte(n) hinzugefügt</translation>
@@ -12355,7 +12293,7 @@ Absolutbetrag von x.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="11730"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="11016"/>
         <location filename="../src/core/globals.cpp" line="100"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
@@ -12981,37 +12919,37 @@ Absolutbetrag von x.</translation>
 <context>
     <name>Table</name>
     <message>
-        <location filename="../src/table/Table.cpp" line="947"/>
+        <location filename="../src/table/Table.cpp" line="929"/>
         <source>ASCII Export Error</source>
         <translation>ASCII-Export-Fehler</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="948"/>
+        <location filename="../src/table/Table.cpp" line="930"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;</source>
         <translation>Konnte nicht in Datei schreiben: &lt;br&gt;&lt;h4&gt;</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="949"/>
+        <location filename="../src/table/Table.cpp" line="931"/>
         <source>&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1044"/>
+        <location filename="../src/table/Table.cpp" line="1026"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1045"/>
+        <location filename="../src/table/Table.cpp" line="1027"/>
         <source>Do you want to hide or delete</source>
         <translation>Wollen Sie ausblenden oder löschen</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1049"/>
+        <location filename="../src/table/Table.cpp" line="1031"/>
         <source>Delete</source>
         <translation>Löschen</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1048"/>
+        <location filename="../src/table/Table.cpp" line="1030"/>
         <source>Hide</source>
         <translation>Ausblenden</translation>
     </message>
@@ -13020,7 +12958,7 @@ Absolutbetrag von x.</translation>
         <translation type="vanished">Abbrechen</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1265"/>
+        <location filename="../src/table/Table.cpp" line="1222"/>
         <source>%1: apply formula to column</source>
         <translation>%1: Formel auf Spalte angewendet</translation>
     </message>
@@ -13628,388 +13566,368 @@ doppelter Präzision
 <context>
     <name>future::Folder</name>
     <message>
-        <location filename="../src/aspects/future_Folder.cpp" line="105"/>
         <source>unknown element &apos;%1&apos;</source>
-        <translation>unbekanntes Element: &apos;%1&apos;</translation>
+        <translation type="vanished">unbekanntes Element: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/aspects/future_Folder.cpp" line="112"/>
         <source>no folder element found</source>
-        <translation>kein Ordner-Element gefunden</translation>
+        <translation type="vanished">kein Ordner-Element gefunden</translation>
     </message>
     <message>
-        <location filename="../src/aspects/future_Folder.cpp" line="128"/>
+        <location filename="../src/aspects/future_Folder.cpp" line="101"/>
         <source>Folder %1</source>
         <translation>Ordner %1</translation>
     </message>
     <message>
-        <location filename="../src/aspects/future_Folder.cpp" line="136"/>
+        <location filename="../src/aspects/future_Folder.cpp" line="109"/>
         <source>Column %1</source>
         <translation>Spalte %1</translation>
     </message>
     <message>
-        <location filename="../src/aspects/future_Folder.cpp" line="154"/>
         <source>creation of aspect from element &apos;%1&apos; failed</source>
-        <translation>Erzeugung eines Aspects aus dem Element &apos;%1&apos; fehlgeschlagen</translation>
+        <translation type="vanished">Erzeugung eines Aspects aus dem Element &apos;%1&apos; fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../src/aspects/future_Folder.cpp" line="161"/>
         <source>no plugin to load element &apos;%1&apos; found</source>
-        <translation>kein Plugin gefunden, um Element &apos;%1&apos; zu laden</translation>
+        <translation type="vanished">kein Plugin gefunden, um Element &apos;%1&apos; zu laden</translation>
     </message>
 </context>
 <context>
     <name>future::Matrix</name>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="195"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="194"/>
         <source>%1: cut selected cell(s)</source>
         <translation>%1: gewählte Zelle(n) ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="248"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="247"/>
         <source>%1: paste from clipboard</source>
         <translation>%1: einfügen aus Zwischenablage</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="453"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="452"/>
         <source>%1: clear selected cell(s)</source>
         <translation>%1: gewählte Zelle(n) leeren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="544"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="759"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="543"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="758"/>
         <source>Cu&amp;t</source>
         <translation>&amp;Ausschneiden</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="547"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="760"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="546"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="759"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopieren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="550"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="761"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="549"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="760"/>
         <source>Past&amp;e</source>
         <translation>&amp;Einfügen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="556"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="762"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="555"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="761"/>
         <source>Clea&amp;r</source>
         <comment>clear selection</comment>
         <translation>&amp;Leeren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="564"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="763"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="563"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="762"/>
         <source>Assign &amp;Formula</source>
         <translation>&amp;Formel zuweisen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="565"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="564"/>
         <source>Alt+Q</source>
         <translation>Alt+Q</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="572"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="764"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="571"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="763"/>
         <source>Recalculate</source>
         <translation>Neu berechnen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="573"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="572"/>
         <source>Ctrl+Return</source>
         <translation>Ctrl+Return</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="582"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="581"/>
         <source>F12</source>
         <translation>F12</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="589"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="765"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="588"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="764"/>
         <source>Select All</source>
         <translation>Alles auswählen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="596"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="766"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="806"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="595"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="765"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="805"/>
         <source>Clear Matrix</source>
         <translation>Matrix leeren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="603"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="767"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="602"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="766"/>
         <source>&amp;Go to Cell</source>
         <translation>&amp;Gehe zu Zelle</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="604"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="603"/>
         <source>Ctrl+Alt+G</source>
         <translation>Ctrl+Alt+G</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="608"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="768"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="607"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="767"/>
         <source>&amp;Transpose</source>
         <translation>&amp;Transponieren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="611"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="769"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="610"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="768"/>
         <source>Mirror &amp;Horizontally</source>
         <translation>&amp;horizontal spiegeln</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="614"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="770"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="613"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="769"/>
         <source>Mirror &amp;Vertically</source>
         <translation>&amp;vertikal spiegeln</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="617"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="771"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="616"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="770"/>
         <source>&amp;Import Image</source>
         <comment>import image as matrix</comment>
         <translation>Bild &amp;importieren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="621"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="620"/>
         <source>&amp;Duplicate</source>
         <comment>duplicate matrix</comment>
         <translation>&amp;Duplizieren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="625"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="772"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="624"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="771"/>
         <source>&amp;Dimensions</source>
         <comment>matrix size</comment>
         <translation>&amp;Abmessungen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="628"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="773"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="627"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="772"/>
         <source>Set &amp;Coordinates</source>
         <translation>Setze &amp;Koordinaten</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="631"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="774"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="630"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="773"/>
         <source>Set Display &amp;Format</source>
         <translation>Setze Anzeige&amp;format</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="638"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="775"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="637"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="774"/>
         <source>&amp;Insert Empty Columns</source>
         <translation>Leere Spalten &amp;einfügen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="645"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="776"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="644"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="775"/>
         <source>Remo&amp;ve Columns</source>
         <translation>Spalten &amp;löschen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="652"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="777"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="651"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="776"/>
         <source>Clea&amp;r Columns</source>
         <translation>Spalten &amp;leeren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="659"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="778"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="658"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="777"/>
         <source>&amp;Add Columns</source>
         <translation>Sp&amp;alten hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="667"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="779"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="666"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="778"/>
         <source>&amp;Insert Empty Rows</source>
         <translation>Leere &amp;Zeilen einfügen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="675"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="780"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="674"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="779"/>
         <source>Remo&amp;ve Rows</source>
         <translation>Zeilen &amp;löschen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="683"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="781"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="682"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="780"/>
         <source>Clea&amp;r Rows</source>
         <translation>Zeilen&amp;inhalte löschen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="691"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="782"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="690"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="781"/>
         <source>&amp;Add Rows</source>
         <translation>Zeilen hinzufügen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="787"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="786"/>
         <source>&amp;Matrix</source>
         <translation>&amp;Matrix</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="856"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="861"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="855"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="860"/>
         <source>Go to Cell</source>
         <translation>Gehe zu Zelle</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="856"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="855"/>
         <source>Enter column</source>
         <translation>Spalte eingeben</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="861"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="860"/>
         <source>Enter row</source>
         <translation>Zeile eingeben</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="940"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="945"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="939"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="944"/>
         <source>Set Matrix Dimensions</source>
         <translation>Setze Dimensionen der Matrix</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="941"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="940"/>
         <source>Enter number of columns</source>
         <translation>Gib die Zahl der Spalten ein</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="946"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="945"/>
         <source>Enter number of rows</source>
         <translation>Gib die Zahl der Zeilen ein</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="956"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="955"/>
         <source>Images</source>
         <translation>Bilder</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="964"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="963"/>
         <source>Import image from file</source>
         <translation>Bild aus Datei importieren</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="978"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="977"/>
         <source>Error importing image</source>
         <translation>Fehler beim Importieren des Bildes</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="979"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="978"/>
         <source>Import of image &apos;%1&apos; failed</source>
         <translation>Import des Bildes &apos;%1&apos; fehlgeschlagen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1189"/>
         <source>invalid row or column count</source>
-        <translation>ungültige Zeilen- oder Spaltenanzahl</translation>
+        <translation type="vanished">ungültige Zeilen- oder Spaltenanzahl</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1220"/>
         <source>unknown element &apos;%1&apos;</source>
-        <translation>unbekanntes Element: &apos;%1&apos;</translation>
+        <translation type="vanished">unbekanntes Element: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1230"/>
         <source>no matrix element found</source>
-        <translation>kein Matrix-Element gefunden</translation>
+        <translation type="vanished">kein Matrix-Element gefunden</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1242"/>
         <source>invalid or missing numeric format</source>
-        <translation>ungültiges oder fehlendes numerisches Format</translation>
+        <translation type="vanished">ungültiges oder fehlendes numerisches Format</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1250"/>
         <source>invalid or missing number of displayed digits</source>
-        <translation>ungültige oder fehlende Anzahl Dezimalstellen</translation>
+        <translation type="vanished">ungültige oder fehlende Anzahl Dezimalstellen</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1269"/>
         <source>invalid x start value</source>
-        <translation>ungültiger X-Anfangswert</translation>
+        <translation type="vanished">ungültiger X-Anfangswert</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1276"/>
         <source>invalid x end value</source>
-        <translation>ungültiger X-Endwert</translation>
+        <translation type="vanished">ungültiger X-Endwert</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1283"/>
         <source>invalid y start value</source>
-        <translation>ungültiger Y-Anfangswert</translation>
+        <translation type="vanished">ungültiger Y-Anfangswert</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1290"/>
         <source>invalid y end value</source>
-        <translation>ungültiger Y-Endwert</translation>
+        <translation type="vanished">ungültiger Y-Endwert</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1313"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1362"/>
         <source>invalid or missing row index</source>
-        <translation>ungültiger oder fehlender Zeilenindex</translation>
+        <translation type="vanished">ungültiger oder fehlender Zeilenindex</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1319"/>
         <source>invalid row height</source>
-        <translation>ungültige Zeilenhöhe</translation>
+        <translation type="vanished">ungültige Zeilenhöhe</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1335"/>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1367"/>
         <source>invalid or missing column index</source>
-        <translation>ungültiger oder fehlender Spaltenindex</translation>
+        <translation type="vanished">ungültiger oder fehlender Spaltenindex</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1341"/>
         <source>invalid column width</source>
-        <translation>ungültige Spaltenbreite</translation>
+        <translation type="vanished">ungültige Spaltenbreite</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1374"/>
         <source>invalid cell value</source>
-        <translation>ungültiger Zelleninhalt</translation>
+        <translation type="vanished">ungültiger Zelleninhalt</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1405"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1258"/>
         <source>Hide Controls</source>
         <translation>Verstecke Kontrollreiter</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1407"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1260"/>
         <source>Show Controls</source>
         <translation>Zeige Kontrollreiter</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1460"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1313"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: Formel auf Auswahl angewendet</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1482"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1335"/>
         <source>Matrix</source>
         <translation>Matrix</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1494"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1347"/>
         <source>Import image...</source>
         <translation>Bild importieren...</translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1494"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1347"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/matrix/future_Matrix.cpp" line="1497"/>
+        <location filename="../src/matrix/future_Matrix.cpp" line="1350"/>
         <source>Matrix %1</source>
         <translation>Matrix %1</translation>
     </message>
@@ -14453,62 +14371,56 @@ doppelter Präzision
         <translation>%1: Spalte(n) sortiert</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2233"/>
         <source>invalid row or column count</source>
-        <translation>ungültige Zeilen- oder Spaltenanzahl</translation>
+        <translation type="vanished">ungültige Zeilen- oder Spaltenanzahl</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2250"/>
+        <location filename="../src/table/future_Table.cpp" line="2230"/>
         <source>Column %1</source>
         <translation>Spalte %1</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2263"/>
         <source>unknown element &apos;%1&apos;</source>
-        <translation>unbekanntes Element: &apos;%1&apos;</translation>
+        <translation type="vanished">unbekanntes Element: &apos;%1&apos;</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2270"/>
         <source>columns attribute and number of read columns do not match</source>
-        <translation>Spaltenzahl-Attribut und Anzahl gelesener Spalten sind verschieden</translation>
+        <translation type="vanished">Spaltenzahl-Attribut und Anzahl gelesener Spalten sind verschieden</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2272"/>
         <source>no table element found</source>
-        <translation>kein Tabelle-Element gefunden</translation>
+        <translation type="vanished">kein Tabelle-Element gefunden</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2284"/>
+        <location filename="../src/table/future_Table.cpp" line="2258"/>
         <source>Hide Comments</source>
         <translation>Verstecke Kommentare</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2286"/>
+        <location filename="../src/table/future_Table.cpp" line="2260"/>
         <source>Show Comments</source>
         <translation>Zeige Kommentare</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2290"/>
+        <location filename="../src/table/future_Table.cpp" line="2264"/>
         <source>Hide Controls</source>
         <translation>Verstecke Kontrollreiter</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2292"/>
+        <location filename="../src/table/future_Table.cpp" line="2266"/>
         <source>Show Controls</source>
         <translation>Zeige Kontrollreiter</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2302"/>
         <source>invalid or missing column index</source>
-        <translation>ungültiger oder fehlender Spaltenindex</translation>
+        <translation type="vanished">ungültiger oder fehlender Spaltenindex</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2308"/>
         <source>invalid column width</source>
-        <translation>ungültige Spaltenbreite</translation>
+        <translation type="vanished">ungültige Spaltenbreite</translation>
     </message>
     <message>
-        <location filename="../src/table/future_Table.cpp" line="2344"/>
+        <location filename="../src/table/future_Table.cpp" line="2296"/>
         <source>Table</source>
         <translation>Tabelle</translation>
     </message>

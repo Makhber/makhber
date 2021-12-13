@@ -33,7 +33,6 @@
 #include "aspects/AbstractFilter.h"
 #include "aspects/AbstractColumn.h"
 #include "lib/IntervalAttribute.h"
-#include "lib/XmlStreamReader.h"
 
 #include <QUndoCommand>
 
@@ -249,12 +248,12 @@ public:
         return d_inputs.value(0) ? d_inputs.at(0)->invalidIntervals() : QList<Interval<int>>();
     }
 
-    //! \name XML related functions
+    //! \name Json related functions
     //@{
-    //! Save to XML
+    //! Save to Json
     virtual void save(QJsonObject *) const;
-    //! Load from XML
-    virtual bool load(XmlStreamReader *reader);
+    //! Load from Json
+    virtual bool load(QJsonObject *reader);
     //! Override this in derived classes if they have other attributes than filter_name
     virtual void writeExtraAttributes(QJsonObject *jsObject) const { Q_UNUSED(jsObject) }
     //@}

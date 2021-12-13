@@ -68,7 +68,7 @@
 &Nowy:Nowy &Wykres|Nowy Wykres||Tworzy pusty wykres 2D|1|
 &Nowy:Nowy Wykres &Funkcji|Nowy Wykres Funkcji||Tworzy nowy wykres funkcji 2D|1|
 &Nowy:Nowy Wykre&s Powierzchniowy 3D|Nowy Wykres Powierzchniowy 3D||Tworzy nowy wykres powierzchniowy 3D|1|
-&Ostatnie Projekty:&1 testProject.sciprj|1 testProject.sciprj||1 testProject.sciprj|1|
+&Ostatnie Projekty:&1 testProject.mkbr|1 testProject.mkbr||1 testProject.mkbr|1|
 &Plik:&Nowy|Nowy||Nowy|1|
 &Plik:&Otwórz...|Otwórz||Otwiera projekt|1|
 &Plik:&Ostatnie Projekty|Ostatnie Projekty||Ostatnie Projekty|1|
@@ -92,12 +92,12 @@
 &Plik:&Wyjd?|Wyjd?||Wyjd?|1|
 &Pomoc:&Pomoc|Pomoc||Pomoc|1|
 &Pomoc:||||1|
-&Pomoc:&Strona Domowa SciDAVis|Strona Domowa SciDAVis||Strona Domowa SciDAVis|1|
+&Pomoc:&Strona Domowa Makhber|Strona Domowa Makhber||Strona Domowa Makhber|1|
 &Pomoc:||||1|
-&Pomoc:Odwied? &Forum SciDAVis|Odwied? Forum SciDAVis||Odwied? Forum SciDAVis|1|
+&Pomoc:Odwied? &Forum Makhber|Odwied? Forum Makhber||Odwied? Forum Makhber|1|
 &Pomoc:Zg?o? &B??d|Zg?o? B??d||Zg?o? B??d|1|
 &Pomoc:||||1|
-&Pomoc:&O Programie SciDAVis|O Programie SciDAVis||O Programie SciDAVis|1|
+&Pomoc:&O Programie Makhber|O Programie Makhber||O Programie Makhber|1|
 &Przemie??:P&ionowo|Pionowo||Pionowo|1|
 &Przemie??:&Poziomo|Poziomo||Poziomo|1|
 &Szybkie Dopasowanie:Dopasuj &Prost?|Dopasuj Prost?||Dopasuj Prost?|1|

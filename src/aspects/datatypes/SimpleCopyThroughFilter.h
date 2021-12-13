@@ -31,7 +31,6 @@
 #define SIMPLE_COPY_THROUGH_FILTER_H
 
 #include "aspects/AbstractSimpleFilter.h"
-#include "lib/XmlStreamReader.h"
 
 /**
  * \brief Filter which copies the provided input unaltered to the output

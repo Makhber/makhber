@@ -91,7 +91,7 @@
 &Nuevo:Nuevo &gráfico|Nuevo gráfico||Crear un gráfico 2D vacío|1|
 &Nuevo:Nuevo gráfico de &función|Nuevo gráfico de función||Crear nuevo gráfico de función 2D|1|
 &Nuevo:Nueva &superficie 3D|Nueva superficie 3D||Crear nuevo gráfico 3D|1|
-&Proyectos recientes:&1 testProject.sciprj|1 testProject.sciprj||1 testProject.sciprj|1|
+&Proyectos recientes:&1 testProject.mkbr|1 testProject.mkbr||1 testProject.mkbr|1|
 &Quick Fit:Ajuste &lineal|Ajuste lineal||Ajuste lineal|1|
 &Quick Fit:Ajuste &polinomial ...|Ajuste polinomial||Ajuste polinomial|1|
 &Quick Fit:||||1|
@@ -117,12 +117,12 @@
 &Ver:&Consola|Consola||Mostrar consola de programación|1|
 A&yuda:A&yuda|Ayuda||Ayuda|1|
 A&yuda:||||1|
-A&yuda:Sitio &web de SciDAVis|Sitio web de SciDAVis||Sitio web de SciDAVis|1|
+A&yuda:Sitio &web de Makhber|Sitio web de Makhber||Sitio web de Makhber|1|
 A&yuda:||||1|
-A&yuda:Visite los &foros de SciDAVis|Visite los foros de SciDAVis||Visite los foros de SciDAVis|1|
+A&yuda:Visite los &foros de Makhber|Visite los foros de Makhber||Visite los foros de Makhber|1|
 A&yuda:&Reportar un error del programa|Reportar un error del programa||Reportar un error del programa|1|
 A&yuda:||||1|
-A&yuda:&Acerca de SciDAVis|Acerca de SciDAVis||Acerca de SciDAVis|1|
+A&yuda:&Acerca de Makhber|Acerca de Makhber||Acerca de Makhber|1|
 Barras de herramientas:Archivo|Archivo||Archivo|1|
 Barras de herramientas:Editar|Editar||Editar|1|
 Barras de herramientas:Gráfico|Gráfico||Gráfico|1|

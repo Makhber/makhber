@@ -32,7 +32,6 @@
 
 #include "aspects/future_Folder.h"
 #include "lib/ActionManager.h"
-#include "lib/XmlStreamReader.h"
 #include "matrix/Matrix.h"
 #include "matrix/matrixcommands.h"
 
@@ -1127,9 +1126,9 @@ void Matrix::save(QJsonObject *jsObject) const
     int cols = columnCount();
     int rows = rowCount();
     writeBasicAttributes(jsObject);
-    jsObject->insert("columnCount", cols);
-    jsObject->insert("rowCount", rows);
-    // writeCommentElement(writer);
+    writeCommentElement(jsObject);
+    jsObject->insert("cols", cols);
+    jsObject->insert("rows", rows);
     jsObject->insert("formula", formula());
 
     QJsonObject jsDisplay {};
@@ -1167,216 +1166,70 @@ void Matrix::save(QJsonObject *jsObject) const
     jsObject->insert("rowHeight", jsRowHeight);
 }
 
-bool Matrix::load(XmlStreamReader *reader)
+bool Matrix::load(QJsonObject *reader)
 {
-    if (reader->isStartElement() && reader->name().toString() == "matrix") {
-        setDimensions(0, 0);
-        setComment("");
-        setFormula("");
-        setNumericFormat('f');
-        setDisplayedDigits(6);
-        setCoordinates(0.0, 1.0, 0.0, 1.0);
+    setDimensions(reader->value("rows").toInt(), reader->value("cols").toInt());
+    setComment("");
+    setFormula("");
+    setNumericFormat('f');
+    setDisplayedDigits(6);
+    setCoordinates(0.0, 1.0, 0.0, 1.0);
 
-        if (!readBasicAttributes(reader))
-            return false;
+    readBasicAttributes(reader);
 
-        // read dimensions
-        bool ok1 = false, ok2 = false;
-        int rows = 0, cols = 0;
-        rows = reader->readAttributeInt("rows", &ok1);
-        cols = reader->readAttributeInt("columns", &ok2);
-        if (!ok1 || !ok2) {
-            reader->raiseError(tr("invalid row or column count"));
-            return false;
+    d_matrix_private->blockChangeSignals(true);
+
+    readCommentElement(reader);
+    readDisplayElement(reader);
+    readCoordinatesElement(reader);
+
+    setFormula(reader->value("formula").toString());
+
+    QJsonArray jsData = reader->value("data").toArray();
+    for (int i = 0; i < jsData.size(); i++) {
+        QJsonArray jsRowData = jsData.at(i).toArray();
+        for (int j = 0; j < jsRowData.size(); j++) {
+            setCell(j, i, jsRowData.at(j).toDouble());
         }
-        d_matrix_private->blockChangeSignals(true);
-        setDimensions(rows, cols);
+    }
 
-        // read child elements
-        while (!reader->atEnd()) {
-            reader->readNext();
+    QJsonArray jsRowHeight = reader->value("rowHeight").toArray();
+    for (int i = 0; i < jsRowHeight.size(); i++) {
+        if (d_view)
+            d_view->setRowHeight(i, jsRowHeight.at(i).toInt());
+        else
+            setRowHeight(i, jsRowHeight.at(i).toInt());
+    }
 
-            if (reader->isEndElement())
-                break;
+    QJsonArray jsColumnWidth = reader->value("columnWidth").toArray();
+    for (int i = 0; i < jsColumnWidth.size(); i++) {
+        if (d_view)
+            d_view->setColumnWidth(i, jsColumnWidth.at(i).toInt());
+        else
+            setColumnWidth(i, jsColumnWidth.at(i).toInt());
+    }
 
-            if (reader->isStartElement()) {
-                bool ret_val = true;
-                if (reader->name().toString() == "comment")
-                    ret_val = readCommentElement(reader);
-                else if (reader->name().toString() == "formula")
-                    ret_val = readFormulaElement(reader);
-                else if (reader->name().toString() == "display")
-                    ret_val = readDisplayElement(reader);
-                else if (reader->name().toString() == "coordinates")
-                    ret_val = readCoordinatesElement(reader);
-                else if (reader->name().toString() == "cell")
-                    ret_val = readCellElement(reader);
-                else if (reader->name().toString() == "row_height")
-                    ret_val = readRowHeightElement(reader);
-                else if (reader->name().toString() == "column_width")
-                    ret_val = readColumnWidthElement(reader);
-                else // unknown element
-                {
-                    reader->raiseWarning(tr("unknown element '%1'").arg(reader->name().toString()));
-                    if (!reader->skipToEndElement())
-                        return false;
-                }
-                if (!ret_val)
-                    return false;
-            }
-        }
-        d_matrix_private->blockChangeSignals(false);
-    } else // no matrix element
-        reader->raiseError(tr("no matrix element found"));
+    d_matrix_private->blockChangeSignals(false);
 
-    return !reader->hasError();
+    return true;
 }
 
-bool Matrix::readDisplayElement(XmlStreamReader *reader)
+void Matrix::readDisplayElement(QJsonObject *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "display");
-    QXmlStreamAttributes attribs = reader->attributes();
-
-    QString str = attribs.value(reader->namespaceUri().toString(), "numeric_format").toString();
-    if (str.isEmpty() || str.length() != 1) {
-        reader->raiseError(tr("invalid or missing numeric format"));
-        return false;
-    }
+    QJsonObject jsDisplay = reader->value("display").toObject();
+    QString str = jsDisplay.value("numericFormat").toString();
     setNumericFormat(str.at(0).toLatin1());
-
-    bool ok = false;
-    int digits = reader->readAttributeInt("displayed_digits", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid or missing number of displayed digits"));
-        return false;
-    }
+    int digits = jsDisplay.value("displayedDigits").toInt();
     setDisplayedDigits(digits);
-    if (!reader->skipToEndElement())
-        return false;
-
-    return true;
 }
 
-bool Matrix::readCoordinatesElement(XmlStreamReader *reader)
+void Matrix::readCoordinatesElement(QJsonObject *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "coordinates");
-
-    bool ok = false;
-    double val = NAN;
-
-    val = reader->readAttributeDouble("x_start", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid x start value"));
-        return false;
-    }
-    setXStart(val);
-
-    val = reader->readAttributeDouble("x_end", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid x end value"));
-        return false;
-    }
-    setXEnd(val);
-
-    val = reader->readAttributeDouble("y_start", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid y start value"));
-        return false;
-    }
-    setYStart(val);
-
-    val = reader->readAttributeDouble("y_end", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid y end value"));
-        return false;
-    }
-    setYEnd(val);
-    if (!reader->skipToEndElement())
-        return false;
-
-    return true;
-}
-
-bool Matrix::readFormulaElement(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "formula");
-    setFormula(reader->readElementText());
-    return true;
-}
-
-bool Matrix::readRowHeightElement(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "row_height");
-    bool ok = false;
-    int row = reader->readAttributeInt("row", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid or missing row index"));
-        return false;
-    }
-    QString str = reader->readElementText();
-    int value = str.toInt(&ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid row height"));
-        return false;
-    }
-    if (d_view)
-        d_view->setRowHeight(row, value);
-    else
-        setRowHeight(row, value);
-    return true;
-}
-
-bool Matrix::readColumnWidthElement(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "column_width");
-    bool ok = false;
-    int col = reader->readAttributeInt("column", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid or missing column index"));
-        return false;
-    }
-    QString str = reader->readElementText();
-    int value = str.toInt(&ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid column width"));
-        return false;
-    }
-    if (d_view)
-        d_view->setColumnWidth(col, value);
-    else
-        setColumnWidth(col, value);
-    return true;
-}
-
-bool Matrix::readCellElement(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "cell");
-
-    QString str;
-    int row = 0, col = 0;
-    bool ok = false;
-
-    QXmlStreamAttributes attribs = reader->attributes();
-    row = reader->readAttributeInt("row", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid or missing row index"));
-        return false;
-    }
-    col = reader->readAttributeInt("column", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid or missing column index"));
-        return false;
-    }
-
-    str = reader->readElementText();
-    double value = str.toDouble(&ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid cell value"));
-        return false;
-    }
-    setCell(row, col, value);
-
-    return true;
+    QJsonObject jsCoordinates = reader->value("coordinates").toObject();
+    setXStart(jsCoordinates.value("xStart").toDouble());
+    setXEnd(jsCoordinates.value("xEnd").toDouble());
+    setYStart(jsCoordinates.value("yStart").toDouble());
+    setYEnd(jsCoordinates.value("yEnd").toDouble());
 }
 
 void Matrix::setRowHeight(int row, int height)

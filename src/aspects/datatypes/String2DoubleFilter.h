@@ -30,7 +30,6 @@
 #define STRING2DOUBLE_FILTER_H
 
 #include "aspects/AbstractSimpleFilter.h"
-#include "lib/XmlStreamReader.h"
 #include "core/ApplicationWindow.h"
 
 #include <QLocale>

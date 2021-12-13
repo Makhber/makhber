@@ -67,10 +67,10 @@ public:
     //! Return the data type of the column
     virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
 
-    //! \name XML related functions
+    //! \name Json related functions
     //@{
     virtual void writeExtraAttributes(QJsonObject *) const;
-    virtual bool load(XmlStreamReader *reader);
+    virtual bool load(QJsonObject *reader);
     //@}
 
 Q_SIGNALS:

@@ -103,8 +103,6 @@
 #include "table/future_Table.h"
 #include "aspects/Project.h"
 #include "aspects/column/Column.h"
-#include "lib/XmlStreamReader.h"
-#include <zlib.h>
 
 #include <QFileDialog>
 #include <QInputDialog>
@@ -154,7 +152,6 @@
 #include <QElapsedTimer>
 #include <QJsonDocument>
 #include <QLibraryInfo>
-#include <QPushButton>
 #include <QJsonArray>
 
 #include <iostream>
@@ -3377,11 +3374,6 @@ void ApplicationWindow::open()
         }
 
         if (fn.endsWith(".mkbr", Qt::CaseInsensitive) || fn.endsWith(".mkbr~", Qt::CaseInsensitive)
-            || fn.endsWith(".sciprj", Qt::CaseInsensitive)
-            || fn.endsWith(".sciprj~", Qt::CaseInsensitive)
-            || fn.endsWith(".qti", Qt::CaseInsensitive) || fn.endsWith(".qti~", Qt::CaseInsensitive)
-            || fn.endsWith(".sciprj.gz", Qt::CaseInsensitive)
-            || fn.endsWith(".qti.gz", Qt::CaseInsensitive)
             || fn.endsWith(".opj", Qt::CaseInsensitive) || fn.endsWith(".ogm", Qt::CaseInsensitive)
             || fn.endsWith(".ogw", Qt::CaseInsensitive) || fn.endsWith(".ogg", Qt::CaseInsensitive)
             || fn.endsWith(".org", Qt::CaseInsensitive)) {
@@ -3397,12 +3389,7 @@ void ApplicationWindow::open()
             if (a) {
                 a->workingDir = workingDir;
                 if (fn.endsWith(".mkbr", Qt::CaseInsensitive)
-                    || fn.endsWith(".sciprj", Qt::CaseInsensitive)
-                    || fn.endsWith(".sciprj~", Qt::CaseInsensitive)
-                    || fn.endsWith(".sciprj.gz", Qt::CaseInsensitive)
-                    || fn.endsWith(".qti.gz", Qt::CaseInsensitive)
-                    || fn.endsWith(".qti", Qt::CaseInsensitive)
-                    || fn.endsWith(".qti~", Qt::CaseInsensitive)
+                    || fn.endsWith(".mkbr~", Qt::CaseInsensitive)
                     || fn.endsWith(".opj", Qt::CaseInsensitive)
                     || fn.endsWith(".ogg", Qt::CaseInsensitive)
                     || fn.endsWith(".org", Qt::CaseInsensitive))
@@ -3440,14 +3427,8 @@ ApplicationWindow *ApplicationWindow::open(const QString &fn, const QStringList 
 #endif
     else if (fn.endsWith(".py", Qt::CaseInsensitive))
         return loadScript(fn, scriptArgs);
-    else if (fn.endsWith(".sciprj", Qt::CaseInsensitive)
-             || fn.endsWith(".sciprj.gz", Qt::CaseInsensitive)
-             || fn.endsWith(".qti", Qt::CaseInsensitive)
-             || fn.endsWith(".qti.gz", Qt::CaseInsensitive)
-             || fn.endsWith(".sciprj~", Qt::CaseInsensitive)
-             || fn.endsWith(".sciprj.gz~", Qt::CaseInsensitive)
-             || fn.endsWith(".qti~", Qt::CaseInsensitive)
-             || fn.endsWith(".qti.gz~", Qt::CaseInsensitive))
+    else if (fn.endsWith(".mkbr", Qt::CaseInsensitive)
+             || fn.endsWith(".mkbr~", Qt::CaseInsensitive))
         return openProject(fn);
     else
         return plotFile(fn);
@@ -3488,12 +3469,8 @@ void ApplicationWindow::openRecentProject()
         saveSettings(); // the recent projects must be saved
         ApplicationWindow *a = open(fn);
         if (a
-            && (fn.endsWith(".sciprj", Qt::CaseInsensitive)
-                || fn.endsWith(".sciprj~", Qt::CaseInsensitive)
-                || fn.endsWith(".sciprj.gz", Qt::CaseInsensitive)
-                || fn.endsWith(".qti.gz", Qt::CaseInsensitive)
-                || fn.endsWith(".qti", Qt::CaseInsensitive)
-                || fn.endsWith(".qti~", Qt::CaseInsensitive)
+            && (fn.endsWith(".mkbr", Qt::CaseInsensitive)
+                || fn.endsWith(".mkbr~", Qt::CaseInsensitive)
                 || fn.endsWith(".opj", Qt::CaseInsensitive)
                 || fn.endsWith(".ogg", Qt::CaseInsensitive)
                 || fn.endsWith(".org", Qt::CaseInsensitive)))
@@ -3501,92 +3478,31 @@ void ApplicationWindow::openRecentProject()
     }
 }
 
-QFile *ApplicationWindow::openCompressedFile(const QString &fn)
-{
-    QTemporaryFile *file = nullptr;
-    std::array<char, 16384> buf;
-    int len = 0, err = 0;
-
-    gzFile in = gzopen(QFile::encodeName(fn).constData(), "rb");
-    if (!in) {
-        QMessageBox::critical(this, tr("File opening error"), tr("zlib can't open %1.").arg(fn));
-        return nullptr;
-    }
-    file = new QTemporaryFile();
-    if (!file || !file->open()) {
-        gzclose(in);
-        QMessageBox::critical(
-                this, tr("File opening error"),
-                tr("Can't create temporary file for writing uncompressed copy of %1.").arg(fn));
-        return nullptr;
-    }
-
-    for (;;) {
-        len = gzread(in, buf.data(), sizeof(buf));
-        if (len == 0)
-            break;
-        if (len < 0) {
-            QMessageBox::critical(this, tr("File opening error"), gzerror(in, &err));
-            gzclose(in);
-            file->close();
-            delete file;
-            return nullptr;
-        }
-        if (file->write(buf.data(), len) != len) {
-            QMessageBox::critical(
-                    this, tr("File opening error"),
-                    tr("Error writing to temporary file: %1").arg(file->errorString()));
-            gzclose(in);
-            file->close();
-            delete file;
-            return nullptr;
-        }
-    }
-
-    gzclose(in);
-    file->reset();
-    return file;
-}
-
 bool ApplicationWindow::loadProject(const QString &fn)
 {
-    std::unique_ptr<QFile> file;
-
-    if (fn.endsWith(".gz", Qt::CaseInsensitive) || fn.endsWith(".gz~", Qt::CaseInsensitive)) {
-        file.reset(openCompressedFile(fn));
-        if (!file)
-            return false;
-    } else {
-        file = std::make_unique<QFile>(fn);
-        if (!file->open(QIODevice::ReadOnly)) {
-            QMessageBox::critical(this, tr("File opening error"), file->errorString());
-            return false;
-        }
+    auto file = std::make_unique<QFile>(fn);
+    if (!file->open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(this, tr("File opening error"), file->errorString());
+        return false;
     }
 
-    QTextStream t(file.get());
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    t.setEncoding(QStringConverter::Utf8);
-#else
-    t.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-    QString s;
-    QStringList list;
+    auto jsError = new QJsonParseError();
+    auto jsDoc = QJsonDocument::fromJson(file->readAll(), jsError);
+    if (jsError->error != QJsonParseError::NoError) {
+        QMessageBox::critical(this, tr("File opening error"), jsError->errorString());
+        return false;
+    }
 
-    s = t.readLine();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    list = s.split(QRegularExpression("\\s"), Qt::SkipEmptyParts);
-#else
-    list = s.split(QRegExp("\\s"), QString::SkipEmptyParts);
-#endif
-    if (list.count() < 2
-        || (list[0] != "Makhber" && list[0] != "SciDAVis" && list[0] != "QtiPlot")) {
+    auto jsObject = jsDoc.object();
+
+    if (jsObject["projectType"] != "Makhber") {
         if (QFile::exists(fn + "~")) {
             int choice = QMessageBox::question(
                     this, tr("File opening error"),
                     tr("The file <b>%1</b> is corrupted, but there exists a backup copy.<br>Do you "
                        "want to open the backup instead?")
-                            .arg(fn));
+                            .arg(fn),
+                    QMessageBox::Yes | QMessageBox::Default, QMessageBox::No | QMessageBox::Escape);
             if (choice == QMessageBox::Yes) {
                 QMessageBox::information(
                         this, tr("Opening backup copy"),
@@ -3602,24 +3518,13 @@ bool ApplicationWindow::loadProject(const QString &fn)
         return false;
     }
 
+    auto projectVersion = jsObject["projectVersion"].toString();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    QStringList vl = list[1].split(".", Qt::SkipEmptyParts);
+    QStringList vl = projectVersion.split(".", Qt::SkipEmptyParts);
 #else
-    QStringList vl = list[1].split(".", QString::SkipEmptyParts);
+    QStringList vl = projectVersion.split(".", QString::SkipEmptyParts);
 #endif
-    if (fn.endsWith(".qti", Qt::CaseInsensitive) || fn.endsWith(".qti.gz", Qt::CaseInsensitive)
-        || fn.endsWith(".qti~", Qt::CaseInsensitive)
-        || fn.endsWith(".qti.gz~", Qt::CaseInsensitive)) {
-        d_file_version = 100 * (vl[0]).toInt() + 10 * (vl[1]).toInt() + (vl[2]).toInt();
-        if (d_file_version > 90) {
-            QMessageBox::critical(this, tr("File opening error"),
-                                  tr("Makhber does not support QtiPlot project files from "
-                                     "versions later than 0.9.0.")
-                                          .arg(fn));
-            return false;
-        }
-    } else
-        d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
+    d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
 
     projectname = fn;
     setWindowTitle(tr("Makhber") + " - " + fn);
@@ -3627,43 +3532,14 @@ bool ApplicationWindow::loadProject(const QString &fn)
     QFileInfo fi(fn);
     QString baseName = fi.fileName();
 
-    if (d_file_version < 73)
-        t.readLine();
-
-    s = t.readLine();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    list = s.split("\t", Qt::SkipEmptyParts);
-#else
-    list = s.split("\t", QString::SkipEmptyParts);
-#endif
-    if (list[0] == "<scripting-lang>") {
-        if (!setScriptingLang(list[1], true))
-            QMessageBox::warning(
-                    this, tr("File opening error"),
-                    tr("The file \"%1\" was created using \"%2\" as scripting language.\n\n"
-                       "Initializing support for this language FAILED; I'm using \"%3\" instead.\n"
-                       "Various parts of this file may not be displayed as expected.")
-                            .arg(fn, list[1], scriptEnv->objectName()));
-
-        s = t.readLine();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-        list = s.split("\t", Qt::SkipEmptyParts);
-#else
-        list = s.split("\t", QString::SkipEmptyParts);
-#endif
-    }
-    int aux = 0, widgets = list[1].toInt();
-
-    QString titleBase = tr("Window") + ": ";
-    QString title = titleBase + "1/" + QString::number(widgets) + "  ";
-
-    QProgressDialog progress; /*(this);*/
-    progress.setWindowModality(Qt::WindowModal);
-    progress.setRange(0, widgets);
-    progress.setMinimumWidth(width() / 2);
-    progress.setWindowTitle(tr("Opening file") + ": " + baseName);
-    progress.setLabelText(title);
-    progress.activateWindow();
+    auto scriptingLang = jsObject["scriptingLang"].toString();
+    if (!setScriptingLang(scriptingLang, true))
+        QMessageBox::warning(
+                this, tr("File opening error"),
+                tr("The file \"%1\" was created using \"%2\" as scripting language.\n\n"
+                   "Initializing support for this language FAILED; I'm using \"%3\" instead.\n"
+                   "Various parts of this file may not be displayed as expected.")
+                        .arg(fn, scriptingLang, scriptEnv->objectName()));
 
     Folder *cf = projectFolder();
     folders.blockSignals(true);
@@ -3673,195 +3549,13 @@ bool ApplicationWindow::loadProject(const QString &fn)
     item->setText(0, fi.baseName());
     item->folder()->setName(fi.baseName());
 
-    // process tables and matrix information
-    while (!t.atEnd() && !progress.wasCanceled()) {
-        s = t.readLine(4096); // workaround for safely reading very big lines
-        list.clear();
-        if (s.left(8) == "<folder>") {
-            list = s.split("\t");
-            auto &f = current_folder->addChild<Folder>(list[1]);
-            f.setBirthDate(list[2]);
-            f.setModificationDate(list[3]);
-            if (list.count() > 4)
-                if (list[4] == "current")
-                    cf = &f;
+    openFolder(&jsObject, true);
 
-            auto *fli = new FolderListItem(current_folder->folderListItem(), &f);
-            fli->setText(0, list[1]);
-            f.setFolderListItem(fli);
-
-            current_folder = &f;
-        } else if (s == "<table>") {
-            title = titleBase + QString::number(++aux) + "/" + QString::number(widgets);
-            progress.setLabelText(title);
-
-            openTable(this, t);
-            progress.setValue(aux);
-        } else if (s.left(17) == "<TableStatistics>") {
-            QStringList lst;
-            while (s != "</TableStatistics>") {
-                s = t.readLine();
-                lst << s;
-            }
-            lst.pop_back();
-            openTableStatistics(lst);
-        } else if (s == "<matrix>") {
-            title = titleBase + QString::number(++aux) + "/" + QString::number(widgets);
-            progress.setLabelText(title);
-            QStringList lst;
-            while (s != "</matrix>") {
-                s = t.readLine();
-                lst << s;
-            }
-            lst.pop_back();
-            openMatrix(this, lst);
-            progress.setValue(aux);
-        } else if (s == "<note>") {
-            title = titleBase + QString::number(++aux) + "/" + QString::number(widgets);
-            progress.setLabelText(title);
-            for (int i = 0; i < 3; i++) {
-                s = t.readLine();
-                list << s;
-            }
-            Note *m = openNote(this, list);
-            QStringList cont;
-            while (s != "</note>") {
-                s = t.readLine();
-                cont << s;
-            }
-            cont.pop_back();
-            m->restore(cont);
-            progress.setValue(aux);
-        } else if (s == "</folder>") {
-            auto *parent = dynamic_cast<Folder *>(current_folder->parent());
-            if (!parent)
-                current_folder = projectFolder();
-            else
-                current_folder = parent;
-        }
-    }
-
-    if (progress.wasCanceled()) {
-        saved = true;
-        close();
-        return false;
-    }
-
-    // process the rest
-    t.seek(0);
-
-    MultiLayer *plot = nullptr;
-    while (!t.atEnd() && !progress.wasCanceled()) {
-        s = t.readLine(4096); // workaround for safely reading very big lines
-        if (s.left(8) == "<folder>") {
-            list = s.split("\t");
-            current_folder = current_folder->findSubfolder(list[1]);
-        } else if (s == "<multiLayer>") { // process multilayers information
-            title = titleBase + QString::number(++aux) + "/" + QString::number(widgets);
-            progress.setLabelText(title);
-
-            s = t.readLine();
-            QStringList graph = s.split("\t");
-            QString caption = graph[0];
-            plot = multilayerPlot(caption);
-            plot->setCols(graph[1].toInt());
-            plot->setRows(graph[2].toInt());
-
-            setListViewDate(caption, graph[3]);
-            plot->setBirthDate(graph[3]);
-
-            restoreWindowGeometry(this, plot, t.readLine());
-            plot->blockSignals(true);
-
-            if (d_file_version > 71) {
-                QStringList lst = t.readLine().split("\t");
-                plot->setWindowLabel(lst[1]);
-                setListViewLabel(plot->name(), lst[1]);
-                if (lst.length() > 2) {
-                    plot->setCaptionPolicy((MyWidget::CaptionPolicy)lst[2].toInt());
-                } else {
-                    QMessageBox::warning(this, tr("File opening error"),
-                                         tr("Invalid WindowLabel line:\n'%1'\nin file %2.")
-                                                 .arg(lst.join(" "), fn));
-                    plot->setCaptionPolicy(MyWidget::CaptionPolicy::Name);
-                    // Partial fix for sf #403
-                    t.readLine();
-                }
-            }
-            if (d_file_version > 83) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-                QStringList lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                plot->setMargins(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
-                lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                plot->setSpacing(lst[1].toInt(), lst[2].toInt());
-                lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                plot->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
-                lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                plot->setAlignement(lst[1].toInt(), lst[2].toInt());
-#else
-                QStringList lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                plot->setMargins(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
-                lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                plot->setSpacing(lst[1].toInt(), lst[2].toInt());
-                lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                plot->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
-                lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                plot->setAlignement(lst[1].toInt(), lst[2].toInt());
-#endif
-            }
-
-            while (s != "</multiLayer>") { // open layers
-                s = t.readLine();
-                if (s.left(7) == "<graph>") {
-                    list.clear();
-                    while (s != "</graph>") {
-                        s = t.readLine();
-                        list << s;
-                    }
-                    openGraph(this, plot, list);
-                }
-            }
-            plot->blockSignals(false);
-            activateSubWindow(plot);
-            progress.setValue(aux);
-        } else if (s == "<SurfacePlot>") { // process 3D plots information
-            list.clear();
-            title = titleBase + QString::number(++aux) + "/" + QString::number(widgets);
-            progress.setLabelText(title);
-            while (s != "</SurfacePlot>") {
-                s = t.readLine();
-                list << s;
-            }
-            openSurfacePlot(this, list);
-            progress.setValue(aux);
-        } else if (s == "</folder>") {
-            auto *parent = dynamic_cast<Folder *>(current_folder->parent());
-            if (!parent)
-                current_folder = projectFolder();
-            else
-                current_folder = parent;
-        } else if (s.left(5) == "<log>") { // process analysis information
-            s = t.readLine();
-            while (s != "</log>") {
-                logInfo += s + "\n";
-                s = t.readLine();
-            }
-            results->setText(logInfo);
-        }
-    }
-
-    if (progress.wasCanceled()) {
-        saved = true;
-        close();
-        return false;
-    }
-
-    logInfo = logInfo.remove("</log>\n", Qt::CaseInsensitive);
+    logInfo = jsObject.value("log").toString();
+    results->setText(logInfo);
 
     folders.setCurrentItem(cf->folderListItem());
     folders.blockSignals(false);
-    // change folder to user defined current folder
-    changeFolder(cf, true);
 
     blockSignals(false);
     renamedTables.clear();
@@ -3875,6 +3569,119 @@ bool ApplicationWindow::loadProject(const QString &fn)
     updateRecentProjectsList();
 
     return true;
+}
+
+void ApplicationWindow::openFolder(QJsonObject *jsFolder, bool topFolder)
+{
+    Folder *cf = projectFolder();
+    if (!topFolder) {
+        auto &f = current_folder->addChild<Folder>(jsFolder->value("name").toString());
+        f.setBirthDate(jsFolder->value("creationDate").toString());
+        f.setModificationDate(jsFolder->value("modificationDate").toString());
+        if (jsFolder->value("current").toBool())
+            cf = &f;
+
+        auto *fli = new FolderListItem(current_folder->folderListItem(), &f);
+        fli->setText(0, jsFolder->value("name").toString());
+        f.setFolderListItem(fli);
+
+        current_folder = &f;
+    }
+
+    int aux = 0, widgets = jsFolder->value("windowsCount").toInt();
+
+    QString titleBase = tr("Window") + ": ";
+    QString title = titleBase + "1/" + QString::number(widgets) + "  ";
+
+    QProgressDialog progress; /*(this);*/
+    progress.setWindowModality(Qt::WindowModal);
+    progress.setRange(0, widgets);
+    progress.setMinimumWidth(width() / 2);
+    progress.setWindowTitle(tr("Opening folder") + ": " + jsFolder->value("name").toString());
+    progress.setLabelText(title);
+    progress.activateWindow();
+
+    QJsonArray jsSubFolders = jsFolder->value("subFolders").toArray();
+    for (int i = 0; i < jsSubFolders.size(); i++) {
+        QJsonObject jsSubFolder = jsSubFolders[i].toObject();
+        openFolder(&jsSubFolder);
+    }
+
+    if (progress.wasCanceled()) {
+        saved = true;
+        close();
+        return;
+    }
+
+    QJsonArray jsWidgets = jsFolder->value("widgets").toArray();
+    for (int i = 0; i < jsWidgets.size(); i++) {
+        QJsonObject jsWidget = jsWidgets[i].toObject();
+        title = titleBase + QString::number(++aux) + "/" + QString::number(widgets);
+        progress.setLabelText(title);
+        if (jsWidget["type"] == "Table") {
+            openTable(this, &jsWidget);
+        } else if (jsWidget["type"] == "TableStatistics") {
+            openTableStatistics(&jsWidget);
+        } else if (jsWidget["type"] == "Matrix") {
+            openMatrix(this, &jsWidget);
+        } else if (jsWidget["type"] == "Note") {
+            Note *m = openNote(this, &jsWidget);
+            m->restore(&jsWidget);
+        } else if (jsWidget["type"] == "MultiLayer") {
+            MultiLayer *plot = nullptr;
+            QString caption = jsWidget.value("name").toString();
+            plot = multilayerPlot(caption);
+            plot->setCols(jsWidget.value("cols").toInt());
+            plot->setRows(jsWidget.value("rows").toInt());
+
+            setListViewDate(caption, jsWidget.value("creationDate").toString());
+            plot->setBirthDate(jsWidget.value("creationDate").toString());
+
+            QJsonObject jsGeometry = jsWidget.value("geometry").toObject();
+            restoreWindowGeometry(this, plot, &jsGeometry);
+            plot->blockSignals(true);
+
+            plot->setWindowLabel(jsWidget.value("windowLabel").toString());
+            setListViewLabel(plot->name(), jsWidget.value("windowLabel").toString());
+
+            plot->setCaptionPolicy(
+                    (MyWidget::CaptionPolicy)jsWidget.value("captionPlolicy").toInt());
+            QJsonObject jsMargins = jsWidget.value("margins").toObject();
+            plot->setMargins(
+                    jsMargins.value("leftMargin").toInt(), jsMargins.value("rightMargin").toInt(),
+                    jsMargins.value("topMargin").toInt(), jsMargins.value("bottomMargin").toInt());
+            QJsonObject jsSpacing = jsWidget.value("spacing").toObject();
+            plot->setSpacing(jsSpacing.value("rawsSpacing").toInt(),
+                             jsSpacing.value("colsSpacing").toInt());
+            QJsonObject jsCanvas = jsWidget.value("layerCanvasSize").toObject();
+            plot->setLayerCanvasSize(jsCanvas.value("canvasWidth").toInt(),
+                                     jsCanvas.value("canvasHeight").toInt());
+            QJsonObject jsAlignment = jsWidget.value("alignment").toObject();
+            plot->setAlignement(jsAlignment.value("horAlign").toInt(),
+                                jsAlignment.value("vertAlign").toInt());
+
+            QJsonArray jsGraphs = jsWidget.value("graphs").toArray();
+            for (int i = 0; i < jsGraphs.size(); i++) {
+                QJsonObject jsGraph = jsGraphs.at(i).toObject();
+                openGraph(this, plot, &jsGraph);
+            }
+
+            plot->blockSignals(false);
+            activateSubWindow(plot);
+        } else if (jsWidget["type"] == "SurfacePlot") { // process 3D plots information
+            openSurfacePlot(this, &jsWidget);
+        }
+        progress.setValue(aux);
+    }
+
+    auto *parent = dynamic_cast<Folder *>(current_folder->parent());
+    if (!parent)
+        current_folder = projectFolder();
+    else
+        current_folder = parent;
+
+    // change folder to user defined current folder
+    changeFolder(cf, true);
 }
 
 ApplicationWindow *ApplicationWindow::openProject(const QString &fn)
@@ -3965,81 +3772,65 @@ void ApplicationWindow::restartScriptingEnv()
 // TODO: rewrite the template system
 void ApplicationWindow::openTemplate()
 {
-    QString filter = "Makhber/QtiPlot 2D Graph Template (*.qpt);;";
-    filter += "Makhber/QtiPlot 3D Surface Template (*.qst);;";
-    filter += "Makhber/QtiPlot Table Template (*.qtt);;";
-    filter += "Makhber/QtiPlot Matrix Template (*.qmt)";
+    QString filter = "Makhber 2D Graph Template (*.mkbrpt);;";
+    filter += "Makhber 3D Surface Template (*.mkbrst);;";
+    filter += "Makhber Table Template (*.mkbrtt);;";
+    filter += "Makhber Matrix Template (*.mkbrmt)";
 
     QString fn = QFileDialog::getOpenFileName(this, tr("Open Template File"), templatesDir, filter);
     if (!fn.isEmpty()) {
         QFileInfo fi(fn);
         templatesDir = fi.absolutePath();
-        if (fn.contains(".qmt", Qt::CaseSensitive) || fn.contains(".qpt", Qt::CaseSensitive)
-            || fn.contains(".qtt", Qt::CaseSensitive) || fn.contains(".qst", Qt::CaseSensitive)) {
+        if (fn.contains(".mkbrmt", Qt::CaseSensitive) || fn.contains(".mkbrpt", Qt::CaseSensitive)
+            || fn.contains(".mkbrtt", Qt::CaseSensitive)
+            || fn.contains(".mkbrst", Qt::CaseSensitive)) {
             if (!fi.exists()) {
                 QMessageBox::critical(this, tr("File opening error"),
                                       tr("The file: <b>%1</b> doesn't exist!").arg(fn));
                 return;
             }
             QFile f(fn);
-            QTextStream t(&f);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-            t.setEncoding(QStringConverter::Utf8);
-#else
-            t.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-            f.open(QIODevice::ReadOnly);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList l = t.readLine().split(QRegularExpression("\\s"), Qt::SkipEmptyParts);
-#else
-            QStringList l = t.readLine().split(QRegExp("\\s"), QString::SkipEmptyParts);
-#endif
-            QString fileType = l[0];
-            if ((fileType != "Makhber") && (fileType != "QtiPlot")) {
+
+            QJsonParseError *jsError = new QJsonParseError();
+            QJsonDocument jsDoc = QJsonDocument::fromJson(f.readAll(), jsError);
+            if (jsError->error != QJsonParseError::NoError) {
+                QMessageBox::critical(this, tr("Template File opening error"),
+                                      jsError->errorString());
+                return;
+            }
+
+            QJsonObject jsObject = jsDoc.object();
+            QString fileType = jsObject.value("projectType").toString();
+            if ((fileType != "MakhberTemplate")) {
                 QMessageBox::critical(
                         this, tr("File opening error"),
                         tr("The file: <b> %1 </b> was not created using Makhber!").arg(fn));
                 return;
             }
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList vl = l[1].split(".", Qt::SkipEmptyParts);
+            QStringList vl =
+                    jsObject.value("projectVersion").toString().split(".", Qt::SkipEmptyParts);
 #else
-            QStringList vl = l[1].split(".", QString::SkipEmptyParts);
+            QStringList vl =
+                    jsObject.value("projectVersion").toString().split(".", QString::SkipEmptyParts);
 #endif
-            if (fileType == "QtiPlot") {
-                d_file_version = 100 * (vl[0]).toInt() + 10 * (vl[1]).toInt() + (vl[2]).toInt();
-                if (d_file_version > 90) {
-                    QMessageBox::critical(this, tr("File opening error"),
-                                          tr("Makhber does not support QtiPlot template files "
-                                             "from versions later than 0.9.0.")
-                                                  .arg(fn));
-                    return;
-                }
-            } else
-                d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
+            d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
 
             QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
             MyWidget *w = nullptr;
-            QString templateType;
-            t >> templateType;
+            QString templateType = jsObject.value("templateType").toString();
 
-            if (templateType == "<SurfacePlot>") {
-                t.skipWhiteSpace();
-                QStringList lst;
-                while (!t.atEnd())
-                    lst << t.readLine();
-                w = openSurfacePlot(this, lst);
+            if (templateType == "SurfacePlot") {
+                w = openSurfacePlot(this, &jsObject);
                 if (w)
                     (dynamic_cast<Graph3D *>(w))->clearData();
             } else {
-                int rows = 0, cols = 0;
-                t >> rows;
-                t >> cols;
-                t.skipWhiteSpace();
-                QString geometry = t.readLine();
+                int rows = jsObject.value("rows").toInt();
+                int cols = jsObject.value("cols").toInt();
+                QJsonObject jsGeometry = jsObject.value("geometry").toObject();
 
-                if (templateType == "<multiLayer>") { // FIXME: workarounds for template
+                if (templateType == "MultiLayer") { // FIXME: workarounds for template
                     w = new MultiLayer("", &d_workspace, nullptr);
                     w->setAttribute(Qt::WA_DeleteOnClose);
                     QString label = generateUniqueName(tr("Graph"));
@@ -4048,58 +3839,41 @@ void ApplicationWindow::openTemplate()
                     if (w) {
                         (dynamic_cast<MultiLayer *>(w))->setCols(cols);
                         (dynamic_cast<MultiLayer *>(w))->setRows(rows);
-                        restoreWindowGeometry(this, w, geometry);
-                        if (d_file_version > 83) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-                            QStringList lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                            (dynamic_cast<MultiLayer *>(w))
-                                    ->setMargins(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(),
-                                                 lst[4].toInt());
-                            lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                            (dynamic_cast<MultiLayer *>(w))
-                                    ->setSpacing(lst[1].toInt(), lst[2].toInt());
-                            lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                            (dynamic_cast<MultiLayer *>(w))
-                                    ->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
-                            lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                            (dynamic_cast<MultiLayer *>(w))
-                                    ->setAlignement(lst[1].toInt(), lst[2].toInt());
-#else
-                            QStringList lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                            ((MultiLayer *)w)
-                                    ->setMargins(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(),
-                                                 lst[4].toInt());
-                            lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                            ((MultiLayer *)w)->setSpacing(lst[1].toInt(), lst[2].toInt());
-                            lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                            ((MultiLayer *)w)->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
-                            lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                            ((MultiLayer *)w)->setAlignement(lst[1].toInt(), lst[2].toInt());
-#endif
-                        }
-                        while (!t.atEnd()) { // open layers
-                            QString s = t.readLine();
-                            if (s.left(7) == "<graph>") {
-                                QStringList lst;
-                                while (s != "</graph>") {
-                                    s = t.readLine();
-                                    lst << s;
-                                }
-                                openGraph(this, dynamic_cast<MultiLayer *>(w), lst);
-                            }
+                        restoreWindowGeometry(this, w, &jsGeometry);
+
+                        QJsonObject jsMargins = jsObject.value("margins").toObject();
+                        (dynamic_cast<MultiLayer *>(w))
+                                ->setMargins(jsMargins.value("leftMargin").toInt(),
+                                             jsMargins.value("rightMargin").toInt(),
+                                             jsMargins.value("topMargin").toInt(),
+                                             jsMargins.value("bottomMargin").toInt());
+                        QJsonObject jsSpacing = jsObject.value("spacing").toObject();
+                        (dynamic_cast<MultiLayer *>(w))
+                                ->setSpacing(jsSpacing.value("rawsSpacing").toInt(),
+                                             jsSpacing.value("colsSpacing").toInt());
+                        QJsonObject jsCanvas = jsObject.value("layerCanvasSize").toObject();
+                        (dynamic_cast<MultiLayer *>(w))
+                                ->setLayerCanvasSize(jsCanvas.value("canvasWidth").toInt(),
+                                                     jsCanvas.value("canvasHeight").toInt());
+                        QJsonObject jsAlignment = jsObject.value("alignment").toObject();
+                        (dynamic_cast<MultiLayer *>(w))
+                                ->setAlignement(jsAlignment.value("horAlign").toInt(),
+                                                jsAlignment.value("vertAlign").toInt());
+
+                        QJsonArray jsGraphs = jsObject.value("graphs").toArray();
+                        for (int i = 0; i < jsGraphs.size(); i++) {
+                            QJsonObject jsGraph = jsGraphs.at(i).toObject();
+                            openGraph(this, dynamic_cast<MultiLayer *>(w), &jsGraph);
                         }
                     }
                 } else {
-                    if (templateType == "<table>")
+                    if (templateType == "Table")
                         w = newTable(tr("Table1"), rows, cols);
-                    else if (templateType == "<matrix>")
+                    else if (templateType == "Matrix")
                         w = newMatrix(rows, cols);
                     if (w) {
-                        QStringList lst;
-                        while (!t.atEnd())
-                            lst << t.readLine();
-                        w->restore(lst);
-                        restoreWindowGeometry(this, w, geometry);
+                        w->restore(&jsObject);
+                        restoreWindowGeometry(this, w, &jsGeometry);
                     }
                 }
             }
@@ -4841,21 +4615,19 @@ void ApplicationWindow::exportAllGraphs()
         QFile f(file_name);
         if (f.exists() && confirm_overwrite) {
             QApplication::restoreOverrideCursor();
-            QMessageBox msgBox(QMessageBox::Question, tr("Overwrite file?"),
-                               tr("A file called: <p><b>%1</b><p>already exists. "
-                                  "Do you want to overwrite it?")
-                                       .arg(file_name),
-                               QMessageBox::Cancel, this);
-            QPushButton *yesButton = msgBox.addButton(tr("&Yes"), QMessageBox::AcceptRole);
-            QPushButton *allButton = msgBox.addButton(tr("&All"), QMessageBox::AcceptRole);
-            msgBox.setDefaultButton(QMessageBox::Yes);
-            msgBox.exec();
-            if (msgBox.clickedButton() == yesButton) {
-                QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-            } else if (msgBox.clickedButton() == allButton) {
+            switch (QMessageBox::question(this, tr("Overwrite file?"),
+                                          tr("A file called: <p><b>%1</b><p>already exists. "
+                                             "Do you want to overwrite it?")
+                                                  .arg(file_name),
+                                          tr("&Yes"), tr("&All"), tr("&Cancel"), 0, 1)) {
+            case 1:
                 confirm_overwrite = false;
                 QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-            } else {
+                break;
+            case 0:
+                QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+                break;
+            case 2:
                 return;
             }
         }
@@ -4916,31 +4688,28 @@ QJsonObject ApplicationWindow::windowGeometryInfo(MyWidget *w)
     return jsGeometryInfo;
 }
 
-void ApplicationWindow::restoreWindowGeometry(ApplicationWindow *app, MyWidget *w, const QString s)
+void ApplicationWindow::restoreWindowGeometry(ApplicationWindow *app, MyWidget *w,
+                                              QJsonObject *jsGeometry)
 {
     w->blockSignals(true);
     QString caption = w->name();
-    if (s.contains("minimized")) {
-        QStringList lst = s.split("\t");
-        if (lst.count() > 4)
-            w->setGeometry(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
-        w->setStatus(MyWidget::Minimized);
-        app->setListView(caption, tr("Minimized"));
-    } else if (s.contains("maximized")) {
+    if (jsGeometry->value("maximized").toBool()) {
         w->setStatus(MyWidget::Maximized);
         app->setListView(caption, tr("Maximized"));
     } else {
-        QStringList lst = s.split("\t");
-        w->setGeometry(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
-        w->setStatus(MyWidget::Normal);
-
-        if (lst.count() > 5) {
-            if (lst[5] == "hidden")
+        w->setGeometry(jsGeometry->value("x").toInt(), jsGeometry->value("y").toInt(),
+                       jsGeometry->value("width").toInt(), jsGeometry->value("height").toInt());
+        if (jsGeometry->value("minimized").toBool()) {
+            w->setStatus(MyWidget::Minimized);
+            app->setListView(caption, tr("Minimized"));
+        } else {
+            w->setStatus(MyWidget::Normal);
+            if (jsGeometry->value("hidden").toBool())
                 app->hideWindow(w);
         }
     }
 
-    if (s.contains("active")) {
+    if (jsGeometry->value("active").toBool()) {
         Folder *f = w->folder();
         if (f)
             f->setActiveWindow(w);
@@ -4956,11 +4725,7 @@ Folder *ApplicationWindow::projectFolder()
 
 bool ApplicationWindow::saveProject()
 {
-    if (projectname == "untitled" || projectname.endsWith(".sciprj", Qt::CaseInsensitive)
-        || projectname.endsWith(".sciprj.gz", Qt::CaseInsensitive)
-        || projectname.endsWith(".qti", Qt::CaseInsensitive)
-        || projectname.endsWith(".qti.gz", Qt::CaseInsensitive)
-        || projectname.endsWith(".opj", Qt::CaseInsensitive)
+    if (projectname == "untitled" || projectname.endsWith(".opj", Qt::CaseInsensitive)
         || projectname.endsWith(".ogm", Qt::CaseInsensitive)
         || projectname.endsWith(".ogw", Qt::CaseInsensitive)
         || projectname.endsWith(".ogg", Qt::CaseInsensitive)
@@ -5064,7 +4829,7 @@ void ApplicationWindow::saveAsTemplate()
             return;
         }
         QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-        jsTemplate.insert("projectType", "template");
+        jsTemplate.insert("projectType", "MakhberTemplate");
         w->saveAsTemplate(&jsTemplate, windowGeometryInfo(w));
         QJsonDocument jsDoc(jsTemplate);
         f.write(jsDoc.toJson());
@@ -5406,22 +5171,24 @@ void ApplicationWindow::exportAllTables(const QString &sep, bool colNames, bool 
                 QFile f(fileName);
                 if (f.exists(fileName) && confirmOverwrite) {
                     QApplication::restoreOverrideCursor();
-                    QMessageBox msgBox(QMessageBox::Question, tr("Overwrite file?"),
-                                       tr("A file called: <p><b>%1</b><p>already exists. "
-                                          "Do you want to overwrite it?")
-                                               .arg(fileName),
-                                       QMessageBox::Yes | QMessageBox::Cancel, this);
-                    QPushButton *yesButton = msgBox.addButton(tr("&Yes"), QMessageBox::AcceptRole);
-                    QPushButton *allButton = msgBox.addButton(tr("&All"), QMessageBox::AcceptRole);
-                    msgBox.setDefaultButton(QMessageBox::Yes);
-                    msgBox.exec();
-                    if (msgBox.clickedButton() == yesButton) {
+                    switch (QMessageBox::question(
+                            this, tr("Overwrite file?"),
+                            tr("A file called: <p><b>%1</b><p>already exists. "
+                               "Do you want to overwrite it?")
+                                    .arg(fileName),
+                            tr("&Yes"), tr("&All"), tr("&Cancel"), 0, 1)) {
+                    case 0:
                         success = t->exportASCII(fileName, sep, colNames, expSelection);
-                    } else if (msgBox.clickedButton() == allButton) {
+                        break;
+
+                    case 1:
                         confirmOverwrite = false;
                         success = t->exportASCII(fileName, sep, colNames, expSelection);
-                    } else {
+                        break;
+
+                    case 2:
                         return;
+                        break;
                     }
                 } else
                     success = t->exportASCII(fileName, sep, colNames, expSelection);
@@ -6056,13 +5823,13 @@ void ApplicationWindow::removePoints()
         switch (QMessageBox::warning(this, tr("Makhber"),
                                      tr("This will modify the data in the worksheets!\nAre you "
                                         "sure you want to continue?"),
-                                     QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Yes)) {
-        case QMessageBox::Yes:
+                                     tr("Continue"), tr("Cancel"), nullptr, 1)) {
+        case 0:
             g->setActiveTool(new DataPickerTool(g, this, DataPickerTool::Remove, d_status_info,
                                                 SLOT(setText(const QString &))));
             break;
 
-        default:
+        case 1:
             btnPointer->setChecked(true);
             break;
         }
@@ -6099,15 +5866,15 @@ void ApplicationWindow::movePoints()
         switch (QMessageBox::warning(this, tr("Makhber"),
                                      tr("This will modify the data in the worksheets!\nAre you "
                                         "sure you want to continue?"),
-                                     QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Yes)) {
-        case QMessageBox::Yes:
+                                     tr("Continue"), tr("Cancel"), nullptr, 1)) {
+        case 0:
             if (g) {
                 g->setActiveTool(new DataPickerTool(g, this, DataPickerTool::Move, d_status_info,
                                                     SLOT(setText(const QString &))));
             }
             break;
 
-        default:
+        case 1:
             btnPointer->setChecked(true);
             break;
         }
@@ -6619,17 +6386,15 @@ void ApplicationWindow::addText()
 
     auto *plot = dynamic_cast<MultiLayer *>(d_workspace.activeSubWindow());
 
-    QMessageBox msgBox(QMessageBox::Information, tr("Add new layer?"),
-                       tr("Do you want to add the text on a new layer or on the active layer?"),
-                       QMessageBox::Cancel, this);
-    QPushButton *newLayerButton = msgBox.addButton(tr("On &New Layer"), QMessageBox::AcceptRole);
-    QPushButton *activeLayerButton =
-            msgBox.addButton(tr("On &Active Layer"), QMessageBox::AcceptRole);
-    msgBox.setDefaultButton(QMessageBox::Cancel);
-    msgBox.exec();
-    if (msgBox.clickedButton() == newLayerButton) {
+    switch (QMessageBox::information(
+            this, tr("Add new layer?"),
+            tr("Do you want to add the text on a new layer or on the active layer?"),
+            tr("On &New Layer"), tr("On &Active Layer"), tr("&Cancel"), 0, 2)) {
+    case 0:
         plot->addTextLayer(legendFrameStyle, plotLegendFont, legendTextColor, legendBackground);
-    } else if (msgBox.clickedButton() == activeLayerButton) {
+        break;
+
+    case 1: {
         if (plot->isEmpty()) {
             QMessageBox::warning(this, tr("Warning"),
                                  tr("<h4>There are no plot layers available in this window.</h4>"
@@ -6642,9 +6407,12 @@ void ApplicationWindow::addText()
         auto *g = (Graph *)plot->activeGraph();
         if (g)
             g->drawText(true);
-    } else {
+    } break;
+
+    case 2:
         actionAddText->setChecked(false);
         return;
+        break;
     }
 }
 
@@ -7501,10 +7269,8 @@ void ApplicationWindow::dropEvent(QDropEvent *e)
             QFileInfo fileInfo(fileName);
             QString ext = fileInfo.completeSuffix().toLower();
 
-            if (ext == "mkbr" || ext == "mkbr~" || ext == "sciprj" || ext == "sciprj~"
-                || ext == "sciprj.gz" || ext == "sciprj.gz~" || ext == "opj" || ext == "qti"
-                || ext == "qti.gz" || ext == "ogm" || ext == "ogw" || ext == "ogg"
-                || ext == "org") {
+            if (ext == "mkbr" || ext == "mkbr~" || ext == "opj" || ext == "ogm" || ext == "ogw"
+                || ext == "ogg" || ext == "org") {
                 open(fileName);
             } else if (ext == "csv" || ext == "dat" || ext == "txt" || ext == "tsv") {
                 asciiFiles << fileName;
@@ -7541,10 +7307,9 @@ void ApplicationWindow::closeEvent(QCloseEvent *ce)
 {
     if (!saved) {
         QString s = tr("Save changes to project: <p><b> %1 </b> ?").arg(projectname);
-        switch (QMessageBox::information(this, tr("Makhber"), s,
-                                         QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
-                                         QMessageBox::Yes)) {
-        case QMessageBox::Yes:
+        switch (QMessageBox::information(this, tr("Makhber"), s, tr("Yes"), tr("No"), tr("Cancel"),
+                                         0, 2)) {
+        case 0:
             if (!saveProject()) {
                 ce->ignore();
                 break;
@@ -7553,13 +7318,13 @@ void ApplicationWindow::closeEvent(QCloseEvent *ce)
             ce->accept();
             break;
 
-        case QMessageBox::No:
+        case 1:
         default:
             saveSettings(); // the recent projects must be saved
             ce->accept();
             break;
 
-        case QMessageBox::Cancel:
+        case 2:
             ce->ignore();
             break;
         }
@@ -8893,19 +8658,23 @@ void ApplicationWindow::addLayer()
         return;
 
     auto *plot = dynamic_cast<MultiLayer *>(d_workspace.activeSubWindow());
-    QMessageBox msgBox(QMessageBox::Information, tr("Guess best origin for the new layer?"),
-                       tr("Do you want Makhber to guess the best position for the new layer?\n"
-                          "Warning: this will rearrange existing layers!"),
-                       QMessageBox::Cancel, this);
-    QPushButton *guessButton = msgBox.addButton(tr("&Guess"), QMessageBox::AcceptRole);
-    QPushButton *topLeftButton = msgBox.addButton(tr("&Top-left corner"), QMessageBox::AcceptRole);
-    msgBox.setDefaultButton(QMessageBox::Cancel);
-    msgBox.exec();
-    if (msgBox.clickedButton() == guessButton) {
+    switch (QMessageBox::information(
+            this, tr("Guess best origin for the new layer?"),
+            tr("Do you want Makhber to guess the best position for the new layer?\n Warning: this "
+               "will rearrange existing layers!"),
+            tr("&Guess"), tr("&Top-left corner"), tr("&Cancel"), 0, 2)) {
+    case 0: {
         setPreferences(plot->addLayer());
         plot->arrangeLayers(true, false);
-    } else if (msgBox.clickedButton() == topLeftButton) {
+    } break;
+
+    case 1:
         setPreferences(plot->addLayer(0, 0, plot->size().width(), plot->size().height()));
+        break;
+
+    case 2:
+        return;
+        break;
     }
 }
 
@@ -8917,923 +8686,497 @@ void ApplicationWindow::deleteLayer()
     (dynamic_cast<MultiLayer *>(d_workspace.activeSubWindow()))->confirmRemoveLayer();
 }
 
-Note *ApplicationWindow::openNote(ApplicationWindow *app, const QStringList &flist)
+Note *ApplicationWindow::openNote(ApplicationWindow *app, QJsonObject *jsNote)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    QStringList lst = flist[0].split("\t", Qt::SkipEmptyParts);
-#else
-    QStringList lst = flist[0].split("\t", QString::SkipEmptyParts);
-#endif
-    QString caption = lst[0];
+    QString caption = jsNote->value("name").toString();
     Note *w = app->newNote(caption);
-    if (lst.count() == 2) {
-        app->setListViewDate(caption, lst[1]);
-        w->setBirthDate(lst[1]);
-    }
-    restoreWindowGeometry(app, w, flist[1]);
+    app->setListViewDate(caption, jsNote->value("creationDate").toString());
+    w->setBirthDate(jsNote->value("creationDate").toString());
+    QJsonObject jsGeometry = jsNote->value("geometry").toObject();
+    restoreWindowGeometry(app, w, &jsGeometry);
 
-    lst = flist[2].split("\t");
-    w->setWindowLabel(lst[1]);
-    w->setCaptionPolicy((MyWidget::CaptionPolicy)lst[2].toInt());
-    app->setListViewLabel(w->name(), lst[1]);
+    w->setWindowLabel(jsNote->value("windowLabel").toString());
+    w->setCaptionPolicy((MyWidget::CaptionPolicy)jsNote->value("captionPolicy").toString().toInt());
+    app->setListViewLabel(w->name(), jsNote->value("windowLabel").toString());
     return w;
 }
 
 // TODO: most of this code belongs into matrix
-Matrix *ApplicationWindow::openMatrix(ApplicationWindow *app, const QStringList &flist)
+Matrix *ApplicationWindow::openMatrix(ApplicationWindow *app, QJsonObject *jsMatrix)
 {
-    if (app->d_file_version < 0x000200) {
-        QStringList::const_iterator line = flist.begin();
-
-        QStringList list = (*line).split("\t");
-        QString caption = list[0];
-        int rows = list[1].toInt();
-        int cols = list[2].toInt();
-
-        Matrix *w = app->newMatrix(caption, rows, cols);
-        app->setListViewDate(caption, list[3]);
-        w->setBirthDate(list[3]);
-
-        for (line++; line != flist.end(); line++) {
-            QStringList fields = (*line).split("\t");
-            if (fields[0] == "geometry") {
-                restoreWindowGeometry(app, w, *line);
-            } else if (fields[0] == "ColWidth") {
-                w->setColumnsWidth(fields[1].toInt());
-            } else if (fields[0] == "Formula") {
-                w->setFormula(fields[1]);
-            } else if (fields[0] == "<formula>") {
-                QString formula;
-                for (line++; line != flist.end() && *line != "</formula>"; line++)
-                    formula += *line + "\n";
-                formula.truncate(formula.length() - 1);
-                w->setFormula(formula);
-            } else if (fields[0] == "TextFormat") {
-                if (fields[1] == "f")
-                    w->setTextFormat('f', fields[2].toInt());
-                else
-                    w->setTextFormat('e', fields[2].toInt());
-            } else if (fields[0] == "WindowLabel") { // d_file_version > 71
-                w->setWindowLabel(fields[1]);
-                w->setCaptionPolicy((MyWidget::CaptionPolicy)fields[2].toInt());
-                app->setListViewLabel(w->name(), fields[1]);
-            } else if (fields[0] == "Coordinates") { // d_file_version > 81
-                w->setCoordinates(fields[1].toDouble(), fields[2].toDouble(), fields[3].toDouble(),
-                                  fields[4].toDouble());
-            } else // <data> or values
-                break;
-        }
-        if (*line == "<data>")
-            line++;
-
-        QElapsedTimer t;
-        t.start();
-        // read and set table values
-        for (; line != flist.end() && *line != "</data>"; line++) {
-            QStringList fields = (*line).split("\t");
-            int row = fields[0].toInt();
-            for (int col = 0; col < cols; col++) {
-                QString cell = fields[col + 1];
-                if (cell.isEmpty())
-                    continue;
-
-                if (d_file_version < 90)
-                    w->setCell(row, col, QLocale::c().toDouble(cell));
-                else if (d_file_version >= 0x000100)
-                    w->setCell(row, col, QLocale().toDouble(cell));
-                else
-                    w->setText(row, col, cell);
-            }
-            if (t.elapsed() > 1000) {
-                QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
-                t.start();
-            }
-        }
-
-        return w;
-    } else {
-        Matrix *w = app->newMatrix("matrix", 1, 1);
-        int length = flist.at(0).toInt();
-        int index = 1;
-        QString xml(flist.at(index++));
-        while (xml.length() < length && index < flist.size())
-            xml += '\n' + flist.at(index++);
-        XmlStreamReader reader(xml);
-        reader.readNext();
-        reader.readNext(); // read the start document
-        if (w->d_future_matrix->load(&reader) == false) {
-            QString msg_text = reader.errorString();
-            QMessageBox::critical(this, tr("Error reading matrix from project file"), msg_text);
-        }
-        if (reader.hasWarnings()) {
-            QString msg_text =
-                    tr("The following problems occured when loading the project file:\n");
-            QStringList warnings = reader.warningStrings();
-            for (QString str : warnings)
-                msg_text += str + "\n";
-            QMessageBox::warning(this, tr("Project loading partly failed"), msg_text);
-        }
-        restoreWindowGeometry(app, w, flist.at(index));
-
-        activateSubWindow(w);
-        return w;
-    }
-}
-
-// TODO: most of this code belongs into Table
-Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
-{
-    if (app->d_file_version < 0x000200) {
-        QStringList flist;
-        QString s;
-        while (s != "</table>") {
-            s = stream.readLine();
-            flist << s;
-        }
-        flist.pop_back();
-        QStringList::const_iterator line = flist.begin();
-
-        QStringList list = (*line).split("\t");
-        QString caption = list[0];
-        int rows = list[1].toInt();
-        int cols = list[2].toInt();
-
-        Table *w = app->newTable(caption, rows, cols);
-        app->setListViewDate(caption, list[3]);
-        w->setBirthDate(list[3]);
-
-        for (line++; line != flist.end(); line++) {
-            QStringList fields = (*line).split("\t");
-            if (fields[0] == "geometry" || fields[0] == "tgeometry") {
-                restoreWindowGeometry(app, w, *line);
-            } else if (fields[0] == "header") {
-                fields.pop_front();
-                if (d_file_version >= 78)
-                    w->importV0x0001XXHeader(fields);
-                else {
-                    w->setColPlotDesignation(list[4].toInt(), Makhber::X);
-                    w->setColPlotDesignation(list[6].toInt(), Makhber::Y);
-                    w->setHeader(fields);
-                }
-            } else if (fields[0] == "ColWidth") {
-                fields.pop_front();
-                w->setColWidths(fields);
-            } else if (fields[0] == "com") { // legacy code
-                w->setCommands(*line);
-            } else if (fields[0] == "<com>") {
-                for (line++; line != flist.end() && *line != "</com>"; line++) {
-                    int col = (*line).mid(9, (*line).length() - 11).toInt();
-                    QString formula;
-                    for (line++; line != flist.end() && *line != "</col>"; line++)
-                        formula += *line + "\n";
-                    formula.truncate(formula.length() - 1);
-                    w->setCommand(col, formula);
-                }
-            } else if (fields[0] == "ColType") { // d_file_version > 65
-                fields.pop_front();
-                w->setColumnTypes(fields);
-            } else if (fields[0] == "Comments") { // d_file_version > 71
-                fields.pop_front();
-                w->setColComments(fields);
-            } else if (fields[0] == "WindowLabel") { // d_file_version > 71
-                w->setWindowLabel(fields[1]);
-                w->setCaptionPolicy((MyWidget::CaptionPolicy)fields[2].toInt());
-                app->setListViewLabel(w->name(), fields[1]);
-            } else // <data> or values
-                break;
-        }
-
-        QElapsedTimer t;
-        t.start();
-        QApplication::setOverrideCursor(Qt::WaitCursor);
-        for (line++; line != flist.end() && *line != "</data>";
-             line++) { // read and set table values
-            QStringList fields = (*line).split("\t");
-            int row = fields[0].toInt();
-            for (int col = 0; col < cols; col++) {
-                if (fields.count() >= col + 2) {
-                    QString cell = fields[col + 1];
-                    if (cell.isEmpty())
-                        continue;
-
-                    if (d_file_version < 90 && w->columnType(col) == Makhber::ColumnMode::Numeric)
-                        w->setCell(row, col, QLocale::c().toDouble(cell.replace(",", ".")));
-                    else if (d_file_version >= 0x000100
-                             && w->columnType(col) == Makhber::ColumnMode::Numeric)
-                        w->setCell(row, col, QLocale().toDouble(cell));
-                    else
-                        w->setText(row, col, cell);
-                }
-            }
-            if (t.elapsed() > 1000) {
-                QApplication::processEvents(QEventLoop::ExcludeUserInputEvents);
-                t.start();
-            }
-        }
-        QApplication::restoreOverrideCursor();
-
-        return w;
-    } else {
-        QString s = stream.readLine();
-        int length = s.toInt();
-
-        // On Windows, loading large tables to a QString has been observed to crash
-        // (apparently due to excessive memory usage).
-        // => use temporary file if possible
-        QTemporaryFile tmp_file;
-        QString tmp_string;
-        if (tmp_file.open()) {
-            QTextStream tmp(&tmp_file);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-            tmp.setEncoding(QStringConverter::Utf8);
-#else
-            tmp.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-            int read = 0;
-            while (length - read >= 1024) {
-                tmp << stream.read(1024);
-                read += 1024;
-            }
-            tmp << stream.read(length - read);
-            tmp.flush();
-            tmp_file.seek(0);
-            stream.readLine(); // skip to next newline
-        } else
-            while (tmp_string.length() < length)
-                tmp_string += '\n' + stream.readLine();
-
-        XmlStreamReader reader(tmp_string);
-        if (tmp_file.isOpen())
-            reader.setDevice(&tmp_file);
-
-        Table *w = app->newTable("table", 1, 1);
-        reader.readNext();
-        reader.readNext(); // read the start document
-        if (w->d_future_table->load(&reader) == false) {
-            QString msg_text = reader.errorString();
-            QMessageBox::critical(this, tr("Error reading table from project file"), msg_text);
-        }
-        if (reader.hasWarnings()) {
-            QString msg_text =
-                    tr("The following problems occured when loading the project file:\n");
-            QStringList warnings = reader.warningStrings();
-            for (QString str : warnings)
-                msg_text += str + "\n";
-            QMessageBox::warning(this, tr("Project loading partly failed"), msg_text);
-        }
-        w->setBirthDate(QLocale::c().toString(w->d_future_table->creationTime(),
-                                              "dd-MM-yyyy hh:mm:ss:zzz"));
-
-        s = stream.readLine();
-        restoreWindowGeometry(app, w, s);
-
-        s = stream.readLine(); // </table>
-
-        activateSubWindow(w);
-        return w;
-    }
-}
-
-TableStatistics *ApplicationWindow::openTableStatistics(const QStringList &flist)
-{
-    QStringList::const_iterator line = flist.begin();
-
-    QStringList list = (*line++).split("\t");
-    QString caption = list[0];
-
-    QList<int> targets;
-    for (int i = 1; i <= (*line).count('\t'); i++)
-        targets << (*line).section('\t', i, i).toInt();
-
-    TableStatistics *w = newTableStatistics(table(list[1]),
-                                            list[2] == "row" ? TableStatistics::StatRow
-                                                             : TableStatistics::StatColumn,
-                                            targets, caption);
-
-    setListViewDate(caption, list[3]);
-    w->setBirthDate(list[3]);
-
-    for (line++; line != flist.end(); line++) {
-        QStringList fields = (*line).split("\t");
-        if (fields[0] == "geometry") {
-            restoreWindowGeometry(this, w, *line);
-        } else if (fields[0] == "header") {
-            fields.pop_front();
-            if (d_file_version >= 78)
-                w->importV0x0001XXHeader(fields);
-            else {
-                w->setColPlotDesignation(list[4].toInt(), Makhber::X);
-                w->setColPlotDesignation(list[6].toInt(), Makhber::Y);
-                w->setHeader(fields);
-            }
-        } else if (fields[0] == "ColWidth") {
-            fields.pop_front();
-            w->setColWidths(fields);
-        } else if (fields[0] == "com") { // legacy code
-            w->setCommands(*line);
-        } else if (fields[0] == "<com>") {
-            for (line++; line != flist.end() && *line != "</com>"; line++) {
-                int col = (*line).mid(9, (*line).length() - 11).toInt();
-                QString formula;
-                for (line++; line != flist.end() && *line != "</col>"; line++)
-                    formula += *line + "\n";
-                formula.truncate(formula.length() - 1);
-                w->setCommand(col, formula);
-            }
-        } else if (fields[0] == "ColType") { // d_file_version > 65
-            fields.pop_front();
-            w->setColumnTypes(fields);
-        } else if (fields[0] == "Comments") { // d_file_version > 71
-            fields.pop_front();
-            w->setColComments(fields);
-        } else if (fields[0] == "WindowLabel") { // d_file_version > 71
-            w->setWindowLabel(fields[1]);
-            w->setCaptionPolicy((MyWidget::CaptionPolicy)fields[2].toInt());
-            setListViewLabel(w->name(), fields[1]);
-        }
-    }
+    Matrix *w = app->newMatrix("matrix", 1, 1);
+    w->d_future_matrix->load(jsMatrix);
+    activateSubWindow(w);
     return w;
 }
 
-Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
-                                    const QStringList &list)
+// TODO: most of this code belongs into Table
+Table *ApplicationWindow::openTable(ApplicationWindow *app, QJsonObject *jsTable)
+{
+    Table *w = app->newTable("table", 1, 1);
+    w->d_future_table->load(jsTable);
+    w->setBirthDate(jsTable->value("creationDate").toString());
+
+    auto jsGoemetry = jsTable->value("geometry").toObject();
+    restoreWindowGeometry(app, w, &jsGoemetry);
+
+    activateSubWindow(w);
+    return w;
+}
+
+TableStatistics *ApplicationWindow::openTableStatistics(QJsonObject *jsStats)
+{
+    QString caption = jsStats->value("name").toString();
+
+    QJsonArray jsTargets = jsStats->value("targets").toArray();
+    QList<int> targets;
+    for (int i = 1; i <= jsTargets.size(); i++)
+        targets << jsTargets.at(i).toInt();
+
+    TableStatistics *w = newTableStatistics(table(jsStats->value("baseName").toString()),
+                                            jsStats->value("statRow").toString() == "row"
+                                                    ? TableStatistics::StatRow
+                                                    : TableStatistics::StatColumn,
+                                            targets, caption);
+
+    setListViewDate(caption, jsStats->value("creationDate").toString());
+    w->setBirthDate(jsStats->value("creationDate").toString());
+
+    QJsonObject jsGeometry = jsStats->value("geometry").toObject();
+    restoreWindowGeometry(this, w, &jsGeometry);
+
+    QJsonArray jsHeaders = jsStats->value("columnHeaders").toArray();
+    w->importV0x0001XXHeader(&jsHeaders);
+    QJsonArray jsColWidths = jsStats->value("columnWidths").toArray();
+    w->setColWidths(&jsColWidths);
+    QJsonArray jsColTypes = jsStats->value("columnTypes").toArray();
+    w->setColumnTypes(&jsColTypes);
+    QJsonArray jsCommands = jsStats->value("commands").toArray();
+    w->setCommands(&jsCommands);
+    for (int i = 0; i < jsCommands.size(); i++)
+        w->setCommand(i, jsCommands.at(i).toString());
+    QJsonArray jsComments = jsStats->value("comments").toArray();
+    w->setColComments(&jsComments);
+    w->setWindowLabel(jsStats->value("windowLabel").toString());
+    w->setCaptionPolicy((MyWidget::CaptionPolicy)jsStats->value("captionPloicy").toInt());
+    setListViewLabel(w->name(), jsStats->value("windowsLabel").toString());
+    return w;
+}
+
+Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot, QJsonObject *jsGraph)
 {
     Graph *ag = nullptr;
     int curveID = 0;
-    QString s = list[0];
-    if (s.contains("ggeometry")) {
-        QStringList fList = s.split("\t");
-        ag = (Graph *)plot->addLayer(fList[1].toInt(), fList[2].toInt(), fList[3].toInt(),
-                                     fList[4].toInt());
-    }
+    QJsonObject jsGeometry = jsGraph->value("geometry").toObject();
+    ag = (Graph *)plot->addLayer(jsGeometry.value("x").toInt(), jsGeometry.value("y").toInt(),
+                                 jsGeometry.value("width").toInt(),
+                                 jsGeometry.value("height").toInt());
     if (!ag)
         return nullptr;
     ag->blockSignals(true);
     ag->enableAutoscaling(autoscale2DPlots);
-    for (int j = 1; j < (int)list.count() - 1; j++) {
-        QString s = list[j];
-        if (s.contains("ggeometry")) {
-            QStringList fList = s.split("\t");
-            ag = (Graph *)plot->addLayer(fList[1].toInt(), fList[2].toInt(), fList[3].toInt(),
-                                         fList[4].toInt());
-            ag->blockSignals(true);
-            ag->enableAutoscaling(autoscale2DPlots);
-        } else if (s.left(10) == "Background") {
-            QStringList fList = s.split("\t");
-            QColor c = QColor(COLORVALUE(fList[1]));
-            if (fList.count() == 3)
-                c.setAlpha(fList[2].toInt());
-            ag->setBackgroundColor(c);
-        } else if (s.startsWith("Margin")) {
-            QStringList fList = s.split("\t");
-            // ag->plotWidget()->setMargin(fList[1].toInt());
-        } else if (s.startsWith("Border")) {
-            QStringList fList = s.split("\t");
-            ag->setFrame(fList[1].toInt(), QColor(COLORVALUE(fList[2])));
-        } else if (s.contains("EnabledAxes")) {
-            QStringList fList = s.split("\t");
-            ag->enableAxes(fList);
-        } else if (s.contains("AxesBaseline")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList fList = s.split("\t", Qt::SkipEmptyParts);
-#else
-            QStringList fList = s.split("\t", QString::SkipEmptyParts);
-#endif
-            ag->setAxesBaseline(fList);
-        } else if (s.contains("EnabledTicks")) { // version < 0.8.6
-            QStringList fList = s.split("\t");
-            fList.pop_front();
-            fList.replaceInStrings("-1", "3");
-            ag->setMajorTicksType(fList);
-            ag->setMinorTicksType(fList);
-        } else if (s.contains("MajorTicks")) { // version >= 0.8.6
-            QStringList fList = s.split("\t");
-            fList.pop_front();
-            ag->setMajorTicksType(fList);
-        } else if (s.contains("MinorTicks")) { // version >= 0.8.6
-            QStringList fList = s.split("\t");
-            fList.pop_front();
-            ag->setMinorTicksType(fList);
-        } else if (s.contains("TicksLength")) {
-            QStringList fList = s.split("\t");
-            ag->setTicksLength(fList[1].toInt(), fList[2].toInt());
-        } else if (s.contains("EnabledTickLabels")) {
-            QStringList fList = s.split("\t");
-            fList.pop_front();
-            ag->setEnabledTickLabels(fList);
-        } else if (s.contains("AxesColors")) {
-            QStringList fList = s.split("\t");
-            fList.pop_front();
-            ag->setAxesColors(fList);
-        } else if (s.contains("AxesNumberColors")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList fList = s.split("\t", Qt::KeepEmptyParts);
-#else
-            QStringList fList = s.split("\t", QString::KeepEmptyParts);
-#endif
-            fList.pop_front();
-            ag->setAxesNumColors(fList);
-        } else if (s.left(5) == "grid\t") {
-            ag->plotWidget()->grid()->load(s.split("\t"));
-        } else if (s.startsWith("<Antialiasing>") && s.endsWith("</Antialiasing>")) {
-            bool antialiasing = s.remove("<Antialiasing>").remove("</Antialiasing>").toInt();
-            ag->setAntialiasing(antialiasing, false);
-        } else if (s.contains("PieCurve")) {
-            QStringList curve = s.split("\t");
+    // Background
+    QColor c = QColor(COLORVALUE(jsGraph->value("background").toString()));
+    c.setAlpha(jsGraph->value("alpha").toInt());
+    ag->setBackgroundColor(c);
+    // Border
+    QJsonObject jsBorder = jsGraph->value("border").toObject();
+    ag->setFrame(jsBorder.value("lineWidth").toInt(),
+                 QColor(COLORVALUE(jsBorder.value("frameColor").toString())));
+    // Enabled Axes
+    QJsonArray jsEnabledAxes = jsGraph->value("enabledAxes").toArray();
+    QVector<bool> enabledAxes {};
+    for (int i = 0; i < jsEnabledAxes.size(); i++)
+        enabledAxes.push_back(jsEnabledAxes.at(i).toBool());
+    ag->enableAxes(enabledAxes);
+    // Axes Baseline
+    QJsonArray jsAxesBaseline = jsGraph->value("axesBaseline").toArray();
+    QList<int> axesBaseline {};
+    for (int i = 0; i < jsAxesBaseline.size(); i++)
+        axesBaseline.push_back(jsAxesBaseline.at(i).toInt());
+    ag->setAxesBaseline(axesBaseline);
+    // Tick Types
+    QJsonObject jsTickTypes = jsGraph->value("tickTypes").toObject();
+    // Major Ticks
+    QJsonArray jsMajorTicks = jsTickTypes.value("majorTicks").toArray();
+    QList<int> majorTicks {};
+    for (int i = 0; i < jsMajorTicks.size(); i++)
+        majorTicks.push_back(jsMajorTicks.at(i).toInt());
+    ag->setMajorTicksType(majorTicks);
+    // Minor Ticks
+    QJsonArray jsMinorTicks = jsTickTypes.value("minorTicks").toArray();
+    QList<int> minorTicks {};
+    for (int i = 0; i < jsMinorTicks.size(); i++)
+        minorTicks.push_back(jsMinorTicks.at(i).toInt());
+    ag->setMinorTicksType(minorTicks);
+    // Tick Lengths
+    ag->setTicksLength(jsGraph->value("minorTickLength").toInt(),
+                       jsGraph->value("majorTickLength").toInt());
+    // Enabled Tick Labels
+    QJsonArray jsEnabledTickLabels = jsGraph->value("enabledTickLabels").toArray();
+    QStringList enabledTickLabels {};
+    for (int i = 0; i < jsEnabledTickLabels.size(); i++)
+        enabledTickLabels.push_back(jsEnabledTickLabels.at(i).toString());
+    ag->setEnabledTickLabels(enabledTickLabels);
+    // Axes Colors
+    QJsonObject jsAxesColors = jsGraph->value("axesColors").toObject();
+    QJsonArray jsColors = jsAxesColors.value("colors").toArray();
+    QStringList colors {};
+    QJsonArray jsNumberColors = jsAxesColors.value("numberColors").toArray();
+    QStringList numberColors {};
+    for (int i = 0; i < jsColors.size(); i++) {
+        colors.push_back(jsColors.at(i).toString());
+        numberColors.push_back(jsNumberColors.at(i).toString());
+    }
+    ag->setAxesColors(colors);
+    ag->setAxesNumColors(numberColors);
+    // Grid
+    QJsonObject jsGrid = jsGraph->value("grid").toObject();
+    ag->plotWidget()->grid()->load(&jsGrid);
+    // Antialiasing
+    ag->setAntialiasing(jsGraph->value("antialiasing").toInt(), false);
+    // Curves
+    QJsonArray jsCurves = jsGraph->value("curves").toArray();
+    for (int i = 0; i < jsCurves.size(); i++) {
+        QJsonObject jsCurve = jsCurves.at(i).toObject();
+        QString curveType = jsCurve.value("curveType").toString();
+        QString title = jsCurve.value("title").toString();
+        if (curveType == "Pie") {
             if (!app->renamedTables.isEmpty()) {
-                QString caption = (curve[1]).left((curve[1]).indexOf("_", 0));
+                QString caption = title.left(title.indexOf("_", 0));
                 if (app->renamedTables.contains(caption)) { // modify the name of the curve
                                                             // according to the new table name
                     int index = app->renamedTables.indexOf(caption);
                     QString newCaption = app->renamedTables[++index];
-                    curve.replaceInStrings(caption + "_", newCaption + "_");
+                    title.replace(caption + "_", newCaption + "_");
                 }
             }
-            QPen pen = QPen(QColor(COLORVALUE(curve[3])), curve[2].toInt(),
-                            Graph::getPenStyle(curve[4]));
+            QJsonObject jsPen = jsCurve.value("pen").toObject();
+            QPen pen = QPen(QColor(COLORVALUE(jsPen.value("color").toString())),
+                            jsPen.value("width").toInt(),
+                            Graph::getPenStyle(jsPen.value("styleName").toString()));
 
-            Table *table = app->table(curve[1]);
+            Table *table = app->table(title);
             if (table) {
-                int startRow = 0;
-                int endRow = table->numRows() - 1;
-                int first_color = curve[7].toInt();
-                bool visible = true;
-                if (d_file_version >= 90) {
-                    startRow = curve[8].toInt();
-                    endRow = curve[9].toInt();
-                    visible = ((curve.last() == "1") ? true : false);
-                }
+                int startRow = jsCurve.value("startRow").toInt();
+                int endRow = jsCurve.value("endRow").toInt();
+                int first_color = jsCurve.value("firstColor").toInt();
+                bool visible = jsCurve.value("endRow").toBool();
 
-                if (d_file_version <= 89)
-                    first_color = convertOldToNewColorIndex(first_color);
-
-                ag->plotPie(table, curve[1], pen, curve[5].toInt(), curve[6].toInt(), first_color,
-                            startRow, endRow, visible);
+                ag->plotPie(table, title, pen, jsCurve.value("pattern").toInt(),
+                            jsCurve.value("ray").toInt(), first_color, startRow, endRow, visible);
             }
-        } else if (s.left(6) == "curve\t") {
+        } else if (curveType == "Data") {
             bool curve_loaded = false; // Graph::insertCurve may fail
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList curve = s.split("\t", Qt::KeepEmptyParts);
-#else
-            QStringList curve = s.split("\t", QString::KeepEmptyParts);
-#endif
-            int s_offset = 0;
-            if (curve.count() > 14) {
-                if (!app->renamedTables.isEmpty()) {
-                    QString caption = (curve[2]).left((curve[2]).indexOf("_", 0));
+            if (!app->renamedTables.isEmpty()) {
+                QString caption = title.left(title.indexOf("_", 0));
 
-                    if (app->renamedTables.contains(caption)) { // modify the name of the curve
-                                                                // according to the new table name
-                        int index = app->renamedTables.indexOf(caption);
-                        QString newCaption = app->renamedTables[++index];
-                        curve.replaceInStrings(caption + "_", newCaption + "_");
-                    }
+                if (app->renamedTables.contains(caption)) { // modify the name of the curve
+                                                            // according to the new table name
+                    int index = app->renamedTables.indexOf(caption);
+                    QString newCaption = app->renamedTables[++index];
+                    title.replace(caption + "_", newCaption + "_");
                 }
-
-                CurveLayout cl;
-                cl.connectType = curve[4].toInt();
-                cl.lCol = COLORUINT(curve[5]);
-                if (d_file_version <= 89)
-                    cl.lCol = convertOldToNewColorIndex(cl.lCol);
-                cl.lStyle = curve[6].toInt();
-                cl.lWidth = curve[7].toInt();
-                cl.sSize = curve[8].toInt();
-                if (d_file_version <= 78)
-                    cl.sType = Graph::obsoleteSymbolStyle(curve[9].toInt());
-                else
-                    cl.sType = curve[9].toInt();
-
-                cl.symCol = COLORUINT(curve[10]);
-                if (d_file_version <= 89)
-                    cl.symCol = convertOldToNewColorIndex(cl.symCol);
-                if (curve[11] == "-1")
-                    cl.symbolFill = false;
-                else {
-                    cl.symbolFill = true;
-                    cl.fillCol = COLORUINT(curve[11]);
-                }
-                if (d_file_version <= 89)
-                    cl.fillCol = convertOldToNewColorIndex(cl.fillCol);
-                cl.filledArea = curve[12].toInt();
-                cl.aCol = COLORUINT(curve[13]);
-                if (d_file_version <= 89)
-                    cl.aCol = convertOldToNewColorIndex(cl.aCol);
-                cl.aStyle = curve[14].toInt();
-                if (curve.count() < 16)
-                    cl.penWidth = cl.lWidth;
-                else if ((d_file_version >= 79) && (curve[3].toInt() == Graph::Box)) {
-                    cl.penWidth = curve[15].toInt();
-                    s_offset++;
-                } else if ((d_file_version >= 78) && (curve[3].toInt() <= Graph::LineSymbols)) {
-                    cl.penWidth = curve[15].toInt();
-                    s_offset++;
-                } else
-                    cl.penWidth = cl.lWidth;
-                if (d_file_version >= 0x011800) // 1.24.0
-                {
-                    // custom dash pattern
-                    cl.lCapStyle = curve[15 + s_offset].toInt();
-                    cl.lJoinStyle = curve[16 + s_offset].toInt();
-                    cl.lCustomDash = curve[17 + s_offset];
-                    s_offset += 3;
-                }
-
-                Table *w = app->table(curve[2]);
-                if (w) {
-                    int plotType = curve[3].toInt();
-                    if (curve.count() > (21 + s_offset)
-                        && (plotType == Graph::VectXYXY || plotType == Graph::VectXYAM)) {
-                        QStringList colsList;
-                        colsList << curve[2];
-                        colsList << curve[20 + s_offset];
-                        colsList << curve[21 + s_offset];
-                        if (d_file_version < 72)
-                            colsList.prepend(w->colName(curve[1].toInt()));
-                        else
-                            colsList.prepend(curve[1]);
-
-                        int startRow = 0;
-                        int endRow = -1;
-                        if (d_file_version >= 90) {
-                            startRow = curve[curve.count() - 3].toInt();
-                            endRow = curve[curve.count() - 2].toInt();
-                        }
-
-                        ag->plotVectorCurve(w, colsList, plotType, startRow, endRow);
-                        curve_loaded = true;
-
-                        if (d_file_version <= 77) {
-                            int temp_index = convertOldToNewColorIndex(curve[15].toInt());
-                            ag->updateVectorsLayout(curveID, ColorButton::color(temp_index),
-                                                    curve[16].toInt(), curve[17].toInt(),
-                                                    curve[18].toInt(), curve[19].toInt(), 0,
-                                                    curve[20], curve[21]);
-                        } else {
-                            if (plotType == Graph::VectXYXY)
-                                ag->updateVectorsLayout(
-                                        curveID, curve[15 + s_offset], curve[16 + s_offset].toInt(),
-                                        curve[17 + s_offset].toInt(), curve[18 + s_offset].toInt(),
-                                        curve[19 + s_offset].toInt(), 0);
-                            else if (curve.count() > 22 + s_offset)
-                                ag->updateVectorsLayout(
-                                        curveID, curve[15 + s_offset], curve[16 + s_offset].toInt(),
-                                        curve[17 + s_offset].toInt(), curve[18 + s_offset].toInt(),
-                                        curve[19 + s_offset].toInt(), curve[22 + s_offset].toInt());
-                        }
-                    } else if (plotType == Graph::Box) {
-                        ag->openBoxDiagram(w, curve, d_file_version);
-                        curve_loaded = true;
-                    } else if (plotType == Graph::Histogram && curve.count() > 19) {
-                        if (d_file_version < 90)
-                            curve_loaded = ag->plotHistogram(w, QStringList() << curve[2]);
-                        else
-                            curve_loaded = ag->plotHistogram(w, QStringList() << curve[2],
-                                                             curve[curve.count() - 3].toInt(),
-                                                             curve[curve.count() - 2].toInt());
-                        if (curve_loaded) {
-                            auto *h = dynamic_cast<QwtHistogram *>(ag->curve(curveID));
-                            if (d_file_version <= 76)
-                                h->setBinning(curve[16].toInt(), curve[17].toDouble(),
-                                              curve[18].toDouble(), curve[19].toDouble());
-                            else if (curve.count() > 20 + s_offset)
-                                h->setBinning(curve[17 + s_offset].toInt(),
-                                              curve[18 + s_offset].toDouble(),
-                                              curve[19 + s_offset].toDouble(),
-                                              curve[20 + s_offset].toDouble());
-                            h->loadData();
-                        }
-                    } else {
-                        if (d_file_version < 72)
-                            curve_loaded = ag->insertCurve(w, curve[1].toInt(), curve[2], plotType);
-                        else if (d_file_version < 90)
-                            curve_loaded = ag->insertCurve(w, curve[1], curve[2], plotType);
-                        else {
-                            int startRow = curve[curve.count() - 3].toInt();
-                            int endRow = curve[curve.count() - 2].toInt();
-                            curve_loaded = ag->insertCurve(w, curve[1], curve[2], plotType,
-                                                           startRow, endRow);
-                        }
-                    }
-
-                    if (curve_loaded
-                        && (plotType == Graph::VerticalBars || plotType == Graph::HorizontalBars
-                            || plotType == Graph::Histogram)) {
-                        if (d_file_version <= 76 && curve.count() > 15)
-                            ag->setBarsGap(curveID, curve[15].toInt(), 0);
-                        else if (curve.count() > (16 + s_offset))
-                            ag->setBarsGap(curveID, curve[15 + s_offset].toInt(),
-                                           curve[16 + s_offset].toInt());
-                    }
-                    if (curve_loaded)
-                        ag->updateCurveLayout(curveID, &cl);
-                    if (d_file_version >= 88) {
-                        QwtPlotCurve *c = ag->curve(curveID);
-                        if (c && c->rtti() == QwtPlotItem::Rtti_PlotCurve) {
-                            if (d_file_version < 90)
-                                c->setAxes(curve[curve.count() - 2].toInt(),
-                                           curve[curve.count() - 1].toInt());
-                            else {
-                                c->setAxes(curve[curve.count() - 5].toInt(),
-                                           curve[curve.count() - 4].toInt());
-                                c->setVisible(curve.last().toInt());
-                            }
-                        }
-                    }
-                }
-                if (curve_loaded)
-                    curveID++;
             }
-        } else if (s.contains("FunctionCurve")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList curve = s.split("\t", Qt::KeepEmptyParts);
-#else
-            QStringList curve = s.split("\t", QString::KeepEmptyParts);
-#endif
+
             CurveLayout cl;
-            cl.connectType = curve[6].toInt();
-            cl.lCol = COLORUINT(curve[7]);
-            cl.lStyle = curve[8].toInt();
-            cl.lWidth = curve[9].toInt();
-            cl.sSize = curve[10].toInt();
-            cl.sType = curve[11].toInt();
-            cl.symCol = COLORUINT(curve[12]);
-            if (curve[13] == "-1")
+            QJsonObject jsLayout = jsCurve.value("curveLayout").toObject();
+            cl.connectType = jsLayout.value("curveStyle").toInt();
+            // Pen
+            QJsonObject jsPen = jsLayout.value("pen").toObject();
+            cl.lCol = COLORUINT(jsPen.value("color").toString());
+            cl.lStyle = jsPen.value("style").toInt();
+            cl.lWidth = jsPen.value("width").toInt();
+            // Symbol
+            QJsonObject jsSymbol = jsLayout.value("symbol").toObject();
+            cl.sSize = jsSymbol.value("width").toInt();
+            cl.sType = jsSymbol.value("style").toInt();
+
+            cl.symCol = COLORUINT(jsSymbol.value("penColor").toString());
+            if (jsSymbol.value("brushColor").toString() == "")
                 cl.symbolFill = false;
             else {
                 cl.symbolFill = true;
-                cl.fillCol = COLORUINT(curve[13]);
+                cl.fillCol = COLORUINT(jsSymbol.value("brushColor").toString());
             }
-            cl.filledArea = curve[14].toInt();
-            cl.aCol = COLORUINT(curve[15]);
-            cl.aStyle = curve[16].toInt();
-            int current_index = 17;
-            if (curve.count() < 16)
+            cl.filledArea = jsLayout.value("filled").toInt();
+            cl.aCol = COLORUINT(jsLayout.value("brushColor").toString());
+            cl.aStyle = jsLayout.value("brushStyle").toInt();
+            if ((jsLayout.value("style").toInt() == Graph::Box)
+                || (jsLayout.value("style").toInt() <= Graph::LineSymbols)) {
+                cl.penWidth = jsLayout.value("penWidth").toInt();
+            } else {
                 cl.penWidth = cl.lWidth;
-            else if ((d_file_version >= 79) && (curve[5].toInt() == Graph::Box)) {
-                cl.penWidth = curve[17].toInt();
-                current_index++;
-            } else if ((d_file_version >= 78) && (curve[5].toInt() <= Graph::LineSymbols)) {
-                cl.penWidth = curve[17].toInt();
-                current_index++;
+            }
+            // custom dash pattern
+            cl.lCapStyle = jsLayout.value("capStyle").toInt();
+            cl.lJoinStyle = jsLayout.value("joinStyle").toInt();
+            cl.lCustomDash = jsLayout.value("customDash").toString();
+
+            Table *w = app->table(title);
+            if (w) {
+                int plotType = jsLayout.value("style").toInt();
+                if (plotType == Graph::VectXYXY || plotType == Graph::VectXYAM) {
+                    QStringList colsList;
+                    colsList << jsCurve.value("xColumnName").toString();
+                    colsList << jsCurve.value("title").toString();
+                    colsList << jsLayout.value("X_A").toString();
+                    colsList << jsLayout.value("Y_M").toString();
+
+                    int startRow = jsCurve.value("startRow").toInt();
+                    int endRow = jsCurve.value("endRow").toInt();
+
+                    ag->plotVectorCurve(w, colsList, plotType, startRow, endRow);
+                    curve_loaded = true;
+
+                    if (plotType == Graph::VectXYXY)
+                        ag->updateVectorsLayout(curveID, jsLayout.value("vectorColor").toString(),
+                                                jsLayout.value("vectorWidth").toInt(),
+                                                jsLayout.value("headLength").toInt(),
+                                                jsLayout.value("headAngle").toInt(),
+                                                jsLayout.value("filledArrowHead").toInt(), 0);
+                    else
+                        ag->updateVectorsLayout(curveID, jsLayout.value("vectorColor").toString(),
+                                                jsLayout.value("vectorWidth").toInt(),
+                                                jsLayout.value("headLength").toInt(),
+                                                jsLayout.value("headAngle").toInt(),
+                                                jsLayout.value("filledArrowHead").toInt(),
+                                                jsLayout.value("position").toInt());
+                } else if (plotType == Graph::Box) {
+                    ag->openBoxDiagram(w, &jsCurve);
+                    curve_loaded = true;
+                } else if (plotType == Graph::Histogram) {
+                    curve_loaded = ag->plotHistogram(w, QStringList() << title,
+                                                     jsLayout.value("gap").toInt(),
+                                                     jsLayout.value("offset").toInt());
+                    if (curve_loaded) {
+                        auto *h = dynamic_cast<QwtHistogram *>(ag->curve(curveID));
+                        h->setBinning(jsLayout.value("autoBinning").toInt(),
+                                      jsLayout.value("binSize").toDouble(),
+                                      jsLayout.value("begin").toDouble(),
+                                      jsLayout.value("end").toDouble());
+                        h->loadData();
+                    }
+                } else {
+                    int startRow = jsCurve.value("startRow").toInt();
+                    int endRow = jsCurve.value("endRow").toInt();
+                    curve_loaded = ag->insertCurve(w, jsCurve.value("xColumnName").toString(),
+                                                   title, plotType, startRow, endRow);
+                }
+
+                if (curve_loaded
+                    && (plotType == Graph::VerticalBars || plotType == Graph::HorizontalBars
+                        || plotType == Graph::Histogram)) {
+                    ag->setBarsGap(curveID, jsLayout.value("gap").toInt(),
+                                   jsLayout.value("offset").toInt());
+                }
+                if (curve_loaded)
+                    ag->updateCurveLayout(curveID, &cl);
+                QwtPlotCurve *c = ag->curve(curveID);
+                if (c && c->rtti() == QwtPlotItem::Rtti_PlotCurve) {
+                    c->setAxes(jsCurve.value("xAxis").toInt(), jsCurve.value("yAxis").toInt());
+                    c->setVisible(jsCurve.value("visible").toBool());
+                }
+            }
+            if (curve_loaded)
+                curveID++;
+        } else if (curveType == "Function") {
+            CurveLayout cl;
+            QJsonObject jsLayout = jsCurve.value("curveLayout").toObject();
+            cl.connectType = jsLayout.value("curveStyle").toInt();
+            // Pen
+            QJsonObject jsPen = jsLayout.value("pen").toObject();
+            cl.lCol = COLORUINT(jsPen.value("color").toString());
+            cl.lStyle = jsPen.value("style").toInt();
+            cl.lWidth = jsPen.value("width").toInt();
+            // Symbol
+            QJsonObject jsSymbol = jsLayout.value("symbol").toObject();
+            cl.sSize = jsSymbol.value("size").toInt();
+            cl.sType = jsSymbol.value("style").toInt();
+            cl.symCol = COLORUINT(jsSymbol.value("penColor").toString());
+            if (jsSymbol.value("brushColor").toString() == "")
+                cl.symbolFill = false;
+            else {
+                cl.symbolFill = true;
+                cl.fillCol = COLORUINT(jsSymbol.value("brushColor").toString());
+            }
+            cl.filledArea = jsLayout.value("filled").toInt();
+            cl.aCol = COLORUINT(jsLayout.value("brushColor").toString());
+            cl.aStyle = jsLayout.value("brushStyle").toInt();
+            if (jsLayout.value("style").toInt() <= Graph::LineSymbols) {
+                cl.penWidth = jsLayout.value("penWidth").toInt();
             } else
                 cl.penWidth = cl.lWidth;
 
-            if (d_file_version >= 0x011800) // 1.24.0
-            {
-                // skeep capStyle, joinStyle and custom dash pattern values
-                current_index += 3;
-            }
-
             QStringList func_spec;
-            func_spec << curve[1];
+            func_spec << title;
 
-            j++;
-            while (list[j] == "<formula>") { // d_file_version >= 0x000105
-                QString formula;
-                for (j++; list[j] != "</formula>"; j++)
-                    formula += list[j] + "\n";
-                func_spec << formula;
-                j++;
+            QJsonArray jsFormulas = jsCurve.value("formulas").toArray();
+            for (int i = 0; i < jsFormulas.size(); i++) {
+                func_spec << jsFormulas.at(i).toString();
             }
-            j--;
 
-            if (ag->insertFunctionCurve(app, func_spec, curve[2].toInt(), d_file_version)) {
-                ag->setCurveType(curveID, (Graph::CurveType)curve[5].toInt(), false);
+            if (ag->insertFunctionCurve(app, func_spec, jsCurve.value("functionType").toInt())) {
+                ag->setCurveType(curveID, (Graph::CurveType)jsLayout.value("style").toInt(), false);
                 ag->updateCurveLayout(curveID, &cl);
-                if (d_file_version >= 88) {
-                    QwtPlotCurve *c = ag->curve(curveID);
-                    if (c) {
-                        if (current_index + 1 < curve.size())
-                            c->setAxes(curve[current_index].toInt(),
-                                       curve[current_index + 1].toInt());
-                        if (d_file_version >= 90 && current_index + 2 < curve.size())
-                            c->setVisible(curve.last().toInt());
-                        else
-                            c->setVisible(true);
-                    }
+                QwtPlotCurve *c = ag->curve(curveID);
+                if (c) {
+                    c->setAxes(jsCurve.value("xAxis").toInt(), jsCurve.value("yAxis").toInt());
+                    c->setVisible(jsCurve.value("visible").toBool());
                 }
                 if (ag->curve(curveID))
                     curveID++;
             }
-        } else if (s.contains("ErrorBars")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList curve = s.split("\t", Qt::SkipEmptyParts);
-#else
-            QStringList curve = s.split("\t", QString::SkipEmptyParts);
-#endif
-            Table *w = app->table(curve[3]);
-            Table *errTable = app->table(curve[4]);
+        } else if (curveType == "ErrorBars") {
+            Table *w = app->table(jsCurve.value("masterTitle").toString());
+            Table *errTable = app->table(title);
             if (w && errTable) {
-                ag->addErrorBars(curve[2], curve[3], errTable, curve[4], curve[1].toInt(),
-                                 curve[5].toInt(), curve[6].toInt(), QColor(COLORVALUE(curve[7])),
-                                 curve[8].toInt(), curve[10].toInt(), curve[9].toInt());
+                ag->addErrorBars(jsCurve.value("masterTitle").toString(),
+                                 jsCurve.value("masterXColumn").toString(), errTable, title,
+                                 jsCurve.value("direction").toInt(), jsCurve.value("width").toInt(),
+                                 jsCurve.value("capLength").toInt(),
+                                 QColor(COLORVALUE(jsCurve.value("color").toString())),
+                                 jsCurve.value("throughSymbol").toInt(),
+                                 jsCurve.value("plusSide").toInt(),
+                                 jsCurve.value("minusSide").toInt());
             }
             curveID++;
-        } else if (s == "<spectrogram>") {
+        } else if (curveType == "spectrogram") {
             curveID++;
-            QStringList lst;
-            while (s != "</spectrogram>") {
-                s = list[++j];
-                lst << s;
-            }
-            lst.pop_back();
-            ag->restoreSpectrogram(app, lst);
-        } else if (s.left(6) == "scale\t") {
-            QStringList scl = s.split("\t");
-            scl.pop_front();
-            if (d_file_version < 88) {
-                double step = scl[2].toDouble();
-                if (scl[5] == "0")
-                    step = 0.0;
-                ag->setScale(QwtPlot::xBottom, scl[0].toDouble(), scl[1].toDouble(), step,
-                             scl[3].toInt(), scl[4].toInt(), scl[6].toInt(), bool(scl[7].toInt()));
-                ag->setScale(QwtPlot::xTop, scl[0].toDouble(), scl[1].toDouble(), step,
-                             scl[3].toInt(), scl[4].toInt(), scl[6].toInt(), bool(scl[7].toInt()));
-
-                step = scl[10].toDouble();
-                if (scl[13] == "0")
-                    step = 0.0;
-                ag->setScale(QwtPlot::yLeft, scl[8].toDouble(), scl[9].toDouble(), step,
-                             scl[11].toInt(), scl[12].toInt(), scl[14].toInt(),
-                             bool(scl[15].toInt()));
-                ag->setScale(QwtPlot::yRight, scl[8].toDouble(), scl[9].toDouble(), step,
-                             scl[11].toInt(), scl[12].toInt(), scl[14].toInt(),
-                             bool(scl[15].toInt()));
-            } else
-                ag->setScale(scl[0].toInt(), scl[1].toDouble(), scl[2].toDouble(),
-                             scl[3].toDouble(), scl[4].toInt(), scl[5].toInt(), scl[6].toInt(),
-                             bool(scl[7].toInt()));
-        } else if (s.contains("PlotTitle")) {
-            QStringList fList = s.split("\t");
-            ag->setTitle(fList[1]);
-            ag->setTitleColor(QColor(COLORVALUE(fList[2])));
-            ag->setTitleAlignment(fList[3].toInt());
-        } else if (s.contains("TitleFont")) {
-            QStringList fList = s.split("\t");
-            QFont fnt = QFont(fList[1], fList[2].toInt(), fList[3].toInt(), fList[4].toInt());
-            fnt.setUnderline(fList[5].toInt());
-            fnt.setStrikeOut(fList[6].toInt());
-            ag->setTitleFont(fnt);
-        } else if (s.contains("AxesTitles")) {
-            QStringList legend = s.split("\t");
-            legend.pop_front();
-            for (int i = 0; i < 4; i++) {
-                if (legend.count() > i)
-                    ag->setAxisTitle(Graph::mapToQwtAxis(i), legend[i]);
-            }
-        } else if (s.contains("AxesTitleColors")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList colors = s.split("\t", Qt::SkipEmptyParts);
-#else
-            QStringList colors = s.split("\t", QString::SkipEmptyParts);
-#endif
-            ag->setAxesTitleColor(colors);
-        } else if (s.contains("AxesTitleAlignment")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList align = s.split("\t", Qt::SkipEmptyParts);
-#else
-            QStringList align = s.split("\t", QString::SkipEmptyParts);
-#endif
-            ag->setAxesTitlesAlignment(align);
-        } else if (s.contains("ScaleFont")) {
-            QStringList fList = s.split("\t");
-            QFont fnt = QFont(fList[1], fList[2].toInt(), fList[3].toInt(), fList[4].toInt());
-            fnt.setUnderline(fList[5].toInt());
-            fnt.setStrikeOut(fList[6].toInt());
-
-            int axis = (fList[0].right(1)).toInt();
-            ag->setAxisTitleFont(axis, fnt);
-        } else if (s.contains("AxisFont")) {
-            QStringList fList = s.split("\t");
-            QFont fnt = QFont(fList[1], fList[2].toInt(), fList[3].toInt(), fList[4].toInt());
-            fnt.setUnderline(fList[5].toInt());
-            fnt.setStrikeOut(fList[6].toInt());
-
-            int axis = (fList[0].right(1)).toInt();
-            ag->setAxisFont(axis, fnt);
-        } else if (s.contains("AxesFormulas")) {
-            QStringList fList = s.split("\t");
-            fList.removeAll(fList.first());
-            ag->setAxesFormulas(fList);
-        } else if (s.startsWith("<AxisFormula ")) {
-            int pos = s.mid(18, s.length() - 20).toInt();
-            QString formula;
-            for (j++; j < (int)list.count() && list[j] != "</AxisFormula>"; j++)
-                formula += list[j] + "\n";
-            formula.truncate(formula.length() - 1);
-            ag->setAxisFormula(pos, formula);
-        } else if (s.contains("LabelsFormat")) {
-            QStringList fList = s.split("\t");
-            fList.pop_front();
-            ag->setLabelsNumericFormat(fList);
-        } else if (s.contains("LabelsRotation")) {
-            QStringList fList = s.split("\t");
-            ag->setAxisLabelRotation(QwtPlot::xBottom, fList[1].toInt());
-            ag->setAxisLabelRotation(QwtPlot::xTop, fList[2].toInt());
-        } else if (s.contains("DrawAxesBackbone")) {
-            QStringList fList = s.split("\t");
-            ag->loadAxesOptions(fList[1]);
-        } else if (s.contains("AxesLineWidth")) {
-            QStringList fList = s.split("\t");
-            ag->loadAxesLinewidth(); // fList[1].toInt());
-        } else if (s.contains("CanvasFrame")) {
-            QStringList list = s.split("\t");
-            ag->drawCanvasFrame(list);
-        } else if (s.contains("CanvasBackground")) {
-            QStringList list = s.split("\t");
-            QColor c = QColor(COLORVALUE(list[1]));
-            if (list.count() == 3)
-                c.setAlpha(list[2].toInt());
-            ag->setCanvasBackground(c);
-        } else if (s.contains("Legend")) { // version <= 0.8.9
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList fList = s.split("\t", Qt::KeepEmptyParts);
-#else
-            QStringList fList = s.split("\t", QString::KeepEmptyParts);
-#endif
-            ag->insertLegend(fList, d_file_version);
-        } else if (s.startsWith("<legend>") && s.endsWith("</legend>")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList fList = s.remove("</legend>").split("\t", Qt::KeepEmptyParts);
-#else
-            QStringList fList = s.remove("</legend>").split("\t", QString::KeepEmptyParts);
-#endif
-            ag->insertLegend(fList, d_file_version);
-        } else if (s.contains("textMarker")) { // version <= 0.8.9
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList fList = s.split("\t", Qt::KeepEmptyParts);
-#else
-            QStringList fList = s.split("\t", QString::KeepEmptyParts);
-#endif
-            ag->insertTextMarker(fList, d_file_version);
-        } else if (s.startsWith("<text>") && s.endsWith("</text>")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-            QStringList fList = s.remove("</text>").split("\t", Qt::KeepEmptyParts);
-#else
-            QStringList fList = s.remove("</text>").split("\t", QString::KeepEmptyParts);
-#endif
-            ag->insertTextMarker(fList, d_file_version);
-        } else if (s.contains("lineMarker")) { // version <= 0.8.9
-            QStringList fList = s.split("\t");
-            ag->addArrow(fList, d_file_version);
-        } else if (s.startsWith("<line>") && s.endsWith("</line>")) {
-            QStringList fList = s.remove("</line>").split("\t");
-            ag->addArrow(fList, d_file_version);
-        } else if (s.contains("ImageMarker")
-                   || (s.startsWith("<image>") && s.endsWith("</image>"))) {
-            QStringList fList = s.remove("</image>").split("\t");
-            ag->insertImageMarker(fList, d_file_version);
-        } else if (s.contains("AxisType")) {
-            QStringList fList = s.split("\t");
-            if (fList.size() >= 5)
-                for (int i = 0; i < 4; i++) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-                    QStringList lst = fList[i + 1].split(";", Qt::SkipEmptyParts);
-#else
-                    QStringList lst = fList[i + 1].split(";", QString::SkipEmptyParts);
-#endif
-                    if (lst.size() < 2)
-                        continue;
-                    auto format = static_cast<Graph::AxisType>(lst[0].toInt());
-                    switch (format) {
-                    case Graph::AxisType::Day:
-                        ag->setLabelsDayFormat(i, lst[1].toInt());
-                        break;
-                    case Graph::AxisType::Month:
-                        ag->setLabelsMonthFormat(i, lst[1].toInt());
-                        break;
-                    case Graph::AxisType::Time:
-                    case Graph::AxisType::Date:
-                    case Graph::AxisType::DateTime:
-                        ag->setLabelsDateTimeFormat(i, format, lst[1] + ";" + lst[2]);
-                        break;
-                    case Graph::AxisType::Txt:
-                        ag->setLabelsTextFormat(i, app->table(lst[1]), lst[1]);
-                        break;
-                    case Graph::AxisType::ColHeader:
-                        ag->setLabelsColHeaderFormat(i, app->table(lst[1]));
-                        break;
-                    default:
-                        break;
-                    }
-                }
-        } else if (d_file_version < 69 && s.contains("AxesTickLabelsCol")) {
-            QStringList fList = s.split("\t");
-            if (fList.size() >= 5) {
-                const QList<Graph::AxisType> &axesTypes = ag->axesType();
-                for (int i = 0; i < 4; i++) {
-                    switch (axesTypes[i]) {
-                    case Graph::AxisType::Txt:
-                        ag->setLabelsTextFormat(i, app->table(fList[i + 1]), fList[i + 1]);
-                        break;
-                    case Graph::AxisType::ColHeader:
-                        ag->setLabelsColHeaderFormat(i, app->table(fList[i + 1]));
-                        break;
-                    default:
-                        break;
-                    }
-                }
-            }
+            ag->restoreSpectrogram(app, &jsCurve);
+        }
+    }
+    // Scales
+    QJsonArray jsScales = jsGraph->value("scale").toArray();
+    for (int i = 0; i < jsScales.size(); i++) {
+        QJsonObject jsScale = jsScales.at(i).toObject();
+        ag->setScale(jsScale.value("axis").toInt(), jsScale.value("minBound").toDouble(),
+                     jsScale.value("maxBound").toDouble(), jsScale.value("step").toDouble(),
+                     jsScale.value("maxMajor").toInt(), jsScale.value("maxMinor").toInt(),
+                     jsScale.value("transformation").toInt(), jsScale.value("inverted").toBool());
+    }
+    // Plot Title
+    QJsonObject jsPlotTitle = jsGraph->value("plotTitle").toObject();
+    ag->setTitle(jsPlotTitle.value("text").toString());
+    ag->setTitleColor(QColor(COLORVALUE(jsPlotTitle.value("color").toString())));
+    ag->setTitleAlignment(jsPlotTitle.value("renderFlags").toInt());
+    // Fonts
+    QJsonObject jsFonts = jsGraph->value("fonts").toObject();
+    // Title Font
+    QJsonObject jsTitleFont = jsFonts.value("fonts").toObject();
+    QFont fnt =
+            QFont(jsTitleFont.value("family").toString(), jsTitleFont.value("pointSize").toInt(),
+                  jsTitleFont.value("weight").toInt(), jsTitleFont.value("italic").toInt());
+    fnt.setUnderline(jsTitleFont.value("underline").toInt());
+    fnt.setStrikeOut(jsTitleFont.value("strikeout").toInt());
+    ag->setTitleFont(fnt);
+    // Scale Fonts
+    QJsonArray jsScaleFonts = jsFonts.value("scaleFont").toArray();
+    for (int i = 0; i < jsScaleFonts.size(); i++) {
+        QJsonObject jsScaleFont = jsScaleFonts.at(i).toObject();
+        QFont fnt = QFont(jsScaleFont.value("family").toString(),
+                          jsScaleFont.value("pointSize").toInt(),
+                          jsScaleFont.value("weight").toInt(), jsScaleFont.value("italic").toInt());
+        fnt.setUnderline(jsScaleFont.value("underline").toInt());
+        fnt.setStrikeOut(jsScaleFont.value("strikeout").toInt());
+        ag->setAxisTitleFont(i, fnt);
+    }
+    // Axes Fonts
+    QJsonArray jsAxesFonts = jsFonts.value("axesFont").toArray();
+    for (int i = 0; i < jsAxesFonts.size(); i++) {
+        QJsonObject jsAxesFont = jsAxesFonts.at(i).toObject();
+        QFont fnt =
+                QFont(jsAxesFont.value("family").toString(), jsAxesFont.value("pointSize").toInt(),
+                      jsAxesFont.value("weight").toInt(), jsAxesFont.value("italic").toInt());
+        fnt.setUnderline(jsAxesFont.value("underline").toInt());
+        fnt.setStrikeOut(jsAxesFont.value("strikeout").toInt());
+        ag->setAxisFont(i, fnt);
+    }
+    // Axes Titles
+    QJsonObject jsAxesTitles = jsGraph->value("axesTitles").toObject();
+    QJsonArray jsScaleTitles = jsAxesTitles.value("scale").toArray();
+    for (int i = 0; i < 4; i++)
+        ag->setAxisTitle(Graph::mapToQwtAxis(i), jsScaleTitles.at(i).toString());
+    QJsonArray jsAxesTitleColors = jsAxesTitles.value("colors").toArray();
+    ag->setAxesTitleColor(&jsAxesTitleColors);
+    QJsonObject jsAxesTitleAlignment = jsAxesTitles.value("alignment").toObject();
+    QJsonArray jsRenderFlags = jsAxesTitleAlignment.value("renderFlags").toArray();
+    ag->setAxesTitlesAlignment(&jsRenderFlags);
+    // Axes Formulas
+    QJsonArray jsAxesFormulas = jsGraph->value("axesFormulas").toArray();
+    QStringList axesFormulas {};
+    for (int i = 0; i < jsAxesFormulas.size(); i++)
+        axesFormulas << jsAxesFormulas.at(i).toString();
+    ag->setAxesFormulas(axesFormulas);
+    // Labels Format
+    QJsonObject jsLabelsFormats = jsGraph->value("labelsFormat").toObject();
+    ag->setLabelsNumericFormat(&jsLabelsFormats);
+    // Labels Rotation
+    QJsonObject jsLabelsRotation = jsGraph->value("labelsRotation").toObject();
+    ag->setAxisLabelRotation(QwtPlot::xBottom, jsLabelsRotation.value("xBottom").toInt());
+    ag->setAxisLabelRotation(QwtPlot::xTop, jsLabelsRotation.value("xTop").toInt());
+    // Draw Axes Backbone
+    ag->loadAxesOptions(jsGraph->value("drawAxesBackbone").toString());
+    ag->loadAxesLinewidth(); // jsGraph->value("axesLineWidth").toInt());
+    // Canvas
+    QJsonObject jsCanvas = jsGraph->value("canvas").toObject();
+    /*QJsonArray jsCanvasFrame = jsCanvas.value("canvasFrame").toArray();
+    QStringList canvasFrame {};
+    for (int i = 0; i < jsCanvasFrame.size(); i++)
+        canvasFrame << jsCanvasFrame.at(i).toString();
+    ag->drawCanvasFrame(canvasFrame);*/
+    QColor canvasColor = QColor(COLORVALUE(jsCanvas.value("canvasBackground").toString()));
+    canvasColor.setAlpha(jsCanvas.value("alpha").toInt());
+    ag->setCanvasBackground(canvasColor);
+    // Markers
+    QJsonObject jsMarkers = jsGraph->value("markers").toObject();
+    QJsonArray jsTexts = jsMarkers.value("texts").toArray();
+    for (int i = 0; i < jsTexts.size(); i++) {
+        QJsonObject jsText = jsTexts.at(i).toObject();
+        QString type = jsText.value("type").toString();
+        if (type == "legend") {
+            ag->insertLegend(&jsText);
+        } else if (type == "text") {
+            ag->insertTextMarker(&jsText);
+        }
+    }
+    QJsonArray jsLines = jsMarkers.value("lines").toArray();
+    for (int i = 0; i < jsLines.size(); i++) {
+        QJsonObject jsLine = jsLines.at(i).toObject();
+        ag->addArrow(&jsLine);
+    }
+    QJsonArray jsImages = jsMarkers.value("images").toArray();
+    for (int i = 0; i < jsImages.size(); i++) {
+        QJsonObject jsImage = jsImages.at(i).toObject();
+        ag->insertImageMarker(&jsImage);
+    }
+    // Axis Type
+    QJsonObject jsAxesLabelsType = jsGraph->value("axesLabelsType").toObject();
+    QJsonArray jsAxesType = jsAxesLabelsType.value("types").toArray();
+    QJsonArray jsAxesFormatInfos = jsAxesLabelsType.value("formatInfo").toArray();
+    for (int i = 0; i < 4; i++) {
+        auto format = static_cast<Graph::AxisType>(jsAxesType.at(i).toInt());
+        switch (format) {
+        case Graph::AxisType::Day:
+            ag->setLabelsDayFormat(i, jsAxesFormatInfos.at(i).toInt());
+            break;
+        case Graph::AxisType::Month:
+            ag->setLabelsMonthFormat(i, jsAxesFormatInfos.at(i).toInt());
+            break;
+        case Graph::AxisType::Time:
+        case Graph::AxisType::Date:
+        case Graph::AxisType::DateTime:
+            ag->setLabelsDateTimeFormat(i, format, jsAxesFormatInfos.at(i).toString());
+            break;
+        case Graph::AxisType::Txt:
+            ag->setLabelsTextFormat(i, app->table(jsAxesFormatInfos.at(i).toString()),
+                                    jsAxesFormatInfos.at(i).toString());
+            break;
+        case Graph::AxisType::ColHeader:
+            ag->setLabelsColHeaderFormat(i, app->table(jsAxesFormatInfos.at(i).toString()));
+            break;
+        default:
+            break;
         }
     }
     ag->replot();
@@ -9854,38 +9197,34 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot,
     return ag;
 }
 
-Graph3D *ApplicationWindow::openSurfacePlot(ApplicationWindow *app, const QStringList &lst)
+Graph3D *ApplicationWindow::openSurfacePlot(ApplicationWindow *app, QJsonObject *jsSurfacePlot)
 {
-    QStringList fList = lst[0].split("\t");
-    QString caption = fList[0];
-    QString date = fList[1];
+    QString caption = jsSurfacePlot->value("name").toString();
+    QString date = jsSurfacePlot->value("creationDate").toString();
     if (date.isEmpty())
         date = QLocale::c().toString(QDateTime::currentDateTime(), "dd-MM-yyyy hh:mm:ss:zzz");
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    fList = lst[2].split("\t", Qt::SkipEmptyParts);
-#else
-    fList = lst[2].split("\t", QString::SkipEmptyParts);
-#endif
     Graph3D *plot = nullptr;
 
-    if (fList[1].endsWith("(Y)", Qt::CaseSensitive)) // Ribbon plot
-        plot = app->dataPlot3D(caption, fList[1], fList[2].toDouble(), fList[3].toDouble(),
-                               fList[4].toDouble(), fList[5].toDouble(), fList[6].toDouble(),
-                               fList[7].toDouble());
-    else if (fList[1].contains("(Z)", Qt::CaseSensitive))
-        plot = app->dataPlotXYZ(caption, fList[1], fList[2].toDouble(), fList[3].toDouble(),
-                                fList[4].toDouble(), fList[5].toDouble(), fList[6].toDouble(),
-                                fList[7].toDouble());
-    else if (fList[1].startsWith("matrix<", Qt::CaseSensitive)
-             && fList[1].endsWith(">", Qt::CaseInsensitive))
-        plot = app->openMatrixPlot3D(caption, fList[1], fList[2].toDouble(), fList[3].toDouble(),
-                                     fList[4].toDouble(), fList[5].toDouble(), fList[6].toDouble(),
-                                     fList[7].toDouble());
+    QString plotAssociation = jsSurfacePlot->value("surfaceFunction").toString();
+    double xStart = jsSurfacePlot->value("xStart").toDouble();
+    double xStop = jsSurfacePlot->value("xStop").toDouble();
+    double yStart = jsSurfacePlot->value("yStart").toDouble();
+    double yStop = jsSurfacePlot->value("yStop").toDouble();
+    double zStart = jsSurfacePlot->value("zStart").toDouble();
+    double zStop = jsSurfacePlot->value("zStop").toDouble();
+    if (plotAssociation.endsWith("(Y)", Qt::CaseSensitive)) // Ribbon plot
+        plot = app->dataPlot3D(caption, plotAssociation, xStart, xStop, yStart, yStop, zStart,
+                               zStop);
+    else if (plotAssociation.contains("(Z)", Qt::CaseSensitive))
+        plot = app->dataPlotXYZ(caption, plotAssociation, xStart, xStop, yStart, yStop, zStart,
+                                zStop);
+    else if (plotAssociation.startsWith("matrix", Qt::CaseSensitive))
+        plot = app->openMatrixPlot3D(caption, plotAssociation, xStart, xStop, yStart, yStop, zStart,
+                                     zStop);
     else
-        plot = app->newPlot3D(caption, fList[1], fList[2].toDouble(), fList[3].toDouble(),
-                              fList[4].toDouble(), fList[5].toDouble(), fList[6].toDouble(),
-                              fList[7].toDouble());
+        plot = app->newPlot3D(caption, plotAssociation, xStart, xStop, yStart, yStop, zStart,
+                              zStop);
 
     if (!plot)
         return nullptr;
@@ -9893,132 +9232,79 @@ Graph3D *ApplicationWindow::openSurfacePlot(ApplicationWindow *app, const QStrin
     app->setListViewDate(caption, date);
     plot->setBirthDate(date);
     plot->setIgnoreFonts(true);
-    restoreWindowGeometry(app, plot, lst[1]);
+    QJsonObject jsGeometry = jsSurfacePlot->value("geometry").toObject();
+    restoreWindowGeometry(app, plot, &jsGeometry);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    fList = lst[3].split("\t", Qt::SkipEmptyParts);
-    plot->setStyle(fList);
+    QJsonObject jsStyle = jsSurfacePlot->value("style").toObject();
+    plot->setStyle(&jsStyle);
 
-    fList = lst[4].split("\t", Qt::SkipEmptyParts);
-    plot->setGrid(fList[1].toInt());
+    plot->setGrid(jsSurfacePlot->value("grids").toInt());
 
-    fList = lst[5].split("\t");
-    plot->setTitle(fList);
+    QJsonObject jsTitleFont = jsSurfacePlot->value("titleFont").toObject();
+    QFont titleFont =
+            QFont(jsTitleFont.value("family").toString(), jsTitleFont.value("pointSize").toInt(),
+                  jsTitleFont.value("weight").toInt(), jsTitleFont.value("italic").toInt());
+    plot->setTitle(jsSurfacePlot->value("title").toString(),
+                   QColor(jsSurfacePlot->value("titleColor").toString()), titleFont);
 
-    fList = lst[6].split("\t", Qt::SkipEmptyParts);
-    plot->setColors(fList);
+    QJsonObject jsColors = jsSurfacePlot->value("colors").toObject();
+    plot->setColors(&jsColors);
 
-    fList = lst[7].split("\t", Qt::SkipEmptyParts);
-    fList.pop_front();
-    plot->setAxesLabels(fList);
+    QJsonArray jsAxesLabels = jsSurfacePlot->value("axesLabels").toArray();
+    QStringList axesLabels {};
+    for (int i = 0; i < jsAxesLabels.size(); i++)
+        axesLabels << jsAxesLabels.at(i).toString();
+    plot->setAxesLabels(axesLabels);
 
-    fList = lst[8].split("\t", Qt::SkipEmptyParts);
-    plot->setTicks(fList);
+    QJsonArray jsScaleTicks = jsSurfacePlot->value("scaleTicks").toArray();
+    QStringList scaleTicks {};
+    for (int i = 0; i < jsScaleTicks.size(); i++)
+        scaleTicks << jsScaleTicks.at(i).toString();
+    plot->setTicks(scaleTicks);
 
-    fList = lst[9].split("\t", Qt::SkipEmptyParts);
-    plot->setTickLengths(fList);
+    QJsonArray jsTickLengths = jsSurfacePlot->value("tickLengths").toArray();
+    QStringList tickLengths {};
+    for (int i = 0; i < jsTickLengths.size(); i++)
+        tickLengths << jsTickLengths.at(i).toString();
+    plot->setTickLengths(tickLengths);
 
-    fList = lst[10].split("\t", Qt::SkipEmptyParts);
-    plot->setOptions(fList);
+    QJsonObject jsOptions = jsSurfacePlot->value("options").toObject();
+    plot->setOptions(&jsOptions);
 
-    fList = lst[11].split("\t", Qt::SkipEmptyParts);
-    plot->setNumbersFont(fList);
+    QJsonObject jsNumbersFont = jsSurfacePlot->value("numbersFont").toObject();
+    plot->setNumbersFont(&jsNumbersFont);
 
-    fList = lst[12].split("\t", Qt::SkipEmptyParts);
-    plot->setXAxisLabelFont(fList);
+    QJsonObject jsXAxisLabelFont = jsSurfacePlot->value("xAxisLabelFont").toObject();
+    plot->setXAxisLabelFont(&jsXAxisLabelFont);
 
-    fList = lst[13].split("\t", Qt::SkipEmptyParts);
-    plot->setYAxisLabelFont(fList);
+    QJsonObject jsYAxisLabelFont = jsSurfacePlot->value("yAxisLabelFont").toObject();
+    plot->setYAxisLabelFont(&jsYAxisLabelFont);
 
-    fList = lst[14].split("\t", Qt::SkipEmptyParts);
-    plot->setZAxisLabelFont(fList);
+    QJsonObject jsZAxisLabelFont = jsSurfacePlot->value("zAxisLabelFont").toObject();
+    plot->setZAxisLabelFont(&jsZAxisLabelFont);
 
-    fList = lst[15].split("\t", Qt::SkipEmptyParts);
-    plot->setRotation(fList[1].toDouble(), fList[2].toDouble(), fList[3].toDouble());
+    QJsonArray jsRotation = jsSurfacePlot->value("rotation").toArray();
+    plot->setRotation(jsRotation.at(0).toDouble(), jsRotation.at(1).toDouble(),
+                      jsRotation.at(2).toDouble());
 
-    fList = lst[16].split("\t", Qt::SkipEmptyParts);
-    plot->setZoom(fList[1].toDouble());
+    plot->setZoom(jsSurfacePlot->value("zoom").toDouble());
 
-    fList = lst[17].split("\t", Qt::SkipEmptyParts);
-    plot->setScale(fList[1].toDouble(), fList[2].toDouble(), fList[3].toDouble());
+    QJsonArray jsScale = jsSurfacePlot->value("scale").toArray();
+    plot->setScale(jsScale.at(0).toDouble(), jsScale.at(1).toDouble(), jsScale.at(2).toDouble());
 
-    fList = lst[18].split("\t", Qt::SkipEmptyParts);
-    plot->setShift(fList[1].toDouble(), fList[2].toDouble(), fList[3].toDouble());
+    QJsonArray jsShift = jsSurfacePlot->value("shift").toArray();
+    plot->setShift(jsShift.at(0).toDouble(), jsShift.at(1).toDouble(), jsShift.at(2).toDouble());
 
-    fList = lst[19].split("\t", Qt::SkipEmptyParts);
-    plot->setMeshLineWidth(fList[1].toInt());
-#else
-    fList = lst[3].split("\t", QString::SkipEmptyParts);
-    plot->setStyle(fList);
+    plot->setMeshLineWidth(jsSurfacePlot->value("lineWidth").toInt());
 
-    fList = lst[4].split("\t", QString::SkipEmptyParts);
-    plot->setGrid(fList[1].toInt());
+    plot->setWindowLabel(jsSurfacePlot->value("windowLabel").toString());
+    plot->setCaptionPolicy((MyWidget::CaptionPolicy)jsSurfacePlot->value("captionPloicy").toInt());
+    app->setListViewLabel(plot->name(), jsSurfacePlot->value("windowsLabel").toString());
 
-    fList = lst[5].split("\t");
-    plot->setTitle(fList);
-
-    fList = lst[6].split("\t", QString::SkipEmptyParts);
-    plot->setColors(fList);
-
-    fList = lst[7].split("\t", QString::SkipEmptyParts);
-    fList.pop_front();
-    plot->setAxesLabels(fList);
-
-    fList = lst[8].split("\t", QString::SkipEmptyParts);
-    plot->setTicks(fList);
-
-    fList = lst[9].split("\t", QString::SkipEmptyParts);
-    plot->setTickLengths(fList);
-
-    fList = lst[10].split("\t", QString::SkipEmptyParts);
-    plot->setOptions(fList);
-
-    fList = lst[11].split("\t", QString::SkipEmptyParts);
-    plot->setNumbersFont(fList);
-
-    fList = lst[12].split("\t", QString::SkipEmptyParts);
-    plot->setXAxisLabelFont(fList);
-
-    fList = lst[13].split("\t", QString::SkipEmptyParts);
-    plot->setYAxisLabelFont(fList);
-
-    fList = lst[14].split("\t", QString::SkipEmptyParts);
-    plot->setZAxisLabelFont(fList);
-
-    fList = lst[15].split("\t", QString::SkipEmptyParts);
-    plot->setRotation(fList[1].toDouble(), fList[2].toDouble(), fList[3].toDouble());
-
-    fList = lst[16].split("\t", QString::SkipEmptyParts);
-    plot->setZoom(fList[1].toDouble());
-
-    fList = lst[17].split("\t", QString::SkipEmptyParts);
-    plot->setScale(fList[1].toDouble(), fList[2].toDouble(), fList[3].toDouble());
-
-    fList = lst[18].split("\t", QString::SkipEmptyParts);
-    plot->setShift(fList[1].toDouble(), fList[2].toDouble(), fList[3].toDouble());
-
-    fList = lst[19].split("\t", QString::SkipEmptyParts);
-    plot->setMeshLineWidth(fList[1].toInt());
-#endif
-
-    if (d_file_version > 71) {
-        fList = lst[20].split(
-                "\t"); // using QString::SkipEmptyParts here causes a crash for empty window labels
-        plot->setWindowLabel(fList[1]);
-        plot->setCaptionPolicy((MyWidget::CaptionPolicy)fList[2].toInt());
-        app->setListViewLabel(plot->name(), fList[1]);
-    }
-
-    if (d_file_version >= 88) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-        fList = lst[21].split("\t", Qt::SkipEmptyParts);
-#else
-        fList = lst[21].split("\t", QString::SkipEmptyParts);
-#endif
-        plot->setOrtho(fList[1].toInt());
-    }
+    plot->setOrtho(jsSurfacePlot->value("orthogonal").toBool());
 
     plot->update();
+    plot->repaint();
     plot->setIgnoreFonts(true);
     return plot;
 }
@@ -11753,14 +11039,11 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
                     + "\n\n";
 #ifdef ORIGIN_IMPORT
             s += "'" + tr("file") + "_" + tr("name") + "' "
-                    + tr("can be any .mkbr, .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, "
-                         ".ogg, "
-                         ".org, .py or ASCII file")
+                    + tr("can be any .mkbr, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file")
                     + "\n";
 #else
             s += "'" + tr("file") + "_" + tr("name") + "' "
-                    + tr("can be any .mkbr, .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file")
-                    + "\n";
+                    + tr("can be any .mkbr, .py or ASCII file") + "\n";
 #endif
 #ifdef Q_OS_WIN
             hide();
@@ -12004,15 +11287,18 @@ void ApplicationWindow::appendProject(const QString &fn)
     if (fn.isEmpty())
         return;
 
-    QFile *file = nullptr;
+    auto file = std::make_unique<QFile>(fn);
+    if (!file->open(QIODevice::ReadOnly)) {
+        QMessageBox::critical(this, tr("File opening error"), file->errorString());
+        return;
+    }
 
     QFileInfo fi(fn);
     workingDir = fi.absolutePath();
 
-    if (fn.contains(".mkbr") || fn.contains(".sciprj") || fn.contains(".qti")
-        || fn.contains(".opj", Qt::CaseInsensitive) || fn.contains(".ogm", Qt::CaseInsensitive)
-        || fn.contains(".ogw", Qt::CaseInsensitive) || fn.contains(".ogg", Qt::CaseInsensitive)
-        || fn.contains(".org", Qt::CaseInsensitive)) {
+    if (fn.contains(".mkbr") || fn.contains(".opj", Qt::CaseInsensitive)
+        || fn.contains(".ogm", Qt::CaseInsensitive) || fn.contains(".ogw", Qt::CaseInsensitive)
+        || fn.contains(".ogg", Qt::CaseInsensitive) || fn.contains(".org", Qt::CaseInsensitive)) {
         QFileInfo f(fn);
         if (!f.exists()) {
             QMessageBox::critical(this, tr("File opening error"),
@@ -12024,15 +11310,6 @@ void ApplicationWindow::appendProject(const QString &fn)
                 this, tr("File opening error"),
                 tr("The file: <b>%1</b> is not a Makhber or Origin project file!").arg(fn));
         return;
-    }
-
-    if (fn.endsWith(".gz", Qt::CaseInsensitive) || fn.endsWith(".gz~", Qt::CaseInsensitive)) {
-        file = openCompressedFile(fn);
-        if (!file)
-            return;
-    } else {
-        file = new QFile(fn);
-        file->open(QIODevice::ReadOnly);
     }
 
     recentProjects.removeAll(fn);
@@ -12080,163 +11357,101 @@ void ApplicationWindow::appendProject(const QString &fn)
     }
 #endif
     else {
-        QTextStream t(file);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-        t.setEncoding(QStringConverter::Utf8);
-#else
-        t.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-
-        QString s = t.readLine();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-        lst = s.split(QRegularExpression("\\s"), Qt::SkipEmptyParts);
-        QString version = lst[1];
-        lst = version.split(".", Qt::SkipEmptyParts);
-#else
-        lst = s.split(QRegExp("\\s"), QString::SkipEmptyParts);
-        QString version = lst[1];
-        lst = version.split(".", QString::SkipEmptyParts);
-#endif
-        if (fn.endsWith(".qti", Qt::CaseInsensitive) || fn.endsWith(".qti.gz", Qt::CaseInsensitive))
-            d_file_version = 100 * (lst[0]).toInt() + 10 * (lst[1]).toInt() + (lst[2]).toInt();
-        else
-            d_file_version = ((lst[0]).toInt() << 16) + ((lst[1]).toInt() << 8) + (lst[2]).toInt();
-
-        t.readLine();
-        if (d_file_version < 73)
-            t.readLine();
-
-        // process tables and matrix information
-        while (!t.atEnd()) {
-            s = t.readLine(4096); // workaround for safely reading very big lines
-            lst.clear();
-            if (s.left(8) == "<folder>") {
-                lst = s.split("\t");
-                auto &f = current_folder->addChild<Folder>(lst[1]);
-                f.setBirthDate(lst[2]);
-                f.setModificationDate(lst[3]);
-                if (lst.count() > 4)
-                    if (lst[4] == "current")
-                        cf = &f;
-
-                auto *fli = new FolderListItem(current_folder->folderListItem(), &f);
-                fli->setText(0, lst[1]);
-                f.setFolderListItem(fli);
-
-                current_folder = &f;
-            } else if (s == "<table>") {
-                openTable(this, t);
-            } else if (s == "<matrix>") {
-                while (s != "</matrix>") {
-                    s = t.readLine();
-                    lst << s;
-                }
-                lst.pop_back();
-                openMatrix(this, lst);
-            } else if (s == "<note>") {
-                for (int i = 0; i < 3; i++) {
-                    s = t.readLine();
-                    lst << s;
-                }
-                Note *m = openNote(this, lst);
-                QStringList cont;
-                while (s != "</note>") {
-                    s = t.readLine();
-                    cont << s;
-                }
-                cont.pop_back();
-                m->restore(cont);
-            } else if (s == "</folder>") {
-                auto *parent = dynamic_cast<Folder *>(current_folder->parent());
-                if (!parent)
-                    current_folder = projectFolder();
-                else
-                    current_folder = parent;
-            }
+        auto jsError = new QJsonParseError();
+        auto jsDoc = QJsonDocument::fromJson(file->readAll(), jsError);
+        if (jsError->error != QJsonParseError::NoError) {
+            QMessageBox::critical(this, tr("File opening error"), jsError->errorString());
+            return;
         }
 
-        // process the rest
-        t.seek(0);
+        auto jsTemplate = jsDoc.object();
 
-        MultiLayer *plot = nullptr;
-        while (!t.atEnd()) {
-            s = t.readLine(4096); // workaround for safely reading very big lines
-            if (s.left(8) == "<folder>") {
-                lst = s.split("\t");
-                current_folder = current_folder->findSubfolder(lst[1]);
-            } else if (s == "<multiLayer>") { // process multilayers information
-                s = t.readLine();
-                QStringList graph = s.split("\t");
-                QString caption = graph[0];
+        auto projectVersion = jsTemplate["projectVersion"].toString();
+#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+        QStringList vl = projectVersion.split(".", Qt::SkipEmptyParts);
+#else
+        QStringList vl = projectVersion.split(".", QString::SkipEmptyParts);
+#endif
+        d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
+
+        // process tables and matrix information
+        auto jsSubFolders = jsTemplate["subFolders"].toArray();
+        for (int i = 0; i < jsSubFolders.size(); i++) {
+            auto jsSubFolder = jsSubFolders[i].toObject();
+            auto &f = current_folder->addChild<Folder>(jsSubFolder["name"].toString());
+            f.setBirthDate(jsSubFolder["creationDate"].toString());
+            f.setModificationDate(jsSubFolder["modificationDate"].toString());
+            if (jsSubFolder["current"].toBool())
+                cf = &f;
+
+            auto *fli = new FolderListItem(current_folder->folderListItem(), &f);
+            fli->setText(0, jsSubFolder["name"].toString());
+            f.setFolderListItem(fli);
+
+            current_folder = &f;
+            auto *parent = dynamic_cast<Folder *>(current_folder->parent());
+            if (!parent)
+                current_folder = projectFolder();
+            else
+                current_folder = parent;
+        }
+        // process tables and matrix information
+
+        QJsonArray jsWidgets = jsTemplate["widgets"].toArray();
+        for (int i = 0; i < jsWidgets.size(); i++) {
+            QJsonObject jsWidget = jsWidgets[i].toObject();
+            if (jsWidget["type"] == "Table") {
+                openTable(this, &jsWidget);
+            } else if (jsWidget["type"] == "Matrix") {
+                openMatrix(this, &jsWidget);
+            } else if (jsWidget["type"] == "Note") {
+                Note *m = openNote(this, &jsWidget);
+                m->restore(&jsWidget);
+            } else if (jsWidget["type"] == "MultiLayer") {
+                MultiLayer *plot = nullptr;
+                QString caption = jsWidget.value("name").toString();
                 plot = multilayerPlot(caption);
-                plot->setCols(graph[1].toInt());
-                plot->setRows(graph[2].toInt());
-                setListViewDate(caption, graph[3]);
-                plot->setBirthDate(graph[3]);
+                plot->setCols(jsWidget.value("cols").toInt());
+                plot->setRows(jsWidget.value("rows").toInt());
+                setListViewDate(caption, jsWidget.value("creationDate").toString());
+                plot->setBirthDate(jsWidget.value("creationDate").toString());
                 plot->blockSignals(true);
 
-                restoreWindowGeometry(this, plot, t.readLine());
+                QJsonObject jsGeometry = jsWidget.value("geometry").toObject();
+                restoreWindowGeometry(this, plot, &jsGeometry);
 
-                if (d_file_version > 71) {
-                    QStringList lst = t.readLine().split("\t");
-                    plot->setWindowLabel(lst[1]);
-                    setListViewLabel(plot->name(), lst[1]);
-                    plot->setCaptionPolicy((MyWidget::CaptionPolicy)lst[2].toInt());
+                plot->setWindowLabel(jsWidget.value("windowLabel").toString());
+                setListViewLabel(plot->name(), jsWidget.value("windowLabel").toString());
+
+                plot->setCaptionPolicy(
+                        (MyWidget::CaptionPolicy)jsWidget.value("captionPlolicy").toInt());
+                QJsonObject jsMargins = jsWidget.value("margins").toObject();
+                plot->setMargins(jsMargins.value("leftMargin").toInt(),
+                                 jsMargins.value("rightMargin").toInt(),
+                                 jsMargins.value("topMargin").toInt(),
+                                 jsMargins.value("bottomMargin").toInt());
+                QJsonObject jsSpacing = jsWidget.value("spacing").toObject();
+                plot->setSpacing(jsSpacing.value("rawsSpacing").toInt(),
+                                 jsSpacing.value("colsSpacing").toInt());
+                QJsonObject jsCanvas = jsWidget.value("layerCanvasSize").toObject();
+                plot->setLayerCanvasSize(jsCanvas.value("canvasWidth").toInt(),
+                                         jsCanvas.value("canvasHeight").toInt());
+                QJsonObject jsAlignment = jsWidget.value("alignment").toObject();
+                plot->setAlignement(jsAlignment.value("horAlign").toInt(),
+                                    jsAlignment.value("vertAlign").toInt());
+
+                QJsonArray jsGraphs = jsWidget.value("graphs").toArray();
+                for (int i = 0; i < jsGraphs.size(); i++) {
+                    QJsonObject jsGraph = jsGraphs.at(i).toObject();
+                    openGraph(this, plot, &jsGraph);
                 }
 
-                if (d_file_version > 83) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-                    QStringList lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                    plot->setMargins(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(),
-                                     lst[4].toInt());
-                    lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                    plot->setSpacing(lst[1].toInt(), lst[2].toInt());
-                    lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                    plot->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
-                    lst = t.readLine().split("\t", Qt::SkipEmptyParts);
-                    plot->setAlignement(lst[1].toInt(), lst[2].toInt());
-#else
-                    QStringList lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                    plot->setMargins(lst[1].toInt(), lst[2].toInt(), lst[3].toInt(),
-                                     lst[4].toInt());
-                    lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                    plot->setSpacing(lst[1].toInt(), lst[2].toInt());
-                    lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                    plot->setLayerCanvasSize(lst[1].toInt(), lst[2].toInt());
-                    lst = t.readLine().split("\t", QString::SkipEmptyParts);
-                    plot->setAlignement(lst[1].toInt(), lst[2].toInt());
-#endif
-                }
-
-                while (s != "</multiLayer>") { // open layers
-                    s = t.readLine();
-                    if (s.left(7) == "<graph>") {
-                        lst.clear();
-                        while (s != "</graph>") {
-                            s = t.readLine();
-                            lst << s;
-                        }
-                        openGraph(this, plot, lst);
-                    }
-                }
                 plot->blockSignals(false);
-            } else if (s == "<SurfacePlot>") { // process 3D plots information
-                lst.clear();
-                while (s != "</SurfacePlot>") {
-                    s = t.readLine();
-                    lst << s;
-                }
-                openSurfacePlot(this, lst);
-            } else if (s == "</folder>") {
-                auto *parent = dynamic_cast<Folder *>(current_folder->parent());
-                if (!parent)
-                    current_folder = projectFolder();
-                else
-                    current_folder = parent;
+            } else if (jsWidget["type"] == "SurfacePlot") { // process 3D plots information
+                openSurfacePlot(this, &jsWidget);
             }
         }
         file->close();
-        delete file;
     }
 
     folders.blockSignals(false);
@@ -12281,11 +11496,12 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
         // The following message is slightly misleading, since it may be that fn.new can't be opened
         // _at_all_. However, changing this would break translations, in a bugfix release.
         // TODO: rephrase message for next minor release
-        if (QMessageBox::critical(
-                    this, tr("File save error"),
-                    tr("The file: <br><b>%1</b> is opened in read-only mode").arg(fn + ".new"),
-                    QMessageBox::Retry | QMessageBox::Abort, QMessageBox::Abort)
-            == QMessageBox::Abort) {
+        switch (QMessageBox::critical(
+                this, tr("File save error"),
+                tr("The file: <br><b>%1</b> is opened in read-only mode").arg(fn + ".new"),
+                QMessageBox::Retry | QMessageBox::Default,
+                QMessageBox::Abort | QMessageBox::Escape)) {
+        case QMessageBox::Abort:
             return;
         }
     }
@@ -12297,7 +11513,7 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
     jsProject.insert("projectVersion", Makhber::versionString());
     jsProject.insert("scriptingLang", scriptEnv->objectName());
     jsProject.insert("windowsCount", folder->windowCount(true));
-    jsProject.insert("log", QJsonValue(logInfo));
+    jsProject.insert("log", logInfo);
     rawSaveFolder(&jsProject, folder, &f);
     QJsonDocument jsDoc(jsProject);
     f.write(jsDoc.toJson());
@@ -12667,7 +11883,8 @@ void ApplicationWindow::projectProperties()
     } else
         s += tr("Created") + ": " + current_folder->birthDate() + "\n\n";
 
-    auto *mbox = new QMessageBox(QMessageBox::NoIcon, tr("Properties"), s, QMessageBox::Ok, this);
+    auto *mbox = new QMessageBox(tr("Properties"), s, QMessageBox::NoIcon, QMessageBox::Ok,
+                                 QMessageBox::NoButton, QMessageBox::NoButton, this);
 
     mbox->setIconPixmap(QPixmap(":/appicon"));
     mbox->show();
@@ -12692,7 +11909,8 @@ void ApplicationWindow::folderProperties()
     s += tr("Created") + ": " + current_folder->birthDate() + "\n\n";
     // s += tr("Modified") + ": " + current_folder->modificationDate() + "\n\n";
 
-    auto *mbox = new QMessageBox(QMessageBox::NoIcon, tr("Properties"), s, QMessageBox::Ok, this);
+    auto *mbox = new QMessageBox(tr("Properties"), s, QMessageBox::NoIcon, QMessageBox::Ok,
+                                 QMessageBox::NoButton, QMessageBox::NoButton, this);
 
     mbox->setIconPixmap(QPixmap(":/folder_open.xpm"));
     mbox->show();
@@ -12722,8 +11940,8 @@ bool ApplicationWindow::deleteFolder(Folder *f)
     if (confirmCloseFolder
         && QMessageBox::information(
                 this, tr("Delete folder?"),
-                tr("Delete folder '%1' and all the windows it contains?").arg(f->name()),
-                QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes)) {
+                tr("Delete folder '%1' and all the windows it contains?").arg(f->name()), tr("Yes"),
+                tr("No"), nullptr, 0)) {
         return false;
     } else {
         FolderListItem *fi = f->folderListItem();
@@ -12987,8 +12205,8 @@ void ApplicationWindow::windowProperties()
     if (!w)
         return;
 
-    auto *mbox = new QMessageBox(QMessageBox::NoIcon, tr("Properties"), QString(), QMessageBox::Ok,
-                                 this);
+    auto *mbox = new QMessageBox(tr("Properties"), QString(), QMessageBox::NoIcon, QMessageBox::Ok,
+                                 QMessageBox::NoButton, QMessageBox::NoButton, this);
 
     QString s = QString(w->name()) + "\n\n";
     s += "\n\n\n";
@@ -13210,7 +12428,8 @@ void ApplicationWindow::searchForUpdates()
             tr("Makhber will now try to determine whether a new version of Makhber is available. "
                "Please modify your firewall settings in order to allow Makhber to connect to the "
                "internet.")
-                    + "\n" + tr("Do you wish to continue?"));
+                    + "\n" + tr("Do you wish to continue?"),
+            QMessageBox::Yes | QMessageBox::Default, QMessageBox::No | QMessageBox::Escape);
 
     if (choice == QMessageBox::Yes) {
         http.get(QNetworkRequest(QUrl("https://api.github.com/repos/Makhber/makhber/releases")));
@@ -13298,7 +12517,8 @@ void ApplicationWindow::clearTable()
 
     if (QMessageBox::question(this, tr("Warning"),
                               tr("This will clear the contents of all the data associated with the "
-                                 "table. Are you sure?")))
+                                 "table. Are you sure?"),
+                              tr("&Yes"), tr("&No"), QString(), 0, 1))
         return;
     else
         t->clear();

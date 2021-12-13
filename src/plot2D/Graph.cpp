@@ -413,10 +413,15 @@ void Graph::setLabelsNumericFormat(int axis, const QStringList &l)
     setLabelsNumericFormat(axis, format, prec, axesFormulas[axis]);
 }
 
-void Graph::setLabelsNumericFormat(const QStringList &l)
+void Graph::setLabelsNumericFormat(QJsonObject *jsObject)
 {
-    for (int axis = 0; axis < 4; axis++)
-        setLabelsNumericFormat(axis, l);
+    QJsonArray jsFormats = jsObject->value("formats").toArray();
+    QJsonArray jsPrecisions = jsObject->value("precisions").toArray();
+    for (int axis = 0; axis < 4; axis++) {
+        int format = jsFormats.at(axis).toInt();
+        int prec = jsPrecisions.at(axis).toInt();
+        setLabelsNumericFormat(axis, format, prec, axesFormulas[axis]);
+    }
 }
 
 QJsonObject Graph::saveAxesLabelsType()
@@ -1113,11 +1118,11 @@ int Graph::axisTitleAlignment(int axis)
     return d_plot->axisTitle(axis).renderFlags();
 }
 
-void Graph::setAxesTitlesAlignment(const QStringList &align)
+void Graph::setAxesTitlesAlignment(QJsonArray *jsRenderFlags)
 {
     for (int i = 0; i < 4; i++) {
         QwtText t = d_plot->axisTitle(i);
-        t.setRenderFlags(align[i + 1].toInt());
+        t.setRenderFlags(jsRenderFlags->at(i).toInt());
         d_plot->setAxisTitle(i, t);
     }
 }
@@ -2128,13 +2133,13 @@ void Graph::setTopAxisTitleColor(const QColor &c)
     }
 }
 
-void Graph::setAxesTitleColor(QStringList l)
+void Graph::setAxesTitleColor(QJsonArray *jsColors)
 {
-    for (int i = 0; i < int(l.count() - 1); i++) {
+    for (int i = 0; i < jsColors->size(); i++) {
         auto *scale = (QwtScaleWidget *)d_plot->axisWidget(i);
         if (scale) {
             QwtText title = scale->title();
-            title.setColor(QColor(COLORVALUE(l[i + 1])));
+            title.setColor(QColor(COLORVALUE(jsColors->at(i).toString())));
             scale->setTitle(title);
         }
     }
@@ -2484,14 +2489,13 @@ Legend *Graph::newLegend(const QString &text)
     return mrk;
 }
 
-void Graph::insertLegend(const QStringList &lst, int fileVersion)
+void Graph::insertLegend(QJsonObject *jsLegend)
 {
-    legendMarkerID = insertTextMarker(lst, fileVersion);
+    legendMarkerID = insertTextMarker(jsLegend);
 }
 
-long Graph::insertTextMarker(const QStringList &list, int fileVersion)
+long Graph::insertTextMarker(QJsonObject *jsText)
 {
-    QStringList fList = list;
     auto *mrk = new Legend(d_plot);
     long key = d_plot->insertMarker(mrk);
 
@@ -2499,58 +2503,32 @@ long Graph::insertTextMarker(const QStringList &list, int fileVersion)
     d_texts.resize(++texts);
     d_texts[texts - 1] = key;
 
-    if (fileVersion < 86)
-        mrk->setOrigin(QPoint(fList[1].toInt(), fList[2].toInt()));
-    else
-        mrk->setOriginCoord(fList[1].toDouble(), fList[2].toDouble());
+    mrk->setOriginCoord(jsText->value("xValue").toDouble(), jsText->value("yValue").toDouble());
 
-    QFont fnt = QFont(fList[3], fList[4].toInt(), fList[5].toInt(), fList[6].toInt());
-    fnt.setUnderline(fList[7].toInt());
-    fnt.setStrikeOut(fList[8].toInt());
+    QJsonObject jsFont = jsText->value("font").toObject();
+    QFont fnt = QFont(jsFont.value("family").toString(), jsFont.value("pointSize").toInt(),
+                      jsFont.value("weight").toInt(), jsFont.value("italic").toInt());
+    fnt.setUnderline(jsFont.value("underline").toInt());
+    fnt.setStrikeOut(jsFont.value("strikeout").toInt());
     mrk->setFont(fnt);
 
-    mrk->setAngle(fList[11].toInt());
+    mrk->setAngle(jsText->value("angle").toInt());
 
+    mrk->setTextColor(QColor(COLORVALUE(jsText->value("textColor").toString())));
+    mrk->setFrameStyle(jsText->value("frameStyle").toInt());
+    QColor c = QColor(COLORVALUE(jsText->value("backgroundColor").toString()));
+    c.setAlpha(jsText->value("alpha").toInt());
+    mrk->setBackgroundColor(c);
+
+    QJsonArray jsTextList = jsText->value("textList").toArray();
     QString text = QString();
-    if (fileVersion < 71) {
-        int bkg = fList[10].toInt();
-        if (bkg <= 2)
-            mrk->setFrameStyle(bkg);
-        else if (bkg == 3) {
-            mrk->setFrameStyle(0);
-            mrk->setBackgroundColor(QColor(255, 255, 255));
-        } else if (bkg == 4) {
-            mrk->setFrameStyle(0);
-            mrk->setBackgroundColor(QColor(Qt::black));
-        }
-
-        int n = (int)fList.count();
-        for (int i = 0; i < n - 12; i++)
-            text += fList[12 + i] + "\n";
-    } else if (fileVersion < 90) {
-        mrk->setTextColor(QColor(COLORVALUE(fList[9])));
-        mrk->setFrameStyle(fList[10].toInt());
-        mrk->setBackgroundColor(QColor(COLORVALUE(fList[12])));
-
-        int n = (int)fList.count();
-        for (int i = 0; i < n - 13; i++)
-            text += fList[13 + i] + "\n";
-    } else {
-        mrk->setTextColor(QColor(COLORVALUE(fList[9])));
-        mrk->setFrameStyle(fList[10].toInt());
-        QColor c = QColor(COLORVALUE(fList[12]));
-        c.setAlpha(fList[13].toInt());
-        mrk->setBackgroundColor(c);
-
-        int n = (int)fList.count();
-        for (int i = 0; i < n - 14; i++)
-            text += fList[14 + i] + "\n";
-    }
+    for (int i = 0; i < jsTextList.size(); i++)
+        text += jsTextList.at(i).toString() + "\n";
     mrk->setText(text.trimmed());
     return key;
 }
 
-void Graph::addArrow(QStringList list, int fileVersion)
+void Graph::addArrow(QJsonObject *jsArrow)
 {
     auto *mrk = new ArrowMarker();
     long mrkID = d_plot->insertMarker(mrk);
@@ -2558,34 +2536,27 @@ void Graph::addArrow(QStringList list, int fileVersion)
     d_lines.resize(++linesOnPlot);
     d_lines[linesOnPlot - 1] = mrkID;
 
-    if (fileVersion < 86) {
-        mrk->setStartPoint(QPoint(list[1].toInt(), list[2].toInt()));
-        mrk->setEndPoint(QPoint(list[3].toInt(), list[4].toInt()));
-    } else
-        mrk->setBoundingRect(list[1].toDouble(), list[2].toDouble(), list[3].toDouble(),
-                             list[4].toDouble());
+    mrk->setBoundingRect(jsArrow->value("xStart").toDouble(), jsArrow->value("yStart").toDouble(),
+                         jsArrow->value("xEnd").toDouble(), jsArrow->value("yENd").toDouble());
 
-    mrk->setWidth(list[5].toInt());
-    mrk->setColor(QColor(COLORVALUE(list[6])));
-    mrk->setStyle(getPenStyle(list[7]));
-    mrk->drawEndArrow(list[8] == "1");
-    mrk->drawStartArrow(list[9] == "1");
-    if (list.count() > 10) {
-        mrk->setHeadLength(list[10].toInt());
-        mrk->setHeadAngle(list[11].toInt());
-        mrk->fillArrowHead(list[12] == "1");
-    }
-    if (list.count() > 13) {
-        mrk->setCapStyle(static_cast<Qt::PenCapStyle>(list[13].toInt()));
-        mrk->setJoinStyle(static_cast<Qt::PenJoinStyle>(list[14].toInt()));
-        QVector<qreal> customDash;
-        for (auto v : list[15].split(" "))
-            customDash << v.toDouble();
-        QPen pen = mrk->linePen();
-        if (mrk->style() == Qt::CustomDashLine)
-            pen.setDashPattern(customDash);
-        mrk->setLinePen(pen);
-    }
+    mrk->setWidth(jsArrow->value("width").toInt());
+    mrk->setColor(QColor(COLORVALUE(jsArrow->value("color").toString())));
+    mrk->setStyle(getPenStyle(jsArrow->value("style").toString()));
+    mrk->drawEndArrow(jsArrow->value("hasEndArrow").toBool());
+    mrk->drawStartArrow(jsArrow->value("hasStartArrow").toBool());
+    mrk->setHeadLength(jsArrow->value("headLength").toInt());
+    mrk->setHeadAngle(jsArrow->value("headAngle").toInt());
+    mrk->fillArrowHead(jsArrow->value("filledArrowHead").toBool());
+    mrk->setCapStyle(static_cast<Qt::PenCapStyle>(jsArrow->value("capStyle").toInt()));
+    mrk->setJoinStyle(static_cast<Qt::PenJoinStyle>(jsArrow->value("joinStyle").toInt()));
+    QJsonArray jsCustomDash = jsArrow->value("customDash").toArray();
+    QVector<qreal> customDash;
+    for (int i = 0; i < jsCustomDash.size(); i++)
+        customDash << jsCustomDash.at(i).toDouble();
+    QPen pen = mrk->linePen();
+    if (mrk->style() == Qt::CustomDashLine)
+        pen.setDashPattern(customDash);
+    mrk->setLinePen(pen);
 }
 
 void Graph::addArrow(ArrowMarker *mrk)
@@ -2722,8 +2693,7 @@ QJsonObject Graph::saveMarkers()
 #else
         QStringList textList = mrk->text().split("\n", QString::KeepEmptyParts);
 #endif
-        QJsonArray jsTextlist = QJsonArray::fromStringList(textList);
-        jsText.insert("textList", jsTextlist);
+        jsText.insert("textList", QJsonArray::fromStringList(textList));
         jsTexts.append(jsText);
     }
     jsMarkers.insert("texts", jsTexts);
@@ -3760,9 +3730,9 @@ ImageMarker *Graph::addImage(const QString &fileName)
     return mrk;
 }
 
-void Graph::insertImageMarker(const QStringList &lst, int fileVersion)
+void Graph::insertImageMarker(QJsonObject *jsImage)
 {
-    QString fn = lst[1];
+    QString fn = jsImage->value("filename").toString();
     if (!QFile::exists(fn)) {
         QMessageBox::warning(nullptr, tr("File open error"),
                              tr("Image file: <p><b> %1 </b><p>does not exist anymore!").arg(fn));
@@ -3775,18 +3745,9 @@ void Graph::insertImageMarker(const QStringList &lst, int fileVersion)
         d_images.resize(++imagesOnPlot);
         d_images[imagesOnPlot - 1] = d_plot->insertMarker(mrk);
 
-        if (fileVersion < 86) {
-            mrk->setOrigin(QPoint(lst[2].toInt(), lst[3].toInt()));
-            mrk->setSize(QSize(lst[4].toInt(), lst[5].toInt()));
-        } else if (fileVersion < 90) {
-            double left = lst[2].toDouble();
-            double right = left + lst[4].toDouble();
-            double top = lst[3].toDouble();
-            double bottom = top - lst[5].toDouble();
-            mrk->setBoundingRect(left, top, right, bottom);
-        } else
-            mrk->setBoundingRect(lst[2].toDouble(), lst[3].toDouble(), lst[4].toDouble(),
-                                 lst[5].toDouble());
+        mrk->setBoundingRect(
+                jsImage->value("xValue").toDouble(), jsImage->value("yValue").toDouble(),
+                jsImage->value("right").toDouble(), jsImage->value("bottom").toDouble());
     }
 }
 
@@ -3890,8 +3851,7 @@ bool Graph::addFunctionCurve(ApplicationWindow *parent, int type, const QStringL
     return true;
 }
 
-bool Graph::insertFunctionCurve(ApplicationWindow *parent, const QStringList &func_spec, int points,
-                                int fileVersion)
+bool Graph::insertFunctionCurve(ApplicationWindow *parent, const QStringList &func_spec, int points)
 {
     int type = FunctionCurve::Normal;
     QStringList formulas;
@@ -3899,59 +3859,16 @@ bool Graph::insertFunctionCurve(ApplicationWindow *parent, const QStringList &fu
     QList<double> ranges;
 
     QStringList curve = func_spec[0].split(",");
-    if (fileVersion >= 0x000105) {
-        // Makhber 0.1.4 and 0.2.0 crash when trying to save a function curve;
-        // thus, it's safe to assume every version from 0.1.5 on uses the new format,
-        // even though 0.2.0 doesn't actually contain the revised code yet
-        type = curve[0].toInt();
-        name = curve[1];
-        var = curve[2];
-        ranges += curve[3].toDouble();
-        ranges += curve[4].toDouble();
+    type = curve[0].toInt();
+    name = curve[1];
+    var = curve[2];
+    ranges += curve[3].toDouble();
+    ranges += curve[4].toDouble();
 
-        formulas << func_spec[1];
-        if (type != FunctionCurve::Normal)
-            formulas << func_spec[2];
+    formulas << func_spec[1];
+    if (type != FunctionCurve::Normal)
+        formulas << func_spec[2];
 
-    } else if (fileVersion < 87) {
-        if (curve[0][0] == 'f') {
-            type = FunctionCurve::Normal;
-            formulas += curve[0].section('=', 1, 1);
-            var = curve[1];
-            ranges += curve[2].toDouble();
-            ranges += curve[3].toDouble();
-        } else if (curve[0][0] == 'X') {
-            type = FunctionCurve::Parametric;
-            formulas += curve[0].section('=', 1, 1);
-            formulas += curve[1].section('=', 1, 1);
-            var = curve[2];
-            ranges += curve[3].toDouble();
-            ranges += curve[4].toDouble();
-        } else if (curve[0][0] == 'R') {
-            type = FunctionCurve::Polar;
-            formulas += curve[0].section('=', 1, 1);
-            formulas += curve[1].section('=', 1, 1);
-            var = curve[2];
-            ranges += curve[3].toDouble();
-            ranges += curve[4].toDouble();
-        }
-    } else {
-        type = curve[0].toInt();
-        name = curve[1];
-
-        if (type == FunctionCurve::Normal) {
-            formulas << curve[2];
-            var = curve[3];
-            ranges += curve[4].toDouble();
-            ranges += curve[5].toDouble();
-        } else if (type == FunctionCurve::Polar || type == FunctionCurve::Parametric) {
-            formulas << curve[2];
-            formulas << curve[3];
-            var = curve[4];
-            ranges += curve[5].toDouble();
-            ranges += curve[6].toDouble();
-        }
-    }
     return addFunctionCurve(parent, type, formulas, var, ranges, points, name);
 }
 
@@ -4813,20 +4730,17 @@ void Graph::setCurveBrush(int index, const QBrush &b)
     c->setBrush(b);
 }
 
-void Graph::openBoxDiagram(Table *w, const QStringList &l, int fileVersion)
+void Graph::openBoxDiagram(Table *w, QJsonObject *jsCurve)
 {
     if (!w)
         return;
 
-    int s_offset = 0;
-    int startRow = 0;
-    int endRow = w->numRows() - 1;
-    if (fileVersion >= 90) {
-        startRow = l[l.count() - 3].toInt();
-        endRow = l[l.count() - 2].toInt();
-    }
+    QJsonObject jsLayout = jsCurve->value("curveLayout").toObject();
 
-    auto *c = new BoxCurve(w, l[2], startRow, endRow);
+    int startRow = jsCurve->value("startRow").toInt();
+    int endRow = jsCurve->value("endRow").toInt();
+
+    auto *c = new BoxCurve(w, jsCurve->value("title").toString(), startRow, endRow);
     // c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
     // c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
     c->loadData();
@@ -4836,20 +4750,17 @@ void Graph::openBoxDiagram(Table *w, const QStringList &l, int fileVersion)
     c_type.resize(n_curves);
     c_type[n_curves - 1] = Box;
 
-    if (fileVersion >= 0x011800) // 1.24.0
-    {
-        s_offset = 3;
-    }
-    c->setMaxStyle(SymbolBox::style(l[16 + s_offset].toInt()));
-    c->setP99Style(SymbolBox::style(l[17 + s_offset].toInt()));
-    c->setMeanStyle(SymbolBox::style(l[18 + s_offset].toInt()));
-    c->setP1Style(SymbolBox::style(l[19 + s_offset].toInt()));
-    c->setMinStyle(SymbolBox::style(l[20 + s_offset].toInt()));
+    c->setMaxStyle(SymbolBox::style(jsLayout.value("maxStyle").toInt()));
+    c->setP99Style(SymbolBox::style(jsLayout.value("p99Style").toInt()));
+    c->setMeanStyle(SymbolBox::style(jsLayout.value("meanStyle").toInt()));
+    c->setP1Style(SymbolBox::style(jsLayout.value("p1Style").toInt()));
+    c->setMinStyle(SymbolBox::style(jsLayout.value("minStyle").toInt()));
 
-    c->setBoxStyle(l[21 + s_offset].toInt());
-    c->setBoxWidth(l[22 + s_offset].toInt());
-    c->setBoxRange(l[23 + s_offset].toInt(), l[24 + s_offset].toDouble());
-    c->setWhiskersRange(l[25 + s_offset].toInt(), l[26 + s_offset].toDouble());
+    c->setBoxStyle(jsLayout.value("boxStyle").toInt());
+    c->setBoxWidth(jsLayout.value("boxWidth").toInt());
+    c->setBoxRange(jsLayout.value("boxRangeType").toInt(), jsLayout.value("boxRange").toDouble());
+    c->setWhiskersRange(jsLayout.value("whiskersRangeType").toInt(),
+                        jsLayout.value("whiskersRange").toDouble());
 }
 
 void Graph::setActiveTool(PlotToolInterface *tool)
@@ -5001,12 +4912,9 @@ void Graph::plotSpectrogram(Matrix *m, CurveType type)
     d_plot->replot();
 }
 
-void Graph::restoreSpectrogram(ApplicationWindow *app, const QStringList &lst)
+void Graph::restoreSpectrogram(ApplicationWindow *app, QJsonObject *jsCurve)
 {
-    QStringList::const_iterator line = lst.begin();
-    QString s = (*line).trimmed();
-    QString matrixName = s.remove("<matrix>").remove("</matrix>");
-    Matrix *m = app->matrix(matrixName);
+    Matrix *m = app->matrix(jsCurve->value("matrix").toString());
     if (!m)
         return;
 
@@ -5017,78 +4925,50 @@ void Graph::restoreSpectrogram(ApplicationWindow *app, const QStringList &lst)
     c_keys.resize(n_curves);
     c_keys[n_curves - 1] = d_plot->insertCurve(sp);
 
-    for (line++; line != lst.end(); line++) {
-        QString s = *line;
-        if (s.contains("<ColorPolicy>")) {
-            int color_policy = s.remove("<ColorPolicy>").remove("</ColorPolicy>").trimmed().toInt();
-            if (color_policy == Spectrogram::GrayScale)
-                sp->setGrayScale();
-            else if (color_policy == Spectrogram::Default)
-                sp->setDefaultColorMap();
-        } else if (s.contains("<ColorMap>")) {
-            s = *(++line);
-            int mode = s.remove("<Mode>").remove("</Mode>").trimmed().toInt();
-            s = *(++line);
-            QColor color1 =
-                    QColor(COLORVALUE(s.remove("<MinColor>").remove("</MinColor>").trimmed()));
-            s = *(++line);
-            QColor color2 =
-                    QColor(COLORVALUE(s.remove("<MaxColor>").remove("</MaxColor>").trimmed()));
+    int color_policy = jsCurve->value("colorPolicy").toInt();
+    if (color_policy == Spectrogram::GrayScale)
+        sp->setGrayScale();
+    else if (color_policy == Spectrogram::Default)
+        sp->setDefaultColorMap();
+    int mode = jsCurve->value("mode").toInt();
+    QColor color1 = jsCurve->value("minColor").toString();
+    QColor color2 = jsCurve->value("maxColor").toString();
 
-            QwtLinearColorMap colorMap = QwtLinearColorMap(color1, color2);
-            colorMap.setMode((QwtLinearColorMap::Mode)mode);
+    QwtLinearColorMap colorMap = QwtLinearColorMap(color1, color2);
+    colorMap.setMode((QwtLinearColorMap::Mode)mode);
 
-            s = *(++line);
-            int stops = s.remove("<ColorStops>").remove("</ColorStops>").trimmed().toInt();
-            for (int i = 0; i < stops; i++) {
-                s = (*(++line)).trimmed();
-                QStringList l = s.remove("<Stop>").remove("</Stop>").split("\t");
-                colorMap.addColorStop(l[0].toDouble(), QColor(COLORVALUE(l[1])));
-            }
-            sp->setCustomColorMap(); // colorMap);
-            line++;
-        } else if (s.contains("<Image>")) {
-            int mode = s.remove("<Image>").remove("</Image>").trimmed().toInt();
-            sp->setDisplayMode(QwtPlotSpectrogram::ImageMode, mode);
-        } else if (s.contains("<ContourLines>")) {
-            int contours = s.remove("<ContourLines>").remove("</ContourLines>").trimmed().toInt();
-            sp->setDisplayMode(QwtPlotSpectrogram::ContourMode, contours);
-            if (contours) {
-                s = (*(++line)).trimmed();
-                // int levels = s.remove("<Levels>").remove("</Levels>").toInt();
-                sp->setLevelsNumber(); // levels);
-
-                s = (*(++line)).trimmed();
-                int defaultPen = s.remove("<DefaultPen>").remove("</DefaultPen>").toInt();
-                if (!defaultPen)
-                    sp->setDefaultContourPen(QPen(Qt::NoPen));
-                else {
-                    s = (*(++line)).trimmed();
-                    QColor c = QColor(COLORVALUE(s.remove("<PenColor>").remove("</PenColor>")));
-                    s = (*(++line)).trimmed();
-                    int width = s.remove("<PenWidth>").remove("</PenWidth>").toInt();
-                    s = (*(++line)).trimmed();
-                    int style = s.remove("<PenStyle>").remove("</PenStyle>").toInt();
-                    sp->setDefaultContourPen(QPen(c, width, Graph::getPenStyle(style)));
-                }
-            }
-        } else if (s.contains("<ColorBar>")) {
-            s = *(++line);
-            int color_axis = s.remove("<axis>").remove("</axis>").trimmed().toInt();
-            s = *(++line);
-            int width = s.remove("<width>").remove("</width>").trimmed().toInt();
-
-            QwtScaleWidget *colorAxis = d_plot->axisWidget(color_axis);
-            if (colorAxis) {
-                colorAxis->setColorBarWidth(width);
-                colorAxis->setColorBarEnabled(true);
-            }
-            line++;
-        } else if (s.contains("<Visible>")) {
-            int on = s.remove("<Visible>").remove("</Visible>").trimmed().toInt();
-            sp->setVisible(on);
+    // int stops = jsCurve->value("colorStops").toInt();
+    QJsonArray jsColorStops = jsCurve->value("stops").toArray();
+    QJsonArray jsRGBStops = jsCurve->value("colorNames").toArray();
+    for (int i = 0; i < jsColorStops.size(); i++) {
+        colorMap.addColorStop(jsColorStops.at(i).toDouble(), QColor(jsRGBStops.at(i).toString()));
+    }
+    sp->setCustomColorMap(); // colorMap);
+    sp->setDisplayMode(QwtPlotSpectrogram::ImageMode, jsCurve->value("Image").toInt());
+    int contours = jsCurve->value("counterLines").toInt();
+    sp->setDisplayMode(QwtPlotSpectrogram::ContourMode, contours);
+    if (contours) {
+        sp->setLevelsNumber(); // levels);
+        int defaultPen = jsCurve->value("defaultPen").toInt();
+        if (!defaultPen)
+            sp->setDefaultContourPen(QPen(Qt::NoPen));
+        else {
+            QColor c = QColor(COLORVALUE(jsCurve->value("penColor").toString()));
+            int width = jsCurve->value("penWidth").toInt();
+            int style = jsCurve->value("penStyle").toInt();
+            sp->setDefaultContourPen(QPen(c, width, Graph::getPenStyle(style)));
         }
     }
+    QJsonObject jsColorBar = jsCurve->value("colorBar").toObject();
+    int color_axis = jsColorBar.value("axis").toInt();
+    int width = jsColorBar.value("width").toInt();
+
+    QwtScaleWidget *colorAxis = d_plot->axisWidget(color_axis);
+    if (colorAxis) {
+        colorAxis->setColorBarWidth(width);
+        colorAxis->setColorBarEnabled(true);
+    }
+    sp->setVisible(jsCurve->value("visible").toBool());
 }
 
 bool Graph::validCurvesDataSize() const

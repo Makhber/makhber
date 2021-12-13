@@ -109,12 +109,12 @@ class AxesDialog;
  * ApplicationWindow more manageable by removing those parts not directly related to the main
  * window.
  *
- * Project would also take care of basic project file reading/writing (using Qt's XML framework),
+ * Project would also take care of basic project file reading/writing (using Qt's Json framework),
  * but delegate most of the work to MyWidget and its subclasses. This is necessary for providing
  * save/restore of classes implemented in plug-ins. Support for foreign formats on the other hand
  * could go into import/export classes (which could also be implemented in plug-ins). Those would
  * interface directly with Project and the MyWidgets it manages. Thus, in addition to supporting
- * QtXML-based save/restore, Project, MyWidget and subclasses will also have to provide generalized
+ * QtJson-based save/restore, Project, MyWidget and subclasses will also have to provide generalized
  * save/restore methods/constructors.
  *
  * Maybe split out the project explorer into a new ProjectExplorer class, depending on how much code
@@ -172,11 +172,6 @@ public Q_SLOTS:
     void open();
     /// args are any argument to be passed to fn if a script
     ApplicationWindow *open(const QString &fn, const QStringList &args = QStringList());
-    //! Returns temporary file ready for reading uncompressed content
-    /**
-     * Close and delete after you're done with it.
-     */
-    QFile *openCompressedFile(const QString &fn);
     ApplicationWindow *openProject(const QString &fn);
     ///* load project file \a into this
     ///* @return true if project load successful
@@ -485,7 +480,7 @@ public Q_SLOTS:
     void openTemplate();
 
     QJsonObject windowGeometryInfo(MyWidget *w);
-    void restoreWindowGeometry(ApplicationWindow *app, MyWidget *w, const QString s);
+    void restoreWindowGeometry(ApplicationWindow *app, MyWidget *w, QJsonObject *jsGeometry);
 
     void resizeActiveWindow();
     void resizeWindow();
@@ -520,11 +515,11 @@ public Q_SLOTS:
 
     //! \name Reading from a Project File
     //@{
-    Matrix *openMatrix(ApplicationWindow *app, const QStringList &flist);
-    Table *openTable(ApplicationWindow *app, QTextStream &stream);
-    TableStatistics *openTableStatistics(const QStringList &flist);
-    Graph3D *openSurfacePlot(ApplicationWindow *app, const QStringList &lst);
-    Graph *openGraph(ApplicationWindow *app, MultiLayer *plot, const QStringList &list);
+    Matrix *openMatrix(ApplicationWindow *app, QJsonObject *jsMatrix);
+    Table *openTable(ApplicationWindow *app, QJsonObject *jsTable);
+    TableStatistics *openTableStatistics(QJsonObject *jsTableStatistics);
+    Graph3D *openSurfacePlot(ApplicationWindow *app, QJsonObject *jsSurfacePlot);
+    Graph *openGraph(ApplicationWindow *app, MultiLayer *plot, QJsonObject *jsGraph);
 
     void openRecentProject();
     //@}
@@ -791,7 +786,7 @@ public Q_SLOTS:
     //@{
     //! Creates a new empty note window
     Note *newNote(const QString &caption = QString());
-    Note *openNote(ApplicationWindow *app, const QStringList &flist);
+    Note *openNote(ApplicationWindow *app, QJsonObject *jsNote);
     void initNote(Note *m, const QString &caption);
     void saveNoteAs();
     //@}
@@ -869,6 +864,7 @@ public Q_SLOTS:
     void saveFolderAsProject(Folder *f);
     void saveFolder(Folder *folder, const QString &fn);
     void rawSaveFolder(QJsonObject *jsObject, Folder *folder, QIODevice *device);
+    void openFolder(QJsonObject *jsFolder, bool topFolder = false);
 
     //!  adds a folder list item to the list view "lv"
     void addFolderListViewItem(Folder *f);

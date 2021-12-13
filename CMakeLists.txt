@@ -102,14 +102,11 @@ find_package( Qt5 5.12
     Widgets
     Svg
     PrintSupport
-    Xml
     OpenGL
   REQUIRED
   )
 
 find_package( GSL REQUIRED )
-
-find_package( ZLIB "1.2.11" REQUIRED )
 
 find_package( OpenGL COMPONENTS OpenGL REQUIRED )
 

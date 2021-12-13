@@ -43,29 +43,22 @@ void NumericDateTimeBaseFilter::writeExtraAttributes(QJsonObject *jsObject) cons
     jsObject->insert("unit", static_cast<int>(m_unit_interval));
 }
 
-bool NumericDateTimeBaseFilter::load(XmlStreamReader *reader)
+bool NumericDateTimeBaseFilter::load(QJsonObject *reader)
 {
-    QXmlStreamAttributes attribs = reader->attributes();
-    QString base_datetimeStr =
-            attribs.value(reader->namespaceUri().toString(), "base_datetime").toString();
-    QString unitStr = attribs.value(reader->namespaceUri().toString(), "unit").toString();
+    QString base_datetimeStr = reader->value("base_datetime").toString();
+    QString unitStr = reader->value("unit").toString();
 
     if (AbstractSimpleFilter::load(reader)) {
-        bool ok = false;
-        int unit = unitStr.toInt(&ok);
+        int unit = unitStr.toInt();
         QDateTime base_datetime =
                 QDateTime::fromString(base_datetimeStr, "dd-MM-yyyy hh:mm:ss:zzz");
 
-        if (!base_datetime.isValid() || !ok)
-            reader->raiseError(tr("missing or invalid format attribute(s)"));
-        else {
-            setUnitInterval(static_cast<UnitInterval>(unit));
-            setBaseDateTime(base_datetime);
-        }
+        setUnitInterval(static_cast<UnitInterval>(unit));
+        setBaseDateTime(base_datetime);
     } else
         return false;
 
-    return !reader->hasError();
+    return true;
 }
 
 void NumericDateTimeBaseFilter::setUnitInterval(const UnitInterval unit)

@@ -353,19 +353,18 @@ int Table::columnWidth(int col)
     return d_future_table ? d_view_widget->columnWidth(col) : 0;
 }
 
-void Table::setColWidths(const QStringList &widths)
+void Table::setColWidths(QJsonArray *jsWidths)
 {
-    for (int i = 0; i < widths.count(); i++)
-        d_view_widget->setColumnWidth(i, widths[i].toInt());
+    for (int i = 0; i < jsWidths->size(); i++)
+        d_view_widget->setColumnWidth(i, jsWidths->at(i).toInt());
 }
 
-void Table::setColumnTypes(const QStringList &ctl)
+void Table::setColumnTypes(QJsonArray *jsColTypes)
 {
     // TODO: obsolete, remove in 0.3.0
-    int n = qMin((int)ctl.count(), numCols());
+    int n = qMin(jsColTypes->size(), numCols());
     for (int i = 0; i < n; i++) {
-        QStringList l = ctl[i].split(";");
-        switch (l[0].toInt()) {
+        switch (jsColTypes->at(i).toInt()) {
         //	old enum: enum ColType{Numeric = 0, Text = 1, Date = 2, Time = 3, Month = 4, Day =
         // 5};
         case 0:
@@ -409,10 +408,11 @@ void Table::saveColumnTypes(QJsonObject *jsObject)
     jsObject->insert("columnTypes", jsTypes);
 }
 
-void Table::setCommands(const QStringList &com)
+void Table::setCommands(QJsonArray *jsCommands)
 {
-    for (int i = 0; i < (int)com.size() && i < numCols(); i++)
-        column(i)->setFormula(Interval<int>(0, numRows() - 1), com.at(i).trimmed());
+    for (int i = 0; i < jsCommands->size() && i < numCols(); i++)
+        column(i)->setFormula(Interval<int>(0, numRows() - 1),
+                              jsCommands->at(i).toString().trimmed());
 }
 
 void Table::setCommand(int col, const QString &com)
@@ -424,7 +424,8 @@ void Table::setCommands(const QString &com)
 {
     QStringList lst = com.split("\t");
     lst.pop_front();
-    setCommands(lst);
+    QJsonArray jsCommands = QJsonArray::fromStringList(lst);
+    setCommands(&jsCommands);
 }
 
 bool Table::recalculate()
@@ -859,36 +860,17 @@ void Table::setText(int row, int col, const QString &text)
     column(col)->asStringColumn()->setTextAt(row, text);
 }
 
-void Table::importV0x0001XXHeader(QStringList header)
+void Table::importV0x0001XXHeader(QJsonArray *jsHeaders)
 {
     if (!d_future_table)
         return;
     QStringList col_label = QStringList();
     QList<Makhber::PlotDesignation> col_plot_type = QList<Makhber::PlotDesignation>();
-    for (int i = 0; i < header.count(); i++) {
-        if (header[i].isEmpty())
-            continue;
-
-        QString s = header[i].replace("_", "-");
-        if (s.contains("[X]")) {
-            col_label << s.remove("[X]");
-            col_plot_type << Makhber::X;
-        } else if (s.contains("[Y]")) {
-            col_label << s.remove("[Y]");
-            col_plot_type << Makhber::Y;
-        } else if (s.contains("[Z]")) {
-            col_label << s.remove("[Z]");
-            col_plot_type << Makhber::Z;
-        } else if (s.contains("[xEr]")) {
-            col_label << s.remove("[xEr]");
-            col_plot_type << Makhber::xErr;
-        } else if (s.contains("[yEr]")) {
-            col_label << s.remove("[yEr]");
-            col_plot_type << Makhber::yErr;
-        } else {
-            col_label << s;
-            col_plot_type << Makhber::noDesignation;
-        }
+    for (int i = 0; i < jsHeaders->size(); i++) {
+        QJsonObject jsHeader = jsHeaders->at(i).toObject();
+        col_label << jsHeader.value("label").toString().replace("_", "-");
+        col_plot_type << static_cast<Makhber::PlotDesignation>(
+                jsHeader.value("designation").toInt());
     }
     QList<Column *> quarantine;
     for (int i = 0; i < col_label.count() && i < d_future_table->columnCount(); i++)
@@ -1099,50 +1081,25 @@ void Table::saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry)
     jsObject->insert("templateType", "Table");
 }
 
-void Table::restore(const QStringList &list_in)
+void Table::restore(QJsonObject *jsTable)
 {
     // TODO: obsolete, remove in 0.3.0, only needed for template loading
-    QStringList temp_list;
-    QStringList::const_iterator iterator = list_in.begin();
+    QJsonArray jsHeaders = jsTable->value("columnHeaders").toArray();
+    importV0x0001XXHeader(&jsHeaders);
 
-    temp_list = (*iterator++).split("\t");
-    temp_list.removeFirst();
-    importV0x0001XXHeader(temp_list);
+    QJsonArray jsColWidths = jsTable->value("columnWidths").toArray();
+    setColWidths(&jsColWidths);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    setColWidths((*iterator).right((*iterator).length() - 9).split("\t", Qt::SkipEmptyParts));
-#else
-    setColWidths((*iterator).right((*iterator).length() - 9).split("\t", QString::SkipEmptyParts));
-#endif
-    iterator++;
+    QJsonArray jsCommands = jsTable->value("commands").toArray();
+    setCommands(&jsCommands);
+    for (int i = 0; i < jsCommands.size(); i++)
+        setCommand(i, jsCommands.at(i).toString());
 
-    temp_list = (*iterator++).split("\t");
-    if (temp_list[0] == "com") {
-        temp_list.removeFirst();
-        setCommands(temp_list);
-    } else if (temp_list[0] == "<com>") {
-        QStringList commands;
-        for (int col = 0; col < numCols(); col++)
-            commands << "";
-        for (; iterator != list_in.end() && *iterator != "</com>"; iterator++) {
-            int col = (*iterator).mid(9, (*iterator).length() - 11).toInt();
-            QString formula;
-            for (iterator++; iterator != list_in.end() && *iterator != "</col>"; iterator++)
-                formula += *iterator + "\n";
-            formula.truncate(formula.length() - 1);
-            commands[col] = formula;
-        }
-        iterator++;
-        setCommands(commands);
-    }
+    QJsonArray jsColTypes = jsTable->value("columnTypes").toArray();
+    setColumnTypes(&jsColTypes);
 
-    temp_list = (*iterator++).split("\t");
-    temp_list.removeFirst();
-    setColumnTypes(temp_list);
-
-    temp_list = (*iterator++).split("\t");
-    temp_list.removeFirst();
-    setColComments(temp_list);
+    QJsonArray jsComments = jsTable->value("comments").toArray();
+    setColComments(&jsComments);
 }
 
 void Table::clear()
@@ -1244,11 +1201,11 @@ QStringList Table::colComments()
     return list;
 }
 
-void Table::setColComments(const QStringList &list)
+void Table::setColComments(QJsonArray *jsComments)
 {
     if (d_future_table)
         for (int i = 0; i < d_future_table->columnCount(); i++)
-            column(i)->setComment(list.at(i));
+            column(i)->setComment(jsComments->at(i).toString());
 }
 
 bool Table::commentsEnabled()

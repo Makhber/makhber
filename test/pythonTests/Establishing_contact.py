@@ -1,4 +1,4 @@
-app.loadProject("Establishing_contact.sciprj");
+app.loadProject("Establishing_contact.mkbr")
 n=app.note("TestNote")
 assert n.windowTitle()=="TestNote"
 

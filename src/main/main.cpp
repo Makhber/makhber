@@ -73,10 +73,6 @@ There is also a section with some notes about \ref future "future plans".
     strings that get passed around. Wherever possible, consistency should be
     checked at compile-time. This would also probably eliminate the need to
     place restrictions on object/column names.
-  - Switch file format to a completely XML-based one so we can write a
-    more robust parser based on Qt's XML support. Legacy support for the old
-    format could be a plug-in. Use the new XML reader/write in Qt 4.3 for
-        this since it is very fast.
   - Document as much as possible using doxygen and write simple demo
     plug-ins. Also a collection of demo projects, tutorials etc. would
         be nice. The latter could be contributed by non-developers.

@@ -1,7 +1,7 @@
 /***************************************************************************
    File                 : fit_gsl.cpp
    Project              : Makhber
-   Description          : Built-in data fit models for QtiPlot
+   Description          : Built-in data fit models for Makhber
    --------------------------------------------------------------------
    Copyright            : (C) 2004-2007 Ion Vasilief (ion_vasilief*yahoo.fr)
                           (C) 2008-2009 Knut Franke (knut.franke*gmx.de)

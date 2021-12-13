@@ -372,7 +372,7 @@ public Q_SLOTS:
     long insertTextMarker(Legend *mrk);
 
     //! Used when opening a project file
-    long insertTextMarker(const QStringList &list, int fileVersion);
+    long insertTextMarker(QJsonObject *jsText);
     void updateTextMarker(const QString &text, int angle, int bkg, const QFont &fnt,
                           const QColor &textColor, const QColor &backgroundColor);
 
@@ -399,7 +399,7 @@ public Q_SLOTS:
     void removeLegend();
     void removeLegendItem(int index);
     void addLegendItem(const QString &colName);
-    void insertLegend(const QStringList &lst, int fileVersion);
+    void insertLegend(QJsonObject *jsLegend);
     Legend *legend();
     Legend *newLegend();
     Legend *newLegend(const QString &text);
@@ -415,7 +415,7 @@ public Q_SLOTS:
     void addArrow(ArrowMarker *mrk);
 
     //! Used when opening a project file
-    void addArrow(QStringList list, int fileVersion);
+    void addArrow(QJsonObject *jsArrow);
     QVector<int> lineMarkerKeys() { return d_lines; };
 
     //!Draws a line/arrow depending on the value of "arrow"
@@ -442,7 +442,7 @@ public Q_SLOTS:
     ImageMarker *addImage(ImageMarker *mrk);
     ImageMarker *addImage(const QString &fileName);
 
-    void insertImageMarker(const QStringList &lst, int fileVersion);
+    void insertImageMarker(QJsonObject *jsImage);
     bool imageMarkerSelected();
     void updateImageMarker(int x, int y, int width, int height);
     //@}
@@ -499,14 +499,14 @@ public Q_SLOTS:
     void setYAxisTitleColor(const QColor &c);
     void setRightAxisTitleColor(const QColor &c);
     void setTopAxisTitleColor(const QColor &c);
-    void setAxesTitleColor(QStringList l);
+    void setAxesTitleColor(QJsonArray *jsColors);
 
     int axisTitleAlignment(int axis);
     void setXAxisTitleAlignment(int align);
     void setYAxisTitleAlignment(int align);
     void setTopAxisTitleAlignment(int align);
     void setRightAxisTitleAlignment(int align);
-    void setAxesTitlesAlignment(const QStringList &align);
+    void setAxesTitlesAlignment(QJsonArray *jsRenderFlags);
 
     QColor axisColor(int axis);
     QStringList axesColors();
@@ -558,7 +558,7 @@ public Q_SLOTS:
     void setTicksLength(int minLength, int majLength);
     void changeTicksLength(int minLength, int majLength);
 
-    void setLabelsNumericFormat(const QStringList &l);
+    void setLabelsNumericFormat(QJsonObject *jsObject);
     void setLabelsNumericFormat(int axis, const QStringList &l);
     void setLabelsNumericFormat(int axis, int format, int prec = 6,
                                 const QString &formula = QString());
@@ -656,8 +656,7 @@ public Q_SLOTS:
                           const QString &var, QList<double> &ranges, int points,
                           const QString &title = {});
     //! Used when reading from a project file.
-    bool insertFunctionCurve(ApplicationWindow *parent, const QStringList &func_spec, int points,
-                             int fileVersion);
+    bool insertFunctionCurve(ApplicationWindow *parent, const QStringList &func_spec, int points);
     //! Returns an unique function name
     QString generateFunctionName(const QString &name = tr("F"));
     //@}
@@ -679,7 +678,7 @@ public Q_SLOTS:
 
     //! \name Box Plots
     //@{
-    void openBoxDiagram(Table *w, const QStringList &l, int fileVersion);
+    void openBoxDiagram(Table *w, QJsonObject *jsCurve);
     void plotBoxDiagram(Table *w, const QStringList &names, int startRow = 0, int endRow = -1);
     //@}
 
@@ -738,7 +737,7 @@ public Q_SLOTS:
     //! Add a spectrogram to the graph
     void plotSpectrogram(Matrix *m, Graph::CurveType type);
     //! Restores a spectrogram. Used when opening a project file.
-    void restoreSpectrogram(ApplicationWindow *app, const QStringList &lst);
+    void restoreSpectrogram(ApplicationWindow *app, QJsonObject *jsCurve);
 
     bool antialiasing() { return d_antialiasing; };
     //! Enables/Disables antialiasing of plot items.

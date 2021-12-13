@@ -39,7 +39,7 @@ TEST_F(ApplicationWindowTest, defaultMenus)
 
 TEST_F(ApplicationWindowTest, appWithGraphMenus)
 {
-    std::unique_ptr<ApplicationWindow> appWithGraph(open("testProject.sciprj"));
+    std::unique_ptr<ApplicationWindow> appWithGraph(open("testProject.mkbr"));
     // find graph
     QList<MyWidget *> windows = appWithGraph->windowsList();
     for (auto &i : windows)

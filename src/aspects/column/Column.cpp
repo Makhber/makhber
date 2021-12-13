@@ -31,7 +31,6 @@
 
 #include "aspects/column/ColumnPrivate.h"
 #include "aspects/column/columncommands.h"
-#include "lib/XmlStreamReader.h"
 
 #include <QIcon>
 #include <QtDebug>
@@ -359,223 +358,128 @@ void Column::save(QJsonObject *jsObject) const
     jsObject->insert("data", jsData);
 }
 
-bool Column::load(XmlStreamReader *reader)
+bool Column::load(QJsonObject *reader)
 {
-    if (reader->isStartElement() && reader->name().toString() == "column") {
-        if (!readBasicAttributes(reader))
-            return false;
+    QString str {};
 
-        QXmlStreamAttributes attribs = reader->attributes();
-        QString str;
-
-        // read type
-        str = attribs.value(reader->namespaceUri().toString(), "type").toString();
-        if (str.isEmpty()) {
-            reader->raiseError(tr("column type missing"));
-            return false;
-        }
-        int type_code = Makhber::enumStringToValue(str, "ColumnDataType");
-        if (type_code == -1) {
-            reader->raiseError(tr("column type invalid"));
-            return false;
-        }
-        // read mode
-        str = attribs.value(reader->namespaceUri().toString(), "mode").toString();
-        if (str.isEmpty()) {
-            reader->raiseError(tr("column mode missing"));
-            return false;
-        }
-        int mode_code = Makhber::enumStringToValue(str, "ColumnMode");
-        if (mode_code == -1) {
-            reader->raiseError(tr("column mode invalid"));
-            return false;
-        }
-        setColumnMode((Makhber::ColumnMode)mode_code);
-        if (type_code != int(dataType())) {
-            reader->raiseError(tr("column type or mode invalid"));
-            return false;
-        }
-        // read plot designation
-        str = attribs.value(reader->namespaceUri().toString(), "plot_designation").toString();
-        int pd_code = Makhber::enumStringToValue(str, "PlotDesignation");
-        if (str.isEmpty())
-            setPlotDesignation(Makhber::noDesignation);
-        else if (pd_code == -1) {
-            reader->raiseError(tr("column plot designation invalid"));
-            return false;
-        } else
-            setPlotDesignation((Makhber::PlotDesignation)pd_code);
-
-        setComment("");
-        if (rowCount() > 0)
-            removeRows(0, rowCount());
-        clearValidity();
-        clearMasks();
-        clearFormulas();
-        // read child elements
-        while (!reader->atEnd()) {
-            reader->readNext();
-
-            if (reader->isEndElement())
-                break;
-
-            if (reader->isStartElement()) {
-                bool ret_val = true;
-                if (reader->name().toString() == "comment")
-                    ret_val = readCommentElement(reader);
-                else if (reader->name().toString() == "numericDateTimeFilter")
-                    ret_val = XmlReadNumericDateTimeFilter(reader);
-                else if (reader->name().toString() == "input_filter")
-                    ret_val = XmlReadInputFilter(reader);
-                else if (reader->name().toString() == "output_filter")
-                    ret_val = XmlReadOutputFilter(reader);
-                else if (reader->name().toString() == "mask")
-                    ret_val = XmlReadMask(reader);
-                else if (reader->name().toString() == "formula")
-                    ret_val = XmlReadFormula(reader);
-                else if (reader->name().toString() == "row")
-                    ret_val = XmlReadRow(reader);
-                else // unknown element
-                {
-                    reader->raiseWarning(tr("unknown element '%1'").arg(reader->name().toString()));
-                    if (!reader->skipToEndElement())
-                        return false;
-                }
-                if (!ret_val)
-                    return false;
-            }
-        }
-    } else // no column element
-        reader->raiseError(tr("no column element found"));
-
-    return !reader->error();
-}
-
-bool Column::XmlReadNumericDateTimeFilter(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "numericDateTimeFilter");
-    if (!reader->skipToNextTag())
-        return false;
-    if (!d_column_private->getNumericDateTimeFilter()->load(reader))
-        return false;
-    if (!reader->skipToNextTag())
-        return false;
-    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "numericDateTimeFilter");
-    return true;
-}
-
-bool Column::XmlReadInputFilter(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "input_filter");
-    if (!reader->skipToNextTag())
-        return false;
-    if (!d_column_private->inputFilter()->load(reader))
-        return false;
-    if (!reader->skipToNextTag())
-        return false;
-    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "input_filter");
-    return true;
-}
-
-bool Column::XmlReadOutputFilter(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "output_filter");
-    if (!reader->skipToNextTag())
-        return false;
-    if (!outputFilter()->load(reader))
-        return false;
-    if (!reader->skipToNextTag())
-        return false;
-    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "output_filter");
-    return true;
-}
-
-bool Column::XmlReadMask(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "mask");
-
-    bool ok1 = false, ok2 = false;
-    int start = 0, end = 0;
-    start = reader->readAttributeInt("start_row", &ok1);
-    end = reader->readAttributeInt("end_row", &ok2);
-    if (!ok1 || !ok2) {
-        reader->raiseError(tr("invalid or missing start or end row"));
+    readBasicAttributes(reader);
+    // read type
+    str = reader->value("type").toString();
+    if (str.isEmpty()) {
+        //            reader->raiseError(tr("column type missing"));
         return false;
     }
+    int type_code = Makhber::enumStringToValue(str, "ColumnDataType");
+    if (type_code == -1) {
+        //            reader->raiseError(tr("column type invalid"));
+        return false;
+    }
+    // read mode
+    str = reader->value("mode").toString();
+    if (str.isEmpty()) {
+        //            reader->raiseError(tr("column mode missing"));
+        return false;
+    }
+    int mode_code = Makhber::enumStringToValue(str, "ColumnMode");
+    if (mode_code == -1) {
+        //            reader->raiseError(tr("column mode invalid"));
+        return false;
+    }
+    setColumnMode((Makhber::ColumnMode)mode_code);
+    if (type_code != int(dataType())) {
+        //            reader->raiseError(tr("column type or mode invalid"));
+        return false;
+    }
+    // read plot designation
+    str = reader->value("plotDesignation").toString();
+    int pd_code = Makhber::enumStringToValue(str, "PlotDesignation");
+    if (str.isEmpty())
+        setPlotDesignation(Makhber::noDesignation);
+    else if (pd_code == -1) {
+        //            reader->raiseError(tr("column plot designation invalid"));
+        return false;
+    } else
+        setPlotDesignation((Makhber::PlotDesignation)pd_code);
+
+    clearValidity();
+
+    setComment("");
+    readCommentElement(reader);
+
+    if (type_code == Makhber::TypeQDateTime)
+        ReadNumericDateTimeFilter(reader);
+    ReadInputFilter(reader);
+    ReadOutputFilter(reader);
+
+    clearMasks();
+    QJsonArray jsMasks = reader->value("masks").toArray();
+    for (int i = 0; i < jsMasks.size(); i++) {
+        ReadMask(jsMasks.at(i).toObject());
+    }
+
+    clearFormulas();
+    QJsonArray jsFormulas = reader->value("formulas").toArray();
+    for (int i = 0; i < jsFormulas.size(); i++) {
+        ReadFormula(jsFormulas.at(i).toObject());
+    }
+
+    if (rowCount() > 0)
+        removeRows(0, rowCount());
+    QJsonArray jsData = reader->value("data").toArray();
+    for (int i = 0; i < jsData.size(); i++) {
+        switch (dataType()) {
+        case Makhber::TypeDouble: {
+            setValueAt(i, jsData.at(i).toDouble());
+            break;
+        }
+        case Makhber::TypeQString:
+            setTextAt(i, jsData.at(i).toString());
+            break;
+
+        case Makhber::TypeQDateTime:
+            QDateTime date_time =
+                    QDateTime::fromString(jsData.at(i).toString(), "dd-MM-yyyy hh:mm:ss:zzz");
+            setDateTimeAt(i, date_time);
+            break;
+        }
+    }
+    return true;
+}
+
+void Column::ReadNumericDateTimeFilter(QJsonObject *reader)
+{
+    QJsonObject jsObject = reader->value("numericDateTimeFilter").toObject();
+    d_column_private->getNumericDateTimeFilter()->load(&jsObject);
+}
+
+void Column::ReadInputFilter(QJsonObject *reader)
+{
+    QJsonObject jsObject = reader->value("inputFilter").toObject();
+    d_column_private->inputFilter()->load(&jsObject);
+}
+
+void Column::ReadOutputFilter(QJsonObject *reader)
+{
+    QJsonObject jsObject = reader->value("outputFilter").toObject();
+    outputFilter()->load(&jsObject);
+}
+
+void Column::ReadMask(QJsonObject reader)
+{
+    int start = 0, end = 0;
+    start = reader["start_row"].toInt();
+    end = reader["end_row"].toInt();
     setMasked(Interval<int>(start, end));
-    if (!reader->skipToEndElement())
-        return false;
-
-    return true;
 }
 
-bool Column::XmlReadFormula(XmlStreamReader *reader)
+void Column::ReadFormula(QJsonObject reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "formula");
-
-    bool ok1 = false, ok2 = false;
     int start = 0, end = 0;
-    start = reader->readAttributeInt("start_row", &ok1);
-    end = reader->readAttributeInt("end_row", &ok2);
-    if (!ok1 || !ok2) {
-        reader->raiseError(tr("invalid or missing start or end row"));
-        return false;
-    }
-    setFormula(Interval<int>(start, end), reader->readElementText());
-
-    return true;
+    start = reader["start_row"].toInt();
+    end = reader["end_row"].toInt();
+    setFormula(Interval<int>(start, end), reader["formula"].toString());
 }
 
-bool Column::XmlReadRow(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "row");
-
-    QString str;
-    int type_code = 0;
-
-    QXmlStreamAttributes attribs = reader->attributes();
-    // verfiy type
-    str = attribs.value(reader->namespaceUri().toString(), "type").toString();
-    type_code = Makhber::enumStringToValue(str, "ColumnDataType");
-    if (str.isEmpty() || type_code == -1 || type_code != int(dataType())) {
-        reader->raiseError(tr("invalid or missing row type"));
-        return false;
-    }
-
-    bool ok = false;
-    int index = reader->readAttributeInt("index", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid or missing row index"));
-        return false;
-    }
-
-    str = reader->readElementText();
-    switch (dataType()) {
-    case Makhber::TypeDouble: {
-        double value = str.toDouble(&ok);
-        if (!ok) {
-            reader->raiseError(tr("invalid row value"));
-            return false;
-        }
-        setValueAt(index, value);
-        break;
-    }
-    case Makhber::TypeQString:
-        setTextAt(index, str);
-        break;
-
-    case Makhber::TypeQDateTime:
-        QDateTime date_time = QDateTime::fromString(str, "dd-MM-yyyy hh:mm:ss:zzz");
-        setDateTimeAt(index, date_time);
-        break;
-    }
-
-    str = attribs.value(reader->namespaceUri().toString(), "invalid").toString();
-    if (str == "yes")
-        setInvalid(index);
-
-    return true;
-}
 Makhber::ColumnDataType Column::dataType() const
 {
     return d_column_private->dataType();

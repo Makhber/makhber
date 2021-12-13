@@ -5,12 +5,12 @@
 :&Properties...|Properties||Properties|1|
 &Aide:&Aide|Aide||Aide|1|
 &Aide:||||1|
-&Aide:Page d'accueil &SciDAVis|Page d'accueil SciDAVis||Page d'accueil SciDAVis|1|
+&Aide:Page d'accueil &Makhber|Page d'accueil Makhber||Page d'accueil Makhber|1|
 &Aide:||||1|
-&Aide:Vister les &Forums SciDAVis|Vister les Forums SciDAVis||Vister les Forums SciDAVis|1|
+&Aide:Vister les &Forums Makhber|Vister les Forums Makhber||Vister les Forums Makhber|1|
 &Aide:Rapporter un &Bug|Rapporter un Bug||Rapporter un Bug|1|
 &Aide:||||1|
-&Aide:&A propos de SciDAVis|A propos de SciDAVis||A propos de SciDAVis|1|
+&Aide:&A propos de Makhber|A propos de Makhber||A propos de Makhber|1|
 &Edition:Ann&uler|Annuler||Annuler les modifications|1|
 &Edition:&Refaire|Refaire||Refaire|1|
 &Edition:||||1|
@@ -149,7 +149,7 @@ Pa&nneau:&Colonne de 2 calques|Colonne de 2 calques||Colonne de 2 calques|1|
 Pa&nneau:&Rangée de 2 calques|Rangée de 2 calques||Rangée de 2 calques|1|
 Pa&nneau:Tableau de &4 calques|Tableau de 4 calques||Tableau de 4 calques|1|
 Pa&nneau:&Calques empilés|Calques empilés||Calques empilés|1|
-Projets &Récents:&1 testProject.sciprj|1 testProject.sciprj||1 testProject.sciprj|1|
+Projets &Récents:&1 testProject.mkbr|1 testProject.mkbr||1 testProject.mkbr|1|
 Scripting:&Langue de Scripting|Langue de Scripting||Langue de Scripting|1|
 Scripting:&Recommencer Scripting|Recommencer Scripting||Recommencer Scripting|1|
 Trait/Symb&ole spécial:Lignes verticales et baisse (&D)|Lignes verticales et baisse (D)||Lignes verticales et baisse (D)|1|

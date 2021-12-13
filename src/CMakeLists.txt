@@ -84,7 +84,6 @@ set( HEADERS
   "lib/Interval.h"
   "lib/IntervalAttribute.h"
   "lib/QStringStdString.h"
-  "lib/XmlStreamReader.h"
   "lib/macros.h"
   "matrix/Matrix.h"
   "matrix/MatrixModel.h"
@@ -231,7 +230,6 @@ set( SRCS
   "core/globals.cpp"
   "lib/ActionManager.cpp"
   "lib/ConfigPageWidget.cpp"
-  "lib/XmlStreamReader.cpp"
   "matrix/Matrix.cpp"
   "matrix/MatrixModel.cpp"
   "matrix/MatrixView.cpp"
@@ -333,10 +331,8 @@ target_link_libraries( libmakhber
   Qt5::Svg
   OpenGL::GL
   OpenGL::GLU
-  ZLIB::ZLIB
   muparser::muparser
   Qwt::Qwt
-  minigzip
   qwtplot3d
 )
 

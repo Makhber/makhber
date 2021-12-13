@@ -61,10 +61,10 @@ public:
     NumericDateTimeBaseFilter(const NumericDateTimeBaseFilter &other)
         : m_unit_interval(other.m_unit_interval), m_date_time_0(other.m_date_time_0) {};
 
-    //! Save to XML
+    //! Save to Json
     void writeExtraAttributes(QJsonObject *) const override;
 
-    bool load(XmlStreamReader *reader) override;
+    bool load(QJsonObject *reader) override;
 
     UnitInterval getUnitInterval() const { return m_unit_interval; }
     QDateTime getBaseDateTime() const { return m_date_time_0; }

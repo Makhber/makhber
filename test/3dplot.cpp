@@ -16,7 +16,7 @@
 
 TEST_F(ApplicationWindowTest, plot3d)
 {
-    std::unique_ptr<ApplicationWindow> app(open("3dplotTable.sciprj"));
+    std::unique_ptr<ApplicationWindow> app(open("3dplotTable.mkbr"));
     EXPECT_TRUE(app.get());
     QList<MyWidget *> windows = app->windowsList();
     Table *table = nullptr;

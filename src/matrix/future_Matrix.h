@@ -169,10 +169,10 @@ public:
 
     //! \name serialize/deserialize
     //@{
-    //! Save as XML
+    //! Save
     virtual void save(QJsonObject *) const;
-    //! Load from XML
-    virtual bool load(XmlStreamReader *);
+    //! Load
+    virtual bool load(QJsonObject *);
     //@}
 
     //! This method should only be called by the view.
@@ -280,16 +280,10 @@ private:
     void addActionsToView();
     void translateActionsStrings();
 
-    //! Read XML display element
-    bool readDisplayElement(XmlStreamReader *reader);
-    //! Read XML coodinates element
-    bool readCoordinatesElement(XmlStreamReader *reader);
-    //! Read XML formula element
-    bool readFormulaElement(XmlStreamReader *reader);
-    //! Read XML cell element
-    bool readCellElement(XmlStreamReader *reader);
-    bool readRowHeightElement(XmlStreamReader *reader);
-    bool readColumnWidthElement(XmlStreamReader *reader);
+    //! Read display element
+    void readDisplayElement(QJsonObject *reader);
+    //! Read coodinates element
+    void readCoordinatesElement(QJsonObject *reader);
 
     QMenu *d_plot_menu {};
 

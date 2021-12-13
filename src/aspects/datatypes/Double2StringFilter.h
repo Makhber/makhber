@@ -69,10 +69,10 @@ private:
     //! Display digits or precision as in QString::number
     int d_digits;
 
-    //! \name XML related functions
+    //! \name Json related functions
     //@{
     virtual void writeExtraAttributes(QJsonObject *) const;
-    virtual bool load(XmlStreamReader *reader);
+    virtual bool load(QJsonObject *reader);
     //@}
 
 public:

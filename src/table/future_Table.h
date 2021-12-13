@@ -215,11 +215,10 @@ public:
 
     //! \name serialize/deserialize
     //@{
-    //! Save as XML
+    //! Save as Json
     virtual void save(QJsonObject *jsObject) const;
-    //! Load from XML
-    virtual bool load(XmlStreamReader *);
-    bool readColumnWidthElement(XmlStreamReader *reader);
+    //! Load from Json
+    virtual bool load(QJsonObject *);
     //@}
 
 public:

@@ -113,67 +113,45 @@ void Grid::drawLines(QPainter *painter, const QRectF &rect, Qt::Orientation orie
     }
 }
 
-void Grid::load(const QStringList &grid)
+void Grid::load(QJsonObject *jsGrid)
 {
     Plot *d_plot = dynamic_cast<Plot *>(plot());
     if (!d_plot)
         return;
 
-    bool majorOnX = grid[1].toInt();
-    bool minorOnX = grid[2].toInt();
-    bool majorOnY = grid[3].toInt();
-    bool minorOnY = grid[4].toInt();
-    bool xZeroOn = false;
-    bool yZeroOn = false;
-    int xAxis = QwtPlot::xBottom;
-    int yAxis = QwtPlot::yLeft;
+    enableZeroLineX(jsGrid->value("xZeroLineEnabled").toBool());
+    enableZeroLineY(jsGrid->value("yZeroLineEnabled").toBool());
 
-    QPen majPenX, minPenX, majPenY, minPenY;
-    if (grid.count() == 21) { // since 0.9 final
-        majPenX = QPen(QColor(COLORVALUE(grid[5])), grid[7].toInt(),
-                       Graph::getPenStyle(grid[6].toInt()));
-        minPenX = QPen(QColor(COLORVALUE(grid[8])), grid[10].toInt(),
-                       Graph::getPenStyle(grid[9].toInt()));
-        majPenY = QPen(QColor(COLORVALUE(grid[11])), grid[13].toInt(),
-                       Graph::getPenStyle(grid[12].toInt()));
-        minPenY = QPen(QColor(COLORVALUE(grid[14])), grid[16].toInt(),
-                       Graph::getPenStyle(grid[15].toInt()));
-
-        xZeroOn = grid[17].toInt();
-        yZeroOn = grid[18].toInt();
-        xAxis = grid[19].toInt();
-        yAxis = grid[20].toInt();
-    } else { // older versions of QtiPlot (<= 0.9rc3)
-        majPenX = QPen(ColorButton::color(grid[5].toInt()), grid[7].toInt(),
-                       Graph::getPenStyle(grid[6].toInt()));
-        minPenX = QPen(ColorButton::color(grid[8].toInt()), grid[10].toInt(),
-                       Graph::getPenStyle(grid[9].toInt()));
-        majPenY = majPenX;
-        minPenY = minPenX;
-
-        xZeroOn = grid[11].toInt();
-        yZeroOn = grid[12].toInt();
-
-        if (grid.count() == 15) {
-            xAxis = grid[13].toInt();
-            yAxis = grid[14].toInt();
-        }
-    }
-
+    QJsonObject jsMajPenX = jsGrid->value("majPenX").toObject();
+    QPen majPenX = QPen(QColor(COLORVALUE(jsMajPenX.value("color").toString())),
+                        jsMajPenX.value("width").toInt(),
+                        Graph::getPenStyle(jsMajPenX.value("style").toInt()));
     setMajPenX(majPenX);
+
+    QJsonObject jsMinPenX = jsGrid->value("minPenX").toObject();
+    QPen minPenX = QPen(QColor(COLORVALUE(jsMinPenX.value("color").toString())),
+                        jsMinPenX.value("width").toInt(),
+                        Graph::getPenStyle(jsMinPenX.value("style").toInt()));
     setMinPenX(minPenX);
+
+    QJsonObject jsMajPenY = jsGrid->value("majPenY").toObject();
+    QPen majPenY = QPen(QColor(COLORVALUE(jsMajPenY.value("color").toString())),
+                        jsMajPenY.value("width").toInt(),
+                        Graph::getPenStyle(jsMajPenY.value("style").toInt()));
     setMajPenY(majPenY);
+
+    QJsonObject jsMinPenY = jsGrid->value("minPenY").toObject();
+    QPen minPenY = QPen(QColor(COLORVALUE(jsMinPenY.value("color").toString())),
+                        jsMinPenY.value("width").toInt(),
+                        Graph::getPenStyle(jsMinPenY.value("style").toInt()));
     setMinPenY(minPenY);
 
-    enableX(majorOnX);
-    enableXMin(minorOnX);
-    enableY(majorOnY);
-    enableYMin(minorOnY);
+    enableX(jsGrid->value("xEnabled").toBool());
+    enableXMin(jsGrid->value("xMinEnabled").toBool());
+    enableY(jsGrid->value("yEnabled").toBool());
+    enableYMin(jsGrid->value("yMinEnabled").toBool());
 
-    setAxes(xAxis, yAxis);
-
-    enableZeroLineX(xZeroOn);
-    enableZeroLineY(yZeroOn);
+    setAxes(jsGrid->value("xAxis").toInt(), jsGrid->value("yAxis").toInt());
 }
 
 void Grid::enableZeroLineX(bool enable)

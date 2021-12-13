@@ -29,9 +29,9 @@ include(GoogleTest)
 gtest_discover_tests( unittests DISCOVERY_MODE PRE_TEST )
 
 set( TestDataFiles
-  "3dplot.sciprj"
-  "3dplotTable.sciprj"
-  "testProject.sciprj"
+  "3dplot.mkbr"
+  "3dplotTable.mkbr"
+  "testProject.mkbr"
   "Histo.opj"
   "USstates.opj"
   )

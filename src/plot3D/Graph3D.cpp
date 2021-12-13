@@ -787,9 +787,10 @@ void Graph3D::setNumbersFont(const QFont &font)
     sp->update();
 }
 
-void Graph3D::setNumbersFont(const QStringList &lst)
+void Graph3D::setNumbersFont(QJsonObject *jsFont)
 {
-    QFont fnt = QFont(lst[1], lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
+    QFont fnt = QFont(jsFont->value("family").toString(), jsFont->value("pointSize").toInt(),
+                      jsFont->value("weight").toInt(), jsFont->value("italic").toInt());
     sp->coordinates()->setNumberFont(fnt);
 }
 
@@ -817,27 +818,30 @@ void Graph3D::setZAxisLabelFont(const QFont &fnt)
     sp->coordinates()->axes[Qwt3D::Z4].setLabelFont(fnt);
 }
 
-void Graph3D::setXAxisLabelFont(const QStringList &lst)
+void Graph3D::setXAxisLabelFont(QJsonObject *jsFont)
 {
-    QFont fnt = QFont(lst[1], lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
+    QFont fnt = QFont(jsFont->value("family").toString(), jsFont->value("pointSize").toInt(),
+                      jsFont->value("weight").toInt(), jsFont->value("italic").toInt());
     sp->coordinates()->axes[Qwt3D::X1].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::X2].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::X3].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::X4].setLabelFont(fnt);
 }
 
-void Graph3D::setYAxisLabelFont(const QStringList &lst)
+void Graph3D::setYAxisLabelFont(QJsonObject *jsFont)
 {
-    QFont fnt = QFont(lst[1], lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
+    QFont fnt = QFont(jsFont->value("family").toString(), jsFont->value("pointSize").toInt(),
+                      jsFont->value("weight").toInt(), jsFont->value("italic").toInt());
     sp->coordinates()->axes[Qwt3D::Y1].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::Y2].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::Y3].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::Y4].setLabelFont(fnt);
 }
 
-void Graph3D::setZAxisLabelFont(const QStringList &lst)
+void Graph3D::setZAxisLabelFont(QJsonObject *jsFont)
 {
-    QFont fnt = QFont(lst[1], lst[2].toInt(), lst[3].toInt(), lst[4].toInt());
+    QFont fnt = QFont(jsFont->value("family").toString(), jsFont->value("pointSize").toInt(),
+                      jsFont->value("weight").toInt(), jsFont->value("italic").toInt());
     sp->coordinates()->axes[Qwt3D::Z1].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::Z2].setLabelFont(fnt);
     sp->coordinates()->axes[Qwt3D::Z3].setLabelFont(fnt);
@@ -1425,80 +1429,41 @@ void Graph3D::updateScales(double xl, double xr, double yl, double yr, double zl
 
 void Graph3D::setTicks(const QStringList &options)
 {
-    int min = 0, maj = 0;
-    if (int(options.count()) == 6) {
-        maj = options[0].toInt();
-        sp->coordinates()->axes[Qwt3D::X1].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::X2].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::X3].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::X4].setMajors(maj);
+    int maj = options[0].toInt();
+    sp->coordinates()->axes[Qwt3D::X1].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::X2].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::X3].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::X4].setMajors(maj);
 
-        min = options[1].toInt();
-        sp->coordinates()->axes[Qwt3D::X1].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::X2].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::X3].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::X4].setMinors(min);
+    int min = options[1].toInt();
+    sp->coordinates()->axes[Qwt3D::X1].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::X2].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::X3].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::X4].setMinors(min);
 
-        maj = options[2].toInt();
-        sp->coordinates()->axes[Qwt3D::Y1].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Y2].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Y3].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Y4].setMajors(maj);
+    maj = options[2].toInt();
+    sp->coordinates()->axes[Qwt3D::Y1].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::Y2].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::Y3].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::Y4].setMajors(maj);
 
-        min = options[3].toInt();
-        sp->coordinates()->axes[Qwt3D::Y1].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Y2].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Y3].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Y4].setMinors(min);
+    min = options[3].toInt();
+    sp->coordinates()->axes[Qwt3D::Y1].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::Y2].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::Y3].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::Y4].setMinors(min);
 
-        maj = options[4].toInt();
-        sp->coordinates()->axes[Qwt3D::Z1].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Z2].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Z3].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Z4].setMajors(maj);
+    maj = options[4].toInt();
+    sp->coordinates()->axes[Qwt3D::Z1].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::Z2].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::Z3].setMajors(maj);
+    sp->coordinates()->axes[Qwt3D::Z4].setMajors(maj);
 
-        min = options[5].toInt();
-        sp->coordinates()->axes[Qwt3D::Z1].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Z2].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Z3].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Z4].setMinors(min);
-    } else {
-        maj = options[1].toInt();
-        sp->coordinates()->axes[Qwt3D::X1].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::X2].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::X3].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::X4].setMajors(maj);
-
-        min = options[2].toInt();
-        sp->coordinates()->axes[Qwt3D::X1].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::X2].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::X3].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::X4].setMinors(min);
-
-        maj = options[3].toInt();
-        sp->coordinates()->axes[Qwt3D::Y1].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Y2].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Y3].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Y4].setMajors(maj);
-
-        min = options[4].toInt();
-        sp->coordinates()->axes[Qwt3D::Y1].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Y2].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Y3].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Y4].setMinors(min);
-
-        maj = options[5].toInt();
-        sp->coordinates()->axes[Qwt3D::Z1].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Z2].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Z3].setMajors(maj);
-        sp->coordinates()->axes[Qwt3D::Z4].setMajors(maj);
-
-        min = options[6].toInt();
-        sp->coordinates()->axes[Qwt3D::Z1].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Z2].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Z3].setMinors(min);
-        sp->coordinates()->axes[Qwt3D::Z4].setMinors(min);
-    }
+    min = options[5].toInt();
+    sp->coordinates()->axes[Qwt3D::Z1].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::Z2].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::Z3].setMinors(min);
+    sp->coordinates()->axes[Qwt3D::Z4].setMinors(min);
 }
 
 void Graph3D::setColors(const QColor &meshColor, const QColor &axesColor, const QColor &numColor,
@@ -1535,35 +1500,31 @@ void Graph3D::setColors(const QColor &meshColor, const QColor &axesColor, const 
     }
 }
 
-void Graph3D::setColors(const QStringList &colors)
+void Graph3D::setColors(QJsonObject *jsColors)
 {
-    meshCol = QColor(COLORVALUE(colors[1]));
+    meshCol = QColor(COLORVALUE(jsColors->value("meshColor").toString()));
     sp->setMeshColor(Qwt3D::Qt2GL(meshCol));
 
-    axesCol = QColor(COLORVALUE(colors[2]));
+    axesCol = QColor(COLORVALUE(jsColors->value("axesColor").toString()));
     sp->coordinates()->setAxesColor(Qwt3D::Qt2GL(axesCol));
 
-    numCol = QColor(COLORVALUE(colors[3]));
+    numCol = QColor(COLORVALUE(jsColors->value("numColor").toString()));
     sp->coordinates()->setNumberColor(Qwt3D::Qt2GL(numCol));
 
-    labelsCol = QColor(COLORVALUE(colors[4]));
+    labelsCol = QColor(COLORVALUE(jsColors->value("labelsColor").toString()));
     sp->coordinates()->setLabelColor(Qwt3D::Qt2GL(labelsCol));
 
-    bgCol = QColor(COLORVALUE(colors[5]));
+    bgCol = QColor(COLORVALUE(jsColors->value("bgColor").toString()));
     sp->setBackgroundColor(Qwt3D::Qt2GL(bgCol));
 
-    gridCol = QColor(COLORVALUE(colors[6]));
+    gridCol = QColor(COLORVALUE(jsColors->value("gridColor").toString()));
     sp->coordinates()->setGridLinesColor(Qwt3D::Qt2GL(gridCol));
 
-    if ((int)colors.count() > 7) {
-        QColor min = QColor(COLORVALUE(colors[7]));
-        QColor max = QColor(COLORVALUE(colors[8]));
-        alpha = colors[9].toDouble();
-        if ((int)colors.count() == 11)
-            setDataColorMap(colors[10]);
-        else
-            setDataColors(min, max);
-    }
+    alpha = jsColors->value("alpha").toDouble();
+    QColor min = QColor(COLORVALUE(jsColors->value("fromColor").toString()));
+    QColor max = QColor(COLORVALUE(jsColors->value("toColor").toString()));
+    setDataColors(min, max);
+    setDataColorMap(jsColors->value("colorMap").toString());
 }
 
 void Graph3D::updateColors(const QColor &meshColor, const QColor &axesColor, const QColor &numColor,
@@ -2200,64 +2161,59 @@ void Graph3D::customPlotStyle(int style)
     sp->update();
 }
 
-void Graph3D::setStyle(const QStringList &st)
+void Graph3D::setStyle(QJsonObject *jsStyle)
 {
-    if (st[1] == "nocoord")
+    QString coordinateStyle = jsStyle->value("coordinateStyle").toString();
+    if (coordinateStyle == "nocoord")
         sp->setCoordinateStyle(Qwt3D::NOCOORD);
-    else if (st[1] == "frame")
+    else if (coordinateStyle == "frame")
         sp->setCoordinateStyle(Qwt3D::FRAME);
-    else if (st[1] == "box")
+    else if (coordinateStyle == "box")
         sp->setCoordinateStyle(Qwt3D::BOX);
 
-    if (st[2] == "nofloor")
+    QString floorStyle = jsStyle->value("floorStyle").toString();
+    if (floorStyle == "nofloor")
         sp->setFloorStyle(Qwt3D::NOFLOOR);
-    else if (st[2] == "flooriso")
+    else if (floorStyle == "flooriso")
         sp->setFloorStyle(Qwt3D::FLOORISO);
-    else if (st[2] == "floordata")
+    else if (floorStyle == "floordata")
         sp->setFloorStyle(Qwt3D::FLOORDATA);
 
-    if (st[3] == "filledmesh")
+    QString plotStyle = jsStyle->value("plotStyle").toString();
+    if (plotStyle == "filledmesh")
         sp->setPlotStyle(Qwt3D::FILLEDMESH);
-    else if (st[3] == "filled")
+    else if (plotStyle == "filled")
         sp->setPlotStyle(Qwt3D::FILLED);
-    else if (st[3] == "points") {
-        pointSize = st[4].toDouble();
-
-        smooth = false;
-        if (st[5] == "1")
-            smooth = true;
-
-        sp->setPlotStyle(Qwt3D::Dot(pointSize, smooth));
-        pointStyle = Dots;
-    } else if (st[3] == "wireframe")
+    else if (plotStyle == "wireframe")
         sp->setPlotStyle(Qwt3D::WIREFRAME);
-    else if (st[3] == "hiddenline")
+    else if (plotStyle == "hiddenline")
         sp->setPlotStyle(Qwt3D::HIDDENLINE);
-    else if (st[3] == "bars") {
-        barsRad = (st[4]).toDouble();
-        sp->setPlotStyle(Bar(barsRad));
-        pointStyle = VerticalBars;
-    } else if (st[3] == "cones") {
-        conesRad = (st[4]).toDouble();
-        conesQuality = (st[5]).toInt();
+    else if (plotStyle == "user") {
+        QString pStyle = jsStyle->value("pointStyle").toString();
+        if (pStyle == "bars") {
+            barsRad = jsStyle->value("barsRad").toDouble();
+            sp->setPlotStyle(Bar(barsRad));
+            pointStyle = VerticalBars;
+        } else if (pStyle == "points") {
+            pointSize = jsStyle->value("pointSize").toDouble();
+            smooth = jsStyle->value("smooth").toBool();
+            sp->setPlotStyle(Qwt3D::Dot(pointSize, smooth));
+            pointStyle = Dots;
+        } else if (pStyle == "cones") {
+            conesRad = jsStyle->value("conesRad").toDouble();
+            conesQuality = jsStyle->value("conesQuality").toInt();
 
-        sp->setPlotStyle(Cone3D(conesRad, conesQuality));
-        pointStyle = Cones;
-    } else if (st[3] == "cross") {
-        crossHairRad = (st[4]).toDouble();
-        crossHairLineWidth = (st[5]).toDouble();
-
-        crossHairSmooth = false;
-        if (st[6] == "1")
-            crossHairSmooth = true;
-
-        crossHairBoxed = false;
-        if (st[7] == "1")
-            crossHairBoxed = true;
-
-        sp->setPlotStyle(Qwt3D::CrossHair(crossHairRad, crossHairLineWidth, crossHairSmooth,
-                                          crossHairBoxed));
-        pointStyle = HairCross;
+            sp->setPlotStyle(Cone3D(conesRad, conesQuality));
+            pointStyle = Cones;
+        } else if (pStyle == "cross") {
+            crossHairRad = jsStyle->value("crossHairRad").toDouble();
+            crossHairLineWidth = jsStyle->value("crossHairLineWidth").toDouble();
+            crossHairSmooth = jsStyle->value("crossHairSmooth").toBool();
+            crossHairBoxed = jsStyle->value("crossHairBoxed").toBool();
+            sp->setPlotStyle(Qwt3D::CrossHair(crossHairRad, crossHairLineWidth, crossHairSmooth,
+                                              crossHairBoxed));
+            pointStyle = HairCross;
+        }
     }
 
     style_ = sp->plotStyle();
@@ -2586,14 +2542,12 @@ void Graph3D::setTitleFont(const QFont &font)
     }
 }
 
-void Graph3D::setOptions(const QStringList &lst)
+void Graph3D::setOptions(QJsonObject *jsOptions)
 {
-    legendOn = false;
-    if (lst[1].toInt() == 1)
-        legendOn = true;
+    legendOn = jsOptions->value("legendOn").toBool();
     sp->showColorLegend(legendOn);
-    sp->setResolution(lst[2].toInt());
-    adjustLabels(lst[3].toInt());
+    sp->setResolution(jsOptions->value("resolution").toInt());
+    adjustLabels(jsOptions->value("labelsDist").toInt());
 }
 
 void Graph3D::setOptions(bool legend, int r, int dist)

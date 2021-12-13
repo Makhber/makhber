@@ -29,8 +29,6 @@
 
 #include "Double2StringFilter.h"
 
-#include "lib/XmlStreamReader.h"
-
 #include <QJsonObject>
 
 void Double2StringFilter::writeExtraAttributes(QJsonObject *jsObject) const
@@ -39,25 +37,19 @@ void Double2StringFilter::writeExtraAttributes(QJsonObject *jsObject) const
     jsObject->insert("digits", numDigits());
 }
 
-bool Double2StringFilter::load(XmlStreamReader *reader)
+bool Double2StringFilter::load(QJsonObject *reader)
 {
-    QXmlStreamAttributes attribs = reader->attributes();
-    QString format_str = attribs.value(reader->namespaceUri().toString(), "format").toString();
-    QString digits_str = attribs.value(reader->namespaceUri().toString(), "digits").toString();
+    QString format_str = reader->value("format").toString();
+    QString digits_str = reader->value("digits").toString();
 
     if (AbstractSimpleFilter::load(reader)) {
-        bool ok = false;
-        int digits = digits_str.toInt(&ok);
-        if ((format_str.size() != 1) || !ok)
-            reader->raiseError(tr("missing or invalid format attribute(s)"));
-        else {
-            setNumericFormat(format_str.at(0).toLatin1());
-            setNumDigits(digits);
-        }
+        int digits = digits_str.toInt();
+        setNumericFormat(format_str.at(0).toLatin1());
+        setNumDigits(digits);
     } else
         return false;
 
-    return !reader->hasError();
+    return true;
 }
 
 void Double2StringFilter::setNumericFormat(char format)

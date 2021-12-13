@@ -81,21 +81,10 @@ void Note::saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry)
     jsObject->insert("type", "Note");
 }
 
-void Note::restore(const QStringList &data)
+void Note::restore(QJsonObject *jsNote)
 {
-    QStringList::ConstIterator line = data.begin();
-    QStringList fields;
-
-    fields = (*line).split("\t");
-    if (fields[0] == "AutoExec") {
-        setAutoexec(fields[1] == "1");
-        line++;
-    }
-
-    if (*line == "<content>")
-        line++;
-    while (line != data.end() && *line != "</content>")
-        te->insertPlainText((*line++) + "\n");
+    setAutoexec(jsNote->value("autoExec").toBool());
+    te->insertPlainText(jsNote->value("content").toString());
 }
 
 void Note::setAutoexec(bool exec)

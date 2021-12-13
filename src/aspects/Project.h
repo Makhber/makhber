@@ -79,10 +79,10 @@ public:
 
     //! \name serialize/deserialize
     //@{
-    //! Save as XML
+    //! Save
     virtual void save(QJsonObject *) const;
-    //! Load from XML
-    virtual bool load(XmlStreamReader *);
+    //! Load
+    virtual bool load(QJsonObject *);
     //@}
 
 private:

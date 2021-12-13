@@ -14,27 +14,20 @@
 #include <memory>
 #include <stdexcept>
 
-extern "C" {
-void file_compress(const char *file, const char *mode);
-}
-
 TEST_F(ApplicationWindowTest, readWriteProject)
 {
-    std::unique_ptr<ApplicationWindow> app(open("testProject.sciprj"));
+    std::unique_ptr<ApplicationWindow> app(open("testProject.mkbr"));
     EXPECT_TRUE(app.get());
-    app->saveFolder(app->projectFolder(), "testProject1.sciprj");
-    std::unique_ptr<ApplicationWindow> app1(open("testProject1.sciprj"));
+    app->saveFolder(app->projectFolder(), "testProject1.mkbr");
+    std::unique_ptr<ApplicationWindow> app1(open("testProject1.mkbr"));
     // TODO check that app1 is the same as app?
-    EXPECT_TRUE(app1.get());
-    file_compress("testProject1.sciprj", "wb9");
-    app1.reset(open("testProject1.sciprj.gz"));
     EXPECT_TRUE(app1.get());
 }
 
 TEST_F(ApplicationWindowTest, exportTestProject)
 {
     {
-        std::unique_ptr<ApplicationWindow> app(open("testProject.sciprj"));
+        std::unique_ptr<ApplicationWindow> app(open("testProject.mkbr"));
         EXPECT_TRUE(app.get());
         QList<MyWidget *> windows = app->windowsList();
         for (auto i : windows)
@@ -45,7 +38,7 @@ TEST_F(ApplicationWindowTest, exportTestProject)
     }
 
     {
-        std::unique_ptr<ApplicationWindow> app(open("3dplot.sciprj"));
+        std::unique_ptr<ApplicationWindow> app(open("3dplot.mkbr"));
         EXPECT_TRUE(app.get());
         QList<MyWidget *> windows = app->windowsList();
         for (auto i : windows)
@@ -69,7 +62,7 @@ TEST_F(ApplicationWindowTest, note)
 }
 TEST_F(ApplicationWindowTest, convertMatrix)
 {
-    std::unique_ptr<ApplicationWindow> app(open("testProject.sciprj"));
+    std::unique_ptr<ApplicationWindow> app(open("testProject.mkbr"));
     EXPECT_TRUE(app.get());
     QList<MyWidget *> windows = app->windowsList();
     for (auto i : windows)

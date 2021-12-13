@@ -47,10 +47,7 @@ OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowF
     setWindowTitle(tr("Open Project"));
     setFileMode(ExistingFile);
     QStringList filters;
-    filters << tr("Makhber project") + " (*.mkbr)" << tr("SciDAVis project") + " (*.sciprj)"
-            << tr("Compressed SciDAVis project") + " (*.sciprj.gz)"
-            << tr("QtiPlot project") + " (*.qti)"
-            << tr("Compressed QtiPlot project") + " (*.qti.gz)"
+    filters << tr("Makhber project") + " (*.mkbr)"
 #ifdef ORIGIN_IMPORT
             << tr("Origin project") + " (*.opj *.OPJ)" << tr("Origin matrix") + " (*.ogm *.OGM)"
             << tr("Origin worksheet") + " (*.ogw *.OGW)" << tr("Origin graph") + " (*.ogg *.OGG)"

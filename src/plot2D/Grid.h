@@ -73,7 +73,7 @@ public:
     };
     const QPen &minPenY() const { return d_min_pen_y; };
 
-    void load(const QStringList &);
+    void load(QJsonObject *jsGrid);
     void copy(Grid *);
     void saveToJson(QJsonObject *);
 

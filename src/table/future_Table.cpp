@@ -2214,64 +2214,38 @@ void Table::save(QJsonObject *jsTable) const
     jsTable->insert("widths", jsWidths);
 }
 
-bool Table::load(XmlStreamReader *reader)
+bool Table::load(QJsonObject *jsTable)
 {
-    if (reader->isStartElement() && reader->name().toString() == "table") {
-        setColumnCount(0);
-        setRowCount(0);
-        setComment("");
+    setColumnCount(0);
+    setRowCount(jsTable->value("rows").toInt());
+    setComment(jsTable->value("comment").toString());
 
-        if (!readBasicAttributes(reader))
-            return false;
+    readBasicAttributes(jsTable);
 
-        // read dimensions
-        bool ok1 = false, ok2 = false;
-        int rows = 0, cols = 0;
-        rows = reader->readAttributeInt("rows", &ok1);
-        cols = reader->readAttributeInt("columns", &ok2);
-        if (!ok1 || !ok2) {
-            reader->raiseError(tr("invalid row or column count"));
+    readCommentElement(jsTable);
+
+    QJsonArray jsColumns = jsTable->value("columns").toArray();
+    QList<Column *> columns {};
+    for (int col = 0; col < jsColumns.size(); col++) {
+        auto *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
+        QJsonObject jsColumn = jsColumns.at(col).toObject();
+        if (!column->load(&jsColumn)) {
+            setColumnCount(0);
             return false;
         }
+        columns.append(column);
+    }
+    appendColumns(columns);
 
-        setRowCount(rows);
-        // read child elements
-        while (!reader->atEnd()) {
-            reader->readNext();
+    QJsonArray jsWidths = jsTable->value("widths").toArray();
+    for (int col = 0; col < jsWidths.size(); col++) {
+        if (d_view)
+            d_view->setColumnWidth(col, jsWidths.at(col).toInt());
+        else
+            setColumnWidth(col, jsWidths.at(col).toInt());
+    }
 
-            if (reader->isEndElement())
-                break;
-
-            if (reader->isStartElement()) {
-                if (reader->name().toString() == "comment") {
-                    if (!readCommentElement(reader))
-                        return false;
-                } else if (reader->name().toString() == "column") {
-                    auto *column = new Column(tr("Column %1").arg(1), Makhber::ColumnMode::Text);
-                    if (!column->load(reader)) {
-                        setColumnCount(0);
-                        return false;
-                    }
-                    QList<Column *> columns;
-                    columns.append(column);
-                    appendColumns(columns);
-                } else if (reader->name().toString() == "column_width") {
-                    if (!readColumnWidthElement(reader))
-                        return false;
-                } else // unknown element
-                {
-                    reader->raiseWarning(tr("unknown element '%1'").arg(reader->name().toString()));
-                    if (!reader->skipToEndElement())
-                        return false;
-                }
-            }
-        }
-        if (cols != columnCount())
-            reader->raiseWarning(tr("columns attribute and number of read columns do not match"));
-    } else // no table element
-        reader->raiseError(tr("no table element found"));
-
-    return !reader->hasError();
+    return true;
 }
 
 void Table::adjustActionNames()
@@ -2291,28 +2265,6 @@ void Table::adjustActionNames()
     else
         action_name = tr("Show Controls");
     action_toggle_tabbar->setText(action_name);
-}
-
-bool Table::readColumnWidthElement(XmlStreamReader *reader)
-{
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "column_width");
-    bool ok = false;
-    int col = reader->readAttributeInt("column", &ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid or missing column index"));
-        return false;
-    }
-    QString str = reader->readElementText();
-    int value = str.toInt(&ok);
-    if (!ok) {
-        reader->raiseError(tr("invalid column width"));
-        return false;
-    }
-    if (d_view)
-        d_view->setColumnWidth(col, value);
-    else
-        setColumnWidth(col, value);
-    return true;
 }
 
 void Table::setColumnWidth(int col, int width)

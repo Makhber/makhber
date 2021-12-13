@@ -34,7 +34,6 @@
 #include "aspects/AbstractSimpleFilter.h"
 #include "aspects/datatypes/NumericDateTimeBaseFilter.h"
 #include "lib/IntervalAttribute.h"
-#include "lib/XmlStreamReader.h"
 
 #include <memory>
 
@@ -304,26 +303,24 @@ public:
     virtual void replaceValues(int first, const QVector<qreal> &new_values) override;
     //@}
 
-    //! \name XML related functions
+    //! \name Json related functions
     //@{
-    //! Save the column as XML
+    //! Save the column as Json
     void save(QJsonObject *) const override;
-    //! Load the column from XML
-    bool load(XmlStreamReader *reader) override;
+    //! Load the column from Json
+    bool load(QJsonObject *reader) override;
 
 private:
-    //! Read XML numerical <-> date time filter element
-    bool XmlReadNumericDateTimeFilter(XmlStreamReader *reader);
-    //! Read XML input filter element
-    bool XmlReadInputFilter(XmlStreamReader *reader);
-    //! Read XML output filter element
-    bool XmlReadOutputFilter(XmlStreamReader *reader);
-    //! Read XML mask element
-    bool XmlReadMask(XmlStreamReader *reader);
-    //! Read XML formula element
-    bool XmlReadFormula(XmlStreamReader *reader);
-    //! Read XML row element
-    bool XmlReadRow(XmlStreamReader *reader);
+    //! Read numerical <-> date time filter element
+    void ReadNumericDateTimeFilter(QJsonObject *reader);
+    //! Read input filter element
+    void ReadInputFilter(QJsonObject *reader);
+    //! Read output filter element
+    void ReadOutputFilter(QJsonObject *reader);
+    //! Read mask element
+    void ReadMask(QJsonObject reader);
+    //! Read formula element
+    void ReadFormula(QJsonObject reader);
     //@}
 
 private Q_SLOTS:

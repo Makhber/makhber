@@ -137,40 +137,16 @@ void AbstractSimpleFilter::save(QJsonObject *jsObject) const
     jsObject->insert("filterName", metaObject()->className());
 }
 
-bool AbstractSimpleFilter::load(XmlStreamReader *reader)
+bool AbstractSimpleFilter::load(QJsonObject *reader)
 {
-    if (reader->isStartElement() && reader->name().toString() == "simple_filter") {
-        if (!readBasicAttributes(reader))
-            return false;
+    if (reader->value("name").toString() != "simple_filter")
+        return false;
+    readBasicAttributes(reader);
 
-        QXmlStreamAttributes attribs = reader->attributes();
-        QString str = attribs.value(reader->namespaceUri().toString(), "filter_name").toString();
-        if (str != metaObject()->className()) {
-            reader->raiseError(tr("incompatible filter type"));
-            return false;
-        }
+    QString str = reader->value("filter_name").toString();
+    if (str != metaObject()->className())
+        return false;
 
-        // read child elements
-        while (!reader->atEnd()) {
-            reader->readNext();
-
-            if (reader->isEndElement())
-                break;
-
-            if (reader->isStartElement()) {
-                if (reader->name().toString() == "comment") {
-                    if (!readCommentElement(reader))
-                        return false;
-                } else // unknown element
-                {
-                    reader->raiseWarning(tr("unknown element '%1'").arg(reader->name().toString()));
-                    if (!reader->skipToEndElement())
-                        return false;
-                }
-            }
-        }
-    } else
-        reader->raiseError(tr("no simple filter element found"));
-
-    return !reader->hasError();
+    readCommentElement(reader);
+    return true;
 }

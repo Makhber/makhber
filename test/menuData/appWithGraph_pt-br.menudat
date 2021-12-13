@@ -103,12 +103,12 @@
 &Ver:&Console|Console||Mostrar terminal de programação|1|
 A&juda:A&juda|Ajuda||Ajuda|1|
 A&juda:||||1|
-A&juda:S&ite do SciDAVis|Site do SciDAVis||Site do SciDAVis|1|
+A&juda:S&ite do Makhber|Site do Makhber||Site do Makhber|1|
 A&juda:||||1|
-A&juda:Visite os &fóruns do SciDAVis|Visite os fóruns do SciDAVis||Visite os fóruns do SciDAVis|1|
+A&juda:Visite os &fóruns do Makhber|Visite os fóruns do Makhber||Visite os fóruns do Makhber|1|
 A&juda:&Reportar um erro do programa|Reportar um erro do programa||Reportar um erro do programa|1|
 A&juda:||||1|
-A&juda:&Sobre o SciDAVis|Sobre o SciDAVis||Sobre o SciDAVis|1|
+A&juda:&Sobre o Makhber|Sobre o Makhber||Sobre o Makhber|1|
 A&nálise:T&rasladar|Trasladar||Trasladar|1|
 A&nálise:||||1|
 A&nálise:&Derivar|Derivar||Derivar|1|
@@ -149,7 +149,7 @@ Gráfico &3D:&Fita|Fita||Gráfico fita 3D|1|
 Gráfico &3D:&Barras|Barras||Gráfico barras 3D|1|
 Gráfico &3D:&Dispersão|Dispersão||Gráfico dispersão 3D|1|
 Gráfico &3D:&Trajetória|Trajetória||Gráfico trajetória 3D|1|
-P&rojetos recentes:&1 testProject.sciprj|1 testProject.sciprj||1 testProject.sciprj|1|
+P&rojetos recentes:&1 testProject.mkbr|1 testProject.mkbr||1 testProject.mkbr|1|
 Pai&nel:2 camadas &verticais|2 camadas verticais||2 camadas verticais|1|
 Pai&nel:2 camadas &horizontais|2 camadas horizontais||2 camadas horizontais|1|
 Pai&nel:&4 camadas|4 camadas||4 camadas|1|

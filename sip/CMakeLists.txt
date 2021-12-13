@@ -154,7 +154,7 @@ else()
     set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${LIB_INCLUDE_DIRS} )
   endforeach()
 
-  set( libs muparser::muparser ZLIB::ZLIB Qwt::Qwt )
+  set( libs muparser::muparser Qwt::Qwt )
   foreach( lib ${libs} )
     get_lib_properties( ${lib} LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
     string( JOIN "\n," SIP_LINK_LIBS \"${LIB_NAME}\" ${SIP_LINK_LIBS} )
@@ -192,7 +192,6 @@ else()
 
   string( JOIN "\n," SIP_LINK_LIBS
     \"makhber\"
-    \"minigzip\"
     \"origin\"
     \"qwtplot3d\"
     ${SIP_LINK_LIBS}
@@ -204,14 +203,12 @@ else()
         ${SIP_LINK_DIRS}
         ${CMAKE_BINARY_DIR}/bin/@CONFIG@
         ${CMAKE_BINARY_DIR}/lib/@CONFIG@
-        ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
         ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
       )
     else()
       set( SIP_LINK_DIRS
         ${SIP_LINK_DIRS}
         ${CMAKE_BINARY_DIR}/src/@CONFIG@
-        ${CMAKE_BINARY_DIR}/3rdparty/@CONFIG@
         ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
         ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d/@CONFIG@
       )
@@ -222,13 +219,11 @@ else()
         ${SIP_LINK_DIRS}
         ${CMAKE_BINARY_DIR}/bin
         ${CMAKE_BINARY_DIR}/lib
-        ${CMAKE_BINARY_DIR}/3rdparty
       )
     else()
       set( SIP_LINK_DIRS
         ${SIP_LINK_DIRS}
         ${CMAKE_BINARY_DIR}/src
-        ${CMAKE_BINARY_DIR}/3rdparty
         ${CMAKE_BINARY_DIR}/3rdparty/liborigin
         ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d
       )

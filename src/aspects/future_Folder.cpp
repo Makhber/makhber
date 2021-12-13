@@ -31,7 +31,6 @@
 
 #include "aspects/Project.h"
 #include "aspects/column/Column.h"
-#include "lib/XmlStreamReader.h"
 
 #include <QIcon>
 #include <QApplication>
@@ -63,7 +62,7 @@ QMenu *Folder::createContextMenu() const
 void Folder::save(QJsonObject *jsObject) const
 {
     writeBasicAttributes(jsObject);
-    // writeCommentElement(writer);
+    writeCommentElement(jsObject);
 
     int child_count = childCount();
     QJsonArray jsChildren {};
@@ -77,53 +76,27 @@ void Folder::save(QJsonObject *jsObject) const
     jsObject->insert("type", "Folder");
 }
 
-bool Folder::load(XmlStreamReader *reader)
+bool Folder::load(QJsonObject *reader)
 {
-    if (reader->isStartElement() && reader->name().toString() == "folder") {
-        setComment("");
-        removeAllChildAspects();
+    Q_ASSERT(reader->value("name").toString() == "folder");
+    setComment("");
+    removeAllChildAspects();
 
-        if (!readBasicAttributes(reader))
-            return false;
+    readBasicAttributes(reader);
+    readCommentElement(reader);
+    QJsonArray jsChildren = reader->value("children").toArray();
+    for (int i = 0; i < jsChildren.size(); i++) {
+        QJsonObject jsChild = jsChildren.at(i).toObject();
+        readChildAspectElement(&jsChild);
+    }
 
-        // read child elements
-        while (!reader->atEnd()) {
-            reader->readNext();
-
-            if (reader->isEndElement())
-                break;
-
-            if (reader->isStartElement()) {
-                if (reader->name().toString() == "comment") {
-                    if (!readCommentElement(reader))
-                        return false;
-                } else if (reader->name().toString() == "child_aspect") {
-                    if (!readChildAspectElement(reader))
-                        return false;
-                } else // unknown element
-                {
-                    reader->raiseWarning(tr("unknown element '%1'").arg(reader->name().toString()));
-                    if (!reader->skipToEndElement())
-                        return false;
-                }
-            }
-        }
-    } else // no folder element
-        reader->raiseError(tr("no folder element found"));
-
-    return !reader->hasError();
+    return true;
 }
 
-bool Folder::readChildAspectElement(XmlStreamReader *reader)
+bool Folder::readChildAspectElement(QJsonObject *reader)
 {
     bool loaded = false;
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "child_aspect");
-
-    if (!reader->skipToNextTag())
-        return false;
-    if (reader->isEndElement() && reader->name().toString() == "child_aspect")
-        return true; // empty element tag
-    QString element_name = reader->name().toString();
+    QString element_name = reader->value("name").toString();
     if (element_name == "folder") {
         auto *folder = new Folder(tr("Folder %1").arg(1));
         if (!folder->load(reader)) {
@@ -142,30 +115,23 @@ bool Folder::readChildAspectElement(XmlStreamReader *reader)
         loaded = true;
     } else {
         for (QObject *plugin : QPluginLoader::staticInstances()) {
-            XmlElementAspectMaker *maker = qobject_cast<XmlElementAspectMaker *>(plugin);
+            JsonElementAspectMaker *maker = qobject_cast<JsonElementAspectMaker *>(plugin);
             if (maker && maker->canCreate(element_name)) {
-                AbstractAspect *aspect = maker->createAspectFromXml(reader);
+                AbstractAspect *aspect = maker->createAspectFromJson(reader);
                 if (aspect) {
                     addChild(aspect);
                     loaded = true;
                     break;
                 } else {
-                    reader->raiseError(
-                            tr("creation of aspect from element '%1' failed").arg(element_name));
                     return false;
                 }
             }
         }
     }
-    if (!loaded) {
-        reader->raiseWarning(tr("no plugin to load element '%1' found").arg(element_name));
-        if (!reader->skipToEndElement())
-            return false;
-    }
-    if (!reader->skipToNextTag())
+    if (!loaded)
         return false;
-    Q_ASSERT(reader->isEndElement() && reader->name().toString() == "child_aspect");
-    return !reader->hasError();
+    else
+        return true;
 }
 
 } // namespace

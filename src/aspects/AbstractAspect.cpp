@@ -31,7 +31,6 @@
 #include "aspects/AspectPrivate.h"
 #include "aspects/aspectcommands.h"
 #include "aspects/future_Folder.h"
-#include "lib/XmlStreamReader.h"
 
 #include <QIcon>
 #include <QMenu>
@@ -52,12 +51,9 @@ void AbstractAspect::writeCommentElement(QJsonObject *jsObject) const
     jsObject->insert("comment", comment());
 }
 
-bool AbstractAspect::readCommentElement(XmlStreamReader *reader)
+bool AbstractAspect::readCommentElement(QJsonObject *reader)
 {
-    Q_ASSERT(reader->isStartElement() && reader->name().toString() == "comment");
-    QString temp = reader->readElementText();
-    temp.replace("\\n", "\n");
-    setComment(temp);
+    setComment(reader->value("comment").toString());
     return true;
 }
 
@@ -69,30 +65,20 @@ void AbstractAspect::writeBasicAttributes(QJsonObject *jsObject) const
     jsObject->insert("name", name());
 }
 
-bool AbstractAspect::readBasicAttributes(XmlStreamReader *reader)
+bool AbstractAspect::readBasicAttributes(QJsonObject *jsObject)
 {
-    QString prefix(tr("XML read error: ", "prefix for XML error messages"));
-    QString postfix(tr(" (non-critical)", "postfix for XML error messages"));
-
-    QXmlStreamAttributes attribs = reader->attributes();
-    QString str;
-
     // read name
-    str = attribs.value(reader->namespaceUri().toString(), "name").toString();
-    if (str.isEmpty()) {
-        reader->raiseWarning(prefix + tr("aspect name missing or empty") + postfix);
-    }
+    QString str = jsObject->value("name").toString();
     setName(str);
     // read creation time
-    str = attribs.value(reader->namespaceUri().toString(), "creation_time").toString();
-    QDateTime creation_time = QDateTime::fromString(str, "dd-MM-yyyy hh:mm:ss:zzz");
+    str = jsObject->value("creationDate").toString();
+    QDateTime creation_time = QDateTime::fromString(str);
     if (str.isEmpty() || !creation_time.isValid()) {
-        reader->raiseWarning(tr("Invalid creation time for '%1'. Using current time.").arg(name()));
         setCreationTime(QDateTime::currentDateTime());
     } else
         setCreationTime(creation_time);
     // read caption spec
-    str = attribs.value(reader->namespaceUri().toString(), "caption_spec").toString();
+    str = jsObject->value("captionSpec").toString();
     setCaptionSpec(str);
 
     return true;
@@ -235,25 +221,14 @@ void AbstractAspect::setName(const QString &value)
     }
     if (value == d_aspect_private->name())
         return;
-    // Until we get around to completely sanitizing the project file format, we have to remove
-    // characters that can easily break file save/restore.
-    // FIXME: once the project file format is fully XML-based (i.e. able to escape special
-    // characters), this can be removed
-    QString sanitized_value = value;
-    sanitized_value.remove(QChar('\n'));
-    sanitized_value.remove(QChar('\r'));
-    sanitized_value.remove(QChar('\t'));
-    if (sanitized_value != value)
-        info(tr("Tabs and line breaks in object names are currently not supported. They have been "
-                "removed."));
     if (d_aspect_private->parent()) {
-        QString new_name = d_aspect_private->parent()->uniqueNameFor(sanitized_value);
-        if (new_name != sanitized_value)
+        QString new_name = d_aspect_private->parent()->uniqueNameFor(value);
+        if (new_name != value)
             info(tr(R"(Intended name "%1" diverted to "%2" in order to avoid name collision.)")
-                         .arg(sanitized_value, new_name));
+                         .arg(value, new_name));
         exec(new AspectNameChangeCmd(d_aspect_private, new_name));
     } else
-        exec(new AspectNameChangeCmd(d_aspect_private, sanitized_value));
+        exec(new AspectNameChangeCmd(d_aspect_private, value));
 }
 
 QString AbstractAspect::comment() const

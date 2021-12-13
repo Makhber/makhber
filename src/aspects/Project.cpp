@@ -31,7 +31,6 @@
 
 #include "aspects/interfaces.h"
 #include "aspects/ProjectConfigPage.h"
-#include "lib/XmlStreamReader.h"
 #include "core/globals.h"
 
 #include <QUndoStack>
@@ -138,53 +137,12 @@ void Project::save(QJsonObject *jsObject) const
     jsObject->insert("makhber_project", jsProject);
 }
 
-bool Project::load(XmlStreamReader *reader)
+bool Project::load(QJsonObject *reader)
 {
-    while (!(reader->isStartDocument() || reader->atEnd()))
-        reader->readNext();
-    if (!(reader->atEnd())) {
-        if (!reader->skipToNextTag())
-            return false;
+    Q_ASSERT(reader->value("name").toString() == "makhber_project");
 
-        if (reader->name().toString() == "makhber_project") {
-            bool ok = false;
-            reader->readAttributeInt("version", &ok);
-            if (!ok) {
-                reader->raiseError(tr("invalid or missing project version"));
-                return false;
-            }
+    QJsonObject jsRoot = reader->value("project_root").toObject();
+    future::Folder::load(&jsRoot);
 
-            // version dependent staff goes here
-
-            while (!reader->atEnd()) {
-                reader->readNext();
-
-                if (reader->isEndElement())
-                    break;
-
-                if (reader->isStartElement()) {
-                    if (reader->name().toString() == "project_root") {
-                        if (!reader->skipToNextTag())
-                            return false;
-                        if (!future::Folder::load(reader))
-                            return false;
-                        if (!reader->skipToNextTag())
-                            return false;
-                        Q_ASSERT(reader->isEndElement()
-                                 && reader->name().toString() == "project_root");
-                    } else // unknown element
-                    {
-                        reader->raiseWarning(
-                                tr("unknown element '%1'").arg(reader->name().toString()));
-                        if (!reader->skipToEndElement())
-                            return false;
-                    }
-                }
-            }
-        } else // no project element
-            reader->raiseError(tr("no makhber_project element found"));
-    } else // no start document
-        reader->raiseError(tr("no valid XML document found"));
-
-    return !reader->hasError();
+    return true;
 }

@@ -60,12 +60,12 @@
 &Grafik:Ebenen &anordnen...|Ebenen anordnen||Ebenen anordnen|1|
 &Hilfe:&Hilfe|Hilfe||Hilfe|1|
 &Hilfe:||||1|
-&Hilfe:&SciDAVis Homepage|SciDAVis Homepage||SciDAVis Homepage|1|
+&Hilfe:&Makhber Homepage|Makhber Homepage||Makhber Homepage|1|
 &Hilfe:||||1|
-&Hilfe:SciDAVis &Foren besuchen|SciDAVis Foren besuchen||SciDAVis Foren besuchen|1|
+&Hilfe:Makhber &Foren besuchen|Makhber Foren besuchen||Makhber Foren besuchen|1|
 &Hilfe:Einen &Bug melden|Einen Bug melden||Einen Bug melden|1|
 &Hilfe:||||1|
-&Hilfe:Ü&ber SciDAVis|Über SciDAVis||Über SciDAVis|1|
+&Hilfe:Ü&ber Makhber|Über Makhber||Über Makhber|1|
 &Neu:Neues &Projekt|Neues Projekt||Ein neues Projekt öffnen|1|
 &Neu:Neue &Tabelle|Neue Tabelle||Neue Tabelle|1|
 &Neu:Neue &Matrix|Neue Matrix||Neue Matrix|1|
@@ -96,7 +96,7 @@
 &Werkzeuge:||||1|
 &Werkzeuge:Datenpunkte &verschieben...|Datenpunkte verschieben||Datenpunkte verschieben|1|
 &Werkzeuge:Datenausreißer &entfernen...|Datenausreißer entfernen||Datenpunkte löschen|1|
-&Zuletzt geöffnete Projekte:&1 testProject.sciprj|1 testProject.sciprj||1 testProject.sciprj|1|
+&Zuletzt geöffnete Projekte:&1 testProject.mkbr|1 testProject.mkbr||1 testProject.mkbr|1|
 3&D-Diagramm:&Band|Band||3D-Band zeichnen|1|
 3&D-Diagramm:&Balken|Balken||3D-Balken zeichnen|1|
 3&D-Diagramm:&Punkte|Punkte||3D-Punkte zeichnen|1|

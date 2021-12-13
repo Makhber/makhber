@@ -54,7 +54,7 @@ public:
 
 public Q_SLOTS:
     void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
-    void restore(const QStringList &);
+    void restore(QJsonObject *jsNote);
 
     QTextEdit *textWidget() { return (QTextEdit *)te; };
     bool autoexec() const { return autoExec; }

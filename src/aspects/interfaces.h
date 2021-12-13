@@ -32,7 +32,6 @@
 #include "core/MakhberDefs.h"
 #include "aspects/AbstractAspect.h"
 #include "lib/ConfigPageWidget.h"
-#include "lib/XmlStreamReader.h"
 
 #include <QtPlugin>
 
@@ -115,17 +114,17 @@ public:
 
 Q_DECLARE_INTERFACE(ConfigPageMaker, "com.github.makhber.Makhber.configpagemaker/0.1")
 
-//! Factory that creates an aspect out of an XML element.
-class MAKHBER_EXPORT XmlElementAspectMaker
+//! Factory that creates an aspect out of an Json element.
+class MAKHBER_EXPORT JsonElementAspectMaker
 {
 public:
-    virtual ~XmlElementAspectMaker() { }
+    virtual ~JsonElementAspectMaker() { }
     //! Determine whether the loader can handle the given element.
     virtual bool canCreate(const QString &element_name) = 0;
     //! The factory method.
-    virtual AbstractAspect *createAspectFromXml(XmlStreamReader *reader) = 0;
+    virtual AbstractAspect *createAspectFromJson(QJsonObject *reader) = 0;
 };
 
-Q_DECLARE_INTERFACE(XmlElementAspectMaker, "com.github.makhber.Makhber.xmlelementaspectmaker/0.1")
+Q_DECLARE_INTERFACE(JsonElementAspectMaker, "com.github.makhber.Makhber.jsonelementaspectmaker/0.1")
 
 #endif // ifndef INTERFACES_H

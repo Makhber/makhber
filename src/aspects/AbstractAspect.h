@@ -46,7 +46,6 @@ class QMenu;
 namespace future {
 class Folder;
 }
-class XmlStreamReader;
 class QAction;
 
 //! Base class of all persistent objects in a Project.
@@ -201,15 +200,10 @@ public:
 
     //! \name serialize/deserialize
     //@{
-    //! Save as XML
+    //! Save
     virtual void save(QJsonObject *) const {};
-    //! Load from XML
+    //! Load
     /**
-     * XmlStreamReader supports errors as well as warnings. If only
-     * warnings (non-critial errors) occur, this function must return
-     * the reader at the end element corresponding to the current
-     * element at the time the function was called.
-     *
      * This function is normally intended to be called directly
      * after the ctor. If you want to call load on an aspect that
      * has been altered, you must make sure beforehand that
@@ -218,20 +212,20 @@ public:
      *
      * \return false on error
      */
-    virtual bool load(XmlStreamReader *) { return false; };
+    virtual bool load(QJsonObject *) { return false; };
 
 protected:
-    //! Load name, creation time and caption spec from XML
+    //! Load name, creation time and caption spec from Json
     /**
      * \return false on error
      */
-    bool readBasicAttributes(XmlStreamReader *reader);
-    //! Save name, creation time and caption spec to XML
+    bool readBasicAttributes(QJsonObject *jsObject);
+    //! Save name, creation time and caption spec to Json
     void writeBasicAttributes(QJsonObject *jsObject) const;
-    //! Save the comment to XML
+    //! Save the comment to Json
     void writeCommentElement(QJsonObject *jsObject) const;
-    //! Load comment from an XML element
-    bool readCommentElement(XmlStreamReader *reader);
+    //! Load comment from an Json element
+    bool readCommentElement(QJsonObject *reader);
     //@}
 
 public Q_SLOTS:

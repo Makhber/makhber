@@ -118,7 +118,7 @@ public:
     virtual void saveAsTemplate(QJsonObject *, const QJsonObject &) {};
     // TODO:
     //! Not implemented yet
-    virtual void restore(const QStringList &) {};
+    virtual void restore(QJsonObject *) {};
 
     virtual void print() {};
     virtual void exportPDF(const QString &) {};

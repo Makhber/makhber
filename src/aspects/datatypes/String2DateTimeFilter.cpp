@@ -29,8 +29,6 @@
  ***************************************************************************/
 #include "String2DateTimeFilter.h"
 
-#include "lib/XmlStreamReader.h"
-
 #include <QStringList>
 #include <QJsonObject>
 
@@ -113,17 +111,16 @@ void String2DateTimeFilter::writeExtraAttributes(QJsonObject *jsObject) const
     jsObject->insert("format", format());
 }
 
-bool String2DateTimeFilter::load(XmlStreamReader *reader)
+bool String2DateTimeFilter::load(QJsonObject *reader)
 {
-    QXmlStreamAttributes attribs = reader->attributes();
-    QString str = attribs.value(reader->namespaceUri().toString(), "format").toString();
+    QString str = reader->value("format").toString();
 
     if (AbstractSimpleFilter::load(reader))
         setFormat(str);
     else
         return false;
 
-    return !reader->hasError();
+    return true;
 }
 
 void String2DateTimeFilter::setFormat(const QString &format)

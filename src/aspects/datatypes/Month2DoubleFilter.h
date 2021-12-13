@@ -31,7 +31,6 @@
 #define MONTH2DOUBLE_FILTER_H
 
 #include "aspects/AbstractSimpleFilter.h"
-#include "lib/XmlStreamReader.h"
 
 #include <QDateTime>
 

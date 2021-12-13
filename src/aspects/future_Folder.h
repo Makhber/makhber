@@ -52,14 +52,14 @@ public:
 
     //! \name serialize/deserialize
     //@{
-    //! Save as XML
+    //! Save
     virtual void save(QJsonObject *) const;
-    //! Load from XML
-    virtual bool load(XmlStreamReader *);
+    //! Load
+    virtual bool load(QJsonObject *);
 
 protected:
-    //! Read child aspect from XML
-    bool readChildAspectElement(XmlStreamReader *reader);
+    //! Read child aspect
+    bool readChildAspectElement(QJsonObject *reader);
     //@}
 };
 

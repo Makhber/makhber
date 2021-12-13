@@ -57,7 +57,7 @@ class QIODevice;
 /**
  * The least common denominator of all import operations is that they read data from a device
  * (typically, but not necessarily, a file), interpret it in a filter-specific way (as project files
- * in Makhber/QtiPlot legacy format, Origin project, CSV table, image, ...) and convert it to the
+ * in SciDaVis/QtiPlot legacy format, Origin project, CSV table, image, ...) and convert it to the
  * corresponding internal representation (Project, Table, Graph, ...). The application kernel takes
  * care of all the pesky details, such as letting the user choose one or more files to import or
  * adding the resulting Aspect either to the current project or a newly created one.
