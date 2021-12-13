@@ -53,7 +53,7 @@ public:
     void init(ScriptingEnv *env);
 
 public Q_SLOTS:
-    QString saveToString(const QString &info);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
     void restore(const QStringList &);
 
     QTextEdit *textWidget() { return (QTextEdit *)te; };

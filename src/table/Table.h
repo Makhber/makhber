@@ -260,13 +260,12 @@ public Q_SLOTS:
 
     //! \name Saving and Restoring
     //@{
-    virtual QString saveToString(const QString &geometry);
-    void saveToDevice(QIODevice *device, const QString &geometry);
-    QString saveHeader();
-    QString saveComments();
-    QString saveCommands();
-    QString saveColumnWidths();
-    QString saveColumnTypes();
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &geometry);
+    void saveHeader(QJsonObject *);
+    void saveComments(QJsonObject *);
+    void saveCommands(QJsonObject *);
+    void saveColumnWidths(QJsonObject *);
+    void saveColumnTypes(QJsonObject *);
     //@}
 
     void setBackgroundColor(const QColor &col);
@@ -283,7 +282,7 @@ public Q_SLOTS:
     void setColComments(const QStringList &lst);
     bool commentsEnabled();
 
-    QString saveAsTemplate(const QString &geometryInfo);
+    void saveAsTemplate(QJsonObject *, const QJsonObject &);
     void restore(const QStringList &lst);
 
 Q_SIGNALS:

@@ -215,12 +215,10 @@ public Q_SLOTS:
     void setFormula(const QString &s);
 
     //! Format the matrix format in a string to save it in a template file
-    QString saveAsTemplate(const QString &info);
+    void saveAsTemplate(QJsonObject *, const QJsonObject &);
 
     //! Return a string to save the matrix in a project file (\<matrix\> section)
-    QString saveToString(const QString &info);
-    //! Return a string conaining the data of the matrix (\<data\> section)
-    QString saveText();
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
 
     // selection operations
     //! Standard cut operation
@@ -292,7 +290,10 @@ public Q_SLOTS:
     void copy(Matrix *m);
 
     //! Return the creation date
-    virtual QString birthDate() { return QLocale().toString(d_future_matrix->creationTime()); };
+    virtual QString birthDate()
+    {
+        return QLocale::c().toString(d_future_matrix->creationTime(), "dd-MM-yyyy hh:mm:ss:zzz");
+    };
 
 Q_SIGNALS:
     //! Show the context menu

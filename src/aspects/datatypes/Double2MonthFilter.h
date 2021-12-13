@@ -34,9 +34,8 @@
 #include "lib/XmlStreamReader.h"
 
 #include <QDateTime>
-#include <QXmlStreamWriter>
 
-#include <math.h>
+#include <cmath>
 
 //! Conversion filter double -> QDateTime, interpreting the input numbers as months of the year.
 class MAKHBER_EXPORT Double2MonthFilter : public AbstractSimpleFilter

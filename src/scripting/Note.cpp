@@ -41,6 +41,7 @@
 #include <QPaintDevice>
 #include <QVBoxLayout>
 #include <QPrintDialog>
+#include <QJsonObject>
 
 Note::Note(ScriptingEnv *env, const QString &label, QWidget *parent, const char *name,
            Qt::WindowFlags f)
@@ -53,7 +54,7 @@ void Note::init(ScriptingEnv *env)
 {
     autoExec = false;
     QDateTime dt = QDateTime::currentDateTime();
-    setBirthDate(QLocale().toString(dt));
+    setBirthDate(QLocale::c().toString(dt, "dd-MM-yyyy hh:mm:ss:zzz"));
 
     te = new ScriptEdit(env, this, name());
     te->setContext(this);
@@ -68,16 +69,16 @@ void Note::modifiedNote()
     Q_EMIT modifiedWindow(this);
 }
 
-QString Note::saveToString(const QString &info)
+void Note::saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<note>\n";
-    s += QString(name()) + "\t" + birthDate() + "\n";
-    s += info;
-    s += "WindowLabel\t" + windowLabel() + "\t" + QString::number(captionPolicy()) + "\n";
-    s += "AutoExec\t" + QString(autoExec ? "1" : "0") + "\n";
-    s += "<content>\n" + te->toPlainText().trimmed() + "\n</content>";
-    s += "\n</note>\n";
-    return s;
+    jsObject->insert("name", name());
+    jsObject->insert("creationDate", birthDate());
+    jsObject->insert("windowLabel", windowLabel());
+    jsObject->insert("captionPolicy", captionPolicy());
+    jsObject->insert("autoExec", autoExec);
+    jsObject->insert("content", te->toPlainText().trimmed());
+    jsObject->insert("geometry", jsGeometry);
+    jsObject->insert("type", "Note");
 }
 
 void Note::restore(const QStringList &data)

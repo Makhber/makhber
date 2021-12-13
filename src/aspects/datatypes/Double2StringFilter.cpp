@@ -31,12 +31,12 @@
 
 #include "lib/XmlStreamReader.h"
 
-#include <QXmlStreamWriter>
+#include <QJsonObject>
 
-void Double2StringFilter::writeExtraAttributes(QXmlStreamWriter *writer) const
+void Double2StringFilter::writeExtraAttributes(QJsonObject *jsObject) const
 {
-    writer->writeAttribute("format", QString(QChar(numericFormat())));
-    writer->writeAttribute("digits", QString::number(numDigits()));
+    jsObject->insert("format", QString(QChar(numericFormat())));
+    jsObject->insert("digits", numDigits());
 }
 
 bool Double2StringFilter::load(XmlStreamReader *reader)

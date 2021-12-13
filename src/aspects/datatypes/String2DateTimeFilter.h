@@ -69,7 +69,7 @@ public:
 
     //! \name XML related functions
     //@{
-    virtual void writeExtraAttributes(QXmlStreamWriter *writer) const;
+    virtual void writeExtraAttributes(QJsonObject *) const;
     virtual bool load(XmlStreamReader *reader);
     //@}
 

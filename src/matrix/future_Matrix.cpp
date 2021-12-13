@@ -1122,50 +1122,49 @@ int Matrix::displayedDigits() const
     return d_matrix_private->displayedDigits();
 }
 
-void Matrix::save(QXmlStreamWriter *writer) const
+void Matrix::save(QJsonObject *jsObject) const
 {
     int cols = columnCount();
     int rows = rowCount();
-    writer->writeStartElement("matrix");
-    writeBasicAttributes(writer);
-    writer->writeAttribute("columns", QString::number(cols));
-    writer->writeAttribute("rows", QString::number(rows));
-    writeCommentElement(writer);
-    writer->writeStartElement("formula");
-    writer->writeCharacters(formula());
-    writer->writeEndElement();
-    writer->writeStartElement("display");
-    writer->writeAttribute("numeric_format", QString(QChar(numericFormat())));
-    writer->writeAttribute("displayed_digits", QString::number(displayedDigits()));
-    writer->writeEndElement();
-    writer->writeStartElement("coordinates");
-    writer->writeAttribute("x_start", QString::number(xStart()));
-    writer->writeAttribute("x_end", QString::number(xEnd()));
-    writer->writeAttribute("y_start", QString::number(yStart()));
-    writer->writeAttribute("y_end", QString::number(yEnd()));
-    writer->writeEndElement();
+    writeBasicAttributes(jsObject);
+    jsObject->insert("columnCount", cols);
+    jsObject->insert("rowCount", rows);
+    // writeCommentElement(writer);
+    jsObject->insert("formula", formula());
 
-    for (int col = 0; col < cols; col++)
-        for (int row = 0; row < rows; row++) {
-            writer->writeStartElement("cell");
-            writer->writeAttribute("row", QString::number(row));
-            writer->writeAttribute("column", QString::number(col));
-            writer->writeCharacters(QString::number(cell(row, col), 'e', 16));
-            writer->writeEndElement();
-        }
+    QJsonObject jsDisplay {};
+    jsDisplay.insert("numericFormat", QString(QChar(numericFormat())));
+    jsDisplay.insert("displayedDigits", displayedDigits());
+    jsObject->insert("display", jsDisplay);
+
+    QJsonObject jsCoordinates {};
+    jsCoordinates.insert("xStart", xStart());
+    jsCoordinates.insert("xEnd", xEnd());
+    jsCoordinates.insert("yStart", yStart());
+    jsCoordinates.insert("yEnd", yEnd());
+    jsObject->insert("coordinates", jsCoordinates);
+
+    QJsonArray jsData {};
     for (int col = 0; col < cols; col++) {
-        writer->writeStartElement("column_width");
-        writer->writeAttribute("column", QString::number(col));
-        writer->writeCharacters(QString::number(columnWidth(col)));
-        writer->writeEndElement();
+        QJsonArray jsRowData {};
+        for (int row = 0; row < rows; row++) {
+            jsRowData.append(cell(row, col));
+        }
+        jsData.append(jsRowData);
     }
+    jsObject->insert("data", jsData);
+
+    QJsonArray jsColumnWidth {};
+    for (int col = 0; col < cols; col++) {
+        jsColumnWidth.append(columnWidth(col));
+    }
+    jsObject->insert("columnWidth", jsColumnWidth);
+
+    QJsonArray jsRowHeight {};
     for (int row = 0; row < rows; row++) {
-        writer->writeStartElement("row_height");
-        writer->writeAttribute("row", QString::number(row));
-        writer->writeCharacters(QString::number(rowHeight(row)));
-        writer->writeEndElement();
+        jsRowHeight.append(rowHeight(row));
     }
-    writer->writeEndElement(); // "matrix"
+    jsObject->insert("rowHeight", jsRowHeight);
 }
 
 bool Matrix::load(XmlStreamReader *reader)

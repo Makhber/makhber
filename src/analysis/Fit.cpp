@@ -220,7 +220,8 @@ QString Fit::logFitInfo(const std::vector<double> &par, int iterations, int stat
                         const QString &plotName)
 {
     QDateTime dt = QDateTime::currentDateTime();
-    QString info = "[" + QLocale().toString(dt) + "\t" + tr("Plot") + ": ''" + plotName + "'']\n";
+    QString info = "[" + QLocale::c().toString(dt, "dd-MM-yyyy hh:mm:ss:zzz") + "\t" + tr("Plot")
+            + ": ''" + plotName + "'']\n";
     info += d_explanation + " " + tr("fit of dataset") + ": " + d_curve->title().text();
     if (!d_formula.isEmpty())
         info += ", " + tr("using function") + ": " + d_formula + "\n";

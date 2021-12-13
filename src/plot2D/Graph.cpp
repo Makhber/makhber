@@ -419,37 +419,44 @@ void Graph::setLabelsNumericFormat(const QStringList &l)
         setLabelsNumericFormat(axis, l);
 }
 
-QString Graph::saveAxesLabelsType()
+QJsonObject Graph::saveAxesLabelsType()
 {
-    QString s = "AxisType\t";
+    QJsonObject jsAxesLabelsType {};
+
+    QJsonArray jsTypes {}, jsFormatInfos {};
     for (int i = 0; i < 4; i++) {
         auto type = axisType[i];
-        s += QString::number(static_cast<int>(type));
+        jsTypes.append(static_cast<int>(type));
         if (type == AxisType::Time || type == AxisType::Date || type == AxisType::DateTime
             || type == AxisType::Txt || type == AxisType::ColHeader || type == AxisType::Day
             || type == AxisType::Month)
-            s += ";" + axesFormatInfo[i];
-        s += "\t";
+            jsFormatInfos.append(axesFormatInfo[i]);
+        else
+            jsFormatInfos.append("");
     };
+    jsAxesLabelsType.insert("types", jsTypes);
+    jsAxesLabelsType.insert("formatInfo", jsFormatInfos);
 
-    return s + "\n";
+    return jsAxesLabelsType;
 }
 
-QString Graph::saveTicksType()
+QJsonObject Graph::saveTicksType()
 {
+    QJsonObject jsTicksType {};
+
+    QJsonArray jsMajorTicksType {};
     QList<int> ticksTypeList = d_plot->getMajorTicksType();
-    QString s = "MajorTicks\t";
-    int i = 0;
-    for (i = 0; i < 4; i++)
-        s += QString::number(ticksTypeList[i]) + "\t";
-    s += "\n";
+    for (int i = 0; i < 4; i++)
+        jsMajorTicksType.append(ticksTypeList[i]);
+    jsTicksType.insert("majorTicks", jsMajorTicksType);
 
+    QJsonArray jsMinortTicksType {};
     ticksTypeList = d_plot->getMinorTicksType();
-    s += "MinorTicks\t";
-    for (i = 0; i < 4; i++)
-        s += QString::number(ticksTypeList[i]) + "\t";
+    for (int i = 0; i < 4; i++)
+        jsMinortTicksType.append(ticksTypeList[i]);
+    jsTicksType.insert("minorTicks", jsMinortTicksType);
 
-    return s + "\n";
+    return jsTicksType;
 }
 
 QStringList Graph::enabledTickLabels()
@@ -462,45 +469,50 @@ QStringList Graph::enabledTickLabels()
     return lst;
 }
 
-QString Graph::saveEnabledTickLabels()
+QJsonArray Graph::saveEnabledTickLabels()
 {
-    QString s = "EnabledTickLabels\t";
+    QJsonArray jsEnabledTickLabels {};
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
         const QwtScaleDraw *sd = d_plot->axisScaleDraw(axis);
-        s += QString::number(sd->hasComponent(QwtAbstractScaleDraw::Labels)) + "\t";
+        jsEnabledTickLabels.append(QString::number(sd->hasComponent(QwtAbstractScaleDraw::Labels)));
     }
-    return s + "\n";
+    return jsEnabledTickLabels;
 }
 
-QString Graph::saveLabelsFormat()
+QJsonObject Graph::saveLabelsFormat()
 {
-    QString s = "LabelsFormat\t";
+    QJsonObject jsLabelsFormat {};
+
+    QJsonArray jsFormats {}, jsPrecisions {};
     for (int axis = 0; axis < QwtPlot::axisCnt; axis++) {
-        s += QString::number(d_plot->axisLabelFormat(axis)) + "\t";
-        s += QString::number(d_plot->axisLabelPrecision(axis)) + "\t";
+        jsFormats.append(d_plot->axisLabelFormat(axis));
+        jsPrecisions.append(d_plot->axisLabelPrecision(axis));
     }
-    return s + "\n";
+    jsLabelsFormat.insert("formats", jsFormats);
+    jsLabelsFormat.insert("precisions", jsPrecisions);
+
+    return jsLabelsFormat;
 }
 
-QString Graph::saveAxesBaseline()
+QJsonArray Graph::saveAxesBaseline()
 {
-    QString s = "AxesBaseline\t";
+    QJsonArray jsAxesbaseline {};
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
         auto *scale = (QwtScaleWidget *)d_plot->axisWidget(i);
         if (scale)
-            s += QString::number(scale->margin()) + "\t";
+            jsAxesbaseline.append(scale->margin());
         else
-            s += "0\t";
+            jsAxesbaseline.append(0);
     }
-    return s + "\n";
+    return jsAxesbaseline;
 }
 
-QString Graph::saveLabelsRotation()
+QJsonObject Graph::saveLabelsRotation()
 {
-    QString s = "LabelsRotation\t";
-    s += QString::number(labelsRotation(QwtPlot::xBottom)) + "\t";
-    s += QString::number(labelsRotation(QwtPlot::xTop)) + "\n";
-    return s;
+    QJsonObject jsLabelsRotation {};
+    jsLabelsRotation.insert("xBottom", labelsRotation(QwtPlot::xBottom));
+    jsLabelsRotation.insert("xTop", (QwtPlot::xTop));
+    return jsLabelsRotation;
 }
 
 void Graph::setEnabledTickLabels(const QStringList &labelsOn)
@@ -955,17 +967,18 @@ void Graph::setAxesColors(const QStringList &colors)
     }
 }
 
-QString Graph::saveAxesColors()
+QJsonObject Graph::saveAxesColors()
 {
-    QString s = "AxesColors\t";
+    QJsonObject jsAxesColors {};
+
     QStringList colors, numColors;
-    QPalette pal;
     int i = 0;
     for (i = 0; i < 4; i++) {
         colors << COLORNAME(QColor(Qt::black));
         numColors << COLORNAME(QColor(Qt::black));
     }
 
+    QPalette pal;
     for (i = 0; i < 4; i++) {
         auto *scale = (QwtScaleWidget *)d_plot->axisWidget(i);
         if (scale) {
@@ -974,9 +987,16 @@ QString Graph::saveAxesColors()
             numColors[i] = COLORNAME(pal.color(QPalette::Active, QPalette::Text));
         }
     }
-    s += colors.join("\t") + "\n";
-    s += "AxesNumberColors\t" + numColors.join("\t") + "\n";
-    return s;
+
+    QJsonArray jsColors {}, jsNumColors {};
+    for (int i = 0; i < 4; i++) {
+        jsColors.append(colors[i]);
+        jsNumColors.append(numColors[i]);
+    }
+    jsAxesColors.insert("colors", jsColors);
+    jsAxesColors.insert("numberColors", jsNumColors);
+
+    return jsAxesColors;
 }
 
 QStringList Graph::axesColors()
@@ -1844,14 +1864,13 @@ void Graph::updateCurvesData(Table *w, const QString &colName)
     }
 }
 
-QString Graph::saveEnabledAxes()
+QJsonArray Graph::saveEnabledAxes()
 {
-    QString list = "EnabledAxes\t";
+    QJsonArray jsEnabledAxes {};
     for (int i = 0; i < QwtPlot::axisCnt; i++)
-        list += QString::number(d_plot->axisEnabled(i)) + "\t";
+        jsEnabledAxes.append(d_plot->axisEnabled(i));
 
-    list += "\n";
-    return list;
+    return jsEnabledAxes;
 }
 
 bool Graph::framed()
@@ -1971,99 +1990,98 @@ void Graph::loadAxesLinewidth() // int width)
     d_plot->setAxesLinewidth(); // width);
 }
 
-QString Graph::saveCanvas()
+QJsonObject Graph::saveCanvas()
 {
-    QString s = "";
+    QJsonObject jsCanvas {};
     /*int w = d_plot->canvas()->lineWidth();
     if (w > 0) {
         s += "CanvasFrame\t" + QString::number(w) + "\t";
         s += COLORNAME(canvasFrameColor()) + "\n";
     }*/
-    s += "CanvasBackground\t" + COLORNAME(d_plot->canvasBackground().color()) + "\t";
-    s += QString::number(d_plot->canvasBackground().color().alpha()) + "\n";
-    return s;
+    jsCanvas.insert("canvasBackground", COLORNAME(d_plot->canvasBackground().color()));
+    jsCanvas.insert("alpha", d_plot->canvasBackground().color().alpha());
+    return jsCanvas;
 }
 
-QString Graph::saveFonts()
+QJsonObject Graph::saveFonts()
 {
-    int i = 0;
-    QString s;
-    QStringList list, axesList;
+    QJsonObject jsFonts {};
     QFont f;
-    list << "TitleFont";
+
+    QJsonObject jsTitle {};
     f = d_plot->title().font();
-    list << f.family();
-    list << QString::number(f.pointSize());
-    list << QString::number(f.weight());
-    list << QString::number(f.italic());
-    list << QString::number(f.underline());
-    list << QString::number(f.strikeOut());
-    s = list.join("\t") + "\n";
+    jsTitle.insert("family", f.family());
+    jsTitle.insert("pointSize", f.pointSize());
+    jsTitle.insert("weight", f.weight());
+    jsTitle.insert("italic", f.italic());
+    jsTitle.insert("underline", f.underline());
+    jsTitle.insert("strikeout", f.strikeOut());
+    jsFonts.insert("titleFont", jsTitle);
 
-    for (i = 0; i < d_plot->axisCnt; i++) {
+    QJsonArray jsScaleFonts {};
+    for (int i = 0; i < d_plot->axisCnt; i++) {
         f = d_plot->axisTitle(i).font();
-        list[0] = "ScaleFont" + QString::number(i);
-        list[1] = f.family();
-        list[2] = QString::number(f.pointSize());
-        list[3] = QString::number(f.weight());
-        list[4] = QString::number(f.italic());
-        list[5] = QString::number(f.underline());
-        list[6] = QString::number(f.strikeOut());
-        s += list.join("\t") + "\n";
+        QJsonObject jsScale {};
+        jsScale.insert("family", f.family());
+        jsScale.insert("pointSize", f.pointSize());
+        jsScale.insert("weight", f.weight());
+        jsScale.insert("italic", f.italic());
+        jsScale.insert("underline", f.underline());
+        jsScale.insert("strikeout", f.strikeOut());
+        jsScaleFonts.append(jsScale);
     }
+    jsFonts.insert("scaleFonts", jsScaleFonts);
 
-    for (i = 0; i < d_plot->axisCnt; i++) {
+    QJsonArray jsAxesFonts {};
+    for (int i = 0; i < d_plot->axisCnt; i++) {
         f = d_plot->axisFont(i);
-        list[0] = "AxisFont" + QString::number(i);
-        list[1] = f.family();
-        list[2] = QString::number(f.pointSize());
-        list[3] = QString::number(f.weight());
-        list[4] = QString::number(f.italic());
-        list[5] = QString::number(f.underline());
-        list[6] = QString::number(f.strikeOut());
-        s += list.join("\t") + "\n";
+        QJsonObject jsAxes {};
+        jsAxes.insert("family", f.family());
+        jsAxes.insert("pointSize", f.pointSize());
+        jsAxes.insert("weight", f.weight());
+        jsAxes.insert("italic", f.italic());
+        jsAxes.insert("underline", f.underline());
+        jsAxes.insert("strikeout", f.strikeOut());
+        jsAxesFonts.append(jsAxes);
     }
-    return s;
+    jsFonts.insert("axesFonts", jsAxesFonts);
+
+    return jsFonts;
 }
 
-QString Graph::saveAxesFormulas()
+QJsonArray Graph::saveAxesFormulas()
 {
-    QString s;
+    QJsonArray jsAxesFormulas {};
     for (int i = 0; i < 4; i++)
-        if (!axesFormulas[i].isEmpty()) {
-            s += "<AxisFormula pos=\"" + QString::number(i) + "\">\n";
-            s += axesFormulas[i];
-            s += "\n</AxisFormula>\n";
-        }
-    return s;
+        jsAxesFormulas.append(axesFormulas[i]);
+    return jsAxesFormulas;
 }
 
-QString Graph::saveScale()
+QJsonArray Graph::saveScale()
 {
-    QString s;
+    QJsonArray jsSaveScale {};
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
-        s += "scale\t" + QString::number(i) + "\t";
+        QJsonObject jsScale {};
+
+        jsScale.insert("axis", i);
 
         const QwtScaleDiv scDiv = d_plot->axisScaleDiv(i);
 
-#if QWT_VERSION >= 0x050200
-        s += QString::number(qMin(scDiv.lowerBound(), scDiv.upperBound()), 'g', 15) + "\t";
-        s += QString::number(qMax(scDiv.lowerBound(), scDiv.upperBound()), 'g', 15) + "\t";
-#else
-        s += QString::number(qMin(scDiv->lBound(), scDiv->hBound()), 'g', 15) + "\t";
-        s += QString::number(qMax(scDiv->lBound(), scDiv->hBound()), 'g', 15) + "\t";
-#endif
-        s += QString::number(d_user_step[i], 'g', 15) + "\t";
-        s += QString::number(d_plot->axisMaxMajor(i)) + "\t";
-        s += QString::number(d_plot->axisMaxMinor(i)) + "\t";
+        jsScale.insert("minBound", qMin(scDiv.lowerBound(), scDiv.upperBound()));
+        jsScale.insert("maxBound", qMax(scDiv.lowerBound(), scDiv.upperBound()));
+        jsScale.insert("step", d_user_step[i]);
+        jsScale.insert("maxMajor", d_plot->axisMaxMajor(i));
+        jsScale.insert("maxMinor", d_plot->axisMaxMinor(i));
 
         const QwtScaleEngine *sc_eng = d_plot->axisScaleEngine(i);
         // QwtTransform *tr = sc_eng->transformation();
         // s += QString::number((int)tr->type()) + "\t";
-        s += QString::number(0) + "\t";
-        s += QString::number(sc_eng->testAttribute(QwtScaleEngine::Inverted)) + "\n";
+        jsScale.insert("transformation", 0);
+        jsScale.insert("inverted", sc_eng->testAttribute(QwtScaleEngine::Inverted));
+        jsSaveScale.append(jsScale);
     }
-    return s;
+
+    return jsSaveScale;
 }
 
 void Graph::setXAxisTitleColor(const QColor &c)
@@ -2122,9 +2140,9 @@ void Graph::setAxesTitleColor(QStringList l)
     }
 }
 
-QString Graph::saveAxesTitleColors()
+QJsonArray Graph::saveAxesTitleColors()
 {
-    QString s = "AxesTitleColors\t";
+    QJsonArray jsColors {};
     for (int i = 0; i < 4; i++) {
         auto *scale = (QwtScaleWidget *)d_plot->axisWidget(i);
         QColor c;
@@ -2133,24 +2151,24 @@ QString Graph::saveAxesTitleColors()
         else
             c = QColor(Qt::black);
 
-        s += COLORNAME(c) + "\t";
+        jsColors.append(COLORNAME(c));
     }
-    return s + "\n";
+    return jsColors;
 }
 
-QString Graph::saveTitle()
+QJsonObject Graph::saveTitle()
 {
-    QString s = "PlotTitle\t";
-    s += d_plot->title().text().replace("\n", "<br>") + "\t";
-    s += COLORNAME(d_plot->title().color()) + "\t";
-    s += QString::number(d_plot->title().renderFlags()) + "\n";
-    return s;
+    QJsonObject jsTitle {};
+    jsTitle.insert("text", d_plot->title().text());
+    jsTitle.insert("color", COLORNAME(d_plot->title().color()));
+    jsTitle.insert("renderFlags", d_plot->title().renderFlags());
+    return jsTitle;
 }
 
-QString Graph::saveScaleTitles()
+QJsonArray Graph::saveScaleTitles()
 {
+    QJsonArray jsScaleTitles {};
     int a {};
-    QString s = "";
     for (int i = 0; i < 4; i++) {
         switch (i) {
         case 0:
@@ -2167,43 +2185,48 @@ QString Graph::saveScaleTitles()
             break;
         }
         QString title = d_plot->axisTitle(a).text();
-        if (!title.isEmpty())
-            s += title.replace("\n", "<br>") + "\t";
-        else
-            s += "\t";
+        jsScaleTitles.append(title);
     }
-    return s + "\n";
+    return jsScaleTitles;
 }
 
-QString Graph::saveAxesTitleAlignement()
+QJsonObject Graph::saveAxesTitleAlignement()
 {
-    QString s = "AxesTitleAlignment\t";
+    QJsonObject jsAlignment {};
+
+    QJsonArray jsAlignHCenter {};
     QStringList axes;
-    int i = 0;
-    for (i = 0; i < 4; i++)
-        axes << QString::number(Qt::AlignHCenter);
+    for (int i = 0; i < 4; i++)
+        jsAlignHCenter.append(Qt::AlignHCenter);
+    jsAlignment.insert("alignHCenter", jsAlignHCenter);
 
-    for (i = 0; i < 4; i++) {
-
-        if (d_plot->axisEnabled(i))
-            axes[i] = QString::number(d_plot->axisTitle(i).renderFlags());
+    QJsonArray jsFlags {};
+    for (int i = 0; i < 4; i++) {
+        if (d_plot->axisEnabled(i)) {
+            jsFlags.append(d_plot->axisTitle(i).renderFlags());
+        } else {
+            jsFlags.append(0);
+        }
     }
+    jsAlignment.insert("renderFlags", jsFlags);
 
-    s += axes.join("\t") + "\n";
-    return s;
+    return jsAlignment;
 }
 
-QString Graph::savePieCurveLayout()
+QJsonObject Graph::savePieCurveLayout()
 {
-    QString s = "PieCurve\t";
+    QJsonObject jsPieCurve {};
+    jsPieCurve.insert("curveType", "Pie");
 
     auto *pieCurve = dynamic_cast<QwtPieCurve *>(curve(0));
-    s += pieCurve->title().text() + "\t";
-    QPen pen = pieCurve->pen();
+    jsPieCurve.insert("title", pieCurve->title().text());
 
-    s += QString::number(pen.width()) + "\t";
-    s += COLORNAME(pen.color()) + "\t";
-    s += penStyleName(pen.style()) + "\t";
+    QJsonObject jsPen {};
+    QPen pen = pieCurve->pen();
+    jsPen.insert("width", pen.width());
+    jsPen.insert("color", COLORNAME(pen.color()));
+    jsPen.insert("styleName", penStyleName(pen.style()));
+    jsPieCurve.insert("pen", jsPen);
 
     Qt::BrushStyle pattern = pieCurve->pattern();
     int index = 0;
@@ -2238,174 +2261,174 @@ QString Graph::savePieCurveLayout()
     else
         throw std::runtime_error("pattern out of range");
 
-    s += QString::number(index) + "\t";
-    s += QString::number(pieCurve->ray()) + "\t";
-    s += QString::number(pieCurve->firstColor()) + "\t";
-    s += QString::number(pieCurve->startRow()) + "\t" + QString::number(pieCurve->endRow()) + "\t";
-    s += QString::number(pieCurve->isVisible()) + "\n";
-    return s;
+    jsPieCurve.insert("pattern", index);
+    jsPieCurve.insert("ray", pieCurve->ray());
+    jsPieCurve.insert("firstColor", pieCurve->firstColor());
+    jsPieCurve.insert("startRow", pieCurve->startRow());
+    jsPieCurve.insert("endRow", pieCurve->endRow());
+    jsPieCurve.insert("visible", pieCurve->isVisible());
+
+    return jsPieCurve;
 }
 
-QString Graph::saveCurveLayout(int index)
+QJsonObject Graph::saveCurveLayout(int index)
 {
-    QString s = {};
+    QJsonObject jsCurveLayout {};
     int style = c_type[index];
     auto *c = (QwtPlotCurve *)curve(index);
     if (!c)
-        return s;
+        return jsCurveLayout;
 
-    s += QString::number(style) + "\t";
+    jsCurveLayout.insert("style", style);
     if (style == Spline)
-        s += "5\t";
+        jsCurveLayout.insert("curveStyle", 5);
     else if (style == VerticalSteps)
-        s += "6\t";
+        jsCurveLayout.insert("curveStyle", 6);
     else
-        s += QString::number(c->style()) + "\t";
-    s += COLORNAME(c->pen().color()) + "\t";
-    s += QString::number(c->pen().style() - 1) + "\t";
-    s += QString::number(c->pen().width()) + "\t";
+        jsCurveLayout.insert("curveStyle", c->style());
+    QJsonObject jsPen {};
+    jsPen.insert("color", COLORNAME(c->pen().color()));
+    jsPen.insert("style", c->pen().style() - 1);
+    jsPen.insert("width", c->pen().width());
+    jsCurveLayout.insert("pen", jsPen);
 
     const QwtSymbol *symbol = c->symbol();
-    s += QString::number(symbol->size().width()) + "\t";
-    s += QString::number(SymbolBox::symbolIndex(symbol->style())) + "\t";
-    s += COLORNAME(symbol->pen().color()) + "\t";
+    QJsonObject jsSymbol {};
+    jsSymbol.insert("width", symbol->size().width());
+    jsSymbol.insert("style", SymbolBox::symbolIndex(symbol->style()));
+    jsSymbol.insert("penColor", COLORNAME(symbol->pen().color()));
     if (symbol->brush().style() != Qt::NoBrush)
-        s += COLORNAME(symbol->brush().color()) + "\t";
+        jsSymbol.insert("brushColor", COLORNAME(symbol->brush().color()));
     else
-        s += QString::number(-1) + "\t";
+        jsSymbol.insert("brushColor", "");
+    jsCurveLayout.insert("symbol", jsSymbol);
 
     bool filled = c->brush().style() == Qt::NoBrush ? false : true;
-    s += QString::number(filled) + "\t";
+    jsCurveLayout.insert("filled", filled);
 
-    s += COLORNAME(c->brush().color()) + "\t";
-    s += QString::number(PatternBox::patternIndex(c->brush().style())) + "\t";
+    jsCurveLayout.insert("brushColor", COLORNAME(c->brush().color()));
+    jsCurveLayout.insert("brushStyle", PatternBox::patternIndex(c->brush().style()));
     if (style <= LineSymbols || style == Box)
-        s += QString::number(symbol->pen().width()) + "\t";
+        jsCurveLayout.insert("penWidth", symbol->pen().width());
     // extension for custom dash pattern
-    s += QString::number(static_cast<int>(c->pen().capStyle())) + "\t";
-    s += QString::number(static_cast<int>(c->pen().joinStyle())) + "\t";
-    QStringList customDash;
+    jsCurveLayout.insert("capStyle", static_cast<int>(c->pen().capStyle()));
+    jsCurveLayout.insert("joinStyle", static_cast<int>(c->pen().joinStyle()));
+    QJsonArray jsCustomDash {};
     for (auto v : c->pen().dashPattern())
-        customDash << QString::number(v);
-    s += customDash.join(" ") + "\t";
+        jsCustomDash.append(v);
+    jsCurveLayout.insert("customDash", jsCustomDash);
 
     if (style == VerticalBars || style == HorizontalBars || style == Histogram) {
         auto *b = dynamic_cast<QwtBarCurve *>(c);
-        s += QString::number(b->gap()) + "\t";
-        s += QString::number(b->offset()) + "\t";
+        jsCurveLayout.insert("gap", b->gap());
+        jsCurveLayout.insert("offset", b->offset());
     }
 
     if (style == Histogram) {
         auto *h = dynamic_cast<QwtHistogram *>(c);
-        s += QString::number(h->autoBinning()) + "\t";
-        s += QString::number(h->binSize()) + "\t";
-        s += QString::number(h->begin()) + "\t";
-        s += QString::number(h->end()) + "\t";
+        jsCurveLayout.insert("autoBinning", h->autoBinning());
+        jsCurveLayout.insert("binSize", h->binSize());
+        jsCurveLayout.insert("begin", h->begin());
+        jsCurveLayout.insert("end", h->end());
     } else if (style == VectXYXY || style == VectXYAM) {
         auto *v = dynamic_cast<VectorCurve *>(c);
-        s += COLORNAME(v->color()) + "\t";
-        s += QString::number(v->width()) + "\t";
-        s += QString::number(v->headLength()) + "\t";
-        s += QString::number(v->headAngle()) + "\t";
-        s += QString::number(v->filledArrowHead()) + "\t";
+        jsCurveLayout.insert("vectorColor", COLORNAME(v->color()));
+        jsCurveLayout.insert("vectorWidth", v->width());
+        jsCurveLayout.insert("headLength", v->headLength());
+        jsCurveLayout.insert("headAngle", v->headAngle());
+        jsCurveLayout.insert("filledArrowHead", v->filledArrowHead());
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList colsList = v->plotAssociation().split(",", Qt::SkipEmptyParts);
 #else
         QStringList colsList = v->plotAssociation().split(",", QString::SkipEmptyParts);
 #endif
-        s += colsList[2].remove("(X)").remove("(A)") + "\t";
-        s += colsList[3].remove("(Y)").remove("(M)");
+        jsCurveLayout.insert("X_A", colsList[2].remove("(X)").remove("(A)"));
+        jsCurveLayout.insert("Y_M", colsList[3].remove("(Y)").remove("(M)"));
         if (style == VectXYAM)
-            s += "\t" + QString::number(v->position());
-        s += "\t";
+            jsCurveLayout.insert("position", v->position());
     } else if (style == Box) {
         auto *b = dynamic_cast<BoxCurve *>(c);
-        s += QString::number(SymbolBox::symbolIndex(b->maxStyle())) + "\t";
-        s += QString::number(SymbolBox::symbolIndex(b->p99Style())) + "\t";
-        s += QString::number(SymbolBox::symbolIndex(b->meanStyle())) + "\t";
-        s += QString::number(SymbolBox::symbolIndex(b->p1Style())) + "\t";
-        s += QString::number(SymbolBox::symbolIndex(b->minStyle())) + "\t";
-        s += QString::number(b->boxStyle()) + "\t";
-        s += QString::number(b->boxWidth()) + "\t";
-        s += QString::number(b->boxRangeType()) + "\t";
-        s += QString::number(b->boxRange()) + "\t";
-        s += QString::number(b->whiskersRangeType()) + "\t";
-        s += QString::number(b->whiskersRange()) + "\t";
+        jsCurveLayout.insert("maxStyle", SymbolBox::symbolIndex(b->maxStyle()));
+        jsCurveLayout.insert("p99Style", SymbolBox::symbolIndex(b->p99Style()));
+        jsCurveLayout.insert("meanStyle", SymbolBox::symbolIndex(b->meanStyle()));
+        jsCurveLayout.insert("p1Style", SymbolBox::symbolIndex(b->p1Style()));
+        jsCurveLayout.insert("minStyle", SymbolBox::symbolIndex(b->minStyle()));
+        jsCurveLayout.insert("boxStyle", b->boxStyle());
+        jsCurveLayout.insert("boxWidth", b->boxWidth());
+        jsCurveLayout.insert("boxRangeType", b->boxRangeType());
+        jsCurveLayout.insert("boxRange", b->boxRange());
+        jsCurveLayout.insert("whiskersRangeType", b->whiskersRangeType());
+        jsCurveLayout.insert("whiskersRange", b->whiskersRange());
     }
 
-    return s;
+    return jsCurveLayout;
 }
 
-QString Graph::saveCurves()
+void Graph::saveCurves(QJsonObject *jsObject)
 {
-    QString s;
+    QJsonArray jsCurves {};
     if (isPiePlot())
-        s += savePieCurveLayout();
+        jsCurves.append(savePieCurveLayout());
     else {
         for (int i = 0; i < n_curves; i++) {
             QwtPlotItem *it = plotItem(i);
+            QJsonObject jsCurve {};
             if (!it)
                 continue;
 
             if (it->rtti() == QwtPlotItem::Rtti_PlotSpectrogram) {
-                s += (dynamic_cast<Spectrogram *>(it))->saveToString();
+                (dynamic_cast<Spectrogram *>(it))->saveToJson(&jsCurve);
                 continue;
             }
 
             auto *c = dynamic_cast<PlotCurve *>(it);
             if (c->type() != ErrorBars) {
+                jsCurve.insert("title", c->title().text());
                 if (c->type() == Function) {
-                    s += "FunctionCurve\t";
-                    s += QString::number(dynamic_cast<FunctionCurve *>(c)->functionType()) + ",";
-                    s += c->title().text() + ",";
-                    s += dynamic_cast<FunctionCurve *>(c)->variable() + ",";
-                    s += QString::number(dynamic_cast<FunctionCurve *>(c)->startRange(), 'g', 15)
-                            + ",";
-                    s += QString::number(dynamic_cast<FunctionCurve *>(c)->endRange(), 'g', 15)
-                            + "\t";
-                    s += QString::number(dynamic_cast<FunctionCurve *>(c)->dataSize()) + "\t\t\t";
-                    // the 2 last tabs are legacy code, kept for compatibility with old project
-                    // files
-                } else if (c->type() == Box)
-                    s += "curve\t" + QString::number(c->data()->sample(0).x()) + "\t"
-                            + c->title().text() + "\t";
-                else
-                    s += "curve\t" + dynamic_cast<DataCurve *>(c)->xColumnName() + "\t"
-                            + c->title().text() + "\t";
-
-                s += saveCurveLayout(i);
-                s += QString::number(c->xAxis()) + "\t" + QString::number(c->yAxis()) + "\t";
-                if (c->type() != Function) {
-                    s += QString::number(dynamic_cast<DataCurve *>(c)->startRow()) + "\t"
-                            + QString::number(dynamic_cast<DataCurve *>(c)->endRow()) + "\t";
+                    jsCurve.insert("curveType", "Function");
+                    jsCurve.insert("functionType",
+                                   dynamic_cast<FunctionCurve *>(c)->functionType());
+                    jsCurve.insert("variable", dynamic_cast<FunctionCurve *>(c)->variable());
+                    jsCurve.insert("startRange", dynamic_cast<FunctionCurve *>(c)->startRange());
+                    jsCurve.insert("endRange", dynamic_cast<FunctionCurve *>(c)->endRange());
+                    jsCurve.insert("dataSize",
+                                   static_cast<int>(dynamic_cast<FunctionCurve *>(c)->dataSize()));
+                    jsCurve.insert("formulas",
+                                   QJsonArray::fromStringList(
+                                           dynamic_cast<FunctionCurve *>(c)->formulas()));
+                } else if (c->type() == Box) {
+                    jsCurve.insert("curveType", "Box");
+                    jsCurve.insert("x", c->data()->sample(0).x());
                 } else {
-                    s += QString::number(0) + "\t" + QString::number(0) + "\t";
+                    jsCurve.insert("curveType", "Data");
+                    jsCurve.insert("xColumnName", dynamic_cast<DataCurve *>(c)->xColumnName());
+                    jsCurve.insert("startRow", dynamic_cast<DataCurve *>(c)->startRow());
+                    jsCurve.insert("endRow", dynamic_cast<DataCurve *>(c)->endRow());
                 }
-                s += QString::number(c->isVisible()) + "\n";
-                if (c->type() == Function) {
-                    s += "<formula>\n"
-                            + dynamic_cast<FunctionCurve *>(c)->formulas().join(
-                                    "\n</formula>\n<formula>\n")
-                            + "\n</formula>\n";
-                }
+
+                jsCurve.insert("curveLayout", saveCurveLayout(i));
+                jsCurve.insert("xAxis", c->xAxis());
+                jsCurve.insert("yAxis", c->yAxis());
+                jsCurve.insert("visible", c->isVisible());
             } else if (c->type() == ErrorBars) {
                 auto *er = dynamic_cast<QwtErrorPlotCurve *>(it);
-                s += "ErrorBars\t";
-                s += QString::number(er->direction()) + "\t";
-                s += er->masterCurve()->xColumnName() + "\t";
-                s += er->masterCurve()->title().text() + "\t";
-                s += er->title().text() + "\t";
-                s += QString::number(er->width()) + "\t";
-                s += QString::number(er->capLength()) + "\t";
-                s += COLORNAME(er->color()) + "\t";
-                s += QString::number(er->throughSymbol()) + "\t";
-                s += QString::number(er->plusSide()) + "\t";
-                s += QString::number(er->minusSide()) + "\n";
+                jsCurve.insert("curveType", "ErrorBars");
+                jsCurve.insert("direction", er->direction());
+                jsCurve.insert("masterXCoulumn", er->masterCurve()->xColumnName());
+                jsCurve.insert("masterTitle", er->masterCurve()->title().text());
+                jsCurve.insert("title", er->title().text());
+                jsCurve.insert("width", er->width());
+                jsCurve.insert("capLength", er->capLength());
+                jsCurve.insert("color", COLORNAME(er->color()));
+                jsCurve.insert("throughSymbol", er->throughSymbol());
+                jsCurve.insert("plusSide", er->plusSide());
+                jsCurve.insert("minusSide", er->minusSide());
             }
+            jsCurves.append(jsCurve);
         }
     }
-    return s;
+    jsObject->insert("curves", jsCurves);
 }
 
 Legend *Graph::newLegend()
@@ -2620,83 +2643,92 @@ long Graph::insertTextMarker(Legend *mrk)
     return selectedMarker;
 }
 
-QString Graph::saveMarkers()
+QJsonObject Graph::saveMarkers()
 {
-    QString s;
-    int t = d_texts.size(), l = d_lines.size(), im = d_images.size();
-    for (int i = 0; i < im; i++) {
-        auto *mrkI = dynamic_cast<ImageMarker *>(d_plot->marker(d_images[i]));
-        s += "<image>\t";
-        s += mrkI->fileName() + "\t";
-        s += QString::number(mrkI->xValue(), 'g', 15) + "\t";
-        s += QString::number(mrkI->yValue(), 'g', 15) + "\t";
-        s += QString::number(mrkI->right(), 'g', 15) + "\t";
-        s += QString::number(mrkI->bottom(), 'g', 15) + "</image>\n";
-    }
+    QJsonObject jsMarkers {};
 
-    for (int i = 0; i < l; i++) {
+    QJsonArray jsImages {};
+    for (int i = 0; i < d_images.size(); i++) {
+        auto *mrkI = dynamic_cast<ImageMarker *>(d_plot->marker(d_images[i]));
+        QJsonObject jsImage {};
+        jsImage.insert("filename", mrkI->fileName());
+        jsImage.insert("xValue", mrkI->xValue());
+        jsImage.insert("yValue", mrkI->yValue());
+        jsImage.insert("right", mrkI->right());
+        jsImage.insert("bottom", mrkI->bottom());
+        jsImages.append(jsImage);
+    }
+    jsMarkers.insert("images", jsImages);
+
+    QJsonArray jsLines {};
+    for (int i = 0; i < d_lines.size(); i++) {
         auto *mrkL = dynamic_cast<ArrowMarker *>(d_plot->marker(d_lines[i]));
-        s += "<line>\t";
+        QJsonObject jsLine {};
 
         QPointF sp = mrkL->startPointCoord();
-        s += (QString::number(sp.x(), 'g', 15)) + "\t";
-        s += (QString::number(sp.y(), 'g', 15)) + "\t";
+        jsLine.insert("xStart", sp.x());
+        jsLine.insert("yStart", sp.y());
 
         QPointF ep = mrkL->endPointCoord();
-        s += (QString::number(ep.x(), 'g', 15)) + "\t";
-        s += (QString::number(ep.y(), 'g', 15)) + "\t";
+        jsLine.insert("xEnd", ep.x());
+        jsLine.insert("yEnd", ep.y());
 
-        s += QString::number(mrkL->width()) + "\t";
-        s += COLORNAME(mrkL->color()) + "\t";
-        s += penStyleName(mrkL->style()) + "\t";
-        s += QString::number(mrkL->hasEndArrow()) + "\t";
-        s += QString::number(mrkL->hasStartArrow()) + "\t";
-        s += QString::number(mrkL->headLength()) + "\t";
-        s += QString::number(mrkL->headAngle()) + "\t";
-        s += QString::number(mrkL->filledArrowHead()) + "\t";
-        s += QString::number(static_cast<int>(mrkL->capStyle())) + "\t";
-        s += QString::number(static_cast<int>(mrkL->joinStyle())) + "\t";
-        QStringList customDash;
+        jsLine.insert("width", mrkL->width());
+        jsLine.insert("color", COLORNAME(mrkL->color()));
+        jsLine.insert("style", penStyleName(mrkL->style()));
+        jsLine.insert("hasEndArrow", mrkL->hasEndArrow());
+        jsLine.insert("hasStartArrow", mrkL->hasStartArrow());
+        jsLine.insert("headLength", mrkL->headLength());
+        jsLine.insert("headAngle", mrkL->headAngle());
+        jsLine.insert("filledArrowHead", mrkL->filledArrowHead());
+        jsLine.insert("capStyle", static_cast<int>(mrkL->capStyle()));
+        jsLine.insert("joinStyle", static_cast<int>(mrkL->joinStyle()));
+        QJsonArray jsCustomDash;
         for (auto v : mrkL->linePen().dashPattern())
-            customDash << QString::number(v);
-        s += customDash.join(" ");
-        s += "</line>\n";
+            jsCustomDash.append(v);
+        jsLine.insert("customDash", jsCustomDash);
+        jsLines.append(jsLine);
     }
+    jsMarkers.insert("lines", jsLines);
 
-    for (int i = 0; i < t; i++) {
+    QJsonArray jsTexts {};
+    for (int i = 0; i < d_texts.size(); i++) {
         auto *mrk = dynamic_cast<Legend *>(d_plot->marker(d_texts[i]));
+        QJsonObject jsText {};
         if (d_texts[i] != legendMarkerID)
-            s += "<text>\t";
+            jsText.insert("type", "text");
         else
-            s += "<legend>\t";
+            jsText.insert("type", "legend");
 
-        s += QString::number(mrk->xValue(), 'g', 15) + "\t";
-        s += QString::number(mrk->yValue(), 'g', 15) + "\t";
+        jsText.insert("xValue", mrk->xValue());
+        jsText.insert("yValue", mrk->yValue());
 
         QFont f = mrk->font();
-        s += f.family() + "\t";
-        s += QString::number(f.pointSize()) + "\t";
-        s += QString::number(f.weight()) + "\t";
-        s += QString::number(f.italic()) + "\t";
-        s += QString::number(f.underline()) + "\t";
-        s += QString::number(f.strikeOut()) + "\t";
-        s += COLORNAME(mrk->textColor()) + "\t";
-        s += QString::number(mrk->frameStyle()) + "\t";
-        s += QString::number(mrk->angle()) + "\t";
-        s += COLORNAME(mrk->backgroundColor()) + "\t";
-        s += QString::number(mrk->backgroundColor().alpha()) + "\t";
+        QJsonObject jsFont {};
+        jsFont.insert("family", f.family());
+        jsFont.insert("pointSize", f.pointSize());
+        jsFont.insert("weight", f.weight());
+        jsFont.insert("italic", f.italic());
+        jsFont.insert("underline", f.underline());
+        jsFont.insert("strikeout", f.strikeOut());
+        jsText.insert("font", jsFont);
+        jsText.insert("textColor", COLORNAME(mrk->textColor()));
+        jsText.insert("fromeStyle", mrk->frameStyle());
+        jsText.insert("angle", mrk->angle());
+        jsText.insert("backgroundColor", COLORNAME(mrk->backgroundColor()));
+        jsText.insert("alpha", mrk->backgroundColor().alpha());
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList textList = mrk->text().split("\n", Qt::KeepEmptyParts);
 #else
         QStringList textList = mrk->text().split("\n", QString::KeepEmptyParts);
 #endif
-        s += textList.join("\t");
-        if (d_texts[i] != legendMarkerID)
-            s += "</text>\n";
-        else
-            s += "</legend>\n";
+        QJsonArray jsTextlist = QJsonArray::fromStringList(textList);
+        jsText.insert("textList", jsTextlist);
+        jsTexts.append(jsText);
     }
-    return s;
+    jsMarkers.insert("texts", jsTexts);
+
+    return jsMarkers;
 }
 
 double Graph::selectedXStartValue()
@@ -3956,48 +3988,62 @@ void Graph::createTable(const QwtPlotCurve *curve)
     Q_EMIT createTable(tr("Curve data %1").arg(1), legend, QList<Column *>() << xCol << yCol);
 }
 
-QString Graph::saveToString(bool saveAsTemplate)
+void Graph::saveToJson(QJsonObject *jsObject, bool saveAsTemplate)
 {
-    QString s = "<graph>\n";
-    s += "ggeometry\t";
-    s += QString::number(this->pos().x()) + "\t";
-    s += QString::number(this->pos().y()) + "\t";
-    s += QString::number(this->frameGeometry().width()) + "\t";
-    s += QString::number(this->frameGeometry().height()) + "\n";
-    s += saveTitle();
-    s += "<Antialiasing>" + QString::number(d_antialiasing) + "</Antialiasing>\n";
-    s += "Background\t" + COLORNAME(d_plot->paletteBackgroundColor()) + "\t";
-    s += QString::number(d_plot->paletteBackgroundColor().alpha()) + "\n";
+    QJsonObject jsGeometry {};
+    jsGeometry.insert("x", this->pos().x());
+    jsGeometry.insert("y", this->pos().y());
+    jsGeometry.insert("width", this->frameGeometry().width());
+    jsGeometry.insert("height", this->frameGeometry().height());
+    jsObject->insert("geometry", jsGeometry);
+
+    jsObject->insert("plotTitle", saveTitle());
+    jsObject->insert("antialiasing", d_antialiasing);
+    jsObject->insert("background", COLORNAME(d_plot->paletteBackgroundColor()));
+    jsObject->insert("alpha", d_plot->paletteBackgroundColor().alpha());
     // s += "Margin\t" + QString::number(d_plot->margin()) + "\n";
-    s += "Border\t" + QString::number(d_plot->lineWidth()) + "\t" + COLORNAME(d_plot->frameColor())
-            + "\n";
-    s += grid()->saveToString();
-    s += saveEnabledAxes();
-    s += "AxesTitles\t" + saveScaleTitles();
-    s += saveAxesTitleColors();
-    s += saveAxesTitleAlignement();
-    s += saveFonts();
-    s += saveEnabledTickLabels();
-    s += saveAxesColors();
-    s += saveAxesBaseline();
-    s += saveCanvas();
+
+    QJsonObject jsBorder {};
+    jsBorder.insert("lineWidth", d_plot->lineWidth());
+    jsBorder.insert("frameColor", COLORNAME(d_plot->frameColor()));
+    jsObject->insert("border", jsBorder);
+
+    QJsonObject jsGrid {};
+    grid()->saveToJson(&jsGrid);
+    jsObject->insert("grid", jsGrid);
+    jsObject->insert("enabledAxes", saveEnabledAxes());
+
+    QJsonObject jsAxesTitles {};
+    jsAxesTitles.insert("scale", saveScaleTitles());
+    jsAxesTitles.insert("colors", saveAxesTitleColors());
+    jsAxesTitles.insert("alignment", saveAxesTitleAlignement());
+    jsObject->insert("axesTitles", jsAxesTitles);
+
+    jsObject->insert("fonts", saveFonts());
+    jsObject->insert("enabledTickLabels", saveEnabledTickLabels());
+    jsObject->insert("axesColors", saveAxesColors());
+    jsObject->insert("axesBaseline", saveAxesBaseline());
+    jsObject->insert("canvas", saveCanvas());
 
     if (!saveAsTemplate)
-        s += saveCurves();
+        saveCurves(jsObject);
 
-    s += saveScale();
-    s += saveAxesFormulas();
-    s += saveLabelsFormat();
-    s += saveAxesLabelsType();
-    s += saveTicksType();
-    s += "TicksLength\t" + QString::number(minorTickLength()) + "\t"
-            + QString::number(majorTickLength()) + "\n";
-    s += "DrawAxesBackbone\t" + QString::number(drawAxesBackbone) + "\n";
-    s += "AxesLineWidth\t" + QString::number(d_plot->axesLinewidth()) + "\n";
-    s += saveLabelsRotation();
-    s += saveMarkers();
-    s += "</graph>\n";
-    return s;
+    jsObject->insert("scale", saveScale());
+    jsObject->insert("axesFormulas", saveAxesFormulas());
+    jsObject->insert("labelsFormat", saveLabelsFormat());
+    jsObject->insert("axesLabelsType", saveAxesLabelsType());
+    jsObject->insert("ticksType", saveTicksType());
+    jsObject->insert("minorTickLength", minorTickLength());
+    jsObject->insert("majorTickLength", majorTickLength());
+    jsObject->insert("drawAxesBackbone", drawAxesBackbone);
+    jsObject->insert("axesLineWidth", d_plot->axesLinewidth());
+    jsObject->insert("labelsRotation", saveLabelsRotation());
+    jsObject->insert("markers", saveMarkers());
+
+    if (!saveAsTemplate)
+        jsObject->insert("type", "Graph");
+    else
+        jsObject->insert("templateType", "Graph");
 }
 
 void Graph::showIntensityTable()

@@ -38,7 +38,7 @@
 #include <QMessageBox>
 #include <QStyle>
 #include <QApplication>
-#include <QXmlStreamWriter>
+#include <QJsonObject>
 
 AbstractAspect::AbstractAspect(const QString &name) : d_aspect_private(new Private(this, name)) { }
 
@@ -47,13 +47,9 @@ AbstractAspect::~AbstractAspect()
     delete d_aspect_private;
 }
 
-void AbstractAspect::writeCommentElement(QXmlStreamWriter *writer) const
+void AbstractAspect::writeCommentElement(QJsonObject *jsObject) const
 {
-    writer->writeStartElement("comment");
-    QString temp = comment();
-    temp.replace("\n", "\\n");
-    writer->writeCDATA(temp);
-    writer->writeEndElement();
+    jsObject->insert("comment", comment());
 }
 
 bool AbstractAspect::readCommentElement(XmlStreamReader *reader)
@@ -65,11 +61,12 @@ bool AbstractAspect::readCommentElement(XmlStreamReader *reader)
     return true;
 }
 
-void AbstractAspect::writeBasicAttributes(QXmlStreamWriter *writer) const
+void AbstractAspect::writeBasicAttributes(QJsonObject *jsObject) const
 {
-    writer->writeAttribute("creation_time", creationTime().toString("yyyy-dd-MM hh:mm:ss:zzz"));
-    writer->writeAttribute("caption_spec", captionSpec());
-    writer->writeAttribute("name", name());
+    jsObject->insert("creationDate",
+                     QLocale::c().toString(creationTime(), "dd-MM-yyyy hh:mm:ss:zzz"));
+    jsObject->insert("captionSpec", captionSpec());
+    jsObject->insert("name", name());
 }
 
 bool AbstractAspect::readBasicAttributes(XmlStreamReader *reader)
@@ -88,7 +85,7 @@ bool AbstractAspect::readBasicAttributes(XmlStreamReader *reader)
     setName(str);
     // read creation time
     str = attribs.value(reader->namespaceUri().toString(), "creation_time").toString();
-    QDateTime creation_time = QDateTime::fromString(str, "yyyy-dd-MM hh:mm:ss:zzz");
+    QDateTime creation_time = QDateTime::fromString(str, "dd-MM-yyyy hh:mm:ss:zzz");
     if (str.isEmpty() || !creation_time.isValid()) {
         reader->raiseWarning(tr("Invalid creation time for '%1'. Using current time.").arg(name()));
         setCreationTime(QDateTime::currentDateTime());

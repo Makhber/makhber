@@ -241,8 +241,8 @@ public Q_SLOTS:
     void exportPDF(const QString &fileName);
     void exportVector(const QString &fileName, const QString &fileType = "pdf");
 
-    QString saveToString(const QString &geometry);
-    QString saveAsTemplate(const QString &geometryInfo);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
+    void saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry);
 
     void zoomChanged(double);
     void rotationChanged(double, double, double);

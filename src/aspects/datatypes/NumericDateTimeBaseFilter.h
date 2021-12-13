@@ -62,7 +62,7 @@ public:
         : m_unit_interval(other.m_unit_interval), m_date_time_0(other.m_date_time_0) {};
 
     //! Save to XML
-    void writeExtraAttributes(QXmlStreamWriter *writer) const override;
+    void writeExtraAttributes(QJsonObject *) const override;
 
     bool load(XmlStreamReader *reader) override;
 

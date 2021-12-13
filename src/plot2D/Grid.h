@@ -75,7 +75,7 @@ public:
 
     void load(const QStringList &);
     void copy(Grid *);
-    QString saveToString();
+    void saveToJson(QJsonObject *);
 
 private:
     QPen d_maj_pen_y;

@@ -59,6 +59,8 @@
 #include <QProgressDialog>
 #include <QFile>
 #include <QTemporaryFile>
+#include <QJsonObject>
+#include <QJsonArray>
 
 #include <vector>
 #include <iostream>
@@ -104,7 +106,8 @@ void Table::init()
 {
     if (d_future_table) {
         TableView::setTable(d_future_table);
-        birthdate = QLocale().toString(d_future_table->creationTime());
+        birthdate =
+                QLocale::c().toString(d_future_table->creationTime(), "dd-MM-yyyy hh:mm:ss:zzz");
     } else // the rest is meaningless
         return;
 
@@ -386,23 +389,24 @@ void Table::setColumnTypes(const QStringList &ctl)
     }
 }
 
-QString Table::saveColumnWidths()
+void Table::saveColumnWidths(QJsonObject *jsObject)
 {
     // TODO: obsolete, remove in 0.3.0
-    QString s = "ColWidth\t";
+    QJsonArray jsWidths {};
     for (int i = 0; i < numCols(); i++)
-        s += QString::number(columnWidth(i)) + "\t";
+        jsWidths.append(columnWidth(i));
 
-    return s + "\n";
+    jsObject->insert("columnWidths", jsWidths);
 }
 
-QString Table::saveColumnTypes()
+void Table::saveColumnTypes(QJsonObject *jsObject)
 {
     // TODO: obsolete, remove in 0.3.0
-    QString s = "ColType";
+    QJsonArray jsTypes {};
     for (int i = 0; i < numCols(); i++)
-        s += "\t" + QString::number(static_cast<int>(column(i)->columnMode())) + ";0/6";
-    return s + "\n";
+        jsTypes.append(static_cast<int>(column(i)->columnMode()));
+
+    jsObject->insert("columnTypes", jsTypes);
 }
 
 void Table::setCommands(const QStringList &com)
@@ -517,130 +521,47 @@ bool Table::recalculate(int col, bool only_selected_rows)
     return true;
 }
 
-QString Table::saveCommands()
+void Table::saveCommands(QJsonObject *jsObject)
 {
     // TODO: obsolete, remove for 0.3.0, only needed for template saving
-    QString s = "<com>\n";
+    QJsonArray jsCommands {};
     for (int col = 0; col < numCols(); col++)
-        if (!column(col)->formula(0).isEmpty()) {
-            s += "<col nr=\"" + QString::number(col) + "\">\n";
-            s += column(col)->formula(0);
-            s += "\n</col>\n";
-        }
-    s += "</com>\n";
-    return s;
+        jsCommands.append(column(col)->formula(0));
+
+    jsObject->insert("commands", jsCommands);
 }
 
-QString Table::saveComments()
+void Table::saveComments(QJsonObject *jsObject)
 {
     // TODO: obsolete, remove for 0.3.0, only needed for template saving
-    QString s = "Comments\t";
+    QJsonArray jsComments {};
     for (int i = 0; i < numCols(); i++) {
-        s += column(i)->comment() + "\t";
+        jsComments.append(column(i)->comment());
     }
-    return s + "\n";
+
+    jsObject->insert("comments", jsComments);
 }
 
-QString Table::saveToString(const QString &geometry)
+void Table::saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<table>\n";
-    QString xml;
     if (d_future_table) {
-        QXmlStreamWriter writer(&xml);
-        d_future_table->save(&writer);
+        d_future_table->save(jsObject);
     }
-    s += QString::number(xml.length()) + "\n"; // this is need in case there are newlines in the XML
-    s += xml + "\n";
-    s += geometry + "\n";
-    s += "</table>\n";
-    return s;
+    jsObject->insert("geometry", jsGeometry);
+    jsObject->insert("type", "Table");
 }
 
-void Table::saveToDevice(QIODevice *device, const QString &geometry)
-{
-    QTextStream stream(device);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    stream.setEncoding(QStringConverter::Utf8);
-#else
-    stream.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-
-    // write start tag
-    stream << "<table>\n";
-    stream.flush();
-
-    // On Windows, writing to a QString has been observed to crash for large tables
-    // (apparently due to excessive memory usage).
-    // => use temporary file if possible
-    QTemporaryFile tmp_file;
-    QString tmp_string;
-    if (d_future_table) {
-        QXmlStreamWriter xml(&tmp_string);
-        if (tmp_file.open())
-            xml.setDevice(&tmp_file);
-        d_future_table->save(&xml);
-    }
-
-    // write number of characters of QXmlStreamWriter's output
-    // this is needed in case there are newlines in the XML
-    int xml_chars = 0;
-    if (tmp_file.isOpen()) {
-        tmp_file.seek(0);
-        QTextStream count(&tmp_file);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-        count.setEncoding(QStringConverter::Utf8);
-#else
-        count.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-        while (!count.atEnd())
-            xml_chars += count.read(1024).length();
-    } else
-        xml_chars = tmp_string.length();
-    stream << xml_chars << "\n";
-    stream.flush();
-
-    // Copy QXmlStreamWriter's output to device
-    if (tmp_file.isOpen()) {
-        tmp_file.seek(0);
-        qint64 bytes_read = 0;
-        std::array<char, 1024> buffer;
-        while ((bytes_read = tmp_file.read(buffer.data(), 1024)) > 0)
-            device->write(buffer.data(), bytes_read);
-    } else
-        stream << tmp_string;
-    stream << "\n";
-
-    // write geometry and end tag
-    stream << geometry << "\n";
-    stream << "</table>\n";
-}
-
-QString Table::saveHeader()
+void Table::saveHeader(QJsonObject *jsObject)
 {
     // TODO: obsolete, remove for 0.3.0, only needed for template saving
-    QString s = "header";
+    QJsonArray jsHeaders {};
     for (int j = 0; j < numCols(); j++) {
-        switch (column(j)->plotDesignation()) {
-        case Makhber::X:
-            s += "\t" + colLabel(j) + "[X]";
-            break;
-        case Makhber::Y:
-            s += "\t" + colLabel(j) + "[Y]";
-            break;
-        case Makhber::Z:
-            s += "\t" + colLabel(j) + "[Z]";
-            break;
-        case Makhber::xErr:
-            s += "\t" + colLabel(j) + "[xEr]";
-            break;
-        case Makhber::yErr:
-            s += "\t" + colLabel(j) + "[yEr]";
-            break;
-        default:
-            s += "\t" + colLabel(j);
-        }
+        QJsonObject jsHeader {};
+        jsHeader.insert("label", colLabel(j));
+        jsHeader.insert("designation", column(j)->plotDesignation());
+        jsHeaders.append(jsHeader);
     }
-    return s += "\n";
+    jsObject->insert("columnHeaders", jsHeaders);
 }
 
 int Table::firstXCol()
@@ -1165,18 +1086,17 @@ void Table::copy(Table *m)
     d_future_table->copy(m->d_future_table);
 }
 
-QString Table::saveAsTemplate(const QString &geometryInfo)
+void Table::saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<table>\t" + QString::number(numRows()) + "\t";
-    s += QString::number(numCols()) + "\n";
-    s += geometryInfo;
-    s += saveHeader();
-    s += saveColumnWidths();
-    s += saveCommands();
-    s += saveColumnTypes();
-    s += saveComments();
-    s += "</table>\n";
-    return s;
+    jsObject->insert("cols", numCols());
+    jsObject->insert("rows", numRows());
+    jsObject->insert("geometry", jsGeometry);
+    saveHeader(jsObject);
+    saveColumnWidths(jsObject);
+    saveCommands(jsObject);
+    saveColumnTypes(jsObject);
+    saveComments(jsObject);
+    jsObject->insert("templateType", "Table");
 }
 
 void Table::restore(const QStringList &list_in)

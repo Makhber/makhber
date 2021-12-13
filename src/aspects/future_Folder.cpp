@@ -36,9 +36,9 @@
 #include <QIcon>
 #include <QApplication>
 #include <QStyle>
-#include <QXmlStreamWriter>
 #include <QPluginLoader>
 #include <QtDebug>
+#include <QJsonArray>
 
 namespace future {
 Folder::Folder(const QString &name) : AbstractAspect(name) { }
@@ -60,19 +60,21 @@ QMenu *Folder::createContextMenu() const
     return nullptr;
 }
 
-void Folder::save(QXmlStreamWriter *writer) const
+void Folder::save(QJsonObject *jsObject) const
 {
-    writer->writeStartElement("folder");
-    writeBasicAttributes(writer);
-    writeCommentElement(writer);
+    writeBasicAttributes(jsObject);
+    // writeCommentElement(writer);
 
     int child_count = childCount();
+    QJsonArray jsChildren {};
     for (int i = 0; i < child_count; i++) {
-        writer->writeStartElement("child_aspect");
-        child(i)->save(writer);
-        writer->writeEndElement(); // "child_aspect"
+        QJsonObject jsChild {};
+        child(i)->save(&jsChild);
+        jsChildren.append(jsChild);
     }
-    writer->writeEndElement(); // "folder"
+    jsObject->insert("children", jsChildren);
+
+    jsObject->insert("type", "Folder");
 }
 
 bool Folder::load(XmlStreamReader *reader)

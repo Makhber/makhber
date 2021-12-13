@@ -28,16 +28,19 @@
 
 #include "NumericDateTimeBaseFilter.h"
 
+#include <QJsonObject>
+
 #include <cmath>
 
 const QDateTime NumericDateTimeBaseFilter::zeroOffsetDate =
         QDateTime(QDate::fromJulianDay(0), QTime(12, 0, 0, 0));
 static const double milliSecondsInDay = 86400000.0;
 
-void NumericDateTimeBaseFilter::writeExtraAttributes(QXmlStreamWriter *writer) const
+void NumericDateTimeBaseFilter::writeExtraAttributes(QJsonObject *jsObject) const
 {
-    writer->writeAttribute("base_datetime", m_date_time_0.toString("yyyy-dd-MM hh:mm:ss:zzz"));
-    writer->writeAttribute("unit", QString::number(static_cast<int>(m_unit_interval)));
+    jsObject->insert("baseDateTime",
+                     QLocale::c().toString(m_date_time_0, "dd-MM-yyyy hh:mm:ss:zzz"));
+    jsObject->insert("unit", static_cast<int>(m_unit_interval));
 }
 
 bool NumericDateTimeBaseFilter::load(XmlStreamReader *reader)
@@ -51,7 +54,7 @@ bool NumericDateTimeBaseFilter::load(XmlStreamReader *reader)
         bool ok = false;
         int unit = unitStr.toInt(&ok);
         QDateTime base_datetime =
-                QDateTime::fromString(base_datetimeStr, "yyyy-dd-MM hh:mm:ss:zzz");
+                QDateTime::fromString(base_datetimeStr, "dd-MM-yyyy hh:mm:ss:zzz");
 
         if (!base_datetime.isValid() || !ok)
             reader->raiseError(tr("missing or invalid format attribute(s)"));

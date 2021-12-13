@@ -41,7 +41,6 @@
 #include <QPluginLoader>
 #include <QComboBox>
 #include <QFile>
-#include <QXmlStreamWriter>
 #include <QtDebug>
 
 #define NOT_IMPL (QMessageBox::information(0, "info", "not yet implemented"))
@@ -126,17 +125,17 @@ QString Project::fileName() const
     return d->file_name;
 }
 
-void Project::save(QXmlStreamWriter *writer) const
+void Project::save(QJsonObject *jsObject) const
 {
-    writer->writeStartDocument();
-    writer->writeStartElement("makhber_project");
-    writer->writeAttribute("version", QString::number(Makhber::version()));
+    QJsonObject jsProject {};
+    jsProject.insert("version", Makhber::version());
     // TODO: write project attributes
-    writer->writeStartElement("project_root");
-    future::Folder::save(writer);
-    writer->writeEndElement(); // "project_root"
-    writer->writeEndElement(); // "makhber_project"
-    writer->writeEndDocument();
+
+    QJsonObject jsRoot {};
+    future::Folder::save(&jsRoot);
+    jsProject.insert("project_root", jsRoot);
+
+    jsObject->insert("makhber_project", jsProject);
 }
 
 bool Project::load(XmlStreamReader *reader)

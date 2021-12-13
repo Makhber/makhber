@@ -155,6 +155,7 @@
 #include <QJsonDocument>
 #include <QLibraryInfo>
 #include <QPushButton>
+#include <QJsonArray>
 
 #include <iostream>
 #include <memory>
@@ -3375,7 +3376,8 @@ void ApplicationWindow::open()
             }
         }
 
-        if (fn.endsWith(".sciprj", Qt::CaseInsensitive)
+        if (fn.endsWith(".mkbr", Qt::CaseInsensitive) || fn.endsWith(".mkbr~", Qt::CaseInsensitive)
+            || fn.endsWith(".sciprj", Qt::CaseInsensitive)
             || fn.endsWith(".sciprj~", Qt::CaseInsensitive)
             || fn.endsWith(".qti", Qt::CaseInsensitive) || fn.endsWith(".qti~", Qt::CaseInsensitive)
             || fn.endsWith(".sciprj.gz", Qt::CaseInsensitive)
@@ -3394,7 +3396,8 @@ void ApplicationWindow::open()
             ApplicationWindow *a = open(fn);
             if (a) {
                 a->workingDir = workingDir;
-                if (fn.endsWith(".sciprj", Qt::CaseInsensitive)
+                if (fn.endsWith(".mkbr", Qt::CaseInsensitive)
+                    || fn.endsWith(".sciprj", Qt::CaseInsensitive)
                     || fn.endsWith(".sciprj~", Qt::CaseInsensitive)
                     || fn.endsWith(".sciprj.gz", Qt::CaseInsensitive)
                     || fn.endsWith(".qti.gz", Qt::CaseInsensitive)
@@ -4890,37 +4893,27 @@ void ApplicationWindow::exportAllGraphs()
     QApplication::restoreOverrideCursor();
 }
 
-QString ApplicationWindow::windowGeometryInfo(MyWidget *w)
+QJsonObject ApplicationWindow::windowGeometryInfo(MyWidget *w)
 {
-    QString s = "geometry\t";
-    if (w->status() == MyWidget::Maximized) {
-        if (w == w->folder()->activeWindow())
-            return s + "maximized\tactive\n";
-        else
-            return s + "maximized\n";
-    }
+    QJsonObject jsGeometryInfo {};
+    jsGeometryInfo.insert("maximized", (w->status() == MyWidget::Maximized));
+    jsGeometryInfo.insert("minimized", (w->status() == MyWidget::Minimized));
+    jsGeometryInfo.insert("active", (w == w->folder()->activeWindow()));
+    jsGeometryInfo.insert("hidden", hidden(w));
 
-    if (!w->parent())
-        s += "0\t0\t500\t400\t";
-    else {
+    if (!w->parent()) {
+        jsGeometryInfo.insert("x", 0);
+        jsGeometryInfo.insert("y", 0);
+        jsGeometryInfo.insert("width", 500);
+        jsGeometryInfo.insert("height", 400);
+    } else {
         QPoint p = w->pos(); // store position
-        s += QString::number(p.x()) + "\t";
-        s += QString::number(p.y()) + "\t";
-        s += QString::number(w->frameGeometry().width()) + "\t";
-        s += QString::number(w->frameGeometry().height()) + "\t";
+        jsGeometryInfo.insert("x", p.x());
+        jsGeometryInfo.insert("y", p.y());
+        jsGeometryInfo.insert("width", w->frameGeometry().width());
+        jsGeometryInfo.insert("height", w->frameGeometry().height());
     }
-
-    if (w->status() == MyWidget::Minimized)
-        s += "minimized\t";
-
-    bool hide = hidden(w);
-    if (w == w->folder()->activeWindow() && !hide)
-        s += "active\n";
-    else if (hide)
-        s += "hidden\n";
-    else
-        s += "\n";
-    return s;
+    return jsGeometryInfo;
 }
 
 void ApplicationWindow::restoreWindowGeometry(ApplicationWindow *app, MyWidget *w, const QString s)
@@ -4963,7 +4956,11 @@ Folder *ApplicationWindow::projectFolder()
 
 bool ApplicationWindow::saveProject()
 {
-    if (projectname == "untitled" || projectname.endsWith(".opj", Qt::CaseInsensitive)
+    if (projectname == "untitled" || projectname.endsWith(".sciprj", Qt::CaseInsensitive)
+        || projectname.endsWith(".sciprj.gz", Qt::CaseInsensitive)
+        || projectname.endsWith(".qti", Qt::CaseInsensitive)
+        || projectname.endsWith(".qti.gz", Qt::CaseInsensitive)
+        || projectname.endsWith(".opj", Qt::CaseInsensitive)
         || projectname.endsWith(".ogm", Qt::CaseInsensitive)
         || projectname.endsWith(".ogw", Qt::CaseInsensitive)
         || projectname.endsWith(".ogg", Qt::CaseInsensitive)
@@ -4972,17 +4969,7 @@ bool ApplicationWindow::saveProject()
         return false;
     }
 
-    bool compress = false;
-    QString fn = projectname;
-    if (fn.endsWith(".gz")) {
-        fn = fn.left(fn.length() - 3);
-        compress = true;
-    }
-
-    saveFolder(projectFolder(), fn);
-
-    if (compress)
-        file_compress(QFile::encodeName(fn).constData(), "wb9");
+    saveFolder(projectFolder(), projectname);
 
     setWindowTitle("Makhber - " + projectname);
     savedProject();
@@ -5002,8 +4989,7 @@ bool ApplicationWindow::saveProject()
 
 void ApplicationWindow::saveProjectAs()
 {
-    QString filter = tr("Makhber project") + " (*.sciprj);;";
-    filter += tr("Compressed Makhber project") + " (*.sciprj.gz)";
+    QString filter = tr("Makhber project") + " (*.mkbr);;";
 
     QString selectedFilter;
     QString fn = QFileDialog::getSaveFileName(this, tr("Save Project As"), workingDir, filter,
@@ -5012,10 +4998,8 @@ void ApplicationWindow::saveProjectAs()
         QFileInfo fi(fn);
         workingDir = fi.absolutePath();
         QString baseName = fi.fileName();
-        if (!baseName.endsWith(".sciprj") && !baseName.endsWith(".sciprj.gz")) {
-            fn.append(".sciprj");
-            if (selectedFilter.contains(".gz"))
-                fn.append(".gz");
+        if (!baseName.endsWith(".mkbr")) {
+            fn.append(".mkbr");
         }
         projectname = fn;
 
@@ -5047,15 +5031,16 @@ void ApplicationWindow::saveAsTemplate()
     if (!w)
         return;
 
+    QJsonObject jsTemplate {};
     QString filter;
     if (w->inherits("Matrix"))
-        filter = tr("Makhber/QtiPlot Matrix Template") + " (*.qmt)";
+        filter = tr("Makhber Matrix Template") + "*.mkbrmt";
     else if (w->inherits("MultiLayer"))
-        filter = tr("Makhber/QtiPlot 2D Graph Template") + " (*.qpt)";
+        filter = tr("Makhber 2D Graph Template") + "*.mkbrpt";
     else if (w->inherits("Table"))
-        filter = tr("Makhber/QtiPlot Table Template") + " (*.qtt)";
+        filter = tr("Makhber Table Template") + "*.mkbrtt";
     else if (w->inherits("Graph3D"))
-        filter = tr("Makhber/QtiPlot 3D Surface Template") + " (*.qst)";
+        filter = tr("Makhber 3D Surface Template") + "*.mkbrst";
 
     QString selectedFilter;
     QString fn =
@@ -5079,15 +5064,10 @@ void ApplicationWindow::saveAsTemplate()
             return;
         }
         QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
-        QString text = Makhber::schemaVersion() + " template file\n";
-        text += w->saveAsTemplate(windowGeometryInfo(w));
-        QTextStream t(&f);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-        t.setEncoding(QStringConverter::Utf8);
-#else
-        t.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-        t << text;
+        jsTemplate.insert("projectType", "template");
+        w->saveAsTemplate(&jsTemplate, windowGeometryInfo(w));
+        QJsonDocument jsDoc(jsTemplate);
+        f.write(jsDoc.toJson());
         f.close();
         QApplication::restoreOverrideCursor();
     }
@@ -7521,9 +7501,10 @@ void ApplicationWindow::dropEvent(QDropEvent *e)
             QFileInfo fileInfo(fileName);
             QString ext = fileInfo.completeSuffix().toLower();
 
-            if (ext == "sciprj" || ext == "sciprj~" || ext == "sciprj.gz" || ext == "sciprj.gz~"
-                || ext == "opj" || ext == "qti" || ext == "qti.gz" || ext == "ogm" || ext == "ogw"
-                || ext == "ogg" || ext == "org") {
+            if (ext == "mkbr" || ext == "mkbr~" || ext == "sciprj" || ext == "sciprj~"
+                || ext == "sciprj.gz" || ext == "sciprj.gz~" || ext == "opj" || ext == "qti"
+                || ext == "qti.gz" || ext == "ogm" || ext == "ogw" || ext == "ogg"
+                || ext == "org") {
                 open(fileName);
             } else if (ext == "csv" || ext == "dat" || ext == "txt" || ext == "tsv") {
                 asciiFiles << fileName;
@@ -9200,7 +9181,8 @@ Table *ApplicationWindow::openTable(ApplicationWindow *app, QTextStream &stream)
                 msg_text += str + "\n";
             QMessageBox::warning(this, tr("Project loading partly failed"), msg_text);
         }
-        w->setBirthDate(QLocale().toString(w->d_future_table->creationTime()));
+        w->setBirthDate(QLocale::c().toString(w->d_future_table->creationTime(),
+                                              "dd-MM-yyyy hh:mm:ss:zzz"));
 
         s = stream.readLine();
         restoreWindowGeometry(app, w, s);
@@ -9878,7 +9860,7 @@ Graph3D *ApplicationWindow::openSurfacePlot(ApplicationWindow *app, const QStrin
     QString caption = fList[0];
     QString date = fList[1];
     if (date.isEmpty())
-        date = QLocale().toString(QDateTime::currentDateTime());
+        date = QLocale::c().toString(QDateTime::currentDateTime(), "dd-MM-yyyy hh:mm:ss:zzz");
 
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     fList = lst[2].split("\t", Qt::SkipEmptyParts);
@@ -11771,12 +11753,14 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
                     + "\n\n";
 #ifdef ORIGIN_IMPORT
             s += "'" + tr("file") + "_" + tr("name") + "' "
-                    + tr("can be any .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, "
+                    + tr("can be any .mkbr, .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, "
+                         ".ogg, "
                          ".org, .py or ASCII file")
                     + "\n";
 #else
             s += "'" + tr("file") + "_" + tr("name") + "' "
-                    + tr("can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file") + "\n";
+                    + tr("can be any .mkbr, .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file")
+                    + "\n";
 #endif
 #ifdef Q_OS_WIN
             hide();
@@ -12025,9 +12009,10 @@ void ApplicationWindow::appendProject(const QString &fn)
     QFileInfo fi(fn);
     workingDir = fi.absolutePath();
 
-    if (fn.contains(".sciprj") || fn.contains(".qti") || fn.contains(".opj", Qt::CaseInsensitive)
-        || fn.contains(".ogm", Qt::CaseInsensitive) || fn.contains(".ogw", Qt::CaseInsensitive)
-        || fn.contains(".ogg", Qt::CaseInsensitive) || fn.contains(".org", Qt::CaseInsensitive)) {
+    if (fn.contains(".mkbr") || fn.contains(".sciprj") || fn.contains(".qti")
+        || fn.contains(".opj", Qt::CaseInsensitive) || fn.contains(".ogm", Qt::CaseInsensitive)
+        || fn.contains(".ogw", Qt::CaseInsensitive) || fn.contains(".ogg", Qt::CaseInsensitive)
+        || fn.contains(".org", Qt::CaseInsensitive)) {
         QFileInfo f(fn);
         if (!f.exists()) {
             QMessageBox::critical(this, tr("File opening error"),
@@ -12262,32 +12247,27 @@ void ApplicationWindow::appendProject(const QString &fn)
     QApplication::restoreOverrideCursor();
 }
 
-void ApplicationWindow::rawSaveFolder(Folder *folder, QIODevice *device)
+void ApplicationWindow::rawSaveFolder(QJsonObject *jsObject, Folder *folder, QIODevice *device)
 {
-    QTextStream stream(device);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    stream.setEncoding(QStringConverter::Utf8);
-#else
-    stream.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
+    QJsonArray jsWidgets {};
     for (MyWidget *w : folder->windowsList()) {
-        auto *t = qobject_cast<Table *>(w);
-        if (t)
-            t->saveToDevice(device, windowGeometryInfo(w));
-        else
-            stream << w->saveToString(windowGeometryInfo(w));
+        QJsonObject jsWidget {};
+        w->saveToJson(&jsWidget, windowGeometryInfo(w));
+        jsWidgets.append(jsWidget);
     }
+    jsObject->insert("widgets", jsWidgets);
+
+    QJsonArray jsSubFolders {};
     for (Folder *subfolder : folder->folders()) {
-        stream << "<folder>\t" + QString(subfolder->name()) + "\t" + subfolder->birthDate() + "\t"
-                        + subfolder->modificationDate();
-        if (subfolder == current_folder)
-            stream << "\tcurrent\n";
-        else
-            stream << "\n"; // FIXME: Having no 5th string here is not a good idea
-        stream.flush();
-        rawSaveFolder(subfolder, device);
-        stream << "</folder>\n";
+        QJsonObject jsSubFolder {};
+        jsSubFolder.insert("name", subfolder->name());
+        jsSubFolder.insert("creationDate", subfolder->birthDate());
+        jsSubFolder.insert("modificationDate", subfolder->modificationDate());
+        jsSubFolder.insert("current", (subfolder == current_folder));
+        rawSaveFolder(&jsSubFolder, subfolder, device);
+        jsSubFolders.append(jsSubFolder);
     }
+    jsObject->insert("subFolders", jsSubFolders);
 }
 
 void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
@@ -12312,18 +12292,15 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
 
     QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
 
-    QTextStream t(&f);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    t.setEncoding(QStringConverter::Utf8);
-#else
-    t.setCodec(QTextCodec::codecForName("UTF-8"));
-#endif
-    t << Makhber::schemaVersion() + " project file\n";
-    t << "<scripting-lang>\t" + QString(scriptEnv->objectName()) + "\n";
-    t << "<windows>\t" + QString::number(folder->windowCount(true)) + "\n";
-    t.flush();
-    rawSaveFolder(folder, &f);
-    t << "<log>\n" + logInfo + "</log>";
+    QJsonObject jsProject {};
+    jsProject.insert("projectType", "Makhber");
+    jsProject.insert("projectVersion", Makhber::versionString());
+    jsProject.insert("scriptingLang", scriptEnv->objectName());
+    jsProject.insert("windowsCount", folder->windowCount(true));
+    jsProject.insert("log", QJsonValue(logInfo));
+    rawSaveFolder(&jsProject, folder, &f);
+    QJsonDocument jsDoc(jsProject);
+    f.write(jsDoc.toJson());
 
     // second part of secure file saving (see comment at the start of this method)
 #ifdef Q_OS_WIN
@@ -12378,8 +12355,7 @@ void ApplicationWindow::saveAsProject()
 
 void ApplicationWindow::saveFolderAsProject(Folder *f)
 {
-    QString filter = tr("Makhber project") + " (*.sciprj);;";
-    filter += tr("Compressed Makhber project") + " (*.sciprj.gz)";
+    QString filter = tr("Makhber project") + " (*.mkbr);;";
 
     QString selectedFilter;
     QString fn = QFileDialog::getSaveFileName(this, tr("Save project as"), workingDir, filter,
@@ -12388,18 +12364,10 @@ void ApplicationWindow::saveFolderAsProject(Folder *f)
         QFileInfo fi(fn);
         workingDir = fi.absolutePath();
         QString baseName = fi.fileName();
-        if (!baseName.endsWith(".sciprj") && !baseName.endsWith(".sciprj.gz")) {
-            fn.append(".sciprj");
+        if (!baseName.endsWith(".mkbr")) {
+            fn.append(".mkbr");
         }
-        bool compress = false;
-        if (fn.endsWith(".gz")) {
-            fn = fn.left(fn.length() - 3);
-            compress = true;
-        }
-
         saveFolder(f, fn);
-        if (selectedFilter.contains(".gz") || compress)
-            file_compress(QFile::encodeName(fn).constData(), "wb9");
     }
 }
 
@@ -12692,8 +12660,10 @@ void ApplicationWindow::projectProperties()
 
     if (projectname != "untitled") {
         QFileInfo fi(projectname);
-        s += tr("Created") + ": " + QLocale().toString(fi.birthTime()) + "\n\n";
-        s += tr("Modified") + ": " + QLocale().toString(fi.lastModified()) + "\n\n";
+        s += tr("Created") + ": " + QLocale::c().toString(fi.birthTime(), "dd-MM-yyyy hh:mm:ss:zzz")
+                + "\n\n";
+        s += tr("Modified") + ": "
+                + QLocale::c().toString(fi.lastModified(), "dd-MM-yyyy hh:mm:ss:zzz") + "\n\n";
     } else
         s += tr("Created") + ": " + current_folder->birthDate() + "\n\n";
 

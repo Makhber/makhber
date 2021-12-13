@@ -46,6 +46,7 @@
 #include <QVector>
 #include <QEvent>
 #include <QMap>
+#include <QJsonArray>
 
 class QwtPlotCurve;
 class QwtPlotZoomer;
@@ -198,7 +199,7 @@ public Q_SLOTS:
                  int firstColor, int startRow = 0, int endRow = -1, bool visible = true);
     void removePie();
     QString pieLegendText();
-    QString savePieCurveLayout();
+    QJsonObject savePieCurveLayout();
     //@}
 
     bool insertCurvesList(Table *w, const QStringList &names, int style, int lWidth, int sSize,
@@ -342,26 +343,26 @@ public Q_SLOTS:
 
     //! \name Saving to File
     //@{
-    QString saveToString(bool saveAsTemplate = false);
-    QString saveScale();
-    QString saveScaleTitles();
-    QString saveFonts();
-    QString saveMarkers();
-    QString saveCurveLayout(int index);
-    QString saveAxesTitleColors();
-    QString saveAxesColors();
-    QString saveEnabledAxes();
-    QString saveCanvas();
-    QString saveTitle();
-    QString saveAxesTitleAlignement();
-    QString saveEnabledTickLabels();
-    QString saveTicksType();
-    QString saveCurves();
-    QString saveLabelsFormat();
-    QString saveLabelsRotation();
-    QString saveAxesLabelsType();
-    QString saveAxesBaseline();
-    QString saveAxesFormulas();
+    void saveToJson(QJsonObject *, bool saveAsTemplate = false);
+    QJsonArray saveScale();
+    QJsonArray saveScaleTitles();
+    QJsonObject saveFonts();
+    QJsonObject saveMarkers();
+    QJsonObject saveCurveLayout(int index);
+    QJsonArray saveAxesTitleColors();
+    QJsonObject saveAxesColors();
+    QJsonArray saveEnabledAxes();
+    QJsonObject saveCanvas();
+    QJsonObject saveTitle();
+    QJsonObject saveAxesTitleAlignement();
+    QJsonArray saveEnabledTickLabels();
+    QJsonObject saveTicksType();
+    void saveCurves(QJsonObject *);
+    QJsonObject saveLabelsFormat();
+    QJsonObject saveLabelsRotation();
+    QJsonObject saveAxesLabelsType();
+    QJsonArray saveAxesBaseline();
+    QJsonArray saveAxesFormulas();
     //@}
 
     //! \name Text Markers

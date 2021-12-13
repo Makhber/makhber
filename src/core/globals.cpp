@@ -63,7 +63,7 @@ QString Makhber::schemaVersion()
 
 QString Makhber::versionString()
 {
-    return makhber_version;
+    return QString(makhber_version);
 }
 
 QString Makhber::extraVersion()

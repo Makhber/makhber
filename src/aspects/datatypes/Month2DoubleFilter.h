@@ -34,7 +34,6 @@
 #include "lib/XmlStreamReader.h"
 
 #include <QDateTime>
-#include <QXmlStreamWriter>
 
 /**
  * \brief Conversion filter QDateTime -> double, translating dates into months (January -> 1).

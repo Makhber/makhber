@@ -42,6 +42,8 @@
 #include <QList>
 #include <QMenu>
 #include <QContextMenuEvent>
+#include <QJsonObject>
+#include <QJsonArray>
 
 #include <utility>
 #include <cmath>
@@ -306,25 +308,28 @@ void TableStatistics::removeCol(const QString &col)
         }
 }
 
-QString TableStatistics::saveToString(const QString &geometry)
+void TableStatistics::saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<TableStatistics>\n";
-    s += QString(name()) + "\t";
-    s += QString(d_base->name()) + "\t";
-    s += QString(d_type == StatRow ? "row" : "col") + "\t";
-    s += birthDate() + "\n";
-    s += "Targets";
+    jsObject->insert("name", name());
+    jsObject->insert("baseName", d_base->name());
+    jsObject->insert("statRow", (d_type == StatRow ? "row" : "col"));
+    jsObject->insert("creationDate", birthDate());
+
+    QJsonArray jsTargets {};
     for (int &d_target : d_targets)
-        s += "\t" + QString::number(d_target);
-    s += "\n";
-    s += geometry;
-    s += saveHeader();
-    s += saveColumnWidths();
-    s += saveCommands();
-    s += saveColumnTypes();
-    s += saveComments();
-    s += "WindowLabel\t" + windowLabel() + "\t" + QString::number(captionPolicy()) + "\n";
-    return s + "</TableStatistics>\n";
+        jsTargets.append(d_target);
+    jsObject->insert("targets", jsTargets);
+
+    saveHeader(jsObject);
+    saveColumnWidths(jsObject);
+    saveCommands(jsObject);
+    saveColumnTypes(jsObject);
+    saveComments(jsObject);
+
+    jsObject->insert("windowLabel", windowLabel());
+    jsObject->insert("captionPolicy", captionPolicy());
+    jsObject->insert("type", "TableStatistics");
+    jsObject->insert("geometry", jsGeometry);
 }
 
 bool TableStatistics::eventFilter(QObject *watched, QEvent *event)

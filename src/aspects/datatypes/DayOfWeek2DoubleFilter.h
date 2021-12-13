@@ -34,7 +34,6 @@
 #include "lib/XmlStreamReader.h"
 
 #include <QDateTime>
-#include <QXmlStreamWriter>
 
 //! Conversion filter QDateTime -> double, translating dates into days of the week (Monday -> 1).
 class MAKHBER_EXPORT DayOfWeek2DoubleFilter : public AbstractSimpleFilter

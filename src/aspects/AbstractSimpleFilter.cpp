@@ -31,6 +31,7 @@
 #include "AbstractSimpleFilter.h"
 
 #include <QtDebug>
+#include <QJsonObject>
 
 // TODO: should simple filters have a name argument?
 AbstractSimpleFilter::AbstractSimpleFilter()
@@ -129,14 +130,11 @@ const AbstractColumn *AbstractSimpleFilter::output(int port) const
     return port == 0 ? static_cast<const AbstractColumn *>(d_output_column) : nullptr;
 }
 
-void AbstractSimpleFilter::save(QXmlStreamWriter *writer) const
+void AbstractSimpleFilter::save(QJsonObject *jsObject) const
 {
-    writer->writeStartElement("simple_filter");
-    writeBasicAttributes(writer);
-    writeExtraAttributes(writer);
-    writer->writeAttribute("filter_name", metaObject()->className());
-    writeCommentElement(writer);
-    writer->writeEndElement();
+    writeBasicAttributes(jsObject);
+    writeExtraAttributes(jsObject);
+    jsObject->insert("filterName", metaObject()->className());
 }
 
 bool AbstractSimpleFilter::load(XmlStreamReader *reader)

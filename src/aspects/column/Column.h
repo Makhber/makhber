@@ -307,7 +307,7 @@ public:
     //! \name XML related functions
     //@{
     //! Save the column as XML
-    void save(QXmlStreamWriter *writer) const override;
+    void save(QJsonObject *) const override;
     //! Load the column from XML
     bool load(XmlStreamReader *reader) override;
 

@@ -32,7 +32,7 @@
 
 #include "lib/XmlStreamReader.h"
 
-#include <QXmlStreamWriter>
+#include <QJsonObject>
 
 void DateTime2StringFilter::setFormat(const QString &format)
 {
@@ -63,9 +63,9 @@ void DateTime2StringFilterSetFormatCmd::undo()
     redo();
 }
 
-void DateTime2StringFilter::writeExtraAttributes(QXmlStreamWriter *writer) const
+void DateTime2StringFilter::writeExtraAttributes(QJsonObject *jsObject) const
 {
-    writer->writeAttribute("format", format());
+    jsObject->insert("format", format());
 }
 
 bool DateTime2StringFilter::load(XmlStreamReader *reader)

@@ -33,8 +33,6 @@
 #include "aspects/AbstractSimpleFilter.h"
 #include "lib/XmlStreamReader.h"
 
-#include <QXmlStreamWriter>
-
 /**
  * \brief Filter which copies the provided input unaltered to the output
  *

@@ -47,8 +47,8 @@ OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowF
     setWindowTitle(tr("Open Project"));
     setFileMode(ExistingFile);
     QStringList filters;
-    filters << tr("Makhber project") + " (*.sciprj)"
-            << tr("Compressed Makhber project") + " (*.sciprj.gz)"
+    filters << tr("Makhber project") + " (*.mkbr)" << tr("SciDAVis project") + " (*.sciprj)"
+            << tr("Compressed SciDAVis project") + " (*.sciprj.gz)"
             << tr("QtiPlot project") + " (*.qti)"
             << tr("Compressed QtiPlot project") + " (*.qti.gz)"
 #ifdef ORIGIN_IMPORT
@@ -56,7 +56,7 @@ OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowF
             << tr("Origin worksheet") + " (*.ogw *.OGW)" << tr("Origin graph") + " (*.ogg *.OGG)"
             << tr("Origin 3.5 project") + " (*.org *.ORG)"
 #endif
-            << tr("Backup files") + " (*.sciprj~)"
+            << tr("Backup files") + " (*.mkbr~)"
             //<< tr("Python Source") + " (*.py *.PY)"
             << tr("All files") + " (*)";
     setNameFilters(filters);

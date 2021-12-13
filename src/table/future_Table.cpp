@@ -75,6 +75,7 @@
 #include <QtDebug>
 #include <QMimeData>
 #include <QRandomGenerator>
+#include <QJsonArray>
 
 #include <climits> // for RAND_MAX
 
@@ -2190,25 +2191,27 @@ void Table::prepareAspectRemoval(AbstractAspect *aspect)
     exec(new TableRemoveColumnsCmd(d_table_private, first, 1, cols));
 }
 
-void Table::save(QXmlStreamWriter *writer) const
+void Table::save(QJsonObject *jsTable) const
 {
     int cols = columnCount();
     int rows = rowCount();
-    writer->writeStartElement("table");
-    writeBasicAttributes(writer);
-    writer->writeAttribute("columns", QString::number(cols));
-    writer->writeAttribute("rows", QString::number(rows));
-    writeCommentElement(writer);
+    writeBasicAttributes(jsTable);
+    jsTable->insert("rows", rows);
+    writeCommentElement(jsTable);
 
-    for (int col = 0; col < cols; col++)
-        column(col)->save(writer);
+    QJsonArray jsColumns {};
     for (int col = 0; col < cols; col++) {
-        writer->writeStartElement("column_width");
-        writer->writeAttribute("column", QString::number(col));
-        writer->writeCharacters(QString::number(columnWidth(col)));
-        writer->writeEndElement();
+        QJsonObject jsColumn {};
+        column(col)->save(&jsColumn);
+        jsColumns.append(jsColumn);
     }
-    writer->writeEndElement(); // "table"
+    jsTable->insert("columns", jsColumns);
+
+    QJsonArray jsWidths {};
+    for (int col = 0; col < cols; col++) {
+        jsWidths.append(columnWidth(col));
+    }
+    jsTable->insert("widths", jsWidths);
 }
 
 bool Table::load(XmlStreamReader *reader)

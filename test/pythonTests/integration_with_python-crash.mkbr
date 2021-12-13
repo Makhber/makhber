@@ -1,0 +1,727 @@
+{
+    "log": "[11/24/17 11:51 AM\tPlot: ''Graph1'']\n\nNumerical integration of: Table1_2 using LinearInterpolation\nPoints: 30 from x = 1 to x = 30\nPeak at x = 30\ty = 0.99779442\nArea=10.235892\n-------------------------------------------------------------\n[11/24/17 11:56 AM\tPlot: ''Graph1'']\n\nNumerical integration of: Table1_2 using LinearInterpolation\nPoints: 30 from x = 1 to x = 30\nPeak at x = 30\ty = 0.99779442\nArea=10.235892\n-------------------------------------------------------------\n[11/24/17 12:00 PM\tPlot: ''Graph1'']\n\nNumerical integration of: Table1_2 using LinearInterpolation\nPoints: 30 from x = 1 to x = 30\nPeak at x = 30\ty = 0.99779442\nArea=10.235892\n-------------------------------------------------------------\n",
+    "projectType": "Makhber",
+    "projectVersion": "0.10.0",
+    "scriptingLang": "Python",
+    "subFolders": [
+    ],
+    "widgets": [
+        {
+            "captionSpec": "%n%C{ - }%c",
+            "columns": [
+                {
+                    "captionSpec": "%n%C{ - }%c",
+                    "columnDataType": "TypeDouble",
+                    "comment": "",
+                    "creationDate": "29-01-2022 20:27:49:005",
+                    "data": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30
+                    ],
+                    "formulas": [
+                    ],
+                    "inputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:49:007",
+                        "filterName": "String2DoubleFilter",
+                        "name": "InputFilter"
+                    },
+                    "masks": [
+                    ],
+                    "mode": "Numeric",
+                    "name": "1",
+                    "outputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:49:007",
+                        "digits": 8,
+                        "filterName": "Double2StringFilter",
+                        "format": "g",
+                        "name": "OutputFilter"
+                    },
+                    "plotDesignation": "X",
+                    "type": "TypeDouble"
+                },
+                {
+                    "captionSpec": "%n%C{ - }%c",
+                    "columnDataType": "TypeDouble",
+                    "comment": "",
+                    "creationDate": "29-01-2022 20:27:49:008",
+                    "data": [
+                        0.014354381716975189,
+                        0.016151681549917758,
+                        0.030618602424216736,
+                        0.03982471816233579,
+                        0.04752598146327119,
+                        0.07019288282384764,
+                        0.08019867263743592,
+                        0.08308465922394985,
+                        0.16799374351650184,
+                        0.17409568707183734,
+                        0.19595783119832996,
+                        0.24764281615970787,
+                        0.2594236416087596,
+                        0.26703080361105075,
+                        0.27758666606507576,
+                        0.29014404830063883,
+                        0.3006681796632093,
+                        0.4161810429842123,
+                        0.41994004203935154,
+                        0.4212570131855351,
+                        0.4492818049384662,
+                        0.4585093327139082,
+                        0.527073317918495,
+                        0.5880199175272229,
+                        0.6547546128997368,
+                        0.7718934071119379,
+                        0.8041784878839638,
+                        0.8096106330908884,
+                        0.8609776552119188,
+                        0.9977944181290429
+                    ],
+                    "formulas": [
+                    ],
+                    "inputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:49:008",
+                        "filterName": "String2DoubleFilter",
+                        "name": "InputFilter"
+                    },
+                    "masks": [
+                    ],
+                    "mode": "Numeric",
+                    "name": "2",
+                    "outputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:49:008",
+                        "digits": 8,
+                        "filterName": "Double2StringFilter",
+                        "format": "g",
+                        "name": "OutputFilter"
+                    },
+                    "plotDesignation": "Y",
+                    "type": "TypeDouble"
+                }
+            ],
+            "comment": "",
+            "creationDate": "",
+            "geometry": {
+                "active": false,
+                "height": 367,
+                "hidden": false,
+                "maximized": false,
+                "minimized": false,
+                "width": 558,
+                "x": 29,
+                "y": 17
+            },
+            "name": "Table1",
+            "rows": 30,
+            "type": "Table",
+            "widths": [
+                120,
+                120
+            ]
+        },
+        {
+            "captionSpec": "%n%C{ - }%c",
+            "columns": [
+                {
+                    "captionSpec": "%n%C{ - }%c",
+                    "columnDataType": "TypeDouble",
+                    "comment": "",
+                    "creationDate": "29-01-2022 20:27:51:088",
+                    "data": [
+                        1,
+                        2,
+                        3,
+                        4,
+                        5,
+                        6,
+                        7,
+                        8,
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21,
+                        22,
+                        23,
+                        24,
+                        25,
+                        26,
+                        27,
+                        28,
+                        29,
+                        30
+                    ],
+                    "formulas": [
+                    ],
+                    "inputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:51:088",
+                        "filterName": "String2DoubleFilter",
+                        "name": "InputFilter"
+                    },
+                    "masks": [
+                    ],
+                    "mode": "Numeric",
+                    "name": "1",
+                    "outputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:51:088",
+                        "digits": 8,
+                        "filterName": "Double2StringFilter",
+                        "format": "g",
+                        "name": "OutputFilter"
+                    },
+                    "plotDesignation": "X",
+                    "type": "TypeDouble"
+                },
+                {
+                    "captionSpec": "%n%C{ - }%c",
+                    "columnDataType": "TypeDouble",
+                    "comment": "",
+                    "creationDate": "29-01-2022 20:27:51:094",
+                    "data": [
+                        0,
+                        0.015253031633446473,
+                        0.03863817362051372,
+                        0.07385983391378999,
+                        0.11753518372659348,
+                        0.1763946158701529,
+                        0.25159039360079466,
+                        0.33323205953148755,
+                        0.4587712609017134,
+                        0.629815976195883,
+                        0.8148427353309666,
+                        1.0366430590099855,
+                        1.2901762878942193,
+                        1.5534035105041246,
+                        1.825712245342188,
+                        2.1095776025250452,
+                        2.4049837165069694,
+                        2.76340832783068,
+                        3.181468870342462,
+                        3.6020673979549054,
+                        4.0373368070169064,
+                        4.491232375843094,
+                        4.984023701159296,
+                        5.541570318882155,
+                        6.1629575840956345,
+                        6.876281594101472,
+                        7.664317541599423,
+                        8.471212102086849,
+                        9.306506246238252,
+                        10.235892282908733
+                    ],
+                    "formulas": [
+                    ],
+                    "inputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:51:094",
+                        "filterName": "String2DoubleFilter",
+                        "name": "InputFilter"
+                    },
+                    "masks": [
+                    ],
+                    "mode": "Numeric",
+                    "name": "2",
+                    "outputFilter": {
+                        "captionSpec": "%n%C{ - }%c",
+                        "creationDate": "29-01-2022 20:27:51:094",
+                        "digits": 8,
+                        "filterName": "Double2StringFilter",
+                        "format": "g",
+                        "name": "OutputFilter"
+                    },
+                    "plotDesignation": "Y",
+                    "type": "TypeDouble"
+                }
+            ],
+            "comment": "",
+            "creationDate": "",
+            "geometry": {
+                "active": false,
+                "height": 367,
+                "hidden": false,
+                "maximized": false,
+                "minimized": false,
+                "width": 558,
+                "x": 431,
+                "y": 0
+            },
+            "name": "Integration1",
+            "rows": 30,
+            "type": "Table",
+            "widths": [
+                120,
+                120
+            ]
+        },
+        {
+            "WindowLabel": "",
+            "alignement": {
+                "horAlign": 0,
+                "vertAlign": 0
+            },
+            "captionPolicy": 2,
+            "cols": 1,
+            "creationDate": "11/24/17 11:50 AM",
+            "geometry": {
+                "active": true,
+                "height": 428,
+                "hidden": false,
+                "maximized": false,
+                "minimized": false,
+                "width": 508,
+                "x": 72,
+                "y": 46
+            },
+            "graphs": [
+                {
+                    "alpha": 255,
+                    "antialiasing": false,
+                    "axesBaseline": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ],
+                    "axesColors": {
+                        "colors": [
+                            "#ff000000",
+                            "#ff000000",
+                            "#ff000000",
+                            "#ff000000"
+                        ],
+                        "numberColors": [
+                            "#ff1f1c1b",
+                            "#ff1f1c1b",
+                            "#ff1f1c1b",
+                            "#ff1f1c1b"
+                        ]
+                    },
+                    "axesFormulas": [
+                        "",
+                        "",
+                        "",
+                        ""
+                    ],
+                    "axesLabelsType": {
+                        "formatInfo": [
+                            "",
+                            "",
+                            "",
+                            ""
+                        ],
+                        "types": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ]
+                    },
+                    "axesLineWidth": 0,
+                    "axesTitles": {
+                        "alignment": {
+                            "alignHCenter": [
+                                4,
+                                4,
+                                4,
+                                4
+                            ],
+                            "renderFlags": [
+                                5124,
+                                5124,
+                                5124,
+                                5124
+                            ]
+                        },
+                        "colors": [
+                            "#ff000000",
+                            "#ff000000",
+                            "#ff000000",
+                            "#ff000000"
+                        ],
+                        "scale": [
+                            "X Axis Title",
+                            "Y Axis Title",
+                            "",
+                            ""
+                        ]
+                    },
+                    "background": "#ffffffff",
+                    "border": {
+                        "frameColor": "#ff221f1e",
+                        "lineWidth": 0
+                    },
+                    "canvas": {
+                        "alpha": 255,
+                        "canvasBackground": "#ffffffff"
+                    },
+                    "curves": [
+                        {
+                            "curveLayout": {
+                                "brushColor": "#ff000000",
+                                "brushStyle": 0,
+                                "capStyle": 0,
+                                "curveStyle": -1,
+                                "customDash": [
+                                ],
+                                "filled": false,
+                                "joinStyle": 64,
+                                "pen": {
+                                    "color": "#ff000000",
+                                    "style": 0,
+                                    "width": 1
+                                },
+                                "penWidth": 1,
+                                "style": 1,
+                                "symbol": {
+                                    "brushColor": "#ff000000",
+                                    "penColor": "#ff000000",
+                                    "style": 1,
+                                    "width": 7
+                                }
+                            },
+                            "curveType": "Data",
+                            "endRow": 29,
+                            "startRow": 0,
+                            "title": "Table1_2",
+                            "visible": true,
+                            "xAxis": 2,
+                            "xColumnName": "Table1_1",
+                            "yAxis": 0
+                        },
+                        {
+                            "curveLayout": {
+                                "brushColor": "#ff000000",
+                                "brushStyle": 0,
+                                "capStyle": 0,
+                                "curveStyle": 1,
+                                "customDash": [
+                                ],
+                                "filled": false,
+                                "joinStyle": 64,
+                                "pen": {
+                                    "color": "#ffff0000",
+                                    "style": 0,
+                                    "width": 1
+                                },
+                                "penWidth": 0,
+                                "style": 0,
+                                "symbol": {
+                                    "brushColor": "#ffa0a0a4",
+                                    "penColor": "#ff000000",
+                                    "style": 0,
+                                    "width": 0
+                                }
+                            },
+                            "curveType": "Data",
+                            "endRow": 29,
+                            "startRow": 0,
+                            "title": "Integration1_2",
+                            "visible": true,
+                            "xAxis": 2,
+                            "xColumnName": "Integration1_1",
+                            "yAxis": 0
+                        }
+                    ],
+                    "drawAxesBackbone": true,
+                    "enabledAxes": [
+                        true,
+                        true,
+                        true,
+                        true
+                    ],
+                    "enabledTickLabels": [
+                        "1",
+                        "1",
+                        "1",
+                        "1"
+                    ],
+                    "fonts": {
+                        "axesFonts": [
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 12,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 50
+                            },
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 12,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 50
+                            },
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 12,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 50
+                            },
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 12,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 50
+                            }
+                        ],
+                        "scaleFonts": [
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 14,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 75
+                            },
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 14,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 75
+                            },
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 14,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 75
+                            },
+                            {
+                                "family": "Arial",
+                                "italic": false,
+                                "pointSize": 14,
+                                "strikeout": false,
+                                "underline": false,
+                                "weight": 75
+                            }
+                        ],
+                        "titleFont": {
+                            "family": "Arial",
+                            "italic": false,
+                            "pointSize": 14,
+                            "strikeout": false,
+                            "underline": false,
+                            "weight": 75
+                        }
+                    },
+                    "geometry": {
+                        "height": 370,
+                        "width": 490,
+                        "x": 5,
+                        "y": 5
+                    },
+                    "grid": {
+                        "majPenX": {
+                            "color": "#0000ff",
+                            "style": 0,
+                            "width": 0
+                        },
+                        "majPenY": {
+                            "color": "#0000ff",
+                            "style": 0,
+                            "width": 0
+                        },
+                        "minPenX": {
+                            "color": "#a0a0a4",
+                            "style": 2,
+                            "width": 0
+                        },
+                        "minPenY": {
+                            "color": "#a0a0a4",
+                            "style": 2,
+                            "width": 0
+                        },
+                        "xAxis": 2,
+                        "xEnabled": false,
+                        "xMinEnabled": false,
+                        "xZeroLineEnabled": false,
+                        "yAxis": 0,
+                        "yEnabled": false,
+                        "yMinEnabled": false,
+                        "yZeroLineEnabled": false
+                    },
+                    "labelsFormat": {
+                        "formats": [
+                            0,
+                            0,
+                            0,
+                            0
+                        ],
+                        "precisions": [
+                            4,
+                            4,
+                            4,
+                            4
+                        ]
+                    },
+                    "labelsRotation": {
+                        "xBottom": 0,
+                        "xTop": 3
+                    },
+                    "majorTickLength": 9,
+                    "markers": {
+                        "images": [
+                        ],
+                        "lines": [
+                        ],
+                        "texts": [
+                            {
+                                "alpha": 0,
+                                "angle": 0,
+                                "backgroundColor": "#00ffffff",
+                                "font": {
+                                    "family": "Arial",
+                                    "italic": false,
+                                    "pointSize": 12,
+                                    "strikeout": false,
+                                    "underline": false,
+                                    "weight": 50
+                                },
+                                "fromeStyle": 1,
+                                "textColor": "#ff000000",
+                                "textList": [
+                                    "\\c{1}Table1_2",
+                                    "\\c{2}Integration1_2"
+                                ],
+                                "type": "legend",
+                                "xValue": 0.938337801608579,
+                                "yValue": 11.3790322580645
+                            }
+                        ]
+                    },
+                    "minorTickLength": 5,
+                    "plotTitle": {
+                        "color": "#ff000000",
+                        "renderFlags": 4228,
+                        "text": "Title"
+                    },
+                    "scale": [
+                        {
+                            "axis": 0,
+                            "inverted": false,
+                            "maxBound": 12,
+                            "maxMajor": 8,
+                            "maxMinor": 5,
+                            "minBound": -2,
+                            "step": 0,
+                            "transformation": 0
+                        },
+                        {
+                            "axis": 1,
+                            "inverted": false,
+                            "maxBound": 12,
+                            "maxMajor": 8,
+                            "maxMinor": 5,
+                            "minBound": -2,
+                            "step": 0,
+                            "transformation": 0
+                        },
+                        {
+                            "axis": 2,
+                            "inverted": false,
+                            "maxBound": 35,
+                            "maxMajor": 8,
+                            "maxMinor": 5,
+                            "minBound": 0,
+                            "step": 0,
+                            "transformation": 0
+                        },
+                        {
+                            "axis": 3,
+                            "inverted": false,
+                            "maxBound": 35,
+                            "maxMajor": 8,
+                            "maxMinor": 5,
+                            "minBound": 0,
+                            "step": 0,
+                            "transformation": 0
+                        }
+                    ],
+                    "ticksType": {
+                        "majorTicks": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ],
+                        "minorTicks": [
+                            1,
+                            1,
+                            1,
+                            1
+                        ]
+                    },
+                    "type": "Graph"
+                }
+            ],
+            "layerCanvasSize": {
+                "canvasHeight": 262,
+                "canvasWidth": 380
+            },
+            "margins": {
+                "bottomMargin": 5,
+                "leftMargin": 5,
+                "rightMargin": 5,
+                "topMargin": 5
+            },
+            "name": "Graph1",
+            "rows": 1,
+            "spacing": {
+                "colsSpace": 5,
+                "rowsSpace": 5
+            },
+            "type": "MultiLayer"
+        }
+    ],
+    "windowsCount": 3
+}

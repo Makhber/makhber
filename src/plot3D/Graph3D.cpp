@@ -50,6 +50,7 @@
 #include <QDateTime>
 #include <QCursor>
 #include <QImageWriter>
+#include <QJsonArray>
 
 #include <fstream>
 #include <stdexcept>
@@ -94,7 +95,7 @@ void Graph3D::initPlot()
     plotAssociation = QString();
 
     QDateTime dt = QDateTime::currentDateTime();
-    setBirthDate(QLocale().toString(dt));
+    setBirthDate(QLocale::c().toString(dt, "dd-MM-yyyy hh:mm:ss:zzz"));
 
     color_map = QString();
     animation_redraw_wait = 50;
@@ -2334,185 +2335,174 @@ QString Graph3D::formula()
         return plotAssociation;
 }
 
-QString Graph3D::saveToString(const QString &geometry)
+void Graph3D::saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<SurfacePlot>\n";
-    s += QString(name()) + "\t";
-    s += birthDate() + "\n";
-    s += geometry;
-    s += "SurfaceFunction\t";
+    jsObject->insert("name", name());
+    jsObject->insert("creationDate", birthDate());
 
     sp->makeCurrent();
     if (func)
-        s += func->function() + "\t";
+        jsObject->insert("surfaceFunction", func->function());
     else {
-        s += plotAssociation;
-        s += "\t";
+        jsObject->insert("surfaceFunction", plotAssociation);
     }
 
     double start = NAN, stop = NAN;
     sp->coordinates()->axes[Qwt3D::X1].limits(start, stop);
-    s += QString::number(start) + "\t";
-    s += QString::number(stop) + "\t";
+    jsObject->insert("xStart", start);
+    jsObject->insert("xStop", stop);
     sp->coordinates()->axes[Qwt3D::Y1].limits(start, stop);
-    s += QString::number(start) + "\t";
-    s += QString::number(stop) + "\t";
+    jsObject->insert("yStart", start);
+    jsObject->insert("yStop", stop);
     sp->coordinates()->axes[Qwt3D::Z1].limits(start, stop);
-    s += QString::number(start) + "\t";
-    s += QString::number(stop) + "\n";
+    jsObject->insert("zStart", start);
+    jsObject->insert("zStop", stop);
 
-    QString st;
+    QJsonObject jsStyle {};
     if (sp->coordinates()->style() == Qwt3D::NOCOORD)
-        st = "nocoord";
+        jsStyle.insert("coordinateStyle", "nocoord");
     else if (sp->coordinates()->style() == Qwt3D::BOX)
-        st = "box";
+        jsStyle.insert("coordinateStyle", "box");
     else
-        st = "frame";
-    s += "Style\t" + st + "\t";
+        jsStyle.insert("coordinateStyle", "frame");
 
     switch (sp->floorStyle()) {
     case Qwt3D::NOFLOOR:
-        st = "nofloor";
+        jsStyle.insert("floorStyle", "nofloor");
         break;
 
     case Qwt3D::FLOORISO:
-        st = "flooriso";
+        jsStyle.insert("floorStyle", "flooriso");
         break;
 
     case Qwt3D::FLOORDATA:
-        st = "floordata";
+        jsStyle.insert("floorStyle", "floordata");
         break;
     }
-    s += st + "\t";
 
     switch (sp->plotStyle()) {
     case Qwt3D::USER:
-        if (pointStyle == VerticalBars)
-            st = "bars\t" + QString::number(barsRad);
-        else if (pointStyle == Dots) {
-            st = "points\t" + QString::number(pointSize);
-            st += "\t" + QString::number(smooth);
+        jsStyle.insert("plotStyle", "user");
+        if (pointStyle == VerticalBars) {
+            jsStyle.insert("pointStyle", "bars");
+            jsStyle.insert("barsRad", barsRad);
+        } else if (pointStyle == Dots) {
+            jsStyle.insert("pointStyle", "points");
+            jsStyle.insert("pointSize", pointSize);
+            jsStyle.insert("smooth", smooth);
         } else if (pointStyle == Cones) {
-            st = "cones\t" + QString::number(conesRad);
-            st += "\t" + QString::number(conesQuality);
+            jsStyle.insert("pointStyle", "cones");
+            jsStyle.insert("conesRad", conesRad);
+            jsStyle.insert("conesQuality", conesQuality);
         } else if (pointStyle == HairCross) {
-            st = "cross\t" + QString::number(crossHairRad);
-            st += "\t" + QString::number(crossHairLineWidth);
-            st += "\t" + QString::number(crossHairSmooth);
-            st += "\t" + QString::number(crossHairBoxed);
+            jsStyle.insert("pointStyle", "cross");
+            jsStyle.insert("crossHairRad", crossHairRad);
+            jsStyle.insert("crossHairLineWidth", crossHairLineWidth);
+            jsStyle.insert("crossHairSmooth", crossHairSmooth);
+            jsStyle.insert("crossHairBoxed", crossHairBoxed);
         }
         break;
 
     case Qwt3D::WIREFRAME:
-        st = "wireframe";
+        jsStyle.insert("plotStyle", "wireframe");
         break;
 
     case Qwt3D::HIDDENLINE:
-        st = "hiddenline";
+        jsStyle.insert("plotStyle", "hiddenline");
         break;
 
     case Qwt3D::FILLED:
-        st = "filled";
+        jsStyle.insert("plotStyle", "filled");
         break;
 
     case Qwt3D::FILLEDMESH:
-        st = "filledmesh";
+        jsStyle.insert("plotStyle", "filledmesh");
         break;
 
     default:;
     }
-    s += st + "\n";
+    jsObject->insert("style", jsStyle);
 
-    s += "grids\t";
-    s += QString::number(sp->coordinates()->grids()) + "\n";
+    jsObject->insert("grids", sp->coordinates()->grids());
 
-    s += "title\t";
-    s += title + "\t";
-    s += COLORNAME(titleCol) + "\t";
-    s += titleFnt.family() + "\t";
-    s += QString::number(titleFnt.pointSize()) + "\t";
-    s += QString::number(titleFnt.weight()) + "\t";
-    s += QString::number(titleFnt.italic()) + "\n";
+    jsObject->insert("title", title);
+    jsObject->insert("titleColor", COLORNAME(titleCol));
+    QJsonObject jsTitleFont {};
+    jsTitleFont.insert("family", titleFnt.family());
+    jsTitleFont.insert("pointSize", titleFnt.pointSize());
+    jsTitleFont.insert("weight", titleFnt.weight());
+    jsTitleFont.insert("italic", titleFnt.italic());
+    jsObject->insert("titleFont", jsTitleFont);
 
-    s += "colors\t";
-    s += COLORNAME(meshCol) + "\t";
-    s += COLORNAME(axesCol) + "\t";
-    s += COLORNAME(numCol) + "\t";
-    s += COLORNAME(labelsCol) + "\t";
-    s += COLORNAME(bgCol) + "\t";
-    s += COLORNAME(gridCol) + "\t";
-    s += COLORNAME(fromColor) + "\t";
-    s += COLORNAME(toColor) + "\t";
-    s += QString::number(alpha) + "\t" + color_map + "\n";
+    QJsonObject jsColors {};
+    jsColors.insert("meshColor", COLORNAME(meshCol));
+    jsColors.insert("axesColor", COLORNAME(axesCol));
+    jsColors.insert("numColor", COLORNAME(numCol));
+    jsColors.insert("labelsColor", COLORNAME(labelsCol));
+    jsColors.insert("bgColor", COLORNAME(bgCol));
+    jsColors.insert("gridColor", COLORNAME(gridCol));
+    jsColors.insert("fromColor", COLORNAME(fromColor));
+    jsColors.insert("toColor", COLORNAME(toColor));
+    jsColors.insert("alpha", alpha);
+    jsColors.insert("colorMap", color_map);
+    jsObject->insert("colors", jsColors);
 
-    s += "axesLabels\t";
-    s += labels.join("\t") + "\n";
+    jsObject->insert("axesLabels", QJsonArray::fromStringList(labels));
+    jsObject->insert("scaleTicks", QJsonArray::fromStringList(scaleTicks()));
+    jsObject->insert("tickLengths", QJsonArray::fromStringList(axisTickLengths()));
 
-    s += "tics\t";
-    QStringList tl = scaleTicks();
-    s += tl.join("\t") + "\n";
+    QJsonObject jsOptions {};
+    jsOptions.insert("legendOn", legendOn);
+    jsOptions.insert("resolution", sp->resolution());
+    jsOptions.insert("labelsDist", labelsDist);
+    jsObject->insert("options", jsOptions);
 
-    s += "tickLengths\t";
-    tl = axisTickLengths();
-    s += tl.join("\t") + "\n";
-
-    s += "options\t";
-    s += QString::number(legendOn) + "\t";
-    s += QString::number(sp->resolution()) + "\t";
-    s += QString::number(labelsDist) + "\n";
-
-    s += "numbersFont\t";
     QFont fnt = sp->coordinates()->axes[Qwt3D::X1].numberFont();
-    s += fnt.family() + "\t";
-    s += QString::number(fnt.pointSize()) + "\t";
-    s += QString::number(fnt.weight()) + "\t";
-    s += QString::number(fnt.italic()) + "\n";
+    QJsonObject jsNumberFont;
+    jsNumberFont.insert("family", fnt.family());
+    jsNumberFont.insert("pointSize", fnt.pointSize());
+    jsNumberFont.insert("weight", fnt.weight());
+    jsNumberFont.insert("italic", fnt.italic());
+    jsObject->insert("numbersFont", jsNumberFont);
 
-    s += "xAxisLabelFont\t";
     fnt = sp->coordinates()->axes[Qwt3D::X1].labelFont();
-    s += fnt.family() + "\t";
-    s += QString::number(fnt.pointSize()) + "\t";
-    s += QString::number(fnt.weight()) + "\t";
-    s += QString::number(fnt.italic()) + "\n";
+    QJsonObject jsXLabelFont;
+    jsXLabelFont.insert("family", fnt.family());
+    jsXLabelFont.insert("pointSize", fnt.pointSize());
+    jsXLabelFont.insert("weight", fnt.weight());
+    jsXLabelFont.insert("italic", fnt.italic());
+    jsObject->insert("xAxisLabelFont", jsXLabelFont);
 
-    s += "yAxisLabelFont\t";
     fnt = sp->coordinates()->axes[Qwt3D::Y1].labelFont();
-    s += fnt.family() + "\t";
-    s += QString::number(fnt.pointSize()) + "\t";
-    s += QString::number(fnt.weight()) + "\t";
-    s += QString::number(fnt.italic()) + "\n";
+    QJsonObject jsYLabelFont;
+    jsYLabelFont.insert("family", fnt.family());
+    jsYLabelFont.insert("pointSize", fnt.pointSize());
+    jsYLabelFont.insert("weight", fnt.weight());
+    jsYLabelFont.insert("italic", fnt.italic());
+    jsObject->insert("yAxisLabelFont", jsYLabelFont);
 
-    s += "zAxisLabelFont\t";
     fnt = sp->coordinates()->axes[Qwt3D::Z1].labelFont();
-    s += fnt.family() + "\t";
-    s += QString::number(fnt.pointSize()) + "\t";
-    s += QString::number(fnt.weight()) + "\t";
-    s += QString::number(fnt.italic()) + "\n";
+    QJsonObject jsZLabelFont;
+    jsZLabelFont.insert("family", fnt.family());
+    jsZLabelFont.insert("pointSize", fnt.pointSize());
+    jsZLabelFont.insert("weight", fnt.weight());
+    jsZLabelFont.insert("italic", fnt.italic());
+    jsObject->insert("zAxisLabelFont", jsZLabelFont);
 
-    s += "rotation\t";
-    s += QString::number(sp->xRotation()) + "\t";
-    s += QString::number(sp->yRotation()) + "\t";
-    s += QString::number(sp->zRotation()) + "\n";
+    jsObject->insert("rotation", QJsonArray({ sp->xRotation(), sp->yRotation(), sp->zRotation() }));
 
-    s += "zoom\t";
-    s += QString::number(sp->zoom()) + "\n";
+    jsObject->insert("zoom", sp->zoom());
 
-    s += "scaling\t";
-    s += QString::number(sp->xScale()) + "\t";
-    s += QString::number(sp->yScale()) + "\t";
-    s += QString::number(sp->zScale()) + "\n";
+    jsObject->insert("scale", QJsonArray({ sp->xScale(), sp->yScale(), sp->zScale() }));
 
-    s += "shift\t";
-    s += QString::number(sp->xShift()) + "\t";
-    s += QString::number(sp->yShift()) + "\t";
-    s += QString::number(sp->zShift()) + "\n";
+    jsObject->insert("shift", QJsonArray({ sp->xShift(), sp->yShift(), sp->zShift() }));
 
-    s += "LineWidth\t";
-    s += QString::number(sp->meshLineWidth()) + "\n";
-    s += "WindowLabel\t" + windowLabel() + "\t" + QString::number(captionPolicy()) + "\n";
-    s += "Orthogonal\t" + QString::number(sp->ortho()) + "\n";
-    s += "</SurfacePlot>\n";
-    return s;
+    jsObject->insert("lineWidth", sp->meshLineWidth());
+    jsObject->insert("windowLabel", windowLabel());
+    jsObject->insert("captionPolicy", captionPolicy());
+    jsObject->insert("orthogonal", sp->ortho());
+    jsObject->insert("geometry", jsGeometry);
+    jsObject->insert("type", "SurfacePlot");
 }
 
 void Graph3D::showColorLegend(bool show)
@@ -2737,18 +2727,10 @@ void Graph3D::setSmoothMesh(bool smooth)
     sp->update();
 }
 
-QString Graph3D::saveAsTemplate(const QString &geometryInfo)
+void Graph3D::saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = saveToString(geometryInfo);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    QStringList lst = s.split("\n", Qt::SkipEmptyParts);
-#else
-    QStringList lst = s.split("\n", QString::SkipEmptyParts);
-#endif
-    QStringList l = lst[3].split("\t");
-    l[1] = QString();
-    lst[3] = l.join("\t");
-    return lst.join("\n");
+    saveToJson(jsObject, jsGeometry);
+    jsObject->insert("templateType", "SurfacePlot");
 }
 
 /*!

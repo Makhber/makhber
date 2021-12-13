@@ -38,6 +38,7 @@
 #include <qwt_scale_map.h>
 
 #include <QPainter>
+#include <QJsonObject>
 
 Grid::Grid() : QwtPlotGrid(), mrkX(-1), mrkY(-1)
 {
@@ -252,33 +253,39 @@ void Grid::copy(Grid *grid)
     enableZeroLineY(grid->yZeroLineEnabled());
 }
 
-QString Grid::saveToString()
+void Grid::saveToJson(QJsonObject *jsObject)
 {
-    QString s = "grid\t";
-    s += QString::number(xEnabled()) + "\t";
-    s += QString::number(xMinEnabled()) + "\t";
-    s += QString::number(yEnabled()) + "\t";
-    s += QString::number(yMinEnabled()) + "\t";
+    jsObject->insert("xEnabled", xEnabled());
+    jsObject->insert("xMinEnabled", xMinEnabled());
+    jsObject->insert("yEnabled", yEnabled());
+    jsObject->insert("yMinEnabled", yMinEnabled());
 
-    s += COLORNAME(majPenX().color()) + "\t";
-    s += QString::number(majPenX().style() - 1) + "\t";
-    s += QString::number(majPenX().width()) + "\t";
+    QJsonObject jsMajPenX {};
+    jsMajPenX.insert("color", majPenX().color().name());
+    jsMajPenX.insert("style", majPenX().style() - 1);
+    jsMajPenX.insert("width", majPenX().width());
+    jsObject->insert("majPenX", jsMajPenX);
 
-    s += COLORNAME(minPenX().color()) + "\t";
-    s += QString::number(minPenX().style() - 1) + "\t";
-    s += QString::number(minPenX().width()) + "\t";
+    QJsonObject jsMinPenX {};
+    jsMinPenX.insert("color", minPenX().color().name());
+    jsMinPenX.insert("style", minPenX().style() - 1);
+    jsMinPenX.insert("width", minPenX().width());
+    jsObject->insert("minPenX", jsMinPenX);
 
-    s += COLORNAME(majPenY().color()) + "\t";
-    s += QString::number(majPenY().style() - 1) + "\t";
-    s += QString::number(majPenY().width()) + "\t";
+    QJsonObject jsMajPenY {};
+    jsMajPenY.insert("color", majPenY().color().name());
+    jsMajPenY.insert("style", majPenY().style() - 1);
+    jsMajPenY.insert("width", majPenY().width());
+    jsObject->insert("majPenY", jsMajPenY);
 
-    s += COLORNAME(minPenY().color()) + "\t";
-    s += QString::number(minPenY().style() - 1) + "\t";
-    s += QString::number(minPenY().width()) + "\t";
+    QJsonObject jsMinPenY {};
+    jsMinPenY.insert("color", minPenY().color().name());
+    jsMinPenY.insert("style", minPenY().style() - 1);
+    jsMinPenY.insert("width", minPenY().width());
+    jsObject->insert("minPenY", jsMinPenY);
 
-    s += QString::number(xZeroLineEnabled()) + "\t";
-    s += QString::number(yZeroLineEnabled()) + "\t";
-    s += QString::number(xAxis()) + "\t";
-    s += QString::number(yAxis()) + "\n";
-    return s;
+    jsObject->insert("xZeroLineEnabled", xZeroLineEnabled());
+    jsObject->insert("yZeroLineEnabled", yZeroLineEnabled());
+    jsObject->insert("xAxis", xAxis());
+    jsObject->insert("yAxis", yAxis());
 }

@@ -34,8 +34,9 @@
 #include "lib/XmlStreamReader.h"
 
 #include <QIcon>
-#include <QXmlStreamWriter>
 #include <QtDebug>
+#include <QJsonObject>
+#include <QJsonArray>
 
 Column::Column(const QString &name, Makhber::ColumnMode mode) : AbstractColumn(name)
 {
@@ -285,83 +286,77 @@ QIcon Column::icon() const
     return QIcon();
 }
 
-void Column::save(QXmlStreamWriter *writer) const
+void Column::save(QJsonObject *jsObject) const
 {
-    writer->writeStartElement("column");
-    writeBasicAttributes(writer);
-    writer->writeAttribute("type", Makhber::enumValueToString(dataType(), "ColumnDataType"));
-    writer->writeAttribute(
-            "mode", Makhber::enumValueToString(static_cast<int>(columnMode()), "ColumnMode"));
-    writer->writeAttribute("plot_designation",
-                           Makhber::enumValueToString(plotDesignation(), "PlotDesignation"));
-    writeCommentElement(writer);
-    writer->writeStartElement("input_filter");
-    d_column_private->inputFilter()->save(writer);
-    writer->writeEndElement();
-    writer->writeStartElement("output_filter");
-    outputFilter()->save(writer);
-    writer->writeEndElement();
+    writeBasicAttributes(jsObject);
+    jsObject->insert("type", Makhber::enumValueToString(dataType(), "ColumnDataType"));
+    jsObject->insert("mode",
+                     Makhber::enumValueToString(static_cast<int>(columnMode()), "ColumnMode"));
+    jsObject->insert("plotDesignation",
+                     Makhber::enumValueToString(plotDesignation(), "PlotDesignation"));
+
+    writeCommentElement(jsObject);
+
+    QJsonObject jsInput {};
+    d_column_private->inputFilter()->save(&jsInput);
+    jsObject->insert("inputFilter", jsInput);
+
+    QJsonObject jsOutput {};
+    outputFilter()->save(&jsOutput);
+    jsObject->insert("outputFilter", jsOutput);
+
     QList<Interval<int>> masks = maskedIntervals();
+    QJsonArray jsMasks {};
     for (Interval<int> interval : masks) {
-        writer->writeStartElement("mask");
-        writer->writeAttribute("start_row", QString::number(interval.start()));
-        writer->writeAttribute("end_row", QString::number(interval.end()));
-        writer->writeEndElement();
+        QJsonObject jsMask {};
+        jsMask.insert("startRow", interval.start());
+        jsMask.insert("endRow", interval.end());
+        jsMasks.append(jsMask);
     }
+    jsObject->insert("masks", jsMasks);
+
     QList<Interval<int>> formulas = formulaIntervals();
+    QJsonArray jsFormulas {};
     for (Interval<int> interval : formulas) {
-        writer->writeStartElement("formula");
-        writer->writeAttribute("start_row", QString::number(interval.start()));
-        writer->writeAttribute("end_row", QString::number(interval.end()));
-        writer->writeCharacters(formula(interval.start()));
-        writer->writeEndElement();
+        QJsonObject jsFormula {};
+        jsFormula.insert("startRow", interval.start());
+        jsFormula.insert("endRow", interval.end());
+        jsFormula.insert("formula", formula(interval.start()));
+        jsFormulas.append(jsFormula);
     }
-    int i = 0;
+    jsObject->insert("formulas", jsFormulas);
+
+    jsObject->insert("columnDataType", Makhber::enumValueToString(dataType(), "ColumnDataType"));
+    QJsonArray jsData {};
     switch (dataType()) {
     case Makhber::TypeDouble:
-        for (i = 0; i < rowCount(); i++) {
-            writer->writeStartElement("row");
-            writer->writeAttribute("type",
-                                   Makhber::enumValueToString(dataType(), "ColumnDataType"));
-            writer->writeAttribute("index", QString::number(i));
-            writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
-            writer->writeCharacters(QString::number(valueAt(i), 'e', 16));
-            writer->writeEndElement();
+        for (int i = 0; i < rowCount(); i++) {
+            jsData.append(valueAt(i));
+            // writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
         }
         break;
     case Makhber::TypeQString:
-        for (i = 0; i < rowCount(); i++) {
-            writer->writeStartElement("row");
-            writer->writeAttribute("type",
-                                   Makhber::enumValueToString(dataType(), "ColumnDataType"));
-            writer->writeAttribute("index", QString::number(i));
-            writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
-            writer->writeCharacters(textAt(i));
-            writer->writeEndElement();
+        for (int i = 0; i < rowCount(); i++) {
+            jsData.append(textAt(i));
+            // writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
         }
         break;
-
     case Makhber::TypeQDateTime: {
         { // this conversion is needed to store base class;
             NumericDateTimeBaseFilter numericFilter(
                     *(d_column_private->getNumericDateTimeFilter()));
-            writer->writeStartElement("numericDateTimeFilter");
-            numericFilter.save(writer);
-            writer->writeEndElement();
+            QJsonObject jsFilter {};
+            numericFilter.save(&jsFilter);
+            jsObject->insert("numericDateTimeFilter", jsFilter);
         }
-        for (i = 0; i < rowCount(); i++) {
-            writer->writeStartElement("row");
-            writer->writeAttribute("type",
-                                   Makhber::enumValueToString(dataType(), "ColumnDataType"));
-            writer->writeAttribute("index", QString::number(i));
-            writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
-            writer->writeCharacters(dateTimeAt(i).toString("yyyy-dd-MM hh:mm:ss:zzz"));
-            writer->writeEndElement();
+        for (int i = 0; i < rowCount(); i++) {
+            jsData.append(QLocale::c().toString(dateTimeAt(i), "dd-MM-yyyy hh:mm:ss:zzz"));
+            // writer->writeAttribute("invalid", isInvalid(i) ? "yes" : "no");
         }
         break;
     }
     }
-    writer->writeEndElement(); // "column"
+    jsObject->insert("data", jsData);
 }
 
 bool Column::load(XmlStreamReader *reader)
@@ -570,7 +565,7 @@ bool Column::XmlReadRow(XmlStreamReader *reader)
         break;
 
     case Makhber::TypeQDateTime:
-        QDateTime date_time = QDateTime::fromString(str, "yyyy-dd-MM hh:mm:ss:zzz");
+        QDateTime date_time = QDateTime::fromString(str, "dd-MM-yyyy hh:mm:ss:zzz");
         setDateTimeAt(index, date_time);
         break;
     }

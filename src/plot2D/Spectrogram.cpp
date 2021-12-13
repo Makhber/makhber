@@ -34,6 +34,8 @@
 
 #include <QPen>
 #include <QMessageBox>
+#include <QJsonObject>
+#include <QJsonArray>
 
 #include <cmath>
 
@@ -247,53 +249,53 @@ QwtLinearColorMap Spectrogram::defaultColorMap()
     return QwtLinearColorMap();
 }
 
-QString Spectrogram::saveToString()
+void Spectrogram::saveToJson(QJsonObject *jsObject)
 {
-    QString s = "<spectrogram>\n";
-    s += "\t<matrix>" + QString(d_matrix->name()) + "</matrix>\n";
+    jsObject->insert("matrix", d_matrix->name());
 
     if (color_map_policy != Custom)
-        s += "\t<ColorPolicy>" + QString::number(color_map_policy) + "</ColorPolicy>\n";
+        jsObject->insert("colorPolicy", color_map_policy);
     else {
-        s += "\t<ColorMap>\n";
-        s += "\t\t<Mode>" + QString::number(color_map.mode()) + "</Mode>\n";
-        s += "\t\t<MinColor>" + COLORNAME(color_map.color1()) + "</MinColor>\n";
-        s += "\t\t<MaxColor>" + COLORNAME(color_map.color2()) + "</MaxColor>\n";
+        QJsonObject jsColorMap {};
+        jsColorMap.insert("mode", color_map.mode());
+        jsColorMap.insert("minColor", COLORNAME(color_map.color1()));
+        jsColorMap.insert("maxColor", COLORNAME(color_map.color2()));
         QVector<double> colors = color_map.colorStops();
         int stops = (int)colors.size();
-        s += "\t\t<ColorStops>" + QString::number(stops - 2) + "</ColorStops>\n";
+        jsColorMap.insert("colorStops", stops - 2);
+        QJsonArray jsColorStops {};
+        QJsonArray jsRGBStops {};
         for (int i = 1; i < stops - 1; i++) {
-            s += "\t\t<Stop>" + QString::number(colors[i]) + "\t";
-            s += COLORNAME(QColor(color_map.rgb(QwtInterval(0, 1), colors[i])));
-            s += "</Stop>\n";
+            jsColorStops.append(colors[i]);
+            jsRGBStops.append(COLORNAME(QColor(color_map.rgb(QwtInterval(0, 1), colors[i]))));
         }
-        s += "\t</ColorMap>\n";
+        jsColorMap.insert("stops", jsColorStops);
+        jsColorMap.insert("colorNames", jsRGBStops);
+        jsObject->insert("ColorMap", jsColorMap);
     }
-    s += "\t<Image>" + QString::number(testDisplayMode(QwtPlotSpectrogram::ImageMode))
-            + "</Image>\n";
+    jsObject->insert("Image", testDisplayMode(QwtPlotSpectrogram::ImageMode));
 
     bool contourLines = testDisplayMode(QwtPlotSpectrogram::ContourMode);
-    s += "\t<ContourLines>" + QString::number(contourLines) + "</ContourLines>\n";
+    jsObject->insert("ContourLines", contourLines);
     if (contourLines) {
-        s += "\t\t<Levels>" + QString::number(levels()) + "</Levels>\n";
+        jsObject->insert("Levels", levels());
         bool defaultPen = defaultContourPen().style() != Qt::NoPen;
-        s += "\t\t<DefaultPen>" + QString::number(defaultPen) + "</DefaultPen>\n";
+        jsObject->insert("defaultPen", defaultPen);
         if (defaultPen) {
-            s += "\t\t\t<PenColor>" + COLORNAME(defaultContourPen().color()) + "</PenColor>\n";
-            s += "\t\t\t<PenWidth>" + QString::number(defaultContourPen().width())
-                    + "</PenWidth>\n";
-            s += "\t\t\t<PenStyle>" + QString::number(defaultContourPen().style() - 1)
-                    + "</PenStyle>\n";
+            jsObject->insert("penColor", COLORNAME(defaultContourPen().color()));
+            jsObject->insert("penWidth", defaultContourPen().width());
+            jsObject->insert("penStyle", defaultContourPen().style() - 1);
         }
     }
     QwtScaleWidget *colorAxis = plot()->axisWidget(color_axis);
     if (colorAxis && colorAxis->isColorBarEnabled()) {
-        s += "\t<ColorBar>\n\t\t<axis>" + QString::number(color_axis) + "</axis>\n";
-        s += "\t\t<width>" + QString::number(colorAxis->colorBarWidth()) + "</width>\n";
-        s += "\t</ColorBar>\n";
+        QJsonObject jsColorBar {};
+        jsColorBar.insert("axis", color_axis);
+        jsColorBar.insert("width", colorAxis->colorBarWidth());
+        jsObject->insert("colorBar", jsColorBar);
     }
-    s += "\t<Visible>" + QString::number(isVisible()) + "</Visible>\n";
-    return s + "</spectrogram>\n";
+    jsObject->insert("visible", isVisible());
+    jsObject->insert("type", "spectrogram");
 }
 
 double MatrixData::value(double x, double y) const

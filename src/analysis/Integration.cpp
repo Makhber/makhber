@@ -151,8 +151,9 @@ QString Integration::logInfo()
     gsl_interp *interpolation = gsl_interp_alloc(method_t, d_n);
     gsl_interp_init(interpolation, d_x, d_y, d_n);
 
-    QString logInfo = "[" + QLocale().toString(QDateTime::currentDateTime()) + "\t" + tr("Plot")
-            + ": ''" + d_graph->parentPlotName() + "'']\n";
+    QString logInfo = "["
+            + QLocale::c().toString(QDateTime::currentDateTime(), "dd-MM-yyyy hh:mm:ss:zzz") + "\t"
+            + tr("Plot") + ": ''" + d_graph->parentPlotName() + "'']\n";
     logInfo += "\n" + tr("Numerical integration of") + ": " + d_curve->title().text()
             + tr(" using ") + method_name + tr("Interpolation") + "\n";
 

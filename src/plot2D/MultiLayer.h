@@ -187,8 +187,8 @@ public Q_SLOTS:
 
     void connectLayer(Graph *g);
 
-    QString saveToString(const QString &geometry);
-    QString saveAsTemplate(const QString &geometryInfo);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
+    void saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry);
 
 Q_SIGNALS:
     void showTextDialog();

@@ -546,12 +546,12 @@ void TableView::updateTypeInfo()
             str += tr("Hello world!\n");
             break;
         case Makhber::ColumnMode::Month:
-            str += QLocale().toString(QDate(1900, 1, 1),
-                                      ui.format_box->itemData(format_index).toString());
+            str += QLocale::c().toString(QDate(1900, 1, 1),
+                                         ui.format_box->itemData(format_index).toString());
             break;
         case Makhber::ColumnMode::Day:
-            str += QLocale().toString(QDate(1900, 1, 1),
-                                      ui.format_box->itemData(format_index).toString());
+            str += QLocale::c().toString(QDate(1900, 1, 1),
+                                         ui.format_box->itemData(format_index).toString());
             break;
         case Makhber::ColumnMode::DateTime:
             ui.formatLineEdit->setText(ui.format_box->itemData(format_index).toString());

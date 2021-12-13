@@ -50,7 +50,7 @@ public:
     //! return the base table of which statistics are displayed
     Table *base() const { return d_base; }
     // saving
-    virtual QString saveToString(const QString &geometry);
+    virtual void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
 
 public Q_SLOTS:
     //! update statistics after a column has changed (to be connected with Table::modifiedData)

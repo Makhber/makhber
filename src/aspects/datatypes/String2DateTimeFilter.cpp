@@ -32,7 +32,7 @@
 #include "lib/XmlStreamReader.h"
 
 #include <QStringList>
-#include <QXmlStreamWriter>
+#include <QJsonObject>
 
 std::array<const char *, 11> String2DateTimeFilter::date_formats = {
     "yyyy-M-d", // ISO 8601 w/ and w/o leading zeros
@@ -108,9 +108,9 @@ QDateTime String2DateTimeFilter::dateTimeAt(int row) const
     return QDateTime(date_result, time_result);
 }
 
-void String2DateTimeFilter::writeExtraAttributes(QXmlStreamWriter *writer) const
+void String2DateTimeFilter::writeExtraAttributes(QJsonObject *jsObject) const
 {
-    writer->writeAttribute("format", format());
+    jsObject->insert("format", format());
 }
 
 bool String2DateTimeFilter::load(XmlStreamReader *reader)

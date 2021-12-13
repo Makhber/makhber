@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
-  <mime-type type="application/x-sciprj">
-    <comment>SciDAVis project</comment>
-    <comment xml:lang="de">SciDAVis-Projekt</comment>
-    <comment xml:lang="pt_BR">Projeto do SciDAVis</comment>
-    <comment xml:lang="ru">Проект SciDAVis</comment>
-    <sub-class-of type="application/xml"/>
-    <glob pattern="*.sciprj"/>
-    <glob pattern="*.sciprj.gz"/>
+  <mime-type type="application/x-mkbr">
+    <comment>Makhber project</comment>
+    <comment xml:lang="de">Makhber-Projekt</comment>
+    <comment xml:lang="pt_BR">Projeto do Makhber</comment>
+    <comment xml:lang="ru">Проект Makhber</comment>
+    <sub-class-of type="application/json"/>
+    <glob pattern="*.mkbr"/>
   </mime-type>
   <mime-type type="application/x-originlab">
     <comment>OriginLab project</comment>

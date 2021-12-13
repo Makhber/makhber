@@ -36,7 +36,6 @@
 #include "lib/XmlStreamReader.h"
 
 #include <QUndoCommand>
-#include <QXmlStreamWriter>
 
 // forward declaration - class follows
 class SimpleFilterColumn;
@@ -253,11 +252,11 @@ public:
     //! \name XML related functions
     //@{
     //! Save to XML
-    virtual void save(QXmlStreamWriter *writer) const;
+    virtual void save(QJsonObject *) const;
     //! Load from XML
     virtual bool load(XmlStreamReader *reader);
     //! Override this in derived classes if they have other attributes than filter_name
-    virtual void writeExtraAttributes(QXmlStreamWriter *writer) const { Q_UNUSED(writer) }
+    virtual void writeExtraAttributes(QJsonObject *jsObject) const { Q_UNUSED(jsObject) }
     //@}
 
 protected:

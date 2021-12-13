@@ -170,7 +170,7 @@ public:
     //! \name serialize/deserialize
     //@{
     //! Save as XML
-    virtual void save(QXmlStreamWriter *) const;
+    virtual void save(QJsonObject *) const;
     //! Load from XML
     virtual bool load(XmlStreamReader *);
     //@}

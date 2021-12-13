@@ -55,6 +55,8 @@
 #include <QClipboard>
 #include <QMouseEvent>
 #include <QSvgGenerator>
+#include <QJsonArray>
+#include <QJsonObject>
 
 #include <iostream>
 
@@ -88,7 +90,7 @@ MultiLayer::MultiLayer(const QString &label, QWidget *parent, const QString name
         setObjectName("multilayer plot");
 
     QDateTime dt = QDateTime::currentDateTime();
-    setBirthDate(QLocale().toString(dt));
+    setBirthDate(QLocale::c().toString(dt, "dd-MM-yyyy hh:mm:ss:zzz"));
 
     graphs = 0;
     cols = 1;
@@ -1057,47 +1059,88 @@ bool MultiLayer::isEmpty()
         return false;
 }
 
-QString MultiLayer::saveToString(const QString &geometry)
+void MultiLayer::saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<multiLayer>\n";
-    s += QString(name()) + "\t";
-    s += QString::number(cols) + "\t";
-    s += QString::number(rows) + "\t";
-    s += birthDate() + "\n";
-    s += geometry;
-    s += "WindowLabel\t" + windowLabel() + "\t" + QString::number(captionPolicy()) + "\n";
-    s += "Margins\t" + QString::number(left_margin) + "\t" + QString::number(right_margin) + "\t"
-            + QString::number(top_margin) + "\t" + QString::number(bottom_margin) + "\n";
-    s += "Spacing\t" + QString::number(rowsSpace) + "\t" + QString::number(colsSpace) + "\n";
-    s += "LayerCanvasSize\t" + QString::number(l_canvas_width) + "\t"
-            + QString::number(l_canvas_height) + "\n";
-    s += "Alignement\t" + QString::number(hor_align) + "\t" + QString::number(vert_align) + "\n";
+    jsObject->insert("cols", cols);
+    jsObject->insert("rows", rows);
+    jsObject->insert("creationDate", birthDate());
+    jsObject->insert("WindowLabel", windowLabel());
+    jsObject->insert("captionPolicy", captionPolicy());
 
+    QJsonObject jsMargins {};
+    jsMargins.insert("leftMargin", left_margin);
+    jsMargins.insert("rightMargin", right_margin);
+    jsMargins.insert("topMargin", top_margin);
+    jsMargins.insert("bottomMargin", bottom_margin);
+    jsObject->insert("margins", jsMargins);
+
+    QJsonObject jsSpacing {};
+    jsSpacing.insert("rowsSpace", rowsSpace);
+    jsSpacing.insert("colsSpace", colsSpace);
+    jsObject->insert("spacing", jsSpacing);
+
+    QJsonObject jsCanvas {};
+    jsCanvas.insert("canvasWidth", l_canvas_width);
+    jsCanvas.insert("canvasHeight", l_canvas_height);
+    jsObject->insert("layerCanvasSize", jsCanvas);
+
+    QJsonObject jsAlign {};
+    jsAlign.insert("horAlign", hor_align);
+    jsAlign.insert("vertAlign", vert_align);
+    jsObject->insert("alignement", jsAlign);
+
+    QJsonArray jsGraphs {};
     for (int i = 0; i < (int)graphsList.count(); i++) {
         auto *ag = dynamic_cast<Graph *>(graphsList.at(i));
-        s += ag->saveToString();
+        QJsonObject jsGraph {};
+        ag->saveToJson(&jsGraph);
+        jsGraphs.append(jsGraph);
     }
-    return s + "</multiLayer>\n";
+    jsObject->insert("graphs", jsGraphs);
+
+    jsObject->insert("name", name());
+    jsObject->insert("geometry", jsGeometry);
+    jsObject->insert("type", "MultiLayer");
 }
 
-QString MultiLayer::saveAsTemplate(const QString &geometryInfo)
+void MultiLayer::saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<multiLayer>\t";
-    s += QString::number(rows) + "\t";
-    s += QString::number(cols) + "\n";
-    s += geometryInfo;
-    s += "Margins\t" + QString::number(left_margin) + "\t" + QString::number(right_margin) + "\t"
-            + QString::number(top_margin) + "\t" + QString::number(bottom_margin) + "\n";
-    s += "Spacing\t" + QString::number(rowsSpace) + "\t" + QString::number(colsSpace) + "\n";
-    s += "LayerCanvasSize\t" + QString::number(l_canvas_width) + "\t"
-            + QString::number(l_canvas_height) + "\n";
-    s += "Alignement\t" + QString::number(hor_align) + "\t" + QString::number(vert_align) + "\n";
+    jsObject->insert("rows", rows);
+    jsObject->insert("cols", cols);
+    jsObject->insert("geometry", jsGeometry);
 
+    QJsonObject jsMargins {};
+    jsMargins.insert("leftMargin", left_margin);
+    jsMargins.insert("rightMargin", right_margin);
+    jsMargins.insert("topMargin", top_margin);
+    jsMargins.insert("bottomMargin", bottom_margin);
+    jsObject->insert("margins", jsMargins);
+
+    QJsonObject jsSpacing {};
+    jsSpacing.insert("rowsSpace", rowsSpace);
+    jsSpacing.insert("colsSpace", colsSpace);
+    jsObject->insert("spacing", jsSpacing);
+
+    QJsonObject jsCanvas {};
+    jsCanvas.insert("canvasWidth", l_canvas_width);
+    jsCanvas.insert("canvasHeight", l_canvas_height);
+    jsObject->insert("layerCanvasSize", jsCanvas);
+
+    QJsonObject jsAlign {};
+    jsAlign.insert("horAlign", hor_align);
+    jsAlign.insert("vertAlign", vert_align);
+    jsObject->insert("alignement", jsAlign);
+
+    QJsonArray jsGraphs {};
     for (int i = 0; i < (int)graphsList.count(); i++) {
         auto *ag = dynamic_cast<Graph *>(graphsList.at(i));
-        s += ag->saveToString(true);
+        QJsonObject jsGraph {};
+        ag->saveToJson(&jsGraph);
+        jsGraphs.append(jsGraph);
     }
-    return s + "</multiLayer>\n";
+    jsObject->insert("graphs", jsGraphs);
+
+    jsObject->insert("templateType", "MultiLayer");
 }
 
 void MultiLayer::mousePressEvent(QMouseEvent *e)

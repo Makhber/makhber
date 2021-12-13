@@ -54,8 +54,8 @@
 #include <QPrintDialog>
 #include <QPainter>
 #include <QLocale>
-#include <QXmlStreamWriter>
 #include <QtDebug>
+#include <QJsonObject>
 
 #include <cstdlib>
 #include <cmath>
@@ -86,7 +86,7 @@ void Matrix::init(int, int)
     d_future_matrix->setCoordinates(1.0, 10.0, 1.0, 10.0);
     dMatrix = nullptr;
 
-    birthdate = QLocale().toString(d_future_matrix->creationTime());
+    birthdate = QLocale::c().toString(d_future_matrix->creationTime(), "dd-MM-yyyy hh:mm:ss:zzz");
 
     // this is not very nice but works for the moment
     ui.gridLayout2->removeWidget(ui.formula_box);
@@ -180,66 +180,29 @@ void Matrix::setCoordinates(double xs, double xe, double ys, double ye)
     d_future_matrix->setCoordinates(xs, xe, ys, ye);
 }
 
-QString Matrix::saveToString(const QString &geometry)
+void Matrix::saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<matrix>\n";
-    QString xml;
-    QXmlStreamWriter writer(&xml);
-    d_future_matrix->save(&writer);
-    s += QString::number(xml.length()) + "\n"; // this is need in case there are newlines in the XML
-    s += xml + "\n";
-    s += geometry + "\n";
-    s += "</matrix>\n";
-    return s;
-
-#if 0
-	QString s = "<matrix>\n";
-	s += QString(name()) + "\t";
-	s += QString::number(numRows())+"\t";
-	s += QString::number(numCols())+"\t";
-	s += birthDate() + "\n";
-	s += info;
-	s += "ColWidth\t" + QString::number(columnWidth(0))+"\n";
-	s += "<formula>\n" + formula() + "\n</formula>\n";
-	s += "TextFormat\t" + QString(d_future_matrix->numericFormat()) + "\t" + QString::number(d_future_matrix->displayedDigits()) + "\n";
-	s += "WindowLabel\t" + windowLabel() + "\t" + QString::number(captionPolicy()) + "\n";
-	s += "Coordinates\t" + QString::number(xStart(),'g',15) + "\t" +QString::number(xEnd(),'g',15) + "\t";
-	s += QString::number(yStart(),'g',15) + "\t" + QString::number(yEnd(),'g',15) + "\n";
-	s += saveText();
-	s +="</matrix>\n";
-	return s;
-#endif
+    d_future_matrix->save(jsObject);
+    jsObject->insert("geometry", jsGeometry);
+    jsObject->insert("type", "Matrix");
 }
 
-QString Matrix::saveAsTemplate(const QString &info)
+void Matrix::saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry)
 {
-    QString s = "<matrix>\t";
-    s += QString::number(numRows()) + "\t";
-    s += QString::number(numCols()) + "\n";
-    s += info;
-    s += "ColWidth\t" + QString::number(columnWidth(0)) + "\n";
-    s += "<formula>\n" + formula() + "\n</formula>\n";
-    s += "TextFormat\t" + QString(d_future_matrix->numericFormat()) + "\t"
-            + QString::number(d_future_matrix->displayedDigits()) + "\n";
-    s += "Coordinates\t" + QString::number(xStart(), 'g', 15) + "\t"
-            + QString::number(xEnd(), 'g', 15) + "\t";
-    s += QString::number(yStart(), 'g', 15) + "\t" + QString::number(yEnd(), 'g', 15) + "\n";
-    s += "</matrix>\n";
-    return s;
-}
-
-QString Matrix::saveText()
-{
-    QString out_text = "<data>\n";
-    int cols = d_future_matrix->columnCount();
-    for (int i = 0; i < d_future_matrix->rowCount(); i++) {
-        out_text += QString::number(i) + "\t";
-        for (int j = 0; j < cols - 1; j++)
-            out_text += QString::number(cell(i, j), 'e', 16) + "\t";
-
-        out_text += QString::number(cell(i, cols - 1), 'e', 16) + "\n";
-    }
-    return out_text + "</data>\n";
+    jsObject->insert("rows", numRows());
+    jsObject->insert("cols", numCols());
+    jsObject->insert("geometry", jsGeometry);
+    jsObject->insert("columnWidth", columnWidth(0));
+    jsObject->insert("formula", formula());
+    jsObject->insert("numericFormat", d_future_matrix->numericFormat());
+    jsObject->insert("displayedDigits", d_future_matrix->displayedDigits());
+    QJsonObject jsCoordinates {};
+    jsCoordinates.insert("xStart", xStart());
+    jsCoordinates.insert("xEnd", xEnd());
+    jsCoordinates.insert("yStart", yStart());
+    jsCoordinates.insert("yEnd", yEnd());
+    jsObject->insert("coordinates", jsCoordinates);
+    jsObject->insert("templateType", "Matrix");
 }
 
 void Matrix::setFormula(const QString &s)

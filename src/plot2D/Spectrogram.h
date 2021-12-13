@@ -71,7 +71,7 @@ public:
     void updateData(Matrix *m);
 
     //! Used when saving a project file
-    QString saveToString();
+    void saveToJson(QJsonObject *);
 
     ColorMapPolicy colorMapPolicy() { return color_map_policy; };
 

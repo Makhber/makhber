@@ -34,7 +34,6 @@
 #include "core/ApplicationWindow.h"
 
 #include <QLocale>
-#include <QXmlStreamWriter>
 #include <QtDebug>
 
 //! Locale-aware conversion filter QString -> double.

@@ -484,7 +484,7 @@ public Q_SLOTS:
     void saveAsTemplate();
     void openTemplate();
 
-    QString windowGeometryInfo(MyWidget *w);
+    QJsonObject windowGeometryInfo(MyWidget *w);
     void restoreWindowGeometry(ApplicationWindow *app, MyWidget *w, const QString s);
 
     void resizeActiveWindow();
@@ -868,7 +868,7 @@ public Q_SLOTS:
     void saveAsProject();
     void saveFolderAsProject(Folder *f);
     void saveFolder(Folder *folder, const QString &fn);
-    void rawSaveFolder(Folder *folder, QIODevice *device);
+    void rawSaveFolder(QJsonObject *jsObject, Folder *folder, QIODevice *device);
 
     //!  adds a folder list item to the list view "lv"
     void addFolderListViewItem(Folder *f);
