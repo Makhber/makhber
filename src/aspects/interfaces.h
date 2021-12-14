@@ -61,7 +61,7 @@ public:
     virtual QAction *makeAction(QObject *parent) = 0;
 };
 
-Q_DECLARE_INTERFACE(PartMaker, "net.sf.makhber.partmaker/0.1")
+Q_DECLARE_INTERFACE(PartMaker, "com.github.makhber.Makhber.partmaker/0.1")
 
 //! Factory for filters.
 /**
@@ -76,7 +76,7 @@ public:
     virtual QAction *makeAction(QObject *parent, int id = 0) = 0;
 };
 
-Q_DECLARE_INTERFACE(FilterMaker, "net.sf.makhber.filtermaker/0.1")
+Q_DECLARE_INTERFACE(FilterMaker, "com.github.makhber.Makhber.filtermaker/0.1")
 
 //! Factory for import/export filters.
 class MAKHBER_EXPORT FileFormat
@@ -87,7 +87,7 @@ public:
     virtual AbstractExportFilter *makeExportFilter() = 0;
 };
 
-Q_DECLARE_INTERFACE(FileFormat, "net.sf.makhber.fileformat/0.1")
+Q_DECLARE_INTERFACE(FileFormat, "com.github.makhber.Makhber.fileformat/0.1")
 
 //! A module (typically a PartMaker) that has an ActionManager
 class MAKHBER_EXPORT ActionManagerOwner
@@ -99,7 +99,7 @@ public:
     virtual void initActionManager() { }
 };
 
-Q_DECLARE_INTERFACE(ActionManagerOwner, "net.sf.makhber.actionmanagerowner/0.1")
+Q_DECLARE_INTERFACE(ActionManagerOwner, "com.github.makhber.Makhber.actionmanagerowner/0.1")
 
 //! A module with application-wide settings
 class MAKHBER_EXPORT ConfigPageMaker
@@ -113,7 +113,7 @@ public:
     //		virtual QIcon icon() = 0;
 };
 
-Q_DECLARE_INTERFACE(ConfigPageMaker, "net.sf.makhber.configpagemaker/0.1")
+Q_DECLARE_INTERFACE(ConfigPageMaker, "com.github.makhber.Makhber.configpagemaker/0.1")
 
 //! Factory that creates an aspect out of an XML element.
 class MAKHBER_EXPORT XmlElementAspectMaker
@@ -126,6 +126,6 @@ public:
     virtual AbstractAspect *createAspectFromXml(XmlStreamReader *reader) = 0;
 };
 
-Q_DECLARE_INTERFACE(XmlElementAspectMaker, "net.sf.makhber.xmlelementaspectmaker/0.1")
+Q_DECLARE_INTERFACE(XmlElementAspectMaker, "com.github.makhber.Makhber.xmlelementaspectmaker/0.1")
 
 #endif // ifndef INTERFACES_H
