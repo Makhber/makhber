@@ -118,12 +118,8 @@ jobs:
           xvfb-run -a ctest --output-on-failure --repeat until-pass:3
 
   MSVC:
-    name: Windows MSVC ${{ matrix.version }}
-    runs-on: windows-${{ matrix.version }}
-    strategy:
-      fail-fast: false
-      matrix:
-        version: [2019, 2022]
+    name: MSVC 2022
+    runs-on: windows-2022
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       QT_VER: 5.15.2
@@ -133,7 +129,6 @@ jobs:
       - name: Get Processor Info
         run : |
           Get-CIMInstance -Class Win32_Processor | Select-Object -Property Name
-          echo $Env:NUMBER_OF_PROCESSORS
       - name: Checkout
         uses: actions/checkout@v2
         with:
