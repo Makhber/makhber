@@ -197,6 +197,7 @@ jobs:
           $Env:CMAKE_PREFIX_PATH = (Resolve-Path "$Env:GITHUB_WORKSPACE\..\Qwt")
           mkdir build; cd build
           cmake .. `
+            -DCMAKE_BUILD_TYPE=RelWithDebInfo `
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
@@ -205,13 +206,13 @@ jobs:
 
       - name: Building
         run: |
-          cmake --build build --config Release -- -maxCpuCount
+          cmake --build build --config RelWithDebInfo -- -maxCpuCount
 
       - name: Testing
         run: |
           $Env:PATH = "$Env:GITHUB_WORKSPACE}\..\Qwt\lib;$Env:PATH"
           cd build
-          ctest -C Release --output-on-failure --repeat until-pass:3
+          ctest -C RelWithDebInfo --output-on-failure --repeat until-pass:3
 
   macos:
     runs-on: macos-11
