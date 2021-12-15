@@ -40,7 +40,7 @@ assert t.colName(2) == "2" # DEPRECATED - 1-based indexes
 t.setColName(2,"two")  # DEPRECATED
 assert t.colName(2) == "two"
 
-t.setComment(2,"column named as two") # DEPRECATED - there are no a 'comment()' function 
+t.setComment(2,"column named as two") # DEPRECATED - there are no a 'comment()' function
 # that could be used to verify if setComment() works. But it works - visual check
 
 t.setCommand(2, "col(1)*col(1)") # Here also doesn't have a 'command()' function for automated

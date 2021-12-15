@@ -31,7 +31,7 @@ l1=g1.activeLayer()
 curve1=t1Name+"_2"
 
 smth1=SmoothFilter(l1,curve1)
-smth1.setMethod(1) # method=1 - Savitzky-Golay 
+smth1.setMethod(1) # method=1 - Savitzky-Golay
 smth1.setSmoothPoints(2,2) # left and right points
 smth1.setPolynomOrder(3)
 smth1.run()

@@ -16,7 +16,7 @@ m = matrix("Matrix1")
 g = graph("Graph1")
 n = note("Notes1")
 
-# create an empty table named "tony" with 5 columns and 2 rows: 
+# create an empty table named "tony" with 5 columns and 2 rows:
 #(this need to be corrected in the manual because it is written 5 rows and 2 columns)
 t2 = newTable("tony", 5, 2)
 assert t2.numCols() == 5

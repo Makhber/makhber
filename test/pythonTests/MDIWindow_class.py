@@ -19,12 +19,12 @@ assert t.captionPolicy() == MDIWindow.CaptionPolicy.Both
 t.setCaptionPolicy(MDIWindow.CaptionPolicy.Name)
 ## default captionPolicy is 2: show both name and label
 
-# t.folder() will return something like 
+# t.folder() will return something like
 # <makhber.Folder object at 0xaec9c8e4>
 # But the expected output would be a folder name...
 
 # I don't know how to test "confirmClose(boolean)" because if I set it as True and try to
-# close the object there will be no error message,  but a confirmation window will open. 
+# close the object there will be no error message,  but a confirmation window will open.
 # Otherwise it just closes...
 
 t.setCell(1,1,10.0)

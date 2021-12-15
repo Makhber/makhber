@@ -8,7 +8,7 @@ def threeExponential_curve(x):
     return exp(-0.1*x)+0.1*exp(0.4*x)+0.2*exp(.3*x)
 
 dp=0.003 #noise's stddev
-    
+
 #generate a table t1 with Gaussian data points with some noise and random y-errors
 t1Name="Gaussian-curve"
 t1=newTable(t1Name,3,100)
@@ -19,14 +19,14 @@ for i in range(1,t1.numRows()+1):
     t1.setCell(3,i,random.uniform(0,dp))
 
 g1=plot(t1,'2',1) #plotting the curve
-        
+
 l1=g1.activeLayer()
 curve1=t1Name+"_2"
 l1.addErrorBars(curve1,t1,'3')
-    
+
 g1.confirmClose(False)
 t1.confirmClose(False)
-    
+
 f1=ThreeExpFit(l1,curve1)
 f1.setInitialValues(.8,.5,0.4,-.2,1.1,0,1)
 f1.fit()

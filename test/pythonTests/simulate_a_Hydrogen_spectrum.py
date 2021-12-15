@@ -15,7 +15,7 @@ h=4.135667662*1e-15 #Plank's constant in eV
 alfa=1.69e8 #a constant previously calculated
 wins=0.5 #instrumental broadening in angstroms
 Npts=12001 #number of points of the curve
-t=newTable("Spectrum-for-T--"+str(T)+"eV",2,Npts) 
+t=newTable("Spectrum-for-T--"+str(T)+"eV",2,Npts)
 y0=0
 xc=np.array([4102,4341,4861,6563])
 xc1=xc[0]
@@ -45,7 +45,7 @@ l=g.activeLayer()
 l.setXTitle("Wavelength (Angs)")
 l.setYTitle("Intensity (a. u.)")
 l.setTitle("Hydrogen alpha, beta, gamma and \n delta emissions for T=10eV")
-l.setScale(0,-0.1,1.1) 
+l.setScale(0,-0.1,1.1)
 g.confirmClose(False) #close g without confirmation
 t.confirmClose(False)
 g.exportImage("Hspectrum.png");
