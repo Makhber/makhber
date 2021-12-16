@@ -11744,7 +11744,7 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
                                      "other arguments!")
                                           .arg(str));
         } else if (str == "-v" || str == "--version") {
-            QString s = Makhber::versionString() + Makhber::extraVersion() + "\n";
+            QString s = "Makhber " + Makhber::versionString() + Makhber::extraVersion() + "\n";
             s += QObject::tr("Released") + ": " + Makhber::releaseDateString() + "\n";
             s += Makhber::copyrightString() + "\n";
 
@@ -13236,7 +13236,7 @@ void ApplicationWindow::moveFolder(FolderListItem *src, FolderListItem *dest)
 void ApplicationWindow::searchForUpdates()
 {
     int choice = QMessageBox::question(
-            this, versionString(),
+            this, "Makhber " + versionString(),
             tr("Makhber will now try to determine whether a new version of Makhber is available. "
                "Please modify your firewall settings in order to allow Makhber to connect to the "
                "internet.")
@@ -13275,7 +13275,7 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
                     == QMessageBox::Yes)
                     QDesktopServices::openUrl(QUrl(DOWNLOAD_URI));
             } else {
-                QMessageBox::information(this, versionString(),
+                QMessageBox::information(this, "Makhber " + versionString(),
                                          tr("No updates available.\n"
                                             "You are already running the latest version: \"%1\"")
                                                  .arg(available_versionString));
