@@ -149,6 +149,7 @@
 #include <QMimeData>
 #include <QElapsedTimer>
 #include <QJsonDocument>
+#include <QVersionNumber>
 
 #include <iostream>
 #include <memory>
@@ -13243,32 +13244,23 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
 
     if (version_buffer.size() > 0) {
         QJsonDocument json = QJsonDocument::fromJson(version_buffer);
-        QString available_versionString = json[0]["tag_name"].toString();
-        QStringList list = available_versionString.split(".");
-        bool intok {};
-        int available_version =
-                (list.at(0).toInt() << 16) + (list.at(1).toInt() << 8) + list.at(2).toInt(&intok);
+        QVersionNumber available_version =
+                QVersionNumber::fromString(json[0]["tag_name"].toString());
+        QVersionNumber actual_version = QVersionNumber::fromString(versionString());
 
-        if (intok) {
-            if (available_version > Makhber::version()) {
-                if (QMessageBox::question(this, tr("Updates Available"),
-                                          tr("There is a newer version of Makhber (%1) available "
-                                             "for download. Would you like to download it now?")
-                                                  .arg(available_versionString),
-                                          QMessageBox::Yes | QMessageBox::Default,
-                                          QMessageBox::No | QMessageBox::Escape)
-                    == QMessageBox::Yes)
-                    QDesktopServices::openUrl(QUrl(DOWNLOAD_URI));
-            } else {
-                QMessageBox::information(this, "Makhber " + versionString(),
-                                         tr("No updates available.\n"
-                                            "You are already running the latest version: \"%1\"")
-                                                 .arg(available_versionString));
-            }
-        } else
-            QMessageBox::information(this, tr("Invalid version file"),
-                                     tr("The version file could not be decoded "
-                                        "into a valid version number."));
+        if (available_version > actual_version) {
+            if (QMessageBox::question(this, tr("Updates Available"),
+                                      tr("There is a newer version of Makhber (%1) available "
+                                         "for download. Would you like to download it now?")
+                                              .arg(available_version.toString()))
+                == QMessageBox::Yes)
+                QDesktopServices::openUrl(QUrl(DOWNLOAD_URI));
+        } else {
+            QMessageBox::information(this, "Makhber " + versionString(),
+                                     tr("No updates available.\n"
+                                        "You are already running the latest version: \"%1\"")
+                                             .arg(actual_version.toString()));
+        }
         autoSearchUpdatesRequest = false;
     }
 }
