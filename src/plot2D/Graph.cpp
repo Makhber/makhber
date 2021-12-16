@@ -2376,8 +2376,12 @@ QString Graph::saveCurves()
 
                 s += saveCurveLayout(i);
                 s += QString::number(c->xAxis()) + "\t" + QString::number(c->yAxis()) + "\t";
-                s += QString::number(dynamic_cast<DataCurve *>(c)->startRow()) + "\t"
-                        + QString::number(dynamic_cast<DataCurve *>(c)->endRow()) + "\t";
+                if (c->type() != Function) {
+                    s += QString::number(dynamic_cast<DataCurve *>(c)->startRow()) + "\t"
+                            + QString::number(dynamic_cast<DataCurve *>(c)->endRow()) + "\t";
+                } else {
+                    s += QString::number(0) + "\t" + QString::number(0) + "\t";
+                }
                 s += QString::number(c->isVisible()) + "\n";
                 if (c->type() == Function) {
                     s += "<formula>\n"
