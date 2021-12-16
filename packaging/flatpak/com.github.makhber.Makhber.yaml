@@ -109,12 +109,5 @@ modules:
       - -DMAKHBER_DOWNLOAD_LINKS=OFF
       - -DMAKHBER_SCRIPTING_PYTHON=ON
     sources:
-      - type: archive
-        url: https://github.com/Makhber/makhber/releases/download/0.9.4.2/Makhber-0.9.4.2-src.tar.xz
-        sha256: 198a4aa6ab63a7b8a9f170d207ad08dd35b3098c10990ad2a8bca584f3d0619f
-        x-checker-data:
-          type: json
-          url: https://api.github.com/repos/Makhber/makhber/releases/latest
-          version-query: .tag_name
-          url-query: .assets[] | select(.name=="Makhber-" + $version + "-src.tar.xz")
-            | .browser_download_url
+      - type: dir
+        path: ../..
