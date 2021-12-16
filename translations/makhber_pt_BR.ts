@@ -678,26 +678,26 @@
         <location filename="../src/core/ApplicationWindow.cpp" line="11801"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12559"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12567"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13595"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13601"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13606"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13610"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13623"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13588"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13594"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13599"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13603"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13616"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13622"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13625"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="13629"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13632"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13636"/>
         <source>Error</source>
         <translation>Erro</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="1488"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13637"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13630"/>
         <source>Please set a default X column for this table, first!</source>
         <translation>Por favor, primeiro defina uma coluna X padrão nesta tabela!</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="1496"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13623"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13616"/>
         <source>Please select a column to plot!</source>
         <translation>Por favor, selecione uma coluna para plotar!</translation>
     </message>
@@ -746,7 +746,7 @@
         <location filename="../src/core/ApplicationWindow.cpp" line="11650"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="11680"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="11692"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13336"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13329"/>
         <source>Warning</source>
         <translation>Atenção</translation>
     </message>
@@ -1451,7 +1451,7 @@ Tem certeza que quer continuar?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="7429"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="7431"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12473"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13520"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13513"/>
         <source>&amp;Properties...</source>
         <translation>Propriedades...</translation>
     </message>
@@ -3793,7 +3793,7 @@ Tem certeza que quer continuar?</translation>
         <translation>Erro ao buscar versão de arquivo com HTTP: %1.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13271"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13268"/>
         <source>Updates Available</source>
         <translation>Atualizações disponíveis</translation>
     </message>
@@ -3802,16 +3802,15 @@ Tem certeza que quer continuar?</translation>
         <translation type="vanished">Não há atualizações disponíveis. Você já está usando a última versão.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13284"/>
         <source>Invalid version file</source>
-        <translation>Versão de arquivo inválida</translation>
+        <translation type="vanished">Versão de arquivo inválida</translation>
     </message>
     <message>
         <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
         <translation type="vanished">O arquivo de versão (contido en: &quot;%1&quot;) não pode ser decodificado em um número de versão válido.</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13337"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13330"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Isto apagará os conteúdos de todos os dados associados à tabela. Está certo disso?</translation>
     </message>
@@ -3820,50 +3819,50 @@ Tem certeza que quer continuar?</translation>
         <translation type="vanished">&amp;Não</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13531"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13524"/>
         <source>D&amp;epending Graphs</source>
         <translation>Gráficos d&amp;ependentes</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13542"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13535"/>
         <source>D&amp;epending 3D Graphs</source>
         <translation>Gráficos 3D d&amp;ependentes</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13553"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13571"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13575"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13546"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13564"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13568"/>
         <source>D&amp;epends on</source>
         <translation>D&amp;epende de</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13596"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13633"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13589"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13626"/>
         <source>You need at least two columns for this operation!</source>
         <translation>São necessárias pelo menos duas colunas para esta operação!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13602"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13595"/>
         <source>Please select a Z column for this operation!</source>
         <translation>Por favor, selecione uma coluna Z para esta operação!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13606"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13599"/>
         <source>You need to define a X column first!</source>
         <translation>É necessário definir uma coluna X primeiro!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13610"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13603"/>
         <source>You need to define a Y column first!</source>
         <translation>É necessário definir uma coluna Y primeiro!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13629"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13622"/>
         <source>Please select a Y column to plot!</source>
         <translation>Por favor, selecione uma coluna Y para plotar</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13726"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13719"/>
         <source>Undo/Redo History</source>
         <translation>Desfazer/Refazer - Histórico</translation>
     </message>
@@ -4005,19 +4004,14 @@ Tem certeza que quer continuar?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13272"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13269"/>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13279"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="13276"/>
         <source>No updates available.
 You are already running the latest version: &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="13285"/>
-        <source>The version file could not be decoded into a valid version number.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
