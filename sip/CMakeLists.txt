@@ -278,8 +278,6 @@ else()
 
   if( MSVC AND NOT(CMAKE_CXX_COMPILER_ID STREQUAL "Clang") )
     set( SIP_EXTRA_OPTIONS --qmake-setting QMAKE_CXXFLAGS+="/MP" )
-  elseif( MINGW )
-    set( SIP_EXTRA_OPTIONS --concatenate 1 )
   else()
     include( ProcessorCount )
     ProcessorCount( ncpu )
