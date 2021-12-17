@@ -34,7 +34,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: Release ${{ steps.version.outputs.version }}
+          name: Makhber ${{ steps.version.outputs.version }}
           draft: true
           files: |
             Makhber*.zip
@@ -418,6 +418,9 @@ jobs:
             muParser-devel \
             gl2ps-devel \
             zlib-devel \
+            python3-devel \
+            python3-qt5-devel \
+            PyQt-builder \
             mesa-libGLU-devel \
             rpm-build \
             git
@@ -427,7 +430,8 @@ jobs:
           mkdir build && cd build
           cmake .. \
             -GNinja \
-            -DCMAKE_BUILD_TYPE=Release
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_SCRIPTING_PYTHON=ON
 
       - name: Building
         run: |
