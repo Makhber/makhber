@@ -1,5 +1,19 @@
 # Changelog
 
+## Makhber 0.9.5
+
+Released: 17-12-2021
+
+### General
+
+- Fix a crash when saving a project with a plot function.
+- Fix searching for updates for tweak version.
+- Package RPM with scipting python support.
+
+### Python
+
+- Fix a segfault when loading a project from a Python script with Python 3.10
+
 ## Makhber 0.9.4.3
 
 Released: 11-12-2021
