@@ -223,6 +223,14 @@ jobs:
           snap: ${{ steps.snap_build.outputs.snap }}
           release: beta
 
+      - name: Installing
+        run: |
+          sudo snap install --dangerous *.snap
+
+      - name: Show contents
+        run: |
+          tree /snap/makhber/current/usr
+
   Flatpak:
     runs-on: ubuntu-20.04
     name: Flatpak
@@ -270,6 +278,14 @@ jobs:
         with:
           draft: true
           files: build/Makhber*.flatpak
+
+      - name: Installing
+        run: |
+          flatpak install --user -y build/*.flatpak
+
+      - name: Show contents
+        run: |
+          tree $HOME/.local/share/flatpak/app/com.github.makhber.Makhber/x86_64/master/active/files
 
   AppImage:
     runs-on: ubuntu-18.04
