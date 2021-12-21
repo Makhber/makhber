@@ -106,10 +106,6 @@ jobs:
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\x64-windows.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install zlib gsl muparser opengl gl2ps openssl --triplet x64-windows
 
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
       - name: Install Python packages
         run: |
           pip3 install pyqt5 sip pyqt-builder numpy
