@@ -85,7 +85,7 @@ modules:
     buildsystem: simple
     build-commands:
       - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.9/site-packages
-        --concatenate 1 --no-designer-plugin --no-qml-plugin --no-tools --disable
+        --concatenate $(nproc) --no-designer-plugin --no-qml-plugin --no-tools --disable
         QtQml --disable QtBluetooth --disable QtDBus --disable QtDesigner --disable
         QtHelp --disable QtMultimedia --disable QtMultimediaWidgets --disable QtNfc
         --disable QtRemoteObjects --disable QtPositioning --disable QtLocation --disable
