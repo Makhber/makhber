@@ -63,8 +63,8 @@ parts:
       - pyqt5-sip
   gsl:
     source-type: tar
-    source: https://ftp.gnu.org/gnu/gsl/gsl-2.7.tar.gz
-    source-checksum: sha256/efbbf3785da0e53038be7907500628b466152dbc3c173a87de1b5eba2e23602b
+    source: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
+    source-checksum: sha256/dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b
     plugin: autotools
     autotools-configure-parameters:
       - "--disable-static"
@@ -114,8 +114,8 @@ parts:
       - -usr/features
   pyqt5:
     source-type: tar
-    source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.4.tar.gz
-    source-checksum: sha256/2a69597e0dd11caabe75fae133feca66387819fc9bc050f547e5551bce97e5be
+    source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.6.tar.gz
+    source-checksum: sha256/80343bcab95ffba619f2ed2467fd828ffeb0a251ad7225be5fc06dcc333af452
     plugin: make
     build-packages:
       - g++
@@ -132,16 +132,36 @@ parts:
         --target-dir $SNAPCRAFT_PART_INSTALL/usr/lib/python3.8/site-packages \
         --qmake=/snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
         --api-dir=$SNAPCRAFT_PART_INSTALL/usr/share/qt5/qsci/api/python \
-        --concatenate 1 \
+        --concatenate $(nproc) \
         --no-make \
         --no-tools \
-        --enable QtCore \
-        --enable QtWidgets \
-        --enable QtGui \
-        --enable QtPrintSupport \
-        --enable QtOpenGL \
-        --enable QtSvg \
-        --enable QtNetwork \
+        --no-designer-plugin \
+        --no-qml-plugin \
+        --disable QtQml \
+        --disable QtBluetooth \
+        --disable QtDBus \
+        --disable QtDesigner \
+        --disable QtHelp \
+        --disable QtMultimedia \
+        --disable QtMultimediaWidgets \
+        --disable QtNfc \
+        --disable QtRemoteObjects \
+        --disable QtPositioning \
+        --disable QtLocation \
+        --disable QtQuick \
+        --disable QtQuickWidgets \
+        --disable QtSensors \
+        --disable QtSerialPort \
+        --disable QtSql \
+        --disable QtTest \
+        --disable QtTextToSpeech \
+        --disable QtWebChannel \
+        --disable QtWebKit \
+        --disable QtWebKitWidgets \
+        --disable QtWebSockets \
+        --disable QtX11Extras \
+        --disable QtXml \
+        --disable QtXmlPatterns \
         --verbose
       cd $SNAPCRAFT_PART_BUILD
       snapcraftctl build
