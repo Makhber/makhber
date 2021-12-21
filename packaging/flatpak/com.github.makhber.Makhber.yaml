@@ -21,6 +21,7 @@ modules:
       - /include
       - /lib/*.la
       - /lib/pkgconfig
+      - /share
     sources:
       - type: archive
         url: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
@@ -69,6 +70,7 @@ modules:
           stable-only: true
           url-template: http://downloads.sourceforge.net/qwt/qwt-%{version}.tar.bz2
     cleanup:
+      - /lib/pkgconfig
       - /include
       - /doc
       - /features
@@ -125,6 +127,8 @@ modules:
         x-checker-data:
           type: pypi
           name: PyQt5
+    cleanup:
+      - /lib/python3.9/site-packages/PyQt5/bindings
 
   - name: makhber
     buildsystem: cmake-ninja

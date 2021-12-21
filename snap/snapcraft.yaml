@@ -109,6 +109,7 @@ parts:
         qwt.pro
       snapcraftctl build
     prime:
+      - -usr/lib/pkgconfig
       - -usr/include
       - -usr/doc
       - -usr/features
@@ -131,7 +132,6 @@ parts:
         --build-dir ../build \
         --target-dir $SNAPCRAFT_PART_INSTALL/usr/lib/python3.8/site-packages \
         --qmake=/snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
-        --api-dir=$SNAPCRAFT_PART_INSTALL/usr/share/qt5/qsci/api/python \
         --concatenate $(nproc) \
         --no-make \
         --no-tools \
@@ -165,6 +165,8 @@ parts:
         --verbose
       cd $SNAPCRAFT_PART_BUILD
       snapcraftctl build
+    prime:
+      - -usr/lib/python3.8/site-packages/PyQt5/bindings
   pyqt5-sip:
     plugin: python
     python-packages:
