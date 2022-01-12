@@ -6,7 +6,6 @@ on:
       - "*"
 
 jobs:
-
   Source:
     name: Source
     runs-on: ubuntu-latest
@@ -44,7 +43,7 @@ jobs:
     name: Windows
     runs-on: windows-latest
     env:
-      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       QT_VER: 5.15.2
       QWT_VER: 6.2.0
 
@@ -201,7 +200,7 @@ jobs:
       - name: Building & Packaging
         id: snap_build
         run: |
-          snapcraft --debug --destructive-mode --enable-experimental-extensions
+          snapcraft --debug --destructive-mode
           echo "::set-output name=snap::$(echo $(ls *.snap))"
 
       - name: Upload Snap
@@ -287,7 +286,7 @@ jobs:
     runs-on: ubuntu-18.04
     name: AppImage
     env:
-      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       QT_VER: 5.15.2
       QWT_VER: 6.2.0
 
@@ -336,8 +335,7 @@ jobs:
 
       - name: Get GCC version
         id: gcc-version
-        run:
-          echo "::set-output name=gcc_version::$(gcc -dumpversion)"
+        run: echo "::set-output name=gcc_version::$(gcc -dumpversion)"
 
       - name: Cache Qwt
         id: cache-qwt
