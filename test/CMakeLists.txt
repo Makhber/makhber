@@ -19,7 +19,11 @@ add_executable( unittests ${SRCS} )
 
 find_package( GTest REQUIRED )
 
-target_link_libraries( unittests libmakhber GTest::GTest )
+if( TARGET GTest::gtest )
+  target_link_libraries( unittests libmakhber GTest::gtest )
+else()
+  target_link_libraries( unittests libmakhber GTest::GTest )
+endif()
 
 if( NOT WIN32 )
   target_link_libraries( unittests pthread )
