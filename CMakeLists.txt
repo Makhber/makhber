@@ -4,6 +4,8 @@ cmake_policy(SET CMP0069 NEW) # INTERPROCEDURAL_OPTIMIZATION
 cmake_policy(SET CMP0083 NEW) # POSITION_INDEPENDENT_CODE
 cmake_policy(SET CMP0091 NEW) # MSVC_RUNTIME_LIBRARY
 
+set( CMAKE_FIND_PACKAGE_PREFER_CONFIG ON )
+
 project( makhber
   VERSION 0.10.0
   DESCRIPTION "Free application for Visualization and Analysis of Scientific Data"
