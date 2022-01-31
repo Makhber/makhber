@@ -1538,9 +1538,9 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     // line page
     int style = c->style();
     if (curveType == Graph::Spline)
-        style = 5;
+        style = 4;
     else if (curveType == Graph::VerticalSteps)
-        style = 6;
+        style = 5;
     boxConnect->setCurrentIndex(style);
 
     penWidget->setPen(c->pen());
@@ -1756,7 +1756,7 @@ bool PlotDialog::acceptParams()
             boxPlotType->setCurrentIndex(1);
         else {
             int index = item->plotItemIndex();
-            graph->setCurveStyle(index, boxConnect->currentIndex());
+            graph->setCurveStyle(index, boxConnect->currentIndex() - 1);
             QBrush br = QBrush(boxAreaColor->color(), boxPattern->getSelectedPattern());
             if (!fillGroupBox->isChecked())
                 br = QBrush();

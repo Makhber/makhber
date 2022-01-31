@@ -257,7 +257,7 @@
                                 "brushColor": "#ff000000",
                                 "brushStyle": 0,
                                 "capStyle": 0,
-                                "curveStyle": 1,
+                                "curveStyle": 0,
                                 "customDash": [
                                 ],
                                 "filled": false,

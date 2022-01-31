@@ -2281,9 +2281,9 @@ QJsonObject Graph::saveCurveLayout(int index)
 
     jsCurveLayout.insert("style", style);
     if (style == Spline)
-        jsCurveLayout.insert("curveStyle", 5);
+        jsCurveLayout.insert("curveStyle", 4);
     else if (style == VerticalSteps)
-        jsCurveLayout.insert("curveStyle", 6);
+        jsCurveLayout.insert("curveStyle", 5);
     else
         jsCurveLayout.insert("curveStyle", c->style());
     QJsonObject jsPen {};
@@ -2827,12 +2827,12 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
     if (style == Graph::Line)
         cl.sType = 0;
     else if (style == Graph::VerticalDropLines)
-        cl.connectType = 1;
+        cl.connectType = QwtPlotCurve::Sticks;
     else if (style == Graph::HorizontalSteps || style == Graph::VerticalSteps) {
-        cl.connectType = 2;
+        cl.connectType = QwtPlotCurve::Steps;
         cl.sType = 0;
     } else if (style == Graph::Spline)
-        cl.connectType = 5;
+        cl.connectType = 4;
     else if (curves && (style == Graph::VerticalBars || style == Graph::HorizontalBars)) {
         cl.filledArea = 1;
         cl.lCol = 0; // black color pen
@@ -4766,14 +4766,14 @@ void Graph::setCurveStyle(int index, int s)
     if (!c)
         return;
 
-    if (s == 5) // ancient spline style in Qwt 4.2.0
+    if (s == 4) // ancient spline style in Qwt 4.2.0
     {
         s = QwtPlotCurve::Lines;
         c->setCurveAttribute(QwtPlotCurve::Fitted, true);
         c_type[index] = Spline;
     } else if (s == QwtPlotCurve::Lines)
         c->setCurveAttribute(QwtPlotCurve::Fitted, false);
-    else if (s == 6) // Vertical Steps
+    else if (s == 5) // Vertical Steps
     {
         s = QwtPlotCurve::Steps;
         c->setCurveAttribute(QwtPlotCurve::Inverted, true);

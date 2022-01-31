@@ -377,12 +377,12 @@ bool CurvesDialog::addCurve(const QString &name)
             cl.aCol = color;
             cl.sType = 0;
         } else if (style == Graph::VerticalDropLines)
-            cl.connectType = 1;
+            cl.connectType = QwtPlotCurve::Sticks;
         else if (style == Graph::VerticalSteps || style == Graph::HorizontalSteps) {
-            cl.connectType = 2;
+            cl.connectType = QwtPlotCurve::Steps;
             cl.sType = 0;
         } else if (style == Graph::Spline)
-            cl.connectType = 5;
+            cl.connectType = 4;
 
         d_graph->updateCurveLayout(d_graph->curves() - 1, &cl);
 
