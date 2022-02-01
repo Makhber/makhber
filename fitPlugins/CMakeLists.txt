@@ -13,7 +13,7 @@ add_subdirectory( fitRational1 )
 
 add_subdirectory( planck_wavelength )
 
-if( WIN32 )
+if( MSVC )
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
     COMPONENT FitPlugins
     RUNTIME DESTINATION fitPlugins
@@ -26,6 +26,7 @@ elseif( APPLE )
 else()
   install( TARGETS exp_saturation explin fitRational0 fitRational1 planck_wavelength
     COMPONENT FitPlugins
+    RUNTIME DESTINATION ${CMAKE_INSTALL_LIBDIR}/makhber/plugins
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/makhber/plugins
     )
 endif()

@@ -195,13 +195,10 @@ if( MAKHBER_BUILD_CODE_DOCS )
 endif()
 
 # User Documentation
-set( DOC_FILES
-  ChangeLog.md
-  README.md
-  license.rtf
-)
+set( DOC_FILES ChangeLog.md README.md )
 
-if( WIN32 )
+if( MSVC )
+  list( APPEND DOC_FILES license.rtf )
   install( FILES ${DOC_FILES} DESTINATION . )
 elseif( APPLE )
   install( FILES ${DOC_FILES} DESTINATION makhber.app/Contents/Resources )

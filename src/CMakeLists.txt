@@ -378,11 +378,10 @@ if( BUILD_SHARED_LIBS AND WIN32 )
   )
 endif()
 
-if( WIN32 )
+if( MSVC )
   target_compile_definitions( libmakhber PUBLIC
     TS_PATH="/../translations"
     PLUGIN_PATH="/../fitPlugins"
-    "_USE_MATH_DEFINES"
     )
 elseif( APPLE )
   target_compile_definitions( libmakhber PUBLIC
@@ -394,6 +393,10 @@ else()
     TS_PATH="/../${CMAKE_INSTALL_DATADIR}/makhber/translations"
     PLUGIN_PATH="/../${CMAKE_INSTALL_LIBDIR}/makhber/plugins"
     )
+endif()
+
+if( WIN32 )
+  target_compile_definitions( libmakhber PUBLIC "_USE_MATH_DEFINES" )
 endif()
 
 if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )

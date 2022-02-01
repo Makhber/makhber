@@ -54,9 +54,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
 
 endif()
 
-if( WIN32 )
-  install( TARGETS makhber RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} )
-elseif( APPLE )
+if( APPLE )
   install( TARGETS makhber BUNDLE DESTINATION . )
   install( FILES icons/makhber.icns DESTINATION makhber.app/Contents/Resources )
 else()
@@ -124,7 +122,7 @@ endif()
 
 # Install Translations
 if( MAKHBER_BUILD_TRANSLATIONS )
-  if( WIN32 )
+  if( MSVC )
     install( FILES ${QM_FILES}
       COMPONENT Translations
       DESTINATION translations
