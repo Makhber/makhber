@@ -378,7 +378,7 @@ target_compile_definitions( libmakhber PUBLIC
 )
 # target_compile_definitions( libmakhber PUBLIC DYNAMIC_MANUAL_PATH )
 
-if( WIN32 )
+if( MSVC )
   target_compile_definitions( libmakhber PUBLIC
     TS_PATH="/../translations"
     PLUGIN_PATH="/../fitPlugins"
@@ -393,6 +393,10 @@ else()
     TS_PATH="/../${CMAKE_INSTALL_DATADIR}/makhber/translations"
     PLUGIN_PATH="/../${CMAKE_INSTALL_LIBDIR}/makhber/plugins"
     )
+endif()
+
+if( WIN32 )
+  target_compile_definitions( libmakhber PUBLIC "_USE_MATH_DEFINES" )
 endif()
 
 if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
