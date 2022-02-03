@@ -289,6 +289,7 @@ jobs:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       QT_VER: 5.15.2
       QWT_VER: 6.2.0
+      PYTHON_VERSION: 3.9
 
     steps:
       - name: Checkout
@@ -308,6 +309,11 @@ jobs:
         with:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+
+      # Python version used to build makhber must be the same for miniconda
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '${{ env.PYTHON_VERSION }}'
 
       - name: Install prerequisties
         run: |
@@ -397,8 +403,13 @@ jobs:
           chmod +x linuxdeploy*
           export VERSION=$(git describe --tags)
           export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
-          export CONDA_PYTHON_VERSION=3.9
-          ./linuxdeploy-x86_64.AppImage --appdir ./AppDir --plugin qt --plugin conda --output appimage --custom-apprun=../packaging/appimage/AppRun
+          export CONDA_PYTHON_VERSION=${{ env.PYTHON_VERSION }}
+          ./linuxdeploy-x86_64.AppImage \
+            --appdir ./AppDir \
+            --plugin qt \
+            --plugin conda \
+            --output appimage \
+            --custom-apprun=../packaging/appimage/AppRun
 
       - name: Upload AppImage
         uses: softprops/action-gh-release@v1
