@@ -3,8 +3,8 @@ summary: Makhber
 description: |
   Application for Visualization and Analysis of Scientific Data
 icon: packaging/freedesktop/com.github.makhber.Makhber.svg
-website: https://github.com/Makhber/makhber
-issues: https://github.com/Makhber/makhber/issues
+# website: https://github.com/Makhber/makhber
+# issues: https://github.com/Makhber/makhber/issues
 base: core20
 compression: lzo
 grade: stable
