@@ -34,7 +34,8 @@ parts:
     source: .
     parse-info: [usr/share/metainfo/com.github.makhber.Makhber.appdata.xml]
     plugin: cmake
-    cmake-parameters: 
+    cmake-generator: Ninja
+    cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr"
       - "-DCMAKE_BUILD_TYPE=Release"
       - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
@@ -46,9 +47,7 @@ parts:
       - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
       - PYTHONPATH: $SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages:$HOME/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages
     build-packages:
-      - cmake
       - g++
-      - make
       - libglu1-mesa
       - git
     stage-packages:
@@ -83,6 +82,7 @@ parts:
     source: https://github.com/beltoforion/muparser/archive/v2.3.3-1.tar.gz
     source-checksum: sha256/91d26d8274ae9cd9c776ee58250aeddc6b574f369eafd03b25045b858a2b8177
     plugin: cmake
+    cmake-generator: Ninja
     cmake-parameters:
       - "-DCMAKE_BUILD_TYPE=Release"
       - "-DCMAKE_INSTALL_PREFIX=/usr"
