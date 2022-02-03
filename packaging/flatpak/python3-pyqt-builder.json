@@ -34,8 +34,8 @@
         },
         {
             "type": "file",
-            "url": "https://files.pythonhosted.org/packages/07/4e/0de6d5872145f4cedf187aa8a9069ba91d7e293a82cbbaeabd10c45e9cf0/sip-6.5.0.tar.gz",
-            "sha256": "a1cf8431a8eb9392b3ff6dc61d832d0447bfdcae5b3e4256a5fa74dbc25b0734",
+            "url": "https://files.pythonhosted.org/packages/de/c1/9ac5596c10f6ce28abc1849ed1b6299b3953af0b6ff21e227024991a517e/sip-6.5.1.tar.gz",
+            "sha256": "204f0240db8999a749d638a987b351861843e69239b811ec3d1881412c3706a6",
             "x-checker-data": {
                 "type": "pypi",
                 "name": "sip"
