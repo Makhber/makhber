@@ -199,6 +199,7 @@ jobs:
           cmake .. `
             -DCMAKE_BUILD_TYPE=RelWithDebInfo `
             -DCMAKE_SYSTEM_VERSION="10.0" `
+            -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DMAKHBER_BUILD_TESTS=ON `

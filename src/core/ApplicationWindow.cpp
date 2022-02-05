@@ -153,6 +153,7 @@
 #include <QJsonDocument>
 #include <QLibraryInfo>
 #include <QJsonArray>
+#include <QVersionNumber>
 
 #include <iostream>
 #include <memory>

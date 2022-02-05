@@ -10,6 +10,44 @@ Released: DD-MM-YYYY
 
 - Move to Qwt 6.1
 
+## Makhber 0.9.5
+
+Released: 17-12-2021
+
+### General
+
+- Fix a crash when saving a project with a plot function.
+- Fix searching for updates for tweak version.
+- Package RPM with scipting python support.
+
+### Python
+
+- Fix a segfault when loading a project from a Python script with Python 3.10
+
+## Makhber 0.9.4.3
+
+Released: 11-12-2021
+
+### General
+
+- Update dependencies (GSL 2.7.1, PyQt5 5.15.6)
+- RPM for Fedora 35
+
+### Python
+
+- Fix a segfault when loading a project from a Python script with PyQt5>5.15.4
+
+## Makhber 0.9.4.2
+
+Released: 10-08-2021
+
+### General
+
+- Adapt snap package to snapcraft 5.0
+- update python packages for flatpak
+- Enable APFS filesystem for packaging macOS DMG (requires cmake>=3.21)
+- Build againt the latest gsl 2.7
+
 ## Makhber 0.9.4
 
 Released: 24-05-2021
