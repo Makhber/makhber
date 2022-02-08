@@ -3498,12 +3498,11 @@ bool ApplicationWindow::loadProject(const QString &fn)
 
     if (jsObject["projectType"] != "Makhber") {
         if (QFile::exists(fn + "~")) {
-            int choice = QMessageBox::question(
+            QMessageBox::StandardButton choice = QMessageBox::question(
                     this, tr("File opening error"),
                     tr("The file <b>%1</b> is corrupted, but there exists a backup copy.<br>Do you "
                        "want to open the backup instead?")
-                            .arg(fn),
-                    QMessageBox::Yes | QMessageBox::Default, QMessageBox::No | QMessageBox::Escape);
+                            .arg(fn));
             if (choice == QMessageBox::Yes) {
                 QMessageBox::information(
                         this, tr("Opening backup copy"),
@@ -4620,15 +4619,18 @@ void ApplicationWindow::exportAllGraphs()
                                           tr("A file called: <p><b>%1</b><p>already exists. "
                                              "Do you want to overwrite it?")
                                                   .arg(file_name),
-                                          tr("&Yes"), tr("&All"), tr("&Cancel"), 0, 1)) {
-            case 1:
+                                          QMessageBox::Yes | QMessageBox::YesToAll
+                                                  | QMessageBox::Cancel,
+                                          QMessageBox::Cancel)) {
+            case QMessageBox::YesToAll:
                 confirm_overwrite = false;
                 QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
                 break;
-            case 0:
+            case QMessageBox::Yes:
                 QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
                 break;
-            case 2:
+            case QMessageBox::Cancel:
+            default:
                 return;
             }
         }
@@ -5177,17 +5179,19 @@ void ApplicationWindow::exportAllTables(const QString &sep, bool colNames, bool 
                             tr("A file called: <p><b>%1</b><p>already exists. "
                                "Do you want to overwrite it?")
                                     .arg(fileName),
-                            tr("&Yes"), tr("&All"), tr("&Cancel"), 0, 1)) {
-                    case 0:
+                            QMessageBox::Yes | QMessageBox::YesToAll | QMessageBox::Cancel,
+                            QMessageBox::Cancel)) {
+                    case QMessageBox::Yes:
                         success = t->exportASCII(fileName, sep, colNames, expSelection);
                         break;
 
-                    case 1:
+                    case QMessageBox::YesToAll:
                         confirmOverwrite = false;
                         success = t->exportASCII(fileName, sep, colNames, expSelection);
                         break;
 
-                    case 2:
+                    case QMessageBox::Cancel:
+                    default:
                         return;
                         break;
                     }
@@ -5822,15 +5826,16 @@ void ApplicationWindow::removePoints()
         return;
     } else {
         switch (QMessageBox::warning(this, tr("Makhber"),
-                                     tr("This will modify the data in the worksheets!\nAre you "
-                                        "sure you want to continue?"),
-                                     tr("Continue"), tr("Cancel"), nullptr, 1)) {
-        case 0:
+                                     tr("This will modify the data in the worksheets!\n"
+                                        "Are you sure you want to continue?"),
+                                     QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel)) {
+        case QMessageBox::Yes:
             g->setActiveTool(new DataPickerTool(g, this, DataPickerTool::Remove, d_status_info,
                                                 SLOT(setText(const QString &))));
             break;
 
-        case 1:
+        case QMessageBox::Cancel:
+        default:
             btnPointer->setChecked(true);
             break;
         }
@@ -5865,17 +5870,18 @@ void ApplicationWindow::movePoints()
         return;
     } else {
         switch (QMessageBox::warning(this, tr("Makhber"),
-                                     tr("This will modify the data in the worksheets!\nAre you "
-                                        "sure you want to continue?"),
-                                     tr("Continue"), tr("Cancel"), nullptr, 1)) {
-        case 0:
+                                     tr("This will modify the data in the worksheets!\n"
+                                        "Are you sure you want to continue?"),
+                                     QMessageBox::Yes | QMessageBox::Cancel, QMessageBox::Cancel)) {
+        case QMessageBox::Yes:
             if (g) {
                 g->setActiveTool(new DataPickerTool(g, this, DataPickerTool::Move, d_status_info,
                                                     SLOT(setText(const QString &))));
             }
             break;
 
-        case 1:
+        case QMessageBox::Cancel:
+        default:
             btnPointer->setChecked(true);
             break;
         }
@@ -6387,15 +6393,17 @@ void ApplicationWindow::addText()
 
     auto *plot = dynamic_cast<MultiLayer *>(d_workspace.activeSubWindow());
 
-    switch (QMessageBox::information(
-            this, tr("Add new layer?"),
-            tr("Do you want to add the text on a new layer or on the active layer?"),
-            tr("On &New Layer"), tr("On &Active Layer"), tr("&Cancel"), 0, 2)) {
-    case 0:
-        plot->addTextLayer(legendFrameStyle, plotLegendFont, legendTextColor, legendBackground);
-        break;
+    QMessageBox msgBox(QMessageBox::Information, tr("Add new layer?"),
+                       tr("Do you want to add the text on a new layer or on the active layer?"),
+                       QMessageBox::Cancel, this);
+    QPushButton *onNewLayer = msgBox.addButton(tr("On &New Layer"), QMessageBox::ActionRole);
+    QPushButton *onActiveLayer = msgBox.addButton(tr("On &Active Layer"), QMessageBox::ActionRole);
 
-    case 1: {
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == onNewLayer) {
+        plot->addTextLayer(legendFrameStyle, plotLegendFont, legendTextColor, legendBackground);
+    } else if (msgBox.clickedButton() == onActiveLayer) {
         if (plot->isEmpty()) {
             QMessageBox::warning(this, tr("Warning"),
                                  tr("<h4>There are no plot layers available in this window.</h4>"
@@ -6404,16 +6412,12 @@ void ApplicationWindow::addText()
             actionAddText->setChecked(false);
             return;
         }
-
         auto *g = (Graph *)plot->activeGraph();
         if (g)
             g->drawText(true);
-    } break;
-
-    case 2:
+    } else { // Cancel
         actionAddText->setChecked(false);
         return;
-        break;
     }
 }
 
@@ -7308,9 +7312,10 @@ void ApplicationWindow::closeEvent(QCloseEvent *ce)
 {
     if (!saved) {
         QString s = tr("Save changes to project: <p><b> %1 </b> ?").arg(projectname);
-        switch (QMessageBox::information(this, tr("Makhber"), s, tr("Yes"), tr("No"), tr("Cancel"),
-                                         0, 2)) {
-        case 0:
+        switch (QMessageBox::information(this, tr("Makhber"), s,
+                                         QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel,
+                                         QMessageBox::Cancel)) {
+        case QMessageBox::Yes:
             if (!saveProject()) {
                 ce->ignore();
                 break;
@@ -7319,13 +7324,13 @@ void ApplicationWindow::closeEvent(QCloseEvent *ce)
             ce->accept();
             break;
 
-        case 1:
+        case QMessageBox::No:
         default:
             saveSettings(); // the recent projects must be saved
             ce->accept();
             break;
 
-        case 2:
+        case QMessageBox::Cancel:
             ce->ignore();
             break;
         }
@@ -8659,24 +8664,24 @@ void ApplicationWindow::addLayer()
         return;
 
     auto *plot = dynamic_cast<MultiLayer *>(d_workspace.activeSubWindow());
-    switch (QMessageBox::information(
-            this, tr("Guess best origin for the new layer?"),
-            tr("Do you want Makhber to guess the best position for the new layer?\n Warning: this "
-               "will rearrange existing layers!"),
-            tr("&Guess"), tr("&Top-left corner"), tr("&Cancel"), 0, 2)) {
-    case 0: {
+
+    QMessageBox msgBox(QMessageBox::Information, tr("Guess best origin for the new layer?"),
+                       tr("Do you want Makhber to guess the best position for the new layer?\n"
+                          "Warning: this will rearrange existing layers!"),
+                       QMessageBox::Cancel, this);
+    QPushButton *topLeftCorner = msgBox.addButton(tr("&Top-left corner"), QMessageBox::ActionRole);
+    QPushButton *guess = msgBox.addButton(tr("&Guess"), QMessageBox::ActionRole);
+
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == guess) {
         setPreferences(plot->addLayer());
         plot->arrangeLayers(true, false);
-    } break;
-
-    case 1:
+    } else if (msgBox.clickedButton() == topLeftCorner) {
         setPreferences(plot->addLayer(0, 0, plot->size().width(), plot->size().height()));
-        break;
-
-    case 2:
-        return;
-        break;
     }
+
+    return;
 }
 
 void ApplicationWindow::deleteLayer()
@@ -11500,10 +11505,11 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
         switch (QMessageBox::critical(
                 this, tr("File save error"),
                 tr("The file: <br><b>%1</b> is opened in read-only mode").arg(fn + ".new"),
-                QMessageBox::Retry | QMessageBox::Default,
-                QMessageBox::Abort | QMessageBox::Escape)) {
+                QMessageBox::Retry | QMessageBox::Abort)) {
         case QMessageBox::Abort:
             return;
+        default:
+            break;
         }
     }
 
@@ -11884,8 +11890,7 @@ void ApplicationWindow::projectProperties()
     } else
         s += tr("Created") + ": " + current_folder->birthDate() + "\n\n";
 
-    auto *mbox = new QMessageBox(tr("Properties"), s, QMessageBox::NoIcon, QMessageBox::Ok,
-                                 QMessageBox::NoButton, QMessageBox::NoButton, this);
+    auto *mbox = new QMessageBox(QMessageBox::NoIcon, tr("Properties"), s, QMessageBox::Ok, this);
 
     mbox->setIconPixmap(QPixmap(":/appicon"));
     mbox->show();
@@ -11910,8 +11915,7 @@ void ApplicationWindow::folderProperties()
     s += tr("Created") + ": " + current_folder->birthDate() + "\n\n";
     // s += tr("Modified") + ": " + current_folder->modificationDate() + "\n\n";
 
-    auto *mbox = new QMessageBox(tr("Properties"), s, QMessageBox::NoIcon, QMessageBox::Ok,
-                                 QMessageBox::NoButton, QMessageBox::NoButton, this);
+    auto *mbox = new QMessageBox(QMessageBox::NoIcon, tr("Properties"), s, QMessageBox::Ok, this);
 
     mbox->setIconPixmap(QPixmap(":/folder_open.xpm"));
     mbox->show();
@@ -11940,9 +11944,10 @@ bool ApplicationWindow::deleteFolder(Folder *f)
 {
     if (confirmCloseFolder
         && QMessageBox::information(
-                this, tr("Delete folder?"),
-                tr("Delete folder '%1' and all the windows it contains?").arg(f->name()), tr("Yes"),
-                tr("No"), nullptr, 0)) {
+                   this, tr("Delete folder?"),
+                   tr("Delete folder '%1' and all the windows it contains?").arg(f->name()),
+                   QMessageBox::Yes | QMessageBox::No)
+                == QMessageBox::No) {
         return false;
     } else {
         FolderListItem *fi = f->folderListItem();
@@ -12206,8 +12211,8 @@ void ApplicationWindow::windowProperties()
     if (!w)
         return;
 
-    auto *mbox = new QMessageBox(tr("Properties"), QString(), QMessageBox::NoIcon, QMessageBox::Ok,
-                                 QMessageBox::NoButton, QMessageBox::NoButton, this);
+    auto *mbox = new QMessageBox(QMessageBox::NoIcon, tr("Properties"), QString(), QMessageBox::Ok,
+                                 this);
 
     QString s = QString(w->name()) + "\n\n";
     s += "\n\n\n";
@@ -12424,13 +12429,12 @@ void ApplicationWindow::moveFolder(FolderListItem *src, FolderListItem *dest)
 
 void ApplicationWindow::searchForUpdates()
 {
-    int choice = QMessageBox::question(
+    QMessageBox::StandardButton choice = QMessageBox::question(
             this, "Makhber " + versionString(),
             tr("Makhber will now try to determine whether a new version of Makhber is available. "
                "Please modify your firewall settings in order to allow Makhber to connect to the "
                "internet.")
-                    + "\n" + tr("Do you wish to continue?"),
-            QMessageBox::Yes | QMessageBox::Default, QMessageBox::No | QMessageBox::Escape);
+                    + "\n" + tr("Do you wish to continue?"));
 
     if (choice == QMessageBox::Yes) {
         http.get(QNetworkRequest(QUrl("https://api.github.com/repos/Makhber/makhber/releases")));
@@ -12518,8 +12522,8 @@ void ApplicationWindow::clearTable()
 
     if (QMessageBox::question(this, tr("Warning"),
                               tr("This will clear the contents of all the data associated with the "
-                                 "table. Are you sure?"),
-                              tr("&Yes"), tr("&No"), QString(), 0, 1))
+                                 "table. Are you sure?"))
+        == QMessageBox::Escape)
         return;
     else
         t->clear();
