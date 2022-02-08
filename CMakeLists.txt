@@ -51,9 +51,17 @@ endif()
 
 include( CheckIPOSupported )
 check_ipo_supported( RESULT IPO_SUPPORTED OUTPUT IPO_MESSAGE LANGUAGES CXX )
-# Unfortunately LTO is broken with MINGW+GCC
-if( IPO_SUPPORTED AND NOT (MINGW AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU") )
+# LTO is broken with MINGW/binutils https://sourceware.org/bugzilla/show_bug.cgi?id=12762
+if( MINGW AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
+  set( IPO_SUPPORTED OFF )
+endif()
+
+option( MAKHBER_ENABLE_LTO "Enable LTO" ${IPO_SUPPORTED} )
+
+if( MAKHBER_ENABLE_LTO )
   set( CMAKE_INTERPROCEDURAL_OPTIMIZATION ON )
+else()
+  set( CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF )
 endif()
 
 include( CheckPIESupported )
