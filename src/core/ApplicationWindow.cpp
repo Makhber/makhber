@@ -3411,9 +3411,23 @@ void ApplicationWindow::open()
 
 ApplicationWindow *ApplicationWindow::open(const QString &fn, const QStringList &scriptArgs)
 {
-    if (fn.endsWith(".opj", Qt::CaseInsensitive) || fn.endsWith(".ogm", Qt::CaseInsensitive)
-        || fn.endsWith(".ogw", Qt::CaseInsensitive) || fn.endsWith(".ogg", Qt::CaseInsensitive)
-        || fn.endsWith(".org", Qt::CaseInsensitive))
+    if (fn.endsWith(".mkbr", Qt::CaseInsensitive) || fn.endsWith(".mkbr~", Qt::CaseInsensitive))
+        return openProject(fn);
+    else if (fn.endsWith(".sciprj", Qt::CaseInsensitive)
+             || fn.endsWith(".sciprj~", Qt::CaseInsensitive)
+             || fn.endsWith(".qti", Qt::CaseInsensitive)
+             || fn.endsWith(".qti~", Qt::CaseInsensitive)
+             || fn.endsWith(".sciprj.gz", Qt::CaseInsensitive)
+             || fn.endsWith(".qti.gz", Qt::CaseInsensitive)) {
+        QMessageBox::critical(this, tr("File opening error"),
+                              tr("File format not supported.\n"
+                                 "Makhber dropped support for loading SciDAVis/QtiPlot projects.")
+                                      .arg(fn));
+        return nullptr;
+    } else if (fn.endsWith(".opj", Qt::CaseInsensitive) || fn.endsWith(".ogm", Qt::CaseInsensitive)
+               || fn.endsWith(".ogw", Qt::CaseInsensitive)
+               || fn.endsWith(".ogg", Qt::CaseInsensitive)
+               || fn.endsWith(".org", Qt::CaseInsensitive))
 #ifdef ORIGIN_IMPORT
         return importOPJ(fn);
 #else
@@ -3428,9 +3442,6 @@ ApplicationWindow *ApplicationWindow::open(const QString &fn, const QStringList 
 #endif
     else if (fn.endsWith(".py", Qt::CaseInsensitive))
         return loadScript(fn, scriptArgs);
-    else if (fn.endsWith(".mkbr", Qt::CaseInsensitive)
-             || fn.endsWith(".mkbr~", Qt::CaseInsensitive))
-        return openProject(fn);
     else
         return plotFile(fn);
 }
