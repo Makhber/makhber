@@ -38,9 +38,10 @@ parts:
     cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr"
       - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DBUILD_SHARED_LIBS=ON"
+      - "-DMAKHBER_SCRIPTING_PYTHON=ON"
       - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
       - "-DCMAKE_PREFIX_PATH=$SNAPCRAFT_STAGE/usr"
-      - "-DMAKHBER_SCRIPTING_PYTHON=ON"
       - "-DPyQt_INCLUDE_DIR=$SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages/PyQt5/bindings"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
