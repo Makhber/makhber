@@ -514,10 +514,13 @@ if( MAKHBER_SCRIPTING_PYTHON )
   endif()
 
   if( MSVC )
+    include( PythonEmbedHashes.cmake )
     install( CODE
       "file( DOWNLOAD
         https://www.python.org/ftp/python/${Python3_VERSION}/python-${Python3_VERSION}-embed-amd64.zip
         python_embed.zip
+        SHOW_PROGRESS
+        EXPECTED_HASH MD5=${PYTHON_EMBED_HASH}
       )
       file( ARCHIVE_EXTRACT
         INPUT python_embed.zip
