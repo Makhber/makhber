@@ -3995,7 +3995,7 @@ Warning: this will rearrange existing layers!</source>
 <context>
     <name>AsciiTableImportFilter</name>
     <message>
-        <location filename="../src/table/AsciiTableImportFilter.cpp" line="182"/>
+        <location filename="../src/table/AsciiTableImportFilter.cpp" line="179"/>
         <source>Table</source>
         <translation>Tabela</translation>
     </message>
