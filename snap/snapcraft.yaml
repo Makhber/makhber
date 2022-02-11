@@ -3,6 +3,8 @@ summary: Makhber
 description: |
   Application for Visualization and Analysis of Scientific Data
 icon: packaging/freedesktop/com.github.makhber.Makhber.svg
+# website: https://github.com/Makhber/makhber
+# issues: https://github.com/Makhber/makhber/issues
 base: core20
 compression: lzo
 grade: stable
@@ -10,6 +12,7 @@ confinement: strict
 adopt-info: makhber
 architectures:
   - build-on: amd64
+  - build-on: arm64
 
 apps:
   makhber:
@@ -31,21 +34,20 @@ parts:
     source: .
     parse-info: [usr/share/metainfo/com.github.makhber.Makhber.appdata.xml]
     plugin: cmake
-    cmake-parameters: 
+    cmake-generator: Ninja
+    cmake-parameters:
       - "-DCMAKE_INSTALL_PREFIX=/usr"
       - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DMAKHBER_SCRIPTING_PYTHON=ON"
       - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
       - "-DCMAKE_PREFIX_PATH=$SNAPCRAFT_STAGE/usr"
-      - "-DMAKHBER_SCRIPTING_PYTHON=ON"
       - "-DPyQt_INCLUDE_DIR=$SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages/PyQt5/bindings"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
       - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/x86_64-linux-gnu:$LD_LIBARARY_PATH
       - PYTHONPATH: $SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages:$HOME/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages
     build-packages:
-      - cmake
       - g++
-      - make
       - libglu1-mesa
       - git
     stage-packages:
@@ -56,6 +58,7 @@ parts:
     after:
       - gsl
       - muparser
+      - gl2ps
       - pyqt5
       - pyqt5-sip
   gsl:
@@ -76,9 +79,10 @@ parts:
       - -usr/share
   muparser:
     source-type: tar
-    source: https://github.com/beltoforion/muparser/archive/v2.3.2.tar.gz
-    source-checksum: sha256/b35fc84e3667d432e3414c8667d5764dfa450ed24a99eeef7ee3f6647d44f301
+    source: https://github.com/beltoforion/muparser/archive/v2.3.3-1.tar.gz
+    source-checksum: sha256/91d26d8274ae9cd9c776ee58250aeddc6b574f369eafd03b25045b858a2b8177
     plugin: cmake
+    cmake-generator: Ninja
     cmake-parameters:
       - "-DCMAKE_BUILD_TYPE=Release"
       - "-DCMAKE_INSTALL_PREFIX=/usr"
@@ -87,6 +91,22 @@ parts:
     prime:
       - -usr/include
       - -usr/lib/x86_64-linux-gnu/pkgconfig
+      - -usr/lib/x86_64-linux-gnu/cmake
+  gl2ps:
+    source-type: tar
+    source: https://geuz.org/gl2ps/src/gl2ps-1.4.2.tgz
+    source-checksum: sha256/8d1c00c1018f96b4b97655482e57dcb0ce42ae2f1d349cd6d4191e7848d9ffe9
+    plugin: cmake
+    cmake-generator: Ninja
+    cmake-parameters:
+      - "-DCMAKE_BUILD_TYPE=Release"
+      - "-DCMAKE_INSTALL_PREFIX=/usr"
+    build-packages:
+      - g++
+    prime:
+      - -usr/lib/libgl2ps.a
+      - -usr/include
+      - -usr/share
   pyqt5:
     source-type: tar
     source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.6.tar.gz
