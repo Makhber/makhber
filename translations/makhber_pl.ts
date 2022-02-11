@@ -4036,7 +4036,7 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>AsciiTableImportFilter</name>
     <message>
-        <location filename="../src/table/AsciiTableImportFilter.cpp" line="184"/>
+        <location filename="../src/table/AsciiTableImportFilter.cpp" line="181"/>
         <source>Table</source>
         <translation>Tabela</translation>
     </message>

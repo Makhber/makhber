@@ -4024,7 +4024,7 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
 <context>
     <name>AsciiTableImportFilter</name>
     <message>
-        <location filename="../src/table/AsciiTableImportFilter.cpp" line="184"/>
+        <location filename="../src/table/AsciiTableImportFilter.cpp" line="181"/>
         <source>Table</source>
         <translation>Tabell</translation>
     </message>

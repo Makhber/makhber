@@ -71,15 +71,12 @@ struct MakhberTextStream
         QString r;
 
         while ((good = input.getChar(&c)))
-            switch (c) {
-            case '\r':
-                if (input.getChar(&c) && c != '\n') // eat \n following \r
+            if (c != '\r' && c != '\n') {
+                r += c;
+            } else {
+                if (c == '\r' && input.getChar(&c) && c != '\n') // eat \n following \r
                     input.ungetChar(c);
                 break;
-            case '\n':
-                break;
-            default:
-                r += c;
             };
         switch (whiteSpaceTreatment) {
         case none:
