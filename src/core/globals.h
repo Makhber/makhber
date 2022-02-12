@@ -86,9 +86,6 @@ public:
     /// the user visible release version string (x.Dy usually)
     static QString versionString();
 
-    //! Return the extra version as a string
-    static QString extraVersion();
-
     //! Return the copyright string
     static QString copyrightString();
 

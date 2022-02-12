@@ -12322,13 +12322,13 @@ p, li { white-space: pre-wrap; }
         <translation>%1: przemieść kolumnę %2 z położenia %3 do %4.</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="98"/>
+        <location filename="../src/core/globals.cpp" line="93"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11033"/>
-        <location filename="../src/core/globals.cpp" line="100"/>
+        <location filename="../src/core/globals.cpp" line="95"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>

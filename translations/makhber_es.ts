@@ -12324,13 +12324,13 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
         <translation>%1: mover columna %2 desde  la posición %3 a la %4</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="98"/>
+        <location filename="../src/core/globals.cpp" line="93"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11033"/>
-        <location filename="../src/core/globals.cpp" line="100"/>
+        <location filename="../src/core/globals.cpp" line="95"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>

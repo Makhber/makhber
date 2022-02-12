@@ -12345,13 +12345,13 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>%1: mover coluna %2 da posição %3 para a %4</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="98"/>
+        <location filename="../src/core/globals.cpp" line="93"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11033"/>
-        <location filename="../src/core/globals.cpp" line="100"/>
+        <location filename="../src/core/globals.cpp" line="95"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>

@@ -12295,13 +12295,13 @@ největší celé číslo menší nebo rovno x.</translation>
         <translation>%1: přesunut sloupec %2 z %3 doh %4</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="98"/>
+        <location filename="../src/core/globals.cpp" line="93"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11033"/>
-        <location filename="../src/core/globals.cpp" line="100"/>
+        <location filename="../src/core/globals.cpp" line="95"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>

@@ -66,11 +66,6 @@ QString Makhber::versionString()
     return makhber_version;
 }
 
-QString Makhber::extraVersion()
-{
-    return QString(extra_version);
-}
-
 void Makhber::about()
 {
     QString text = Makhber::copyright_string;
@@ -96,7 +91,7 @@ void Makhber::about()
     ui.setupUi(dialog);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
     dialog->setWindowTitle(QObject::tr("About Makhber"));
-    ui.version_label->setText("Makhber " + versionString() + extraVersion());
+    ui.version_label->setText("Makhber " + versionString());
     ui.release_date_label->setText(QObject::tr("Released") + ": " + QString(Makhber::release_date));
     ui.used_libraries->setText(QString("Makhber was built with the fellowing libraries: ")
                                + "\nQt: " + QT_VERSION_STR + "\nQwt: " + QWT_VERSION_STR
