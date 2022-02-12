@@ -1,5 +1,14 @@
 # Changelog
 
+## Makhber 0.9.5.1
+
+Released: 12-02-2022
+
+### General
+
+- Fix importing ascii files.
+- Update dependencies
+
 ## Makhber 0.9.5
 
 Released: 17-12-2021
