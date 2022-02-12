@@ -101,6 +101,7 @@ parts:
     plugin: make
     build-packages:
       - g++
+      - libgles-dev
     override-build: |
       sed -i "s|^\\s*QWT_INSTALL_PREFIX.*$|QWT_INSTALL_PREFIX=$SNAPCRAFT_PART_INSTALL/usr|g" qwtconfig.pri
       sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
