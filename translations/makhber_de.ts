@@ -12341,13 +12341,13 @@ Absolutbetrag von x.</translation>
         <translation>%1: Spalte %2 von %3 nach %4 verschoben</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="99"/>
+        <location filename="../src/core/globals.cpp" line="94"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11737"/>
-        <location filename="../src/core/globals.cpp" line="101"/>
+        <location filename="../src/core/globals.cpp" line="96"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>

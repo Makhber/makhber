@@ -12387,13 +12387,13 @@ n 阶正则圆柱贝塞尔函数的第 s 个正零 x_s，J_n（x_s）= 0</transl
         <translation>%1:将列 %2 从位置 %3 移动到 %4</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="99"/>
+        <location filename="../src/core/globals.cpp" line="94"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11737"/>
-        <location filename="../src/core/globals.cpp" line="101"/>
+        <location filename="../src/core/globals.cpp" line="96"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>

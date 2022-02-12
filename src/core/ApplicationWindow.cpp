@@ -11733,7 +11733,7 @@ void ApplicationWindow::parseCommandLineArguments(const QStringList &args)
                                      "other arguments!")
                                           .arg(str));
         } else if (str == "-v" || str == "--version") {
-            QString s = "Makhber " + Makhber::versionString() + Makhber::extraVersion() + "\n";
+            QString s = "Makhber " + Makhber::versionString() + "\n";
             s += QObject::tr("Released") + ": " + Makhber::releaseDateString() + "\n";
             s += Makhber::copyrightString() + "\n";
 

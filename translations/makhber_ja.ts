@@ -12227,13 +12227,13 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="99"/>
+        <location filename="../src/core/globals.cpp" line="94"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11737"/>
-        <location filename="../src/core/globals.cpp" line="101"/>
+        <location filename="../src/core/globals.cpp" line="96"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>
