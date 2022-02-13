@@ -439,7 +439,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     target_include_directories( libmakhber PRIVATE ${CMAKE_BINARY_DIR}/sip )
   endif()
 
-  if( WIN32 )
+  if( MSVC )
     set( PYTHONPATH "." )
   elseif( APPLE )
     set( PYTHONPATH "/../Resources" )
