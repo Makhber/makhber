@@ -462,11 +462,11 @@ if( MAKHBER_SCRIPTING_PYTHON )
     PROPERTY COMPILE_DEFINITIONS SCRIPTING_PYTHON
   )
 
-  if( MINGW )
+  if( PYTHONHOME )
     set_property( SOURCE "scripting/PythonScripting.cpp"
       APPEND
       PROPERTY COMPILE_DEFINITIONS
-      PYTHONHOME=${PYTHON_PREFIX}
+      PYTHONHOME=${PYTHONHOME}
     )
   endif()
 
