@@ -1,6 +1,6 @@
 name: CI Tests
 
-on: 
+on:
   pull_request:
   push:
     branches:
@@ -232,6 +232,85 @@ jobs:
         run: |
           $Env:PATH = "$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:PATH"
           ctest --preset msvc-vcpkg -C RelWithDebInfo --repeat until-pass:3
+
+  MINGW:
+    name: MINGW-${{ matrix.msystem }}-Qt${{ matrix.QT_VER }}
+    runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - msystem: UCRT64
+            QT_VER: 5
+          - msystem: UCRT64
+            QT_VER: 6
+          - msystem: CLANG64
+            QT_VER: 5
+          - msystem: CLANG64
+            QT_VER: 6
+    defaults:
+      run:
+        shell: msys2 {0}
+
+    steps:
+      - name: Get Processor Info
+        shell: pwsh
+        run : |
+          Get-CIMInstance -Class Win32_Processor | Select-Object -Property Name
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: ${{ matrix.msystem }}
+          release: false
+          update: true
+          install: pactoys make
+
+      - name: Restore/Cache packages
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/${{ matrix.msystem }}-${{ matrix.QT_VER }}
+          key: ${{ matrix.msystem }}-${{ matrix.QT_VER }}-${{ github.sha }}
+          restore-keys: ${{ matrix.msystem }}-${{ matrix.QT_VER }}-
+      - name: Install prerequisties
+        run: |
+          pacboy -S --noconfirm --disable-download-timeout \
+            --cachedir $(cygpath "${{ github.workspace }}/${{ matrix.msystem }}-${{ matrix.QT_VER }}") \
+            cc:p \
+            cmake:p \
+            ninja:p \
+            qt${{ matrix.QT_VER }}-base:p \
+            qt${{ matrix.QT_VER }}-svg:p \
+            qt${{ matrix.QT_VER }}-tools:p \
+            qwt-qt${{ matrix.QT_VER }}:p \
+            gsl:p \
+            muparser:p \
+            liborigin:p \
+            gl2ps:p \
+            pyqt-builder:p \
+            python-pyqt${{ matrix.QT_VER }}:p \
+            python-numpy:p \
+            gtest:p \
+            make:p
+          pacman -Sc --noconfirm --cachedir $(cygpath "${{ github.workspace }}/${{ matrix.msystem }}-${{ matrix.QT_VER }}")
+
+      - name: Configuring
+        run: |
+          cmake \
+            --preset msys2 \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          cmake --build --preset msys2
+
+      - name: Testing
+        run: |
+          ctest --preset msys2 --repeat until-pass:3
 
   macos:
     runs-on: macos-${{ matrix.macos_ver }}
