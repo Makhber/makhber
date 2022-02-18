@@ -11985,6 +11985,17 @@ p, li { white-space: pre-wrap; }
         <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against; try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="288"/>
+        <source>File opening error</source>
+        <translation type="unfinished">Błąd otwarcia pliku</translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="289"/>
+        <source>Could not find &apos;makhberrc.py&apos; file to initialize Python environment
+Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or working directory</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

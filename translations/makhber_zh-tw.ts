@@ -11993,6 +11993,17 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against; try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="288"/>
+        <source>File opening error</source>
+        <translation type="unfinished">打開文件出錯</translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="289"/>
+        <source>Could not find &apos;makhberrc.py&apos; file to initialize Python environment
+Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or working directory</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
