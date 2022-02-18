@@ -1,5 +1,17 @@
 # Changelog
 
+## Makhber 0.9.5.2
+
+Released: 18-02-2022
+
+### General
+
+- Fix reporting version when it contains a tweak version.
+
+### Packaging
+
+- Fix building snap package on aarch64
+
 ## Makhber 0.9.5.1
 
 Released: 12-02-2022
@@ -7,6 +19,9 @@ Released: 12-02-2022
 ### General
 
 - Fix importing ascii files.
+
+### Packaging
+
 - Update dependencies
 
 ## Makhber 0.9.5
@@ -17,6 +32,9 @@ Released: 17-12-2021
 
 - Fix a crash when saving a project with a plot function.
 - Fix searching for updates for tweak version.
+
+### Packaging
+
 - Package RPM with scipting python support.
 
 ### Python
@@ -27,7 +45,7 @@ Released: 17-12-2021
 
 Released: 11-12-2021
 
-### General
+### Packaging
 
 - Update dependencies (GSL 2.7.1, PyQt5 5.15.6)
 - RPM for Fedora 35
@@ -40,7 +58,7 @@ Released: 11-12-2021
 
 Released: 10-08-2021
 
-### General
+### Packaging
 
 - Adapt snap package to snapcraft 5.0
 - update python packages for flatpak
@@ -53,16 +71,19 @@ Released: 24-05-2021
 
 ### General
 
+- Some minor fixes.
+
+### Packaging
+
 - Debian and RPM packages for Ubuntu 20.04 and Fedora 34
 - Fix Windows Installer by including OpenSSL library and adding the possiblity to select components.
 - Fix file association on Linux.
-- Other minor fixes.
 
 ## Makhber 0.9.3
 
 Released: 16-04-2021
 
-### General
+### Packaging
 
 - makhber is now available from [Flathub](https://flathub.org/apps/details/com.github.makhber.Makhber).
 - makhber is now available as an AppImage.
@@ -73,7 +94,7 @@ Released: 16-04-2021
 
 Released: 10-04-2021
 
-### General
+### Packaging
 
 - makhber is now available as a flatpak file (To be published to flatpak store).
 - Some fixes for the snap package.
@@ -82,15 +103,14 @@ Released: 10-04-2021
 
 Released: 08-04-2021
 
-### General
+### Packaging
 
 - makhber is now avalaible as a snap package (beta channel) from snap store.
 
-### Core
+### Python
 
 - Drop Python2
 - Support SIP >= 5
-
 
 ## Makhber 0.9.0
 
@@ -99,12 +119,15 @@ Released: 10-03-2021
 ### General
 
 - First release after forking the original project (scidavis).
-- Release Installers for Windows with Python support, the user must have installed Python 3.9 x64 in the standard directory "C:\Program Files\Python39".
 - Enable HiDPI Scaling.
 - Fix 3DGraphs not visible on Windows.
 - Fix exporting 3DGraphs to Vector Formats (ps, pdf and svg).
 - Fix importing Fit Plugins on Windows.
 - Fix some bugs and issues.
+
+### Packaging
+
+- Release Installers for Windows with Python support, the user must have installed Python 3.9 x64 in the standard directory "C:\Program Files\Python39".
 
 ### Core
 

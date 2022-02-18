@@ -6,7 +6,7 @@ cmake_policy(SET CMP0091 NEW)
 set( CMAKE_FIND_PACKAGE_PREFER_CONFIG ON )
 
 project( makhber
-  VERSION 0.9.5.1
+  VERSION 0.9.5.2
   DESCRIPTION "Free application for Visualization and Analysis of Scientific Data"
   HOMEPAGE_URL "https://github.com/Makhber/makhber"
   LANGUAGES CXX C
