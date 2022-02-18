@@ -42,7 +42,7 @@ jobs:
 
   Windows:
     name: Windows
-    runs-on: windows-latest
+    runs-on: windows-2022
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       QT_VER: 5.15.2
