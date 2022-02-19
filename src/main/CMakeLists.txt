@@ -40,18 +40,18 @@ if( APPLE )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
-
-  file( COPY
+  set( MAKHBER_PYTHON_FILES
     "${CMAKE_SOURCE_DIR}/src/scripting/makhberrc.py"
     "${CMAKE_SOURCE_DIR}/src/scripting/makhberUtil.py"
-    DESTINATION .
   )
+  file( COPY ${MAKHBER_PYTHON_FILES} DESTINATION . )
+  # Copy *.py files to run python tests, and compile them for installation
   add_custom_command( TARGET makhber
     POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy ${MAKHBER_PYTHON_FILES} "$<TARGET_FILE_DIR:makhber>/"
     COMMAND ${Python3_EXECUTABLE} -m compileall -l ${CMAKE_CURRENT_BINARY_DIR}
-    COMMENT "Compiling Python files...\n"
+    COMMENT "Copying and Compiling Python files...\n"
   )
-
 endif()
 
 if( APPLE )
