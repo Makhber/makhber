@@ -11960,6 +11960,17 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <source>Failed to load sys module.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="303"/>
+        <source>File opening error</source>
+        <translation type="unfinished">Erro na abertura de arquivo</translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="304"/>
+        <source>Could not find &apos;makhberrc.py&apos; file to initialize Python environment
+Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or working directory</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -11945,6 +11945,17 @@ n 阶正则圆柱贝塞尔函数的第 s 个正零 x_s，J_n（x_s）= 0</transl
         <source>Failed to load sys module.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="303"/>
+        <source>File opening error</source>
+        <translation type="unfinished">打开文件出错</translation>
+    </message>
+    <message>
+        <location filename="../src/scripting/PythonScripting.cpp" line="304"/>
+        <source>Could not find &apos;makhberrc.py&apos; file to initialize Python environment
+Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or working directory</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
