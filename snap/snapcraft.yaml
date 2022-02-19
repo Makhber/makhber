@@ -141,6 +141,7 @@ parts:
     build-packages:
       - g++
       - libgl-dev
+      - libgles-dev
       - python3-pip
     build-environment:
       - PATH: $HOME/.local/bin:$PATH

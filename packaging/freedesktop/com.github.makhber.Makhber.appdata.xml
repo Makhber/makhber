@@ -34,6 +34,8 @@
   <launchable type="desktop-id">com.github.makhber.Makhber.desktop</launchable>
 
   <releases>
+    <release version="0.9.5.2" date="2022-02-18"/>
+    <release version="0.9.5.1" date="2022-02-12"/>
     <release version="0.9.5" date="2021-12-17"/>
     <release version="0.9.4.3" date="2021-12-11"/>
     <release version="0.9.4.2" date="2021-08-10"/>

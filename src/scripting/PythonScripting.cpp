@@ -284,16 +284,27 @@ bool PythonScripting::initialize()
         setQObject(this, "stdout", sys);
         setQObject(this, "stderr", sys);
     }
-    bool initialized;
-    initialized = loadInitFile(QDir::homePath() + "/makhberrc");
+    bool initialized = false;
+    QStringList initPaths = { QDir::homePath() + "/", qApp->applicationDirPath() + "/", "" };
 #ifdef PYTHONPATH
-    if (!initialized)
-        initialized = loadInitFile(qApp->applicationDirPath() + PYTHONPATH + "/makhberrc");
+    initPaths.insert(1, qApp->applicationDirPath() + PYTHONPATH + "/");
 #endif
-    if (!initialized)
-        initialized = loadInitFile(qApp->applicationDirPath() + "/makhberrc");
-    if (!initialized)
-        initialized = loadInitFile("makhberrc");
+    bool initFileFound = false;
+    for (int i = 0; i < initPaths.size(); i++) {
+        QString initFile = initPaths[i] + "makhberrc.py";
+        if (QFileInfo::exists(initFile)) {
+            initFileFound = true;
+            initialized = loadInitFile(initFile);
+            if (initialized)
+                break;
+        }
+    }
+    if (!initFileFound)
+        QMessageBox::critical(d_parent, tr("File opening error"),
+                              tr("Could not find 'makhberrc.py' file to initialize Python"
+                                 " environment\n"
+                                 "Try to copy the 'makhberrc.py' to the current PYTHONPATH,"
+                                 " HOME or working directory"));
 
     //	PyEval_ReleaseLock();
     return initialized;
@@ -310,9 +321,9 @@ bool PythonScripting::loadInitFile(const QString &path)
 {
     PyGILState_STATE gstate = PyGILState_Ensure();
     PyRun_SimpleString("import sys\nsys.path.append('" PYTHONPATH "')");
-    QFileInfo pyFile(path + ".py");
+    QFileInfo pyFile(path);
     bool success = false;
-    if (pyFile.isReadable() && pyFile.exists()) {
+    if (pyFile.isReadable()) {
         FILE *f = fopen(pyFile.filePath().toLocal8Bit(), "rb");
         success = PyRun_SimpleFile(f, pyFile.filePath().toLocal8Bit()) == 0;
         fclose(f);
