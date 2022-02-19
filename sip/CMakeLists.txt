@@ -246,7 +246,7 @@ else()
     configure_file( pyproject.toml.in pyproject.toml @ONLY )
   endif()
 
-  if( MSVC )
+  if( WIN32 )
     set( module_file ${CMAKE_CURRENT_BINARY_DIR}/build/makhber/makhber.pyd )
   else()
     set( module_file ${CMAKE_CURRENT_BINARY_DIR}/build/makhber/makhber${_Python3_EXT_SUFFIX} )
