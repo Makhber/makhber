@@ -1,5 +1,5 @@
 /***************************************************************************
-   File                 : planck_wavelength.c
+   File                 : explin.cpp
    Project              : Makhber
    Description          : Fit plugin for "exp(-b1*x)/(b2+b3*x)"
    --------------------------------------------------------------------
@@ -33,7 +33,7 @@
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 
-#include <math.h>
+#include <cmath>
 
 #ifdef _WIN32
 #    define DLL_EXPORT __declspec(dllexport)
@@ -50,27 +50,27 @@ struct data
     double *sigma;
 };
 
-DLL_EXPORT char *name(void)
+extern "C" DLL_EXPORT const char *name(void)
 {
     return "Exp/Lin";
 }
 
-DLL_EXPORT char *function(void)
+extern "C" DLL_EXPORT const char *function(void)
 {
     return "exp(-b1*x)/(b2+b3*x)";
 }
 
-DLL_EXPORT char *parameters(void)
+extern "C" DLL_EXPORT const char *parameters(void)
 {
     return "b1,b2,b3";
 }
 
-DLL_EXPORT double function_eval(double x, double *params)
+extern "C" DLL_EXPORT double function_eval(double x, double *params)
 {
     return exp(-params[0] * x) / (params[1] + params[2] * x);
 }
 
-DLL_EXPORT int function_f(const gsl_vector *params, void *void_data, gsl_vector *f)
+extern "C" DLL_EXPORT int function_f(const gsl_vector *params, void *void_data, gsl_vector *f)
 {
     struct data *d = (struct data *)void_data;
     double p[3];
@@ -83,7 +83,7 @@ DLL_EXPORT int function_f(const gsl_vector *params, void *void_data, gsl_vector 
     return GSL_SUCCESS;
 }
 
-DLL_EXPORT double function_d(const gsl_vector *params, void *void_data)
+extern "C" DLL_EXPORT double function_d(const gsl_vector *params, void *void_data)
 {
     struct data *d = (struct data *)void_data;
     gsl_vector *f = gsl_vector_alloc(d->n);
@@ -97,7 +97,7 @@ DLL_EXPORT double function_d(const gsl_vector *params, void *void_data)
     return result;
 }
 
-DLL_EXPORT int function_df(const gsl_vector *params, void *void_data, gsl_matrix *J)
+extern "C" DLL_EXPORT int function_df(const gsl_vector *params, void *void_data, gsl_matrix *J)
 {
     struct data *d = (struct data *)void_data;
     double b1 = gsl_vector_get(params, 0);
@@ -114,7 +114,8 @@ DLL_EXPORT int function_df(const gsl_vector *params, void *void_data, gsl_matrix
     return GSL_SUCCESS;
 }
 
-DLL_EXPORT int function_fdf(const gsl_vector *params, void *void_data, gsl_vector *f, gsl_matrix *J)
+extern "C" DLL_EXPORT int function_fdf(const gsl_vector *params, void *void_data, gsl_vector *f,
+                                       gsl_matrix *J)
 {
     function_f(params, void_data, f);
     function_df(params, void_data, J);

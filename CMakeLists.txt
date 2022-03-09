@@ -10,7 +10,7 @@ project( makhber
   VERSION 0.10.0
   DESCRIPTION "Free application for Visualization and Analysis of Scientific Data"
   HOMEPAGE_URL "https://github.com/Makhber/makhber"
-  LANGUAGES CXX C
+  LANGUAGES CXX
   )
 
 set( PROJECT_VERSION_SUFFIX "alpha" )
@@ -18,10 +18,6 @@ set( PROJECT_VERSION_SUFFIX "alpha" )
 set( PROJECT_RELEASE_DATE "May, 14 2022" )
 
 set( CMAKE_CXX_EXTENSIONS OFF )
-
-set( CMAKE_C_STANDARD 11 )
-set( CMAKE_C_STANDARD_REQUIRED TRUE )
-set( CMAKE_C_EXTENSIONS OFF )
 
 include( CheckIPOSupported )
 check_ipo_supported( RESULT IPO_SUPPORTED OUTPUT IPO_MESSAGE LANGUAGES CXX )
@@ -52,7 +48,6 @@ if( MSVC )
   # /wd4996 strcpy is unsafe warnings, equiv to #define _SCL_SECURE_NO_WARNINGS
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /EHsc /W4 /permissive- \
 	 /wd4456 /wd4457 /wd4458 /wd4251 /wd4127 /wd4310 /wd4996" )
-  set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /W4 /permissive-" )
   if( CMAKE_CXX_COMPILER_ID STREQUAL "Clang" )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-nonportable-include-path" )
   else()
@@ -60,11 +55,9 @@ if( MSVC )
   endif()
 else()
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fexceptions -Wall -Wextra -pedantic" )
-  set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic" )
   check_cxx_compiler_flag("-ftrivial-auto-var-init=pattern" CXX_AUTO_INITIALIZE_PATTERN)
   if( CXX_AUTO_INITIALIZE_PATTERN )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftrivial-auto-var-init=pattern" )
-    set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ftrivial-auto-var-init=pattern" )
   endif()
 endif()
 

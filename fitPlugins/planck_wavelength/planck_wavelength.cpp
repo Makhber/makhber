@@ -1,9 +1,9 @@
 /***************************************************************************
-   File                 : exp_saturation.c
+   File                 : planck_wavelength.cpp
    Project              : Makhber
-   Description          : Fit plugin for "b1*(1-exp(-b2*x))"
+   Description          : Fit plugin for "a/(x^5*(exp(b/x)-1))"
    --------------------------------------------------------------------
-   Copyright            : (C) 2008 Knut Franke (knut.franke*gmx.de)
+   Copyright            : (C) 2009 Knut Franke (knut.franke*gmx.de)
                           (replace * with @ in the email address)
  ***************************************************************************/
 
@@ -33,7 +33,7 @@
 #include <gsl/gsl_vector.h>
 #include <gsl/gsl_matrix.h>
 
-#include <math.h>
+#include <cmath>
 
 #ifdef _WIN32
 #    define DLL_EXPORT __declspec(dllexport)
@@ -50,57 +50,59 @@ struct data
     double *sigma;
 };
 
-DLL_EXPORT char *name(void)
+extern "C" DLL_EXPORT const char *name(void)
 {
-    return "ExponentialSaturation";
+    return "PlanckWavelength";
 }
 
-DLL_EXPORT char *function(void)
+extern "C" DLL_EXPORT const char *function(void)
 {
-    return "b1*(1-exp(-b2*x))";
+    return "a/(x^5*(exp(b/x)-1))";
 }
 
-DLL_EXPORT char *parameters(void)
+extern "C" DLL_EXPORT const char *parameters(void)
 {
-    return "b1,b2";
+    return "a,b";
 }
 
-DLL_EXPORT double function_eval(double x, double *params)
+extern "C" DLL_EXPORT double function_eval(double x, double *params)
 {
-    return params[0] * (1 - exp(-params[1] * x));
+    return params[0] / (pow(x, 5) * (exp(params[1] / x) - 1.0));
 }
 
-DLL_EXPORT int function_f(const gsl_vector *params, void *void_data, gsl_vector *f)
+extern "C" DLL_EXPORT int function_f(const gsl_vector *params, void *void_data, gsl_vector *f)
 {
     struct data *d = (struct data *)void_data;
-    double b1 = gsl_vector_get(params, 0);
-    double b2 = gsl_vector_get(params, 1);
+    double a = gsl_vector_get(params, 0);
+    double b = gsl_vector_get(params, 1);
     for (size_t i = 0; i < d->n; i++)
-        gsl_vector_set(f, i, (b1 * (1 - exp(-b2 * d->X[i])) - d->Y[i]) / d->sigma[i]);
+        gsl_vector_set(f, i,
+                       (a / (pow(d->X[i], 5) * (exp(b / d->X[i]) - 1.0)) - d->Y[i]) / d->sigma[i]);
     return GSL_SUCCESS;
 }
 
-DLL_EXPORT int function_df(const gsl_vector *params, void *void_data, gsl_matrix *J)
+extern "C" DLL_EXPORT int function_df(const gsl_vector *params, void *void_data, gsl_matrix *J)
 {
     struct data *d = (struct data *)void_data;
-    double b1 = gsl_vector_get(params, 0);
-    double b2 = gsl_vector_get(params, 1);
+    double a = gsl_vector_get(params, 0);
+    double b = gsl_vector_get(params, 1);
     for (size_t i = 0; i < d->n; i++) {
         double x = d->X[i];
-        gsl_matrix_set(J, i, 0, (1 - exp(-b2 * x)));
-        gsl_matrix_set(J, i, 1, b1 * x * exp(-b2 * x));
+        gsl_matrix_set(J, i, 0, 1.0 / (pow(x, 5) * (exp(b / x) - 1.0)));
+        gsl_matrix_set(J, i, 1, a / (pow(x, 3) * pow(exp(b / x) - 1, 2) * exp(b / x) * b));
     }
     return GSL_SUCCESS;
 }
 
-DLL_EXPORT int function_fdf(const gsl_vector *params, void *void_data, gsl_vector *f, gsl_matrix *J)
+extern "C" DLL_EXPORT int function_fdf(const gsl_vector *params, void *void_data, gsl_vector *f,
+                                       gsl_matrix *J)
 {
     function_f(params, void_data, f);
     function_df(params, void_data, J);
     return GSL_SUCCESS;
 }
 
-DLL_EXPORT double function_d(const gsl_vector *params, void *void_data)
+extern "C" DLL_EXPORT double function_d(const gsl_vector *params, void *void_data)
 {
     struct data *d = (struct data *)void_data;
     gsl_vector *f = gsl_vector_alloc(d->n);
