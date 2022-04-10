@@ -183,7 +183,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps gtest --triplet x64-windows
+          vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf --triplet x64-windows
 
       - uses: actions/setup-python@v2
         with:
