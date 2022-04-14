@@ -1,0 +1,21 @@
+{
+    "name": "python3-flit_core",
+    "buildsystem": "simple",
+    "build-commands": [
+        "pip3 install --exists-action=i --no-index --find-links=\"file://${PWD}\" --prefix=${FLATPAK_DEST} \"flit_core\" --no-build-isolation"
+    ],
+    "sources": [
+        {
+            "type": "file",
+            "url": "https://files.pythonhosted.org/packages/15/d1/d8798b83e953fd6f86ca9b50f93eec464a9305b0661469c8234e61095481/flit_core-3.7.1.tar.gz",
+            "sha256": "14955af340c43035dbfa96b5ee47407e377ee337f69e70f73064940d27d0a44f",
+            "x-checker-data": {
+                "type": "pypi",
+                "name": "flit_core"
+            }
+        }
+    ],
+    "cleanup": [
+        "/lib"
+    ]
+}

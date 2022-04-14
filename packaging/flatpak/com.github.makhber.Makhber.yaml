@@ -115,6 +115,7 @@ modules:
       - /include
       - /share
 
+  - python3-flit_core.json
   - python3-pyqt-builder.json
 
   - name: pyqt5-sip
@@ -123,8 +124,8 @@ modules:
       - python3 setup.py install --prefix=/app
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/c0/86/6b60c6a1b1d10524ed50fc4c6a2989492512bd46292a711318a53b243774/PyQt5_sip-12.9.1.tar.gz
-        sha256: 2f24f299b44c511c23796aafbbb581bfdebf78d0905657b7cee2141b4982030e
+        url: https://files.pythonhosted.org/packages/a3/82/08a09deda701feb930aa6462f2f22e07cbcb9aa7c1ef361a090221b4587e/PyQt5_sip-12.10.1.tar.gz
+        sha256: 97e008795c453488f51a5c97dbff29cda7841afb1ca842c9e819d8e6cc0ae724
         x-checker-data:
           type: pypi
           name: PyQt5-sip
