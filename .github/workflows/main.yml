@@ -216,7 +216,7 @@ jobs:
           ctest -C RelWithDebInfo --output-on-failure --repeat until-pass:3
 
   macos:
-    runs-on: macos-11
+    runs-on: macos-12
     name: macos
     env:
       QT_VER: 5.15.2
