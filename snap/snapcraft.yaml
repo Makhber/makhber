@@ -44,7 +44,7 @@ parts:
       - "-DPyQt_INCLUDE_DIR=$SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages/PyQt5/bindings"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
-      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBARARY_PATH
+      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBARARY_PATH
       - PYTHONPATH: $SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages:$HOME/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages
     build-packages:
       - g++
@@ -119,14 +119,14 @@ parts:
       - python3-pip
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
-      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBARARY_PATH
+      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBARARY_PATH
     override-build: |
       pip3 install sip pyqt-builder
       cd $SNAPCRAFT_PART_SRC
       sip-build --confirm-license \
         --build-dir ../build \
         --target-dir $SNAPCRAFT_PART_INSTALL/usr/lib/python3.8/site-packages \
-        --qmake=/snap/kde-frameworks-5-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
+        --qmake=/snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
         --concatenate $(nproc) \
         --no-make \
         --no-tools \
