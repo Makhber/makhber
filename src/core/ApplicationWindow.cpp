@@ -2404,7 +2404,8 @@ void ApplicationWindow::setPreferences(Graph *g)
                         defaultArrowHeadLength, defaultArrowHeadAngle, defaultArrowHeadFill);
     g->initTitle(titleOn, plotTitleFont);
     g->drawCanvasFrame(canvasFrameOn, canvasFrameWidth);
-    // g->plotWidget()->setMargin(defaultPlotMargin);
+    g->plotWidget()->setContentsMargins(defaultPlotMargin, defaultPlotMargin, defaultPlotMargin,
+                                        defaultPlotMargin);
     g->enableAutoscaling(autoscale2DPlots);
     g->setAutoscaleFonts(autoScaleFonts);
     g->setIgnoreResizeEvents(!autoResizeLayers);

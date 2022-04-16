@@ -1688,7 +1688,8 @@ bool PlotDialog::acceptParams()
             auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g) {
                 g->setFrame(boxBorderWidth->value(), boxBorderColor->color());
-                // g->setMargin(boxMargin->value());
+                g->setContentsMargins(boxMargin->value(), boxMargin->value(), boxMargin->value(),
+                                      boxMargin->value());
 
                 QColor c = boxBackgroundColor->color();
                 c.setAlpha(boxBackgroundTransparency->value());
@@ -2308,7 +2309,7 @@ void PlotDialog::updateBorder(int width)
     d_ml->notifyChanges();
 }
 
-void PlotDialog::changeMargin() // int width)
+void PlotDialog::changeMargin(int width)
 {
     if (privateTabWidget->currentWidget() != layerPage)
         return;
@@ -2316,17 +2317,17 @@ void PlotDialog::changeMargin() // int width)
     if (boxAll->isChecked()) {
         QWidgetList allPlots = d_ml->graphPtrs();
         for (int i = 0; i < allPlots.count(); i++) {
-            /* auto *g = dynamic_cast<Graph *>(allPlots.at(i));
+            auto *g = dynamic_cast<Graph *>(allPlots.at(i));
             if (g)
-                g->setMargin(width);*/
+                g->setContentsMargins(width, width, width, width);
         }
     } else {
         auto *item = dynamic_cast<LayerItem *>(listBox->currentItem());
         if (!item)
             return;
-        /* Graph *g = item->graph();
+        Graph *g = item->graph();
         if (g)
-            g->setMargin(width);*/
+            g->setContentsMargins(width, width, width, width);
     }
 }
 

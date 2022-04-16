@@ -127,7 +127,7 @@ protected Q_SLOTS:
     void pickBackgroundColor(QColor);
     void pickCanvasColor(QColor);
     void pickBorderColor(QColor);
-    void changeMargin(); // int);
+    void changeMargin(int);
     void setTitlesFont();
     void setAxesLabelsFont();
     void setAxesNumbersFont();
