@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
 
@@ -49,13 +49,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
       - name: Cache Qt
         id: cache-qt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
@@ -68,7 +68,7 @@ jobs:
 
       - name: Cache Qwt
         id: cache-qwt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
@@ -147,7 +147,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
@@ -189,7 +189,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
@@ -232,7 +232,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
@@ -295,13 +295,13 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
       - name: Cache Qt
         id: cache-qt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
@@ -313,7 +313,7 @@ jobs:
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
       # Python version used to build makhber must be the same for miniconda
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: '${{ env.PYTHON_VERSION }}'
 
@@ -347,7 +347,7 @@ jobs:
 
       - name: Cache Qwt
         id: cache-qwt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
@@ -426,7 +426,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
 

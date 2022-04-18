@@ -20,13 +20,13 @@ jobs:
           lscpu | grep name
           nproc
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
       - name: Cache Qt
         id: cache-qt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
@@ -72,7 +72,7 @@ jobs:
 
       - name: Cache Qwt
         id: cache-qwt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}-Cache
@@ -90,7 +90,7 @@ jobs:
           make -j$(nproc)
           make install
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: '3.10'
 
@@ -130,13 +130,13 @@ jobs:
         run : |
           Get-CIMInstance -Class Win32_Processor | Select-Object -Property Name
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
       - name: Cache Qt
         id: cache-qt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
@@ -149,7 +149,7 @@ jobs:
 
       - name: Cache Qwt
         id: cache-qwt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
@@ -184,7 +184,7 @@ jobs:
         run: |
           vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf --triplet x64-windows
 
-      - uses: actions/setup-python@v2
+      - uses: actions/setup-python@v3
         with:
           python-version: '3.10'
 
@@ -227,13 +227,13 @@ jobs:
           sysctl -n machdep.cpu.brand_string
           sysctl -n hw.logicalcpu
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           submodules: true
 
       - name: Cache Qt
         id: cache-qt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
@@ -253,7 +253,7 @@ jobs:
 
       - name: Cache Qwt
         id: cache-qwt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: ../Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
