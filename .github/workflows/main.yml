@@ -24,11 +24,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
+      - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
@@ -36,6 +36,7 @@ jobs:
         with:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
       - name: Install prerequisties
         run: |
@@ -70,19 +71,19 @@ jobs:
           gcc_version=
           echo "::set-output name=gcc_version::$(gcc -dumpversion)"
 
-      - name: Cache Qwt
+      - name: Restore cached Qwt
         id: cache-qwt
         uses: actions/cache@v3
         with:
-          path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}-Cache
+          path: ${{ github.workspace }}/Qwt
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
-          sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
+          sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/Qwt|g" qwtconfig.pri
           sed -i "s|QWT_CONFIG     += QwtExamples||g" qwtconfig.pri
           sed -i "s|QWT_CONFIG     += QwtPlayground||g" qwtconfig.pri
           sed -i "s|QWT_CONFIG     += QwtTests||g" qwtconfig.pri
@@ -106,7 +107,7 @@ jobs:
             -DMAKHBER_DOWNLOAD_LINKS=OFF \
             -DMAKHBER_SCRIPTING_PYTHON=ON \
             -DMAKHBER_BUILD_TESTS=ON \
-            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/../Qwt
+            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/Qwt
 
       - name: Building
         run: |
@@ -134,11 +135,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
+      - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
@@ -146,13 +147,14 @@ jobs:
         with:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
-      - name: Cache Qwt
+      - name: Restore cached Qwt
         id: cache-qwt
         uses: actions/cache@v3
         with:
-          path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
+          path: ${{ github.workspace }}/Qwt
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
 
       - uses: ilammy/msvc-dev-cmd@v1
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -163,7 +165,7 @@ jobs:
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.zip
           Expand-Archive qwt-${{ env.QWT_VER }}.zip -DestinationPath .; cd qwt-${{ env.QWT_VER }}
           ((Get-Content -path qwtconfig.pri -Raw) `
-            -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/../Qwt" `
+            -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/Qwt" `
             -replace 'QWT_CONFIG     \+= QwtExamples',"" `
             -replace 'QWT_CONFIG     \+= QwtPlayground',"" `
             -replace 'QWT_CONFIG     \+= QwtTests',"") `
@@ -193,16 +195,15 @@ jobs:
 
       - name: Configuring
         run: |
-          $Env:CMAKE_PREFIX_PATH = (Resolve-Path "$Env:GITHUB_WORKSPACE\..\Qwt")
           mkdir build; cd build
           cmake .. `
             -DCMAKE_BUILD_TYPE=RelWithDebInfo `
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
+            -DCMAKE_PREFIX_PATH="$Env:GITHUB_WORKSPACE\Qwt" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
-            -DMAKHBER_BUILD_TESTS=ON `
-            -DPython3_ROOT_DIR=${{ env.pythonLocation }}
+            -DMAKHBER_BUILD_TESTS=ON
 
       - name: Building
         run: |
@@ -210,7 +211,7 @@ jobs:
 
       - name: Testing
         run: |
-          $Env:PATH = "$Env:GITHUB_WORKSPACE}\..\Qwt\lib;$Env:PATH"
+          $Env:PATH = "$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:PATH"
           cd build
           ctest -C RelWithDebInfo --output-on-failure --repeat until-pass:3
 
@@ -231,11 +232,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
+      - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
@@ -244,6 +245,7 @@ jobs:
           setup-python: false
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
       - name: Install prerequisties
         env:
@@ -251,19 +253,19 @@ jobs:
         run: |
           brew install --display-times muparser gsl gl2ps googletest
 
-      - name: Cache Qwt
+      - name: Restore cached Qwt
         id: cache-qwt
         uses: actions/cache@v3
         with:
-          path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
+          path: ${{ github.workspace }}/Qwt
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
-          sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
+          sed -i .bak "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/Qwt|g" qwtconfig.pri
           sed -i .bak "s|QWT_CONFIG     += QwtExamples||g" qwtconfig.pri
           sed -i .bak "s|QWT_CONFIG     += QwtPlayground||g" qwtconfig.pri
           sed -i .bak "s|QWT_CONFIG     += QwtTests||g" qwtconfig.pri
@@ -276,7 +278,7 @@ jobs:
           mkdir build && cd build
           cmake .. \
             -DMAKHBER_BUILD_TESTS=ON \
-            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/../Qwt
+            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/Qwt
 
       - name: Building
         run: |
@@ -284,6 +286,6 @@ jobs:
 
       - name: Testing
         run: |
-          export DYLD_FALLBACK_FRAMEWORK_PATH=${GITHUB_WORKSPACE}/../Qwt/lib
+          export DYLD_FALLBACK_FRAMEWORK_PATH=${GITHUB_WORKSPACE}/Qwt/lib
           cd build
           ctest --output-on-failure --repeat until-pass:3

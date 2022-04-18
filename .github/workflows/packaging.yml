@@ -53,11 +53,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
+      - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
@@ -66,12 +66,12 @@ jobs:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
 
-      - name: Cache Qwt
+      - name: Restore cached Qwt
         id: cache-qwt
         uses: actions/cache@v3
         with:
-          path: ../Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-Cache
+          path: ${{ github.workspace }}/Qwt
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
 
       - uses: ilammy/msvc-dev-cmd@v1
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -82,7 +82,7 @@ jobs:
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.zip
           Expand-Archive qwt-${{ env.QWT_VER }}.zip -DestinationPath .; cd qwt-${{ env.QWT_VER }}
           ((Get-Content -path qwtconfig.pri -Raw) `
-            -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/../Qwt" `
+            -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/Qwt" `
             -replace 'QWT_CONFIG     \+= QwtExamples',"" `
             -replace 'QWT_CONFIG     \+= QwtPlayground',"" `
             -replace 'QWT_CONFIG     \+= QwtTests',"") `
@@ -110,8 +110,6 @@ jobs:
 
       - name: Configuring
         run: |
-          $Env:QWT_PATH = (Resolve-Path "$Env:GITHUB_WORKSPACE\..\Qwt")
-          echo $Env:QWT_PATH
           mkdir build; cd build
           cmake .. `
             -DCMAKE_BUILD_TYPE=Release `
@@ -119,8 +117,8 @@ jobs:
             -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
-            -DCMAKE_PREFIX_PATH="$Env:QWT_PATH" `
-            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin;$Env:QWT_PATH\lib;$Env:Qt5_DIR\bin"
+            -DCMAKE_PREFIX_PATH="$Env:GITHUB_WORKSPACE\Qwt" `
+            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin;$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:Qt5_DIR\bin"
 
       - name: Building
         run: |
@@ -298,11 +296,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
+      - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
@@ -344,11 +342,11 @@ jobs:
         id: gcc-version
         run: echo "::set-output name=gcc_version::$(gcc -dumpversion)"
 
-      - name: Cache Qwt
+      - name: Restore cached Qwt
         id: cache-qwt
         uses: actions/cache@v3
         with:
-          path: ../Qwt
+          path: ${{ github.workspace }}/Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
 
       - name: Build and install Qwt
@@ -356,7 +354,7 @@ jobs:
         run: |
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
-          sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/../Qwt|g" qwtconfig.pri
+          sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/Qwt|g" qwtconfig.pri
           sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
           sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtExamples$|#|g" qwtconfig.pri
           sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtPlayground$|#|g" qwtconfig.pri
@@ -387,7 +385,7 @@ jobs:
             -DCMAKE_BUILD_TYPE=Release \
             -DOpenGL_GL_PREFERENCE=LEGACY \
             -DCMAKE_TOOLCHAIN_FILE=$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake \
-            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/../Qwt
+            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/Qwt
 
       - name: Building
         run: |
@@ -397,7 +395,7 @@ jobs:
         run: |
           cd build
           make install DESTDIR=AppDir
-          export LD_LIBRARY_PATH=${GITHUB_WORKSPACE}/../Qwt/lib:$LD_LIBRARY_PATH
+          export LD_LIBRARY_PATH=${GITHUB_WORKSPACE}/Qwt/lib:$LD_LIBRARY_PATH
           wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
