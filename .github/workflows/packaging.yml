@@ -77,7 +77,8 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps openssl --triplet x64-windows
+          Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\x64-windows.cmake "set(VCPKG_BUILD_TYPE release)"
+          vcpkg install zlib gsl muparser opengl gl2ps openssl pkgconf --triplet x64-windows
 
       - name: Install Python packages
         run: |
