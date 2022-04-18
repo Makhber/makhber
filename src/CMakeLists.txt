@@ -334,6 +334,8 @@ target_link_libraries( libmakhber
   OpenGL::GLU
   ZLIB::ZLIB
   muparser::muparser
+  GSL::gsl
+  GSL::gslcblas
   minigzip
   qwt5-qt5
   qwtplot3d
@@ -344,16 +346,6 @@ if( BUILD_SHARED_LIBS AND WIN32 )
   set_target_properties( libmakhber
     PROPERTIES
       WINDOWS_EXPORT_ALL_SYMBOLS ON
-  )
-endif()
-
-if( MINGW AND CMAKE_GENERATOR STREQUAL "Ninja")
-  target_link_libraries( libmakhber ${GSL_LIBRARIES} )
-  target_include_directories( libmakhber PUBLIC ${GSL_INCLUDE_DIRS} )
-else()
-  target_link_libraries( libmakhber
-    GSL::gsl
-    GSL::gslcblas
   )
 endif()
 
