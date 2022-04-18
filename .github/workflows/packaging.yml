@@ -53,11 +53,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
+      - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
@@ -65,6 +65,7 @@ jobs:
         with:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
       - name: Setup NuGet Credentials
         run: |
@@ -115,6 +116,8 @@ jobs:
   macos:
     runs-on: macos-latest
     name: macos
+    env:
+      QT_VER: 5.15.2
 
     steps:
       - name: Checkout
@@ -124,16 +127,17 @@ jobs:
 
       - name: Cache Qt
         id: cache-qt
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
-          path: ../Qt
-          key: ${{ runner.os }}-QtCache
+          path: ${{ github.workspace }}/Qt
+          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: 5.15.2
+          version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
       - name: Install prerequisties
         env:
@@ -280,11 +284,11 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
+      - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v3
         with:
-          path: ../Qt
+          path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
@@ -292,6 +296,7 @@ jobs:
         with:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
       # Python version used to build makhber must be the same for miniconda
       - uses: actions/setup-python@v3
