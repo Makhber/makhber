@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      - uses: smartsquaregmbh/delete-old-packages@v0.3.3
+      - uses: smartsquaregmbh/delete-old-packages@v0.4.0
         with:
           keep: 2
           names: |
@@ -23,9 +23,10 @@ jobs:
             muparser_x64-windows
             opengl_x64-windows
             openssl_x64-windows
+            pkgconf_x64-windows
             vcpkg-cmake-config_x64-linux
             vcpkg-cmake-config_x64-windows
             vcpkg-cmake_x64-linux
             vcpkg-cmake_x64-windows
-            vcpkg-pkgconfig-get-modules_x64-windows
+            vcpkg-tool-meson_x64-windows
             zlib_x64-windows
