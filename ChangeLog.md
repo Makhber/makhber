@@ -10,6 +10,14 @@ Released: DD-MM-YYYY
 
 - Move to Qwt 6.1
 
+## Makhber 0.9.5.3
+
+Released: 18-04-2022
+
+### General
+
+- Update dependencies
+
 ## Makhber 0.9.5.2
 
 Released: 18-02-2022

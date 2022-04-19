@@ -65,6 +65,7 @@ jobs:
         with:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
       - name: Restore cached Qwt
         id: cache-qwt
@@ -308,6 +309,7 @@ jobs:
         with:
           version: ${{ env.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
 
       # Python version used to build makhber must be the same for miniconda
       - uses: actions/setup-python@v3
@@ -334,6 +336,7 @@ jobs:
             libxcb-xinput0 \
             libxcb-xkb1 \
             libxcb1 \
+            libgl2ps-dev \
             xvfb \
             wget
           pip3 install pyqt5 sip pyqt-builder
