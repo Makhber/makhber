@@ -75,15 +75,12 @@ public:
     enum ColumnDataType { TypeDouble = 1, TypeQString = 2, TypeQDateTime = 3 };
     Q_ENUM(ColumnDataType)
 
-    //! Return the Makhber version number
-    static int version();
-
     static QString enumValueToString(int key, const QString &enum_name);
     static int enumStringToValue(const QString &string, const QString &enum_name);
 
-    //! Return the Makhber version string ("Makhber x.y.z" without extra version) used in the project file
-    static QString schemaVersion();
-    /// the user visible release version string (x.Dy usually)
+    //! Return Version without suffix
+    static QString version();
+    //! Return Version with suffix
     static QString versionString();
 
     //! Return the copyright string
@@ -98,16 +95,9 @@ public:
 private:
     //  Don't forget to change the Doxyfile when changing these!
     //! Makhber version number
-    /**
-     * 0xMMmmbb means MM.mm.bb with<br>
-     * MM = major version
-     * mm = minor version
-     * bb = bugfix version
-     */
-    static const int makhber_versionNo;
     static const char *makhber_version;
-    //! Extra version information string (like "-alpha", "-beta", "-rc1", etc...)
-    static const char *extra_version;
+    //! Extra version information string (like "Alpha", "Beta", "RC1", etc...)
+    static const char *makhber_version_suffix;
     //! Copyright string containing the author names etc.
     static const QString copyright_string;
     //! Release date as a string

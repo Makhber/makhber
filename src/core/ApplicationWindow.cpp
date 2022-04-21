@@ -11529,7 +11529,7 @@ void ApplicationWindow::saveFolder(Folder *folder, const QString &fn)
 
     QJsonObject jsProject {};
     jsProject.insert("projectType", "Makhber");
-    jsProject.insert("projectVersion", Makhber::versionString());
+    jsProject.insert("projectVersion", Makhber::version());
     jsProject.insert("scriptingLang", scriptEnv->objectName());
     jsProject.insert("windowsCount", folder->windowCount(true));
     jsProject.insert("log", logInfo);
@@ -12442,7 +12442,7 @@ void ApplicationWindow::moveFolder(FolderListItem *src, FolderListItem *dest)
 void ApplicationWindow::searchForUpdates()
 {
     QMessageBox::StandardButton choice = QMessageBox::question(
-            this, "Makhber " + versionString(),
+            this, "Makhber " + Makhber::versionString(),
             tr("Makhber will now try to determine whether a new version of Makhber is available. "
                "Please modify your firewall settings in order to allow Makhber to connect to the "
                "internet.")
@@ -12468,7 +12468,7 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
         QJsonDocument json = QJsonDocument::fromJson(version_buffer);
         QVersionNumber available_version =
                 QVersionNumber::fromString(json[0]["tag_name"].toString());
-        QVersionNumber actual_version = QVersionNumber::fromString(versionString());
+        QVersionNumber actual_version = QVersionNumber::fromString(Makhber::version());
 
         if (available_version > actual_version) {
             if (QMessageBox::question(this, tr("Updates Available"),
@@ -12478,7 +12478,7 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
                 == QMessageBox::Yes)
                 QDesktopServices::openUrl(QUrl(DOWNLOAD_URI));
         } else {
-            QMessageBox::information(this, "Makhber " + versionString(),
+            QMessageBox::information(this, "Makhber " + Makhber::versionString(),
                                      tr("No updates available.\n"
                                         "You are already running the latest version: \"%1\"")
                                              .arg(actual_version.toString()));
@@ -12578,11 +12578,6 @@ ApplicationWindow::~ApplicationWindow()
         delete lastCopiedLayer;
 
     QApplication::clipboard()->clear(QClipboard::Clipboard);
-}
-
-QString ApplicationWindow::versionString()
-{
-    return Makhber::versionString();
 }
 
 unsigned int ApplicationWindow::convertOldToNewColorIndex(unsigned int cindex)

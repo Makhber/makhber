@@ -49,21 +49,14 @@
 
 const QString Makhber::copyright_string = "";
 
-int Makhber::version()
+QString Makhber::version()
 {
-    return makhber_versionNo;
-}
-
-QString Makhber::schemaVersion()
-{
-    return "Makhber " + QString::number((version() & 0xFF0000) >> 16) + "."
-            + QString::number((version() & 0x00FF00) >> 8) + "."
-            + QString::number(version() & 0x0000FF);
+    return makhber_version;
 }
 
 QString Makhber::versionString()
 {
-    return makhber_version;
+    return QString(makhber_version) + "-" + QString(makhber_version_suffix);
 }
 
 void Makhber::about()

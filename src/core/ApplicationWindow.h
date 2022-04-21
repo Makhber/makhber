@@ -466,8 +466,6 @@ public Q_SLOTS:
 
     //! Show about dialog
     static void about();
-    //! Return a version string ("Makhber x.y.z")
-    static QString versionString();
     static int qtVersion() { return QT_VERSION; }
     void windowsMenuAboutToShow();
     void windowsMenuActivated(bool);

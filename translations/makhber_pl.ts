@@ -265,7 +265,7 @@
         <location filename="../src/core/ApplicationWindow.cpp" line="10764"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12207"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12245"/>
-        <location filename="../src/core/ApplicationWindow.h" line="514"/>
+        <location filename="../src/core/ApplicationWindow.h" line="512"/>
         <source>Graph</source>
         <translation>Wykres</translation>
     </message>
@@ -666,26 +666,26 @@
         <location filename="../src/core/ApplicationWindow.cpp" line="11086"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="11762"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="11770"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12795"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12790"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12796"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12801"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12806"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12810"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12823"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12829"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12832"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12836"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12805"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12818"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12824"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12827"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12831"/>
         <source>Error</source>
         <translation>Błąd</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="1487"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12837"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12832"/>
         <source>Please set a default X column for this table, first!</source>
         <translation>Proszę najpierw wybrać dla tej tabeli domyślną kolumnę X!</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="1495"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12823"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12818"/>
         <source>Please select a column to plot!</source>
         <translation>Proszę wybrać kolumnę do wykreślenia!</translation>
     </message>
@@ -1426,7 +1426,7 @@ Na pewno kontynuować?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="7194"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="7196"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="11676"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12720"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12715"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Właściwości...</translation>
     </message>
@@ -3939,50 +3939,50 @@ Warning: this will rearrange existing layers!</source>
         <translation type="vanished">&amp;Nie</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12731"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12726"/>
         <source>D&amp;epending Graphs</source>
         <translation>&amp;Zależne rysunki</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12742"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12737"/>
         <source>D&amp;epending 3D Graphs</source>
         <translation>&amp;Zależne Rysunki 3D</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12753"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12771"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12775"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12748"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12766"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12770"/>
         <source>D&amp;epends on</source>
         <translation>&amp;Zależy od</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12796"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12833"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12791"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12828"/>
         <source>You need at least two columns for this operation!</source>
         <translation>Do tej czynności proszę wybrać dwie kolumny!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12802"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12797"/>
         <source>Please select a Z column for this operation!</source>
         <translation>Do tej czynności proszę wybrać kolumnę Z!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12806"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12801"/>
         <source>You need to define a X column first!</source>
         <translation>Najpierw należy wybrać kolumnę X!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12810"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12805"/>
         <source>You need to define a Y column first!</source>
         <translation>Najpierw należy wybrać kolumnę X!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12829"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12824"/>
         <source>Please select a Y column to plot!</source>
         <translation>Proszę wybrać kolumnę Y do wykreślenia!</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="12926"/>
+        <location filename="../src/core/ApplicationWindow.cpp" line="12921"/>
         <source>Undo/Redo History</source>
         <translation>Historia Cofnij/Powtórz</translation>
     </message>
@@ -12333,13 +12333,13 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>%1: przemieść kolumnę %2 z położenia %3 do %4.</translation>
     </message>
     <message>
-        <location filename="../src/core/globals.cpp" line="93"/>
+        <location filename="../src/core/globals.cpp" line="86"/>
         <source>About Makhber</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11034"/>
-        <location filename="../src/core/globals.cpp" line="95"/>
+        <location filename="../src/core/globals.cpp" line="88"/>
         <source>Released</source>
         <translation type="unfinished"></translation>
     </message>
