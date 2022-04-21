@@ -78,12 +78,6 @@ set( CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH} )
 
 include( GNUInstallDirs )
 
-if( BUILD_SHARED_LIBS )
-  set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
-  set( CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
-  set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib" )
-endif()
-
 option( MAKHBER_SEARCH_FOR_UPDATES "Enable Searching for updates" ON )
 
 option( MAKHBER_DOWNLOAD_LINKS "Enable Download links" OFF )
@@ -93,12 +87,6 @@ option( MAKHBER_SCRIPTING_MUPARSER "Enable muParser Scripting" ON )
 option( MAKHBER_ORIGIN_IMPORT "Enable importing OriginLab project files" ON )
 
 option( MAKHBER_SCRIPTING_PYTHON "Enable Python Scripting" OFF )
-
-if( MSVC OR APPLE )
-  option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" ON )
-else()
-  option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" OFF )
-endif()
 
 option( MAKHBER_BUILD_TRANSLATIONS "Build Translations" ON )
 
@@ -135,6 +123,16 @@ if( MAKHBER_BUILD_TRANSLATIONS )
 endif()
 
 if( MAKHBER_SCRIPTING_PYTHON )
+  # Python tests segfault with static lib
+  if(CMAKE_SYSTEM_NAME STREQUAL "FreeBSD")
+    set(BUILD_SHARED_LIBS ON)
+  endif()
+
+  if( MSVC OR APPLE )
+    option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" ON )
+  else()
+    option( MAKHBER_BUNDLE_PYQT5 "Bundle PyQt5 Python module" OFF )
+  endif()
 
   if( MINGW )
     set( Python3_FIND_REGISTRY LAST )
@@ -170,6 +168,12 @@ if( MAKHBER_SCRIPTING_PYTHON )
     string( REPLACE "${PYTHON_PREFIX}/" "" PYTHON_INSTALL_PATH ${Python3_SITEARCH} )
   endif()
 
+endif()
+
+if( BUILD_SHARED_LIBS )
+  set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
+  set( CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin" )
+  set( CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib" )
 endif()
 
 set( CMAKE_AUTOMOC ON )
