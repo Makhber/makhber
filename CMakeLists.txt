@@ -25,6 +25,25 @@ set( CMAKE_C_STANDARD 11 )
 set( CMAKE_C_STANDARD_REQUIRED TRUE )
 set( CMAKE_C_EXTENSIONS OFF )
 
+include( CheckIPOSupported )
+check_ipo_supported( RESULT IPO_SUPPORTED OUTPUT IPO_MESSAGE LANGUAGES CXX )
+# LTO is broken with MINGW/binutils https://sourceware.org/bugzilla/show_bug.cgi?id=12762
+if( MINGW AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
+  set( IPO_SUPPORTED OFF )
+endif()
+
+option( MAKHBER_ENABLE_LTO "Enable LTO" ${IPO_SUPPORTED} )
+
+if(MAKHBER_ENABLE_LTO AND NOT MSVC AND NOT APPLE)
+  set(BUILD_SHARED_LIBS ON)
+endif()
+
+if( MAKHBER_ENABLE_LTO )
+  set( CMAKE_INTERPROCEDURAL_OPTIMIZATION ON )
+else()
+  set( CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF )
+endif()
+
 if( MSVC )
   # /wd4456 /wd4457 /wd4458 Silent "declaration of %1 hides %2 ..."
   # /wd4251 Silent dll-related warnings
@@ -46,21 +65,6 @@ endif()
 
 if( APPLE )
   add_compile_definitions( GL_SILENCE_DEPRECATION )
-endif()
-
-include( CheckIPOSupported )
-check_ipo_supported( RESULT IPO_SUPPORTED OUTPUT IPO_MESSAGE LANGUAGES CXX )
-# LTO is broken with MINGW/binutils https://sourceware.org/bugzilla/show_bug.cgi?id=12762
-if( MINGW AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU" )
-  set( IPO_SUPPORTED OFF )
-endif()
-
-option( MAKHBER_ENABLE_LTO "Enable LTO" ${IPO_SUPPORTED} )
-
-if( MAKHBER_ENABLE_LTO )
-  set( CMAKE_INTERPROCEDURAL_OPTIMIZATION ON )
-else()
-  set( CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF )
 endif()
 
 include( CheckPIESupported )
