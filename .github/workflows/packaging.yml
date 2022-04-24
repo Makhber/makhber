@@ -114,6 +114,7 @@ jobs:
           mkdir build; cd build
           cmake .. `
             -DCMAKE_BUILD_TYPE=Release `
+            -DBUILD_SHARED_LIBS=ON `
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
@@ -320,6 +321,7 @@ jobs:
         run: |
           sudo apt install -y --no-install-recommends \
             libglu1-mesa-dev \
+            libgl2ps-dev \
             libxcb-util1 \
             libxcb-glx0 \
             libxcb-icccm4 \
@@ -386,6 +388,7 @@ jobs:
             -DMAKHBER_SCRIPTING_PYTHON=ON \
             -DCMAKE_INSTALL_PREFIX=/usr \
             -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=ON \
             -DOpenGL_GL_PREFERENCE=LEGACY \
             -DCMAKE_TOOLCHAIN_FILE=$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake \
             -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/Qwt
@@ -422,8 +425,8 @@ jobs:
           files: build/Makhber*.AppImage
 
   DEB:
-    name: Ubuntu 20.04 DEB
-    runs-on: ubuntu-20.04
+    name: Ubuntu 22.04 DEB
+    runs-on: ubuntu-22.04
 
     steps:
       - uses: actions/checkout@v3
@@ -434,6 +437,7 @@ jobs:
         run: |
           sudo apt update
           sudo apt install -y --no-install-recommends \
+            pkgconf \
             qtbase5-dev \
             libqt5svg5-dev \
             libqt5opengl5-dev \
@@ -444,6 +448,8 @@ jobs:
             libgl2ps-dev \
             pyqt5-dev \
             python3-pyqt5 \
+            python3-pyqtbuild \
+            sip-tools \
             ninja-build
 
       - name: Configuring
@@ -452,6 +458,7 @@ jobs:
           cmake .. \
             -GNinja \
             -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=ON \
             -DMAKHBER_SCRIPTING_PYTHON=ON
 
       - name: Building
@@ -462,7 +469,7 @@ jobs:
         run: |
           cd build
           cpack -G DEB
-          mv Makhber*.deb Makhber_$(git describe --tags)~20.04_amd64.deb
+          mv Makhber*.deb Makhber_$(git describe --tags)~22.04_amd64.deb
 
       - name: Upload Debian package
         uses: softprops/action-gh-release@v1
@@ -473,9 +480,9 @@ jobs:
           files: build/Makhber*.deb
 
   RPM:
-    name: Fedora 35 RPM
+    name: Fedora 36 RPM
     runs-on: ubuntu-20.04
-    container: fedora
+    container: fedora:36
 
     steps:
       - uses: actions/checkout@v1
@@ -509,6 +516,7 @@ jobs:
           cmake .. \
             -GNinja \
             -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=ON \
             -DMAKHBER_SCRIPTING_PYTHON=ON
 
       - name: Building
@@ -517,9 +525,10 @@ jobs:
 
       - name: Packaging
         run: |
+          git config --global --add safe.directory /__w/makhber/makhber
           cd build
           cpack -G RPM
-          mv Makhber*.rpm makhber-$(git describe --tags).fc35.x86_64.rpm
+          mv Makhber*.rpm makhber-$(git describe --tags).fc36.x86_64.rpm
 
       - name: Upload RPM package
         uses: softprops/action-gh-release@v1
