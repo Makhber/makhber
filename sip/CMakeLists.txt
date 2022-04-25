@@ -271,10 +271,10 @@ else()
 
   if( NOT MSVC )
     set( QMAKE_CXX "${CMAKE_CXX_COMPILER}" )
-  elseif( ${CMAKE_CXX_COMPILER_ID} STREQUAL "Clang" )
-    set( QMAKE_CXX "clang-cl" )
+    set( QMAKE_LINK "${CMAKE_CXX_COMPILER}" )
   else()
-    set( QMAKE_CXX "cl" )
+    get_filename_component( QMAKE_CXX "${CMAKE_CXX_COMPILER}" NAME )
+    get_filename_component( QMAKE_LINK "${CMAKE_LINKER}" NAME )
   endif()
 
   if( MSVC AND NOT(CMAKE_CXX_COMPILER_ID STREQUAL "Clang") )
@@ -289,6 +289,7 @@ else()
     COMMAND ${SIP_Build_EXECUTABLE} --verbose
       ${SIP_EXTRA_OPTIONS}
       --qmake-setting QMAKE_CXX=${QMAKE_CXX}
+      --qmake-setting QMAKE_LINK=${QMAKE_LINK}
       --qmake-setting "CONFIG += c++17 strict_c++"
       --qmake-setting $<IF:$<CONFIG:Debug>,"CONFIG+=debug","CONFIG+=release">
       --qmake-setting CONFIG+=$<$<BOOL:${CMAKE_INTERPROCEDURAL_OPTIMIZATION}>:"ltcg">
