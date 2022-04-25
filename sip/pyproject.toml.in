@@ -19,6 +19,9 @@ sip-include-dirs = ["@PyQt_INCLUDE_DIRS@"]
 # Configure the building of the makhber bindings.
 [tool.sip.bindings.makhber]
 sip-file = "makhber.sip"
+extra-compile-args = [
+"@SIP_COMPILE_OPTIONS@"
+]
 define-macros = [
 "@SIP_COMPILE_DEFINITIONS@"
 ]

@@ -245,6 +245,8 @@ else()
   list( TRANSFORM SIP_COMPILE_DEFINITIONS REPLACE "\"" "\\\\\"" )
   string( JOIN "\"\n,\"" SIP_COMPILE_DEFINITIONS ${SIP_COMPILE_DEFINITIONS} )
 
+  set( SIP_COMPILE_OPTIONS "${CMAKE_CXX_FLAGS}" )
+
   if( MULTI_CONFIG )
     configure_file( pyproject.toml.in pyproject_tmp.toml @ONLY )
     add_custom_target( pyproject_toml ALL
