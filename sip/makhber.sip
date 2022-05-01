@@ -304,7 +304,7 @@ class Table: MyWidget
 #include "table/Table.h"
 
 #define CHECK_TABLE_COL(arg)\
-    int col;\
+    int col {};\
     if (PYLong_Check(arg)) {\
       col = (int)PYLong_AsLong(arg) - 1;\
 		if (col < 0 || col >= sipCpp->numCols()) {\
