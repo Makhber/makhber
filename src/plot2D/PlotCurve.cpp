@@ -49,6 +49,7 @@ DataCurve::DataCurve(Table *t, QString xColName, const QString &name, int startR
 {
     if (t && d_end_row < 0)
         d_end_row = t->numRows() - 1;
+    setSymbol(new QwtSymbol());
 }
 
 void DataCurve::setRowRange(int startRow, int endRow)
