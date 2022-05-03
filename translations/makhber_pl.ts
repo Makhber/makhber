@@ -5860,52 +5860,52 @@ p, li { white-space: pre-wrap; }
     <name>ErrDialog</name>
     <message>
         <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="64"/>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="201"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="223"/>
         <source>Source of errors</source>
         <translation>Źródło błędów</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="197"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="219"/>
         <source>Error Bars</source>
         <translation>Słupki Błędów</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="198"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="220"/>
         <source>&amp;X Error Bars</source>
         <translation>Słupki błędów &amp;X</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="199"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="221"/>
         <source>&amp;Add</source>
         <translation>&amp;Dodaj</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="200"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="222"/>
         <source>Add Error Bars to</source>
         <translation>Dodaj Słupki Błędów do</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="202"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="224"/>
         <source>Percent of data (%)</source>
         <translation>Procent wartości (%)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="203"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="225"/>
         <source>5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="204"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="226"/>
         <source>Standard Deviation of Data</source>
         <translation>Odchylenie standardowe</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="205"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="227"/>
         <source>&amp;Y Error Bars</source>
         <translation>Słupki błędów &amp;Y</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="206"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="228"/>
         <source>&amp;Close</source>
         <translation>&amp;Zamknij</translation>
     </message>

@@ -5863,52 +5863,52 @@ p, li { white-space: pre-wrap; }
     <name>ErrDialog</name>
     <message>
         <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="64"/>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="201"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="223"/>
         <source>Source of errors</source>
         <translation>誤差源</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="197"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="219"/>
         <source>Error Bars</source>
         <translation>誤差棒</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="198"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="220"/>
         <source>&amp;X Error Bars</source>
         <translation>&amp;X 誤差棒</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="199"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="221"/>
         <source>&amp;Add</source>
         <translation>添加(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="200"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="222"/>
         <source>Add Error Bars to</source>
         <translation>添加誤差棒到</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="202"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="224"/>
         <source>Percent of data (%)</source>
         <translation>數據百分比(%)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="203"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="225"/>
         <source>5</source>
         <translation>5</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="204"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="226"/>
         <source>Standard Deviation of Data</source>
         <translation>資料標準差</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="205"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="227"/>
         <source>&amp;Y Error Bars</source>
         <translation>&amp;Y 誤差棒</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="206"/>
+        <location filename="../src/plot2D/dialogs/ErrDialog.cpp" line="228"/>
         <source>&amp;Close</source>
         <translation>關閉(&amp;C)</translation>
     </message>
