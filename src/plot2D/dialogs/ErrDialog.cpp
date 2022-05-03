@@ -143,20 +143,34 @@ void ErrDialog::setCurveNames(const QStringList &names)
 
 void ErrDialog::setSrcTables(QList<MyWidget *> *tables)
 {
-    srcTables = tables;
     tableNamesBox->clear();
 
-    QList<MyWidget *>::const_iterator i;
-    for (i = srcTables->begin(); i != srcTables->end(); i++)
-        tableNamesBox->addItem((*i)->objectName());
+    srcTables = new QList<MyWidget *>;
+    for (MyWidget *table : *tables) {
+        Table *srcTable = dynamic_cast<Table *>(table);
+        if (srcTable->d_future_table->columnCount(Makhber::xErr) > 0
+            || srcTable->d_future_table->columnCount(Makhber::yErr) > 0) {
+            srcTables->append(table);
+            tableNamesBox->addItem(srcTable->objectName());
+        }
+    }
+
+    if (srcTables->isEmpty()) {
+        percentBox->setChecked(true);
+        return;
+    }
 
     if (!nameLabel->currentText().contains("="))
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-        tableNamesBox->setCurrentIndex(tableNamesBox->findText(
-                nameLabel->currentText().split("_", Qt::SkipEmptyParts)[0]));
+        tableNamesBox->setCurrentIndex(
+                std::max(0,
+                         tableNamesBox->findText(
+                                 nameLabel->currentText().split("_", Qt::SkipEmptyParts)[0])));
 #else
-        tableNamesBox->setCurrentIndex(tableNamesBox->findText(
-                nameLabel->currentText().split("_", QString::SkipEmptyParts)[0]));
+        tableNamesBox->setCurrentIndex(
+                std::max(0,
+                         tableNamesBox->findText(
+                                 nameLabel->currentText().split("_", QString::SkipEmptyParts)[0])));
 #endif
     selectSrcTable(tableNamesBox->currentIndex());
 }
@@ -164,8 +178,16 @@ void ErrDialog::setSrcTables(QList<MyWidget *> *tables)
 void ErrDialog::selectSrcTable(int tabnr)
 {
     colNamesBox->clear();
-    if (tabnr > -1)
-        colNamesBox->addItems((dynamic_cast<Table *>(srcTables->at(tabnr)))->colNames());
+    if (tabnr > -1) {
+        Table *srcTable = dynamic_cast<Table *>(srcTables->at(tabnr));
+        for (int i = 0; i < srcTable->columnCount(); i++) {
+            if (srcTable->column(i)->plotDesignation() == Makhber::xErr
+                || srcTable->column(i)->plotDesignation() == Makhber::yErr)
+                colNamesBox->addItem(srcTable->colName(i).remove(srcTable->name() + "_"));
+        }
+        if (srcTable->d_future_table->columnCount(Makhber::yErr) == 0)
+            xErrBox->setChecked(true);
+    }
 }
 
 void ErrDialog::add()
