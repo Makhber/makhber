@@ -3958,18 +3958,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <translation>Обновления доступны</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">Нет доступных обновлений. У вас уже установлена ​​последняя версия.</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">Поврежденный файл версии</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">Файл версии (содержащий: &quot;%1&quot;) не может быть преобразован в корректный номер версии.</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="13314"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Все данные, связанные с таблицей, будут удалены. Вы уверены?</translation>
@@ -9198,10 +9186,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">Выпущено XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Закрыть</translation>
@@ -9433,11 +9417,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translation type="vanished">Ctrl + A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="193"/>
         <source>Show/hide control tabs</source>
@@ -12372,10 +12351,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>%1: установить количество строк на %2</translation>
     </message>
     <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1: очистить все маски</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="306"/>
         <source>%1: add column</source>
         <translation>%1: добавить столбец</translation>
@@ -13287,14 +13262,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>миллисекунды</translation>
     </message>
     <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">Текущий столбец:
-Имя: %1
-Позиция: %2</translation>
-    </message>
-    <message>
         <location filename="../src/table/TableView.cpp" line="462"/>
         <source>Decimal</source>
         <translation>Десятичный</translation>
@@ -14140,14 +14107,6 @@ floating point values
         <translation>%1: вставить из буфера обмена</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: маска выбранных ячеек</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: снять маску с выбранных ячеек</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="531"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: применить формулу к выделению</translation>
@@ -14205,16 +14164,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1398"/>
         <source>Past&amp;e</source>
         <translation>&amp;Вставить</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">&amp;Маска</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">&amp;Снять маск</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1069"/>
@@ -14296,10 +14245,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1408"/>
         <source>Export to TeX...</source>
         <translation>Экспорт в TeX ...</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">Очистить маски</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1151"/>

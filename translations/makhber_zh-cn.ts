@@ -3807,18 +3807,6 @@ Are you sure you want to continue?</source>
         <translation>可用更新</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">没有可用的更新。 您已经在运行最新版本。</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">无效的版本文件</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">版本文件（内容：&quot;%1&quot;）无法解码为有效的版本号。</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="13314"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>这将清除与表格关联的所有数据的内容。 你确定吗？</translation>
@@ -9178,10 +9166,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">发布日期：XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">关闭</translation>
@@ -9423,12 +9407,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translatorcomment>矩阵：全选</translatorcomment>
-        <translation type="vanished">Ctrl+A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="193"/>
         <source>Show/hide control tabs</source>
@@ -12364,10 +12342,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>%1:将行数设置为 %2</translation>
     </message>
     <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1：清除所有遮盖</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="306"/>
         <source>%1: add column</source>
         <translation>%1：添加列</translation>
@@ -13276,14 +13250,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>毫秒</translation>
     </message>
     <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">当前列：
-名称：%1 
-位置：%2</translation>
-    </message>
-    <message>
         <location filename="../src/table/TableView.cpp" line="462"/>
         <source>Decimal</source>
         <translation>十进制</translation>
@@ -14122,14 +14088,6 @@ floating point values
         <translation>%1: 从剪贴板粘贴</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: 遮盖所选单元格</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: 取消遮盖所选单元格</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="531"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: 应用公式进行选择</translation>
@@ -14187,16 +14145,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1398"/>
         <source>Past&amp;e</source>
         <translation>粘贴(&amp;e)</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">遮盖(&amp;M)</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">取消遮盖(&amp;U)</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1069"/>
@@ -14278,10 +14226,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1408"/>
         <source>Export to TeX...</source>
         <translation>导出到Tex…</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">清除遮盖</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1151"/>

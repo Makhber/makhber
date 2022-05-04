@@ -5,7 +5,7 @@ if( WIN32 )
 endif()
 
 file( GLOB TS_FILES "${CMAKE_SOURCE_DIR}/translations/*.ts" )
-qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} )
+qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} OPTIONS "-no-obsolete" )
 
 add_executable( makhber
   WIN32 MACOSX_BUNDLE

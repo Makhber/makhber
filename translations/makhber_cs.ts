@@ -3816,18 +3816,6 @@ Jste si jist, že chcete pokračovat?</translation>
         <translation>Aktualizace jsou dostupné</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">Nejsou dostupné žádné aktualizace. Již provozujete nejnovější verzi.</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">Neplatný soubor s verzí</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">Soubor s verzí (obsah: &quot;%1&quot;) se nepodařilo přeměnit na platné číslo verze.</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="13314"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Tímto se smažou všechna data přiřazená k tabulce. Jste si jist tímto krokem?</translation>
@@ -9166,10 +9154,6 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">Vydáno XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Zavřít</translation>
@@ -9387,11 +9371,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translation type="vanished">Ctrl+A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="193"/>
         <source>Show/hide control tabs</source>
@@ -12329,10 +12308,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>%1: počet řádků změněn na %2</translation>
     </message>
     <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1: všechna maskování odstraněna</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="306"/>
         <source>%1: add column</source>
         <translation>%1: sloupec přidán</translation>
@@ -13241,14 +13216,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>Millisekundy</translation>
     </message>
     <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">Nynější sloupec:
-Název: %1
-Poloha: %2</translation>
-    </message>
-    <message>
         <location filename="../src/table/TableView.cpp" line="462"/>
         <source>Decimal</source>
         <translation>Desetinný</translation>
@@ -14094,14 +14061,6 @@ dvojnásobná přesnost
         <translation>%1: vložit ze schránky</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: vybraná buňka(y) maskována</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: vybraná buňka(y) odmaskována</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="531"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: Použít vzorec na výběr</translation>
@@ -14159,16 +14118,6 @@ dvojnásobná přesnost
         <location filename="../src/table/future_Table.cpp" line="1398"/>
         <source>Past&amp;e</source>
         <translation>&amp;Vložit</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">&amp;Maskovat</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">&amp;Odmaskovat</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1069"/>
@@ -14250,10 +14199,6 @@ dvojnásobná přesnost
         <location filename="../src/table/future_Table.cpp" line="1408"/>
         <source>Export to TeX...</source>
         <translation>Vyvést do TeXu...</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">Odstranit maskování</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1151"/>

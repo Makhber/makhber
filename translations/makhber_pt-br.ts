@@ -3819,18 +3819,6 @@ Tem certeza que quer continuar?</translation>
         <translation>Atualizações disponíveis</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">Não há atualizações disponíveis. Você já está usando a última versão.</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">Versão de arquivo inválida</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">O arquivo de versão (contido en: &quot;%1&quot;) não pode ser decodificado em um número de versão válido.</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="13314"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Isto apagará os conteúdos de todos os dados associados à tabela. Está certo disso?</translation>
@@ -9196,10 +9184,6 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">Atualizado em XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
@@ -9441,11 +9425,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translation type="vanished">Ctrl+A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="193"/>
         <source>Show/hide control tabs</source>
@@ -12379,10 +12358,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>%1: definir o número de linhas para %2</translation>
     </message>
     <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1: remover todas as máscaras</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="306"/>
         <source>%1: add column</source>
         <translation>%1: adicionar coluna</translation>
@@ -13293,14 +13268,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>milissegundos</translation>
     </message>
     <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">Coluna Atual:
-Nome: %1
-Posição: %2</translation>
-    </message>
-    <message>
         <location filename="../src/table/TableView.cpp" line="462"/>
         <source>Decimal</source>
         <translation>Decimal</translation>
@@ -14142,14 +14109,6 @@ valores de ponto flutuante (float)
         <translation>%1: colar da área de trabalho</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: mascarar células(s) selecionada(s)</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: remover máscara(s) de célula(s) selecionada(s)</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="531"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: aplicar fórmula à seleção</translation>
@@ -14207,16 +14166,6 @@ valores de ponto flutuante (float)
         <location filename="../src/table/future_Table.cpp" line="1398"/>
         <source>Past&amp;e</source>
         <translation>Co&amp;lar</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">Mascarar</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">Desmascarar</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1069"/>
@@ -14298,10 +14247,6 @@ valores de ponto flutuante (float)
         <location filename="../src/table/future_Table.cpp" line="1408"/>
         <source>Export to TeX...</source>
         <translation>Exportar para Tex...</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">Limpar máscaras</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1151"/>

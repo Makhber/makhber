@@ -3957,14 +3957,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <translation>Actualizaciones disponibles</translation>
     </message>
     <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">Versión de archivo invalida</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">El archivo de versión (contenido en: &quot;%1&quot;) no pudo ser decodificado a un número de versión válido.</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="13314"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Esto borrará los contenidos de todos los datos asociados con la tabla. ¿Está seguro?</translation>
@@ -9184,10 +9176,6 @@ Los límites deben estar dentro del rango de x; si no conoce el máximo (mínimo
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">Liberado XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Cerrar</translation>
@@ -9419,11 +9407,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translation type="vanished">Ctrl+A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="193"/>
         <source>Show/hide control tabs</source>
@@ -12362,10 +12345,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>%1: setar el número de filas a %2</translation>
     </message>
     <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1: limpiar todas las máscaras</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="306"/>
         <source>%1: add column</source>
         <translation>%1: agregar columna</translation>
@@ -13274,12 +13253,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>milisegundos</translation>
     </message>
     <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">Columna actual: Nombre %1 Posición: %2</translation>
-    </message>
-    <message>
         <location filename="../src/table/TableView.cpp" line="462"/>
         <source>Decimal</source>
         <translation>Decimal</translation>
@@ -14125,14 +14098,6 @@ valores con punto flotante
         <translation>%1: pegar desde el portapapeles</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: enmascarar las celda(s) seleccionada(s)</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: desenmascarar la(s) celdas seleccionada(s)</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="531"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: aplicar fórmula a selección</translation>
@@ -14190,16 +14155,6 @@ valores con punto flotante
         <location filename="../src/table/future_Table.cpp" line="1398"/>
         <source>Past&amp;e</source>
         <translation>P&amp;egar</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">En&amp;mascarar</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">&amp;Desenmasracar</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1069"/>
@@ -14281,10 +14236,6 @@ valores con punto flotante
         <location filename="../src/table/future_Table.cpp" line="1408"/>
         <source>Export to TeX...</source>
         <translation>Exportar a TeX...</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">Limpiar Máscaras</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1151"/>
