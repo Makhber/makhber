@@ -4,24 +4,6 @@
 <context>
     <name>AbstractAspect</name>
     <message>
-        <source>XML read error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">Chyba při čtení XML dat:</translation>
-    </message>
-    <message>
-        <source> (non-critical)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished">(nekritické)</translation>
-    </message>
-    <message>
-        <source>aspect name missing or empty</source>
-        <translation type="vanished">Název aspektu chybí, nebo je prázdný</translation>
-    </message>
-    <message>
-        <source>Invalid creation time for &apos;%1&apos;. Using current time.</source>
-        <translation type="vanished">Neplatná doba vytvoření pro &apos;%1&apos;. Místo ní se používá současný čas.</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="96"/>
         <source>%1: add %2.</source>
         <translation>%1: přidat %2.</translation>
@@ -47,10 +29,6 @@
         <location filename="../src/aspects/AbstractAspect.cpp" line="143"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1: přesunout %2 do %3.</translation>
-    </message>
-    <message>
-        <source>Tabs and line breaks in object names are currently not supported. They have been removed.</source>
-        <translation type="vanished">Tabulátory (zarážky) a zalomení řádků v názvech předmětů nyní nejsou podporovány. Byly odstraněny.</translation>
     </message>
     <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="227"/>
@@ -79,21 +57,6 @@
         <location filename="../src/aspects/AbstractPart.cpp" line="60"/>
         <source>Ma&amp;ximize</source>
         <translation>Z&amp;většit</translation>
-    </message>
-</context>
-<context>
-    <name>AbstractSimpleFilter</name>
-    <message>
-        <source>incompatible filter type</source>
-        <translation type="vanished">neslučitelný typ filtru</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">neznámý prvek: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no simple filter element found</source>
-        <translation type="vanished">Nenalezen žádný prvek typu Jednoduchý filtr</translation>
     </message>
 </context>
 <context>
@@ -993,18 +956,6 @@ Makhber dropped support for loading SciDAVis/QtiPlot projects.</source>
         <translation>Soubor: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; je nynější soubor!</translation>
     </message>
     <message>
-        <source>zlib can&apos;t open %1.</source>
-        <translation type="vanished">zlib nemůže otevřít %1.</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create temporary file for writing uncompressed copy of %1.</source>
-        <translation type="vanished">Nemůže vytvořit dočasný soubor pro zápis rozbalené kopie %1.</translation>
-    </message>
-    <message>
-        <source>Error writing to temporary file: %1</source>
-        <translation type="vanished">Chyba při zápisu do dočasného souboru: %1</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3515"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is corrupted, but there exists a backup copy.&lt;br&gt;Do you want to open the backup instead?</source>
         <translation>Soubor &lt;b&gt;%1&lt;/b&gt; je porušen, ale existuje kopie se zálohou dat.&lt;br&gt;Chcete místo něj otevřít zálohu?</translation>
@@ -1034,10 +985,6 @@ Různé části tohoto souboru se nemusí zobrazovat tak, jak se očekává.</tr
         <location filename="../src/core/ApplicationWindow.cpp" line="3605"/>
         <source>Window</source>
         <translation>Okno</translation>
-    </message>
-    <message>
-        <source>Opening file</source>
-        <translation type="vanished">Otevřít soubor</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3719"/>
@@ -1119,18 +1066,10 @@ Různé části tohoto souboru se nemusí zobrazovat tak, jak se očekává.</tr
         <translation>Soubor nazvaný: &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt;již existuje. Chcete jej přepsat?</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Ano</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9706"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="10294"/>
         <source>&amp;All</source>
         <translation>&amp;Vše</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Zrušit</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="4653"/>
@@ -1309,14 +1248,6 @@ Are you sure you want to continue?</source>
 Jste si jist, že chcete pokračovat?</translation>
     </message>
     <message>
-        <source>Continue</source>
-        <translation type="vanished">Pokračovat</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Zrušit</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="5928"/>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
         <translation>Nelze zapisovat do souboru: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Ověřte, prosím, že máte oprávnění pro zápis do tohoto umístění, nebo že soubor nepoužívá další aplikace!</translation>
@@ -1475,14 +1406,6 @@ Jste si jist, že chcete pokračovat?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="7326"/>
         <source>Save changes to project: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</source>
         <translation>Uložit změny do projektu: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;?</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="vanished">Ano</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation type="vanished">Ne</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="7402"/>
@@ -1746,24 +1669,6 @@ Jste si jist, že chcete pokračovat?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="8684"/>
         <source>&amp;Top-left corner</source>
         <translation>&amp;Horní levý roh</translation>
-    </message>
-    <message>
-        <source>Error reading matrix from project file</source>
-        <translation type="vanished">Chyba při čtení matice ze souboru s projektem</translation>
-    </message>
-    <message>
-        <source>The following problems occured when loading the project file:
-</source>
-        <translation type="vanished">Při nahrávání souboru s projektem se vyskytly následující potíže:
-</translation>
-    </message>
-    <message>
-        <source>Project loading partly failed</source>
-        <translation type="vanished">Nahrání projektu se zčásti nepodařilo</translation>
-    </message>
-    <message>
-        <source>Error reading table from project file</source>
-        <translation type="vanished">Chyba při čtení tabulky ze souboru s projektem</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9355"/>
@@ -3539,14 +3444,6 @@ Jste si jist, že chcete pokračovat?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file</source>
-        <translation type="vanished">může být libovolný soubor .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py nebo ASCII</translation>
-    </message>
-    <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
-        <translation type="vanished">může být libovolný soubor .sciprj, .sciprj.gz, .qti, qti.gz, .py oder ASCII</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11081"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Nesprávná zkratka pro zemi, nebo není dostupný žádný překlad!</translation>
@@ -3807,25 +3704,9 @@ Jste si jist, že chcete pokračovat?</translation>
         <translation>Aktualizace jsou dostupné</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">Nejsou dostupné žádné aktualizace. Již provozujete nejnovější verzi.</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">Neplatný soubor s verzí</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">Soubor s verzí (obsah: &quot;%1&quot;) se nepodařilo přeměnit na platné číslo verze.</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12536"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Tímto se smažou všechna data přiřazená k tabulce. Jste si jist tímto krokem?</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Ne</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12726"/>
@@ -3874,11 +3755,6 @@ Jste si jist, že chcete pokračovat?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="12921"/>
         <source>Undo/Redo History</source>
         <translation>Seznam kroků Zpět/Znovu</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translation type="vanished">Český</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="219"/>
@@ -4679,57 +4555,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <location filename="../src/plot2D/ColorMapEditor.cpp" line="237"/>
         <source>Please enter a valid color level value!</source>
         <translation>Zadejte, prosím, platnou hodnotu pro úroveň barvy!</translation>
-    </message>
-</context>
-<context>
-    <name>Column</name>
-    <message>
-        <source>column type missing</source>
-        <translation type="vanished">Chybí typ sloupce</translation>
-    </message>
-    <message>
-        <source>column type invalid</source>
-        <translation type="vanished">Typ sloupce je neplatný</translation>
-    </message>
-    <message>
-        <source>column mode missing</source>
-        <translation type="vanished">Chybí režim sloupce</translation>
-    </message>
-    <message>
-        <source>column mode invalid</source>
-        <translation type="vanished">Režim sloupce je neplatný</translation>
-    </message>
-    <message>
-        <source>column type or mode invalid</source>
-        <translation type="vanished">Typ sloupce nebo režim je neplatný</translation>
-    </message>
-    <message>
-        <source>column plot designation invalid</source>
-        <translation type="vanished">Přiřazení sloupce k nákresu je neplatné</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">neznámý prvek: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no column element found</source>
-        <translation type="vanished">Ke sloupci nebyl nalezen žádný prvek</translation>
-    </message>
-    <message>
-        <source>invalid or missing start or end row</source>
-        <translation type="vanished">Neplatný nebo chybějící začátek nebo konec řádku</translation>
-    </message>
-    <message>
-        <source>invalid or missing row type</source>
-        <translation type="vanished">Neplatný nebo chybějící typ řádku</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">Neplatný nebo chybějící index řádku</translation>
-    </message>
-    <message>
-        <source>invalid row value</source>
-        <translation type="vanished">Neplatný obsah řádku</translation>
     </message>
 </context>
 <context>
@@ -6002,13 +5827,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/table/DimensionsDialog.ui" line="39"/>
         <source>Columns</source>
         <translation>Sloupce</translation>
-    </message>
-</context>
-<context>
-    <name>Double2StringFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="vanished">chybějící nebo neplatný formát atributů</translation>
     </message>
 </context>
 <context>
@@ -8877,10 +8695,6 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
         <translation>Jste si jist, že chcete pokračovat v této operaci?</translation>
     </message>
     <message>
-        <source>&amp;Continue</source>
-        <translation type="vanished">&amp;Pokračovat</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/dialogs/LayerDialog.cpp" line="228"/>
         <source>Columns input error</source>
         <translation>Chyba v zadání sloupců</translation>
@@ -9109,10 +8923,6 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">Vydáno XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Zavřít</translation>
@@ -9160,10 +8970,6 @@ Die Grenzen müssen innerhalb des X-Bereichs sein. Fall diese Werte nicht bekann
         <location filename="../src/matrix/Matrix.cpp" line="500"/>
         <source>Hide</source>
         <translation>Skrýt</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Zrušit</translation>
     </message>
     <message>
         <location filename="../src/matrix/Matrix.cpp" line="679"/>
@@ -9329,11 +9135,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translation type="vanished">Ctrl+A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="184"/>
         <source>Show/hide control tabs</source>
@@ -9788,18 +9589,6 @@ největší celé číslo menší nebo rovno x.</translation>
         <translation>Automaticky určit nejlepší rozvržení?</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Ano</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Ne</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Zrušit</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/MultiLayer.cpp" line="635"/>
         <location filename="../src/plot2D/MultiLayer.cpp" line="653"/>
         <location filename="../src/plot2D/MultiLayer.cpp" line="673"/>
@@ -9999,10 +9788,6 @@ největší celé číslo menší nebo rovno x.</translation>
         <translation>Skrýt</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Zrušit</translation>
-    </message>
-    <message>
         <location filename="../src/core/MyWidget.cpp" line="105"/>
         <source>Normal</source>
         <translation>Obvyklá</translation>
@@ -10052,26 +9837,11 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
 </context>
 <context>
-    <name>NumericDateTimeBaseFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="vanished">chybějící nebo neplatný formát atributů</translation>
-    </message>
-</context>
-<context>
     <name>OpenProjectDialog</name>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="47"/>
         <source>Open Project</source>
         <translation>Otevřít projekt</translation>
-    </message>
-    <message>
-        <source>QtiPlot project</source>
-        <translation type="vanished">Projekt QtiPlotu</translation>
-    </message>
-    <message>
-        <source>Compressed QtiPlot project</source>
-        <translation type="vanished">Stlačený projekt QtiPlotu</translation>
     </message>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="52"/>
@@ -11823,18 +11593,6 @@ největší celé číslo menší nebo rovno x.</translation>
         <source>Unnamed</source>
         <translation>Nepojmenovaný</translation>
     </message>
-    <message>
-        <source>invalid or missing project version</source>
-        <translation type="vanished">neplatná nebo chybějící verze projektu</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">neznámý prvek: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no valid XML document found</source>
-        <translation type="vanished">nenalezen žádný platný XML dokument</translation>
-    </message>
 </context>
 <context>
     <name>ProjectConfigPage</name>
@@ -12116,29 +11874,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>počet desetinných míst nastaven na %1</translation>
     </message>
     <message>
-        <source>XML reader error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">Chyba při čtení z XML dat: </translation>
-    </message>
-    <message>
-        <source> (loading failed)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished"> (otevření se nezdařilo)</translation>
-    </message>
-    <message>
-        <source>XML reader warning: </source>
-        <comment>prefix for XML warning messages</comment>
-        <translation type="vanished">Varování při čtení z XML dat:</translation>
-    </message>
-    <message>
-        <source>line %1, column %2: </source>
-        <translation type="vanished">řádek %1, sloupec %2:</translation>
-    </message>
-    <message>
-        <source>unexpected end of document</source>
-        <translation type="vanished">neočekávaný konec souboru</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="100"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="41"/>
         <location filename="../src/table/future_Table.cpp" line="166"/>
@@ -12270,10 +12005,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/tablecommands.cpp" line="75"/>
         <source>%1: set the number of rows to %2</source>
         <translation>%1: počet řádků změněn na %2</translation>
-    </message>
-    <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1: všechna maskování odstraněna</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="305"/>
@@ -12967,10 +12698,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>Skrýt</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Zrušit</translation>
-    </message>
-    <message>
         <location filename="../src/table/Table.cpp" line="1222"/>
         <source>%1: apply formula to column</source>
         <translation>%1: vzorec použit na sloupec</translation>
@@ -13181,14 +12908,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/TableView.cpp" line="266"/>
         <source>milliseconds</source>
         <translation>Millisekundy</translation>
-    </message>
-    <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">Nynější sloupec:
-Název: %1
-Poloha: %2</translation>
     </message>
     <message>
         <location filename="../src/table/TableView.cpp" line="449"/>
@@ -13584,14 +13303,6 @@ dvojnásobná přesnost
 <context>
     <name>future::Folder</name>
     <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">neznámý prvek: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no folder element found</source>
-        <translation type="vanished">nenalezen žádný prvek složky</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/future_Folder.cpp" line="101"/>
         <source>Folder %1</source>
         <translation>Složka %1</translation>
@@ -13600,14 +13311,6 @@ dvojnásobná přesnost
         <location filename="../src/aspects/future_Folder.cpp" line="109"/>
         <source>Column %1</source>
         <translation>Sloupec %1</translation>
-    </message>
-    <message>
-        <source>creation of aspect from element &apos;%1&apos; failed</source>
-        <translation type="vanished">Vytvoření hlediska z prvku &apos;%1&apos; se nezdařilo</translation>
-    </message>
-    <message>
-        <source>no plugin to load element &apos;%1&apos; found</source>
-        <translation type="vanished">nenalezen žádný přídavný modul pro nahrání prvku &apos;%1&apos;</translation>
     </message>
 </context>
 <context>
@@ -13859,62 +13562,6 @@ dvojnásobná přesnost
         <translation>Zavedení obrázku &apos;%1&apos; se nepodařilo</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">neplatný počet řádků nebo sloupců</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">neznámý prvek: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no matrix element found</source>
-        <translation type="vanished">nenalezen žádný prvek matice</translation>
-    </message>
-    <message>
-        <source>invalid or missing numeric format</source>
-        <translation type="vanished">chybějící nebo neplatný číselný formát</translation>
-    </message>
-    <message>
-        <source>invalid or missing number of displayed digits</source>
-        <translation type="vanished">neplatný nebo chybějící počet zobrazených desetinných míst</translation>
-    </message>
-    <message>
-        <source>invalid x start value</source>
-        <translation type="vanished">neplatná počáteční hodnota x</translation>
-    </message>
-    <message>
-        <source>invalid x end value</source>
-        <translation type="vanished">neplatná konečnáí hodnota x</translation>
-    </message>
-    <message>
-        <source>invalid y start value</source>
-        <translation type="vanished">neplatná počáteční hodnota y</translation>
-    </message>
-    <message>
-        <source>invalid y end value</source>
-        <translation type="vanished">neplatná konečnáí hodnota y</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">Neplatný nebo chybějící index řádku</translation>
-    </message>
-    <message>
-        <source>invalid row height</source>
-        <translation type="vanished">neplatná výška řádku</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">neplatný nebo chybějící index sloupce</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">neplatná šířka sloupce</translation>
-    </message>
-    <message>
-        <source>invalid cell value</source>
-        <translation type="vanished">neplatný obsah buňky</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="1258"/>
         <source>Hide Controls</source>
         <translation>Skrýt ovládání</translation>
@@ -14016,14 +13663,6 @@ dvojnásobná přesnost
         <translation>%1: vložit ze schránky</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: vybraná buňka(y) maskována</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: vybraná buňka(y) odmaskována</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="530"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: Použít vzorec na výběr</translation>
@@ -14081,16 +13720,6 @@ dvojnásobná přesnost
         <location filename="../src/table/future_Table.cpp" line="1375"/>
         <source>Past&amp;e</source>
         <translation>&amp;Vložit</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">&amp;Maskovat</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">&amp;Odmaskovat</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1046"/>
@@ -14172,10 +13801,6 @@ dvojnásobná přesnost
         <location filename="../src/table/future_Table.cpp" line="1385"/>
         <source>Export to TeX...</source>
         <translation>Vyvést do TeXu...</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">Odstranit maskování</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1128"/>
@@ -14389,25 +14014,9 @@ dvojnásobná přesnost
         <translation>%1: sloupec(e) seřazen</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">neplatný počet řádků nebo sloupců</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="2230"/>
         <source>Column %1</source>
         <translation>Sloupec %1</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">neznámý prvek: &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>columns attribute and number of read columns do not match</source>
-        <translation type="vanished">Atribut číslo sloupců a počet přečtených sloupců se liší</translation>
-    </message>
-    <message>
-        <source>no table element found</source>
-        <translation type="vanished">nenalezen žádný prvek tabulky</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2258"/>
@@ -14428,14 +14037,6 @@ dvojnásobná přesnost
         <location filename="../src/table/future_Table.cpp" line="2266"/>
         <source>Show Controls</source>
         <translation>Ukázat ovládání</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">neplatný nebo chybějící index sloupce</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">neplatná šířka sloupce</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2296"/>

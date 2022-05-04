@@ -3863,11 +3863,6 @@ Warning: this will rearrange existing layers!</source>
         <source>Undo/Redo History</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>English</source>
-        <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translation type="vanished">日本の</translation>
-    </message>
 </context>
 <context>
     <name>AsciiTableImportFilter</name>

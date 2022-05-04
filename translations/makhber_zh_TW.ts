@@ -4,24 +4,6 @@
 <context>
     <name>AbstractAspect</name>
     <message>
-        <source>XML read error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">XML讀取錯誤： </translation>
-    </message>
-    <message>
-        <source> (non-critical)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished"> （非關鍵的）</translation>
-    </message>
-    <message>
-        <source>aspect name missing or empty</source>
-        <translation type="vanished">方面名稱缺失或為空</translation>
-    </message>
-    <message>
-        <source>Invalid creation time for &apos;%1&apos;. Using current time.</source>
-        <translation type="vanished">&apos;%1&quot;的創建時間無效。使用當前時間。</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="96"/>
         <source>%1: add %2.</source>
         <translation>%1:添加 %2.</translation>
@@ -47,10 +29,6 @@
         <location filename="../src/aspects/AbstractAspect.cpp" line="143"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1:將 %2 移至 %3。</translation>
-    </message>
-    <message>
-        <source>Tabs and line breaks in object names are currently not supported. They have been removed.</source>
-        <translation type="vanished">當前不支援物件名稱中的跳位字元和換行符。它們已被移除。</translation>
     </message>
     <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="227"/>
@@ -79,21 +57,6 @@
         <location filename="../src/aspects/AbstractPart.cpp" line="60"/>
         <source>Ma&amp;ximize</source>
         <translation>最大化（&amp;X）</translation>
-    </message>
-</context>
-<context>
-    <name>AbstractSimpleFilter</name>
-    <message>
-        <source>incompatible filter type</source>
-        <translation type="vanished">不相容的濾波器類型</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">未知元素&apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no simple filter element found</source>
-        <translation type="vanished">未找到簡單的過濾元素</translation>
     </message>
 </context>
 <context>
@@ -993,18 +956,6 @@ Makhber dropped support for loading SciDAVis/QtiPlot projects.</source>
         <translation>文件: &lt;b&gt;%1&lt;/b&gt; 就是當前檔！</translation>
     </message>
     <message>
-        <source>zlib can&apos;t open %1.</source>
-        <translation type="vanished">zlib 無法打開 %1 。</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create temporary file for writing uncompressed copy of %1.</source>
-        <translation type="vanished">無法創建暫存檔案用於寫入 %1 的未壓縮的拷貝。</translation>
-    </message>
-    <message>
-        <source>Error writing to temporary file: %1</source>
-        <translation type="vanished">寫入暫存檔案 %1 時出錯</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3515"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is corrupted, but there exists a backup copy.&lt;br&gt;Do you want to open the backup instead?</source>
         <translation>文件 &lt;b&gt;%1&lt;/b&gt; 已損壞，但是存在有備份拷貝。&lt;br&gt;你願意打開備份拷貝檔嗎？</translation>
@@ -1034,10 +985,6 @@ Various parts of this file may not be displayed as expected.</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="3605"/>
         <source>Window</source>
         <translation>窗口</translation>
-    </message>
-    <message>
-        <source>Opening file</source>
-        <translation type="vanished">打開文件</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3719"/>
@@ -1119,18 +1066,10 @@ Various parts of this file may not be displayed as expected.</source>
         <translation>已經存在一個名稱為 &lt;b&gt;%1&lt;/b&gt; 的文件。 你想覆蓋它嗎？</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">是(&amp;Y)</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9706"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="10294"/>
         <source>&amp;All</source>
         <translation>全部(&amp;A)</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">取消(&amp;C)</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="4653"/>
@@ -1309,14 +1248,6 @@ Are you sure you want to continue?</source>
 你確定你要繼續嗎？</translation>
     </message>
     <message>
-        <source>Continue</source>
-        <translation type="vanished">繼續</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="5928"/>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
         <translation>無法寫入文件：&lt;h4&gt;%1 &lt;/ h4&gt; &lt;p&gt;請確認您有權寫入此位置或該檔未被其他應用程式使用！</translation>
@@ -1475,14 +1406,6 @@ Are you sure you want to continue?</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="7326"/>
         <source>Save changes to project: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</source>
         <translation>保存對專案的更改：&lt;p&gt; &lt;b&gt; %1 &lt;/ b&gt;？</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="vanished">是</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation type="vanished">否</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="7402"/>
@@ -1746,23 +1669,6 @@ Are you sure you want to continue?</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="8684"/>
         <source>&amp;Top-left corner</source>
         <translation>左上角(&amp;T)</translation>
-    </message>
-    <message>
-        <source>Error reading matrix from project file</source>
-        <translation type="vanished">從專案檔中讀取矩陣時出錯</translation>
-    </message>
-    <message>
-        <source>The following problems occured when loading the project file:
-</source>
-        <translation type="vanished">載入專案檔時出現以下問題：</translation>
-    </message>
-    <message>
-        <source>Project loading partly failed</source>
-        <translation type="vanished">專案載入部分失敗</translation>
-    </message>
-    <message>
-        <source>Error reading table from project file</source>
-        <translation type="vanished">從專案檔中讀取表格時出錯</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9355"/>
@@ -3538,14 +3444,6 @@ Are you sure you want to continue?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file</source>
-        <translation type="vanished">可以是任何 .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py 或 ASCII 文件</translation>
-    </message>
-    <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
-        <translation type="vanished">可以是任何 .sciprj, .sciprj.gz, .qti, qti.gz, .py 或 ASCII 文件</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11081"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;：錯誤的地區選項或者語言包不可用！</translation>
@@ -3805,25 +3703,9 @@ Are you sure you want to continue?</source>
         <translation>可用更新</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">沒有可用的更新。 您已經在運行最新版本。</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">無效的版本檔</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">版本檔（內容：&quot;%1&quot;）無法解碼為有效的版本號。</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12536"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>這將清除與表格關聯的所有資料的內容。 你確定嗎？</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">否(&amp;N)</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12726"/>
@@ -3872,12 +3754,6 @@ Are you sure you want to continue?</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="12921"/>
         <source>Undo/Redo History</source>
         <translation>撤銷/重做歷史記錄</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translatorcomment>把它翻譯為翻譯檔的語言，而 不 是 English 的意思。</translatorcomment>
-        <translation type="vanished">繁體中文</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="219"/>
@@ -4679,57 +4555,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <location filename="../src/plot2D/ColorMapEditor.cpp" line="237"/>
         <source>Please enter a valid color level value!</source>
         <translation>請輸入有效的顏色級別值！</translation>
-    </message>
-</context>
-<context>
-    <name>Column</name>
-    <message>
-        <source>column type missing</source>
-        <translation type="vanished">列類型缺失</translation>
-    </message>
-    <message>
-        <source>column type invalid</source>
-        <translation type="vanished">列類型無效</translation>
-    </message>
-    <message>
-        <source>column mode missing</source>
-        <translation type="vanished">列模式缺失</translation>
-    </message>
-    <message>
-        <source>column mode invalid</source>
-        <translation type="vanished">列模式無效</translation>
-    </message>
-    <message>
-        <source>column type or mode invalid</source>
-        <translation type="vanished">列類型或模式無效</translation>
-    </message>
-    <message>
-        <source>column plot designation invalid</source>
-        <translation type="vanished">指定列繪圖無效</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">未知元素&apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no column element found</source>
-        <translation type="vanished">找不到列元素</translation>
-    </message>
-    <message>
-        <source>invalid or missing start or end row</source>
-        <translation type="vanished">起始行或結束行無效或缺失</translation>
-    </message>
-    <message>
-        <source>invalid or missing row type</source>
-        <translation type="vanished">無效或缺少行類型</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">無效或缺少行索引</translation>
-    </message>
-    <message>
-        <source>invalid row value</source>
-        <translation type="vanished">行值無效</translation>
     </message>
 </context>
 <context>
@@ -6032,13 +5857,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/table/DimensionsDialog.ui" line="39"/>
         <source>Columns</source>
         <translation>列</translation>
-    </message>
-</context>
-<context>
-    <name>Double2StringFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="vanished">格式屬性缺失或無效</translation>
     </message>
 </context>
 <context>
@@ -8889,10 +8707,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation>你確定要繼續此次操作？</translation>
     </message>
     <message>
-        <source>&amp;Continue</source>
-        <translation type="vanished">繼續(&amp;C)</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/dialogs/LayerDialog.cpp" line="228"/>
         <source>Columns input error</source>
         <translation>列輸入錯誤</translation>
@@ -9121,10 +8935,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">發佈日期：XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">關閉</translation>
@@ -9172,10 +8982,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <location filename="../src/matrix/Matrix.cpp" line="500"/>
         <source>Hide</source>
         <translation>隱藏</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
     </message>
     <message>
         <location filename="../src/matrix/Matrix.cpp" line="679"/>
@@ -9365,12 +9171,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translatorcomment>矩陣：全選</translatorcomment>
-        <translation type="vanished">Ctrl+A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="184"/>
         <source>Show/hide control tabs</source>
@@ -9825,18 +9625,6 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <translation>猜測最優佈局？</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">是(&amp;Y)</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">否(&amp;N)</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">取消(&amp;C)</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/MultiLayer.cpp" line="635"/>
         <location filename="../src/plot2D/MultiLayer.cpp" line="653"/>
         <location filename="../src/plot2D/MultiLayer.cpp" line="673"/>
@@ -10038,10 +9826,6 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <translation>隱藏</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
         <location filename="../src/core/MyWidget.cpp" line="105"/>
         <source>Normal</source>
         <translation>正常</translation>
@@ -10091,26 +9875,11 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
     </message>
 </context>
 <context>
-    <name>NumericDateTimeBaseFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="obsolete">格式屬性缺失或無效</translation>
-    </message>
-</context>
-<context>
     <name>OpenProjectDialog</name>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="47"/>
         <source>Open Project</source>
         <translation>打開項目</translation>
-    </message>
-    <message>
-        <source>QtiPlot project</source>
-        <translation type="vanished">QtiPlot 項目</translation>
-    </message>
-    <message>
-        <source>Compressed QtiPlot project</source>
-        <translation type="vanished">壓縮的 QtiPlot 專案</translation>
     </message>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="52"/>
@@ -11862,18 +11631,6 @@ n 階正則圓柱貝塞爾函數的第 s 個正零 x_s，J_n（x_s）= 0</transl
         <source>Unnamed</source>
         <translation>未命名</translation>
     </message>
-    <message>
-        <source>invalid or missing project version</source>
-        <translation type="vanished">項目版本無效或丟失</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">未知元素 &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no valid XML document found</source>
-        <translation type="vanished">未找到有效的 XML 文檔</translation>
-    </message>
 </context>
 <context>
     <name>ProjectConfigPage</name>
@@ -12151,29 +11908,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>通常</translation>
     </message>
     <message>
-        <source>XML reader error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">XML讀取器錯誤： </translation>
-    </message>
-    <message>
-        <source> (loading failed)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished"> (載入失敗)</translation>
-    </message>
-    <message>
-        <source>XML reader warning: </source>
-        <comment>prefix for XML warning messages</comment>
-        <translation type="vanished">XML讀取器警告： </translation>
-    </message>
-    <message>
-        <source>line %1, column %2: </source>
-        <translation type="vanished">行 %1，列 %2: </translation>
-    </message>
-    <message>
-        <source>unexpected end of document</source>
-        <translation type="vanished">文檔意外結束</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="100"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="41"/>
         <location filename="../src/table/future_Table.cpp" line="166"/>
@@ -12305,10 +12039,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/tablecommands.cpp" line="75"/>
         <source>%1: set the number of rows to %2</source>
         <translation>%1:將行數設置為 %2</translation>
-    </message>
-    <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1：清除所有遮蓋</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="305"/>
@@ -13002,10 +12732,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>隱藏</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">取消</translation>
-    </message>
-    <message>
         <location filename="../src/table/Table.cpp" line="1222"/>
         <source>%1: apply formula to column</source>
         <translation>%1: 將公式應用於列</translation>
@@ -13216,14 +12942,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/TableView.cpp" line="266"/>
         <source>milliseconds</source>
         <translation>毫秒</translation>
-    </message>
-    <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">當前列：
-名稱：%1 
-位置：%2</translation>
     </message>
     <message>
         <location filename="../src/table/TableView.cpp" line="449"/>
@@ -13612,14 +13330,6 @@ floating point values
 <context>
     <name>future::Folder</name>
     <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">未知元素 &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>no folder element found</source>
-        <translation type="vanished">未找到檔夾元素</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/future_Folder.cpp" line="101"/>
         <source>Folder %1</source>
         <translation>文件夾 %1</translation>
@@ -13628,14 +13338,6 @@ floating point values
         <location filename="../src/aspects/future_Folder.cpp" line="109"/>
         <source>Column %1</source>
         <translation>列 %1</translation>
-    </message>
-    <message>
-        <source>creation of aspect from element &apos;%1&apos; failed</source>
-        <translation type="vanished">從元素 &quot;%1&quot; 創建外表失敗</translation>
-    </message>
-    <message>
-        <source>no plugin to load element &apos;%1&apos; found</source>
-        <translation type="vanished">找不到載入元素 &quot;%1&quot; 的插件</translation>
     </message>
 </context>
 <context>
@@ -13887,62 +13589,6 @@ floating point values
         <translation>導入圖像 &apos;%1&apos; 失敗</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">行或列計數無效</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">未知元素 &apos;%1&apos;</translation>
-    </message>
-    <message>
-        <source>no matrix element found</source>
-        <translation type="vanished">未找到矩陣元素</translation>
-    </message>
-    <message>
-        <source>invalid or missing numeric format</source>
-        <translation type="vanished">無效或缺少數位格式</translation>
-    </message>
-    <message>
-        <source>invalid or missing number of displayed digits</source>
-        <translation type="vanished">顯示的位元數無效或缺失</translation>
-    </message>
-    <message>
-        <source>invalid x start value</source>
-        <translation type="vanished">X 起始值無效</translation>
-    </message>
-    <message>
-        <source>invalid x end value</source>
-        <translation type="vanished">x 終末值無效</translation>
-    </message>
-    <message>
-        <source>invalid y start value</source>
-        <translation type="vanished">Y 起始值無效</translation>
-    </message>
-    <message>
-        <source>invalid y end value</source>
-        <translation type="vanished">Y 終末值無效</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">無效或缺少行索引</translation>
-    </message>
-    <message>
-        <source>invalid row height</source>
-        <translation type="vanished">行高無效</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">無效或缺少列索引</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">列寬無效</translation>
-    </message>
-    <message>
-        <source>invalid cell value</source>
-        <translation type="vanished">無效的單格值</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="1258"/>
         <source>Hide Controls</source>
         <translation>隱藏控制項</translation>
@@ -14044,14 +13690,6 @@ floating point values
         <translation>%1: 從剪貼板粘貼</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: 遮蓋所選單格</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: 取消遮蓋所選單格</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="530"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: 應用公式進行選擇</translation>
@@ -14109,16 +13747,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1375"/>
         <source>Past&amp;e</source>
         <translation>粘貼(&amp;e)</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">遮蓋(&amp;M)</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">取消遮蓋(&amp;U)</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1046"/>
@@ -14200,10 +13828,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1385"/>
         <source>Export to TeX...</source>
         <translation>導出到Tex…</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">清除遮蓋</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1128"/>
@@ -14417,25 +14041,9 @@ floating point values
         <translation>%1:對列排序</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">行或列計數無效</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="2230"/>
         <source>Column %1</source>
         <translation>列 %1</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">未知元素“%1”</translation>
-    </message>
-    <message>
-        <source>columns attribute and number of read columns do not match</source>
-        <translation type="vanished">列屬性和讀取列數不匹配</translation>
-    </message>
-    <message>
-        <source>no table element found</source>
-        <translation type="vanished">未找到表格元素</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2258"/>
@@ -14456,14 +14064,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="2266"/>
         <source>Show Controls</source>
         <translation>顯示控制項</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">無效或缺少列索引</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">列寬無效</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2296"/>

@@ -1438,10 +1438,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <translation>En fil med namn: &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt;finns redan! Vill du skriva över den?</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Ja</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12446"/>
         <source>Makhber will now try to determine whether a new version of Makhber is available. Please modify your firewall settings in order to allow Makhber to connect to the internet.</source>
         <translation type="unfinished"></translation>
@@ -1450,10 +1446,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="12475"/>
         <source>There is a newer version of Makhber (%1) available for download. Would you like to download it now?</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Nej</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="4496"/>
@@ -1467,10 +1459,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="10294"/>
         <source>&amp;All</source>
         <translation>&amp;Allt</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Avbryt</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="4653"/>
@@ -1664,14 +1652,6 @@ Are you sure you want to continue?</source>
 är du säker på att du vill fortsätta?</translation>
     </message>
     <message>
-        <source>Continue</source>
-        <translation type="vanished">Fortsätt</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="2813"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="6311"/>
         <source>There are no curves available on this plot!</source>
@@ -1787,14 +1767,6 @@ Are you sure you want to continue?</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="7326"/>
         <source>Save changes to project: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</source>
         <translation>Spara ändringar till projekt: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; ?</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="vanished">Ja</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation type="vanished">Nej</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="7402"/>
@@ -3895,11 +3867,6 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="12831"/>
         <source>Error</source>
         <translation>Fel</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translation type="vanished">Svenska</translation>
     </message>
 </context>
 <context>
@@ -8709,10 +8676,6 @@ Gränserna måste vara inom definitionsområdet för x; om du inte vet maximum- 
         <translation>Är du säker på att du vill fortsätta denna åtgärd?</translation>
     </message>
     <message>
-        <source>&amp;Continue</source>
-        <translation type="vanished">&amp;Fortsätt</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/dialogs/LayerDialog.cpp" line="229"/>
         <source>The number of columns you&apos;ve entered is greater than the number of graphs (%1)!</source>
         <translation>Det antal kolumner du har matat in är större än antalet diagram (%1)!</translation>
@@ -8953,10 +8916,6 @@ Gränserna måste vara inom definitionsområdet för x; om du inte vet maximum- 
 </context>
 <context>
     <name>Matrix</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
     <message>
         <location filename="../src/matrix/Matrix.cpp" line="273"/>
         <source>Calculation failed, the matrix is not square!</source>
@@ -9550,21 +9509,9 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Ja</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Nej</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/MultiLayer.cpp" line="290"/>
         <source>Do you want Makhber to rearrange the remaining layers?</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Avbryt</translation>
     </message>
     <message>
         <location filename="../src/plot2D/MultiLayer.cpp" line="635"/>
@@ -9766,10 +9713,6 @@ p, li { white-space: pre-wrap; }
         <translation>Dölja</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
-    <message>
         <location filename="../src/core/MyWidget.cpp" line="105"/>
         <source>Normal</source>
         <translation>Normal</translation>
@@ -9824,14 +9767,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="50"/>
         <source>Makhber project</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>QtiPlot project</source>
-        <translation type="vanished">QtiPlot-projekt</translation>
-    </message>
-    <message>
-        <source>Compressed QtiPlot project</source>
-        <translation type="vanished">Komprimerat QtiPlot-projekt</translation>
     </message>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="52"/>
@@ -12654,10 +12589,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
 </context>
 <context>
     <name>Table</name>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Avbryt</translation>
-    </message>
     <message>
         <location filename="../src/table/Table.cpp" line="930"/>
         <source>Could not write to file: &lt;br&gt;&lt;h4&gt;</source>

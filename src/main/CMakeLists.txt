@@ -6,7 +6,7 @@ endif()
 
 if( MAKHBER_BUILD_TRANSLATIONS )
   file( GLOB TS_FILES "${CMAKE_SOURCE_DIR}/translations/*.ts" )
-  qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} )
+  qt5_create_translation( QM_FILES "${CMAKE_SOURCE_DIR}/src" ${TS_FILES} OPTIONS "-no-obsolete")
 endif()
 
 add_executable( makhber

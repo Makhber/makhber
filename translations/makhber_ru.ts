@@ -4,24 +4,6 @@
 <context>
     <name>AbstractAspect</name>
     <message>
-        <source>XML read error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">Ошибка чтения XML: </translation>
-    </message>
-    <message>
-        <source> (non-critical)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished"> (не критическая)</translation>
-    </message>
-    <message>
-        <source>aspect name missing or empty</source>
-        <translation type="vanished">имя аспекта не задано или отсутствует</translation>
-    </message>
-    <message>
-        <source>Invalid creation time for &apos;%1&apos;. Using current time.</source>
-        <translation type="vanished">Неверное время создания &apos;%1&apos;. Будет использовано текущее время.</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="96"/>
         <source>%1: add %2.</source>
         <translation>%1: добавляется %2.</translation>
@@ -47,10 +29,6 @@
         <location filename="../src/aspects/AbstractAspect.cpp" line="143"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1: переместить %2 в %3.</translation>
-    </message>
-    <message>
-        <source>Tabs and line breaks in object names are currently not supported. They have been removed.</source>
-        <translation type="vanished">Табуляция и перенос строки в именах объектов в настоящее время не поддерживаются. Они были удалены.</translation>
     </message>
     <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="227"/>
@@ -79,21 +57,6 @@
         <location filename="../src/aspects/AbstractPart.cpp" line="60"/>
         <source>Ma&amp;ximize</source>
         <translation>&amp;Максимизировать</translation>
-    </message>
-</context>
-<context>
-    <name>AbstractSimpleFilter</name>
-    <message>
-        <source>incompatible filter type</source>
-        <translation type="vanished">несовместимый тип фильтра</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">неизвестный элемент &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>no simple filter element found</source>
-        <translation type="vanished">простой фильтрующий элемент не найден</translation>
     </message>
 </context>
 <context>
@@ -987,18 +950,6 @@
         <translation>Файл:: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; является текущим файлом!</translation>
     </message>
     <message>
-        <source>zlib can&apos;t open %1.</source>
-        <translation type="vanished">zlib не может открыть %1.</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create temporary file for writing uncompressed copy of %1.</source>
-        <translation type="vanished">Невозможно создать временный файл для записи несжатой копии %1.</translation>
-    </message>
-    <message>
-        <source>Error writing to temporary file: %1</source>
-        <translation type="vanished">Ошибка записи во временный файл:%1</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3515"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is corrupted, but there exists a backup copy.&lt;br&gt;Do you want to open the backup instead?</source>
         <translation>Файл &lt;b&gt;%1&lt;/b&gt; повреждён, но существует резервная копия.&lt;br&gt;Хотите ли вы вместо оригинала открыть резервную копию?</translation>
@@ -1027,18 +978,6 @@ Various parts of this file may not be displayed as expected.</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="3605"/>
         <source>Window</source>
         <translation>Окно</translation>
-    </message>
-    <message>
-        <source>Opening file</source>
-        <translation type="vanished">Открытие файла</translation>
-    </message>
-    <message>
-        <source>Invalid WindowLabel line:
-&apos;%1&apos;
-in file %2.</source>
-        <translation type="vanished">Неверная строка названия элемента:
-&apos;%1&apos;
-в файле %2.</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3719"/>
@@ -1120,18 +1059,10 @@ in file %2.</source>
         <translation>Файл с именем: &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt;уже существует. Вы хотите перезаписать его?</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Да</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9706"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="10294"/>
         <source>&amp;All</source>
         <translation>&amp;Все</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Отмена</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="4653"/>
@@ -1282,14 +1213,6 @@ in file %2.</source>
 Are you sure you want to continue?</source>
         <translation>Данные в рабочих областях изменятся!
 Вы уверены, что хотите продолжить?</translation>
-    </message>
-    <message>
-        <source>Continue</source>
-        <translation type="vanished">Продолжить</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="5928"/>
@@ -1450,14 +1373,6 @@ Are you sure you want to continue?</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="7326"/>
         <source>Save changes to project: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</source>
         <translation>Сохранить изменения в проекте: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="vanished">Да</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation type="vanished">Нет</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="7402"/>
@@ -1781,24 +1696,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="8684"/>
         <source>&amp;Top-left corner</source>
         <translation>&amp;Верхний левый угол</translation>
-    </message>
-    <message>
-        <source>Error reading matrix from project file</source>
-        <translation type="vanished">Ошибка чтения матрицы из файла проекта</translation>
-    </message>
-    <message>
-        <source>The following problems occured when loading the project file:
-</source>
-        <translation type="vanished">При загрузке файла проекта возникли следующие проблемы:
-</translation>
-    </message>
-    <message>
-        <source>Project loading partly failed</source>
-        <translation type="vanished">Частично не удалось загрузить проект</translation>
-    </message>
-    <message>
-        <source>Error reading table from project file</source>
-        <translation type="vanished">Ошибка чтения таблицы из файла проекта</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9355"/>
@@ -3658,14 +3555,6 @@ Warning: this will rearrange existing layers!</source>
         <translation>выполнить скрипт, переданный в качестве аргумента</translation>
     </message>
     <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file</source>
-        <translation type="vanished">может быть любым файлом .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py или ASCII</translation>
-    </message>
-    <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
-        <translation type="vanished">может быть любым файлом .sciprj, .sciprj.gz, .qti, qti.gz, .py или ASCII</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11081"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Неправильный параметр локализации или  отсутствие перевода!</translation>
@@ -3925,25 +3814,9 @@ Warning: this will rearrange existing layers!</source>
         <translation>Обновления доступны</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">Нет доступных обновлений. У вас уже установлена ​​последняя версия.</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">Поврежденный файл версии</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">Файл версии (содержащий: &quot;%1&quot;) не может быть преобразован в корректный номер версии.</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12536"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Все данные, связанные с таблицей, будут удалены. Вы уверены?</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Нет</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12726"/>
@@ -3992,11 +3865,6 @@ Warning: this will rearrange existing layers!</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="12921"/>
         <source>Undo/Redo History</source>
         <translation>История отмен / повторов</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translation type="vanished">Русский</translation>
     </message>
 </context>
 <context>
@@ -4684,57 +4552,6 @@ Warning: this will rearrange existing layers!</source>
         <location filename="../src/plot2D/ColorMapEditor.cpp" line="237"/>
         <source>Please enter a valid color level value!</source>
         <translation>Пожалуйста, введите допустимое значение уровня цвета!</translation>
-    </message>
-</context>
-<context>
-    <name>Column</name>
-    <message>
-        <source>column type missing</source>
-        <translation type="vanished">тип столбца отсутствует</translation>
-    </message>
-    <message>
-        <source>column type invalid</source>
-        <translation type="vanished">недопустимый тип столбца</translation>
-    </message>
-    <message>
-        <source>column mode missing</source>
-        <translation type="vanished">режим столбца отсутствует</translation>
-    </message>
-    <message>
-        <source>column mode invalid</source>
-        <translation type="vanished">недопустимый режим столбца</translation>
-    </message>
-    <message>
-        <source>column type or mode invalid</source>
-        <translation type="vanished">тип или режим столбца недопустим</translation>
-    </message>
-    <message>
-        <source>column plot designation invalid</source>
-        <translation type="vanished">недопустимое назначение столбца</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">неизвестный элемент &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>no column element found</source>
-        <translation type="vanished">элемент столбца не найден</translation>
-    </message>
-    <message>
-        <source>invalid or missing start or end row</source>
-        <translation type="vanished">неверная или отсутствующая начальная или конечная строка</translation>
-    </message>
-    <message>
-        <source>invalid or missing row type</source>
-        <translation type="vanished">неверный или отсутствующий тип строки</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">неверный или отсутствующий индекс строки</translation>
-    </message>
-    <message>
-        <source>invalid row value</source>
-        <translation type="vanished">недопустимое значение строки</translation>
     </message>
 </context>
 <context>
@@ -6035,13 +5852,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/table/DimensionsDialog.ui" line="39"/>
         <source>Columns</source>
         <translation>Столбцов</translation>
-    </message>
-</context>
-<context>
-    <name>Double2StringFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="vanished">отсутствует или недействителен атрибут (ы) формата</translation>
     </message>
 </context>
 <context>
@@ -8905,10 +8715,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation>Вы хотите продолжить?</translation>
     </message>
     <message>
-        <source>&amp;Continue</source>
-        <translation type="vanished">&amp;Продолжить</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/dialogs/LayerDialog.cpp" line="228"/>
         <source>Columns input error</source>
         <translation>Ошибка ввода столбцов</translation>
@@ -9147,10 +8953,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">Выпущено XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Закрыть</translation>
@@ -9193,10 +8995,6 @@ The limits must be within the range of x; If you do not know the maximum (minimu
         <location filename="../src/matrix/Matrix.cpp" line="500"/>
         <source>Hide</source>
         <translation>Скрыть</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Отмена</translation>
     </message>
     <message>
         <location filename="../src/matrix/Matrix.cpp" line="679"/>
@@ -9381,11 +9179,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translation type="vanished">Ctrl + A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="184"/>
         <source>Show/hide control tabs</source>
@@ -9841,21 +9634,9 @@ p, li { white-space: pre-wrap; }
         <translation>Предложить лучшее размещение?</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Да</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Нет</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/MultiLayer.cpp" line="290"/>
         <source>Do you want Makhber to rearrange the remaining layers?</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Отмена</translation>
     </message>
     <message>
         <location filename="../src/plot2D/MultiLayer.cpp" line="635"/>
@@ -10057,10 +9838,6 @@ p, li { white-space: pre-wrap; }
         <translation>Скрыть</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Отмена</translation>
-    </message>
-    <message>
         <location filename="../src/core/MyWidget.cpp" line="105"/>
         <source>Normal</source>
         <translation>Нормальный</translation>
@@ -10105,13 +9882,6 @@ p, li { white-space: pre-wrap; }
     </message>
 </context>
 <context>
-    <name>NumericDateTimeBaseFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="obsolete">отсутствует или недействителен атрибут (ы) формата</translation>
-    </message>
-</context>
-<context>
     <name>OpenProjectDialog</name>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="47"/>
@@ -10122,14 +9892,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="50"/>
         <source>Makhber project</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>QtiPlot project</source>
-        <translation type="vanished">Проект QtiPlot</translation>
-    </message>
-    <message>
-        <source>Compressed QtiPlot project</source>
-        <translation type="vanished">Сжатый проект QtiPlot</translation>
     </message>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="52"/>
@@ -11876,18 +11638,6 @@ p, li { white-space: pre-wrap; }
         <source>Unnamed</source>
         <translation>Безымянный</translation>
     </message>
-    <message>
-        <source>invalid or missing project version</source>
-        <translation type="vanished">неверная или отсутствующая версия проекта</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">неизвестный элемент &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>no valid XML document found</source>
-        <translation type="vanished">не найден пригодный XML-документ</translation>
-    </message>
 </context>
 <context>
     <name>ProjectConfigPage</name>
@@ -12165,29 +11915,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>установить десятичные цифры на %1</translation>
     </message>
     <message>
-        <source>XML reader error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">Ошибка чтения XML: </translation>
-    </message>
-    <message>
-        <source> (loading failed)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished"> (загрузка не удалась)</translation>
-    </message>
-    <message>
-        <source>XML reader warning: </source>
-        <comment>prefix for XML warning messages</comment>
-        <translation type="vanished">Предупреждение обработчика XML: </translation>
-    </message>
-    <message>
-        <source>line %1, column %2: </source>
-        <translation type="vanished">строка%1, столбец%2: </translation>
-    </message>
-    <message>
-        <source>unexpected end of document</source>
-        <translation type="vanished">неожиданный конец документа</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="100"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="41"/>
         <location filename="../src/table/future_Table.cpp" line="166"/>
@@ -12319,10 +12046,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/tablecommands.cpp" line="75"/>
         <source>%1: set the number of rows to %2</source>
         <translation>%1: установить количество строк на %2</translation>
-    </message>
-    <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1: очистить все маски</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="305"/>
@@ -13024,10 +12747,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>Скрыть</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Отмена</translation>
-    </message>
-    <message>
         <location filename="../src/table/Table.cpp" line="1222"/>
         <source>%1: apply formula to column</source>
         <translation>%1: применить формулу к столбцу</translation>
@@ -13233,14 +12952,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/TableView.cpp" line="266"/>
         <source>milliseconds</source>
         <translation>миллисекунды</translation>
-    </message>
-    <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">Текущий столбец:
-Имя: %1
-Позиция: %2</translation>
     </message>
     <message>
         <location filename="../src/table/TableView.cpp" line="449"/>
@@ -13636,14 +13347,6 @@ floating point values
 <context>
     <name>future::Folder</name>
     <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">неизвестный элемент &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>no folder element found</source>
-        <translation type="vanished">элемент папки не найден</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/future_Folder.cpp" line="101"/>
         <source>Folder %1</source>
         <translation>Папка %1</translation>
@@ -13652,14 +13355,6 @@ floating point values
         <location filename="../src/aspects/future_Folder.cpp" line="109"/>
         <source>Column %1</source>
         <translation>Столбец %1</translation>
-    </message>
-    <message>
-        <source>creation of aspect from element &apos;%1&apos; failed</source>
-        <translation type="vanished">не удалось создать аспект из элемента &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>no plugin to load element &apos;%1&apos; found</source>
-        <translation type="vanished">не найден плагин для загрузки элемента &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
@@ -13911,62 +13606,6 @@ floating point values
         <translation>Не удалось импортировать изображение &quot;%1&quot;</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">недопустимое количество строк или столбцов</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">неизвестный элемент &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>no matrix element found</source>
-        <translation type="vanished">матричный элемент не найден</translation>
-    </message>
-    <message>
-        <source>invalid or missing numeric format</source>
-        <translation type="vanished">неверный или отсутствующий числовой формат</translation>
-    </message>
-    <message>
-        <source>invalid or missing number of displayed digits</source>
-        <translation type="vanished">неверное или отсутствующее количество отображаемых цифр</translation>
-    </message>
-    <message>
-        <source>invalid x start value</source>
-        <translation type="vanished">недопустимое начальное значение x</translation>
-    </message>
-    <message>
-        <source>invalid x end value</source>
-        <translation type="vanished">недопустимое конечное значение x</translation>
-    </message>
-    <message>
-        <source>invalid y start value</source>
-        <translation type="vanished">неверное начальное значение y</translation>
-    </message>
-    <message>
-        <source>invalid y end value</source>
-        <translation type="vanished">недопустимое конечное значение y</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">неверный или отсутствующий индекс строки</translation>
-    </message>
-    <message>
-        <source>invalid row height</source>
-        <translation type="vanished">неверная высота строки</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">неверный или отсутствующий индекс столбца</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">недопустимая ширина столбца</translation>
-    </message>
-    <message>
-        <source>invalid cell value</source>
-        <translation type="vanished">недопустимое значение ячейки</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="1258"/>
         <source>Hide Controls</source>
         <translation>Скрыть элементы управления</translation>
@@ -14068,14 +13707,6 @@ floating point values
         <translation>%1: вставить из буфера обмена</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: маска выбранных ячеек</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: снять маску с выбранных ячеек</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="530"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: применить формулу к выделению</translation>
@@ -14133,16 +13764,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1375"/>
         <source>Past&amp;e</source>
         <translation>&amp;Вставить</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">&amp;Маска</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">&amp;Снять маск</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1046"/>
@@ -14224,10 +13845,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="1385"/>
         <source>Export to TeX...</source>
         <translation>Экспорт в TeX ...</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">Очистить маски</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1128"/>
@@ -14441,25 +14058,9 @@ floating point values
         <translation>%1: сортировать столбцы</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">недопустимое количество строк или столбцов</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="2230"/>
         <source>Column %1</source>
         <translation>Столбец %1</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">неизвестный элемент &quot;%1&quot;</translation>
-    </message>
-    <message>
-        <source>columns attribute and number of read columns do not match</source>
-        <translation type="vanished">атрибут columns и количество прочитанных столбцов не совпадают</translation>
-    </message>
-    <message>
-        <source>no table element found</source>
-        <translation type="vanished">элемент таблицы не найден</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2258"/>
@@ -14480,14 +14081,6 @@ floating point values
         <location filename="../src/table/future_Table.cpp" line="2266"/>
         <source>Show Controls</source>
         <translation>Показать элементы управления</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">неверный или отсутствующий индекс столбца</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">недопустимая ширина столбца</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2296"/>

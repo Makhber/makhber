@@ -4,24 +4,6 @@
 <context>
     <name>AbstractAspect</name>
     <message>
-        <source>XML read error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">Erro na leitura XML:</translation>
-    </message>
-    <message>
-        <source> (non-critical)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished"> (não-crítico)</translation>
-    </message>
-    <message>
-        <source>aspect name missing or empty</source>
-        <translation type="vanished">nome do aspecto faltando ou vazio)</translation>
-    </message>
-    <message>
-        <source>Invalid creation time for &apos;%1&apos;. Using current time.</source>
-        <translation type="vanished">Hora de criação inválida para &apos;%1&apos;. Usando hora atual.</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="96"/>
         <source>%1: add %2.</source>
         <translation>%1: adicionar %2.</translation>
@@ -47,10 +29,6 @@
         <location filename="../src/aspects/AbstractAspect.cpp" line="143"/>
         <source>%1: move %2 to %3.</source>
         <translation>%1: mover %2 para %3.</translation>
-    </message>
-    <message>
-        <source>Tabs and line breaks in object names are currently not supported. They have been removed.</source>
-        <translation type="vanished">Tabulação e quebras de linha em nomes de objetos não são suportados atualmente. Eles foram removidos.</translation>
     </message>
     <message>
         <location filename="../src/aspects/AbstractAspect.cpp" line="227"/>
@@ -79,21 +57,6 @@
         <location filename="../src/aspects/AbstractPart.cpp" line="60"/>
         <source>Ma&amp;ximize</source>
         <translation>Ma&amp;ximizar</translation>
-    </message>
-</context>
-<context>
-    <name>AbstractSimpleFilter</name>
-    <message>
-        <source>incompatible filter type</source>
-        <translation type="vanished">filtro incompatível</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">elemento &apos;%1&apos; desconhecido</translation>
-    </message>
-    <message>
-        <source>no simple filter element found</source>
-        <translation type="vanished">não foi encontrado nenhum elemento de filtro simples</translation>
     </message>
 </context>
 <context>
@@ -997,18 +960,6 @@ Makhber dropped support for loading SciDAVis/QtiPlot projects.</source>
         <translation>O arquivo &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; é o arquivo atual!</translation>
     </message>
     <message>
-        <source>zlib can&apos;t open %1.</source>
-        <translation type="vanished">zlib não consegui abrir %1.</translation>
-    </message>
-    <message>
-        <source>Can&apos;t create temporary file for writing uncompressed copy of %1.</source>
-        <translation type="vanished">Não foi possível criar um arquivo temporário para descompactar %1.</translation>
-    </message>
-    <message>
-        <source>Error writing to temporary file: %1</source>
-        <translation type="vanished">Erro ao escrever o arquivo temporário: %1</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3515"/>
         <source>The file &lt;b&gt;%1&lt;/b&gt; is corrupted, but there exists a backup copy.&lt;br&gt;Do you want to open the backup instead?</source>
         <translation>O arquivo &lt;b&gt;%1&lt;/b&gt; está corrompido, mas existe uma cópia de segurança.&lt;br&gt;Deseja abrir a cópia em seu lugar?</translation>
@@ -1038,10 +989,6 @@ Varias partes deste arquivo podem não ser apresentadas como o esperado.</transl
         <location filename="../src/core/ApplicationWindow.cpp" line="3605"/>
         <source>Window</source>
         <translation>Janela</translation>
-    </message>
-    <message>
-        <source>Opening file</source>
-        <translation type="vanished">Abrindo arquivo</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="3719"/>
@@ -1123,18 +1070,10 @@ Varias partes deste arquivo podem não ser apresentadas como o esperado.</transl
         <translation>Um arquivo chamado &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;&lt;p&gt; já existe. Deseja sobrescrevê-lo?</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Sim</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9706"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="10294"/>
         <source>&amp;All</source>
         <translation>&amp;Todos</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Cancelar</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="4653"/>
@@ -1313,14 +1252,6 @@ Are you sure you want to continue?</source>
 Tem certeza que quer continuar?</translation>
     </message>
     <message>
-        <source>Continue</source>
-        <translation type="vanished">Continuar</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="5928"/>
         <source>Could not write to file: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt;Please verify that you have the right to write to this location or that the file is not being used by another application!</source>
         <translation>Não foi possível escrever no arquivo: &lt;h4&gt;%1&lt;/h4&gt;&lt;p&gt; Por favor verifique se você tem permissão de escrita neste local ou que este arquivo não está sendo utilizado por outra aplicação!</translation>
@@ -1479,14 +1410,6 @@ Tem certeza que quer continuar?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="7326"/>
         <source>Save changes to project: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt; ?</source>
         <translation>Salvar alterações no projeto: &lt;p&gt;&lt;b&gt;%1&lt;/b&gt;?</translation>
-    </message>
-    <message>
-        <source>Yes</source>
-        <translation type="vanished">Sim</translation>
-    </message>
-    <message>
-        <source>No</source>
-        <translation type="vanished">Não</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="7402"/>
@@ -1750,24 +1673,6 @@ Tem certeza que quer continuar?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="8684"/>
         <source>&amp;Top-left corner</source>
         <translation>Canto superior esquerdo</translation>
-    </message>
-    <message>
-        <source>Error reading matrix from project file</source>
-        <translation type="vanished">Erro ao ler matriz a partir do arquivo do projeto</translation>
-    </message>
-    <message>
-        <source>The following problems occured when loading the project file:
-</source>
-        <translation type="vanished">Ocorreram os seguintes problemas ao carregar o arquivo do projeto:
-</translation>
-    </message>
-    <message>
-        <source>Project loading partly failed</source>
-        <translation type="vanished">Falha parcial no carregamento do projeto</translation>
-    </message>
-    <message>
-        <source>Error reading table from project file</source>
-        <translation type="vanished">Erro ao ler tabela a partir do arquivo do projeto</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="9355"/>
@@ -3543,14 +3448,6 @@ Tem certeza que quer continuar?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py or ASCII file</source>
-        <translation type="vanished">pode ser qualquer arquivo .sciprj, .sciprj.gz, .qti, qti.gz, .opj, .ogm, .ogw, .ogg, .org, .py ou ASCII</translation>
-    </message>
-    <message>
-        <source>can be any .sciprj, .sciprj.gz, .qti, qti.gz, .py or ASCII file</source>
-        <translation type="vanished">pode ser qualquer arquivo .sciprj, .sciprj.gz, .qti, qti.gz, .py ou ASCII</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11081"/>
         <source>&lt;b&gt; %1 &lt;/b&gt;: Wrong locale option or no translation available!</source>
         <translation>&lt;b&gt; %1 &lt;/b&gt;: Opções regionais incorretas ou tradução indisponível!</translation>
@@ -3810,25 +3707,9 @@ Tem certeza que quer continuar?</translation>
         <translation>Atualizações disponíveis</translation>
     </message>
     <message>
-        <source>No updates available. You are already running the latest version.</source>
-        <translation type="vanished">Não há atualizações disponíveis. Você já está usando a última versão.</translation>
-    </message>
-    <message>
-        <source>Invalid version file</source>
-        <translation type="vanished">Versão de arquivo inválida</translation>
-    </message>
-    <message>
-        <source>The version file (contents: &quot;%1&quot;) could not be decoded into a valid version number.</source>
-        <translation type="vanished">O arquivo de versão (contido en: &quot;%1&quot;) não pode ser decodificado em um número de versão válido.</translation>
-    </message>
-    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12536"/>
         <source>This will clear the contents of all the data associated with the table. Are you sure?</source>
         <translation>Isto apagará os conteúdos de todos os dados associados à tabela. Está certo disso?</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Não</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="12726"/>
@@ -3877,11 +3758,6 @@ Tem certeza que quer continuar?</translation>
         <location filename="../src/core/ApplicationWindow.cpp" line="12921"/>
         <source>Undo/Redo History</source>
         <translation>Desfazer/Refazer - Histórico</translation>
-    </message>
-    <message>
-        <source>English</source>
-        <comment>translate this to the language of the translation file, NOT to the meaning of English!</comment>
-        <translation type="vanished">Português</translation>
     </message>
     <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="219"/>
@@ -4682,57 +4558,6 @@ You are already running the latest version: &quot;%1&quot;</source>
         <location filename="../src/plot2D/ColorMapEditor.cpp" line="237"/>
         <source>Please enter a valid color level value!</source>
         <translation>Por favor, forneça um valor válido do nível de cor!</translation>
-    </message>
-</context>
-<context>
-    <name>Column</name>
-    <message>
-        <source>column type missing</source>
-        <translation type="vanished">falta o tipo de coluna</translation>
-    </message>
-    <message>
-        <source>column type invalid</source>
-        <translation type="vanished">tipo de coluna inválido</translation>
-    </message>
-    <message>
-        <source>column mode missing</source>
-        <translation type="vanished">falta modo de coluna</translation>
-    </message>
-    <message>
-        <source>column mode invalid</source>
-        <translation type="vanished">modo invállido para a coluna</translation>
-    </message>
-    <message>
-        <source>column type or mode invalid</source>
-        <translation type="vanished">tipo ou modo de coluna inválido</translation>
-    </message>
-    <message>
-        <source>column plot designation invalid</source>
-        <translation type="vanished">coluna inválida para o gráfico designado</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">elemento &apos;%1&apos; desconhecido</translation>
-    </message>
-    <message>
-        <source>no column element found</source>
-        <translation type="vanished">nenhum elemento de coluna encontrado</translation>
-    </message>
-    <message>
-        <source>invalid or missing start or end row</source>
-        <translation type="vanished">início ou fim de linha inválido ou faltando</translation>
-    </message>
-    <message>
-        <source>invalid or missing row type</source>
-        <translation type="vanished">tipo de linha inválido ou faltando</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">índice de linha inválido ou faltando</translation>
-    </message>
-    <message>
-        <source>invalid row value</source>
-        <translation type="vanished">valor inválido de linha</translation>
     </message>
 </context>
 <context>
@@ -6033,13 +5858,6 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/table/DimensionsDialog.ui" line="39"/>
         <source>Columns</source>
         <translation>Colunas</translation>
-    </message>
-</context>
-<context>
-    <name>Double2StringFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="vanished">falta(m) atributo(s) ou estão em formato inválido</translation>
     </message>
 </context>
 <context>
@@ -8907,10 +8725,6 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <translation>Está certo de que quer continuar com esta operação?</translation>
     </message>
     <message>
-        <source>&amp;Continue</source>
-        <translation type="vanished">&amp;Continuar</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/dialogs/LayerDialog.cpp" line="228"/>
         <source>Columns input error</source>
         <translation>Erro nas colunas introduzidas</translation>
@@ -9139,10 +8953,6 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Released XXXX-XX-XX</source>
-        <translation type="obsolete">Atualizado em XXXX-XX-XX</translation>
-    </message>
-    <message>
         <location filename="../src/core/MakhberAbout.ui" line="81"/>
         <source>Close</source>
         <translation type="unfinished">Fechar</translation>
@@ -9190,10 +9000,6 @@ Os limites devem estar dentro do intervalo de x; se não conhece o valor máximo
         <location filename="../src/matrix/Matrix.cpp" line="500"/>
         <source>Hide</source>
         <translation>Ocultar</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
     </message>
     <message>
         <location filename="../src/matrix/Matrix.cpp" line="679"/>
@@ -9383,11 +9189,6 @@ p, li { white-space: pre-wrap; }
 </context>
 <context>
     <name>MatrixView</name>
-    <message>
-        <source>Ctrl+A</source>
-        <comment>Matrix: select all</comment>
-        <translation type="vanished">Ctrl+A</translation>
-    </message>
     <message>
         <location filename="../src/matrix/MatrixView.cpp" line="184"/>
         <source>Show/hide control tabs</source>
@@ -9842,18 +9643,6 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation> Buscar a melhor organização?</translation>
     </message>
     <message>
-        <source>&amp;Yes</source>
-        <translation type="vanished">&amp;Sim</translation>
-    </message>
-    <message>
-        <source>&amp;No</source>
-        <translation type="vanished">&amp;Não</translation>
-    </message>
-    <message>
-        <source>&amp;Cancel</source>
-        <translation type="vanished">&amp;Cancelar</translation>
-    </message>
-    <message>
         <location filename="../src/plot2D/MultiLayer.cpp" line="635"/>
         <location filename="../src/plot2D/MultiLayer.cpp" line="653"/>
         <location filename="../src/plot2D/MultiLayer.cpp" line="673"/>
@@ -10053,10 +9842,6 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>Ocultar</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
         <location filename="../src/core/MyWidget.cpp" line="105"/>
         <source>Normal</source>
         <translation>Normal</translation>
@@ -10106,26 +9891,11 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
 </context>
 <context>
-    <name>NumericDateTimeBaseFilter</name>
-    <message>
-        <source>missing or invalid format attribute(s)</source>
-        <translation type="vanished">falta(m) atributo(s) ou estão em formato inválido</translation>
-    </message>
-</context>
-<context>
     <name>OpenProjectDialog</name>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="47"/>
         <source>Open Project</source>
         <translation>Abrir projeto</translation>
-    </message>
-    <message>
-        <source>QtiPlot project</source>
-        <translation type="vanished">Projeto do QtiPlot</translation>
-    </message>
-    <message>
-        <source>Compressed QtiPlot project</source>
-        <translation type="vanished">Projeto do QtiPlot compactado</translation>
     </message>
     <message>
         <location filename="../src/core/dialogs/OpenProjectDialog.cpp" line="52"/>
@@ -11877,18 +11647,6 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <source>Unnamed</source>
         <translation>Sem nome</translation>
     </message>
-    <message>
-        <source>invalid or missing project version</source>
-        <translation type="vanished">versão do projeto inválida ou faltando</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">elemento &apos;%1&apos; desconhecido</translation>
-    </message>
-    <message>
-        <source>no valid XML document found</source>
-        <translation type="vanished">nenhum documento XML válido foi encontrado</translation>
-    </message>
 </context>
 <context>
     <name>ProjectConfigPage</name>
@@ -12166,29 +11924,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>definir casas decimais para %1</translation>
     </message>
     <message>
-        <source>XML reader error: </source>
-        <comment>prefix for XML error messages</comment>
-        <translation type="vanished">Erro no leitor de XML:</translation>
-    </message>
-    <message>
-        <source> (loading failed)</source>
-        <comment>postfix for XML error messages</comment>
-        <translation type="vanished">(o carregamento falhou)</translation>
-    </message>
-    <message>
-        <source>XML reader warning: </source>
-        <comment>prefix for XML warning messages</comment>
-        <translation type="vanished">Aviso do leitor de XML:</translation>
-    </message>
-    <message>
-        <source>line %1, column %2: </source>
-        <translation type="vanished">linha %1, coluna %2:</translation>
-    </message>
-    <message>
-        <source>unexpected end of document</source>
-        <translation type="vanished">final inesperado de documento</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="100"/>
         <location filename="../src/matrix/matrixcommands.cpp" line="41"/>
         <location filename="../src/table/future_Table.cpp" line="166"/>
@@ -12320,10 +12055,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/tablecommands.cpp" line="75"/>
         <source>%1: set the number of rows to %2</source>
         <translation>%1: definir o número de linhas para %2</translation>
-    </message>
-    <message>
-        <source>%1: clear all masks</source>
-        <translation type="vanished">%1: remover todas as máscaras</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="305"/>
@@ -13019,10 +12750,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>Ocultar</translation>
     </message>
     <message>
-        <source>Cancel</source>
-        <translation type="vanished">Cancelar</translation>
-    </message>
-    <message>
         <location filename="../src/table/Table.cpp" line="1222"/>
         <source>%1: apply formula to column</source>
         <translation>%1: aplicar fórmula à coluna</translation>
@@ -13233,14 +12960,6 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <location filename="../src/table/TableView.cpp" line="266"/>
         <source>milliseconds</source>
         <translation>milissegundos</translation>
-    </message>
-    <message>
-        <source>Current column:
-Name: %1
-Position: %2</source>
-        <translation type="vanished">Coluna Atual:
-Nome: %1
-Posição: %2</translation>
     </message>
     <message>
         <location filename="../src/table/TableView.cpp" line="449"/>
@@ -13632,14 +13351,6 @@ valores de ponto flutuante (float)
 <context>
     <name>future::Folder</name>
     <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">elemento &apos;%1&apos; desconhecido</translation>
-    </message>
-    <message>
-        <source>no folder element found</source>
-        <translation type="vanished">sem elemento de pasta</translation>
-    </message>
-    <message>
         <location filename="../src/aspects/future_Folder.cpp" line="101"/>
         <source>Folder %1</source>
         <translation>Pasta %1</translation>
@@ -13648,14 +13359,6 @@ valores de ponto flutuante (float)
         <location filename="../src/aspects/future_Folder.cpp" line="109"/>
         <source>Column %1</source>
         <translation>Coluna %1</translation>
-    </message>
-    <message>
-        <source>creation of aspect from element &apos;%1&apos; failed</source>
-        <translation type="vanished">A criação de aspecto a partir do elemento &apos;%1&apos; falhou</translation>
-    </message>
-    <message>
-        <source>no plugin to load element &apos;%1&apos; found</source>
-        <translation type="vanished">Nenhum plugin para carregar o elemento &apos;%1&apos; foi encontrado</translation>
     </message>
 </context>
 <context>
@@ -13907,62 +13610,6 @@ valores de ponto flutuante (float)
         <translation>A importação da imagem &apos;%1&apos; falhou</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">Contagem de linhas ou colunas inválidas</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">elemento &apos;%1&apos; desconhecido</translation>
-    </message>
-    <message>
-        <source>no matrix element found</source>
-        <translation type="vanished">Nenhum elemento de matriz encontrado</translation>
-    </message>
-    <message>
-        <source>invalid or missing numeric format</source>
-        <translation type="vanished">Formato numérico inválido ou ausente</translation>
-    </message>
-    <message>
-        <source>invalid or missing number of displayed digits</source>
-        <translation type="vanished">O número de dígitos mostrados não é válido</translation>
-    </message>
-    <message>
-        <source>invalid x start value</source>
-        <translation type="vanished">O valor inicial de x não é válido</translation>
-    </message>
-    <message>
-        <source>invalid x end value</source>
-        <translation type="vanished">O valor final de x não é válido</translation>
-    </message>
-    <message>
-        <source>invalid y start value</source>
-        <translation type="vanished">valor inicial de y inválido</translation>
-    </message>
-    <message>
-        <source>invalid y end value</source>
-        <translation type="vanished">valor final de y inválido</translation>
-    </message>
-    <message>
-        <source>invalid or missing row index</source>
-        <translation type="vanished">índice de linha inválido ou faltando</translation>
-    </message>
-    <message>
-        <source>invalid row height</source>
-        <translation type="vanished">altura de linha inválida</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">índice de colunas inválido ou inexistente</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">largura de coluna inválida</translation>
-    </message>
-    <message>
-        <source>invalid cell value</source>
-        <translation type="vanished">valor da célula inválido</translation>
-    </message>
-    <message>
         <location filename="../src/matrix/future_Matrix.cpp" line="1258"/>
         <source>Hide Controls</source>
         <translation>Ocultar controles</translation>
@@ -14064,14 +13711,6 @@ valores de ponto flutuante (float)
         <translation>%1: colar da área de trabalho</translation>
     </message>
     <message>
-        <source>%1: mask selected cell(s)</source>
-        <translation type="vanished">%1: mascarar células(s) selecionada(s)</translation>
-    </message>
-    <message>
-        <source>%1: unmask selected cell(s)</source>
-        <translation type="vanished">%1: remover máscara(s) de célula(s) selecionada(s)</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="530"/>
         <source>%1: apply formula to selection</source>
         <translation>%1: aplicar fórmula à seleção</translation>
@@ -14129,16 +13768,6 @@ valores de ponto flutuante (float)
         <location filename="../src/table/future_Table.cpp" line="1375"/>
         <source>Past&amp;e</source>
         <translation>Co&amp;lar</translation>
-    </message>
-    <message>
-        <source>&amp;Mask</source>
-        <comment>mask selection</comment>
-        <translation type="vanished">Mascarar</translation>
-    </message>
-    <message>
-        <source>&amp;Unmask</source>
-        <comment>unmask selection</comment>
-        <translation type="vanished">Desmascarar</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1046"/>
@@ -14220,10 +13849,6 @@ valores de ponto flutuante (float)
         <location filename="../src/table/future_Table.cpp" line="1385"/>
         <source>Export to TeX...</source>
         <translation>Exportar para Tex...</translation>
-    </message>
-    <message>
-        <source>Clear Masks</source>
-        <translation type="vanished">Limpar máscaras</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="1128"/>
@@ -14437,25 +14062,9 @@ valores de ponto flutuante (float)
         <translation>%1: ordenar coluna(s)</translation>
     </message>
     <message>
-        <source>invalid row or column count</source>
-        <translation type="vanished">Contagem de linhas ou colunas inválidas</translation>
-    </message>
-    <message>
         <location filename="../src/table/future_Table.cpp" line="2230"/>
         <source>Column %1</source>
         <translation>Coluna %1</translation>
-    </message>
-    <message>
-        <source>unknown element &apos;%1&apos;</source>
-        <translation type="vanished">elemento &apos;%1&apos; desconhecido</translation>
-    </message>
-    <message>
-        <source>columns attribute and number of read columns do not match</source>
-        <translation type="vanished">os atributos das colunas e o número de colunas lidas não coincidem</translation>
-    </message>
-    <message>
-        <source>no table element found</source>
-        <translation type="vanished">nenhum elemento de tabela encontrado</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2258"/>
@@ -14476,14 +14085,6 @@ valores de ponto flutuante (float)
         <location filename="../src/table/future_Table.cpp" line="2266"/>
         <source>Show Controls</source>
         <translation>Mostrar controles</translation>
-    </message>
-    <message>
-        <source>invalid or missing column index</source>
-        <translation type="vanished">índice de colunas inválido ou inexistente</translation>
-    </message>
-    <message>
-        <source>invalid column width</source>
-        <translation type="vanished">largura de coluna inválida</translation>
     </message>
     <message>
         <location filename="../src/table/future_Table.cpp" line="2296"/>
