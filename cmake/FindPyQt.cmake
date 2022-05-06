@@ -38,8 +38,7 @@ execute_process(
   )
 
 set( _PyQt_HINTS
-  "${_Python3_PREFIX}/share/python3-sip" # Fedora < 35
-  "${_Python3_PREFIX}/share/sip" # Ubuntu < 21.04
+  "${_Python3_PREFIX}/share/sip" # Ubuntu<21.04 & OpenSUSE
   "${Python3_SITELIB}"
   "${Python3_SITEARCH}"
   )
