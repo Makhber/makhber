@@ -3347,7 +3347,7 @@ Are you sure you want to continue?</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="10764"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12207"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12245"/>
-        <location filename="../src/core/ApplicationWindow.h" line="512"/>
+        <location filename="../src/core/ApplicationWindow.h" line="518"/>
         <source>Graph</source>
         <translation>Diagram</translation>
     </message>
