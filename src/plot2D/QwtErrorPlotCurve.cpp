@@ -72,17 +72,14 @@ void QwtErrorPlotCurve::copy(const QwtErrorPlotCurve *e)
 }
 
 void QwtErrorPlotCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                             int from, int to) const
+                             [[maybe_unused]] const QRectF &canvasRect) const
 {
     if (!painter || dataSize() == 0)
         return;
 
-    if (to < 0)
-        to = static_cast<int>(dataSize()) - 1;
-
     painter->save();
     painter->setPen(pen());
-    drawErrorBars(painter, xMap, yMap, from, to);
+    drawErrorBars(painter, xMap, yMap, 0, dataSize() - 1);
     painter->restore();
 }
 
