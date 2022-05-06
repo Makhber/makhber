@@ -274,7 +274,7 @@
         <location filename="../src/core/ApplicationWindow.cpp" line="11469"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12984"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="13022"/>
-        <location filename="../src/core/ApplicationWindow.h" line="527"/>
+        <location filename="../src/core/ApplicationWindow.h" line="533"/>
         <source>Graph</source>
         <translation>圖片</translation>
     </message>

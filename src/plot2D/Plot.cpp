@@ -152,8 +152,7 @@ void Plot::printFrame(QPainter *painter, const QRect &rect) const
     painter->restore();
 }
 
-void Plot::drawItems(QPainter *painter, const QRect &rect,
-                     const QwtScaleMap map[axisCnt],
+void Plot::drawItems(QPainter *painter, const QRect &rect, const QwtScaleMap map[axisCnt],
                      const QwtPlotPrintFilter &pfilter) const
 {
     QwtPlot::drawItems(painter, rect, map, pfilter);

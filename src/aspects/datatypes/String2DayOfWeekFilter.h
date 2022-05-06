@@ -115,7 +115,10 @@ public:
     }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const
+    {
+        return Makhber::TypeQDateTime;
+    }
 
 protected:
     virtual bool inputAcceptable(int, const AbstractColumn *source)
