@@ -34,11 +34,8 @@
 %Module makhber
 %Import QtCore/QtCoremod.sip
 %Import QtGui/QtGuimod.sip
-
-%If (Qt_5_0_0 -)
 %Import QtWidgets/QtWidgetsmod.sip
 %Import QtPrintSupport/QtPrintSupportmod.sip
-%End
 
 class AbstractAspect : QObject
 {
