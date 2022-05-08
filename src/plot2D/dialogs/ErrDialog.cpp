@@ -192,11 +192,11 @@ void ErrDialog::selectSrcTable(int tabnr)
 
 void ErrDialog::add()
 {
-    int direction = -1;
+    Qt::Orientation direction {};
     if (xErrBox->isChecked())
-        direction = 0;
+        direction = Qt::Horizontal;
     else
-        direction = 1;
+        direction = Qt::Vertical;
 
     if (columnBox->isChecked())
         Q_EMIT options(nameLabel->currentText(),

@@ -2997,8 +2997,8 @@ void Graph::updateErrorBars(QwtErrorPlotCurve *er, bool xErr, int width, int cap
 }
 
 bool Graph::addErrorBars(const QString &yColName, Table *errTable, const QString &errColName,
-                         int type, int width, int cap, const QColor &color, bool through,
-                         bool minus, bool plus)
+                         Qt::Orientation type, int width, int cap, const QColor &color,
+                         bool through, bool minus, bool plus)
 {
     QList<int> keys = d_plot->curveKeys();
     for (int i = 0; i < n_curves; i++) {
@@ -3012,7 +3012,7 @@ bool Graph::addErrorBars(const QString &yColName, Table *errTable, const QString
 }
 
 bool Graph::addErrorBars(const QString &xColName, const QString &yColName, Table *errTable,
-                         const QString &errColName, int type, int width, int cap,
+                         const QString &errColName, Qt::Orientation type, int width, int cap,
                          const QColor &color, bool through, bool minus, bool plus)
 {
     DataCurve *master_curve = masterCurve(xColName, yColName);
@@ -3248,8 +3248,7 @@ bool Graph::insertCurvesList(Table *w, const QStringList &names, int style, int 
                     return false;
 
                 if (w->colPlotDesignation(j) == Makhber::xErr)
-                    ok = addErrorBars(w->colName(ycol), w, lst[i],
-                                      (int)QwtErrorPlotCurve::Horizontal);
+                    ok = addErrorBars(w->colName(ycol), w, lst[i], Qt::Horizontal);
                 else
                     ok = addErrorBars(w->colName(ycol), w, lst[i]);
             } else {

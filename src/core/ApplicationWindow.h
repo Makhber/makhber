@@ -597,8 +597,10 @@ public Q_SLOTS:
     //@}
 
     void addErrorBars();
-    void defineErrorBars(const QString &name, int type, const QString &percent, int direction);
-    void defineErrorBars(const QString &curveName, const QString &errColumnName, int direction);
+    void defineErrorBars(const QString &name, int type, const QString &percent,
+                         Qt::Orientation direction);
+    void defineErrorBars(const QString &curveName, const QString &errColumnName,
+                         Qt::Orientation direction);
     void movePoints();
     void removePoints();
 

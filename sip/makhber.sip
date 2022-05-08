@@ -985,8 +985,9 @@ public:
   QwtPlotCurve* curve(const QString &title);
 
   void addErrorBars(const QString&, Table *, const QString&,
-          int type = 1, int width = 1, int cap = 8, const QColor& color = QColor(Qt::black),
-          bool through = true, bool minus = true, bool plus = true);
+          Qt::Orientation type = Qt::Vertical, int width = 1, int cap = 8,
+          const QColor& color = QColor(Qt::black), bool through = true, bool minus = true,
+          bool plus = true);
 
   void addArrow(ArrowMarker*);
 

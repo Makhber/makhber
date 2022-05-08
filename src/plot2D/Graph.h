@@ -290,12 +290,12 @@ public Q_SLOTS:
     //! \name Error Bars
     //@{
     bool addErrorBars(const QString &xColName, const QString &yColName, Table *errTable,
-                      const QString &errColName, int type = 1, int width = 1, int cap = 8,
-                      const QColor &color = QColor(Qt::black), bool through = true,
+                      const QString &errColName, Qt::Orientation type = Qt::Vertical, int width = 1,
+                      int cap = 8, const QColor &color = QColor(Qt::black), bool through = true,
                       bool minus = true, bool plus = true);
 
     bool addErrorBars(const QString &yColName, Table *errTable, const QString &errColName,
-                      int type = 1, int width = 1, int cap = 8,
+                      Qt::Orientation type = Qt::Vertical, int width = 1, int cap = 8,
                       const QColor &color = QColor(Qt::black), bool through = true,
                       bool minus = true, bool plus = true);
 

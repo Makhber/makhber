@@ -89,9 +89,10 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     //! This is usually connected to the main window's defineErrorBars() slot
-    void options(const QString &curveName, int type, const QString &percent, int direction);
+    void options(const QString &curveName, int type, const QString &percent,
+                 Qt::Orientation direction);
     //! This is usually connected to the main window's defineErrorBars() slot
-    void options(const QString &curveName, const QString &errColumnName, int direction);
+    void options(const QString &curveName, const QString &errColumnName, Qt::Orientation direction);
 };
 
 #endif // ERRDIALOG_H

@@ -34,11 +34,12 @@
 #include <qwt_painter.h>
 #include <qwt_symbol.h>
 #include <qwt_scale_map.h>
+#include <qwt_interval_symbol.h>
 
 #include <QPainter>
 #include <QLocale>
 
-QwtErrorPlotCurve::QwtErrorPlotCurve(int orientation, Table *t, const QString &name)
+QwtErrorPlotCurve::QwtErrorPlotCurve(Qt::Orientation orientation, Table *t, const QString &name)
     : DataCurve(t, QString(), name), d_master_curve(nullptr)
 {
     cap = 10;
@@ -53,10 +54,10 @@ QwtErrorPlotCurve::QwtErrorPlotCurve(Table *t, const QString &name)
     : DataCurve(t, QString(), name), d_master_curve(nullptr)
 {
     cap = 10;
-    type = Vertical;
     plus = true;
     minus = true;
     through = false;
+    type = Qt::Vertical;
     setType(Graph::ErrorBars);
 }
 
@@ -101,13 +102,21 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
     else if (d_master_curve->type() == Graph::HorizontalBars)
         d_yOffset = (dynamic_cast<QwtBarCurve *>(d_master_curve))->dataOffset();
 
+    QwtIntervalSymbol errorBar(QwtIntervalSymbol::Bar);
+    errorBar.setWidth(cap);
+
     for (int i = from; i <= to; i++) {
         const int xi = xMap.transform(sample(i).x() + d_xOffset);
         const int yi = yMap.transform(sample(i).y() + d_yOffset);
 
-        if (type == Vertical) {
+        if (type == Qt::Vertical) {
             int y_plus = yMap.transform(sample(i).y() + err[i]);
             int y_minus = yMap.transform(sample(i).y() - err[i]);
+            if (through && plus && minus) {
+                errorBar.draw(painter, type, QPointF(xi, y_minus), QPointF(xi, y_plus));
+                continue;
+            }
+
             bool y_minus_is_finite = true;
 
             /*if (yMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= y(i))
@@ -122,9 +131,7 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
 
             // draw vertical line
             if (through) {
-                if (plus && minus)
-                    QwtPainter::drawLine(painter, xi, y_minus, xi, y_plus);
-                else if (plus)
+                if (plus)
                     QwtPainter::drawLine(painter, xi, yi, xi, y_plus);
                 else if (minus)
                     QwtPainter::drawLine(painter, xi, y_minus, xi, yi);
@@ -139,9 +146,14 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
                 if (minus && y_minus < yi - sh / 2)
                     QwtPainter::drawLine(painter, xi, yi - sh / 2, xi, y_minus);
             }
-        } else if (type == Horizontal) {
+        } else if (type == Qt::Horizontal) {
             int x_plus = xMap.transform(sample(i).x() + err[i]);
             int x_minus = xMap.transform(sample(i).x() - err[i]);
+            if (through && plus && minus) {
+                errorBar.draw(painter, type, QPointF(x_minus, yi), QPointF(x_plus, yi));
+                continue;
+            }
+
             bool x_minus_is_finite = true;
 
             /*if (xMap.transformation()->type() == QwtScaleTransformation::Log10 && err[i] >= x(i))
@@ -156,9 +168,7 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
 
             // draw vertical line
             if (through) {
-                if (plus && minus)
-                    QwtPainter::drawLine(painter, x_minus, yi, x_plus, yi);
-                else if (plus)
+                if (plus)
                     QwtPainter::drawLine(painter, xi, yi, x_plus, yi);
                 else if (minus)
                     QwtPainter::drawLine(painter, x_minus, yi, xi, yi);
@@ -188,7 +198,7 @@ double QwtErrorPlotCurve::errorValue(int i)
 bool QwtErrorPlotCurve::xErrors()
 {
     bool x = false;
-    if (type == Horizontal)
+    if (type == Qt::Horizontal)
         x = true;
 
     return x;
@@ -197,9 +207,9 @@ bool QwtErrorPlotCurve::xErrors()
 void QwtErrorPlotCurve::setXErrors(bool yes)
 {
     if (yes)
-        type = Horizontal;
+        type = Qt::Horizontal;
     else
-        type = Vertical;
+        type = Qt::Vertical;
 }
 
 void QwtErrorPlotCurve::setWidth(int w)
@@ -226,7 +236,7 @@ QRectF QwtErrorPlotCurve::boundingRect() const
     for (int i = 0; i < size; i++) {
         X[i] = sample(i).x();
         Y[i] = sample(i).y();
-        if (type == Vertical) {
+        if (type == Qt::Vertical) {
             min[i] = sample(i).y() - err[i];
             max[i] = sample(i).y() + err[i];
         } else {
@@ -292,7 +302,7 @@ bool QwtErrorPlotCurve::loadData()
     QList<QVector<double>> data = convertData(
             d_master_curve->type() == Graph::HorizontalBars ? (QList<Column *>() << y << x << err)
                                                             : (QList<Column *>() << x << y << err),
-            QList<int>() << xAxis() << yAxis() << (type == Horizontal ? xAxis() : yAxis()));
+            QList<int>() << xAxis() << yAxis() << (type == Qt::Horizontal ? xAxis() : yAxis()));
 
     if (data.isEmpty() || data[0].size() == 0) {
         remove();
@@ -312,7 +322,7 @@ QString QwtErrorPlotCurve::plotAssociation()
 
     QString base = d_master_curve->xColumnName() + "(X)," + d_master_curve->title().text() + "(Y),"
             + title().text();
-    if (type == Horizontal)
+    if (type == Qt::Horizontal)
         return base + "(xErr)";
     else
         return base + "(yErr)";

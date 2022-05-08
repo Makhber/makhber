@@ -2289,12 +2289,13 @@ MultiLayer *ApplicationWindow::multilayerPlot(const QStringList &colList)
 
         if (s.contains("(yErr)") || s.contains("(xErr)")) {
             posY = s.indexOf(",", posY);
-            int posErr = 0, errType = 0;
+            int posErr = 0;
+            Qt::Orientation errType {};
             if (s.contains("(yErr)")) {
-                errType = QwtErrorPlotCurve::Vertical;
+                errType = Qt::Vertical;
                 posErr = s.indexOf("(yErr)", posY);
             } else {
-                errType = QwtErrorPlotCurve::Horizontal;
+                errType = Qt::Horizontal;
                 posErr = s.indexOf("(xErr)", posY);
             }
 
@@ -2822,10 +2823,10 @@ void ApplicationWindow::addErrorBars()
 
     auto *ed = new ErrDialog(this);
     ed->setAttribute(Qt::WA_DeleteOnClose);
-    connect(ed, SIGNAL(options(const QString &, int, const QString &, int)), this,
-            SLOT(defineErrorBars(const QString &, int, const QString &, int)));
-    connect(ed, SIGNAL(options(const QString &, const QString &, int)), this,
-            SLOT(defineErrorBars(const QString &, const QString &, int)));
+    connect(ed, SIGNAL(options(const QString &, int, const QString &, Qt::Orientation)), this,
+            SLOT(defineErrorBars(const QString &, int, const QString &, Qt::Orientation)));
+    connect(ed, SIGNAL(options(const QString &, const QString &, Qt::Orientation)), this,
+            SLOT(defineErrorBars(const QString &, const QString &, Qt::Orientation)));
 
     ed->setCurveNames(g->analysableCurvesList());
     ed->setSrcTables(tableList());
@@ -2833,7 +2834,7 @@ void ApplicationWindow::addErrorBars()
 }
 
 void ApplicationWindow::defineErrorBars(const QString &name, int type, const QString &percent,
-                                        int direction)
+                                        Qt::Orientation direction)
 {
     if (!d_workspace.activeSubWindow() || !d_workspace.activeSubWindow()->inherits("MultiLayer"))
         return;
@@ -2857,7 +2858,7 @@ void ApplicationWindow::defineErrorBars(const QString &name, int type, const QSt
 
     auto *errors = new Column("1", Makhber::ColumnMode::Numeric);
     Column *data = nullptr;
-    if (direction == QwtErrorPlotCurve::Horizontal) {
+    if (direction == Qt::Horizontal) {
         errors->setPlotDesignation(Makhber::xErr);
         data = w->d_future_table->column(xColName);
     } else {
@@ -2889,7 +2890,7 @@ void ApplicationWindow::defineErrorBars(const QString &name, int type, const QSt
 }
 
 void ApplicationWindow::defineErrorBars(const QString &curveName, const QString &errColumnName,
-                                        int direction)
+                                        Qt::Orientation direction)
 {
     Table *w = table(curveName);
     if (!w) { // user defined function --> no worksheet available
@@ -9051,8 +9052,8 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot, QJ
             if (w && errTable) {
                 ag->addErrorBars(jsCurve.value("masterTitle").toString(),
                                  jsCurve.value("masterXColumn").toString(), errTable, title,
-                                 jsCurve.value("direction").toInt(), jsCurve.value("width").toInt(),
-                                 jsCurve.value("capLength").toInt(),
+                                 static_cast<Qt::Orientation>(jsCurve.value("direction").toInt()),
+                                 jsCurve.value("width").toInt(), jsCurve.value("capLength").toInt(),
                                  QColor(COLORVALUE(jsCurve.value("color").toString())),
                                  jsCurve.value("throughSymbol").toInt(),
                                  jsCurve.value("plusSide").toInt(),

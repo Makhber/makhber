@@ -37,9 +37,7 @@
 class MAKHBER_EXPORT QwtErrorPlotCurve : public DataCurve
 {
 public:
-    enum Orientation { Horizontal = 0, Vertical = 1 };
-
-    QwtErrorPlotCurve(int orientation, Table *t, const QString &name);
+    QwtErrorPlotCurve(Qt::Orientation orientation, Table *t, const QString &name);
     QwtErrorPlotCurve(Table *t, const QString &name);
 
     void copy(const QwtErrorPlotCurve *e);
@@ -59,8 +57,8 @@ public:
     QColor color() { return pen().color(); };
     void setColor(const QColor &c);
 
-    int direction() { return type; };
-    void setDirection(int o) { type = o; };
+    Qt::Orientation direction() { return type; };
+    void setDirection(Qt::Orientation o) { type = o; };
 
     bool xErrors();
     void setXErrors(bool yes);
@@ -97,7 +95,7 @@ private:
     QVector<double> err;
 
     //! Orientation of the bars: Horizontal or Vertical
-    int type;
+    Qt::Orientation type;
 
     //! Length of the bar cap decoration
     int cap;

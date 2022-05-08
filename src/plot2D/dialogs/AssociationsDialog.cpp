@@ -145,9 +145,9 @@ void AssociationsDialog::changePlotAssociation(int curve, const QString &text)
         if (!master_curve)
             return;
 
-        int type = QwtErrorPlotCurve::Vertical;
+        Qt::Orientation type = Qt::Vertical;
         if (text.contains("(xErr)"))
-            type = QwtErrorPlotCurve::Horizontal;
+            type = Qt::Horizontal;
         er->setDirection(type);
         er->setTitle(erColName);
         if (master_curve != er->masterCurve())
