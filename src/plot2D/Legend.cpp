@@ -149,6 +149,8 @@ void Legend::setOrigin(const QPoint &p)
 
     setXValue(xMap.invTransform(p.x()));
     setYValue(yMap.invTransform(p.y()));
+    if (d_plot != nullptr)
+        d_plot->replot();
 }
 
 void Legend::updateOrigin()
@@ -292,13 +294,15 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
             else {
                 const QwtPlotCurve *curve = g->curve(cv);
                 if (curve && curve->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
-                    const QwtSymbol *symb = curve->symbol();
+                    std::unique_ptr<QwtSymbol> symb = std::make_unique<QwtSymbol>(
+                            curve->symbol()->style(), curve->symbol()->brush(),
+                            curve->symbol()->pen(), curve->symbol()->size());
                     const QBrush br = curve->brush();
                     QPen pen = curve->pen();
 
                     p->save();
 
-                    if (curve->style() != 0) {
+                    if (curve->style() >= 0) {
                         p->setPen(pen);
                         if (br.style() != Qt::NoBrush || g->curveType(cv) == Graph::Box) {
                             QRect lr = QRect(w, height[i] - 4, l, 10);
@@ -312,8 +316,8 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
                         symb_size = 15;
                     else if (symb_size < 3)
                         symb_size = 3;
-                    // symb->setSize(symb_size);
-                    // symb->draw(p, w + l / 2, height[i]);
+                    symb->setSize(symb_size);
+                    symb->drawSymbol(p, QPointF(w + l / 2, height[i]));
                     p->restore();
                 }
             }
