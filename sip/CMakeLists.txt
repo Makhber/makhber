@@ -246,6 +246,9 @@ else()
   string( JOIN "\"\n,\"" SIP_COMPILE_DEFINITIONS ${SIP_COMPILE_DEFINITIONS} )
 
   set( SIP_COMPILE_OPTIONS "${CMAKE_CXX_FLAGS}" )
+  if( MINGW )
+    set( SIP_COMPILE_OPTIONS "${SIP_COMPILE_OPTIONS} -Wno-attributes" )
+  endif()
 
   if( MULTI_CONFIG )
     configure_file( pyproject.toml.in pyproject_tmp.toml @ONLY )
