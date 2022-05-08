@@ -1757,7 +1757,8 @@ bool PlotDialog::acceptParams()
             boxPlotType->setCurrentIndex(1);
         else {
             int index = item->plotItemIndex();
-            graph->setCurveStyle(index, boxConnect->currentIndex() - 1);
+            if (boxConnect->currentIndex() != 100)
+                graph->setCurveStyle(index, boxConnect->currentIndex() - 1);
             QBrush br = QBrush(boxAreaColor->color(), boxPattern->getSelectedPattern());
             if (!fillGroupBox->isChecked())
                 br = QBrush();

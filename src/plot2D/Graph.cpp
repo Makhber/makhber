@@ -2804,6 +2804,7 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
     } else if (style == Graph::Spline)
         cl.connectType = 4;
     else if (curves && (style == Graph::VerticalBars || style == Graph::HorizontalBars)) {
+        cl.connectType = 100;
         cl.filledArea = 1;
         cl.lCol = 0; // black color pen
         cl.aCol = i + 1;

@@ -59,18 +59,23 @@ void QwtBarCurve::copy(const QwtBarCurve *b)
 }
 
 void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       int from, int to) const
+                       [[maybe_unused]] const QRectF &canvasRect) const
 {
     if (!painter || dataSize() == 0)
         return;
-
-    if (to < 0)
-        to = static_cast<int>(dataSize()) - 1;
 
     painter->save();
     painter->setPen(QwtPlotCurve::pen());
     painter->setBrush(QwtPlotCurve::brush());
 
+    draw(painter, xMap, yMap, 0, dataSize() - 1);
+
+    painter->restore();
+}
+
+void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                       int from, int to) const
+{
     int dx = 0, dy = 0;
     double ref1 = NAN, ref2 = NAN;
     double bar_width = 0;
@@ -127,7 +132,6 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
                 painter->drawRect(ref1, py - half_width, qRound(px - ref1), bw1);
         }
     }
-    painter->restore();
 }
 
 QRectF QwtBarCurve::boundingRect() const

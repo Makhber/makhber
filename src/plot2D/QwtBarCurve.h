@@ -56,7 +56,8 @@ public:
     double dataOffset();
 
 private:
-    using QwtPlotSeriesItem::draw; // To Silent Clang warnings
+    virtual void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                      const QRectF &canvasRect) const;
     virtual void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
                       int to) const;
 
