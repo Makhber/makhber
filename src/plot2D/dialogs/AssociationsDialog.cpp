@@ -260,10 +260,15 @@ void AssociationsDialog::updateColumnTypes()
 #endif
 
     QString xColName = cols[0].remove("(X)");
-    QString yColName = cols[1].remove("(Y)");
+    QString yColName {};
 
     int n = (int)cols.count();
-    if (n == 2) {
+    if (n == 1)
+        table->hideColumn(2);
+    else
+        yColName = cols[1].remove("(Y)");
+
+    if (n < 3) {
         table->hideColumn(3);
         table->hideColumn(4);
     }

@@ -3906,13 +3906,13 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="72"/>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="293"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="298"/>
         <source>xErr</source>
         <translation>xFel</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="72"/>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="294"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="299"/>
         <source>yErr</source>
         <translation>yFel</translation>
     </message>
@@ -3932,22 +3932,22 @@ den första representerar signalen och den andra svarsfunktionen!</translation>
         <translation>&amp;Avbryt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="307"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="312"/>
         <source>xEnd</source>
         <translation>xSlut</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="308"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="313"/>
         <source>yEnd</source>
         <translation>ySlut</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="313"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="318"/>
         <source>Angle</source>
         <translation>Vinkel</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="314"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="319"/>
         <source>Magn.</source>
         <comment>Magnitude, vector length</comment>
         <translation type="unfinished"></translation>

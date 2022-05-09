@@ -3910,13 +3910,13 @@ You are already running the latest version: &quot;%1&quot;</source>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="72"/>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="293"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="298"/>
         <source>xErr</source>
         <translation>xErr</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="72"/>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="294"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="299"/>
         <source>yErr</source>
         <translation>yErr</translation>
     </message>
@@ -3936,22 +3936,22 @@ You are already running the latest version: &quot;%1&quot;</source>
         <translation>&amp;Cancelar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="307"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="312"/>
         <source>xEnd</source>
         <translation>xFinal</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="308"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="313"/>
         <source>yEnd</source>
         <translation>yFinal</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="313"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="318"/>
         <source>Angle</source>
         <translation>Ângulo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="314"/>
+        <location filename="../src/plot2D/dialogs/AssociationsDialog.cpp" line="319"/>
         <source>Magn.</source>
         <comment>Magnitude, vector length</comment>
         <translation>Magn.</translation>
