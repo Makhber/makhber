@@ -75,27 +75,31 @@ void BoxCurve::copy(const BoxCurve *b)
     b_width = b->b_width;
 }
 
-void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
-                    int to) const
+void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                    [[maybe_unused]] const QRectF &canvasRect) const
 {
     if (!painter || dataSize() == 0)
         return;
 
-    int size = static_cast<int>(dataSize());
-    if (to < 0)
-        to = size - 1;
-
     painter->save();
     painter->setPen(QwtPlotCurve::pen());
 
+    draw(painter, xMap, yMap, 0, dataSize() - 1);
+
+    painter->restore();
+}
+
+void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
+                    int to) const
+{
+    int size = to + 1;
     auto *dat = new double[size];
     for (int i = from; i <= to; i++)
         dat[i] = sample(i).y();
 
     drawBox(painter, xMap, yMap, dat, size);
-    // drawSymbols(painter, xMap, yMap, dat, size);
+    drawSymbols(painter, xMap, yMap, dat, size);
 
-    painter->restore();
     delete[] dat;
 }
 
@@ -218,40 +222,42 @@ void BoxCurve::drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     else
         painter->drawLine(px - hbw, median, px + hbw, median);
 }
-/*
+
 void BoxCurve::drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                            double *dat, int size) const
 {
     const int px = xMap.transform(sample(0).x());
 
-    const QwtSymbol *s = this->symbol();
+    std::unique_ptr<QwtSymbol> s =
+            std::make_unique<QwtSymbol>(this->symbol()->style(), this->symbol()->brush(),
+                                        this->symbol()->pen(), this->symbol()->size());
     if (min_style != QwtSymbol::NoSymbol) {
         const int py_min = yMap.transform(sample(0).y());
-        // s->setStyle(min_style);
-        // s->draw(painter, px, py_min);
+        s->setStyle(min_style);
+        s->drawSymbol(painter, QPointF(px, py_min));
     }
     if (max_style != QwtSymbol::NoSymbol) {
         const int py_max = yMap.transform(sample(size - 1).y());
-        // s->setStyle(max_style);
-        // s->draw(painter, px, py_max);
+        s->setStyle(max_style);
+        s->drawSymbol(painter, QPointF(px, py_max));
     }
     if (p1_style != QwtSymbol::NoSymbol) {
         const int p1 = yMap.transform(gsl_stats_quantile_from_sorted_data(dat, 1, size, 0.01));
-        // s->setStyle(p1_style);
-        // s.draw(painter, px, p1);
+        s->setStyle(p1_style);
+        s->drawSymbol(painter, QPointF(px, p1));
     }
     if (p99_style != QwtSymbol::NoSymbol) {
         const int p99 = yMap.transform(gsl_stats_quantile_from_sorted_data(dat, 1, size, 0.99));
-        // s.setStyle(p99_style);
-        // s.draw(painter, px, p99);
+        s->setStyle(p99_style);
+        s->drawSymbol(painter, QPointF(px, p99));
     }
     if (mean_style != QwtSymbol::NoSymbol) {
         const int mean = yMap.transform(gsl_stats_mean(dat, 1, size));
-        // s->setStyle(mean_style);
-        // s.draw(painter, px, mean);
+        s->setStyle(mean_style);
+        s->drawSymbol(painter, QPointF(px, mean));
     }
 }
-*/
+
 void BoxCurve::setBoxStyle(int style)
 {
     if (b_style == style)
@@ -339,7 +345,8 @@ bool BoxCurve::loadData()
     if (size > 0) {
         Y.resize(size);
         gsl_sort(Y.data(), 1, size);
-        // setData(QwtSingleArrayData(this->x(0), Y, size));
+        QVector<double> X(size, sample(0).x());
+        setSamples(X, Y);
     } else
         remove();
 

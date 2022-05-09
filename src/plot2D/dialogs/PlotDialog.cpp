@@ -1541,6 +1541,8 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
         style = 4;
     else if (curveType == Graph::VerticalSteps)
         style = 5;
+    else if (curveType != Graph::Scatter && style == 0)
+        style = 100;
     boxConnect->setCurrentIndex(style);
 
     penWidget->setPen(c->pen());

@@ -2354,6 +2354,7 @@ QJsonObject Graph::saveCurveLayout(int index)
             jsCurveLayout.insert("position", v->position());
     } else if (style == Box) {
         auto *b = dynamic_cast<BoxCurve *>(c);
+        jsCurveLayout.insert("xValue", b->sample(0).x());
         jsCurveLayout.insert("maxStyle", SymbolBox::symbolIndex(b->maxStyle()));
         jsCurveLayout.insert("p99Style", SymbolBox::symbolIndex(b->p99Style()));
         jsCurveLayout.insert("meanStyle", SymbolBox::symbolIndex(b->meanStyle()));
@@ -2794,8 +2795,11 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
     cl.symCol = color;
     cl.fillCol = color;
 
-    if (style == Graph::Line)
+    if (style == Graph::Line) {
+        cl.connectType = QwtPlotCurve::Lines;
         cl.sType = 0;
+    } else if (style == Graph::Scatter)
+        cl.connectType = QwtPlotCurve::NoCurve;
     else if (style == Graph::VerticalDropLines)
         cl.connectType = QwtPlotCurve::Sticks;
     else if (style == Graph::HorizontalSteps || style == Graph::VerticalSteps) {
@@ -2804,7 +2808,7 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
     } else if (style == Graph::Spline)
         cl.connectType = 4;
     else if (curves && (style == Graph::VerticalBars || style == Graph::HorizontalBars)) {
-        cl.connectType = 100;
+        cl.connectType = QwtPlotCurve::UserCurve;
         cl.filledArea = 1;
         cl.lCol = 0; // black color pen
         cl.aCol = i + 1;
@@ -2826,7 +2830,8 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
         cl.filledArea = 1;
         cl.aCol = color;
         cl.sType = 0;
-    }
+    } else
+        cl.connectType = QwtPlotCurve::UserCurve;
     return cl;
 }
 
@@ -4485,8 +4490,7 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             } else if (style == Box) {
                 c = new BoxCurve(cv->table(), cv->title().text(), cv->startRow(), cv->endRow());
                 (dynamic_cast<BoxCurve *>(c))->copy(dynamic_cast<const BoxCurve *>(cv));
-                // QwtSingleArrayData dat(x[0], y, n);
-                // c->setData(dat);
+                c->setSamples(x, y);
             } else
                 c = new DataCurve(cv->table(), cv->xColumnName(), cv->title().text(),
                                   cv->startRow(), cv->endRow());
@@ -4646,7 +4650,7 @@ void Graph::plotBoxDiagram(Table *w, const QStringList &names, int startRow, int
 
     for (int j = 0; j < (int)names.count(); j++) {
         auto *c = new BoxCurve(w, names[j], startRow, endRow);
-        // c->setData(QwtSingleArrayData(double(j + 1), QVector<double>(), 0));
+        c->setSamples(QVector<double>(1, double(j + 1)), QVector<double>());
         c->loadData();
 
         c_keys.resize(++n_curves);
@@ -4741,8 +4745,7 @@ void Graph::openBoxDiagram(Table *w, QJsonObject *jsCurve)
     int endRow = jsCurve->value("endRow").toInt();
 
     auto *c = new BoxCurve(w, jsCurve->value("title").toString(), startRow, endRow);
-    // c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
-    // c->setData(QwtSingleArrayData(l[1].toDouble(), QVector<double>(), 0));
+    c->setSamples(QVector<double>(1, jsCurve->value("xValue").toDouble()), QVector<double>());
     c->loadData();
 
     c_keys.resize(++n_curves);

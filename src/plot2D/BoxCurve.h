@@ -79,39 +79,20 @@ public:
     virtual bool loadData();
 
 private:
-    using QwtPlotSeriesItem::draw; // To Silent Clang warnings
+    virtual void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                      const QRectF &canvasRect) const;
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;
     void drawBox(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, double *dat,
                  int size) const;
+    // Silent warning from clang about hiding overloaded virtual function
     using QwtPlotCurve::drawSymbols;
-    /*void drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                     double *dat, int size) const;*/
+    void drawSymbols(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                     double *dat, int size) const;
 
     QwtSymbol::Style min_style, max_style, mean_style, p99_style, p1_style;
     double b_coeff, w_coeff;
     int b_style, b_width, b_range, w_range;
 };
 
-//! Single array data (extension to QwtData)
-/* class QwtSingleArrayData : public QwtData
-{
-public:
-    QwtSingleArrayData(const double x, QVector<double> y, size_t)
-    {
-        d_y = y;
-        d_x = x;
-    };
-
-    virtual QwtData *copy() const { return new QwtSingleArrayData(d_x, d_y, size()); };
-
-    virtual size_t size() const { return d_y.size(); };
-    virtual double x(size_t) const { return d_x; };
-    virtual double y(size_t i) const { return d_y[int(i)]; };
-
-private:
-    QVector<double> d_y;
-    double d_x;
-};
-*/
 #endif
