@@ -50,9 +50,9 @@ Legend::Legend(Plot *plot) : d_plot(plot), d_frame(0), d_angle(0)
     d_text = new QwtText(QString(), QwtText::RichText);
     d_text->setFont(QFont("Arial", 12, QFont::Normal, false));
     d_text->setRenderFlags(Qt::AlignTop | Qt::AlignLeft);
-    d_text->setBackgroundBrush(QBrush(Qt::NoBrush));
+    d_text->setBackgroundBrush(QBrush(Qt::transparent));
     d_text->setColor(Qt::black);
-    d_text->setBackgroundBrush(QBrush(Qt::NoPen));
+    d_text->setBorderPen(Qt::NoPen);
     d_text->setPaintAttribute(QwtText::PaintBackground);
 
     hspace = 30;

@@ -52,6 +52,15 @@ QwtPieCurve::QwtPieCurve(Table *t, const QString &name, int startRow, int endRow
 }
 
 void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                       [[maybe_unused]] const QRectF &canvasRect) const
+{
+    if (!painter || dataSize() == 0)
+        return;
+
+    drawPie(painter, xMap, yMap, 0, dataSize() - 1);
+}
+
+void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                        int from, int to) const
 {
     if (!painter || dataSize() == 0)

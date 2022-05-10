@@ -57,7 +57,8 @@ public Q_SLOTS:
     void updateBoundingRect();
 
 private:
-    using QwtPlotSeriesItem::draw; // To Silent Clang warnings
+    void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+              const QRectF &canvasRect) const;
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;
 
