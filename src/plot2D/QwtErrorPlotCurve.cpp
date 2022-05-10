@@ -88,11 +88,10 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
                                       const QwtScaleMap &yMap, int from, int to) const
 {
     int sh = 0;
-    // int sw = 0;
-    const QwtSymbol *symbol = d_master_curve->symbol();
-    if (symbol->style() != QwtSymbol::NoSymbol) {
-        sh = symbol->size().height();
-        // sw = symbol.size().width();
+    int sw = 0;
+    if (d_master_curve->symbol()->style() != QwtSymbol::NoSymbol) {
+        sh = d_master_curve->symbol()->size().height();
+        sw = d_master_curve->symbol()->size().width();
     }
 
     double d_xOffset = 0.0;
@@ -166,22 +165,22 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
             if (minus && x_minus_is_finite)
                 QwtPainter::drawLine(painter, x_minus, yi - cap / 2, x_minus, yi + cap / 2);
 
-            // draw vertical line
+            // draw horizontal line
             if (through) {
                 if (plus)
                     QwtPainter::drawLine(painter, xi, yi, x_plus, yi);
                 else if (minus)
                     QwtPainter::drawLine(painter, x_minus, yi, xi, yi);
             } else if (x_plus >= x_minus) {
-                if (plus && x_plus > xi + sh / 2)
-                    QwtPainter::drawLine(painter, xi + sh / 2, yi, x_plus, yi);
-                if (minus && x_minus < xi - sh / 2)
-                    QwtPainter::drawLine(painter, xi - sh / 2, yi, x_minus, yi);
+                if (plus && x_plus > xi + sw / 2)
+                    QwtPainter::drawLine(painter, xi + sw / 2, yi, x_plus, yi);
+                if (minus && x_minus < xi - sw / 2)
+                    QwtPainter::drawLine(painter, xi - sw / 2, yi, x_minus, yi);
             } else { // inverted scale
-                if (plus && x_plus < xi - sh / 2)
-                    QwtPainter::drawLine(painter, xi - sh / 2, yi, x_plus, yi);
-                if (minus && x_minus > xi + sh / 2)
-                    QwtPainter::drawLine(painter, xi + sh / 2, yi, x_minus, yi);
+                if (plus && x_plus < xi - sw / 2)
+                    QwtPainter::drawLine(painter, xi - sw / 2, yi, x_plus, yi);
+                if (minus && x_minus > xi + sw / 2)
+                    QwtPainter::drawLine(painter, xi + sw / 2, yi, x_minus, yi);
             }
         }
     }

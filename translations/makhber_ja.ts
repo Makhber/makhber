@@ -10352,7 +10352,7 @@ p, li { white-space: pre-wrap; }
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="131"/>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1117"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1536"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1535"/>
         <source>&amp;Plot Associations...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11029,7 +11029,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="951"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2088"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2085"/>
         <source>Angle</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11040,19 +11040,19 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="960"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2093"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2090"/>
         <source>End Point</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="962"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2094"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2091"/>
         <source>X End</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="967"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2095"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2092"/>
         <source>Y End</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11127,7 +11127,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1115"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1534"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1533"/>
         <source>&amp;Edit...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -11172,61 +11172,61 @@ p, li { white-space: pre-wrap; }
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1925"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1931"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1937"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1985"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1922"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1982"/>
         <source>Input error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1925"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1922"/>
         <source>Please enter a valid start limit!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1931"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
         <source>Please enter a valid end limit!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1937"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
         <source>Please enter a valid bin size value!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1962"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1959"/>
         <source>Start limit error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1976"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1973"/>
         <source>End limit error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1986"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1983"/>
         <source>Please enter limits that satisfy: begin &lt; end!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1997"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2006"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1994"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2003"/>
         <source>Bin size input error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2007"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2004"/>
         <source>Please enter a positive bin size value!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2087"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2084"/>
         <source>Vector Data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2089"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2086"/>
         <source>Magnitude</source>
         <translation type="unfinished"></translation>
     </message>

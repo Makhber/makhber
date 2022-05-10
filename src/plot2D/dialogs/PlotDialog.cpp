@@ -1413,8 +1413,7 @@ int PlotDialog::setPlotType(CurveTreeItem *item)
             if (!c)
                 return -1;
 
-            const QwtSymbol *s = c->symbol();
-            if (s->style() == QwtSymbol::NoSymbol) {
+            if (c->symbol()->style() == QwtSymbol::NoSymbol) {
                 boxPlotType->setCurrentIndex(0);
                 return Graph::Line;
             } else if (c->style() == QwtPlotCurve::NoCurve) {
@@ -1541,9 +1540,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
         style = 4;
     else if (curveType == Graph::VerticalSteps)
         style = 5;
-    else if (curveType != Graph::Scatter && style == 0)
-        style = 100;
-    boxConnect->setCurrentIndex(style);
+    boxConnect->setCurrentIndex(style + 1);
 
     penWidget->setPen(c->pen());
     fillGroupBox->blockSignals(true);

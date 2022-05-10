@@ -10507,7 +10507,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="131"/>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1117"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1536"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1535"/>
         <source>&amp;Plot Associations...</source>
         <translation>Associações do &amp;gráfico...</translation>
     </message>
@@ -11184,7 +11184,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="951"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2088"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2085"/>
         <source>Angle</source>
         <translation>Ângulo</translation>
     </message>
@@ -11195,19 +11195,19 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="960"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2093"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2090"/>
         <source>End Point</source>
         <translation>Ponto final</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="962"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2094"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2091"/>
         <source>X End</source>
         <translation>X final</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="967"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2095"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2092"/>
         <source>Y End</source>
         <translation>Y final</translation>
     </message>
@@ -11282,7 +11282,7 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1115"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1534"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1533"/>
         <source>&amp;Edit...</source>
         <translation>&amp;Editar...</translation>
     </message>
@@ -11327,61 +11327,61 @@ s-ésimo zero positivo x_s da função regular cilíndrica de Bessel de ordem n,
         <translation>Linha + Símbolo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1925"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1931"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1937"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1985"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1922"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1982"/>
         <source>Input error</source>
         <translation>Erro de entrada</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1925"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1922"/>
         <source>Please enter a valid start limit!</source>
         <translation>Por favor, forneça um limite inicial válido!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1931"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
         <source>Please enter a valid end limit!</source>
         <translation>Por favor, forneça um limite final válido!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1937"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
         <source>Please enter a valid bin size value!</source>
         <translation>Por favor, forneça um  valor de bin válido!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1962"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1959"/>
         <source>Start limit error</source>
         <translation>Erro no limite inicial</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1976"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1973"/>
         <source>End limit error</source>
         <translation>Erro no limite final</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1986"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1983"/>
         <source>Please enter limits that satisfy: begin &lt; end!</source>
         <translation>Por favor, forneça limites que satisfaçam: início &lt; fim!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1997"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2006"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1994"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2003"/>
         <source>Bin size input error</source>
         <translation>Erro no tamanho do intervalo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2007"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2004"/>
         <source>Please enter a positive bin size value!</source>
         <translation>Por favor, forneça um valor positivo de bin!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2087"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2084"/>
         <source>Vector Data</source>
         <translation>Dados vetoriais</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2089"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2086"/>
         <source>Magnitude</source>
         <translation>Magnitude</translation>
     </message>

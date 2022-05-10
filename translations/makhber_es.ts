@@ -10489,7 +10489,7 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="131"/>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1117"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1536"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1535"/>
         <source>&amp;Plot Associations...</source>
         <translation>Asociaciones de &amp;gráficos...</translation>
     </message>
@@ -11166,7 +11166,7 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="951"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2088"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2085"/>
         <source>Angle</source>
         <translation>Ángulo</translation>
     </message>
@@ -11177,19 +11177,19 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="960"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2093"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2090"/>
         <source>End Point</source>
         <translation>Punto final</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="962"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2094"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2091"/>
         <source>X End</source>
         <translation>X final</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="967"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2095"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2092"/>
         <source>Y End</source>
         <translation>Y final</translation>
     </message>
@@ -11264,7 +11264,7 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1115"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1534"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1533"/>
         <source>&amp;Edit...</source>
         <translation>&amp;Editar...</translation>
     </message>
@@ -11309,61 +11309,61 @@ Para x&lt;0, donde hay dos ramas reales; esta función calcula una donde W&lt;-1
         <translation> Línea + símbolo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1925"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1931"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1937"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1985"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1922"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1982"/>
         <source>Input error</source>
         <translation>Error de entrada</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1925"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1922"/>
         <source>Please enter a valid start limit!</source>
         <translation>¡Por favor, introduzca un límite inicial válido!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1931"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
         <source>Please enter a valid end limit!</source>
         <translation>¡Por favor, introduzca un límite final válido!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1937"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
         <source>Please enter a valid bin size value!</source>
         <translation>¡Por favor, introduzca un valor de bin válido!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1962"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1959"/>
         <source>Start limit error</source>
         <translation>Error de límites iniciales</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1976"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1973"/>
         <source>End limit error</source>
         <translation>Error de límite final</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1986"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1983"/>
         <source>Please enter limits that satisfy: begin &lt; end!</source>
         <translation>¡Por favor, introduzca límites en tales que: inicio &lt; fin!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1997"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2006"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1994"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2003"/>
         <source>Bin size input error</source>
         <translation>Error de tamaño de Bin</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2007"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2004"/>
         <source>Please enter a positive bin size value!</source>
         <translation>¡Por favor, introduzca un valor positivo de bin!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2087"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2084"/>
         <source>Vector Data</source>
         <translation>Datos vectoriales</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2089"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2086"/>
         <source>Magnitude</source>
         <translation>Magnitud</translation>
     </message>
