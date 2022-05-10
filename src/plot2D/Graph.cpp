@@ -2798,7 +2798,9 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
     if (style == Graph::Line) {
         cl.connectType = QwtPlotCurve::Lines;
         cl.sType = 0;
-    } else if (style == Graph::Scatter)
+    } else if (style == Graph::LineSymbols)
+        cl.connectType = QwtPlotCurve::Lines;
+    else if (style == Graph::Scatter)
         cl.connectType = QwtPlotCurve::NoCurve;
     else if (style == Graph::VerticalDropLines)
         cl.connectType = QwtPlotCurve::Sticks;

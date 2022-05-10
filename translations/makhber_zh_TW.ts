@@ -7412,7 +7412,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1359"/>
         <location filename="../src/plot2D/Graph.cpp" line="1377"/>
         <location filename="../src/plot2D/Graph.cpp" line="1392"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4992"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4994"/>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -7434,9 +7434,9 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/plot2D/Graph.cpp" line="1402"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4234"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4238"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4980"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4240"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -7451,121 +7451,121 @@ p, li { white-space: pre-wrap; }
         <translation>標題</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3713"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3743"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3715"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3745"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>圖像檔&lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;不再存在！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3712"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3742"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3714"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3744"/>
         <source>File open error</source>
         <translation>檔打開錯誤</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3900"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3902"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translatorcomment>曲線資料表 x 列的名稱</translatorcomment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3902"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3904"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translatorcomment>曲線資料表 y 列的名稱</translatorcomment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3909"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3911"/>
         <source>Data set generated from curve</source>
         <translation>從曲線生成的資料集</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3910"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3912"/>
         <source>Curve data %1</source>
         <translation>曲線資料 %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4235"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4237"/>
         <source>The columns</source>
         <translation>列</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4238"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>是空的並且不會被添加到繪圖中！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4239"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4241"/>
         <source>The column</source>
         <translation>列</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4240"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4242"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>是空的並且不會被添加到繪圖中！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4246"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4292"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4294"/>
         <source>&amp;Cut</source>
         <translation>剪切(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4247"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4293"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4249"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4295"/>
         <source>&amp;Copy</source>
         <translation>複製(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4294"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4250"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4296"/>
         <source>&amp;Delete</source>
         <translation>刪除(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4250"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4298"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4302"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4306"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4310"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4338"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4252"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4300"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4304"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4308"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4312"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4340"/>
         <source>&amp;Properties...</source>
         <translation>屬性(&amp;P)...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4322"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4324"/>
         <source>&amp;Rescale to show all</source>
         <translation>重縮放顯示所有(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4323"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4327"/>
         <source>&amp;Hide axis</source>
         <translation>隱藏軸(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4327"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4329"/>
         <source>&amp;Show grids</source>
         <translation>顯示網格(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4337"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4339"/>
         <source>&amp;Scale...</source>
         <translation>比例(&amp;S)...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4981"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4983"/>
         <source>There are no curves available on this plot!</source>
         <translation>此繪圖中沒有有效曲線！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4993"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4995"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>此繪圖中沒有包含多於兩個點的曲線。操作終止！</translation>
     </message>
