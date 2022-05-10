@@ -32,6 +32,7 @@
 #include "plot2D/PlotCurve.h"
 
 #include <qwt_plot.h>
+#include <qwt_point_data.h>
 
 class QwtPlot;
 
@@ -49,15 +50,14 @@ public:
 
     void copy(const VectorCurve *vc);
 
-    // QRectF boundingRect() const;
+    QRectF boundingRect() const;
 
-    /*void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
-              int to) const;*/
-    using QwtPlotSeriesItem::draw; // To Silent Clang warnings
+    void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+              const QRectF &canvasRect) const;
     void draw(QPainter *painter, int to) const;
 
-    /* void drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int
-       from, int to) const; */
+    void drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
+                    int to) const;
 
     void drawArrowHead(QPainter *p, int xs, int ys, int xe, int ye) const;
     double theta(int x0, int y0, int x1, int y1) const;
@@ -65,7 +65,7 @@ public:
     QString vectorEndXAColName() { return d_end_x_a; };
     QString vectorEndYMColName() { return d_end_y_m; };
     void setVectorEnd(const QString &xColName, const QString &yColName);
-    void setVectorEnd(); // const QVector<double> &x, const QVector<double> &y);
+    void setVectorEnd(const QVector<double> &x, const QVector<double> &y);
 
     int width();
     void setWidth(int w);
@@ -92,7 +92,11 @@ public:
     void updateColumnNames(const QString &oldName, const QString &newName, bool updateTableName);
 
 protected:
-    // QwtArrayData *vectorEnd {};
+#if QWT_VERSION >= 0x060200
+    QwtPointArrayData<double> *vectorEnd {};
+#else
+    QwtPointArrayData *vectorEnd {};
+#endif
     QPen pen;
     bool filledArrow;
     int d_headLength, d_headAngle, d_position;

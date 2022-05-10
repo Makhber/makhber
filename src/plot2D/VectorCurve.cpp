@@ -29,6 +29,7 @@
 #include "VectorCurve.h"
 
 #include <qwt_painter.h>
+#include <qwt_scale_map.h>
 
 #include <QPainter>
 #include <QLocale>
@@ -65,27 +66,26 @@ void VectorCurve::copy(const VectorCurve *vc)
     d_headAngle = vc->d_headAngle;
     d_position = vc->d_position;
     pen = vc->pen;
-    // vectorEnd = dynamic_cast<QwtArrayData *>(vc->vectorEnd->copy());
+#if QWT_VERSION >= 0x060200
+    vectorEnd = new QwtPointArrayData<double>(vc->vectorEnd->xData(), vc->vectorEnd->yData());
+#else
+    vectorEnd = new QwtPointArrayData(vc->vectorEnd->xData(), vc->vectorEnd->yData());
+#endif
 }
 
-/* void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       int from, int to) const*/
-void VectorCurve::draw(QPainter *painter, int to) const
+void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                       const QRectF &canvasRect) const
 {
     if (!painter || dataSize() == 0)
         return;
 
-    if (to < 0)
-        to = static_cast<int>(dataSize()) - 1;
-
-    // QwtPlotCurve::draw(painter, xMap, yMap, from, to);
-
+    QwtPlotCurve::draw(painter, xMap, yMap, canvasRect);
     painter->save();
     painter->setPen(pen);
-    // drawVector(painter, xMap, yMap, from, to);
+    drawVector(painter, xMap, yMap, 0, dataSize() - 1);
     painter->restore();
 }
-/*
+
 void VectorCurve::drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                              int from, int to) const
 {
@@ -135,7 +135,7 @@ void VectorCurve::drawVector(QPainter *painter, const QwtScaleMap &xMap, const Q
         }
     }
 }
-*/
+
 void VectorCurve::drawArrowHead(QPainter *p, int xs, int ys, int xe, int ye) const
 {
     p->save();
@@ -185,9 +185,13 @@ void VectorCurve::setVectorEnd(const QString &xColName, const QString &yColName)
     loadData();
 }
 
-void VectorCurve::setVectorEnd() // const QVector<double> &x, const QVector<double> &y)
+void VectorCurve::setVectorEnd(const QVector<double> &x, const QVector<double> &y)
 {
-    // vectorEnd = new Qwt QwtArrayData(x, y);
+#if QWT_VERSION >= 0x060200
+    vectorEnd = new QwtPointArrayData<double>(x, y);
+#else
+    vectorEnd = new QwtPointArrayData(x, y);
+#endif
 }
 
 int VectorCurve::width()
@@ -228,7 +232,7 @@ void VectorCurve::fillArrowHead(bool fill)
     if (filledArrow != fill)
         filledArrow = fill;
 }
-/*
+
 QRectF VectorCurve::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
@@ -260,7 +264,7 @@ QRectF VectorCurve::boundingRect() const
     }
     return rect;
 }
-*/
+
 void VectorCurve::updateColumnNames(const QString &oldName, const QString &newName,
                                     bool updateTableName)
 {
@@ -372,7 +376,7 @@ bool VectorCurve::loadData()
     setSamples(X.data(), Y.data(), size);
     for (DataCurve *c : d_error_bars)
         c->setSamples(X.data(), Y.data(), size);
-    setVectorEnd(); // X2, Y2);
+    setVectorEnd(X2, Y2);
 
     return true;
 }
