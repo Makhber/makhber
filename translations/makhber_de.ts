@@ -12566,82 +12566,82 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
 <context>
     <name>SymbolBox</name>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="66"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="67"/>
         <source>No Symbol</source>
         <translation>Kein Symbol</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="70"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="71"/>
         <source>Ellipse</source>
         <translation>Ellipse</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="75"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="76"/>
         <source>Rectangle</source>
         <translation>Rechteck</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="80"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="81"/>
         <source>Diamond</source>
         <translation>Raute</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="85"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="86"/>
         <source>Triangle</source>
         <translation>Dreieck</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="90"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="91"/>
         <source>Down Triangle</source>
         <translation>Dreieck nach unten</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="95"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="96"/>
         <source>Up Triangle</source>
         <translation>Dreieck nach oben</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="100"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="101"/>
         <source>Left Triangle</source>
         <translation>Dreieck nach links</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="105"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="106"/>
         <source>Right Triangle</source>
         <translation>Dreieck nach rechts</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="110"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="111"/>
         <source>Cross</source>
         <translation>Gekreuzt</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="115"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="116"/>
         <source>Diagonal Cross</source>
         <translation>Diagonalkreuz</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="120"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="121"/>
         <source>Horizontal Line</source>
         <translation>Horizontale Linie</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="125"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="126"/>
         <source>Vertical Line</source>
         <translation>Vertikale Linie</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="130"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="131"/>
         <source>Star 1</source>
         <translation>Stern 1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="135"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="136"/>
         <source>Star 2</source>
         <translation>Stern 2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/SymbolBox.cpp" line="140"/>
+        <location filename="../src/plot2D/SymbolBox.cpp" line="141"/>
         <source>Hexagon</source>
         <translation>Sechseck</translation>
     </message>
