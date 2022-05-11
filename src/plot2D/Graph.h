@@ -265,7 +265,7 @@ public Q_SLOTS:
      * The option to disable updating is provided so as not to break the project opening code
      * (ApplicationWindow::openGraph()).
      */
-    void setCurveType(int curve, Graph::CurveType type, bool update = true);
+    void setCurveType(int curve_index, CurveType type, bool update = true);
     void setCurveFullRange(int curveIndex);
 
     //! \name Output: Copy/Export/Print

@@ -1497,40 +1497,51 @@ void ApplicationWindow::plotPie()
 
 void ApplicationWindow::plotVectXYXY()
 {
-    if (!d_workspace.activeSubWindow() || !d_workspace.activeSubWindow()->inherits("Table"))
+    if (!d_workspace.activeSubWindow())
         return;
 
     auto *table = dynamic_cast<Table *>(d_workspace.activeSubWindow());
 
-    if (!validFor2DPlot(table, Graph::VectXYXY))
-        return;
+    if (table && validFor2DPlot(table, Graph::VectXYXY)) {
+        QStringList s = table->selectedColumns();
+        if (s.count() == 4) {
+            multilayerPlot(table, s, Graph::VectXYXY, table->firstSelectedRow(),
+                           table->lastSelectedRow());
+        } else
+            QMessageBox::warning(this, tr("Error"),
+                                 tr("Please select four columns for this operation!"));
+    }
 
-    QStringList s = table->selectedColumns();
-    if (s.count() == 4) {
-        multilayerPlot(table, s, Graph::VectXYXY, table->firstSelectedRow(),
-                       table->lastSelectedRow());
-    } else
-        QMessageBox::warning(this, tr("Error"),
-                             tr("Please select four columns for this operation!"));
+    auto *ml = qobject_cast<MultiLayer *>(d_workspace.activeSubWindow());
+    if (ml) {
+        Graph *g = ml->activeGraph();
+        if (g->curves() > 0)
+            g->setCurveType(g->curves() - 1, Graph::VectXYXY);
+    }
 }
 
 void ApplicationWindow::plotVectXYAM()
 {
-    if (!d_workspace.activeSubWindow() || !d_workspace.activeSubWindow()->inherits("Table"))
+    if (!d_workspace.activeSubWindow())
         return;
 
     auto *table = dynamic_cast<Table *>(d_workspace.activeSubWindow());
+    if (table && validFor2DPlot(table, Graph::VectXYAM)) {
+        QStringList s = table->selectedColumns();
+        if (s.count() == 4) {
+            multilayerPlot(table, s, Graph::VectXYAM, table->firstSelectedRow(),
+                           table->lastSelectedRow());
+        } else
+            QMessageBox::warning(this, tr("Error"),
+                                 tr("Please select four columns for this operation!"));
+    }
 
-    if (!validFor2DPlot(table, Graph::VectXYAM))
-        return;
-
-    QStringList s = table->selectedColumns();
-    if (s.count() == 4) {
-        multilayerPlot(table, s, Graph::VectXYAM, table->firstSelectedRow(),
-                       table->lastSelectedRow());
-    } else
-        QMessageBox::warning(this, tr("Error"),
-                             tr("Please select four columns for this operation!"));
+    auto *ml = qobject_cast<MultiLayer *>(d_workspace.activeSubWindow());
+    if (ml) {
+        Graph *g = ml->activeGraph();
+        if (g->curves() > 0)
+            g->setCurveType(g->curves() - 1, Graph::VectXYAM);
+    }
 }
 
 void ApplicationWindow::renameListViewItem(const QString &oldName, const QString &newName)

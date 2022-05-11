@@ -2832,8 +2832,10 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
         cl.filledArea = 1;
         cl.aCol = color;
         cl.sType = 0;
-    } else
+    } else {
         cl.connectType = QwtPlotCurve::UserCurve;
+        cl.sType = 0;
+    }
     return cl;
 }
 
@@ -2841,9 +2843,9 @@ bool Graph::canConvertTo(QwtPlotCurve *c, CurveType type)
 {
     if (!c)
         return false;
-    // conversion between VectXYXY and VectXYAM is possible, but not implemented
+    // conversion between VectXYXY and VectXYAM is possible
     if (dynamic_cast<VectorCurve *>(c))
-        return false;
+        return type == VectXYXY || type == VectXYAM;
     // conversion between Pie, Histogram and Box should be possible (all of them take one input
     // column), but lots of special-casing in ApplicationWindow and Graph makes this very difficult
     if (dynamic_cast<QwtPieCurve *>(c) || dynamic_cast<QwtHistogram *>(c)
@@ -2871,12 +2873,12 @@ void Graph::setCurveType(int curve_index, CurveType type, bool update)
     // not all types can be modified cleanly
     if (type != Line && type != Scatter && type != LineSymbols && type != VerticalBars
         && type != Area && type != VerticalDropLines && type != Spline && type != HorizontalSteps
-        && type != HorizontalBars && type != VerticalSteps)
+        && type != HorizontalBars && type != VerticalSteps && type != VectXYXY && type != VectXYAM)
         return;
     if (old_type != Line && old_type != Scatter && old_type != LineSymbols
         && old_type != VerticalBars && old_type != Area && old_type != VerticalDropLines
         && old_type != Spline && old_type != HorizontalSteps && old_type != HorizontalBars
-        && old_type != VerticalSteps)
+        && old_type != VerticalSteps && old_type != VectXYXY && old_type != VectXYAM)
         return;
 
     if ((type == VerticalBars || type == HorizontalBars)
@@ -2922,6 +2924,7 @@ void Graph::setCurveType(int curve_index, CurveType type, bool update)
     }
 
     c_type[curve_index] = type;
+    dynamic_cast<DataCurve *>(curve(curve_index))->setType(type);
     if (!update)
         return;
 

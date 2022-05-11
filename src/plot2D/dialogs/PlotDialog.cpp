@@ -238,7 +238,7 @@ void PlotDialog::changePlotType(int new_curve_type)
         return;
 
     int old_curve_type = item->plotItemType();
-    if (boxPlotType->count() == 1 || (old_curve_type == new_curve_type))
+    if (boxPlotType->count() == 1 || (old_curve_type == new_curve_type) || old_curve_type < 0)
         return;
 
     if (old_curve_type == Graph::ColorMap || old_curve_type == Graph::ContourMap
@@ -246,9 +246,14 @@ void PlotDialog::changePlotType(int new_curve_type)
         clearTabWidget();
     else if (old_curve_type == Graph::VectXYAM || old_curve_type == Graph::VectXYXY) {
         clearTabWidget();
-        insertTabs(old_curve_type);
 
-        graph->setCurveType(item->plotItemIndex(), (Graph::CurveType)new_curve_type);
+        if (new_curve_type == 0) {
+            insertTabs(Graph::VectXYXY);
+            graph->setCurveType(item->plotItemIndex(), Graph::VectXYXY);
+        } else {
+            insertTabs(Graph::VectXYAM);
+            graph->setCurveType(item->plotItemIndex(), Graph::VectXYAM);
+        }
         customVectorsPage(new_curve_type);
     } else {
         clearTabWidget();
