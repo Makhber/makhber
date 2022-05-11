@@ -43,7 +43,7 @@
 QwtPieCurve::QwtPieCurve(Table *t, const QString &name, int startRow, int endRow)
     : DataCurve(t, QString(), name, startRow, endRow)
 {
-    d_pie_ray = 100;
+    d_pie_ray = 0;
     d_first_color = 0;
     setPen(QPen(QColor(Qt::black), 1, Qt::SolidLine));
     setBrush(QBrush(Qt::black, Qt::SolidPattern));
@@ -77,7 +77,10 @@ void QwtPieCurve::drawPie(QPainter *painter, const QwtScaleMap &, const QwtScale
 {
     // This has to be synced with Graph::plotPie() for now... until we have a clean solution.
     QRect canvas_rect = plot()->plotLayout()->canvasRect().toRect();
-    int radius = 0.4 * qMin(canvas_rect.width(), canvas_rect.height());
+
+    int radius = d_pie_ray;
+    if (radius <= 0)
+        radius = 0.4 * qMin(canvas_rect.width(), canvas_rect.height());
 
     QRect pieRect;
     pieRect.setX(canvas_rect.center().x() - radius);
