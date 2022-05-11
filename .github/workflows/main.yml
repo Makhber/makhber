@@ -38,22 +38,6 @@ jobs:
           sudo apt update
           sudo apt install -y --no-install-recommends \
             libglu1-mesa-dev \
-            libxcb-util1 \
-            libxcb-glx0 \
-            libxcb-icccm4 \
-            libxcb-image0 \
-            libxcb-keysyms1 \
-            libxcb-randr0 \
-            libxcb-render-util0 \
-            libxcb-render0 \
-            libxcb-shape0 \
-            libxcb-shm0 \
-            libxcb-sync1 \
-            libxcb-xfixes0 \
-            libxcb-xinerama0 \
-            libxcb-xinput0 \
-            libxcb-xkb1 \
-            libxcb1 \
             libmuparser-dev \
             libgsl-dev \
             libgl2ps-dev \
@@ -75,7 +59,8 @@ jobs:
             -DMAKHBER_SEARCH_FOR_UPDATES=OFF \
             -DMAKHBER_DOWNLOAD_LINKS=OFF \
             -DMAKHBER_SCRIPTING_PYTHON=ON \
-            -DMAKHBER_BUILD_TESTS=ON
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DBUILD_SHARED_LIBS=ON
 
       - name: Building
         run: |
@@ -141,7 +126,8 @@ jobs:
             -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
-            -DMAKHBER_BUILD_TESTS=ON
+            -DMAKHBER_BUILD_TESTS=ON `
+            -DBUILD_SHARED_LIBS=ON
 
       - name: Building
         run: |
