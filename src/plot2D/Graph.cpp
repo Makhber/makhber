@@ -3419,11 +3419,7 @@ void Graph::updateScale()
     double step = fabs(lst[1] - lst[0]);
 
     if (!m_autoscale)
-#if QWT_VERSION >= 0x050200
         d_plot->setAxisScale(QwtPlot::xBottom, scDiv.lowerBound(), scDiv.upperBound(), step);
-#else
-        d_plot->setAxisScale(QwtPlot::xBottom, scDiv->lBound(), scDiv->hBound(), step);
-#endif
 
     scDiv = d_plot->axisScaleDiv(QwtPlot::yLeft);
     lst = scDiv.ticks(QwtScaleDiv::MajorTick);
@@ -3431,11 +3427,7 @@ void Graph::updateScale()
     step = fabs(lst[1] - lst[0]);
 
     if (!m_autoscale)
-#if QWT_VERSION >= 0x050200
         d_plot->setAxisScale(QwtPlot::yLeft, scDiv.lowerBound(), scDiv.upperBound(), step);
-#else
-        d_plot->setAxisScale(QwtPlot::yLeft, scDiv->lBound(), scDiv->hBound(), step);
-#endif
 
     d_plot->replot();
     updateMarkersBoundingRect();
@@ -4587,15 +4579,9 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
 
         d_user_step[i] = g->axisStep(i);
 
-#if QWT_VERSION >= 0x050200
         QwtScaleDiv div = sc_engine->divideScale(qMin(sd.lowerBound(), sd.upperBound()),
                                                  qMax(sd.lowerBound(), sd.upperBound()), majorTicks,
                                                  minorTicks, d_user_step[i]);
-#else
-        QwtScaleDiv div = sc_engine->divideScale(qMin(sd->lBound(), sd->hBound()),
-                                                 qMax(sd->lBound(), sd->hBound()), majorTicks,
-                                                 minorTicks, d_user_step[i]);
-#endif
 
         if (se->testAttribute(QwtScaleEngine::Inverted)) {
             sc_engine->setAttribute(QwtScaleEngine::Inverted);
