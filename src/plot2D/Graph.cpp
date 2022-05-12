@@ -2871,14 +2871,7 @@ void Graph::setCurveType(int curve_index, CurveType type, bool update)
     if (type == old_type)
         return;
     // not all types can be modified cleanly
-    if (type != Line && type != Scatter && type != LineSymbols && type != VerticalBars
-        && type != Area && type != VerticalDropLines && type != Spline && type != HorizontalSteps
-        && type != HorizontalBars && type != VerticalSteps && type != VectXYXY && type != VectXYAM)
-        return;
-    if (old_type != Line && old_type != Scatter && old_type != LineSymbols
-        && old_type != VerticalBars && old_type != Area && old_type != VerticalDropLines
-        && old_type != Spline && old_type != HorizontalSteps && old_type != HorizontalBars
-        && old_type != VerticalSteps && old_type != VectXYXY && old_type != VectXYAM)
+    if (!canConvertTo(curve(curve_index), type))
         return;
 
     if ((type == VerticalBars || type == HorizontalBars)
