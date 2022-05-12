@@ -68,7 +68,7 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     painter->setPen(QwtPlotCurve::pen());
     painter->setBrush(QwtPlotCurve::brush());
 
-    draw(painter, xMap, yMap, 0, dataSize() - 1);
+    draw(painter, xMap, yMap, 0, static_cast<int>(dataSize() - 1));
 
     painter->restore();
 }

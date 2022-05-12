@@ -82,7 +82,7 @@ void VectorCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     QwtPlotCurve::draw(painter, xMap, yMap, canvasRect);
     painter->save();
     painter->setPen(pen);
-    drawVector(painter, xMap, yMap, 0, dataSize() - 1);
+    drawVector(painter, xMap, yMap, 0, static_cast<int>(dataSize() - 1));
     painter->restore();
 }
 

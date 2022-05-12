@@ -57,7 +57,7 @@ void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     if (!painter || dataSize() == 0)
         return;
 
-    drawPie(painter, xMap, yMap, 0, dataSize() - 1);
+    drawPie(painter, xMap, yMap, 0, static_cast<int>(dataSize() - 1));
 }
 
 void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,

@@ -80,7 +80,7 @@ void QwtErrorPlotCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const Q
 
     painter->save();
     painter->setPen(pen());
-    drawErrorBars(painter, xMap, yMap, 0, dataSize() - 1);
+    drawErrorBars(painter, xMap, yMap, 0, static_cast<int>(dataSize() - 1));
     painter->restore();
 }
 

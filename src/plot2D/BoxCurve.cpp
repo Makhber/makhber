@@ -84,7 +84,7 @@ void BoxCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMa
     painter->save();
     painter->setPen(QwtPlotCurve::pen());
 
-    draw(painter, xMap, yMap, 0, dataSize() - 1);
+    draw(painter, xMap, yMap, 0, static_cast<int>(dataSize() - 1));
 
     painter->restore();
 }
