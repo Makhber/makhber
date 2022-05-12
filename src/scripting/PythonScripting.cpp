@@ -37,10 +37,7 @@
 #undef _POSIX_C_SOURCE
 #endif
 #include <Python.h>
-#include <compile.h>
-#include <eval.h>
 #include <frameobject.h>
-#include <traceback.h>
 
 #include "sip.h"
 
