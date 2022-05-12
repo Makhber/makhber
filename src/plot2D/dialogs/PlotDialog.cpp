@@ -1511,8 +1511,9 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
         defaultScaleBox->setChecked(sp->colorMapPolicy() == Spectrogram::Default);
         customScaleBox->setChecked(sp->colorMapPolicy() == Spectrogram::Custom);
 
-        // colorMapEditor->setRange(sp->data().range().minValue(), sp->data().range().maxValue());
-        // colorMapEditor->setColorMap(dynamic_cast<const QwtLinearColorMap &>(sp->colorMap()));
+        colorMapEditor->setRange(sp->data()->interval(Qt::ZAxis).minValue(),
+                                 sp->data()->interval(Qt::ZAxis).maxValue());
+        colorMapEditor->setColorMap(dynamic_cast<const QwtLinearColorMap *>(sp->colorMap()));
 
         levelsGroupBox->setChecked(sp->testDisplayMode(QwtPlotSpectrogram::ContourMode));
         levelsBox->setValue(sp->levels());
@@ -1731,7 +1732,7 @@ bool PlotDialog::acceptParams()
         if (!sp || sp->rtti() != QwtPlotItem::Rtti_PlotSpectrogram)
             return false;
 
-        sp->setLevelsNumber(); // levelsBox->value());
+        sp->setLevelsNumber(levelsBox->value());
         if (autoContourBox->isChecked())
             sp->setDefaultContourPen(QPen(Qt::NoPen));
         else
@@ -1743,12 +1744,12 @@ bool PlotDialog::acceptParams()
 
         if (grayScaleBox->isChecked()) {
             sp->setGrayScale();
-            colorMapEditor->setColorMap(QwtLinearColorMap(Qt::black, Qt::white));
+            colorMapEditor->setColorMap(new QwtLinearColorMap(Qt::black, Qt::white));
         } else if (defaultScaleBox->isChecked()) {
             sp->setDefaultColorMap();
             colorMapEditor->setColorMap(Spectrogram::defaultColorMap());
-        } /*else
-            sp->setCustomColorMap(colorMapEditor->colorMap());*/
+        } else
+            sp->setCustomColorMap(colorMapEditor->colorMap());
 
         sp->showColorScale((QwtPlot::Axis)colorScaleBox->currentIndex(), axisScaleBox->isChecked());
         sp->setColorBarWidth(colorScaleWidthBox->value());

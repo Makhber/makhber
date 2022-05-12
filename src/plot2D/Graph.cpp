@@ -4890,13 +4890,14 @@ void Graph::plotSpectrogram(Matrix *m, CurveType type)
 
     QwtScaleWidget *rightAxis = d_plot->axisWidget(QwtPlot::yRight);
     rightAxis->setColorBarEnabled(type != ContourMap);
-    // rightAxis->setColorMap(d_spectrogram->data().range(), d_spectrogram->colorMap());
+    rightAxis->setColorMap(d_spectrogram->data()->interval(Qt::ZAxis),
+                           new QwtLinearColorMap(d_spectrogram->colorMap()->format()));
 
     d_plot->setAxisScale(QwtPlot::xBottom, m->xStart(), m->xEnd());
     d_plot->setAxisScale(QwtPlot::yLeft, m->yStart(), m->yEnd());
 
-    // d_plot->setAxisScale(QwtPlot::yRight, d_spectrogram->data().range().minValue(),
-    //                     d_spectrogram->data().range().maxValue());
+    d_plot->setAxisScale(QwtPlot::yRight, d_spectrogram->data()->interval(Qt::ZAxis).minValue(),
+                         d_spectrogram->data()->interval(Qt::ZAxis).maxValue());
     d_plot->enableAxis(QwtPlot::yRight, type != ContourMap);
 
     d_plot->replot();
@@ -4920,25 +4921,26 @@ void Graph::restoreSpectrogram(ApplicationWindow *app, QJsonObject *jsCurve)
         sp->setGrayScale();
     else if (color_policy == Spectrogram::Default)
         sp->setDefaultColorMap();
-    int mode = jsCurve->value("mode").toInt();
-    QColor color1 = jsCurve->value("minColor").toString();
-    QColor color2 = jsCurve->value("maxColor").toString();
 
-    QwtLinearColorMap colorMap = QwtLinearColorMap(color1, color2);
-    colorMap.setMode((QwtLinearColorMap::Mode)mode);
-
-    // int stops = jsCurve->value("colorStops").toInt();
-    QJsonArray jsColorStops = jsCurve->value("stops").toArray();
-    QJsonArray jsRGBStops = jsCurve->value("colorNames").toArray();
+    QJsonObject jsColorMap = jsCurve->value("colorMap").toObject();
+    int mode = jsColorMap.value("mode").toInt();
+    QColor color1 = jsColorMap.value("minColor").toString();
+    QColor color2 = jsColorMap.value("maxColor").toString();
+    QwtLinearColorMap *colorMap = new QwtLinearColorMap(color1, color2);
+    colorMap->setMode((QwtLinearColorMap::Mode)mode);
+    QJsonArray jsColorStops = jsColorMap.value("colorStops").toArray();
+    QJsonArray jsRGBStops = jsColorMap.value("colorNames").toArray();
     for (int i = 0; i < jsColorStops.size(); i++) {
-        colorMap.addColorStop(jsColorStops.at(i).toDouble(), QColor(jsRGBStops.at(i).toString()));
+        colorMap->addColorStop(jsColorStops.at(i).toDouble(), QColor(jsRGBStops.at(i).toString()));
     }
-    sp->setCustomColorMap(); // colorMap);
-    sp->setDisplayMode(QwtPlotSpectrogram::ImageMode, jsCurve->value("Image").toInt());
+    sp->setCustomColorMap(colorMap);
+
+    sp->setDisplayMode(QwtPlotSpectrogram::ImageMode, jsCurve->value("image").toInt());
     int contours = jsCurve->value("counterLines").toInt();
     sp->setDisplayMode(QwtPlotSpectrogram::ContourMode, contours);
     if (contours) {
-        sp->setLevelsNumber(); // levels);
+        int levels = jsCurve->value("levels").toInt();
+        sp->setLevelsNumber(levels);
         int defaultPen = jsCurve->value("defaultPen").toInt();
         if (!defaultPen)
             sp->setDefaultContourPen(QPen(Qt::NoPen));

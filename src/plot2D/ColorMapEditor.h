@@ -45,8 +45,8 @@ class MAKHBER_EXPORT ColorMapEditor : public QWidget
 public:
     ColorMapEditor(QWidget *parent = 0);
 
-    // QwtLinearColorMap colorMap() { return color_map; };
-    void setColorMap(const QwtLinearColorMap &map);
+    QwtLinearColorMap *colorMap() { return color_map; };
+    void setColorMap(const QwtLinearColorMap *map);
 
     void setRange(double min, double max);
 
@@ -67,7 +67,7 @@ private:
     QCheckBox *scaleColorsBox;
 
     //! Color map object
-    QwtLinearColorMap color_map;
+    QwtLinearColorMap *color_map;
 
     //! Levels range
     double min_val, max_val;

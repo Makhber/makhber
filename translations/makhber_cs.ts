@@ -7385,7 +7385,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1360"/>
         <location filename="../src/plot2D/Graph.cpp" line="1378"/>
         <location filename="../src/plot2D/Graph.cpp" line="1393"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4979"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4981"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -7409,7 +7409,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1403"/>
         <location filename="../src/plot2D/Graph.cpp" line="4227"/>
         <location filename="../src/plot2D/Graph.cpp" line="4231"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4967"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4969"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
@@ -7531,12 +7531,12 @@ p, li { white-space: pre-wrap; }
         <translation>&amp;Skala...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4968"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4970"/>
         <source>There are no curves available on this plot!</source>
         <translation>Nejsou zde žádné křivky, které by byly dostupné pro tento nákres!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4980"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>V tomto nákresu nejsou žádné křivky, které by měly více než dva body. Operace zrušena!</translation>
     </message>
@@ -10453,7 +10453,7 @@ největší celé číslo menší nebo rovno x.</translation>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="131"/>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1122"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1540"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1541"/>
         <source>&amp;Plot Associations...</source>
         <translation>&amp;Přiřazení nákresu...</translation>
     </message>
@@ -11130,7 +11130,7 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="956"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2090"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2091"/>
         <source>Angle</source>
         <translation>Úhel</translation>
     </message>
@@ -11141,19 +11141,19 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="965"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2095"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2096"/>
         <source>End Point</source>
         <translation>Koncový bod</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="967"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2096"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2097"/>
         <source>X End</source>
         <translation>Konec x</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="972"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2097"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2098"/>
         <source>Y End</source>
         <translation>Konec y</translation>
     </message>
@@ -11228,7 +11228,7 @@ největší celé číslo menší nebo rovno x.</translation>
     </message>
     <message>
         <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1120"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1538"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1539"/>
         <source>&amp;Edit...</source>
         <translation>&amp;Upravit...</translation>
     </message>
@@ -11273,61 +11273,61 @@ největší celé číslo menší nebo rovno x.</translation>
         <translation>Čára + Symbol</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1927"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1933"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1939"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1987"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1940"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1988"/>
         <source>Input error</source>
         <translation>Chyba v zadání</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1927"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1928"/>
         <source>Please enter a valid start limit!</source>
         <translation>Zadejte, prosím, platnou počáteční hodnotu!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1933"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1934"/>
         <source>Please enter a valid end limit!</source>
         <translation>Zadejte, prosím, platnou koncovou hodnotu!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1939"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1940"/>
         <source>Please enter a valid bin size value!</source>
         <translation>Zadejte, prosím, platnou hodnotu pro šířku rozmezí!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1964"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1965"/>
         <source>Start limit error</source>
         <translation>Chyba v počáteční hodnotě</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1978"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1979"/>
         <source>End limit error</source>
         <translation>Chyba v koncové hodnotě</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1988"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1989"/>
         <source>Please enter limits that satisfy: begin &lt; end!</source>
         <translation>Zadejte, prosím, mezní hodnoty, které vyhoví: Začátek &lt; Konec!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="1999"/>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2008"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2000"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2009"/>
         <source>Bin size input error</source>
         <translation>Chyba ve velikosti rozmezí</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2009"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2010"/>
         <source>Please enter a positive bin size value!</source>
         <translation>Zadejte, prosím, kladnou hodnotu pro velikost rozmezí!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2089"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2090"/>
         <source>Vector Data</source>
         <translation>Vektorové údaje</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2091"/>
+        <location filename="../src/plot2D/dialogs/PlotDialog.cpp" line="2092"/>
         <source>Magnitude</source>
         <translation>Velikost</translation>
     </message>

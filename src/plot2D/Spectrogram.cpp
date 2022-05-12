@@ -44,7 +44,7 @@ Spectrogram::Spectrogram()
       d_matrix(nullptr),
       color_axis(QwtPlot::yRight),
       color_map_policy(Default),
-      color_map(QwtLinearColorMap())
+      color_map(new QwtLinearColorMap())
 {
 }
 
@@ -53,14 +53,16 @@ Spectrogram::Spectrogram(Matrix *m)
       d_matrix(m),
       color_axis(QwtPlot::yRight),
       color_map_policy(Default),
-      color_map(QwtLinearColorMap())
+      color_map(new QwtLinearColorMap())
 {
     setData(new MatrixData(m));
-    // double step = fabs(data().range().maxValue() - data().range().minValue()) / 5;
+    double step =
+            fabs(data()->interval(Qt::ZAxis).maxValue() - data()->interval(Qt::ZAxis).minValue())
+            / 5;
 
     QList<double> contourLevels;
-    /* for (size_t i = 1; i < 5; i++)
-        contourLevels += data().range().minValue() + i * step; */
+    for (size_t i = 1; i < 5; i++)
+        contourLevels += data()->interval(Qt::ZAxis).minValue() + i * step;
 
     setContourLevels(contourLevels);
 }
@@ -75,23 +77,27 @@ void Spectrogram::updateData(Matrix *m)
         return;
 
     setData(new MatrixData(m));
-    setLevelsNumber(); // levels());
+    setLevelsNumber(levels());
 
-    /* QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(data()->range(), colorMap()); */
+        colorAxis->setColorMap(data()->interval(Qt::ZAxis),
+                               new QwtLinearColorMap(colorMap()->format()));
 
-    // plot->setAxisScale(color_axis, data()->range().minValue(), data()->range().maxValue());
+    plot->setAxisScale(color_axis, data()->interval(Qt::ZAxis).minValue(),
+                       data()->interval(Qt::ZAxis).maxValue());
     plot->replot();
 }
 
-void Spectrogram::setLevelsNumber() // int levels)
+void Spectrogram::setLevelsNumber(int levels)
 {
-    // double step = fabs(data().range().maxValue() - data().range().minValue()) / levels;
+    double step =
+            fabs(data()->interval(Qt::ZAxis).maxValue() - data()->interval(Qt::ZAxis).minValue())
+            / levels;
 
     QList<double> contourLevels;
-    /* for (size_t i = 1; i < static_cast<size_t>(levels); i++)
-        contourLevels += data().range().minValue() + i * step; */
+    for (size_t i = 1; i < static_cast<size_t>(levels); i++)
+        contourLevels += data()->interval(Qt::ZAxis).minValue() + i * step;
 
     setContourLevels(contourLevels);
 }
@@ -143,9 +149,11 @@ void Spectrogram::showColorScale(int axis, bool on)
         plot->setAxisScale(yAxis, scDiv.lowerBound(), scDiv.upperBound());
 
     colorAxis = plot->axisWidget(color_axis);
-    // plot->setAxisScale(color_axis, data()->range().minValue(), data()->range().maxValue());
+    plot->setAxisScale(color_axis, data()->interval(Qt::ZAxis).minValue(),
+                       data()->interval(Qt::ZAxis).maxValue());
     colorAxis->setColorBarEnabled(on);
-    // colorAxis->setColorMap(data()->range(), colorMap());
+    colorAxis->setColorMap(data()->interval(Qt::ZAxis),
+                           new QwtLinearColorMap(colorMap()->format()));
     if (!plot->axisEnabled(color_axis))
         plot->enableAxis(color_axis);
     colorAxis->show();
@@ -179,67 +187,69 @@ Spectrogram *Spectrogram::copy()
                           testDisplayMode(QwtPlotSpectrogram::ImageMode));
     new_s->setDisplayMode(QwtPlotSpectrogram::ContourMode,
                           testDisplayMode(QwtPlotSpectrogram::ContourMode));
-    // new_s->setColorMap(colorMap());
+    new_s->setColorMap(new QwtLinearColorMap(colorMap()->format()));
     new_s->setAxes(xAxis(), yAxis());
     new_s->setDefaultContourPen(defaultContourPen());
-    new_s->setLevelsNumber(); // levels());
+    new_s->setLevelsNumber(levels());
     new_s->color_map_policy = color_map_policy;
     return new_s;
 }
 
 void Spectrogram::setGrayScale()
 {
-    // color_map = QwtLinearColorMap(Qt::black, Qt::white);
-    // setColorMap(color_map);
+    color_map->setColorInterval(Qt::black, Qt::white);
+    setColorMap(color_map);
     color_map_policy = GrayScale;
 
     QwtPlot *plot = this->plot();
     if (!plot)
         return;
 
-    /*QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(data()->range(), colorMap()); */
+        colorAxis->setColorMap(data()->interval(Qt::ZAxis),
+                               new QwtLinearColorMap(colorMap()->format()));
 }
 
 void Spectrogram::setDefaultColorMap()
 {
-    // color_map = defaultColorMap();
-    // setColorMap(color_map);
+    color_map = defaultColorMap();
+    setColorMap(color_map);
     color_map_policy = Default;
 
     QwtPlot *plot = this->plot();
     if (!plot)
         return;
 
-    /* QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(this->data()->range(), this->colorMap()); */
+        colorAxis->setColorMap(this->data()->interval(Qt::ZAxis),
+                               new QwtLinearColorMap(this->colorMap()->format()));
 }
 
-void Spectrogram::setCustomColorMap() // const QwtLinearColorMap &map)
+void Spectrogram::setCustomColorMap(QwtLinearColorMap *map)
 {
-    // setColorMap(map);
-    // color_map = map;
+    setColorMap(map);
+    color_map = map;
     color_map_policy = Custom;
 
     QwtPlot *plot = this->plot();
     if (!plot)
         return;
 
-    /* QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(this->data()->range(), this->colorMap()); */
+        colorAxis->setColorMap(this->data()->interval(Qt::ZAxis),
+                               new QwtLinearColorMap(this->colorMap()->format()));
 }
 
-QwtLinearColorMap Spectrogram::defaultColorMap()
+QwtLinearColorMap *Spectrogram::defaultColorMap()
 {
-    QwtLinearColorMap colorMap(Qt::blue, Qt::red);
-    colorMap.addColorStop(0.25, Qt::cyan);
-    colorMap.addColorStop(0.5, Qt::green);
-    colorMap.addColorStop(0.75, Qt::yellow);
-    // return colorMap;
-    return QwtLinearColorMap();
+    QwtLinearColorMap *colorMap = new QwtLinearColorMap(Qt::blue, Qt::red);
+    colorMap->addColorStop(0.25, Qt::cyan);
+    colorMap->addColorStop(0.5, Qt::green);
+    colorMap->addColorStop(0.75, Qt::yellow);
+    return colorMap;
 }
 
 void Spectrogram::saveToJson(QJsonObject *jsObject)
@@ -250,28 +260,27 @@ void Spectrogram::saveToJson(QJsonObject *jsObject)
         jsObject->insert("colorPolicy", color_map_policy);
     else {
         QJsonObject jsColorMap {};
-        jsColorMap.insert("mode", color_map.mode());
-        jsColorMap.insert("minColor", COLORNAME(color_map.color1()));
-        jsColorMap.insert("maxColor", COLORNAME(color_map.color2()));
-        QVector<double> colors = color_map.colorStops();
+        jsColorMap.insert("mode", color_map->mode());
+        jsColorMap.insert("minColor", COLORNAME(color_map->color1()));
+        jsColorMap.insert("maxColor", COLORNAME(color_map->color2()));
+        QVector<double> colors = color_map->colorStops();
         int stops = (int)colors.size();
-        jsColorMap.insert("colorStops", stops - 2);
         QJsonArray jsColorStops {};
         QJsonArray jsRGBStops {};
         for (int i = 1; i < stops - 1; i++) {
             jsColorStops.append(colors[i]);
-            jsRGBStops.append(COLORNAME(QColor(color_map.rgb(QwtInterval(0, 1), colors[i]))));
+            jsRGBStops.append(COLORNAME(QColor(color_map->rgb(QwtInterval(0, 1), colors[i]))));
         }
-        jsColorMap.insert("stops", jsColorStops);
+        jsColorMap.insert("colorStops", jsColorStops);
         jsColorMap.insert("colorNames", jsRGBStops);
-        jsObject->insert("ColorMap", jsColorMap);
+        jsObject->insert("colorMap", jsColorMap);
     }
-    jsObject->insert("Image", testDisplayMode(QwtPlotSpectrogram::ImageMode));
+    jsObject->insert("image", testDisplayMode(QwtPlotSpectrogram::ImageMode));
 
     bool contourLines = testDisplayMode(QwtPlotSpectrogram::ContourMode);
-    jsObject->insert("ContourLines", contourLines);
+    jsObject->insert("contourLines", contourLines);
     if (contourLines) {
-        jsObject->insert("Levels", levels());
+        jsObject->insert("levels", levels());
         bool defaultPen = defaultContourPen().style() != Qt::NoPen;
         jsObject->insert("defaultPen", defaultPen);
         if (defaultPen) {
@@ -291,13 +300,45 @@ void Spectrogram::saveToJson(QJsonObject *jsObject)
     jsObject->insert("type", "spectrogram");
 }
 
-double MatrixData::value(double x, double y) const
+MatrixData::MatrixData(Matrix *m) : d_matrix(m)
 {
-    int i = abs((int)floor((y - y_start) / dy - 1));
-    int j = abs((int)floor((x - x_start) / dx));
+    double min_z = std::numeric_limits<double>::max();
+    double max_z = -std::numeric_limits<double>::max();
+    QVector<double> matrix_vect {};
+    double matrix_element {};
+    for (int i = 0; i < d_matrix->numRows(); i++) {
+        for (int j = 0; j < d_matrix->numCols(); j++) {
+            // replace NaNs and Infs with average of neighbours
+            if (std::isfinite(d_matrix->cell(i, j)))
+                matrix_element = d_matrix->cell(i, j);
+            else {
+                double av = 0;
+                unsigned cnt = 0;
+                for (int ii = -1; ii <= 1; ii += 2)
+                    for (int jj = -1; jj <= 1; jj += 2)
+                        if (std::isfinite(d_matrix->cell(i + ii, j + jj))) {
+                            av += d_matrix->cell(i + ii, j + jj);
+                            cnt++;
+                        }
+                if (cnt > 0)
+                    av /= cnt;
+                matrix_element = av;
+            }
+            matrix_vect << matrix_element;
+            min_z = std::min(min_z, matrix_element);
+            max_z = std::max(max_z, matrix_element);
+        }
+    }
+    setValueMatrix(matrix_vect, d_matrix->numCols());
 
-    if (d_m && i < n_rows && j < n_cols)
-        return d_m[i][j];
-    else
-        return 0.0;
+    setInterval(Qt::ZAxis, QwtInterval(min_z, max_z));
+
+    setInterval(Qt::XAxis, QwtInterval(d_matrix->xStart(), d_matrix->xEnd()));
+
+    setInterval(Qt::YAxis, QwtInterval(d_matrix->yStart(), d_matrix->yEnd()));
+#if QWT_VERSION >= 0x060200
+    setResampleMode(BicubicInterpolation);
+#else
+    setResampleMode(BilinearInterpolation);
+#endif
 }
