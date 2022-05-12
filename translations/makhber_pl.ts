@@ -11662,52 +11662,52 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>PythonScripting</name>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="177"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="198"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="227"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="245"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="256"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="181"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="202"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="231"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="249"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="260"/>
         <source>Loading Module Failure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="178"/>
-        <location filename="../src/scripting/PythonScripting.cpp" line="199"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="182"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="203"/>
         <source>Failed to load __main__ module.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="228"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="232"/>
         <source>Failed to load sip module.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="238"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="242"/>
         <source>Failed to export Makhber API</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="239"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="243"/>
         <source>Accessing Makhber functions or objects from Python code won&apos;t work.Probably your version of SIP differs from the one Makhber was compiled against; try updating SIP or recompiling Makhber.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="246"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="250"/>
         <source>Failed to load makhber module.Try exporting PYTHONPATH to the directory of makhber module.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="257"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="261"/>
         <source>Failed to load sys module.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="303"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="307"/>
         <source>File opening error</source>
         <translation type="unfinished">Błąd otwarcia pliku</translation>
     </message>
     <message>
-        <location filename="../src/scripting/PythonScripting.cpp" line="304"/>
+        <location filename="../src/scripting/PythonScripting.cpp" line="308"/>
         <source>Could not find &apos;makhberrc.py&apos; file to initialize Python environment
 Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or working directory</source>
         <translation type="unfinished"></translation>
