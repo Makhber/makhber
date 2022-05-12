@@ -39,6 +39,7 @@
 #include <qwt_plot.h>
 #include <qwt_scale_widget.h>
 #include <qwt_scale_engine.h>
+#include <qwt_transform.h>
 
 #include <QColorDialog>
 #include <QCheckBox>
@@ -1489,22 +1490,25 @@ void AxesDialog::updateScale()
     const QwtScaleEngine *sc_eng = d_plot->axisScaleEngine(a);
     btnInvert->setChecked(sc_eng->testAttribute(QwtScaleEngine::Inverted));
 
-    // QwtTransform *tr = sc_eng->transformation();
-    // boxScaleType->setCurrentIndex((int)tr->type());
+    QwtTransform *tr = sc_eng->transformation();
+    if (dynamic_cast<QwtLogTransform *>(tr))
+        boxScaleType->setCurrentIndex(1);
+    else
+        boxScaleType->setCurrentIndex(0);
 
     boxMinorValue->clear();
-    /*if (tr->type()) // log scale
+    if (dynamic_cast<QwtLogTransform *>(tr)) // log scale
         boxMinorValue->addItems(QStringList() << "0"
                                               << "2"
                                               << "4"
                                               << "8");
-    else*/
-    boxMinorValue->addItems(QStringList() << "0"
-                                          << "1"
-                                          << "4"
-                                          << "9"
-                                          << "14"
-                                          << "19");
+    else
+        boxMinorValue->addItems(QStringList() << "0"
+                                              << "1"
+                                              << "4"
+                                              << "9"
+                                              << "14"
+                                              << "19");
 
     boxMinorValue->setEditText(QString::number(d_plot->axisMaxMinor(a)));
 }

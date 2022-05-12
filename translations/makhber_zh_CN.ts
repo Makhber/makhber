@@ -3957,427 +3957,427 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>AxesDialog</name>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="66"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="67"/>
         <source>General Plot Options</source>
         <translation>常规绘图选项</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="77"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="78"/>
         <source>&amp;Apply</source>
         <translation>应用(&amp;A)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="81"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="82"/>
         <source>&amp;OK</source>
         <translation>确定(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="86"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="87"/>
         <source>&amp;Cancel</source>
         <translation>取消(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="108"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="109"/>
         <source>From</source>
         <translation>从</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="112"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="113"/>
         <source>To</source>
         <translation>到</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="116"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="422"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="117"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="423"/>
         <source>Type</source>
         <translation>类型</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="118"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
         <source>linear</source>
         <translation>线性</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="120"/>
         <source>logarithmic</source>
         <translation>对数</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="124"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="125"/>
         <source>Inverted</source>
         <translation>逆</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="136"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="137"/>
         <source>Step</source>
         <translation>步长</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="149"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="436"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="150"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="437"/>
         <source>Major Ticks</source>
         <translation>主刻度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="156"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="157"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="446"/>
         <source>Minor Ticks</source>
         <translation>次刻度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="177"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="275"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="362"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
         <source>Bottom</source>
         <translation>底</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="280"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
         <source>Left</source>
         <translation>左</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="277"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
         <source>Top</source>
         <translation>顶</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="181"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="282"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="366"/>
         <source>Right</source>
         <translation>右</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="203"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="204"/>
         <source>Scale</source>
         <translation>比例</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="222"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="223"/>
         <source>Major Grids</source>
         <translation>主栅格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="227"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="228"/>
         <source>Minor Grids</source>
         <translation>次栅格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="231"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="232"/>
         <source>Line Color</source>
         <translation>线条颜色</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="240"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="241"/>
         <source>Line Type</source>
         <translation>线形</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="259"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="260"/>
         <source>Thickness</source>
         <translation>线宽</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="272"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="570"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="273"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="571"/>
         <source>Axes</source>
         <translation>轴</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="284"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="285"/>
         <source>Additional lines</source>
         <translation>附加线</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="287"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="288"/>
         <source>X=0</source>
         <translation>X=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="292"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="293"/>
         <source>Y=0</source>
         <translation>Y=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="302"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
         <source>Horizontal</source>
         <translation>水平</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="304"/>
         <source>Vertical</source>
         <translation>垂直</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="324"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="325"/>
         <source>Grid</source>
         <translation>栅格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="352"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
         <source>Numeric</source>
         <translation>数字</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
         <source>Text from table</source>
         <translation>来自表格的文本</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
         <source>Day of the week</source>
         <translation>周几</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
         <source>Month</source>
         <translation>月</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
         <source>Time</source>
         <translation>时间</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
         <source>Date</source>
         <translation>日期</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
         <source>Date &amp; Time</source>
         <translation>日期 &amp; 时间</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="360"/>
         <source>Column Headings</source>
         <translation>列头</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="386"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="387"/>
         <source>Show</source>
         <translation>显示</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="390"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="391"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="405"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="406"/>
         <source>&amp;Font</source>
         <translation>字体(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="426"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="427"/>
         <source>Font</source>
         <translation>字体</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="429"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="430"/>
         <source>Axis &amp;Font</source>
         <translation>轴字体(&amp;F)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="432"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="498"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="559"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="433"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="499"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="560"/>
         <source>Color</source>
         <translation>颜色</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="439"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="448"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
         <source>None</source>
         <translation>不选</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
         <source>Out</source>
         <translation>外</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
         <source>In &amp; Out</source>
         <translation>内 &amp; 外</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="452"/>
         <source>In</source>
         <translation>内</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="455"/>
         <source>Stand-off</source>
         <translation>远离</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="459"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="460"/>
         <source>Show Labels</source>
         <translation>显示标签</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="466"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="467"/>
         <source>Column</source>
         <translation>列</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="472"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="473"/>
         <source>Table</source>
         <translation>表格</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="478"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="479"/>
         <source>Format</source>
         <translation>格式</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="485"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="486"/>
         <source>Precision</source>
         <translation>精度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="491"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="492"/>
         <source>Angle</source>
         <translation>角度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="502"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="503"/>
         <source>For&amp;mula</source>
         <translation>公式(&amp;m)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="521"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="522"/>
         <source>Axis</source>
         <translation>轴</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="555"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="556"/>
         <source>Canvas frame</source>
         <translation>画布框架</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="563"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="564"/>
         <source>Width</source>
         <translation>宽度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="573"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="574"/>
         <source>Draw backbones</source>
         <translation>画出干线</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="576"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="577"/>
         <source>Line Width</source>
         <translation>线宽</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="581"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="582"/>
         <source>Major ticks length</source>
         <translation>主刻度长度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="586"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="587"/>
         <source>Minor ticks length</source>
         <translation>次刻度长度</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="597"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="598"/>
         <source>General</source>
         <translation>常规</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="691"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
         <source>Automatic</source>
         <translation>自动</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
         <source>Decimal: 100.0</source>
         <translation>十进制： 100.0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
         <source>Scientific: 1e2</source>
         <translation>科学计数法：1E2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="695"/>
         <source>Scientific: 10^2</source>
         <translation>科学计数法：10^2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1180"/>
         <source>Start limit error</source>
         <translation>起始极限误差</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1188"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1189"/>
         <source>End limit error</source>
         <translation>终末极限误差</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1198"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1205"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1199"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
         <source>Step input error</source>
         <translation>步长输入错误</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1207"/>
         <source>Please enter a positive step value!</source>
         <translation>请输入正的步长值！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1283"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1284"/>
         <source>Formula input error</source>
         <translation>公式输入错误</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1285"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1286"/>
         <source>Valid variables are &apos;x&apos; for Top/Bottom axes and &apos;y&apos; for Left/Right axes!</source>
         <translation>对于顶轴和底轴的有效变量是 &apos;x&apos;，左轴和右轴的是 &apos;y&apos; ！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1442"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1452"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
         <source>millisec.</source>
         <translation>毫秒。</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
         <source>sec.</source>
         <translation>秒。</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
         <source>min.</source>
         <translation>分。</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1446"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
         <source>hours</source>
         <translation>小时</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1448"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
         <source>days</source>
         <translation>天</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1450"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1458"/>
         <source>weeks</source>
         <translation>周</translation>
     </message>
@@ -7408,164 +7408,164 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph</name>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="824"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4990"/>
+        <location filename="../src/plot2D/Graph.cpp" line="825"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4993"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="825"/>
+        <location filename="../src/plot2D/Graph.cpp" line="826"/>
         <source>Couldn&apos;t change the axis type to the requested format!</source>
         <translation>不能将轴类型转换为请求格式！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
         <source>Please provide a valid file name!</source>
         <translation>请提供有效的文件名！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
         <source>File format not handled, operation aborted!</source>
         <translation>无法处理的文件格式，操作终止！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1402"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4232"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4978"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4235"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4239"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4981"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1404"/>
         <source>Output in postscript format is not available for Qt5, using PDF</source>
         <translation>使用 PDF，Qt5 无法使用 postscript 格式输出</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1729"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1730"/>
         <source>Title</source>
         <translation>标题</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3711"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3741"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3714"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3744"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>图像文件&lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;不再存在！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3710"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3740"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3713"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3743"/>
         <source>File open error</source>
         <translation>文件打开错误</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3898"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3901"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translatorcomment>曲线数据表 x 列的名称</translatorcomment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3900"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3903"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translatorcomment>曲线数据表 y 列的名称</translatorcomment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3907"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3910"/>
         <source>Data set generated from curve</source>
         <translation>从曲线生成的数据集</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3908"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3911"/>
         <source>Curve data %1</source>
         <translation>曲线数据 %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4233"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
         <source>The columns</source>
         <translation>列</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4234"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4237"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>是空的并且不会被添加到绘图中！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4237"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4240"/>
         <source>The column</source>
         <translation>列</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4238"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4241"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>是空的并且不会被添加到绘图中！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4244"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4290"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4247"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4293"/>
         <source>&amp;Cut</source>
         <translation>剪切(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4245"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4291"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4294"/>
         <source>&amp;Copy</source>
         <translation>复制(&amp;C)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4246"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4292"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4249"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4295"/>
         <source>&amp;Delete</source>
         <translation>删除(&amp;D)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4296"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4300"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4304"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4308"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4336"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4251"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4299"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4303"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4307"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4311"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4339"/>
         <source>&amp;Properties...</source>
         <translation>属性(&amp;P)...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4320"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4323"/>
         <source>&amp;Rescale to show all</source>
         <translation>重缩放显示所有(&amp;R)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4321"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4324"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4323"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4326"/>
         <source>&amp;Hide axis</source>
         <translation>隐藏轴(&amp;H)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4328"/>
         <source>&amp;Show grids</source>
         <translation>显示网格(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4335"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4338"/>
         <source>&amp;Scale...</source>
         <translation>比例(&amp;S)...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4979"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
         <source>There are no curves available on this plot!</source>
         <translation>此绘图中没有有效曲线！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4991"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4994"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>此绘图中没有包含多于两个点的曲线。操作终止！</translation>
     </message>
@@ -7575,12 +7575,12 @@ p, li { white-space: pre-wrap; }
         <translation>F</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="783"/>
+        <location filename="../src/plot2D/Graph.cpp" line="784"/>
         <source>Internal Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="784"/>
+        <location filename="../src/plot2D/Graph.cpp" line="785"/>
         <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://github.com/Makhber/makhber/issues&gt;&quot;&gt;bug tracker: https://github.com/Makhber/makhber/issues&lt;/a&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>

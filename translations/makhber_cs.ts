@@ -3957,427 +3957,427 @@ You are already running the latest version: &quot;%1&quot;</source>
 <context>
     <name>AxesDialog</name>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="66"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="67"/>
         <source>General Plot Options</source>
         <translation>Obecné volby pro nákres</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="77"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="78"/>
         <source>&amp;Apply</source>
         <translation>&amp;Použít</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="81"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="82"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="86"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="87"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Zrušit</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="108"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="109"/>
         <source>From</source>
         <translation>Od</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="112"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="113"/>
         <source>To</source>
         <translation>Do</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="116"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="422"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="117"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="423"/>
         <source>Type</source>
         <translation>Typ</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="118"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
         <source>linear</source>
         <translation>lineární</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="120"/>
         <source>logarithmic</source>
         <translation>logaritmický</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="124"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="125"/>
         <source>Inverted</source>
         <translation>obrácený</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="136"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="137"/>
         <source>Step</source>
         <translation>Krok</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="149"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="436"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="150"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="437"/>
         <source>Major Ticks</source>
         <translation>Hlavní označení os</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="156"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="157"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="446"/>
         <source>Minor Ticks</source>
         <translation>Vedlejší označení os</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="177"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="275"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="362"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
         <source>Bottom</source>
         <translation>Dole</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="280"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
         <source>Left</source>
         <translation>Vlevo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="277"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
         <source>Top</source>
         <translation>Nahoře</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="181"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="282"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="366"/>
         <source>Right</source>
         <translation>Vpravo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="203"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="204"/>
         <source>Scale</source>
         <translation>Stupnice</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="222"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="223"/>
         <source>Major Grids</source>
         <translation>Hlavní mřížka</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="227"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="228"/>
         <source>Minor Grids</source>
         <translation>Podmřížka</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="231"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="232"/>
         <source>Line Color</source>
         <translation>Barva čáry</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="240"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="241"/>
         <source>Line Type</source>
         <translation>Druh čáry</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="259"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="260"/>
         <source>Thickness</source>
         <translation>Síla</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="272"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="570"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="273"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="571"/>
         <source>Axes</source>
         <translation>Osy</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="284"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="285"/>
         <source>Additional lines</source>
         <translation>Dodatečné čáry</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="287"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="288"/>
         <source>X=0</source>
         <translation>X=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="292"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="293"/>
         <source>Y=0</source>
         <translation>Y=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="302"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
         <source>Horizontal</source>
         <translation>Vodorovný</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="304"/>
         <source>Vertical</source>
         <translation>Svislý</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="324"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="325"/>
         <source>Grid</source>
         <translation>Mřížka</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="352"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
         <source>Numeric</source>
         <translation>Číselný</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
         <source>Text from table</source>
         <translation>Text z tabulky</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
         <source>Day of the week</source>
         <translation>Den v týdnu</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
         <source>Month</source>
         <translation>Měsíc</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
         <source>Time</source>
         <translation>Čas</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
         <source>Date</source>
         <translation>Datum</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
         <source>Date &amp; Time</source>
         <translation>Datum &amp; Čas</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="360"/>
         <source>Column Headings</source>
         <translation>Záhlaví sloupců</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="386"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="387"/>
         <source>Show</source>
         <translation>Ukázat</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="390"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="391"/>
         <source>Title</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="405"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="406"/>
         <source>&amp;Font</source>
         <translation>&amp;Písmo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="426"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="427"/>
         <source>Font</source>
         <translation>Písmo</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="429"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="430"/>
         <source>Axis &amp;Font</source>
         <translation>Písmo &amp;os</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="432"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="498"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="559"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="433"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="499"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="560"/>
         <source>Color</source>
         <translation>Barva</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="439"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="448"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
         <source>None</source>
         <translation>Žádná</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
         <source>Out</source>
         <translation>Vně</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
         <source>In &amp; Out</source>
         <translation>Uvnitř &amp; Vně</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="452"/>
         <source>In</source>
         <translation>Uvnitř</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="455"/>
         <source>Stand-off</source>
         <translation>Odstup</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="459"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="460"/>
         <source>Show Labels</source>
         <translation>Ukázat popisy</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="466"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="467"/>
         <source>Column</source>
         <translation>Sloupec</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="472"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="473"/>
         <source>Table</source>
         <translation>Tabulka</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="478"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="479"/>
         <source>Format</source>
         <translation>Formát</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="485"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="486"/>
         <source>Precision</source>
         <translation>Přesnost</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="491"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="492"/>
         <source>Angle</source>
         <translation>Úhel</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="502"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="503"/>
         <source>For&amp;mula</source>
         <translation>&amp;Vzorec</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="521"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="522"/>
         <source>Axis</source>
         <translation>Osa</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="555"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="556"/>
         <source>Canvas frame</source>
         <translation>Rám pozadí</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="563"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="564"/>
         <source>Width</source>
         <translation>Šířka</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="573"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="574"/>
         <source>Draw backbones</source>
         <translation>Nakreslit základní čáry</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="576"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="577"/>
         <source>Line Width</source>
         <translation>Šířka čar</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="581"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="582"/>
         <source>Major ticks length</source>
         <translation>Délka hlavního označení os</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="586"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="587"/>
         <source>Minor ticks length</source>
         <translation>Délka vedlejšího označení os</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="597"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="598"/>
         <source>General</source>
         <translation>Všeobecný</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="691"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
         <source>Automatic</source>
         <translation>Automatický</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
         <source>Decimal: 100.0</source>
         <translation>Desetinný: 100.0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
         <source>Scientific: 1e2</source>
         <translation>Vědecký: 1e2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="695"/>
         <source>Scientific: 10^2</source>
         <translation>Vědecký: 10^2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1180"/>
         <source>Start limit error</source>
         <translation>Chyba v počáteční hodnotě</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1188"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1189"/>
         <source>End limit error</source>
         <translation>Chyba v koncové hodnotě</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1198"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1205"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1199"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
         <source>Step input error</source>
         <translation>Chyba v zadání kroku</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1207"/>
         <source>Please enter a positive step value!</source>
         <translation>Zadejte, prosím, kladnou hodnotu kroku!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1283"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1284"/>
         <source>Formula input error</source>
         <translation>Chyba v zadání vzorce</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1285"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1286"/>
         <source>Valid variables are &apos;x&apos; for Top/Bottom axes and &apos;y&apos; for Left/Right axes!</source>
         <translation>Platnými proměnnými jsou &apos;x&apos; pro osy nahoře/dole a  &apos;y&apos; pro osy vlevo/vpravo!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1442"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1452"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
         <source>millisec.</source>
         <translation>millisek.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
         <source>sec.</source>
         <translation>sek.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
         <source>min.</source>
         <translation>min.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1446"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
         <source>hours</source>
         <translation>hodiny</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1448"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
         <source>days</source>
         <translation>dny</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1450"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1458"/>
         <source>weeks</source>
         <translation>týdny</translation>
     </message>
@@ -7376,167 +7376,167 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph</name>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="783"/>
+        <location filename="../src/plot2D/Graph.cpp" line="784"/>
         <source>Internal Error</source>
         <translation>Vnitřní chyba</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="824"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4990"/>
+        <location filename="../src/plot2D/Graph.cpp" line="825"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4993"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="825"/>
+        <location filename="../src/plot2D/Graph.cpp" line="826"/>
         <source>Couldn&apos;t change the axis type to the requested format!</source>
         <translation>Formát popisu os se nepodařilo změnit na ten, který je požadován!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
         <source>Please provide a valid file name!</source>
         <translation>Zadejte, prosím, platný název souboru!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
         <source>File format not handled, operation aborted!</source>
         <translation>Tento souborový formát se nepodařilo zpracovat. Operace byla zrušena!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1402"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4232"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4978"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4235"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4239"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4981"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1404"/>
         <source>Output in postscript format is not available for Qt5, using PDF</source>
         <translation>Výstup ve formátu Postscript není dostupný pro Qt5. Používá se PDF</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1729"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1730"/>
         <source>Title</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3710"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3740"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3713"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3743"/>
         <source>File open error</source>
         <translation>Chyba při otevírání souboru</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3711"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3741"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3714"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3744"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>Soubor s obrázkem: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; již neexistuje!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3898"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3901"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3900"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3903"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3907"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3910"/>
         <source>Data set generated from curve</source>
         <translation>Záznam s údaji vytvořený z křivky</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3908"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3911"/>
         <source>Curve data %1</source>
         <translation>Údaje ke křivce %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4233"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
         <source>The columns</source>
         <translation>Sloupce</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4234"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4237"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>jsou prázdné a nebudou do nákresu přidány!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4237"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4240"/>
         <source>The column</source>
         <translation>Sloupec</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4238"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4241"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>je prázdný a nebude do nákresu přidán!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4244"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4290"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4247"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4293"/>
         <source>&amp;Cut</source>
         <translation>&amp;Vyjmout</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4245"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4291"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4294"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopírovat</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4246"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4292"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4249"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4295"/>
         <source>&amp;Delete</source>
         <translation>&amp;Smazat</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4296"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4300"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4304"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4308"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4336"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4251"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4299"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4303"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4307"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4311"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4339"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Vlastnosti...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4320"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4323"/>
         <source>&amp;Rescale to show all</source>
         <translation>&amp;Změnit měřítko pohledu na Ukázat vše</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4321"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4324"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4323"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4326"/>
         <source>&amp;Hide axis</source>
         <translation>&amp;Skrýt osu</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4328"/>
         <source>&amp;Show grids</source>
         <translation>&amp;Ukázat mřížky</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4335"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4338"/>
         <source>&amp;Scale...</source>
         <translation>&amp;Skala...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4979"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
         <source>There are no curves available on this plot!</source>
         <translation>Nejsou zde žádné křivky, které by byly dostupné pro tento nákres!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4991"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4994"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>V tomto nákresu nejsou žádné křivky, které by měly více než dva body. Operace zrušena!</translation>
     </message>
@@ -7546,7 +7546,7 @@ p, li { white-space: pre-wrap; }
         <translation>F</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="784"/>
+        <location filename="../src/plot2D/Graph.cpp" line="785"/>
         <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://github.com/Makhber/makhber/issues&gt;&quot;&gt;bug tracker: https://github.com/Makhber/makhber/issues&lt;/a&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>

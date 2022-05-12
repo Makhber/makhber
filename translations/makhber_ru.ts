@@ -3954,427 +3954,427 @@ Warning: this will rearrange existing layers!</source>
 <context>
     <name>AxesDialog</name>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="66"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="67"/>
         <source>General Plot Options</source>
         <translation>Основные опции построения</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="77"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="78"/>
         <source>&amp;Apply</source>
         <translation>&amp;Применить</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="81"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="82"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="86"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="87"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Отмена</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="108"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="109"/>
         <source>From</source>
         <translation>От</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="112"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="113"/>
         <source>To</source>
         <translation>До</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="116"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="422"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="117"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="423"/>
         <source>Type</source>
         <translation>Тип</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="118"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
         <source>linear</source>
         <translation>линейный</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="119"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="120"/>
         <source>logarithmic</source>
         <translation>логарифмический</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="124"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="125"/>
         <source>Inverted</source>
         <translation>Обратный</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="136"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="137"/>
         <source>Step</source>
         <translation>Шаг</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="149"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="436"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="150"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="437"/>
         <source>Major Ticks</source>
         <translation>Шаг основной разметки</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="156"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="157"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="446"/>
         <source>Minor Ticks</source>
         <translation>Шаг дополнительной разметки</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="177"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="275"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="362"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
         <source>Bottom</source>
         <translation>Внизу</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="178"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="280"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="363"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
         <source>Left</source>
         <translation>По левому краю</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="179"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="276"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="364"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="277"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
         <source>Top</source>
         <translation>Вверху</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="180"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="281"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="365"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="181"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="282"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="366"/>
         <source>Right</source>
         <translation>По правому краю</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="203"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="204"/>
         <source>Scale</source>
         <translation>Масштаб</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="222"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="223"/>
         <source>Major Grids</source>
         <translation>Основная сетка</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="227"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="228"/>
         <source>Minor Grids</source>
         <translation>Дополнительная сетка</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="231"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="232"/>
         <source>Line Color</source>
         <translation>Цвет линии</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="240"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="241"/>
         <source>Line Type</source>
         <translation>Тип линии</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="259"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="260"/>
         <source>Thickness</source>
         <translation>Толщина</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="272"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="570"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="273"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="571"/>
         <source>Axes</source>
         <translation>Оси</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="284"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="285"/>
         <source>Additional lines</source>
         <translation>Дополнительные линии</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="287"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="288"/>
         <source>X=0</source>
         <translation>X=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="292"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="293"/>
         <source>Y=0</source>
         <translation>Y=0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="302"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
         <source>Horizontal</source>
         <translation>Горизонтальная</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="303"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="304"/>
         <source>Vertical</source>
         <translation>Вертикальная</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="324"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="325"/>
         <source>Grid</source>
         <translation>Сетка</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="352"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
         <source>Numeric</source>
         <translation>Цифровой</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="353"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
         <source>Text from table</source>
         <translation>Текст из таблицы</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="354"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
         <source>Day of the week</source>
         <translation>День недели</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="355"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
         <source>Month</source>
         <translation>Месяц</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="356"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
         <source>Time</source>
         <translation>Время</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="357"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="358"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
         <source>Date &amp; Time</source>
         <translation>Дата и время</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="359"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="360"/>
         <source>Column Headings</source>
         <translation>Заголовки столбца</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="386"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="387"/>
         <source>Show</source>
         <translation>Показать</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="390"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="391"/>
         <source>Title</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="405"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="406"/>
         <source>&amp;Font</source>
         <translation>&amp;Шрифт</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="426"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="427"/>
         <source>Font</source>
         <translation>Шрифт</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="429"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="430"/>
         <source>Axis &amp;Font</source>
         <translation>&amp;Шрифт оси</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="432"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="498"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="559"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="433"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="499"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="560"/>
         <source>Color</source>
         <translation>Цвет</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="439"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="448"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
         <source>None</source>
         <translation>Никто</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="440"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
         <source>Out</source>
         <translation>Снаружи</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="441"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="450"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
         <source>In &amp; Out</source>
         <translation>Внутри &amp; и снаружи</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="442"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="451"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="452"/>
         <source>In</source>
         <translation>Внутри</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="455"/>
         <source>Stand-off</source>
         <translation>Отстояние</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="459"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="460"/>
         <source>Show Labels</source>
         <translation>Показать метки</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="466"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="467"/>
         <source>Column</source>
         <translation>Столбец</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="472"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="473"/>
         <source>Table</source>
         <translation>Таблица</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="478"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="479"/>
         <source>Format</source>
         <translation>Формат</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="485"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="486"/>
         <source>Precision</source>
         <translation>Точность</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="491"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="492"/>
         <source>Angle</source>
         <translation>Угол</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="502"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="503"/>
         <source>For&amp;mula</source>
         <translation>&amp;Формула</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="521"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="522"/>
         <source>Axis</source>
         <translation>Ось</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="555"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="556"/>
         <source>Canvas frame</source>
         <translation>Рамка холста</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="563"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="564"/>
         <source>Width</source>
         <translation>Ширина</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="573"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="574"/>
         <source>Draw backbones</source>
         <translation>Нарисовать систему координат</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="576"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="577"/>
         <source>Line Width</source>
         <translation>Ширина линии</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="581"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="582"/>
         <source>Major ticks length</source>
         <translation>Длина основной разметки</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="586"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="587"/>
         <source>Minor ticks length</source>
         <translation>Длина дополнительной разметки</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="597"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="598"/>
         <source>General</source>
         <translation>Общее</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="691"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
         <source>Automatic</source>
         <translation>Автоматический</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="692"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
         <source>Decimal: 100.0</source>
         <translation>Десятичный: 100.0</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="693"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
         <source>Scientific: 1e2</source>
         <translation>Научный: 1e2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="694"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="695"/>
         <source>Scientific: 10^2</source>
         <translation>Научный: 10^2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1179"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1180"/>
         <source>Start limit error</source>
         <translation>Ошибка начальной границы</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1188"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1189"/>
         <source>End limit error</source>
         <translation>Ошибка конечной границы</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1198"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1205"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1199"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
         <source>Step input error</source>
         <translation>Ошибка ввода шага</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1206"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1207"/>
         <source>Please enter a positive step value!</source>
         <translation>Пожалуйста, введите положительное значение шага!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1283"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1284"/>
         <source>Formula input error</source>
         <translation>Ошибка ввода формулы</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1285"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1286"/>
         <source>Valid variables are &apos;x&apos; for Top/Bottom axes and &apos;y&apos; for Left/Right axes!</source>
         <translation>Допустимыми переменными являются &apos;x&apos; для верхней/нижней оси и &apos;y&apos; для левой/правой оси!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1442"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1452"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
         <source>millisec.</source>
         <translation>мс.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1443"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1453"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
         <source>sec.</source>
         <translation>с.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1444"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1454"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
         <source>min.</source>
         <translation>мин.</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1445"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1455"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1446"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
         <source>hours</source>
         <translation>часы</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1448"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1456"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
         <source>days</source>
         <translation>дни</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1449"/>
-        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1457"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1450"/>
+        <location filename="../src/plot2D/dialogs/AxesDialog.cpp" line="1458"/>
         <source>weeks</source>
         <translation>недели</translation>
     </message>
@@ -7402,172 +7402,172 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph</name>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="783"/>
+        <location filename="../src/plot2D/Graph.cpp" line="784"/>
         <source>Internal Error</source>
         <translation>Внутренняя ошибка</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="784"/>
+        <location filename="../src/plot2D/Graph.cpp" line="785"/>
         <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://github.com/Makhber/makhber/issues&gt;&quot;&gt;bug tracker: https://github.com/Makhber/makhber/issues&lt;/a&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="824"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4990"/>
+        <location filename="../src/plot2D/Graph.cpp" line="825"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4993"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="825"/>
+        <location filename="../src/plot2D/Graph.cpp" line="826"/>
         <source>Couldn&apos;t change the axis type to the requested format!</source>
         <translation>Не удалось изменить тип оси на требуемый формат!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1359"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1392"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
         <source>Please provide a valid file name!</source>
         <translation>Пожалуйста, укажите корректное имя файла!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1377"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
         <source>File format not handled, operation aborted!</source>
         <translation>Формат файла не обработан, операция прервана!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1402"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4232"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4978"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4235"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4239"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4981"/>
         <source>Warning</source>
         <translation>Предупреждение</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1404"/>
         <source>Output in postscript format is not available for Qt5, using PDF</source>
         <translation>Вывод в формате postscript недоступен для Qt5 при использовании PDF</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1729"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1730"/>
         <source>Title</source>
         <translation>Заголовок</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3710"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3740"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3713"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3743"/>
         <source>File open error</source>
         <translation>Ошибка открытия файла</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3711"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3741"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3714"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3744"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>Файл изображения: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;больше не существует!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3898"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3901"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3900"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3903"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3907"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3910"/>
         <source>Data set generated from curve</source>
         <translation>Набор данных, построенный по кривой</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3908"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3911"/>
         <source>Curve data %1</source>
         <translation>Данные кривой %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4233"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4236"/>
         <source>The columns</source>
         <translation>Столбцы</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4234"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4237"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>являются пустыми и их содержимое не может быть отображено на графике!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4237"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4240"/>
         <source>The column</source>
         <translation>Столбец</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4238"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4241"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>явлется пустой и её содержимое не может быть отображено на графике!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4244"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4290"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4247"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4293"/>
         <source>&amp;Cut</source>
         <translation>&amp;Вырезать</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4245"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4291"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4294"/>
         <source>&amp;Copy</source>
         <translation>&amp;Копировать</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4246"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4292"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4249"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4295"/>
         <source>&amp;Delete</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4248"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4296"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4300"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4304"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4308"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4336"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4251"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4299"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4303"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4307"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4311"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4339"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Свойства...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4320"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4323"/>
         <source>&amp;Rescale to show all</source>
         <translation>&amp;Перерисовать и отобразить всё</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4321"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4324"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4323"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4326"/>
         <source>&amp;Hide axis</source>
         <translation>&amp;Скрыть оси</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4325"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4328"/>
         <source>&amp;Show grids</source>
         <translation>&amp;Показать сетку</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4335"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4338"/>
         <source>&amp;Scale...</source>
         <translation>&amp;Масштаб...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4979"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
         <source>There are no curves available on this plot!</source>
         <translation>На данном графике нет доступных кривых!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4991"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4994"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>На данном графике нет кривых с более чем двумя точками. Операция прервана!</translation>
     </message>

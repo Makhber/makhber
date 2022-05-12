@@ -60,6 +60,7 @@
 #include <qwt_plot_zoomer.h>
 #include <qwt_scale_widget.h>
 #include <qwt_scale_engine.h>
+#include <qwt_transform.h>
 #include <qwt_text.h>
 #include <qwt_text_label.h>
 #include <qwt_color_map.h>
@@ -1232,10 +1233,10 @@ void Graph::updateSecondaryAxis(int axis)
     const QwtScaleDiv sd = d_plot->axisScaleDiv(a);
 
     QwtScaleEngine *sc_engine = nullptr;
-    /* if (se->transformation()->type() == QwtScaleTransformation::Log10)
+    if (dynamic_cast<QwtLogScaleEngine *>(se))
         sc_engine = new QwtLogScaleEngine();
-    else if (se->transformation()->type() == QwtScaleTransformation::Linear)
-        sc_engine = new QwtLinearScaleEngine();*/
+    else if (dynamic_cast<QwtLinearScaleEngine *>(se))
+        sc_engine = new QwtLinearScaleEngine();
 
     if (sc_engine && se->testAttribute(QwtScaleEngine::Inverted))
         sc_engine->setAttribute(QwtScaleEngine::Inverted);
@@ -2079,9 +2080,11 @@ QJsonArray Graph::saveScale()
         jsScale.insert("maxMinor", d_plot->axisMaxMinor(i));
 
         const QwtScaleEngine *sc_eng = d_plot->axisScaleEngine(i);
-        // QwtTransform *tr = sc_eng->transformation();
-        // s += QString::number((int)tr->type()) + "\t";
-        jsScale.insert("transformation", 0);
+        QwtTransform *tr = sc_eng->transformation();
+        if (dynamic_cast<QwtLogTransform *>(tr))
+            jsScale.insert("transformation", 1);
+        else
+            jsScale.insert("transformation", 0);
         jsScale.insert("inverted", sc_eng->testAttribute(QwtScaleEngine::Inverted));
         jsSaveScale.append(jsScale);
     }
@@ -4570,10 +4573,10 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
             continue;
 
         QwtScaleEngine *sc_engine = nullptr;
-        /*if (se->transformation()->type() == QwtScaleTransformation::Log10)
+        if (dynamic_cast<QwtLogTransform *>(se->transformation()))
             sc_engine = new QwtLogScaleEngine();
-        else if (se->transformation()->type() == QwtScaleTransformation::Linear)*/
-        sc_engine = new QwtLinearScaleEngine();
+        else
+            sc_engine = new QwtLinearScaleEngine();
 
         int majorTicks = plot->axisMaxMajor(i);
         int minorTicks = plot->axisMaxMinor(i);
