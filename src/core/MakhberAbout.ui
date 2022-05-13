@@ -26,7 +26,7 @@
    <string>Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../../makhber/appicons.qrc">
+   <iconset resource="../main/appicons.qrc">
     <normaloff>:/appicon</normaloff>:/appicon</iconset>
   </property>
   <property name="sizeGripEnabled">
@@ -84,7 +84,7 @@
     <string/>
    </property>
    <property name="icon">
-    <iconset resource="../../makhber/appicons.qrc">
+    <iconset resource="../main/appicons.qrc">
      <normaloff>:/applogo</normaloff>:/applogo</iconset>
    </property>
    <property name="iconSize">
@@ -118,8 +118,8 @@
   <zorder>used_libraries</zorder>
  </widget>
  <resources>
-  <include location="../../makhber/appicons.qrc"/>
-  <include location="../../makhber/icons.qrc"/>
+  <include location="../main/appicons.qrc"/>
+  <include location="../main/icons.qrc"/>
  </resources>
  <connections>
   <connection>
