@@ -75,6 +75,8 @@ public:
 
     ColorMapPolicy colorMapPolicy() { return color_map_policy; };
 
+    QwtLinearColorMap *copyColorMap(const QwtColorMap *oldColorMap);
+
 protected:
     //! Pointer to the source data matrix
     Matrix *d_matrix;

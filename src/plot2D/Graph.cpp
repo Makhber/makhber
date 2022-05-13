@@ -4891,7 +4891,7 @@ void Graph::plotSpectrogram(Matrix *m, CurveType type)
     QwtScaleWidget *rightAxis = d_plot->axisWidget(QwtPlot::yRight);
     rightAxis->setColorBarEnabled(type != ContourMap);
     rightAxis->setColorMap(d_spectrogram->data()->interval(Qt::ZAxis),
-                           new QwtLinearColorMap(d_spectrogram->colorMap()->format()));
+                           d_spectrogram->copyColorMap(d_spectrogram->colorMap()));
 
     d_plot->setAxisScale(QwtPlot::xBottom, m->xStart(), m->xEnd());
     d_plot->setAxisScale(QwtPlot::yLeft, m->yStart(), m->yEnd());

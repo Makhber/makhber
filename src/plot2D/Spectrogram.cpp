@@ -81,8 +81,7 @@ void Spectrogram::updateData(Matrix *m)
 
     QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(data()->interval(Qt::ZAxis),
-                               new QwtLinearColorMap(colorMap()->format()));
+        colorAxis->setColorMap(data()->interval(Qt::ZAxis), copyColorMap(colorMap()));
 
     plot->setAxisScale(color_axis, data()->interval(Qt::ZAxis).minValue(),
                        data()->interval(Qt::ZAxis).maxValue());
@@ -152,8 +151,7 @@ void Spectrogram::showColorScale(int axis, bool on)
     plot->setAxisScale(color_axis, data()->interval(Qt::ZAxis).minValue(),
                        data()->interval(Qt::ZAxis).maxValue());
     colorAxis->setColorBarEnabled(on);
-    colorAxis->setColorMap(data()->interval(Qt::ZAxis),
-                           new QwtLinearColorMap(colorMap()->format()));
+    colorAxis->setColorMap(data()->interval(Qt::ZAxis), copyColorMap(colorMap()));
     if (!plot->axisEnabled(color_axis))
         plot->enableAxis(color_axis);
     colorAxis->show();
@@ -187,7 +185,7 @@ Spectrogram *Spectrogram::copy()
                           testDisplayMode(QwtPlotSpectrogram::ImageMode));
     new_s->setDisplayMode(QwtPlotSpectrogram::ContourMode,
                           testDisplayMode(QwtPlotSpectrogram::ContourMode));
-    new_s->setColorMap(new QwtLinearColorMap(colorMap()->format()));
+    new_s->setColorMap(copyColorMap(colorMap()));
     new_s->setAxes(xAxis(), yAxis());
     new_s->setDefaultContourPen(defaultContourPen());
     new_s->setLevelsNumber(levels());
@@ -207,8 +205,7 @@ void Spectrogram::setGrayScale()
 
     QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(data()->interval(Qt::ZAxis),
-                               new QwtLinearColorMap(colorMap()->format()));
+        colorAxis->setColorMap(data()->interval(Qt::ZAxis), copyColorMap(colorMap()));
 }
 
 void Spectrogram::setDefaultColorMap()
@@ -223,8 +220,7 @@ void Spectrogram::setDefaultColorMap()
 
     QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(this->data()->interval(Qt::ZAxis),
-                               new QwtLinearColorMap(this->colorMap()->format()));
+        colorAxis->setColorMap(this->data()->interval(Qt::ZAxis), copyColorMap(this->colorMap()));
 }
 
 void Spectrogram::setCustomColorMap(QwtLinearColorMap *map)
@@ -239,8 +235,7 @@ void Spectrogram::setCustomColorMap(QwtLinearColorMap *map)
 
     QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
     if (colorAxis)
-        colorAxis->setColorMap(this->data()->interval(Qt::ZAxis),
-                               new QwtLinearColorMap(this->colorMap()->format()));
+        colorAxis->setColorMap(this->data()->interval(Qt::ZAxis), copyColorMap(this->colorMap()));
 }
 
 QwtLinearColorMap *Spectrogram::defaultColorMap()
@@ -298,6 +293,22 @@ void Spectrogram::saveToJson(QJsonObject *jsObject)
     }
     jsObject->insert("visible", isVisible());
     jsObject->insert("type", "spectrogram");
+}
+
+QwtLinearColorMap *Spectrogram::copyColorMap(const QwtColorMap *oldColorMap)
+{
+    const QwtLinearColorMap *castedColorMap = dynamic_cast<const QwtLinearColorMap *>(oldColorMap);
+    if (!castedColorMap)
+        return nullptr;
+    QwtLinearColorMap *newColorMap = new QwtLinearColorMap(
+            castedColorMap->color1(), castedColorMap->color2(), castedColorMap->format());
+    for (auto colorStop : castedColorMap->colorStops()) {
+        double zColorStop = this->interval(Qt::ZAxis).minValue()
+                + colorStop * this->interval(Qt::ZAxis).width();
+        newColorMap->addColorStop(colorStop,
+                                  castedColorMap->color(this->interval(Qt::ZAxis), zColorStop));
+    }
+    return newColorMap;
 }
 
 MatrixData::MatrixData(Matrix *m) : d_matrix(m)
