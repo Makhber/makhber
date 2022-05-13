@@ -120,33 +120,34 @@ void Spectrogram::showColorScale(int axis, bool on)
     if (!plot)
         return;
 
-    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
-    colorAxis->setColorBarEnabled(false);
-
-    color_axis = axis;
-
-    // We must switch main and the color scale axes and their respective scales
+    // Set new axes
     int xAxis = this->xAxis();
     int yAxis = this->yAxis();
     int oldMainAxis = 0;
     if (axis == QwtPlot::xBottom || axis == QwtPlot::xTop) {
         oldMainAxis = xAxis;
-        xAxis = 5 - color_axis;
+        xAxis = 5 - axis;
     } else if (axis == QwtPlot::yLeft || axis == QwtPlot::yRight) {
         oldMainAxis = yAxis;
-        yAxis = 1 - color_axis;
+        yAxis = 1 - axis;
+    }
+    setAxes(xAxis, yAxis);
+    // Switch axes scales
+    QwtScaleDiv scDiv = plot->axisScaleDiv(oldMainAxis);
+    if (axis == QwtPlot::xBottom || axis == QwtPlot::xTop) {
+        plot->setAxisScale(xAxis, scDiv.lowerBound(), scDiv.upperBound());
+        plot->enableAxis(xAxis);
+    } else if (axis == QwtPlot::yLeft || axis == QwtPlot::yRight) {
+        plot->setAxisScale(yAxis, scDiv.lowerBound(), scDiv.upperBound());
+        plot->enableAxis(yAxis);
     }
 
-    // First we switch axes
-    setAxes(xAxis, yAxis);
-
-    // Next we switch axes scales
-    QwtScaleDiv scDiv = plot->axisScaleDiv(oldMainAxis);
-    if (axis == QwtPlot::xBottom || axis == QwtPlot::xTop)
-        plot->setAxisScale(xAxis, scDiv.lowerBound(), scDiv.upperBound());
-    else if (axis == QwtPlot::yLeft || color_axis == QwtPlot::yRight)
-        plot->setAxisScale(yAxis, scDiv.lowerBound(), scDiv.upperBound());
-
+    // color bar scale axis
+    if (color_axis != xAxis && color_axis != yAxis)
+        plot->enableAxis(color_axis, false);
+    QwtScaleWidget *colorAxis = plot->axisWidget(color_axis);
+    colorAxis->setColorBarEnabled(false);
+    color_axis = axis;
     colorAxis = plot->axisWidget(color_axis);
     plot->setAxisScale(color_axis, data()->interval(Qt::ZAxis).minValue(),
                        data()->interval(Qt::ZAxis).maxValue());
