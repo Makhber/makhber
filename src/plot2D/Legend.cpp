@@ -28,7 +28,7 @@
  ***************************************************************************/
 #include "Legend.h"
 
-#include "plot2D/QwtPieCurve.h"
+#include "plot2D/PieCurve.h"
 #include "plot2D/VectorCurve.h"
 
 #include <qwt_plot.h>
@@ -330,7 +330,7 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
 
             auto *g = dynamic_cast<Graph *>(d_plot->parent());
             if (g->isPiePlot()) {
-                auto *curve = dynamic_cast<QwtPieCurve *>(d_plot->curve(1));
+                auto *curve = dynamic_cast<PieCurve *>(d_plot->curve(1));
                 if (curve) {
                     const QBrush br = QBrush(curve->color(id - 1), curve->pattern());
                     QPen pen = curve->pen();

@@ -31,7 +31,7 @@
 #include "analysis/fit_gsl.h"
 #include "table/Table.h"
 #include "matrix/Matrix.h"
-#include "plot2D/QwtErrorPlotCurve.h"
+#include "plot2D/ErrorPlotCurve.h"
 #include "plot2D/Legend.h"
 #include "plot2D/FunctionCurve.h"
 #include "core/ColorButton.h"
@@ -339,11 +339,11 @@ bool Fit::setYErrorSource(ErrorSource err, const QString &colName, bool fail_sil
     } break;
     case AssociatedErrors: {
         bool error = true;
-        QwtErrorPlotCurve *er = nullptr;
+        ErrorPlotCurve *er = nullptr;
         if (d_curve && (dynamic_cast<PlotCurve *>(d_curve))->type() != Graph::Function) {
             QList<DataCurve *> lst = (dynamic_cast<DataCurve *>(d_curve))->errorBarsList();
             for (DataCurve *c : lst) {
-                er = dynamic_cast<QwtErrorPlotCurve *>(c);
+                er = dynamic_cast<ErrorPlotCurve *>(c);
                 if (!er->xErrors()) {
                     d_y_error_dataset = er->title().text();
                     error = false;

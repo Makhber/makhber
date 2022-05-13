@@ -31,16 +31,16 @@
 
 #include "plot2D/Grid.h"
 #include "plot2D/CanvasPicker.h"
-#include "plot2D/QwtErrorPlotCurve.h"
+#include "plot2D/ErrorPlotCurve.h"
 #include "plot2D/Legend.h"
 #include "plot2D/ArrowMarker.h"
 #include "plot2D/ScalePicker.h"
 #include "plot2D/TitlePicker.h"
-#include "plot2D/QwtPieCurve.h"
+#include "plot2D/PieCurve.h"
 #include "plot2D/ImageMarker.h"
-#include "plot2D/QwtBarCurve.h"
+#include "plot2D/BarCurve.h"
 #include "plot2D/BoxCurve.h"
-#include "plot2D/QwtHistogram.h"
+#include "plot2D/HistogramCurve.h"
 #include "plot2D/VectorCurve.h"
 #include "plot2D/ScaleDraw.h"
 #include "plot2D/FunctionCurve.h"
@@ -2226,7 +2226,7 @@ QJsonObject Graph::savePieCurveLayout()
     QJsonObject jsPieCurve {};
     jsPieCurve.insert("curveType", "Pie");
 
-    auto *pieCurve = dynamic_cast<QwtPieCurve *>(curve(0));
+    auto *pieCurve = dynamic_cast<PieCurve *>(curve(0));
     jsPieCurve.insert("title", pieCurve->title().text());
 
     QJsonObject jsPen {};
@@ -2327,13 +2327,13 @@ QJsonObject Graph::saveCurveLayout(int index)
     jsCurveLayout.insert("customDash", jsCustomDash);
 
     if (style == VerticalBars || style == HorizontalBars || style == Histogram) {
-        auto *b = dynamic_cast<QwtBarCurve *>(c);
+        auto *b = dynamic_cast<BarCurve *>(c);
         jsCurveLayout.insert("gap", b->gap());
         jsCurveLayout.insert("offset", b->offset());
     }
 
     if (style == Histogram) {
-        auto *h = dynamic_cast<QwtHistogram *>(c);
+        auto *h = dynamic_cast<HistogramCurve *>(c);
         jsCurveLayout.insert("autoBinning", h->autoBinning());
         jsCurveLayout.insert("binSize", h->binSize());
         jsCurveLayout.insert("begin", h->begin());
@@ -2421,7 +2421,7 @@ void Graph::saveCurves(QJsonObject *jsObject)
                 jsCurve.insert("yAxis", c->yAxis());
                 jsCurve.insert("visible", c->isVisible());
             } else if (c->type() == ErrorBars) {
-                auto *er = dynamic_cast<QwtErrorPlotCurve *>(it);
+                auto *er = dynamic_cast<ErrorPlotCurve *>(it);
                 jsCurve.insert("curveType", "ErrorBars");
                 jsCurve.insert("direction", er->direction());
                 jsCurve.insert("masterXCoulumn", er->masterCurve()->xColumnName());
@@ -2819,7 +2819,7 @@ CurveLayout Graph::initCurveLayout(int style, int curves)
         cl.aCol = i + 1;
         cl.sType = 0;
         if (style == Graph::VerticalBars || style == Graph::HorizontalBars) {
-            auto *b = dynamic_cast<QwtBarCurve *>(curve(i));
+            auto *b = dynamic_cast<BarCurve *>(curve(i));
             if (b) {
                 b->setGap(qRound(100 * (1 - 1.0 / (double)curves)));
                 b->setOffset(-50 * (curves - 1) + i * 100);
@@ -2851,11 +2851,11 @@ bool Graph::canConvertTo(QwtPlotCurve *c, CurveType type)
         return type == VectXYXY || type == VectXYAM;
     // conversion between Pie, Histogram and Box should be possible (all of them take one input
     // column), but lots of special-casing in ApplicationWindow and Graph makes this very difficult
-    if (dynamic_cast<QwtPieCurve *>(c) || dynamic_cast<QwtHistogram *>(c)
+    if (dynamic_cast<PieCurve *>(c) || dynamic_cast<HistogramCurve *>(c)
         || dynamic_cast<BoxCurve *>(c))
         return false;
     // converting error bars doesn't make sense
-    if (dynamic_cast<QwtErrorPlotCurve *>(c))
+    if (dynamic_cast<ErrorPlotCurve *>(c))
         return false;
     // line/symbol, area and bar curves can be converted to each other
     if (dynamic_cast<DataCurve *>(c))
@@ -2889,15 +2889,15 @@ void Graph::setCurveType(int curve_index, CurveType type, bool update)
         case Pie:
             return;
         case VerticalBars:
-            new_curve = new QwtBarCurve(QwtBarCurve::Vertical, old_curve->table(),
-                                        old_curve->xColumnName(), old_curve->yColumnName(),
-                                        old_curve->startRow(), old_curve->endRow());
+            new_curve = new BarCurve(BarCurve::Vertical, old_curve->table(),
+                                     old_curve->xColumnName(), old_curve->yColumnName(),
+                                     old_curve->startRow(), old_curve->endRow());
             new_curve->setStyle(QwtPlotCurve::UserCurve);
             break;
         case HorizontalBars:
-            new_curve = new QwtBarCurve(QwtBarCurve::Horizontal, old_curve->table(),
-                                        old_curve->xColumnName(), old_curve->yColumnName(),
-                                        old_curve->startRow(), old_curve->endRow());
+            new_curve = new BarCurve(BarCurve::Horizontal, old_curve->table(),
+                                     old_curve->xColumnName(), old_curve->yColumnName(),
+                                     old_curve->startRow(), old_curve->endRow());
             new_curve->setStyle(QwtPlotCurve::UserCurve);
             break;
         default:
@@ -2981,7 +2981,7 @@ void Graph::updateCurveLayout(int index, const CurveLayout *cL)
     c->setBrush(brush);
 }
 
-void Graph::updateErrorBars(QwtErrorPlotCurve *er, bool xErr, int width, int cap, const QColor &c,
+void Graph::updateErrorBars(ErrorPlotCurve *er, bool xErr, int width, int cap, const QColor &c,
                             bool plus, bool minus, bool through)
 {
     if (!er)
@@ -3026,7 +3026,7 @@ bool Graph::addErrorBars(const QString &xColName, const QString &yColName, Table
     if (!master_curve)
         return false;
 
-    auto *er = new QwtErrorPlotCurve(type, errTable, errColName);
+    auto *er = new ErrorPlotCurve(type, errTable, errColName);
     er->setMasterCurve(master_curve);
     er->setCapLength(cap);
     er->setColor(color);
@@ -3051,7 +3051,7 @@ void Graph::plotPie(Table *w, const QString &name, const QPen &pen, int brush, i
     if (endRow < 0)
         endRow = w->numRows() - 1;
 
-    auto *pieCurve = new QwtPieCurve(w, name, startRow, endRow);
+    auto *pieCurve = new PieCurve(w, name, startRow, endRow);
     pieCurve->loadData();
     pieCurve->setPen(pen);
     pieCurve->setRay(size);
@@ -3106,7 +3106,7 @@ void Graph::plotPie(Table *w, const QString &name, int startRow, int endRow)
         return;
     Y.resize(size);
 
-    auto *pieCurve = new QwtPieCurve(w, name, startRow, endRow);
+    auto *pieCurve = new PieCurve(w, name, startRow, endRow);
     pieCurve->setSamples(Y.data(), Y.data(), size);
 
     c_keys.resize(++n_curves);
@@ -3115,7 +3115,7 @@ void Graph::plotPie(Table *w, const QString &name, int startRow, int endRow)
     c_type.resize(n_curves);
     c_type[n_curves - 1] = Pie;
 
-    // This has to be synced with QwtPieCurve::drawPie() for now... until we have a clean solution.
+    // This has to be synced with PieCurve::drawPie() for now... until we have a clean solution.
     QRectF canvas_rect = d_plot->plotLayout()->canvasRect();
     float radius = 0.45 * qMin(canvas_rect.width(), canvas_rect.height());
 
@@ -3173,7 +3173,7 @@ bool Graph::plotHistogram(Table *w, QStringList names, int startRow, int endRow)
         if (!col_ptr || col_ptr->columnMode() != Makhber::ColumnMode::Numeric)
             continue;
 
-        auto *c = new QwtHistogram(w, col, startRow, endRow);
+        auto *c = new HistogramCurve(w, col, startRow, endRow);
         c->loadData();
         c->setStyle(QwtPlotCurve::UserCurve);
 
@@ -3305,11 +3305,11 @@ bool Graph::insertCurve(Table *w, const QString &xColName, const QString &yColNa
     case Pie:
         return false;
     case VerticalBars:
-        c = new QwtBarCurve(QwtBarCurve::Vertical, w, xColName, yColName, startRow, endRow);
+        c = new BarCurve(BarCurve::Vertical, w, xColName, yColName, startRow, endRow);
         c->setStyle(QwtPlotCurve::UserCurve);
         break;
     case HorizontalBars:
-        c = new QwtBarCurve(QwtBarCurve::Horizontal, w, xColName, yColName, startRow, endRow);
+        c = new BarCurve(BarCurve::Horizontal, w, xColName, yColName, startRow, endRow);
         c->setStyle(QwtPlotCurve::UserCurve);
         break;
     default:
@@ -3402,7 +3402,7 @@ void Graph::updatePlot()
     updateSecondaryAxis(QwtPlot::yRight);
 
     if (isPiePlot()) {
-        auto *c = dynamic_cast<QwtPieCurve *>(curve(0));
+        auto *c = dynamic_cast<PieCurve *>(curve(0));
         c->updateBoundingRect();
     }
 
@@ -3439,7 +3439,7 @@ void Graph::updateScale()
 
 void Graph::setBarsGap(int curve, int gapPercent, int offset)
 {
-    auto *bars = dynamic_cast<QwtBarCurve *>(this->curve(curve));
+    auto *bars = dynamic_cast<BarCurve *>(this->curve(curve));
     if (!bars)
         return;
 
@@ -3511,7 +3511,7 @@ void Graph::removeCurve(int index)
 
     if (it->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
         if ((dynamic_cast<PlotCurve *>(it))->type() == ErrorBars)
-            (dynamic_cast<QwtErrorPlotCurve *>(it))->detachFromMasterCurve();
+            (dynamic_cast<ErrorPlotCurve *>(it))->detachFromMasterCurve();
         else if ((dynamic_cast<PlotCurve *>(it))->type() != Function)
             (dynamic_cast<DataCurve *>(it))->clearErrorBars();
 
@@ -4448,29 +4448,30 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
 
             PlotCurve *c = nullptr;
             if (style == Pie) {
-                c = new QwtPieCurve(cv->table(), cv->title().text(), cv->startRow(), cv->endRow());
-                (dynamic_cast<QwtPieCurve *>(c))->setRay((dynamic_cast<QwtPieCurve *>(cv))->ray());
-                (dynamic_cast<QwtPieCurve *>(c))
-                        ->setFirstColor((dynamic_cast<QwtPieCurve *>(cv))->firstColor());
+                c = new PieCurve(cv->table(), cv->title().text(), cv->startRow(), cv->endRow());
+                (dynamic_cast<PieCurve *>(c))->setRay((dynamic_cast<PieCurve *>(cv))->ray());
+                (dynamic_cast<PieCurve *>(c))
+                        ->setFirstColor((dynamic_cast<PieCurve *>(cv))->firstColor());
             } else if (style == Function) {
                 c = new FunctionCurve(parent, cv->title().text());
                 dynamic_cast<FunctionCurve *>(c)->copy(dynamic_cast<FunctionCurve *>(it));
             } else if (style == VerticalBars || style == HorizontalBars) {
-                c = new QwtBarCurve((dynamic_cast<QwtBarCurve *>(cv))->orientation(), cv->table(),
-                                    cv->xColumnName(), cv->title().text(), cv->startRow(),
-                                    cv->endRow());
-                (dynamic_cast<QwtBarCurve *>(c))->copy(dynamic_cast<const QwtBarCurve *>(cv));
+                c = new BarCurve((dynamic_cast<BarCurve *>(cv))->orientation(), cv->table(),
+                                 cv->xColumnName(), cv->title().text(), cv->startRow(),
+                                 cv->endRow());
+                (dynamic_cast<BarCurve *>(c))->copy(dynamic_cast<const BarCurve *>(cv));
             } else if (style == ErrorBars) {
-                auto *er = dynamic_cast<QwtErrorPlotCurve *>(cv);
+                auto *er = dynamic_cast<ErrorPlotCurve *>(cv);
                 DataCurve *master_curve = masterCurve(er);
                 if (master_curve) {
-                    c = new QwtErrorPlotCurve(cv->table(), cv->title().text());
-                    (dynamic_cast<QwtErrorPlotCurve *>(c))->copy(er);
-                    (dynamic_cast<QwtErrorPlotCurve *>(c))->setMasterCurve(master_curve);
+                    c = new ErrorPlotCurve(cv->table(), cv->title().text());
+                    (dynamic_cast<ErrorPlotCurve *>(c))->copy(er);
+                    (dynamic_cast<ErrorPlotCurve *>(c))->setMasterCurve(master_curve);
                 }
             } else if (style == Histogram) {
-                c = new QwtHistogram(cv->table(), cv->title().text(), cv->startRow(), cv->endRow());
-                (dynamic_cast<QwtHistogram *>(c))->copy(dynamic_cast<const QwtHistogram *>(cv));
+                c = new HistogramCurve(cv->table(), cv->title().text(), cv->startRow(),
+                                       cv->endRow());
+                (dynamic_cast<HistogramCurve *>(c))->copy(dynamic_cast<const HistogramCurve *>(cv));
             } else if (style == VectXYXY || style == VectXYAM) {
                 VectorCurve::VectorStyle vs = VectorCurve::XYXY;
                 if (style == VectXYAM)
@@ -4625,7 +4626,7 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
     d_plot->replot();
 
     if (isPiePlot()) {
-        auto *c = dynamic_cast<QwtPieCurve *>(curve(0));
+        auto *c = dynamic_cast<PieCurve *>(curve(0));
         c->updateBoundingRect();
     }
 }
@@ -4822,7 +4823,7 @@ void Graph::guessUniqueCurveLayout(int &colorIndex, int &symbolIndex)
     int curve_index = n_curves - 1;
     if (curve_index >= 0
         && c_type[curve_index] == ErrorBars) { // find out the pen color of the master curve
-        auto *er = dynamic_cast<QwtErrorPlotCurve *>(d_plot->curve(c_keys[curve_index]));
+        auto *er = dynamic_cast<ErrorPlotCurve *>(d_plot->curve(c_keys[curve_index]));
         DataCurve *master_curve = er->masterCurve();
         if (master_curve) {
             colorIndex = ColorButton::colorIndex(master_curve->pen().color());
@@ -5098,7 +5099,7 @@ void Graph::setCurveFullRange(int curveIndex)
     }
 }
 
-DataCurve *Graph::masterCurve(QwtErrorPlotCurve *er)
+DataCurve *Graph::masterCurve(ErrorPlotCurve *er)
 {
     QList<int> keys = d_plot->curveKeys();
     for (int i = 0; i < (int)keys.count(); i++) {

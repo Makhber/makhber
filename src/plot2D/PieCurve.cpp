@@ -1,5 +1,5 @@
 /***************************************************************************
-    File                 : QwtPieCurve.cpp
+    File                 : PieCurve.cpp
     Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
@@ -26,7 +26,7 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "QwtPieCurve.h"
+#include "PieCurve.h"
 
 #include "core/ColorButton.h"
 #include "table/Table.h"
@@ -40,7 +40,7 @@
 #include <QVarLengthArray>
 #include <QLocale>
 
-QwtPieCurve::QwtPieCurve(Table *t, const QString &name, int startRow, int endRow)
+PieCurve::PieCurve(Table *t, const QString &name, int startRow, int endRow)
     : DataCurve(t, QString(), name, startRow, endRow)
 {
     d_pie_ray = 0;
@@ -51,8 +51,8 @@ QwtPieCurve::QwtPieCurve(Table *t, const QString &name, int startRow, int endRow
     setType(Graph::Pie);
 }
 
-void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       [[maybe_unused]] const QRectF &canvasRect) const
+void PieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                    [[maybe_unused]] const QRectF &canvasRect) const
 {
     if (!painter || dataSize() == 0)
         return;
@@ -60,8 +60,8 @@ void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     drawPie(painter, xMap, yMap, 0, static_cast<int>(dataSize() - 1));
 }
 
-void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       int from, int to) const
+void PieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
+                    int to) const
 {
     if (!painter || dataSize() == 0)
         return;
@@ -72,8 +72,8 @@ void QwtPieCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     drawPie(painter, xMap, yMap, from, to);
 }
 
-void QwtPieCurve::drawPie(QPainter *painter, const QwtScaleMap &, const QwtScaleMap &, int from,
-                          int to) const
+void PieCurve::drawPie(QPainter *painter, const QwtScaleMap &, const QwtScaleMap &, int from,
+                       int to) const
 {
     // This has to be synced with Graph::plotPie() for now... until we have a clean solution.
     QRect canvas_rect = plot()->plotLayout()->canvasRect().toRect();
@@ -109,13 +109,13 @@ void QwtPieCurve::drawPie(QPainter *painter, const QwtScaleMap &, const QwtScale
     painter->restore();
 }
 
-QColor QwtPieCurve::color(int i) const
+QColor PieCurve::color(int i) const
 {
     int index = (d_first_color + i) % ColorButton::colors_count;
     return ColorButton::color(index);
 }
 
-void QwtPieCurve::setBrushStyle(const Qt::BrushStyle &style)
+void PieCurve::setBrushStyle(const Qt::BrushStyle &style)
 {
     QBrush br = QwtPlotCurve::brush();
     if (br.style() == style)
@@ -125,7 +125,7 @@ void QwtPieCurve::setBrushStyle(const Qt::BrushStyle &style)
     setBrush(br);
 }
 
-bool QwtPieCurve::loadData()
+bool PieCurve::loadData()
 {
     QVarLengthArray<double> Y(abs(d_end_row - d_start_row) + 1);
     int size = 0;
@@ -153,7 +153,7 @@ bool QwtPieCurve::loadData()
     return true;
 }
 
-void QwtPieCurve::updateBoundingRect()
+void PieCurve::updateBoundingRect()
 {
     if (!plot())
         return;

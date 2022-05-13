@@ -7385,7 +7385,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1360"/>
         <location filename="../src/plot2D/Graph.cpp" line="1378"/>
         <location filename="../src/plot2D/Graph.cpp" line="1393"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4981"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
@@ -7409,7 +7409,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1403"/>
         <location filename="../src/plot2D/Graph.cpp" line="4227"/>
         <location filename="../src/plot2D/Graph.cpp" line="4231"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4969"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4970"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
@@ -7531,12 +7531,12 @@ p, li { white-space: pre-wrap; }
         <translation>&amp;Skala...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4970"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4971"/>
         <source>There are no curves available on this plot!</source>
         <translation>Nejsou zde žádné křivky, které by byly dostupné pro tento nákres!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4983"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>V tomto nákresu nejsou žádné křivky, které by měly více než dva body. Operace zrušena!</translation>
     </message>

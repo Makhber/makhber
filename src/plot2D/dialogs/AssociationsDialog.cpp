@@ -31,7 +31,7 @@
 #include "table/Table.h"
 #include "plot2D/FunctionCurve.h"
 #include "plot2D/PlotCurve.h"
-#include "plot2D/QwtErrorPlotCurve.h"
+#include "plot2D/ErrorPlotCurve.h"
 #include "plot2D/VectorCurve.h"
 
 #include <QLabel>
@@ -137,7 +137,7 @@ void AssociationsDialog::changePlotAssociation(int curve, const QString &text)
         c->setTitle(lst[1].remove("(Y)"));
         c->loadData();
     } else if (lst.count() == 3) { // curve with error bars
-        auto *er = dynamic_cast<QwtErrorPlotCurve *>(c);
+        auto *er = dynamic_cast<ErrorPlotCurve *>(c);
         QString xColName = lst[0].remove("(X)");
         QString yColName = lst[1].remove("(Y)");
         QString erColName = lst[2].remove("(xErr)").remove("(yErr)");

@@ -7412,7 +7412,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1360"/>
         <location filename="../src/plot2D/Graph.cpp" line="1378"/>
         <location filename="../src/plot2D/Graph.cpp" line="1393"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4981"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
@@ -7436,7 +7436,7 @@ p, li { white-space: pre-wrap; }
         <location filename="../src/plot2D/Graph.cpp" line="1403"/>
         <location filename="../src/plot2D/Graph.cpp" line="4227"/>
         <location filename="../src/plot2D/Graph.cpp" line="4231"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4969"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4970"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
@@ -7560,12 +7560,12 @@ p, li { white-space: pre-wrap; }
         <translation>比例(&amp;S)...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4970"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4971"/>
         <source>There are no curves available on this plot!</source>
         <translation>此繪圖中沒有有效曲線！</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4983"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>此繪圖中沒有包含多於兩個點的曲線。操作終止！</translation>
     </message>

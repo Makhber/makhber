@@ -1,5 +1,5 @@
 /***************************************************************************
-    File                 : QwtErrorPlotCurve.h
+    File                 : ErrorPlotCurve.h
     Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
@@ -34,13 +34,13 @@
 #include <qwt_plot.h>
 
 //! Error bars curve
-class MAKHBER_EXPORT QwtErrorPlotCurve : public DataCurve
+class MAKHBER_EXPORT ErrorPlotCurve : public DataCurve
 {
 public:
-    QwtErrorPlotCurve(Qt::Orientation orientation, Table *t, const QString &name);
-    QwtErrorPlotCurve(Table *t, const QString &name);
+    ErrorPlotCurve(Qt::Orientation orientation, Table *t, const QString &name);
+    ErrorPlotCurve(Table *t, const QString &name);
 
-    void copy(const QwtErrorPlotCurve *e);
+    void copy(const ErrorPlotCurve *e);
 
     QRectF boundingRect() const;
 

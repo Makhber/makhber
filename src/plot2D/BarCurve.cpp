@@ -1,5 +1,5 @@
 /***************************************************************************
-    File                 : QwtBarCurve.cpp
+    File                 : BarCurve.cpp
     Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
@@ -26,7 +26,7 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "QwtBarCurve.h"
+#include "BarCurve.h"
 
 #include <qwt_scale_map.h>
 
@@ -34,8 +34,8 @@
 
 #include <cmath>
 
-QwtBarCurve::QwtBarCurve(BarStyle style, Table *t, const QString &xColName, const QString &name,
-                         int startRow, int endRow)
+BarCurve::BarCurve(BarStyle style, Table *t, const QString &xColName, const QString &name,
+                   int startRow, int endRow)
     : DataCurve(t, xColName, name, startRow, endRow)
 {
     bar_offset = 0;
@@ -51,15 +51,15 @@ QwtBarCurve::QwtBarCurve(BarStyle style, Table *t, const QString &xColName, cons
         setType(Graph::HorizontalBars);
 }
 
-void QwtBarCurve::copy(const QwtBarCurve *b)
+void BarCurve::copy(const BarCurve *b)
 {
     bar_gap = b->bar_gap;
     bar_offset = b->bar_offset;
     bar_style = b->bar_style;
 }
 
-void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       [[maybe_unused]] const QRectF &canvasRect) const
+void BarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                    [[maybe_unused]] const QRectF &canvasRect) const
 {
     if (!painter || dataSize() == 0)
         return;
@@ -73,8 +73,8 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     painter->restore();
 }
 
-void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                       int from, int to) const
+void BarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
+                    int to) const
 {
     int dx = 0, dy = 0;
     double ref1 = NAN, ref2 = NAN;
@@ -134,7 +134,7 @@ void QwtBarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScal
     }
 }
 
-QRectF QwtBarCurve::boundingRect() const
+QRectF BarCurve::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
     auto n = (double)dataSize();
@@ -152,7 +152,7 @@ QRectF QwtBarCurve::boundingRect() const
     return rect;
 }
 
-void QwtBarCurve::setGap(int gap)
+void BarCurve::setGap(int gap)
 {
     if (bar_gap == gap)
         return;
@@ -160,7 +160,7 @@ void QwtBarCurve::setGap(int gap)
     bar_gap = gap;
 }
 
-void QwtBarCurve::setOffset(int offset)
+void BarCurve::setOffset(int offset)
 {
     if (bar_offset == offset)
         return;
@@ -168,7 +168,7 @@ void QwtBarCurve::setOffset(int offset)
     bar_offset = offset;
 }
 
-double QwtBarCurve::dataOffset()
+double BarCurve::dataOffset()
 {
     if (bar_style == Vertical) {
         const QwtScaleMap &xMap = plot()->canvasMap(xAxis());

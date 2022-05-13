@@ -1,5 +1,5 @@
 /***************************************************************************
-    File                 : QwtHistogram.cpp
+    File                 : HistogramCurve.cpp
     Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
@@ -26,7 +26,7 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "QwtHistogram.h"
+#include "HistogramCurve.h"
 
 #include "aspects/column/Column.h"
 
@@ -41,15 +41,15 @@
 #include <array>
 #include <cmath>
 
-QwtHistogram::QwtHistogram(Table *t, const QString &name, int startRow, int endRow)
-    : QwtBarCurve(QwtBarCurve::Vertical, t, "dummy", name, startRow, endRow)
+HistogramCurve::HistogramCurve(Table *t, const QString &name, int startRow, int endRow)
+    : BarCurve(BarCurve::Vertical, t, "dummy", name, startRow, endRow)
 {
     d_autoBin = true;
 }
 
-void QwtHistogram::copy(const QwtHistogram *h)
+void HistogramCurve::copy(const HistogramCurve *h)
 {
-    QwtBarCurve::copy((const QwtBarCurve *)h);
+    BarCurve::copy((const BarCurve *)h);
 
     d_autoBin = h->d_autoBin;
     d_bin_size = h->d_bin_size;
@@ -57,8 +57,8 @@ void QwtHistogram::copy(const QwtHistogram *h)
     d_end = h->d_end;
 }
 
-void QwtHistogram::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                        int from, int to) const
+void HistogramCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                          int from, int to) const
 {
     if (!painter || dataSize() == 0)
         return;
@@ -85,7 +85,7 @@ void QwtHistogram::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtSca
     painter->restore();
 }
 
-QRectF QwtHistogram::boundingRect() const
+QRectF HistogramCurve::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
     rect.setLeft(rect.left() - sample(1).x());
@@ -95,7 +95,7 @@ QRectF QwtHistogram::boundingRect() const
     return rect;
 }
 
-void QwtHistogram::setBinning(bool autoBin, double size, double begin, double end)
+void HistogramCurve::setBinning(bool autoBin, double size, double begin, double end)
 {
     d_autoBin = autoBin;
     d_bin_size = size;
@@ -103,7 +103,7 @@ void QwtHistogram::setBinning(bool autoBin, double size, double begin, double en
     d_end = end;
 }
 
-bool QwtHistogram::loadData()
+bool HistogramCurve::loadData()
 {
     int r = abs(d_end_row - d_start_row) + 1;
     QVarLengthArray<double> Y(r);
@@ -195,7 +195,7 @@ bool QwtHistogram::loadData()
     return true;
 }
 
-void QwtHistogram::initData(const QVector<double> &Y, int size)
+void HistogramCurve::initData(const QVector<double> &Y, int size)
 {
     if (size < 2 || (size == 2 && Y[0] == Y[1])) { // non valid histogram data
         std::array<double, 2> x, y;

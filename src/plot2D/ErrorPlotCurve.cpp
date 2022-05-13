@@ -1,5 +1,5 @@
 /***************************************************************************
-    File                 : QwtErrorPlotCurve.cpp
+    File                 : ErrorPlotCurve.cpp
     Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
@@ -26,9 +26,9 @@
  *   Boston, MA  02110-1301  USA                                           *
  *                                                                         *
  ***************************************************************************/
-#include "QwtErrorPlotCurve.h"
+#include "ErrorPlotCurve.h"
 
-#include "plot2D/QwtBarCurve.h"
+#include "plot2D/BarCurve.h"
 #include "aspects/column/Column.h"
 
 #include <qwt_painter.h>
@@ -39,7 +39,7 @@
 #include <QPainter>
 #include <QLocale>
 
-QwtErrorPlotCurve::QwtErrorPlotCurve(Qt::Orientation orientation, Table *t, const QString &name)
+ErrorPlotCurve::ErrorPlotCurve(Qt::Orientation orientation, Table *t, const QString &name)
     : DataCurve(t, QString(), name), d_master_curve(nullptr)
 {
     cap = 10;
@@ -50,7 +50,7 @@ QwtErrorPlotCurve::QwtErrorPlotCurve(Qt::Orientation orientation, Table *t, cons
     setType(Graph::ErrorBars);
 }
 
-QwtErrorPlotCurve::QwtErrorPlotCurve(Table *t, const QString &name)
+ErrorPlotCurve::ErrorPlotCurve(Table *t, const QString &name)
     : DataCurve(t, QString(), name), d_master_curve(nullptr)
 {
     cap = 10;
@@ -61,7 +61,7 @@ QwtErrorPlotCurve::QwtErrorPlotCurve(Table *t, const QString &name)
     setType(Graph::ErrorBars);
 }
 
-void QwtErrorPlotCurve::copy(const QwtErrorPlotCurve *e)
+void ErrorPlotCurve::copy(const ErrorPlotCurve *e)
 {
     cap = e->cap;
     type = e->type;
@@ -72,8 +72,8 @@ void QwtErrorPlotCurve::copy(const QwtErrorPlotCurve *e)
     err = e->err;
 }
 
-void QwtErrorPlotCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                             [[maybe_unused]] const QRectF &canvasRect) const
+void ErrorPlotCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+                          [[maybe_unused]] const QRectF &canvasRect) const
 {
     if (!painter || dataSize() == 0)
         return;
@@ -84,8 +84,8 @@ void QwtErrorPlotCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const Q
     painter->restore();
 }
 
-void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap,
-                                      const QwtScaleMap &yMap, int from, int to) const
+void ErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap,
+                                   const QwtScaleMap &yMap, int from, int to) const
 {
     int sh = 0;
     int sw = 0;
@@ -97,9 +97,9 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
     double d_xOffset = 0.0;
     double d_yOffset = 0.0;
     if (d_master_curve->type() == Graph::VerticalBars)
-        d_xOffset = (dynamic_cast<QwtBarCurve *>(d_master_curve))->dataOffset();
+        d_xOffset = (dynamic_cast<BarCurve *>(d_master_curve))->dataOffset();
     else if (d_master_curve->type() == Graph::HorizontalBars)
-        d_yOffset = (dynamic_cast<QwtBarCurve *>(d_master_curve))->dataOffset();
+        d_yOffset = (dynamic_cast<BarCurve *>(d_master_curve))->dataOffset();
 
     QwtIntervalSymbol errorBar(QwtIntervalSymbol::Bar);
     errorBar.setWidth(cap);
@@ -186,7 +186,7 @@ void QwtErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap
     }
 }
 
-double QwtErrorPlotCurve::errorValue(int i)
+double ErrorPlotCurve::errorValue(int i)
 {
     if (i >= 0 && i < static_cast<int>(dataSize()))
         return err[i];
@@ -194,7 +194,7 @@ double QwtErrorPlotCurve::errorValue(int i)
         return 0.0;
 }
 
-bool QwtErrorPlotCurve::xErrors()
+bool ErrorPlotCurve::xErrors()
 {
     bool x = false;
     if (type == Qt::Horizontal)
@@ -203,7 +203,7 @@ bool QwtErrorPlotCurve::xErrors()
     return x;
 }
 
-void QwtErrorPlotCurve::setXErrors(bool yes)
+void ErrorPlotCurve::setXErrors(bool yes)
 {
     if (yes)
         type = Qt::Horizontal;
@@ -211,21 +211,21 @@ void QwtErrorPlotCurve::setXErrors(bool yes)
         type = Qt::Vertical;
 }
 
-void QwtErrorPlotCurve::setWidth(int w)
+void ErrorPlotCurve::setWidth(int w)
 {
     QPen p = pen();
     p.setWidth(w);
     setPen(p);
 }
 
-void QwtErrorPlotCurve::setColor(const QColor &c)
+void ErrorPlotCurve::setColor(const QColor &c)
 {
     QPen p = pen();
     p.setColor(c);
     setPen(p);
 }
 
-QRectF QwtErrorPlotCurve::boundingRect() const
+QRectF ErrorPlotCurve::boundingRect() const
 {
     QRectF rect = QwtPlotCurve::boundingRect();
 
@@ -267,7 +267,7 @@ QRectF QwtErrorPlotCurve::boundingRect() const
     return rect;
 }
 
-void QwtErrorPlotCurve::setMasterCurve(DataCurve *c)
+void ErrorPlotCurve::setMasterCurve(DataCurve *c)
 {
     if (!c || d_master_curve == c)
         return;
@@ -281,7 +281,7 @@ void QwtErrorPlotCurve::setMasterCurve(DataCurve *c)
     loadData();
 }
 
-bool QwtErrorPlotCurve::loadData()
+bool ErrorPlotCurve::loadData()
 {
     if (!d_master_curve)
         return false;
@@ -314,7 +314,7 @@ bool QwtErrorPlotCurve::loadData()
     return true;
 }
 
-QString QwtErrorPlotCurve::plotAssociation()
+QString ErrorPlotCurve::plotAssociation()
 {
     if (!d_master_curve)
         return QString();
@@ -327,7 +327,7 @@ QString QwtErrorPlotCurve::plotAssociation()
         return base + "(yErr)";
 }
 
-bool QwtErrorPlotCurve::updateData(Table *t, const QString &colName)
+bool ErrorPlotCurve::updateData(Table *t, const QString &colName)
 {
     if (d_table != t || colName != title().text())
         return false;

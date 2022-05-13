@@ -34,7 +34,7 @@
 #include "plot2D/Plot.h"
 #include "plot2D/FunctionCurve.h"
 #include "plot2D/PlotCurve.h"
-#include "plot2D/QwtErrorPlotCurve.h"
+#include "plot2D/ErrorPlotCurve.h"
 #include "core/ApplicationWindow.h"
 #include "aspects/column/Column.h"
 

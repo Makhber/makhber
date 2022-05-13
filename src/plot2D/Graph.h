@@ -50,7 +50,7 @@
 
 class QwtPlotCurve;
 class QwtPlotZoomer;
-class QwtPieCurve;
+class PieCurve;
 class Table;
 class Legend;
 class ArrowMarker;
@@ -64,7 +64,7 @@ class SelectionMoveResizer;
 class RangeSelectorTool;
 class DataCurve;
 class PlotCurve;
-class QwtErrorPlotCurve;
+class ErrorPlotCurve;
 
 //! Structure containing curve layout parameters
 typedef struct CurveLayout_struct
@@ -299,11 +299,11 @@ public Q_SLOTS:
                       const QColor &color = QColor(Qt::black), bool through = true,
                       bool minus = true, bool plus = true);
 
-    void updateErrorBars(QwtErrorPlotCurve *er, bool xErr, int width, int cap, const QColor &c,
+    void updateErrorBars(ErrorPlotCurve *er, bool xErr, int width, int cap, const QColor &c,
                          bool plus, bool minus, bool through);
 
     //! Returns a valid master curve for the error bars curve.
-    DataCurve *masterCurve(QwtErrorPlotCurve *er);
+    DataCurve *masterCurve(ErrorPlotCurve *er);
     //! Returns a valid master curve for a plot association.
     DataCurve *masterCurve(const QString &xColName, const QString &yColName);
     //@}

@@ -1,10 +1,10 @@
 /***************************************************************************
-    File                 : QwtHistogram.h
+    File                 : PieCurve.h
     Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
     Email (use @ for *)  : ion_vasilief*yahoo.fr, thzs*gmx.net
-    Description          : Histogram class
+    Description          : Pie plot class
 
  ***************************************************************************/
 
@@ -27,39 +27,45 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "plot2D/QwtBarCurve.h"
+#include "plot2D/PlotCurve.h"
 
-//! Histogram class
-class MAKHBER_EXPORT QwtHistogram : public QwtBarCurve
+#include <qwt_plot.h>
+
+//! Pie plot class
+class MAKHBER_EXPORT PieCurve : public DataCurve
 {
 public:
-    QwtHistogram(Table *t, const QString &name, int startRow, int endRow);
+    PieCurve(Table *t, const QString &name, int startRow, int endRow);
 
-    void copy(const QwtHistogram *h);
+public Q_SLOTS:
+    QColor color(int i) const;
 
-    QRectF boundingRect() const;
+    int ray() { return d_pie_ray; };
+    void setRay(int size)
+    {
+        d_pie_ray = size;
+        updateBoundingRect();
+    };
 
-    void setBinning(bool autoBin, double size, double begin, double end);
-    bool autoBinning() { return d_autoBin; };
-    double begin() { return d_begin; };
-    double end() { return d_end; };
-    double binSize() { return d_bin_size; };
+    Qt::BrushStyle pattern() { return QwtPlotCurve::brush().style(); };
+    void setBrushStyle(const Qt::BrushStyle &style);
+
+    void setFirstColor(int index) { d_first_color = index; };
+    int firstColor() { return d_first_color; };
 
     virtual bool loadData();
-    void initData(const QVector<double> &Y, int size);
-
-    double mean() { return d_mean; };
-    double standardDeviation() { return d_standard_deviation; };
-    double minimum() { return d_min; };
-    double maximum() { return d_max; };
+    void updateBoundingRect();
 
 private:
+    void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+              const QRectF &canvasRect) const;
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;
 
-    bool d_autoBin;
-    double d_bin_size {}, d_begin {}, d_end {};
+    void drawPie(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
+                 int to) const;
 
-    //! Variables storing statistical information
-    double d_mean {}, d_standard_deviation {}, d_min {}, d_max {};
+    int d_pie_ray, d_first_color;
+    //! Keeps track of the left side position of the pie bounding rectangle in scale coordinates.
+    double d_left_coord {};
 };

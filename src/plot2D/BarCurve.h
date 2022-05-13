@@ -1,5 +1,5 @@
 /***************************************************************************
-    File                 : QwtBarCurve.h
+    File                 : BarCurve.h
     Project              : Makhber
     --------------------------------------------------------------------
     Copyright            : (C) 2006 by Ion Vasilief, Tilman Benkert
@@ -34,14 +34,14 @@
 #include <qwt_plot.h>
 
 //! Bar curve
-class MAKHBER_EXPORT QwtBarCurve : public DataCurve
+class MAKHBER_EXPORT BarCurve : public DataCurve
 {
 public:
     enum BarStyle { Vertical = 0, Horizontal = 1 };
-    QwtBarCurve(BarStyle style, Table *t, const QString &xColName, const QString &name,
-                int startRow, int endRow);
+    BarCurve(BarStyle style, Table *t, const QString &xColName, const QString &name, int startRow,
+             int endRow);
 
-    void copy(const QwtBarCurve *b);
+    void copy(const BarCurve *b);
 
     virtual QRectF boundingRect() const;
 

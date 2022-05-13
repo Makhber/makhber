@@ -36,7 +36,7 @@
 #include "core/ColorButton.h"
 #include "core/Folder.h"
 #include "plot2D/MultiLayer.h"
-#include "plot2D/QwtHistogram.h"
+#include "plot2D/HistogramCurve.h"
 #include "plot2D/Grid.h"
 #include "aspects/datatypes/Double2StringFilter.h"
 #include "aspects/datatypes/DateTime2StringFilter.h"
@@ -941,11 +941,11 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
 
                 graph->updateCurveLayout(c, &cl);
                 if (style == Graph::VerticalBars || style == Graph::HorizontalBars) {
-                    auto *b = dynamic_cast<QwtBarCurve *>(graph->curve(c));
+                    auto *b = dynamic_cast<BarCurve *>(graph->curve(c));
                     if (b)
                         b->setGap(qRound(100 - _curve.symbolSize * 10));
                 } else if (style == Graph::Histogram) {
-                    auto *h = dynamic_cast<QwtHistogram *>(graph->curve(c));
+                    auto *h = dynamic_cast<HistogramCurve *>(graph->curve(c));
                     if (h) {
                         h->setBinning(false, layer.histogramBin, layer.histogramBegin,
                                       layer.histogramEnd);

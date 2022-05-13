@@ -36,14 +36,14 @@
 #include "scripting/MyParser.h"
 #include "plot2D/SymbolBox.h"
 #include "plot2D/ColorMapEditor.h"
-#include "plot2D/QwtHistogram.h"
+#include "plot2D/HistogramCurve.h"
 #include "plot2D/VectorCurve.h"
-#include "plot2D/QwtErrorPlotCurve.h"
+#include "plot2D/ErrorPlotCurve.h"
 #include "plot2D/BoxCurve.h"
 #include "plot2D/FunctionCurve.h"
 #include "plot2D/Spectrogram.h"
-#include "plot2D/QwtBarCurve.h"
-#include "plot2D/QwtPieCurve.h"
+#include "plot2D/BarCurve.h"
+#include "plot2D/PieCurve.h"
 #include "lib/QStringStdString.h"
 #include "aspects/column/Column.h"
 
@@ -1057,7 +1057,7 @@ void PlotDialog::showStatistics()
     if (!plotItem)
         return;
 
-    auto *h = dynamic_cast<QwtHistogram *>(plotItem);
+    auto *h = dynamic_cast<HistogramCurve *>(plotItem);
     if (!h)
         return;
 
@@ -1158,7 +1158,7 @@ void PlotDialog::changeErrorBarsPlus()
     if (!graph)
         return;
 
-    graph->updateErrorBars((QwtErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1176,7 +1176,7 @@ void PlotDialog::changeErrorBarsMinus()
     if (!graph)
         return;
 
-    graph->updateErrorBars((QwtErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1194,7 +1194,7 @@ void PlotDialog::changeErrorBarsThrough()
     if (!graph)
         return;
 
-    graph->updateErrorBars((QwtErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1212,7 +1212,7 @@ void PlotDialog::changeErrorBarsType()
     if (!graph)
         return;
 
-    graph->updateErrorBars((QwtErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1230,7 +1230,7 @@ void PlotDialog::pickErrorBarsColor(QColor color)
     if (!graph)
         return;
 
-    graph->updateErrorBars((QwtErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(), color,
                            plusBox->isChecked(), minusBox->isChecked(), throughBox->isChecked());
 }
@@ -1488,7 +1488,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
 
     int curveType = item->plotItemType();
     if (curveType == Graph::Pie) {
-        auto *pie = (QwtPieCurve *)i;
+        auto *pie = (PieCurve *)i;
         boxRadius->setValue(pie->ray());
         boxPiePattern->setPattern(pie->pattern());
         boxPieLineWidth->setValue(pie->pen().width());
@@ -1567,7 +1567,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
 
     if (curveType == Graph::VerticalBars || curveType == Graph::HorizontalBars
         || curveType == Graph::Histogram) { // spacing page
-        auto *b = (QwtBarCurve *)i;
+        auto *b = (BarCurve *)i;
         if (b) {
             gapBox->setValue(b->gap());
             offsetBox->setValue(b->offset());
@@ -1575,7 +1575,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     }
 
     if (curveType == Graph::Histogram) { // Histogram page
-        auto *h = (QwtHistogram *)i;
+        auto *h = (HistogramCurve *)i;
         if (h) {
             automaticBox->setChecked(h->autoBinning());
             binSizeBox->setText(QString::number(h->binSize()));
@@ -1599,7 +1599,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     }
 
     if (curveType == Graph::ErrorBars) {
-        auto *err = (QwtErrorPlotCurve *)i;
+        auto *err = (ErrorPlotCurve *)i;
         if (err) {
             xBox->setChecked(err->xErrors());
             widthBox->setEditText(QString::number(err->width()));
@@ -1785,7 +1785,7 @@ bool PlotDialog::acceptParams()
                     new QwtSymbol(boxSymbolStyle->selectedSymbol(), br, pen, QSize(size, size)));
         }
     } else if (privateTabWidget->currentWidget() == histogramPage) {
-        auto *h = dynamic_cast<QwtHistogram *>(plotItem);
+        auto *h = dynamic_cast<HistogramCurve *>(plotItem);
         if (!h)
             return false;
 
@@ -1860,13 +1860,13 @@ bool PlotDialog::acceptParams()
         }
         return true;
     } else if (privateTabWidget->currentWidget() == errorsPage) {
-        graph->updateErrorBars((QwtErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+        graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
                                widthBox->currentText().toInt(), capBox->currentText().toInt(),
                                colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                                throughBox->isChecked());
         return true;
     } else if (privateTabWidget->currentWidget() == piePage) {
-        auto *pie = (QwtPieCurve *)plotItem;
+        auto *pie = (PieCurve *)plotItem;
         pie->setPen(QPen(boxPieLineColor->color(), boxPieLineWidth->value(),
                          Graph::getPenStyle(boxPieLineStyle->currentIndex())));
         pie->setRay(boxRadius->value());

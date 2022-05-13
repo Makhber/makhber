@@ -52,11 +52,11 @@
 #include "plot2D/Plot.h"
 #include "plot2D/Grid.h"
 #include "plot2D/FunctionCurve.h"
-#include "plot2D/QwtPieCurve.h"
+#include "plot2D/PieCurve.h"
 #include "plot2D/Spectrogram.h"
-#include "plot2D/QwtHistogram.h"
+#include "plot2D/HistogramCurve.h"
 #include "plot2D/MultiLayer.h"
-#include "plot2D/QwtErrorPlotCurve.h"
+#include "plot2D/ErrorPlotCurve.h"
 #include "plot2D/ScaleDraw.h"
 #include "plot2D/dialogs/CurvesDialog.h"
 #include "plot2D/dialogs/PlotDialog.h"
@@ -8980,7 +8980,7 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot, QJ
                                                      jsLayout.value("gap").toInt(),
                                                      jsLayout.value("offset").toInt());
                     if (curve_loaded) {
-                        auto *h = dynamic_cast<QwtHistogram *>(ag->curve(curveID));
+                        auto *h = dynamic_cast<HistogramCurve *>(ag->curve(curveID));
                         h->setBinning(jsLayout.value("autoBinning").toInt(),
                                       jsLayout.value("binSize").toDouble(),
                                       jsLayout.value("begin").toDouble(),
@@ -9211,7 +9211,7 @@ Graph *ApplicationWindow::openGraph(ApplicationWindow *app, MultiLayer *plot, QJ
     }
     ag->replot();
     if (ag->isPiePlot()) {
-        auto *c = dynamic_cast<QwtPieCurve *>(ag->curve(0));
+        auto *c = dynamic_cast<PieCurve *>(ag->curve(0));
         if (c)
             c->updateBoundingRect();
     }
