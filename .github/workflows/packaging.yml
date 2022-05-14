@@ -293,6 +293,9 @@ jobs:
       PYTHON_VERSION: 3.9
 
     steps:
+      - name: Get Processor Info
+        run : lscpu | grep name
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -321,23 +324,6 @@ jobs:
         run: |
           sudo apt install -y --no-install-recommends \
             libglu1-mesa-dev \
-            libgl2ps-dev \
-            libxcb-util1 \
-            libxcb-glx0 \
-            libxcb-icccm4 \
-            libxcb-image0 \
-            libxcb-keysyms1 \
-            libxcb-randr0 \
-            libxcb-render-util0 \
-            libxcb-render0 \
-            libxcb-shape0 \
-            libxcb-shm0 \
-            libxcb-sync1 \
-            libxcb-xfixes0 \
-            libxcb-xinerama0 \
-            libxcb-xinput0 \
-            libxcb-xkb1 \
-            libxcb1 \
             libgl2ps-dev \
             xvfb \
             wget
@@ -401,7 +387,7 @@ jobs:
         run: |
           cd build
           make install DESTDIR=AppDir
-          export LD_LIBRARY_PATH=${GITHUB_WORKSPACE}/Qwt/lib:$LD_LIBRARY_PATH
+          export LD_LIBRARY_PATH=${PWD}/bin:${GITHUB_WORKSPACE}/Qwt/lib:$LD_LIBRARY_PATH
           wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
