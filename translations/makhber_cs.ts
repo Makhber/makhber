@@ -7376,167 +7376,167 @@ p, li { white-space: pre-wrap; }
 <context>
     <name>Graph</name>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="784"/>
+        <location filename="../src/plot2D/Graph.cpp" line="785"/>
         <source>Internal Error</source>
         <translation>Vnitřní chyba</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="825"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4982"/>
+        <location filename="../src/plot2D/Graph.cpp" line="826"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1361"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1379"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1394"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4983"/>
         <source>Error</source>
         <translation>Chyba</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="826"/>
+        <location filename="../src/plot2D/Graph.cpp" line="827"/>
         <source>Couldn&apos;t change the axis type to the requested format!</source>
         <translation>Formát popisu os se nepodařilo změnit na ten, který je požadován!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1360"/>
-        <location filename="../src/plot2D/Graph.cpp" line="1393"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1361"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1394"/>
         <source>Please provide a valid file name!</source>
         <translation>Zadejte, prosím, platný název souboru!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1378"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1379"/>
         <source>File format not handled, operation aborted!</source>
         <translation>Tento souborový formát se nepodařilo zpracovat. Operace byla zrušena!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1403"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4227"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4231"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4970"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1404"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4228"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4232"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4971"/>
         <source>Warning</source>
         <translation>Varování</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1404"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1405"/>
         <source>Output in postscript format is not available for Qt5, using PDF</source>
         <translation>Výstup ve formátu Postscript není dostupný pro Qt5. Používá se PDF</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="1730"/>
+        <location filename="../src/plot2D/Graph.cpp" line="1731"/>
         <source>Title</source>
         <translation>Název</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3705"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3735"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3706"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3736"/>
         <source>File open error</source>
         <translation>Chyba při otevírání souboru</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3706"/>
-        <location filename="../src/plot2D/Graph.cpp" line="3736"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3707"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3737"/>
         <source>Image file: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt;does not exist anymore!</source>
         <translation>Soubor s obrázkem: &lt;p&gt;&lt;b&gt; %1 &lt;/b&gt;&lt;p&gt; již neexistuje!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3893"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3894"/>
         <source>1</source>
         <comment>curve data table x column name</comment>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3895"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3896"/>
         <source>2</source>
         <comment>curve data table y column name</comment>
         <translation>2</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3902"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3903"/>
         <source>Data set generated from curve</source>
         <translation>Záznam s údaji vytvořený z křivky</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="3903"/>
+        <location filename="../src/plot2D/Graph.cpp" line="3904"/>
         <source>Curve data %1</source>
         <translation>Údaje ke křivce %1</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4228"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4229"/>
         <source>The columns</source>
         <translation>Sloupce</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4229"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4230"/>
         <source>are empty and will not be added to the plot!</source>
         <translation>jsou prázdné a nebudou do nákresu přidány!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4232"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4233"/>
         <source>The column</source>
         <translation>Sloupec</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4233"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4234"/>
         <source>is empty and will not be added to the plot!</source>
         <translation>je prázdný a nebude do nákresu přidán!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4239"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4285"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4240"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4286"/>
         <source>&amp;Cut</source>
         <translation>&amp;Vyjmout</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4240"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4286"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4241"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4287"/>
         <source>&amp;Copy</source>
         <translation>&amp;Kopírovat</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4241"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4287"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4242"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4288"/>
         <source>&amp;Delete</source>
         <translation>&amp;Smazat</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4243"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4291"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4295"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4299"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4303"/>
-        <location filename="../src/plot2D/Graph.cpp" line="4331"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4244"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4292"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4296"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4300"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4304"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4332"/>
         <source>&amp;Properties...</source>
         <translation>&amp;Vlastnosti...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4315"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4316"/>
         <source>&amp;Rescale to show all</source>
         <translation>&amp;Změnit měřítko pohledu na Ukázat vše</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4316"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4317"/>
         <source>Ctrl+Shift+R</source>
         <translation>Ctrl+Shift+R</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4318"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4319"/>
         <source>&amp;Hide axis</source>
         <translation>&amp;Skrýt osu</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4320"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4321"/>
         <source>&amp;Show grids</source>
         <translation>&amp;Ukázat mřížky</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4330"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4331"/>
         <source>&amp;Scale...</source>
         <translation>&amp;Skala...</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4971"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4972"/>
         <source>There are no curves available on this plot!</source>
         <translation>Nejsou zde žádné křivky, které by byly dostupné pro tento nákres!</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="4983"/>
+        <location filename="../src/plot2D/Graph.cpp" line="4984"/>
         <source>There are no curves with more than two points on this plot. Operation aborted!</source>
         <translation>V tomto nákresu nejsou žádné křivky, které by měly více než dva body. Operace zrušena!</translation>
     </message>
@@ -7546,7 +7546,7 @@ p, li { white-space: pre-wrap; }
         <translation>F</translation>
     </message>
     <message>
-        <location filename="../src/plot2D/Graph.cpp" line="785"/>
+        <location filename="../src/plot2D/Graph.cpp" line="786"/>
         <source>&lt;html&gt;Failed to set axis labels on Graph %1. Maybe you&apos;re trying to open a corrupted project file; or there&apos;s some problem within Makhber. Please report this as a bug (together with detailed instructions how to reproduce this message or the corrupted file).&lt;p&gt;&lt;a href=&quot;https://github.com/Makhber/makhber/issues&gt;&quot;&gt;bug tracker: https://github.com/Makhber/makhber/issues&lt;/a&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>

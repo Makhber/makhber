@@ -57,6 +57,7 @@
 #include <qwt_painter.h>
 #include <qwt_plot_canvas.h>
 #include <qwt_plot_layout.h>
+#include <qwt_plot_renderer.h>
 #include <qwt_plot_zoomer.h>
 #include <qwt_scale_widget.h>
 #include <qwt_scale_engine.h>
@@ -5255,7 +5256,8 @@ int Graph::mapToQwtAxis(int axis)
 
 void Graph::print(QPainter *painter, const QRect &plotRect)
 {
-    d_plot->print(painter, plotRect);
+    QwtPlotRenderer plotRenderer {};
+    plotRenderer.render(d_plot, painter, QRectF(plotRect));
 }
 
 void Graph::deselect()
