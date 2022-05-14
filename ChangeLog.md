@@ -1,14 +1,22 @@
 # Changelog
 
-## Makhber 0.10.0
+## Makhber 0.10.0 Alpha
 
-Released: DD-MM-YYYY
+Released: 14-05-2022
 
 ### General
 
+- New Project file format `*.mkbr` based on json
+- Drop support for opening SciDAVis/QtiPlot project files.
+- Fix some bugs and issues
+
 ### Core
 
-- Move to Qwt 6.1
+- Port to Qwt>6.1
+- Requires Qt>=5.12
+- Remove/Replace functions deprecated or dropped by Qt6
+- Silent warnings from different compilers
+- Update packaging for different platforms
 
 ## Makhber 0.9.5.3
 
