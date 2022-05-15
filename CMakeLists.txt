@@ -151,12 +151,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
   find_package( PyQt REQUIRED )
 
   if( SIP_VERSION VERSION_GREATER_EQUAL 5 )
-    execute_process( COMMAND ${Python3_EXECUTABLE} -c "import pyqtbuild"
-      ERROR_VARIABLE PYQT_BUILDER_NOTFOUND
-    )
-    if( PYQT_BUILDER_NOTFOUND )
-      message( FATAL_ERROR "pyqt-builder not found" )
-    endif()
+    find_package( PyQtBuild REQUIRED )
     if( MULTI_CONFIG )
       set( SIP_BUILD_PATH "${CMAKE_BINARY_DIR}/sip/build" )
     else()
