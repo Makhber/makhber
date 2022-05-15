@@ -10,8 +10,11 @@ jobs:
   Ubuntu:
     runs-on: ubuntu-20.04
     name: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5.15.2, 6.3.0]
     env:
-      QT_VER: 5.15.2
       QWT_VER: 6.2.0
 
     steps:
@@ -29,12 +32,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: ${{ env.QT_VER }}
+          version: ${{ matrix.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
@@ -43,27 +46,18 @@ jobs:
           sudo apt update
           sudo apt install -y --no-install-recommends \
             libglu1-mesa-dev \
-            libxcb-util1 \
-            libxcb-glx0 \
-            libxcb-icccm4 \
-            libxcb-image0 \
-            libxcb-keysyms1 \
-            libxcb-randr0 \
-            libxcb-render-util0 \
-            libxcb-render0 \
-            libxcb-shape0 \
-            libxcb-shm0 \
-            libxcb-sync1 \
-            libxcb-xfixes0 \
-            libxcb-xinerama0 \
-            libxcb-xinput0 \
-            libxcb-xkb1 \
-            libxcb1 \
             libmuparser-dev \
             libgsl-dev \
             libgl2ps-dev \
             libgtest-dev \
+            libxcb-xinput0 \
+            libxcb-xkb1 \
             xvfb
+          if [[ ${{ matrix.QT_VER }} == "6.3.0" ]]; then
+            sudo apt install -y --no-install-recommends \
+              libxkbcommon-dev \
+              libvulkan-dev
+          fi
 
       - name: Get GCC version
         id: gcc-version
@@ -76,7 +70,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -97,7 +91,12 @@ jobs:
 
       - name: Install Python packages
         run: |
-          pip3 install sip pyqt5 pyqt-builder numpy
+          pip3 install sip pyqt-builder numpy
+          if [[ "${{ matrix.QT_VER }}" == "6.3.0" ]]; then
+            pip3 install pyqt6
+          else
+            pip3 install pyqt5
+          fi
 
       - name: Configuring
         run: |
@@ -121,9 +120,12 @@ jobs:
   MSVC:
     name: MSVC 2022
     runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5.15.2, 6.3.0]
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
-      QT_VER: 5.15.2
       QWT_VER: 6.2.0
 
     steps:
@@ -140,12 +142,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: ${{ env.QT_VER }}
+          version: ${{ matrix.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
@@ -154,7 +156,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
 
       - uses: ilammy/msvc-dev-cmd@v1
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -191,7 +193,13 @@ jobs:
           python-version: '3.10'
 
       - name: Install Python packages
-        run: pip install sip pyqt5 pyqt-builder numpy
+        run: |
+          pip install sip pyqt-builder numpy
+          if ("${{ matrix.QT_VER }}" -eq "6.3.0") {
+            pip install pyqt6
+          } else {
+            pip install pyqt5
+          }
 
       - name: Configuring
         run: |
@@ -218,8 +226,11 @@ jobs:
   macos:
     runs-on: macos-12
     name: macos
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5.15.2, 6.3.0]
     env:
-      QT_VER: 5.15.2
       QWT_VER: 6.2.0
 
     steps:
@@ -237,13 +248,13 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
           setup-python: false
-          version: ${{ env.QT_VER }}
+          version: ${{ matrix.QT_VER }}
           cached: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
@@ -258,7 +269,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
