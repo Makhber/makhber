@@ -5,12 +5,14 @@ set( CMAKE_AUTORCC OFF )
 
 set( SRCS
   "applicationWindow.cpp"
-  "arrowMarker.cpp"
   "fft.cpp"
   "menus.cpp"
   "readWriteProject.cpp"
   "main.cpp"
   )
+if( QT_VERSION_MAJOR VERSION_LESS 6 )
+  list( APPEND SRCS "arrowMarker.cpp" )
+endif()
 if( NOT WIN32 )
   list( APPEND SRCS "3dplot.cpp" "testPaintDevice.cpp" )
 endif()
@@ -66,6 +68,9 @@ if( MAKHBER_SCRIPTING_PYTHON )
   find_package( Python3 COMPONENTS NumPy QUIET )
   if( NOT Python3_NumPy_FOUND )
     list( REMOVE_ITEM pythonTests ${CMAKE_CURRENT_SOURCE_DIR}/pythonTests/simulate_a_Hydrogen_spectrum.py )
+  endif()
+  if( WIN32 AND (QT_VERSION_MAJOR VERSION_EQUAL 6) AND DEFINED ENV{CI} )
+    list( REMOVE_ITEM pythonTests ${CMAKE_CURRENT_SOURCE_DIR}/pythonTests/layer.py )
   endif()
 
   foreach( pythonTest ${pythonTests} )
