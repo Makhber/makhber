@@ -962,7 +962,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                 case Origin::GraphCurve::BSpline:
                 case Origin::GraphCurve::Bezier:
                 case Origin::GraphCurve::Spline:
-                    graph->setCurveStyle(c, 5);
+                    graph->setCurveStyle(c, 4);
                     break;
                 case Origin::GraphCurve::StepHorizontal:
                 case Origin::GraphCurve::StepHCenter:
@@ -970,7 +970,7 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                     break;
                 case Origin::GraphCurve::StepVertical:
                 case Origin::GraphCurve::StepVCenter:
-                    graph->setCurveStyle(c, 6);
+                    graph->setCurveStyle(c, 5);
                     break;
                 }
             }
