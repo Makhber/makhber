@@ -99,22 +99,19 @@ jobs:
 
       - name: Configuring
         run: |
-          mkdir build && cd build
-          cmake .. \
+          cmake \
+            --preset default \
             -DMAKHBER_SEARCH_FOR_UPDATES=OFF \
             -DMAKHBER_DOWNLOAD_LINKS=OFF \
-            -DMAKHBER_SCRIPTING_PYTHON=ON \
-            -DMAKHBER_BUILD_TESTS=ON \
             -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/Qwt
 
       - name: Building
         run: |
-          xvfb-run make -j$(nproc) -C build
+          xvfb-run cmake --build --preset default -j$(nproc)
 
       - name: Testing
         run: |
-          cd build
-          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
+          xvfb-run -a ctest --preset default --repeat until-pass:3
 
   MSVC:
     name: MSVC 2022
@@ -205,26 +202,22 @@ jobs:
 
       - name: Configuring
         run: |
-          mkdir build; cd build
-          cmake .. `
+          cmake `
+            --preset msvc-vcpkg `
             -DCMAKE_BUILD_TYPE=RelWithDebInfo `
             -DCMAKE_SYSTEM_VERSION="10.0" `
             -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
-            -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DCMAKE_PREFIX_PATH="$Env:GITHUB_WORKSPACE\Qwt" `
-            -DMAKHBER_SCRIPTING_PYTHON=ON `
-            -DMAKHBER_BUILD_TESTS=ON `
             -DBUILD_SHARED_LIBS=ON
 
       - name: Building
         run: |
-          cmake --build build --config RelWithDebInfo -- -maxCpuCount
+          cmake --build --preset msvc-vcpkg --config RelWithDebInfo
 
       - name: Testing
         run: |
           $Env:PATH = "$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:PATH"
-          cd build
-          ctest -C RelWithDebInfo --output-on-failure --repeat until-pass:3
+          ctest --preset msvc-vcpkg -C RelWithDebInfo --repeat until-pass:3
 
   macos:
     runs-on: macos-12
@@ -300,17 +293,15 @@ jobs:
           else
             QWT_PATH=/usr/local/opt/qwt-qt5
           fi
-          mkdir build && cd build
-          cmake .. \
-            -DMAKHBER_BUILD_TESTS=ON \
+          cmake \
+            --preset macos \
             -DCMAKE_PREFIX_PATH=${QWT_PATH}
 
       - name: Building
         run: |
-          make -j$(sysctl -n hw.logicalcpu) -C build
+          cmake --build --preset default -j$(sysctl -n hw.logicalcpu)
 
       - name: Testing
         run: |
           export DYLD_FALLBACK_FRAMEWORK_PATH=${GITHUB_WORKSPACE}/Qwt/lib
-          cd build
-          ctest --output-on-failure --repeat until-pass:3
+          ctest --preset default --repeat until-pass:3
