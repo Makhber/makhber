@@ -1,0 +1,109 @@
+{
+    "version": 3,
+    "configurePresets": [
+      {
+        "name": "default",
+        "binaryDir": "${sourceDir}/build/${hostSystemName}",
+        "cacheVariables": {
+          "MAKHBER_BUILD_TESTS": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "MAKHBER_SCRIPTING_PYTHON": {
+              "type": "BOOL",
+              "value": "ON"
+          }
+        }
+      },
+      {
+        "name": "msvc-vcpkg",
+        "inherits": "default",
+        "binaryDir": "${sourceDir}/build/MSVC",
+        "generator": "Visual Studio 17 2022",
+        "toolchainFile": "$penv{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake"
+      },
+      {
+        "name": "msys2",
+        "inherits": "default",
+        "binaryDir": "${sourceDir}/build/$penv{MSYSTEM}",
+        "generator": "Ninja",
+        "cacheVariables": {
+            "PYTHONHOME": {
+              "type": "PATH",
+              "value": "$penv{MINGW_PREFIX}"
+            }
+        },
+        "condition": {
+          "type": "inList",
+          "string": "$penv{MSYSTEM}",
+          "list": [
+            "UCRT64",
+            "CLANG64",
+            "MINGW64",
+            "CLANGARM64"
+          ]
+        }
+      },
+      {
+        "name": "msys2-qt5",
+        "inherits": "msys2",
+        "binaryDir": "${sourceDir}/build/$penv{MSYSTEM}-qt5",
+        "cacheVariables": {
+            "MAKHBER_FORCE_QT5": {
+              "type": "BOOL",
+              "value": "ON"
+            }
+        }
+      },
+      {
+        "name": "macos",
+        "inherits": "default",
+        "cacheVariables": {
+          "MAKHBER_SCRIPTING_PYTHON": {
+              "type": "BOOL",
+              "value": "OFF"
+          }
+        }
+      }
+    ],
+    "buildPresets": [
+      {
+        "name": "default",
+        "configurePreset": "default"
+      },
+      {
+        "name": "msvc-vcpkg",
+        "configurePreset": "msvc-vcpkg",
+        "nativeToolOptions": [
+          "-maxCpuCount"
+        ]
+      },
+      {
+        "name": "msys2",
+        "configurePreset": "msys2"
+      }
+    ],
+    "testPresets": [
+      {
+        "name": "default",
+        "configurePreset": "default",
+        "output": {
+          "outputOnFailure": true
+        }
+      },
+      {
+        "name": "msvc-vcpkg",
+        "configurePreset": "msvc-vcpkg",
+        "output": {
+          "outputOnFailure": true
+        }
+      },
+      {
+        "name": "msys2",
+        "configurePreset": "msys2",
+        "output": {
+          "outputOnFailure": true
+        }
+      }
+    ]
+  }
