@@ -110,7 +110,7 @@ void ColorButton::init()
 
     display = new QFrame(this);
     display->setLineWidth(2);
-    display->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    display->setFrameStyle(static_cast<int>(QFrame::Panel) | static_cast<int>(QFrame::Sunken));
     display->setMinimumHeight(btn_size);
     display->setMinimumWidth(2 * btn_size);
     display->setAutoFillBackground(true);

@@ -624,7 +624,8 @@ void ConfigDialog::initAppPage()
     numericFormatLayout->addWidget(boxUseGroupSeparator, 2, 0);
 
     boxSeparatorPreview = new QLabel();
-    boxSeparatorPreview->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    boxSeparatorPreview->setFrameStyle(static_cast<int>(QFrame::Panel)
+                                       | static_cast<int>(QFrame::Sunken));
     numericFormatLayout->addWidget(boxSeparatorPreview, 2, 1);
 
     lblDefaultNumericFormat = new QLabel();

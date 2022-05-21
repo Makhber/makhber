@@ -649,7 +649,8 @@ void ApplicationWindow::initToolBars()
     plot_tools->setEnabled(false);
 
     d_status_info = new QLabel(this);
-    d_status_info->setFrameStyle(QFrame::Sunken | QFrame::StyledPanel);
+    d_status_info->setFrameStyle(static_cast<int>(QFrame::Sunken)
+                                 | static_cast<int>(QFrame::StyledPanel));
     d_status_info->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     d_status_info->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(d_status_info, SIGNAL(customContextMenuRequested(const QPoint &)), this,
@@ -7150,7 +7151,7 @@ void ApplicationWindow::windowsMenuAboutToShow()
     windowsMenu->addAction(actionResizeActiveWindow);
     windowsMenu->addAction(tr("&Hide Window"), this, SLOT(hideActiveWindow()));
     windowsMenu->addAction(QPixmap(":/close.xpm"), tr("Close &Window"), this,
-                           SLOT(closeActiveWindow()), Qt::CTRL | Qt::Key_W);
+                           SLOT(closeActiveWindow()), QKeySequence::Close);
 
     if (n > 0 && n < 10) {
         windowsMenu->addSeparator();

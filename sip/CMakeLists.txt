@@ -310,7 +310,7 @@ else()
       ${SIP_EXTRA_OPTIONS}
       --qmake-setting QMAKE_CXX=${QMAKE_CXX}
       --qmake-setting QMAKE_LINK=${QMAKE_LINK}
-      --qmake-setting "CONFIG += c++17 strict_c++"
+      --qmake-setting "CONFIG += c++${CMAKE_CXX_STANDARD} strict_c++"
       --qmake-setting $<IF:$<CONFIG:Debug>,"CONFIG+=debug","CONFIG+=release">
       --qmake-setting CONFIG+=$<$<BOOL:${CMAKE_INTERPROCEDURAL_OPTIMIZATION}>:"ltcg">
       --build-dir $<IF:$<BOOL:${MULTI_CONFIG}>,"build/$<CONFIG>","build">

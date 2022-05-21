@@ -138,7 +138,7 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
     Folder *projectFolder = mw->projectFolder();
     QHash<tree<Origin::ProjectNode>::iterator, Folder *> parent;
     parent[root] = projectFolder;
-    for (tree<Origin::ProjectNode>::iterator sib = projectTree->begin(root);
+    for (tree<Origin::ProjectNode>::sibling_iterator sib = projectTree->begin(root);
          sib != projectTree->end(root); ++sib) {
         if (sib->type == Origin::ProjectNode::Folder) {
 

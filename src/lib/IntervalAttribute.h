@@ -39,8 +39,8 @@ template<class T>
 class IntervalAttribute
 {
 public:
-    IntervalAttribute<T>() { }
-    IntervalAttribute<T>(const IntervalAttribute<T> &other)
+    IntervalAttribute() { }
+    IntervalAttribute(const IntervalAttribute<T> &other)
     {
         d_intervals.clear();
         d_values.clear();
@@ -186,9 +186,9 @@ template<>
 class IntervalAttribute<bool>
 {
 public:
-    IntervalAttribute<bool>() { }
-    IntervalAttribute<bool>(QList<Interval<int>> intervals) : d_intervals(intervals) { }
-    IntervalAttribute<bool>(const IntervalAttribute<bool> &other)
+    IntervalAttribute() { }
+    IntervalAttribute(QList<Interval<int>> intervals) : d_intervals(intervals) { }
+    IntervalAttribute(const IntervalAttribute<bool> &other)
     {
         d_intervals.clear();
         for (Interval<int> iv : other.intervals())

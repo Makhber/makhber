@@ -76,7 +76,7 @@ public:
         d_start += offset;
         d_end += offset;
     }
-    bool operator==(const Interval<T> &other) const
+    bool operator==(const IntervalBase<T> &other) const
     {
         return (d_start == other.start() && d_end == other.end());
     }
