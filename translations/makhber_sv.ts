@@ -2436,12 +2436,7 @@ Are you sure you want to continue?</source>
         <translation>&amp;Titel ...</translation>
     </message>
     <message>
-        <location filename="../src/core/ApplicationWindow.cpp" line="9974"/>
-        <location filename="../src/core/ApplicationWindow.cpp" line="10463"/>
-        <source>F1</source>
-        <translation>F1</translation>
-    </message>
-    <message>
+        <location filename="../src/core/ApplicationWindow.cpp" line="9978"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="10466"/>
         <source>Ctrl+H</source>
         <translation>Ctrl+H</translation>

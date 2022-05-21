@@ -538,14 +538,14 @@ void ApplicationWindow::initToolBars()
     graph_tools->addSeparator();
 
     btnZoomIn = new QAction(tr("&Zoom In"), this);
-    btnZoomIn->setShortcut(tr("Ctrl++"));
+    btnZoomIn->setShortcut(QKeySequence::ZoomIn);
     btnZoomIn->setActionGroup(dataTools);
     btnZoomIn->setCheckable(true);
     btnZoomIn->setIcon(QIcon(QPixmap(":/zoom.xpm")));
     graph_tools->addAction(btnZoomIn);
 
     btnZoomOut = new QAction(tr("&Zoom Out"), this);
-    btnZoomOut->setShortcut(tr("Ctrl+-"));
+    btnZoomOut->setShortcut(QKeySequence::ZoomOut);
     btnZoomOut->setActionGroup(dataTools);
     btnZoomOut->setCheckable(true);
     btnZoomOut->setIcon(QIcon(QPixmap(":/zoomOut.xpm")));
@@ -9584,7 +9584,7 @@ void ApplicationWindow::setPlot3DOptions()
 void ApplicationWindow::createActions()
 {
     actionNewProject = new QAction(QIcon(QPixmap(":/new.xpm")), tr("New &Project"), this);
-    actionNewProject->setShortcut(tr("Ctrl+N"));
+    actionNewProject->setShortcut(QKeySequence::New);
     connect(actionNewProject, SIGNAL(triggered()), this, SLOT(newProject()));
 
     actionNewGraph = new QAction(QIcon(QPixmap(":/new_graph.xpm")), tr("New &Graph"), this);
@@ -9615,7 +9615,7 @@ void ApplicationWindow::createActions()
 
     // FIXME: "..." should be added before translating, but this would break translations
     actionOpen = new QAction(QIcon(QPixmap(":/fileopen.xpm")), tr("&Open") + "...", this);
-    actionOpen->setShortcut(tr("Ctrl+O"));
+    actionOpen->setShortcut(QKeySequence::Open);
     connect(actionOpen, SIGNAL(triggered()), this, SLOT(open()));
 
     actionLoadImage = new QAction(tr("Open Image &File"), this);
@@ -9626,7 +9626,7 @@ void ApplicationWindow::createActions()
     connect(actionImportImage, SIGNAL(triggered()), this, SLOT(importImage()));
 
     actionSaveProject = new QAction(QIcon(QPixmap(":/filesave.xpm")), tr("&Save Project"), this);
-    actionSaveProject->setShortcut(tr("Ctrl+S"));
+    actionSaveProject->setShortcut(QKeySequence::Save);
     connect(actionSaveProject, SIGNAL(triggered()), this, SLOT(saveProject()));
     savedProject();
 
@@ -9648,12 +9648,12 @@ void ApplicationWindow::createActions()
     connect(actionLoad, SIGNAL(triggered()), this, SLOT(importASCII()));
 
     actionUndo = new QAction(IconLoader::load("edit-undo"), tr("&Undo"), this);
-    actionUndo->setShortcut(tr("Ctrl+Z"));
+    actionUndo->setShortcut(QKeySequence::Undo);
     connect(actionUndo, SIGNAL(triggered()), this, SLOT(undo()));
     actionUndo->setEnabled(false);
 
     actionRedo = new QAction(IconLoader::load("edit-redo"), tr("&Redo"), this);
-    actionRedo->setShortcut(tr("Ctrl+R"));
+    actionRedo->setShortcut(QKeySequence::Redo);
     connect(actionRedo, SIGNAL(triggered()), this, SLOT(redo()));
     actionRedo->setEnabled(false);
 
@@ -9661,16 +9661,16 @@ void ApplicationWindow::createActions()
     connect(actionCopyWindow, SIGNAL(triggered()), this, SLOT(clone()));
 
     actionCutSelection = new QAction(IconLoader::load("edit-cut"), tr("Cu&t Selection"), this);
-    actionCutSelection->setShortcut(tr("Ctrl+X"));
+    actionCutSelection->setShortcut(QKeySequence::Cut);
     connect(actionCutSelection, SIGNAL(triggered()), this, SLOT(cutSelection()));
 
     actionCopySelection = new QAction(IconLoader::load("edit-copy"), tr("&Copy Selection"), this);
-    actionCopySelection->setShortcut(tr("Ctrl+C"));
+    actionCopySelection->setShortcut(QKeySequence::Copy);
     connect(actionCopySelection, SIGNAL(triggered()), this, SLOT(copySelection()));
 
     actionPasteSelection =
             new QAction(IconLoader::load("edit-paste"), tr("&Paste Selection"), this);
-    actionPasteSelection->setShortcut(tr("Ctrl+V"));
+    actionPasteSelection->setShortcut(QKeySequence::Paste);
     connect(actionPasteSelection, SIGNAL(triggered()), this, SLOT(pasteSelection()));
 
     actionClearSelection =
@@ -9727,7 +9727,7 @@ void ApplicationWindow::createActions()
 
     // FIXME: "..." should be added before translating, but this would break translations
     actionPrint = new QAction(QIcon(QPixmap(":/fileprint.xpm")), tr("&Print") + "...", this);
-    actionPrint->setShortcut(tr("Ctrl+P"));
+    actionPrint->setShortcut(QKeySequence::Print);
     connect(actionPrint, SIGNAL(triggered()), this, SLOT(print()));
 
     actionPrintAllPlots = new QAction(tr("Print All Plo&ts"), this);
@@ -9971,7 +9971,7 @@ void ApplicationWindow::createActions()
     connect(actionShowTitleDialog, SIGNAL(triggered()), this, SLOT(showTitleDialog()));
 
     actionAbout = new QAction(tr("&About Makhber"), this);
-    actionAbout->setShortcut(tr("F1"));
+    actionAbout->setShortcut(QKeySequence::HelpContents);
     connect(actionAbout, SIGNAL(triggered()), this, SLOT(about()));
 
     actionShowHelp = new QAction(tr("&Help"), this);
@@ -9987,7 +9987,7 @@ void ApplicationWindow::createActions()
     connect(actionRename, SIGNAL(triggered()), this, SLOT(renameActiveWindow()));
 
     actionCloseWindow = new QAction(QIcon(QPixmap(":/close.xpm")), tr("Close &Window"), this);
-    actionCloseWindow->setShortcut(tr("Ctrl+W"));
+    actionCloseWindow->setShortcut(QKeySequence::Close);
     connect(actionCloseWindow, SIGNAL(triggered()), this, SLOT(closeActiveWindow()));
 
     actionDeleteLayer = new QAction(QIcon(QPixmap(":/erase.xpm")), tr("&Remove Layer"), this);
@@ -10194,7 +10194,7 @@ void ApplicationWindow::translateActionsStrings()
 
     actionNewProject->setText(tr("New &Project"));
     actionNewProject->setToolTip(tr("Open a new project"));
-    actionNewProject->setShortcut(tr("Ctrl+N"));
+    actionNewProject->setShortcut(QKeySequence::New);
 
     actionNewGraph->setText(tr("New &Graph"));
     actionNewGraph->setToolTip(tr("Create an empty 2D plot"));
@@ -10222,7 +10222,7 @@ void ApplicationWindow::translateActionsStrings()
 
     // FIXME: "..." should be added before translating, but this would break translations
     actionOpen->setText(tr("&Open") + "...");
-    actionOpen->setShortcut(tr("Ctrl+O"));
+    actionOpen->setShortcut(QKeySequence::Open);
     actionOpen->setToolTip(tr("Open project"));
 
     // FIXME: "..." should be added before translating, but this would break translations
@@ -10249,26 +10249,26 @@ void ApplicationWindow::translateActionsStrings()
 
     actionUndo->setText(tr("&Undo"));
     actionUndo->setToolTip(tr("Undo changes"));
-    actionUndo->setShortcut(tr("Ctrl+Z"));
+    actionUndo->setShortcut(QKeySequence::Undo);
 
     actionRedo->setText(tr("&Redo"));
     actionRedo->setToolTip(tr("Redo changes"));
-    actionRedo->setShortcut(tr("Ctrl+R"));
+    actionRedo->setShortcut(QKeySequence::Redo);
 
     actionCopyWindow->setText(tr("&Duplicate"));
     actionCopyWindow->setToolTip(tr("Duplicate window"));
 
     actionCutSelection->setText(tr("Cu&t Selection"));
     actionCutSelection->setToolTip(tr("Cut selection"));
-    actionCutSelection->setShortcut(tr("Ctrl+X"));
+    actionCutSelection->setShortcut(QKeySequence::Cut);
 
     actionCopySelection->setText(tr("&Copy Selection"));
     actionCopySelection->setToolTip(tr("Copy selection"));
-    actionCopySelection->setShortcut(tr("Ctrl+C"));
+    actionCopySelection->setShortcut(QKeySequence::Copy);
 
     actionPasteSelection->setText(tr("&Paste Selection"));
     actionPasteSelection->setToolTip(tr("Paste selection"));
-    actionPasteSelection->setShortcut(tr("Ctrl+V"));
+    actionPasteSelection->setShortcut(QKeySequence::Paste);
 
     actionClearSelection->setText(tr("&Delete Selection"));
     actionClearSelection->setToolTip(tr("Delete selection"));
@@ -10315,7 +10315,7 @@ void ApplicationWindow::translateActionsStrings()
 
     // FIXME: "..." should be added before translating, but this would break translations
     actionPrint->setText(tr("&Print") + "...");
-    actionPrint->setShortcut(tr("Ctrl+P"));
+    actionPrint->setShortcut(QKeySequence::Print);
     actionPrint->setToolTip(tr("Print window"));
 
     // FIXME: "..." should be added before translating, but this would break translations
@@ -10460,7 +10460,7 @@ void ApplicationWindow::translateActionsStrings()
     actionShowTitleDialog->setText(tr("&Title ..."));
 
     actionAbout->setText(tr("&About Makhber"));
-    actionAbout->setShortcut(tr("F1"));
+    actionAbout->setShortcut(QKeySequence::HelpContents);
 
     actionShowHelp->setText(tr("&Help"));
     actionShowHelp->setShortcut(tr("Ctrl+H"));
@@ -10472,7 +10472,7 @@ void ApplicationWindow::translateActionsStrings()
     actionRename->setText(tr("&Rename Window"));
 
     actionCloseWindow->setText(tr("Close &Window"));
-    actionCloseWindow->setShortcut(tr("Ctrl+W"));
+    actionCloseWindow->setShortcut(QKeySequence::Close);
 
     actionDeleteLayer->setText(tr("&Remove Layer"));
     actionDeleteLayer->setShortcut(tr("Alt+R"));
@@ -10541,11 +10541,11 @@ void ApplicationWindow::translateActionsStrings()
     btnPointer->setToolTip(tr("Pointer"));
 
     btnZoomIn->setText(tr("&Zoom In"));
-    btnZoomIn->setShortcut(tr("Ctrl++"));
+    btnZoomIn->setShortcut(QKeySequence::ZoomIn);
     btnZoomIn->setToolTip(tr("Zoom In"));
 
     btnZoomOut->setText(tr("Zoom &Out"));
-    btnZoomOut->setShortcut(tr("Ctrl+-"));
+    btnZoomOut->setShortcut(QKeySequence::ZoomOut);
     btnZoomOut->setToolTip(tr("Zoom Out"));
 
     btnCursor->setText(tr("&Data Reader"));
