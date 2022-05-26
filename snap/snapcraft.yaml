@@ -17,16 +17,19 @@ architectures:
 apps:
   makhber:
     common-id: com.github.makhber.Makhber
-    command: usr/bin/makhber
+    command: bin/desktop-launch $SNAP/usr/bin/makhber
     environment:
       PYTHONPATH: $SNAP/usr/lib/python3.8/site-packages
-    extensions:
-      - kde-neon
     plugs:
       - home
       - network
       - removable-media
       - unity7
+      - desktop
+      - desktop-legacy
+      - opengl
+      - wayland
+      - x11
 
 parts:
   makhber:
@@ -44,24 +47,36 @@ parts:
       - "-DCMAKE_PREFIX_PATH=$SNAPCRAFT_STAGE/usr"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
-      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBARARY_PATH
       - PYTHONPATH: $SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages:$HOME/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages
     build-packages:
       - g++
-      - libglu1-mesa
       - git
+      - libqt5svg5-dev
+      - libqt5opengl5-dev
+      - qttools5-dev
     stage-packages:
+      - libglu1-mesa
       - libpython3.8
+      - libqt5svg5
+      - libqt5opengl5
+      - libqt5printsupport5
+      - qttranslations5-l10n
     override-pull: |
       snapcraftctl pull
       snapcraftctl set-version "$(git describe --tags)"
     after:
+      - desktop-qt5
       - gsl
       - muparser
       - qwt
       - gl2ps
       - pyqt5
       - pyqt5-sip
+  desktop-qt5:
+    source: https://github.com/ubuntu/snapcraft-desktop-helpers.git
+    source-subdir: qt
+    plugin: make
+    make-parameters: ["FLAVOR=qt5"]
   gsl:
     source-type: tar
     source: https://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz
@@ -89,6 +104,8 @@ parts:
       - "-DCMAKE_INSTALL_PREFIX=/usr"
     build-packages:
       - g++
+    stage-packages:
+      - libgomp1
     prime:
       - -usr/include
       - -usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pkgconfig
@@ -101,13 +118,16 @@ parts:
     build-packages:
       - g++
       - libgles-dev
+    stage-packages:
+      - libqt5svg5
+      - libqt5opengl5
     override-build: |
       sed -i "s|^\\s*QWT_INSTALL_PREFIX.*$|QWT_INSTALL_PREFIX=$SNAPCRAFT_PART_INSTALL/usr|g" qwtconfig.pri
       sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
       sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtExamples$|#|g" qwtconfig.pri
       sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtPlayground$|#|g" qwtconfig.pri
       sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtTests$|#|g" qwtconfig.pri
-      /snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
+      qmake \
         CONFIG-=debug_and_release \
         CONFIG+=release \
         qwt.pro
@@ -128,6 +148,9 @@ parts:
       - "-DCMAKE_INSTALL_PREFIX=/usr"
     build-packages:
       - g++
+    stage-packages:
+      - libgl1
+      - libpng16-16
     prime:
       - -usr/lib/libgl2ps.a
       - -usr/include
@@ -142,17 +165,18 @@ parts:
       - libgl-dev
       - libgles-dev
       - python3-pip
+    stage-packages:
+      - libqt5svg5
+      - libqt5opengl5
+      - libqt5printsupport5
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
-      - LD_LIBRARY_PATH: /snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/$SNAPCRAFT_ARCH_TRIPLET:$LD_LIBARARY_PATH
     override-build: |
       pip3 install sip pyqt-builder
       cd $SNAPCRAFT_PART_SRC
       sip-build --confirm-license \
         --build-dir ../build \
         --target-dir $SNAPCRAFT_PART_INSTALL/usr/lib/python3.8/site-packages \
-        --qmake=/snap/kde-frameworks-5-91-qt-5-15-3-core20-sdk/current/usr/lib/qt5/bin/qmake \
-        --concatenate $(nproc) \
         --no-make \
         --no-tools \
         --no-designer-plugin \
