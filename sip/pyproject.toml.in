@@ -29,7 +29,7 @@ include-dirs = [
 "@SIP_INCLUDE_DIRS@"
 ]
 libraries = [
-@SIP_LINK_LIBS@
+"@SIP_LINK_LIBS@"
 ]
 library-dirs = [
 "@SIP_LINK_DIRS@"

@@ -161,66 +161,63 @@ else()
   foreach( lib ${qt_libs} )
     get_lib_properties( Qt${QT_VERSION_MAJOR}::${lib} LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
     if( NOT APPLE )
-      string( JOIN "\n," SIP_LINK_LIBS \"${LIB_NAME}\" ${SIP_LINK_LIBS} )
-      set( SIP_LINK_DIRS ${SIP_LINK_DIRS} ${LIB_DIR} )
+      list( PREPEND SIP_LINK_LIBS ${LIB_NAME} )
+      list( PREPEND SIP_LINK_DIRS ${LIB_DIR} )
     endif()
-    set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${LIB_INCLUDE_DIRS} )
+    list( PREPEND SIP_INCLUDE_DIRS ${LIB_INCLUDE_DIRS} )
   endforeach()
 
   set( libs muparser::muparser Qwt::Qwt )
   foreach( lib ${libs} )
     get_lib_properties( ${lib} LIB_NAME LIB_DIR LIB_INCLUDE_DIRS )
-    string( JOIN "\n," SIP_LINK_LIBS \"${LIB_NAME}\" ${SIP_LINK_LIBS} )
-    set( SIP_LINK_DIRS ${SIP_LINK_DIRS} ${LIB_DIR} )
-    set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${LIB_INCLUDE_DIRS} )
+    list( PREPEND SIP_LINK_LIBS ${LIB_NAME} )
+    list( PREPEND SIP_LINK_DIRS ${LIB_DIR} )
+    list( PREPEND SIP_INCLUDE_DIRS ${LIB_INCLUDE_DIRS} )
   endforeach()
 
   if( APPLE )
     set( libs ${GSL_CBLAS_LIBRARY} ${GSL_LIBRARY} )
   else()
     set( libs ${GSL_CBLAS_LIBRARY} ${GSL_LIBRARY} ${OPENGL_gl_LIBRARY} ${OPENGL_glu_LIBRARY} )
-    set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${OPENGL_INCLUDE_DIR} )
+    list( PREPEND SIP_INCLUDE_DIRS ${OPENGL_INCLUDE_DIR} )
   endif()
   foreach( lib ${libs} )
     get_filename_component( _LIB_NAME ${lib} NAME_WE )
     string( REGEX REPLACE "^lib" "" LIB_NAME ${_LIB_NAME} )
-    string( JOIN "\n," SIP_LINK_LIBS \"${LIB_NAME}\" ${SIP_LINK_LIBS} )
+    list( PREPEND SIP_LINK_LIBS ${LIB_NAME} )
     get_filename_component( LIB_DIR ${lib} DIRECTORY )
     if( LIB_DIR )
-      set( SIP_LINK_DIRS ${SIP_LINK_DIRS} ${LIB_DIR} )
+      list( PREPEND SIP_LINK_DIRS ${LIB_DIR} )
     endif()
   endforeach()
-  set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${GSL_INCLUDE_DIRS} )
+  list( PREPEND SIP_INCLUDE_DIRS ${GSL_INCLUDE_DIRS} )
 
   if( GL2PS_LIBRARY )
     get_filename_component( _LIB_NAME ${GL2PS_LIBRARY} NAME_WE )
     string( REGEX REPLACE "^lib" "" LIB_NAME ${_LIB_NAME} )
-    string( JOIN "\n," SIP_LINK_LIBS \"${LIB_NAME}\" ${SIP_LINK_LIBS} )
+    list( PREPEND SIP_LINK_LIBS ${LIB_NAME} )
     get_filename_component( LIB_DIR ${GL2PS_LIBRARY} DIRECTORY )
     if( LIB_DIR )
-      set( SIP_LINK_DIRS ${SIP_LINK_DIRS} ${LIB_DIR} )
+      list( PREPEND SIP_LINK_DIRS ${LIB_DIR} )
     endif()
-    set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${GL2PS_INCLUDE_DIR} )
+    list( PREPEND SIP_INCLUDE_DIRS ${GL2PS_INCLUDE_DIR} )
   endif()
 
-  string( JOIN "\n," SIP_LINK_LIBS
-    \"makhber\"
-    \"origin\"
-    \"qwtplot3d\"
-    ${SIP_LINK_LIBS}
-    )
+  list( PREPEND SIP_LINK_LIBS
+    makhber
+    origin
+    qwtplot3d
+  )
 
   if( MULTI_CONFIG )
     if( BUILD_SHARED_LIBS )
-      set( SIP_LINK_DIRS
-        ${SIP_LINK_DIRS}
+      list( PREPEND SIP_LINK_DIRS
         ${CMAKE_BINARY_DIR}/bin/@CONFIG@
         ${CMAKE_BINARY_DIR}/lib/@CONFIG@
         ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
       )
     else()
-      set( SIP_LINK_DIRS
-        ${SIP_LINK_DIRS}
+      list( PREPEND SIP_LINK_DIRS
         ${CMAKE_BINARY_DIR}/src/@CONFIG@
         ${CMAKE_BINARY_DIR}/3rdparty/liborigin/@CONFIG@
         ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d/@CONFIG@
@@ -228,14 +225,12 @@ else()
     endif()
   else()
     if( BUILD_SHARED_LIBS )
-      set( SIP_LINK_DIRS
-        ${SIP_LINK_DIRS}
+      list( PREPEND SIP_LINK_DIRS
         ${CMAKE_BINARY_DIR}/bin
         ${CMAKE_BINARY_DIR}/lib
       )
     else()
-      set( SIP_LINK_DIRS
-        ${SIP_LINK_DIRS}
+      list( PREPEND SIP_LINK_DIRS
         ${CMAKE_BINARY_DIR}/src
         ${CMAKE_BINARY_DIR}/3rdparty/liborigin
         ${CMAKE_BINARY_DIR}/3rdparty/qwtplot3d
@@ -245,16 +240,18 @@ else()
   list( REMOVE_DUPLICATES SIP_LINK_DIRS )
   string( JOIN "\"\n,\"" SIP_LINK_DIRS ${SIP_LINK_DIRS} )
 
+  string( JOIN "\"\n,\"" SIP_LINK_LIBS ${SIP_LINK_LIBS} )
+
   foreach( lib libmakhber qwtplot3d )
     get_target_property( INCLUDE_DIRS ${lib} INTERFACE_INCLUDE_DIRECTORIES )
-    set( SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} ${INCLUDE_DIRS} )
+    list( PREPEND SIP_INCLUDE_DIRS ${INCLUDE_DIRS} )
   endforeach()
   list( REMOVE_DUPLICATES SIP_INCLUDE_DIRS )
   string( JOIN "\"\n,\"" SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} )
   string( REPLACE "$<CONFIG>" "@CONFIG@" SIP_INCLUDE_DIRS ${SIP_INCLUDE_DIRS} )
 
   get_target_property( COMPILE_DEFINITIONS libmakhber INTERFACE_COMPILE_DEFINITIONS )
-  set( SIP_COMPILE_DEFINITIONS ${SIP_COMPILE_DEFINITIONS} ${COMPILE_DEFINITIONS} )
+  list( PREPEND SIP_COMPILE_DEFINITIONS ${COMPILE_DEFINITIONS} )
   list( TRANSFORM SIP_COMPILE_DEFINITIONS REPLACE "\"" "\\\\\"" )
   string( JOIN "\"\n,\"" SIP_COMPILE_DEFINITIONS ${SIP_COMPILE_DEFINITIONS} )
 
