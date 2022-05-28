@@ -64,7 +64,7 @@ class MAKHBER_EXPORT PlotDialog : public QDialog
     Q_OBJECT
 
 public:
-    PlotDialog(bool showExtended, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
+    explicit PlotDialog(bool showExtended, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     void initFonts(const QFont &titlefont, const QFont &axesfont, const QFont &numbersfont,
                    const QFont &legendfont);
     void insertColumnsList(const QStringList &names) { columnNames = names; };
@@ -257,17 +257,17 @@ class MAKHBER_EXPORT CurveTreeItem : public QTreeWidgetItem
 {
 public:
     enum { PlotCurveTreeItem = 1002 };
-    CurveTreeItem(const QwtPlotItem *curve, LayerItem *parent, const QString &s);
+    CurveTreeItem(QwtPlotItem *curve, LayerItem *parent, const QString &s);
 
-    Graph *graph() { return ((LayerItem *)parent())->graph(); };
+    Graph *graph() { return static_cast<LayerItem *>(parent())->graph(); };
     void setActive(bool on);
 
-    const QwtPlotItem *plotItem() { return d_curve; };
+    QwtPlotItem *plotItem() const { return d_curve; };
     int plotItemType();
     int plotItemIndex();
 
 protected:
-    const QwtPlotItem *d_curve;
+    QwtPlotItem *d_curve;
 };
 
 #endif

@@ -58,7 +58,7 @@ public:
     enum Algorithm { ScaledLevenbergMarquardt, UnscaledLevenbergMarquardt, NelderMeadSimplex };
     enum ErrorSource { UnknownErrors, AssociatedErrors, PoissonErrors, CustomErrors };
 
-    Fit(ApplicationWindow *parent, Graph *g = 0, QString name = QString());
+    explicit Fit(ApplicationWindow *parent, Graph *g = 0, const QString &name = QString());
     virtual ~Fit();
 
     //! Actually does the fit. Should be reimplemented in derived classes.
@@ -67,7 +67,7 @@ public:
     //! Sets the data set to be used as source of Y errors.
     bool setYErrorSource(ErrorSource err, const QString &colName = {}, bool fail_silently = false);
 
-    void setDataCurve(int curve, double start, double end);
+    void setDataCurve(int curve, double start, double end) override;
 
     QString formula() { return d_formula; };
     int numParameters() { return d_p; }
@@ -83,7 +83,7 @@ public:
     void generateFunction(bool yes, int points = 100);
 
     //! Output string added to the plot as a new legend
-    virtual QString legendInfo();
+    virtual QString legendInfo() override;
 
     //! Returns a vector with the fit results
     const std::vector<double> &results() const { return d_results; };

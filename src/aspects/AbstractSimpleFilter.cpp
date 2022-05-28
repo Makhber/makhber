@@ -90,7 +90,7 @@ void AbstractSimpleFilter::inputRowsAboutToBeInserted(const AbstractColumn *sour
     Q_UNUSED(source);
     Q_UNUSED(count);
     for (Interval<int> output_range : dependentRows(Interval<int>(before, before)))
-        Q_EMIT d_output_column->rowsAboutToBeInserted(d_output_column, output_range.start(),
+        Q_EMIT d_output_column->rowsAboutToBeInserted(d_output_column, output_range.minValue(),
                                                       output_range.size());
 }
 
@@ -99,7 +99,7 @@ void AbstractSimpleFilter::inputRowsInserted(const AbstractColumn *source, int b
     Q_UNUSED(source);
     Q_UNUSED(count);
     for (Interval<int> output_range : dependentRows(Interval<int>(before, before)))
-        Q_EMIT d_output_column->rowsInserted(d_output_column, output_range.start(),
+        Q_EMIT d_output_column->rowsInserted(d_output_column, output_range.minValue(),
                                              output_range.size());
 }
 
@@ -108,7 +108,7 @@ void AbstractSimpleFilter::inputRowsAboutToBeRemoved(const AbstractColumn *sourc
 {
     Q_UNUSED(source);
     for (Interval<int> output_range : dependentRows(Interval<int>(first, first + count - 1)))
-        Q_EMIT d_output_column->rowsAboutToBeRemoved(d_output_column, output_range.start(),
+        Q_EMIT d_output_column->rowsAboutToBeRemoved(d_output_column, output_range.minValue(),
                                                      output_range.size());
 }
 
@@ -116,7 +116,7 @@ void AbstractSimpleFilter::inputRowsRemoved(const AbstractColumn *source, int fi
 {
     Q_UNUSED(source);
     for (Interval<int> output_range : dependentRows(Interval<int>(first, first + count - 1)))
-        Q_EMIT d_output_column->rowsRemoved(d_output_column, output_range.start(),
+        Q_EMIT d_output_column->rowsRemoved(d_output_column, output_range.minValue(),
                                             output_range.size());
 }
 

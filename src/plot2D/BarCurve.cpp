@@ -76,7 +76,6 @@ void BarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMa
 void BarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
                     int to) const
 {
-    int dx = 0, dy = 0;
     double ref1 = NAN, ref2 = NAN;
     double bar_width = 0;
 
@@ -97,7 +96,7 @@ void BarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMa
     }
 
     if (bar_style == Vertical) {
-        dx = abs(xMap.transform(sample(from + 1).x()) - xMap.transform(sample(from).x()));
+        int dx = abs(xMap.transform(sample(from + 1).x()) - xMap.transform(sample(from).x()));
         for (int i = from + 2; i < to; i++) {
             int min = abs(xMap.transform(sample(i + 1).x()) - xMap.transform(sample(i).x()));
             if (min <= dx)
@@ -105,7 +104,7 @@ void BarCurve::draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMa
         }
         bar_width = dx * (1 - bar_gap * 0.01);
     } else {
-        dy = abs(yMap.transform(sample(from + 1).y()) - yMap.transform(sample(from).y()));
+        int dy = abs(yMap.transform(sample(from + 1).y()) - yMap.transform(sample(from).y()));
         for (int i = from + 2; i < to; i++) {
             int min = abs(yMap.transform(sample(i + 1).y()) - yMap.transform(sample(i).y()));
             if (min <= dy)

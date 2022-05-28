@@ -83,7 +83,8 @@ void LayerButton::mouseDoubleClickEvent(QMouseEvent *)
     Q_EMIT showCurvesDialog();
 }
 
-MultiLayer::MultiLayer(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
+MultiLayer::MultiLayer(const QString &label, QWidget *parent, const QString &name,
+                       Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)
 {
     if (name.isEmpty())
@@ -393,7 +394,7 @@ QSize MultiLayer::arrangeLayers(bool userSize)
         auto cw = (double)cRect.width();
 
         QRect tRect = plotLayout->titleRect().toRect();
-        auto *scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::xTop);
+        auto *scale = dynamic_cast<QwtScaleWidget *>(plot->axisWidget(QwtPlot::xTop));
 
         int topHeight = 0;
         if (!tRect.isNull())
@@ -404,19 +405,19 @@ QSize MultiLayer::arrangeLayers(bool userSize)
         }
         gsl_vector_set(xTopR, i, double(topHeight) / ch);
 
-        scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::xBottom);
+        scale = dynamic_cast<QwtScaleWidget *>(plot->axisWidget(QwtPlot::xBottom));
         if (scale) {
             QRect sRect = plotLayout->scaleRect(QwtPlot::xBottom).toRect();
             gsl_vector_set(xBottomR, i, double(sRect.height()) / ch);
         }
 
-        scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::yLeft);
+        scale = dynamic_cast<QwtScaleWidget *>(plot->axisWidget(QwtPlot::yLeft));
         if (scale) {
             QRect sRect = plotLayout->scaleRect(QwtPlot::yLeft).toRect();
             gsl_vector_set(yLeftR, i, double(sRect.width()) / cw);
         }
 
-        scale = (QwtScaleWidget *)plot->axisWidget(QwtPlot::yRight);
+        scale = dynamic_cast<QwtScaleWidget *>(plot->axisWidget(QwtPlot::yRight));
         if (scale) {
             QRect sRect = plotLayout->scaleRect(QwtPlot::yRight).toRect();
             gsl_vector_set(yRightR, i, double(sRect.width()) / cw);
@@ -548,20 +549,20 @@ void MultiLayer::findBestLayout(int &rows, int &cols)
     {
         if (NumGraph <= 2)
             cols = NumGraph / 2 + 1;
-        else if (NumGraph > 2)
+        else // if (NumGraph > 2)
             cols = NumGraph / 2;
 
         if (NumGraph < 8)
             rows = NumGraph / 4 + 1;
         if (NumGraph >= 8)
             rows = NumGraph / 4;
-    } else if (NumGraph % 2 != 0) // NumGraph is an odd number
+    } else // if (NumGraph % 2 != 0) // NumGraph is an odd number
     {
         int Num = NumGraph + 1;
 
         if (Num <= 2)
             cols = 1;
-        else if (Num > 2)
+        else // if (Num > 2)
             cols = Num / 2;
 
         if (Num < 8)
@@ -603,9 +604,9 @@ void MultiLayer::arrangeLayers(bool fit, bool userSize)
         }
 
         this->showNormal();
-        QSize size = canvas->childrenRect().size();
-        this->resize(QSize(size.width() + right_margin,
-                           size.height() + bottom_margin + LayerButton::btnSize()));
+        QSize canvas_rect_size = canvas->childrenRect().size();
+        this->resize(QSize(canvas_rect_size.width() + right_margin,
+                           canvas_rect_size.height() + bottom_margin + LayerButton::btnSize()));
 
         for (int i = 0; i < (int)graphsList.count(); i++) {
             auto *gr = dynamic_cast<Graph *>(graphsList.at(i));
@@ -619,14 +620,12 @@ void MultiLayer::arrangeLayers(bool fit, bool userSize)
 
 void MultiLayer::setCols(int c)
 {
-    if (cols != c)
-        cols = c;
+    cols = c;
 }
 
 void MultiLayer::setRows(int r)
 {
-    if (rows != r)
-        rows = r;
+    rows = r;
 }
 
 void MultiLayer::exportToFile(const QString &fileName)
@@ -737,7 +736,7 @@ void MultiLayer::exportPainter(QPainter &painter, bool keepAspect, QRect rect, Q
 
     for (int i = 0; i < (int)graphsList.count(); i++) {
         auto *gr = dynamic_cast<Graph *>(graphsList.at(i));
-        Plot *myPlot = (Plot *)gr->plotWidget();
+        Plot *myPlot = dynamic_cast<Plot *>(gr->plotWidget());
 
         QPoint pos = QPoint(gr->pos().x(), gr->pos().y());
         gr->exportPainter(painter, false, QRect(pos, myPlot->size()));
@@ -825,7 +824,7 @@ void MultiLayer::printAllLayers(QPainter *painter)
 
         for (int i = 0; i < (int)graphsList.count(); i++) {
             auto *gr = dynamic_cast<Graph *>(graphsList.at(i));
-            Plot *myPlot = (Plot *)gr->plotWidget();
+            Plot *myPlot = dynamic_cast<Plot *>(gr->plotWidget());
 
             QPoint pos = gr->pos();
             pos = QPoint(x_margin + pos.x(), y_margin + pos.y());
@@ -864,7 +863,7 @@ void MultiLayer::setFonts(const QFont &titleFnt, const QFont &scaleFnt, const QF
 
         QVector<int> keys = gr->textMarkerKeys();
         for (int key : keys) {
-            auto *mrk = (Legend *)gr->textMarker(key);
+            auto *mrk = dynamic_cast<Legend *>(gr->textMarker(key));
             if (mrk)
                 mrk->setFont(legendFnt);
         }
@@ -940,13 +939,13 @@ void MultiLayer::addTextLayer(const QPoint &pos)
 
 bool MultiLayer::eventFilter(QObject *object, QEvent *e)
 {
-    if (e->type() == QEvent::MouseButtonPress && object == (QObject *)canvas) {
+    if (e->type() == QEvent::MouseButtonPress && object == dynamic_cast<QObject *>(canvas)) {
         const auto *me = dynamic_cast<const QMouseEvent *>(e);
         if (me->button() == Qt::LeftButton && addTextOn)
             addTextLayer(me->pos());
 
         return false;
-    } else if (e->type() == QEvent::Resize && object == (QObject *)canvas) {
+    } else if (e->type() == QEvent::Resize && object == dynamic_cast<QObject *>(canvas)) {
         resizeLayers(dynamic_cast<const QResizeEvent *>(e));
     }
     return MyWidget::eventFilter(object, e);
@@ -957,7 +956,7 @@ void MultiLayer::keyPressEvent(QKeyEvent *e)
     if (e->key() == Qt::Key_F12) {
         if (d_layers_selector)
             delete d_layers_selector;
-        int index = graphsList.indexOf((QWidget *)active_graph) + 1;
+        int index = graphsList.indexOf(dynamic_cast<QWidget *>(active_graph)) + 1;
         if (index >= graphsList.size())
             index = 0;
         auto *g = dynamic_cast<Graph *>(graphsList.at(index));
@@ -969,7 +968,7 @@ void MultiLayer::keyPressEvent(QKeyEvent *e)
     if (e->key() == Qt::Key_F10) {
         if (d_layers_selector)
             delete d_layers_selector;
-        int index = graphsList.indexOf((QWidget *)active_graph) - 1;
+        int index = graphsList.indexOf(dynamic_cast<QWidget *>(active_graph)) - 1;
         if (index < 0)
             index = graphsList.size() - 1;
         auto *g = dynamic_cast<Graph *>(graphsList.at(index));
@@ -1189,39 +1188,28 @@ void MultiLayer::mousePressEvent(QMouseEvent *e)
 
 void MultiLayer::setMargins(int lm, int rm, int tm, int bm)
 {
-    if (left_margin != lm)
-        left_margin = lm;
-    if (right_margin != rm)
-        right_margin = rm;
-    if (top_margin != tm)
-        top_margin = tm;
-    if (bottom_margin != bm)
-        bottom_margin = bm;
+    left_margin = lm;
+    right_margin = rm;
+    top_margin = tm;
+    bottom_margin = bm;
 }
 
 void MultiLayer::setSpacing(int rgap, int cgap)
 {
-    if (rowsSpace != rgap)
-        rowsSpace = rgap;
-    if (colsSpace != cgap)
-        colsSpace = cgap;
+    rowsSpace = rgap;
+    colsSpace = cgap;
 }
 
 void MultiLayer::setLayerCanvasSize(int w, int h)
 {
-    if (l_canvas_width != w)
-        l_canvas_width = w;
-    if (l_canvas_height != h)
-        l_canvas_height = h;
+    l_canvas_width = w;
+    l_canvas_height = h;
 }
 
 void MultiLayer::setAlignement(int ha, int va)
 {
-    if (hor_align != ha)
-        hor_align = ha;
-
-    if (vert_align != va)
-        vert_align = va;
+    hor_align = ha;
+    vert_align = va;
 }
 
 void MultiLayer::setLayersNumber(int n)
@@ -1281,9 +1269,9 @@ void MultiLayer::copy(ApplicationWindow *parent, MultiLayer *ml)
     setAlignement(ml->horizontalAlignement(), ml->verticalAlignement());
     setMargins(ml->leftMargin(), ml->rightMargin(), ml->topMargin(), ml->bottomMargin());
 
-    QWidgetList graphsList = ml->graphPtrs();
-    for (int i = 0; i < graphsList.count(); i++) {
-        auto *g = dynamic_cast<Graph *>(graphsList.at(i));
+    QWidgetList ml_graphsList = ml->graphPtrs();
+    for (int i = 0; i < ml_graphsList.count(); i++) {
+        auto *g = dynamic_cast<Graph *>(ml_graphsList.at(i));
         Graph *g2 = addLayer(g->pos().x(), g->pos().y(), g->width(), g->height());
         g2->copy(parent, g);
         g2->setIgnoreResizeEvents(g->ignoresResizeEvents());

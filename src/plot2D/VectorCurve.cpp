@@ -36,7 +36,7 @@
 
 #include <cmath>
 
-VectorCurve::VectorCurve(VectorStyle style, Table *t, const QString &xColName, QString name,
+VectorCurve::VectorCurve(VectorStyle style, Table *t, const QString &xColName, const QString &name,
                          const QString &endCol1, const QString &endCol2, int startRow, int endRow)
     : DataCurve(t, xColName, name, startRow, endRow)
 {
@@ -194,7 +194,7 @@ void VectorCurve::setVectorEnd(const QVector<double> &x, const QVector<double> &
 #endif
 }
 
-int VectorCurve::width()
+int VectorCurve::width() const
 {
     return pen.width();
 }
@@ -204,7 +204,7 @@ void VectorCurve::setWidth(int w)
     pen.setWidth(w);
 }
 
-QColor VectorCurve::color()
+QColor VectorCurve::color() const
 {
     return pen.color();
 }
@@ -217,20 +217,17 @@ void VectorCurve::setColor(const QColor &c)
 
 void VectorCurve::setHeadLength(int l)
 {
-    if (d_headLength != l)
-        d_headLength = l;
+    d_headLength = l;
 }
 
 void VectorCurve::setHeadAngle(int a)
 {
-    if (d_headAngle != a)
-        d_headAngle = a;
+    d_headAngle = a;
 }
 
 void VectorCurve::fillArrowHead(bool fill)
 {
-    if (filledArrow != fill)
-        filledArrow = fill;
+    filledArrow = fill;
 }
 
 QRectF VectorCurve::boundingRect() const
@@ -315,7 +312,7 @@ void VectorCurve::updateColumnNames(const QString &oldName, const QString &newNa
     }
 }
 
-QString VectorCurve::plotAssociation()
+QString VectorCurve::plotAssociation() const
 {
     QString base = d_x_column + "(X)," + title().text() + "(Y)," + d_end_x_a;
     if (d_type == Graph::VectXYAM)

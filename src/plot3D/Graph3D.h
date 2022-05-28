@@ -56,8 +56,8 @@ class MAKHBER_EXPORT Graph3D : public MyWidget
     Q_OBJECT
 
 public:
-    Graph3D(const QString &label, QWidget *parent = 0, const char *name = 0,
-            Qt::WindowFlags f = Qt::Widget);
+    explicit Graph3D(const QString &label, QWidget *parent = 0, const char *name = 0,
+                     Qt::WindowFlags f = Qt::Widget);
     ~Graph3D();
 
     enum PlotType { Scatter = 0, Trajectory = 1, Bars = 2 };
@@ -111,9 +111,9 @@ public Q_SLOTS:
 
     //! \name Event Handlers
     //@{
-    bool eventFilter(QObject *object, QEvent *e);
-    void resizeEvent(QResizeEvent *);
-    void contextMenuEvent(QContextMenuEvent *e);
+    bool eventFilter(QObject *object, QEvent *e) override;
+    void resizeEvent(QResizeEvent *) override;
+    void contextMenuEvent(QContextMenuEvent *e) override;
     void scaleFonts(double factor);
     void setIgnoreFonts(bool ok) { ignoreFonts = ok; };
     //@}
@@ -234,15 +234,15 @@ public Q_SLOTS:
     Qwt3D::FLOORSTYLE floorStyle();
     Qwt3D::COORDSTYLE coordStyle();
 
-    void print();
+    void print() override;
     void copyImage();
     void exportImage(const QString &fileName, int quality = 100, bool transparent = false);
 
-    void exportPDF(const QString &fileName);
+    void exportPDF(const QString &fileName) override;
     void exportVector(const QString &fileName, const QString &fileType = "pdf");
 
-    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
-    void saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry) override;
+    void saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry) override;
 
     void zoomChanged(double);
     void rotationChanged(double, double, double);
@@ -251,7 +251,7 @@ public Q_SLOTS:
 
     //! \name Colors
     //@{
-    void setDataColors(const QColor &cMax, const QColor &cMin);
+    void setDataColors(const QColor &cMin, const QColor &cMax);
 
     void updateColors(const QColor &meshColor, const QColor &axesColor, const QColor &numColor,
                       const QColor &labelColor, const QColor &bgColor, const QColor &gridColor);
@@ -394,7 +394,7 @@ class MAKHBER_EXPORT UserFunction : public Qwt3D::Function
 public:
     UserFunction(const QString &s, Qwt3D::SurfacePlot &pw);
     ~UserFunction();
-    double operator()(double x, double y);
+    double operator()(double x, double y) override;
     QString function() { return formula; };
 
 private:

@@ -153,7 +153,7 @@ private:
 class MAKHBER_EXPORT MatrixClearCmd : public QUndoCommand
 {
 public:
-    MatrixClearCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
+    explicit MatrixClearCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
     ~MatrixClearCmd();
 
     virtual void redo();
@@ -394,7 +394,7 @@ private:
 class MAKHBER_EXPORT MatrixTransposeCmd : public QUndoCommand
 {
 public:
-    MatrixTransposeCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
+    explicit MatrixTransposeCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
     ~MatrixTransposeCmd();
 
     virtual void redo();
@@ -416,7 +416,8 @@ private:
 class MAKHBER_EXPORT MatrixMirrorHorizontallyCmd : public QUndoCommand
 {
 public:
-    MatrixMirrorHorizontallyCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
+    explicit MatrixMirrorHorizontallyCmd(future::Matrix::Private *private_obj,
+                                         QUndoCommand *parent = 0);
     ~MatrixMirrorHorizontallyCmd();
 
     virtual void redo();
@@ -438,7 +439,8 @@ private:
 class MAKHBER_EXPORT MatrixMirrorVerticallyCmd : public QUndoCommand
 {
 public:
-    MatrixMirrorVerticallyCmd(future::Matrix::Private *private_obj, QUndoCommand *parent = 0);
+    explicit MatrixMirrorVerticallyCmd(future::Matrix::Private *private_obj,
+                                       QUndoCommand *parent = 0);
     ~MatrixMirrorVerticallyCmd();
 
     virtual void redo();

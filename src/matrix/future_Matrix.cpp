@@ -70,9 +70,8 @@ Matrix::Matrix(void *, int rows, int cols, const QString &name) : AbstractPart(n
     connectActions();
 }
 
-Matrix::Matrix() : AbstractPart("temp")
+Matrix::Matrix() : AbstractPart("temp"), d_view(nullptr)
 {
-    d_view = nullptr;
     createActions();
 }
 

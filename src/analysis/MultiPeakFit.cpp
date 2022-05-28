@@ -243,17 +243,16 @@ void MultiPeakFit::generateFitCurve(const std::vector<double> &par)
 
     auto *X = new double[d_points];
     auto *Y = new double[d_points];
-    int i = 0, j = 0;
     int peaks_aux = d_peaks;
     if (d_peaks == 1)
         peaks_aux--;
 
     if (d_gen_function) {
         double step = (d_x[d_n - 1] - d_x[0]) / (d_points - 1);
-        for (i = 0; i < d_points; i++) {
+        for (int i = 0; i < d_points; i++) {
             X[i] = d_x[0] + i * step;
             double yi = 0;
-            for (j = 0; j < d_peaks; j++) {
+            for (int j = 0; j < d_peaks; j++) {
                 double diff = X[i] - par[3 * j + 1];
                 double w = par[3 * j + 2];
                 double y_aux = 0;
@@ -275,8 +274,8 @@ void MultiPeakFit::generateFitCurve(const std::vector<double> &par)
             insertFitFunctionCurve(objectName() + tr("Fit"), X, Y);
 
         if (generate_peak_curves) {
-            for (i = 0; i < peaks_aux; i++) { // add the peak curves
-                for (j = 0; j < d_points; j++)
+            for (int i = 0; i < peaks_aux; i++) { // add the peak curves
+                for (int j = 0; j < d_points; j++)
                     Y[j] = gsl_matrix_get(m, j, i);
 
                 insertPeakFunctionCurve(X, Y, i);
@@ -289,19 +288,19 @@ void MultiPeakFit::generateFitCurve(const std::vector<double> &par)
         QList<Column *> columns;
         columns << new Column(tr("1", "multipeak fit table first column name"),
                               Makhber::ColumnMode::Numeric);
-        for (i = 0; i < peaks_aux; i++)
+        for (int i = 0; i < peaks_aux; i++)
             columns << new Column(tr("peak%1").arg(QString::number(i + 1)),
                                   Makhber::ColumnMode::Numeric);
         columns << new Column(tr("2", "multipeak fit table last column name"),
                               Makhber::ColumnMode::Numeric);
         Table *t = app->newHiddenTable(tableName, label, columns);
 
-        for (i = 0; i < d_points; i++) {
+        for (int i = 0; i < d_points; i++) {
             X[i] = d_x[i];
             columns.at(0)->setValueAt(i, X[i]);
 
             double yi = 0;
-            for (j = 0; j < d_peaks; j++) {
+            for (int j = 0; j < d_peaks; j++) {
                 double diff = X[i] - par[3 * j + 1];
                 double w = par[3 * j + 2];
                 double y_aux = 0;
@@ -331,8 +330,8 @@ void MultiPeakFit::generateFitCurve(const std::vector<double> &par)
         d_graph->addFitCurve(c);
 
         if (generate_peak_curves) {
-            for (i = 0; i < peaks_aux; i++) { // add the peak curves
-                for (j = 0; j < d_points; j++)
+            for (int i = 0; i < peaks_aux; i++) { // add the peak curves
+                for (int j = 0; j < d_points; j++)
                     Y[j] = gsl_matrix_get(m, j, i);
 
                 label = tableName + "_" + tr("peak") + QString::number(i + 1);

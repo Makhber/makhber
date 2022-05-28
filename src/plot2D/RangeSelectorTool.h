@@ -55,14 +55,14 @@ class MAKHBER_EXPORT RangeSelectorTool : public QwtPlotPicker, public PlotToolIn
 {
     Q_OBJECT
 public:
-    RangeSelectorTool(Graph *graph, const QObject *status_target = NULL,
-                      const char *status_slot = "");
+    explicit RangeSelectorTool(Graph *graph, const QObject *status_target = NULL,
+                               const char *status_slot = "");
     virtual ~RangeSelectorTool();
-    virtual RTTI rtti() const { return RangeSelector; }
+    virtual RTTI rtti() const override { return RangeSelector; }
     double minXValue() const { return qMin(d_active_marker.xValue(), d_inactive_marker.xValue()); }
     double maxXValue() const { return qMax(d_active_marker.xValue(), d_inactive_marker.xValue()); }
     int dataSize() const { return qAbs(d_active_point - d_inactive_point); }
-    virtual bool eventFilter(QObject *obj, QEvent *event);
+    virtual bool eventFilter(QObject *obj, QEvent *event) override;
     bool keyEventFilter(QKeyEvent *ke);
 
     QwtPlotCurve *selectedCurve() const { return d_selected_curve; }
@@ -83,7 +83,7 @@ Q_SIGNALS:
     void rangeSelectorChanged();
 
 protected:
-    virtual void append(const QPoint &point) { pointSelected(point); }
+    virtual void append(const QPoint &point) override { pointSelected(point); }
     void emitStatusText();
     void switchActiveMarker();
     //! Caller is responsible for replot.

@@ -89,17 +89,17 @@ Folder *Folder::findSubfolder(const QString &s, bool caseSensitive, bool partial
     QObjectList folderList = children();
     if (!folderList.isEmpty()) {
         for (QObject *f : folderList) {
-            QString name = dynamic_cast<Folder *>(f)->name();
+            QString folder_name = dynamic_cast<Folder *>(f)->name();
             if (partialMatch) {
-                if (caseSensitive && name.startsWith(s, Qt::CaseSensitive))
+                if (caseSensitive && folder_name.startsWith(s, Qt::CaseSensitive))
                     return dynamic_cast<Folder *>(f);
-                else if (!caseSensitive && name.startsWith(s, Qt::CaseInsensitive))
+                else if (!caseSensitive && folder_name.startsWith(s, Qt::CaseInsensitive))
                     return dynamic_cast<Folder *>(f);
             } else // partialMatch == false
             {
-                if (caseSensitive && name == s)
+                if (caseSensitive && folder_name == s)
                     return dynamic_cast<Folder *>(f);
-                else if (!caseSensitive && (name.toLower() == s.toLower()))
+                else if (!caseSensitive && (folder_name.toLower() == s.toLower()))
                     return dynamic_cast<Folder *>(f);
             }
         }
@@ -115,14 +115,14 @@ MyWidget *Folder::findWindow(const QString &s, bool windowNames, bool labels, bo
         cs = Qt::CaseInsensitive;
     for (MyWidget *w : lstWindows) {
         if (windowNames) {
-            QString name = w->name();
-            if (partialMatch && name.startsWith(s, cs))
+            QString window_name = w->name();
+            if (partialMatch && window_name.startsWith(s, cs))
                 return w;
-            else if (caseSensitive && name == s)
+            else if (caseSensitive && window_name == s)
                 return w;
             else {
                 QString text = s;
-                if (name == text.toLower())
+                if (window_name == text.toLower())
                     return w;
             }
         }
@@ -320,8 +320,8 @@ void FolderListView::keyPressEvent(QKeyEvent *e)
         Q_EMIT itemDoubleClicked(item, 0);
         e->accept();
     } else if (e->key() == Qt::Key_F2) {
-        if (item)
-            Q_EMIT renameItem(item, 0);
+        // if (item) Always true
+        Q_EMIT renameItem(item, 0);
         e->accept();
     } else if (e->key() == Qt::Key_A && e->modifiers() == Qt::ControlModifier) {
         selectAll();

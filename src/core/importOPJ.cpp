@@ -105,7 +105,7 @@ ImportOPJ::ImportOPJ(ApplicationWindow *app, const QString &filename, const QStr
     xoffset = 0;
     try {
         mw->setStatusBarText(QString("Import start ..."));
-        OriginFile opj((const char *)filename.toLocal8Bit());
+        OriginFile opj(static_cast<const char *>(filename.toLocal8Bit()));
         parse_error = opj.parse();
         mw->setStatusBarText(QString("... file parsed. Starting conversion to Makhber ..."));
         importTables(opj);
@@ -233,7 +233,6 @@ int ImportOPJ::translateOrigin2MakhberLineStyle(int linestyle)
 // spreadsheets can be either in its own window or as a sheet in excels windows
 bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadSheet &spread)
 {
-    static int visible_count = 0;
     QLocale locale = mw->locale();
     int Makhber_scaling_factor = 10; // in Origin width is measured in characters while in Makhber
                                      // - pixels --- need to be accurate
@@ -316,8 +315,8 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
                         makhber_column->setTextAt(i, column.data[i].as_string());
                     }
                 }
-                int f = 0;
                 if (column.numericDisplayType != 0) {
+                    int f = 0;
                     switch (column.valueTypeSpecification) {
                     case 0: // Decimal 1000
                         f = 1;
@@ -497,6 +496,7 @@ bool ImportOPJ::importSpreadsheet(const OriginFile &opj, const Origin::SpreadShe
             windowRect = spread.frameRect;
             table->move(QPoint(windowRect.left, windowRect.top));
         } else {
+            static int visible_count = 0;
             int dx = table->verticalHeaderWidth();
             int dy = table->frameGeometry().height() - table->height();
             table->move(QPoint(visible_count * dx + xoffset * OBJECTXOFFSET, visible_count * dy));
@@ -706,11 +706,10 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                 default:
                     continue;
                 }
-                QString tableName;
                 switch (data[0].toLatin1()) {
                 case 'T':
                 case 'E': {
-                    tableName = data.right(data.length() - 2);
+                    QString tableName = data.right(data.length() - 2);
                     Table *table = mw->table(tableName);
                     if (!table)
                         break;
@@ -898,22 +897,23 @@ bool ImportOPJ::importGraphs(const OriginFile &opj)
                         cl.aStyle = 3;
                         break;
                     }
-                    Origin::Color color {};
-                    color = (cl.aStyle == 0 ? _curve.fillAreaColor : _curve.fillAreaPatternColor);
-                    cl.aCol = (color.type == Origin::Color::Automatic
+                    Origin::Color origin_color {};
+                    origin_color =
+                            (cl.aStyle == 0 ? _curve.fillAreaColor : _curve.fillAreaPatternColor);
+                    cl.aCol = (origin_color.type == Origin::Color::Automatic
                                        ? 0
-                                       : color.regular); // 0xF7 -Automatic color
+                                       : origin_color.regular); // 0xF7 -Automatic color
                     if (style == Graph::VerticalBars || style == Graph::HorizontalBars
                         || style == Graph::Histogram) {
-                        color = _curve.fillAreaPatternBorderColor;
-                        cl.lCol = (color.type == Origin::Color::Automatic
+                        origin_color = _curve.fillAreaPatternBorderColor;
+                        cl.lCol = (origin_color.type == Origin::Color::Automatic
                                            ? 0
-                                           : color.regular); // 0xF7 -Automatic color
-                        color = (cl.aStyle == 0 ? _curve.fillAreaColor
-                                                : _curve.fillAreaPatternColor);
-                        cl.aCol = (color.type == Origin::Color::Automatic
+                                           : origin_color.regular); // 0xF7 -Automatic color
+                        origin_color = (cl.aStyle == 0 ? _curve.fillAreaColor
+                                                       : _curve.fillAreaPatternColor);
+                        cl.aCol = (origin_color.type == Origin::Color::Automatic
                                            ? cl.lCol
-                                           : color.regular); // 0xF7 -Automatic color
+                                           : origin_color.regular); // 0xF7 -Automatic color
                         cl.lWidth = _curve.fillAreaPatternBorderWidth;
                         linestyle = _curve.fillAreaPatternBorderStyle;
                     }
@@ -1180,7 +1180,7 @@ QString ImportOPJ::parseOriginTags(const QString &str)
             int len = value.length();
             value = rtagBracket + value.mid(1, len - 2) + ltagBracket;
             linerev.replace(pos2, len, value);
-        } else if ((pos2 > pos1 && pos1 != -1) || pos2 == -1) {
+        } else if ((pos2 > pos1) || pos2 == -1) { // && pos1 != -1
             QString value = matchrx.captured(0);
             int len = value.length();
             value = rtagBracket + value.mid(1, len - 2) + ltagBracket;
@@ -1219,13 +1219,13 @@ QString ImportOPJ::parseOriginTags(const QString &str)
             while (postag[i] > -1) {
                 QString value = matchrxtags.captured(0);
                 int len = value.length();
-                int pos2 = value.indexOf("(");
+                int pos3 = value.indexOf("(");
                 if (i < 6)
-                    value = ltag[i] + value.mid(pos2 + 1, len - pos2 - 2) + rtag[i];
+                    value = ltag[i] + value.mid(pos3 + 1, len - pos3 - 2) + rtag[i];
                 else {
                     int posfont = value.indexOf("f:");
-                    value = ltag[i].arg(value.mid(posfont + 2, pos2 - posfont - 2))
-                            + value.mid(pos2 + 1, len - pos2 - 2) + rtag[i];
+                    value = ltag[i].arg(value.mid(posfont + 2, pos3 - posfont - 2))
+                            + value.mid(pos3 + 1, len - pos3 - 2) + rtag[i];
                 }
                 line.replace(postag[i], len, value);
                 matchrxtags = rxtags[i].match(line);

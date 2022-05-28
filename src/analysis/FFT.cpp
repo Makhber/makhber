@@ -158,7 +158,7 @@ void FFT::output()
         output(columns);
 }
 
-void FFT::output(QList<Column *> columns)
+void FFT::output(QList<Column *> &columns)
 {
     auto *app = dynamic_cast<ApplicationWindow *>(parent());
     QString tableName = app->generateUniqueName(objectName());

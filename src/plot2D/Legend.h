@@ -54,7 +54,7 @@
 class MAKHBER_EXPORT Legend : public PlotEnrichement
 {
 public:
-    Legend(Plot *);
+    explicit Legend(Plot *);
     ~Legend();
 
     //! The kinds of frame a Legend can draw around the Text.
@@ -64,9 +64,9 @@ public:
     void setText(const QString &s);
 
     //! Bounding rectangle in paint coordinates.
-    QRect rect() const;
+    QRect rect() const override;
     //! Bounding rectangle in plot coordinates.
-    virtual QRectF boundingRect() const;
+    virtual QRectF boundingRect() const override;
 
     void setOrigin(const QPoint &p);
 
@@ -92,7 +92,8 @@ public:
     void setAngle(int ang) { d_angle = ang; };
 
 private:
-    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap, const QRectF &r) const;
+    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+              const QRectF &r) const override;
 
     void drawFrame(QPainter *p, int type, const QRect &rect) const;
     void drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,

@@ -130,12 +130,12 @@ public:
     //! Ctor
     AbstractSimpleFilter();
     //! Default to one input port.
-    virtual int inputCount() const { return 1; }
+    virtual int inputCount() const override { return 1; }
     //! We manage only one output port (don't override unless you really know what you are doing).
-    virtual int outputCount() const { return 1; }
+    virtual int outputCount() const override { return 1; }
     //! Return a pointer to #d_output_column on port 0 (don't override unless you really know what you are doing).
-    virtual AbstractColumn *output(int port);
-    virtual const AbstractColumn *output(int port) const;
+    virtual AbstractColumn *output(int port) override;
+    virtual const AbstractColumn *output(int port) const override;
     //! Copy plot designation of input port 0.
     virtual Makhber::PlotDesignation plotDesignation() const
     {
@@ -251,9 +251,9 @@ public:
     //! \name Json related functions
     //@{
     //! Save to Json
-    virtual void save(QJsonObject *) const;
+    virtual void save(QJsonObject *) const override;
     //! Load from Json
-    virtual bool load(QJsonObject *reader);
+    virtual bool load(QJsonObject *reader) override;
     //! Override this in derived classes if they have other attributes than filter_name
     virtual void writeExtraAttributes(QJsonObject *jsObject) const { Q_UNUSED(jsObject) }
     //@}
@@ -263,17 +263,19 @@ protected:
 
     //!\name signal handlers
     //@{
-    virtual void inputPlotDesignationAboutToChange(const AbstractColumn *);
-    virtual void inputPlotDesignationChanged(const AbstractColumn *);
-    virtual void inputModeAboutToChange(const AbstractColumn *);
-    virtual void inputModeChanged(const AbstractColumn *);
-    virtual void inputDataAboutToChange(const AbstractColumn *);
-    virtual void inputDataChanged(const AbstractColumn *);
+    virtual void inputPlotDesignationAboutToChange(const AbstractColumn *) override;
+    virtual void inputPlotDesignationChanged(const AbstractColumn *) override;
+    virtual void inputModeAboutToChange(const AbstractColumn *) override;
+    virtual void inputModeChanged(const AbstractColumn *) override;
+    virtual void inputDataAboutToChange(const AbstractColumn *) override;
+    virtual void inputDataChanged(const AbstractColumn *) override;
 
-    virtual void inputRowsAboutToBeInserted(const AbstractColumn *source, int before, int count);
-    virtual void inputRowsInserted(const AbstractColumn *source, int before, int count);
-    virtual void inputRowsAboutToBeRemoved(const AbstractColumn *source, int first, int count);
-    virtual void inputRowsRemoved(const AbstractColumn *source, int first, int count);
+    virtual void inputRowsAboutToBeInserted(const AbstractColumn *source, int before,
+                                            int count) override;
+    virtual void inputRowsInserted(const AbstractColumn *source, int before, int count) override;
+    virtual void inputRowsAboutToBeRemoved(const AbstractColumn *source, int first,
+                                           int count) override;
+    virtual void inputRowsRemoved(const AbstractColumn *source, int first, int count) override;
     //@}
 
     SimpleFilterColumn *d_output_column;
@@ -284,26 +286,36 @@ class MAKHBER_EXPORT SimpleFilterColumn : public AbstractColumn
     Q_OBJECT
 
 public:
-    SimpleFilterColumn(AbstractSimpleFilter *owner) : AbstractColumn(owner->name()), d_owner(owner)
+    explicit SimpleFilterColumn(AbstractSimpleFilter *owner)
+        : AbstractColumn(owner->name()), d_owner(owner)
     {
     }
 
-    virtual Makhber::ColumnDataType dataType() const { return d_owner->dataType(); }
-    virtual Makhber::ColumnMode columnMode() const { return d_owner->columnMode(); }
-    virtual int rowCount() const { return d_owner->rowCount(); }
-    virtual Makhber::PlotDesignation plotDesignation() const { return d_owner->plotDesignation(); }
-    virtual bool isInvalid(int row) const { return d_owner->isInvalid(row); }
-    virtual bool isInvalid(Interval<int> i) const { return d_owner->isInvalid(i); }
-    virtual QList<Interval<int>> invalidIntervals() const { return d_owner->invalidIntervals(); }
-    virtual bool isMasked(int row) const { return d_owner->isMasked(row); }
-    virtual bool isMasked(Interval<int> i) const { return d_owner->isMasked(i); }
-    virtual QList<Interval<int>> maskedIntervals() const { return d_owner->maskedIntervals(); }
-    virtual void clearMasks() { d_owner->clearMasks(); }
-    virtual QString textAt(int row) const { return d_owner->textAt(row); }
-    virtual QDate dateAt(int row) const { return d_owner->dateAt(row); }
-    virtual QTime timeAt(int row) const { return d_owner->timeAt(row); }
-    virtual QDateTime dateTimeAt(int row) const { return d_owner->dateTimeAt(row); }
-    virtual double valueAt(int row) const { return d_owner->valueAt(row); }
+    virtual Makhber::ColumnDataType dataType() const override { return d_owner->dataType(); }
+    virtual Makhber::ColumnMode columnMode() const override { return d_owner->columnMode(); }
+    virtual int rowCount() const override { return d_owner->rowCount(); }
+    virtual Makhber::PlotDesignation plotDesignation() const override
+    {
+        return d_owner->plotDesignation();
+    }
+    virtual bool isInvalid(int row) const override { return d_owner->isInvalid(row); }
+    virtual bool isInvalid(Interval<int> i) const override { return d_owner->isInvalid(i); }
+    virtual QList<Interval<int>> invalidIntervals() const override
+    {
+        return d_owner->invalidIntervals();
+    }
+    virtual bool isMasked(int row) const override { return d_owner->isMasked(row); }
+    virtual bool isMasked(Interval<int> i) const override { return d_owner->isMasked(i); }
+    virtual QList<Interval<int>> maskedIntervals() const override
+    {
+        return d_owner->maskedIntervals();
+    }
+    virtual void clearMasks() override { d_owner->clearMasks(); }
+    virtual QString textAt(int row) const override { return d_owner->textAt(row); }
+    virtual QDate dateAt(int row) const override { return d_owner->dateAt(row); }
+    virtual QTime timeAt(int row) const override { return d_owner->timeAt(row); }
+    virtual QDateTime dateTimeAt(int row) const override { return d_owner->dateTimeAt(row); }
+    virtual double valueAt(int row) const override { return d_owner->valueAt(row); }
 
 private:
     AbstractSimpleFilter *d_owner;

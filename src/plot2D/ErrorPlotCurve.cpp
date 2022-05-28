@@ -40,10 +40,9 @@
 #include <QLocale>
 
 ErrorPlotCurve::ErrorPlotCurve(Qt::Orientation orientation, Table *t, const QString &name)
-    : DataCurve(t, QString(), name), d_master_curve(nullptr)
+    : DataCurve(t, QString(), name), type(orientation), d_master_curve(nullptr)
 {
     cap = 10;
-    type = orientation;
     plus = true;
     minus = true;
     through = false;
@@ -51,13 +50,12 @@ ErrorPlotCurve::ErrorPlotCurve(Qt::Orientation orientation, Table *t, const QStr
 }
 
 ErrorPlotCurve::ErrorPlotCurve(Table *t, const QString &name)
-    : DataCurve(t, QString(), name), d_master_curve(nullptr)
+    : DataCurve(t, QString(), name), type(Qt::Vertical), d_master_curve(nullptr)
 {
     cap = 10;
     plus = true;
     minus = true;
     through = false;
-    type = Qt::Vertical;
     setType(Graph::ErrorBars);
 }
 
@@ -186,7 +184,7 @@ void ErrorPlotCurve::drawErrorBars(QPainter *painter, const QwtScaleMap &xMap,
     }
 }
 
-double ErrorPlotCurve::errorValue(int i)
+double ErrorPlotCurve::errorValue(int i) const
 {
     if (i >= 0 && i < static_cast<int>(dataSize()))
         return err[i];
@@ -194,7 +192,7 @@ double ErrorPlotCurve::errorValue(int i)
         return 0.0;
 }
 
-bool ErrorPlotCurve::xErrors()
+bool ErrorPlotCurve::xErrors() const
 {
     bool x = false;
     if (type == Qt::Horizontal)
@@ -288,19 +286,20 @@ bool ErrorPlotCurve::loadData()
     Table *mt = d_master_curve->table();
     if (!mt)
         return false;
-    Column *x = mt->column(d_master_curve->xColumnName());
-    Column *y = mt->column(d_master_curve->title().text());
+    Column *x_col = mt->column(d_master_curve->xColumnName());
+    Column *y_col = mt->column(d_master_curve->title().text());
 
-    Column *err = d_table->column(title().text());
+    Column *err_col = d_table->column(title().text());
 
-    if (!x || !y || !err) {
+    if (!x_col || !y_col || !err_col) {
         remove();
         return false;
     }
 
     QList<QVector<double>> data = convertData(
-            d_master_curve->type() == Graph::HorizontalBars ? (QList<Column *>() << y << x << err)
-                                                            : (QList<Column *>() << x << y << err),
+            d_master_curve->type() == Graph::HorizontalBars
+                    ? (QList<Column *>() << y_col << x_col << err_col)
+                    : (QList<Column *>() << x_col << y_col << err_col),
             QList<int>() << xAxis() << yAxis() << (type == Qt::Horizontal ? xAxis() : yAxis()));
 
     if (data.isEmpty() || data[0].size() == 0) {
@@ -314,7 +313,7 @@ bool ErrorPlotCurve::loadData()
     return true;
 }
 
-QString ErrorPlotCurve::plotAssociation()
+QString ErrorPlotCurve::plotAssociation() const
 {
     if (!d_master_curve)
         return QString();

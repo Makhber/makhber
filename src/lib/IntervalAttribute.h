@@ -46,8 +46,8 @@ public:
         d_values.clear();
         for (Interval<int> iv : other.intervals())
             d_intervals.append(iv);
-        for (T value : other.values())
-            d_values.append(value);
+        for (T val : other.values())
+            d_values.append(val);
     }
     IntervalAttribute<T> &operator=(const IntervalAttribute<T> &other)
     {
@@ -55,16 +55,15 @@ public:
         d_values.clear();
         for (Interval<int> iv : other.intervals())
             d_intervals.append(iv);
-        for (T value : other.values())
-            d_values.append(value);
+        for (T val : other.values())
+            d_values.append(val);
         return *this;
     }
     void setValue(Interval<int> i, T value)
     {
         // first: subtract the new interval from all others
-        QList<Interval<int>> temp_list;
         for (int c = 0; c < d_intervals.size(); c++) {
-            temp_list = Interval<int>::subtract(d_intervals.at(c), i);
+            QList<Interval<int>> temp_list = Interval<int>::subtract(d_intervals.at(c), i);
             if (temp_list.isEmpty()) {
                 d_intervals.removeAt(c);
                 d_values.removeAt(c--);
@@ -90,7 +89,7 @@ public:
     }
 
     // overloaded for convenience
-    void setValue(int row, T value) { setValue(Interval<int>(row, row), value); }
+    void setValue(int row, const T &value) { setValue(Interval<int>(row, row), value); }
 
     T value(int row) const
     {
@@ -118,18 +117,17 @@ public:
         }
         // second: translate all intervals that start at 'before' or later
         for (int c = 0; c < d_intervals.size(); c++) {
-            if (d_intervals.at(c).start() >= before)
+            if (d_intervals.at(c).minValue() >= before)
                 d_intervals[c].translate(count);
         }
     }
 
     void removeRows(int first, int count)
     {
-        QList<Interval<int>> temp_list;
         Interval<int> i(first, first + count - 1);
         // first: remove the relevant rows from all intervals
         for (int c = 0; c < d_intervals.size(); c++) {
-            temp_list = Interval<int>::subtract(d_intervals.at(c), i);
+            QList<Interval<int>> temp_list = Interval<int>::subtract(d_intervals.at(c), i);
             if (temp_list.isEmpty()) {
                 d_intervals.removeAt(c);
                 d_values.removeAt(c--);
@@ -144,7 +142,7 @@ public:
         }
         // second: translate all intervals that start at 'first+count' or later
         for (int c = 0; c < d_intervals.size(); c++) {
-            if (d_intervals.at(c).start() >= first + count)
+            if (d_intervals.at(c).minValue() >= first + count)
                 d_intervals[c].translate(-count);
         }
         // third: merge as many intervals as possible
@@ -154,16 +152,16 @@ public:
         d_intervals.clear();
         for (int c = 0; c < intervals_copy.size(); c++) {
             i = intervals_copy.at(c);
-            T value = values_copy.at(c);
+            T val = values_copy.at(c);
             for (int cc = 0; cc < d_intervals.size(); cc++) {
-                if (d_intervals.at(cc).touches(i) && d_values.at(cc) == value) {
+                if (d_intervals.at(cc).touches(i) && d_values.at(cc) == val) {
                     d_intervals.replace(cc, Interval<int>::merge(d_intervals.at(cc), i));
                     return;
                 }
             }
             // if it could not be merged, just append it
             d_intervals.append(i);
-            d_values.append(value);
+            d_values.append(val);
         }
     }
 
@@ -187,7 +185,7 @@ class IntervalAttribute<bool>
 {
 public:
     IntervalAttribute() { }
-    IntervalAttribute(QList<Interval<int>> intervals) : d_intervals(intervals) { }
+    explicit IntervalAttribute(const QList<Interval<int>> &intervals) : d_intervals(intervals) { }
     IntervalAttribute(const IntervalAttribute<bool> &other)
     {
         d_intervals.clear();
@@ -248,7 +246,7 @@ public:
         }
         // second: translate all intervals that start at 'before' or later
         for (c = 0; c < d_intervals.size(); c++) {
-            if (d_intervals.at(c).start() >= before)
+            if (d_intervals.at(c).minValue() >= before)
                 d_intervals[c].translate(count);
         }
     }
@@ -261,7 +259,7 @@ public:
                                                 Interval<int>(first, first + count - 1));
         // second: translate all intervals that start at 'first+count' or later
         for (c = 0; c < d_intervals.size(); c++) {
-            if (d_intervals.at(c).start() >= first + count)
+            if (d_intervals.at(c).minValue() >= first + count)
                 d_intervals[c].translate(-count);
         }
         // third: merge as many intervals as possible

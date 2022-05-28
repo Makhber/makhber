@@ -85,7 +85,7 @@ bool DataCurve::isFullRange()
         return true;
 }
 
-QString DataCurve::plotAssociation()
+QString DataCurve::plotAssociation() const
 {
     if (!d_x_column.isEmpty())
         return d_x_column + "(X)," + title().text() + "(Y)";

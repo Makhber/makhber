@@ -45,7 +45,7 @@ class MAKHBER_EXPORT SmoothCurveDialog : public QDialog
     Q_OBJECT
 
 public:
-    SmoothCurveDialog(int method, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
+    explicit SmoothCurveDialog(int method, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     ~SmoothCurveDialog() {};
 
     QPushButton *btnSmooth;

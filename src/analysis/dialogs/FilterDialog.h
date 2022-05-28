@@ -46,7 +46,7 @@ class MAKHBER_EXPORT FilterDialog : public QDialog
     Q_OBJECT
 
 public:
-    FilterDialog(int type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
+    explicit FilterDialog(int type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     ~FilterDialog() {};
 
     QPushButton *buttonFilter;

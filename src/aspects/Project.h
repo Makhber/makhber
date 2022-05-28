@@ -58,12 +58,12 @@ public:
 
     //!\name Reimplemented from AbstractAspect
     //@{
-    virtual const Project *project() const { return this; }
-    virtual Project *project() { return this; }
-    virtual QUndoStack *undoStack() const;
-    virtual QString path() const { return ""; }
+    virtual const Project *project() const override { return this; }
+    virtual Project *project() override { return this; }
+    virtual QUndoStack *undoStack() const override;
+    virtual QString path() const override { return ""; }
     virtual void *view();
-    virtual QMenu *createContextMenu() const;
+    virtual QMenu *createContextMenu() const override;
     //@}
     virtual QMenu *createFolderContextMenu(const ::future::Folder *folder) const;
 
@@ -80,9 +80,9 @@ public:
     //! \name serialize/deserialize
     //@{
     //! Save
-    virtual void save(QJsonObject *) const;
+    virtual void save(QJsonObject *) const override;
     //! Load
-    virtual bool load(QJsonObject *);
+    virtual bool load(QJsonObject *) override;
     //@}
 
 private:

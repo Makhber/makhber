@@ -38,7 +38,13 @@
 ///////////////////////////////////////////////////////////////////////////
 ColumnSetModeCmd::ColumnSetModeCmd(Column::Private *col, Makhber::ColumnMode mode,
                                    AbstractFilter *conversion_filter, QUndoCommand *parent)
-    : QUndoCommand(parent), d_col(col), d_mode(mode), d_conversion_filter(conversion_filter)
+    : QUndoCommand(parent),
+      d_col(col),
+      d_old_mode(mode),
+      d_mode(mode),
+      d_old_type(Makhber::ColumnDataType::TypeDouble),
+      d_new_type(Makhber::ColumnDataType::TypeDouble),
+      d_conversion_filter(conversion_filter)
 {
     setText(QObject::tr("%1: change column type").arg(col->name()));
     d_undone = false;
@@ -137,7 +143,7 @@ void ColumnFullCopyCmd::redo()
         d_col->copy(d_src);
     } else {
         // swap data + validity of orig. column and backup
-        IntervalAttribute<bool> val_temp = d_col->invalidIntervals();
+        IntervalAttribute<bool> val_temp = IntervalAttribute<bool>(d_col->invalidIntervals());
         void *data_temp = d_col->dataPointer();
         d_col->replaceData(d_backup->dataPointer(), d_backup->validityAttribute());
         d_backup->replaceData(data_temp, val_temp);

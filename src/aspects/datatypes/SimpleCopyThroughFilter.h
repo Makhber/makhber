@@ -50,17 +50,17 @@ public:
     //!\name Masking
     //@{
     //! Return whether a certain row is masked
-    virtual bool isMasked(int row) const
+    virtual bool isMasked(int row) const override
     {
         return d_inputs.value(0) ? d_inputs.at(0)->isMasked(row) : false;
     }
     //! Return whether a certain interval of rows rows is fully masked
-    virtual bool isMasked(Interval<int> i) const
+    virtual bool isMasked(Interval<int> i) const override
     {
         return d_inputs.value(0) ? d_inputs.at(0)->isMasked(i) : false;
     }
     //! Return all intervals of masked rows
-    virtual QList<Interval<int>> maskedIntervals() const
+    virtual QList<Interval<int>> maskedIntervals() const override
     {
         return d_inputs.value(0) ? d_inputs.at(0)->maskedIntervals() : QList<Interval<int>>();
     }
@@ -68,15 +68,15 @@ public:
 
 protected:
     //! All types are accepted.
-    virtual bool inputAcceptable(int, const AbstractColumn *) { return true; }
+    virtual bool inputAcceptable(int, const AbstractColumn *) override { return true; }
 
     //!\name signal handlers
     //@{
-    virtual void inputMaskingAboutToChange(const AbstractColumn *)
+    virtual void inputMaskingAboutToChange(const AbstractColumn *) override
     {
         Q_EMIT d_output_column->maskingAboutToChange(d_output_column);
     }
-    virtual void inputMaskingChanged(const AbstractColumn *)
+    virtual void inputMaskingChanged(const AbstractColumn *) override
     {
         Q_EMIT d_output_column->maskingChanged(d_output_column);
     }

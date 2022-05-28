@@ -107,9 +107,8 @@ Table::Table(int rows, int columns, const QString &name)
     connectActions();
 }
 
-Table::Table() : AbstractPart("temp"), d_table_private(*this)
+Table::Table() : AbstractPart("temp"), d_view(nullptr), d_table_private(*this)
 {
-    d_view = nullptr;
     createActions();
 }
 
@@ -886,7 +885,7 @@ void Table::removeSelectedRows()
     WAIT_CURSOR;
     beginMacro(QObject::tr("%1: remove selected rows(s)").arg(name()));
     for (Interval<int> i : d_view->selectedRows().intervals())
-        removeRows(i.start(), i.size());
+        removeRows(i.minValue(), i.size());
     endMacro();
     RESET_CURSOR;
 }
@@ -910,13 +909,13 @@ void Table::clearSelectedCells()
                 col_ptr->setFormula(i, "");
         else
             for (Interval<int> i : d_view->selectedRows().intervals())
-                if (i.end() == col_ptr->rowCount() - 1)
-                    col_ptr->removeRows(i.start(), i.size());
+                if (i.maxValue() == col_ptr->rowCount() - 1)
+                    col_ptr->removeRows(i.minValue(), i.size());
                 else {
                     QStringList empties;
                     for (int j = 0; j < i.size(); j++)
                         empties << QString();
-                    col_ptr->asStringColumn()->replaceTexts(i.start(), empties);
+                    col_ptr->asStringColumn()->replaceTexts(i.minValue(), empties);
                 }
     }
     endMacro();
@@ -1761,7 +1760,7 @@ void Table::copy(Table *other)
             new_col->setMasked(iv);
         QList<Interval<int>> formulas = src_col->formulaIntervals();
         for (Interval<int> iv : formulas)
-            new_col->setFormula(iv, src_col->formula(iv.start()));
+            new_col->setFormula(iv, src_col->formula(iv.minValue()));
         columns.append(new_col);
     }
     appendColumns(columns);

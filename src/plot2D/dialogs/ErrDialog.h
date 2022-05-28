@@ -75,7 +75,7 @@ private:
 
 protected Q_SLOTS:
     //! Set all string in the current language
-    virtual void languageChange();
+    void languageChange();
 
 public Q_SLOTS:
     //! Add a plot definition

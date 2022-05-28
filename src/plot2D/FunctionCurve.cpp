@@ -38,20 +38,22 @@
 // interpreters now, fit curves assume muParser in many formulas (using
 // "^" as power operator). Thus, simply having FunctionCurve honour the
 // application-wide scripting environment would break fit curve plotting.
-FunctionCurve::FunctionCurve(ApplicationWindow *parent, QString name)
-    : PlotCurve(name), scripted(ScriptingLangManager::newEnv("muParser", parent))
+FunctionCurve::FunctionCurve(ApplicationWindow *parent, const QString &name)
+    : PlotCurve(name),
+      scripted(ScriptingLangManager::newEnv("muParser", parent)),
+      d_function_type(FunctionCurve::Normal),
+      d_variable("x")
 {
-    d_variable = "x";
     setType(Graph::Function);
     setSymbol(new QwtSymbol());
 }
 
-FunctionCurve::FunctionCurve(ApplicationWindow *parent, const FunctionType &t, QString name)
+FunctionCurve::FunctionCurve(ApplicationWindow *parent, const FunctionType &t, const QString &name)
     : PlotCurve(name),
       scripted(ScriptingLangManager::newEnv("muParser", parent)),
-      d_function_type(t)
+      d_function_type(t),
+      d_variable("x")
 {
-    d_variable = "x";
     setType(Graph::Function);
     setSymbol(new QwtSymbol());
 }

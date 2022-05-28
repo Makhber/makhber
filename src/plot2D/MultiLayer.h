@@ -70,8 +70,8 @@ class MAKHBER_EXPORT MultiLayer : public MyWidget
     Q_OBJECT
 
 public:
-    MultiLayer(const QString &label, QWidget *parent = 0, const QString name = QString(),
-               Qt::WindowFlags f = Qt::Widget);
+    explicit MultiLayer(const QString &label, QWidget *parent = 0, const QString &name = QString(),
+                        Qt::WindowFlags f = Qt::Widget);
     QWidgetList graphPtrs() { return graphsList; };
     Graph *layer(int num);
     QWidgetList layerWidgets() const { return graphsList; }
@@ -83,14 +83,14 @@ public:
 
     //! \name Event Handlers
     //@{
-    void mousePressEvent(QMouseEvent *);
-    void contextMenuEvent(QContextMenuEvent *);
-    void wheelEvent(QWheelEvent *);
-    void keyPressEvent(QKeyEvent *);
-    bool eventFilter(QObject *object, QEvent *);
+    void mousePressEvent(QMouseEvent *) override;
+    void contextMenuEvent(QContextMenuEvent *) override;
+    void wheelEvent(QWheelEvent *) override;
+    void keyPressEvent(QKeyEvent *) override;
+    bool eventFilter(QObject *object, QEvent *) override;
     void releaseLayer();
 
-    bool focusNextPrevChild(bool next);
+    bool focusNextPrevChild(bool next) override;
     //@}
 
     bool scaleLayersOnPrint() { return d_scale_on_print; };
@@ -168,7 +168,7 @@ public Q_SLOTS:
     void exportToFile(const QString &fileName);
     void exportImage(const QString &fileName, int quality = -1);
     void exportSVG(const QString &fname);
-    void exportPDF(const QString &fname);
+    void exportPDF(const QString &fname) override;
     void exportVector(const QString &fileName, int res = 0, bool color = true,
                       bool keepAspect = true, QPageSize pageSize = QPageSize(QPageSize::Custom),
                       QPageLayout::Orientation orientation = QPageLayout::Portrait);
@@ -177,7 +177,7 @@ public Q_SLOTS:
                        QSize size = QSize());
 
     void copyAllLayers();
-    void print();
+    void print() override;
     void printAllLayers(QPainter *painter);
     void printActiveLayer();
     //@}
@@ -187,8 +187,8 @@ public Q_SLOTS:
 
     void connectLayer(Graph *g);
 
-    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
-    void saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry) override;
+    void saveAsTemplate(QJsonObject *jsObject, const QJsonObject &jsGeometry) override;
 
 Q_SIGNALS:
     void showTextDialog();

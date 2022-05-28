@@ -57,10 +57,10 @@ public:
      * \param parent parent widget (must be the application window!=
      * \param fl window flags
      */
-    ConfigDialog(QWidget *parent, Qt::WindowFlags fl = Qt::Widget);
+    explicit ConfigDialog(QWidget *parent, Qt::WindowFlags fl = Qt::Widget);
 
 public Q_SLOTS:
-    virtual void languageChange();
+    void languageChange();
     void insertLanguagesList();
 
     void accept();

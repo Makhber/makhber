@@ -62,7 +62,7 @@ public:
     QString yColumnName() { return title().text(); }
     void setYColumnName(const QString &name) { setTitle(name); }
 
-    Table *table() { return d_table; };
+    Table *table() const { return d_table; };
 
     int startRow() { return d_start_row; };
     int endRow() { return d_end_row; };
@@ -95,7 +95,7 @@ public:
      *
      * Column ids are of the form '&lt;name of table> "_" &lt;name of column>'.
      */
-    virtual QString plotAssociation();
+    virtual QString plotAssociation() const;
     virtual void updateColumnNames(const QString &oldName, const QString &newName,
                                    bool updateTableName);
 

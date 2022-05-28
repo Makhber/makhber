@@ -170,9 +170,9 @@ public:
         d_index = index;
     }
 
-    virtual void redo() { AspectChildRemoveCmd::undo(); }
+    virtual void redo() override { AspectChildRemoveCmd::undo(); }
 
-    virtual void undo() { AspectChildRemoveCmd::redo(); }
+    virtual void undo() override { AspectChildRemoveCmd::redo(); }
 };
 
 class MAKHBER_EXPORT AspectChildMoveCmd : public QUndoCommand

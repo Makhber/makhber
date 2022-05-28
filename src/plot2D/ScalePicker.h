@@ -48,7 +48,7 @@ class MAKHBER_EXPORT ScalePicker : public QObject
 {
     Q_OBJECT
 public:
-    ScalePicker(QwtPlot *plot);
+    explicit ScalePicker(QwtPlot *plot);
 
     //! Returns the bounding rectangle of a scale without the title.
     QRect scaleRect(const QwtScaleWidget *) const;

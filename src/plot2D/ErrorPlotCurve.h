@@ -42,51 +42,51 @@ public:
 
     void copy(const ErrorPlotCurve *e);
 
-    QRectF boundingRect() const;
+    QRectF boundingRect() const override;
 
-    double errorValue(int i);
-    QVector<double> errors() { return err; };
+    double errorValue(int i) const;
+    QVector<double> errors() const { return err; };
     void setErrors(const QVector<double> &data) { err = data; };
 
-    int capLength() { return cap; };
+    int capLength() const { return cap; };
     void setCapLength(int t) { cap = t; };
 
-    int width() { return pen().width(); };
+    int width() const { return pen().width(); };
     void setWidth(int w);
 
-    QColor color() { return pen().color(); };
+    QColor color() const { return pen().color(); };
     void setColor(const QColor &c);
 
-    Qt::Orientation direction() { return type; };
+    Qt::Orientation direction() const { return type; };
     void setDirection(Qt::Orientation o) { type = o; };
 
-    bool xErrors();
+    bool xErrors() const;
     void setXErrors(bool yes);
 
-    bool throughSymbol() { return through; };
+    bool throughSymbol() const { return through; };
     void drawThroughSymbol(bool yes) { through = yes; };
 
-    bool plusSide() { return plus; };
+    bool plusSide() const { return plus; };
     void drawPlusSide(bool yes) { plus = yes; };
 
-    bool minusSide() { return minus; };
+    bool minusSide() const { return minus; };
     void drawMinusSide(bool yes) { minus = yes; };
 
     //! Returns the master curve to which this error bars curve is attached.
-    DataCurve *masterCurve() { return d_master_curve; };
+    DataCurve *masterCurve() const { return d_master_curve; };
     void setMasterCurve(DataCurve *c);
 
     //! Causes the master curve to delete this curve from its managed error bars list.
     void detachFromMasterCurve() { d_master_curve->removeErrorBars(this); };
 
-    QString plotAssociation();
+    QString plotAssociation() const override;
 
-    bool updateData(Table *t, const QString &colName);
-    virtual bool loadData();
+    bool updateData(Table *t, const QString &colName) override;
+    virtual bool loadData() override;
 
 private:
     virtual void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-                      const QRectF &canvasRect) const;
+                      const QRectF &canvasRect) const override;
 
     void drawErrorBars(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
                        int from, int to) const;

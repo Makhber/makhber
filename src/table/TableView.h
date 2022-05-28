@@ -95,8 +95,8 @@ class MAKHBER_EXPORT TableView : public MyWidget
 
 public:
     //! Constructor
-    TableView(const QString &label, QWidget *parent = 0, const QString name = 0,
-              Qt::WindowFlags f = Qt::Widget);
+    explicit TableView(const QString &label, QWidget *parent = 0, const QString &name = 0,
+                       Qt::WindowFlags f = Qt::Widget);
     void setTable(future::Table *table);
     //! Destructor
     virtual ~TableView();
@@ -221,11 +221,11 @@ protected:
     //! Pointer to the current underlying model
     TableModel *d_model;
 
-    virtual void changeEvent(QEvent *event);
+    virtual void changeEvent(QEvent *event) override;
     void retranslateStrings();
     void setColumnForControlTabs(int col);
 
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
     //! UI with options tabs (description, format, formula etc.)
     Ui::ControlTabs ui {};

@@ -42,7 +42,7 @@ class MAKHBER_EXPORT SymbolBox : public QComboBox
 {
     Q_OBJECT
 public:
-    SymbolBox(bool rw, QWidget *parent = 0);
+    explicit SymbolBox(bool rw, QWidget *parent = 0);
     SymbolBox(QWidget *parent = 0);
 
     void setStyle(const QwtSymbol::Style &c);

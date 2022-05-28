@@ -71,7 +71,7 @@ Plot::Plot(QWidget *parent, QString) : QwtPlot(parent)
 
     // custom scale
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
-        auto *scale = (QwtScaleWidget *)axisWidget(i);
+        auto *scale = dynamic_cast<QwtScaleWidget *>(axisWidget(i));
         if (scale) {
             scale->setMargin(0);
 
@@ -159,7 +159,7 @@ void Plot::drawItems(QPainter *painter, const QRectF &rect, const QwtScaleMap ma
         if (!axisEnabled(i))
             continue;
 
-        auto *sd = (ScaleDraw *)axisScaleDraw(i);
+        auto *sd = dynamic_cast<const ScaleDraw *>(axisScaleDraw(i));
         int majorTicksType = sd->majorTicksStyle();
         int minorTicksType = sd->minorTicksStyle();
 
@@ -337,7 +337,7 @@ void Plot::drawInwardTicks(QPainter *painter, const QRectF &rect, const QwtScale
 void Plot::setAxesLinewidth() // int width)
 {
     for (int i = 0; i < QwtPlot::axisCnt; i++) {
-        auto *scale = (QwtScaleWidget *)this->axisWidget(i);
+        auto *scale = dynamic_cast<QwtScaleWidget *>(this->axisWidget(i));
         if (scale) {
             // scale->setPenWidth(width);
             scale->repaint();
@@ -401,7 +401,7 @@ int Plot::closestCurve(int xpos, int ypos, int &dist, int &point)
     int key = -1;
     for (QMap<int, QwtPlotItem *>::iterator iter = d_curves.begin(); iter != d_curves.end();
          ++iter) {
-        auto *item = (QwtPlotItem *)iter.value();
+        auto *item = dynamic_cast<QwtPlotItem *>(iter.value());
         if (!item)
             continue;
 
@@ -439,7 +439,7 @@ int Plot::insertMarker(QwtPlotMarker *m)
         d_markers.insert(marker_key, m);
     m->setRenderHint(QwtPlotItem::RenderAntialiased,
                      (dynamic_cast<Graph *>(parent()))->antialiasing());
-    m->attach(((QwtPlot *)this));
+    m->attach((dynamic_cast<QwtPlot *>(this)));
     return marker_key;
 }
 
@@ -568,7 +568,7 @@ void Plot::axisLabelFormat(int axis, char &f, int &prec) const
 #else
     if (axisValid(axis)) {
 #endif
-        auto *sd = (ScaleDraw *)axisScaleDraw(axis);
+        auto *sd = dynamic_cast<const ScaleDraw *>(axisScaleDraw(axis));
         sd->labelFormat(f, prec);
     } else {
         // for a bad call we return the default values

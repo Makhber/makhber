@@ -69,18 +69,18 @@ public:
     ~Matrix();
 
     //! Return an icon to be used for decorating my views.
-    virtual QIcon icon() const;
+    virtual QIcon icon() const override;
     //! Return a new context menu.
     /**
      * The caller takes ownership of the menu.
      */
-    virtual QMenu *createContextMenu() const;
+    virtual QMenu *createContextMenu() const override;
     //! Construct a primary view on me.
     /**
      * This method may be called multiple times during the life time of an Aspect, or it might not
      * get called at all. Aspects must not depend on the existence of a view for their operation.
      */
-    virtual QWidget *view();
+    virtual QWidget *view() override;
     //! Create a menu with selection related operations
     /**
      * \param append_to if a pointer to a QMenu is passed
@@ -113,7 +113,7 @@ public:
     /**
      * \return true on success, otherwise false (e.g. part has no actions).
      */
-    virtual bool fillProjectMenu(QMenu *menu);
+    virtual bool fillProjectMenu(QMenu *menu) override;
 
     void insertColumns(int before, int count);
     void appendColumns(int count) { insertColumns(columnCount(), count); }
@@ -170,9 +170,9 @@ public:
     //! \name serialize/deserialize
     //@{
     //! Save
-    virtual void save(QJsonObject *) const;
+    virtual void save(QJsonObject *) const override;
     //! Load
-    virtual bool load(QJsonObject *);
+    virtual bool load(QJsonObject *) override;
     //@}
 
     //! This method should only be called by the view.
@@ -348,7 +348,7 @@ private:
 class MAKHBER_EXPORT Matrix::Private
 {
 public:
-    Private(Matrix *owner);
+    explicit Private(Matrix *owner);
     //! Insert columns before column number 'before'
     /**
      * If 'first' is equal to the current number of columns,

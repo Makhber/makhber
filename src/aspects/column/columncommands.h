@@ -298,7 +298,7 @@ class MAKHBER_EXPORT ColumnClearCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnClearCmd(Column::Private *col, QUndoCommand *parent = 0);
+    explicit ColumnClearCmd(Column::Private *col, QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnClearCmd();
 
@@ -333,7 +333,7 @@ class MAKHBER_EXPORT ColumnClearValidityCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnClearValidityCmd(Column::Private *col, QUndoCommand *parent = 0);
+    explicit ColumnClearValidityCmd(Column::Private *col, QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnClearValidityCmd();
 
@@ -362,7 +362,7 @@ class MAKHBER_EXPORT ColumnClearMasksCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnClearMasksCmd(Column::Private *col, QUndoCommand *parent = 0);
+    explicit ColumnClearMasksCmd(Column::Private *col, QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnClearMasksCmd();
 
@@ -493,7 +493,7 @@ class MAKHBER_EXPORT ColumnClearFormulasCmd : public QUndoCommand
 {
 public:
     //! Ctor
-    ColumnClearFormulasCmd(Column::Private *col, QUndoCommand *parent = 0);
+    explicit ColumnClearFormulasCmd(Column::Private *col, QUndoCommand *parent = 0);
     //! Dtor
     ~ColumnClearFormulasCmd();
 

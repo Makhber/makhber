@@ -89,27 +89,27 @@ void Column::setColumnMode(Makhber::ColumnMode mode, AbstractFilter *conversion_
     {
         beginMacro(QObject::tr("%1: change column type").arg(name()));
         AbstractSimpleFilter *old_input_filter = inputFilter();
-        AbstractSimpleFilter *old_output_filter = outputFilter();
         exec(new ColumnSetModeCmd(d_column_private, mode, conversion_filter));
         if (d_column_private->inputFilter() != old_input_filter) {
             removeChild(old_input_filter);
             addChild(d_column_private->inputFilter());
             d_column_private->inputFilter()->input(0, d_string_io);
         }
-        if (outputFilter() != old_output_filter) {
+        /* AbstractSimpleFilter *old_output_filter = outputFilter();
+        if (outputFilter() != old_output_filter) { // Always false
             removeChild(old_output_filter);
             addChild(outputFilter());
             outputFilter()->input(0, this);
-        }
+        }*/
         endMacro();
     }
     // mode is not changed, but DateTime numeric converter changed
     else if ((mode == Makhber::ColumnMode::DateTime) && (nullptr != conversion_filter)) {
         auto numeric_datetime_converter =
                 reinterpret_cast<NumericDateTimeBaseFilter *>(conversion_filter);
-        if (nullptr != numeric_datetime_converter)
-            // the ownership of converter is taken
-            d_column_private->setNumericDateTimeFilter(numeric_datetime_converter);
+        // if (nullptr != numeric_datetime_converter) Always true
+        //  the ownership of converter is taken
+        d_column_private->setNumericDateTimeFilter(numeric_datetime_converter);
     }
 }
 
@@ -189,12 +189,12 @@ void Column::setMasked(int row, bool mask)
     setMasked(Interval<int>(row, row), mask);
 }
 
-void Column::setFormula(Interval<int> i, QString formula)
+void Column::setFormula(Interval<int> i, const QString &formula)
 {
     exec(new ColumnSetFormulaCmd(d_column_private, i, formula));
 }
 
-void Column::setFormula(int row, QString formula)
+void Column::setFormula(int row, const QString &formula)
 {
     setFormula(Interval<int>(row, row), formula);
 }
@@ -308,8 +308,8 @@ void Column::save(QJsonObject *jsObject) const
     QJsonArray jsMasks {};
     for (Interval<int> interval : masks) {
         QJsonObject jsMask {};
-        jsMask.insert("startRow", interval.start());
-        jsMask.insert("endRow", interval.end());
+        jsMask.insert("startRow", interval.minValue());
+        jsMask.insert("endRow", interval.maxValue());
         jsMasks.append(jsMask);
     }
     jsObject->insert("masks", jsMasks);
@@ -318,9 +318,9 @@ void Column::save(QJsonObject *jsObject) const
     QJsonArray jsFormulas {};
     for (Interval<int> interval : formulas) {
         QJsonObject jsFormula {};
-        jsFormula.insert("startRow", interval.start());
-        jsFormula.insert("endRow", interval.end());
-        jsFormula.insert("formula", formula(interval.start()));
+        jsFormula.insert("startRow", interval.minValue());
+        jsFormula.insert("endRow", interval.maxValue());
+        jsFormula.insert("formula", formula(interval.minValue()));
         jsFormulas.append(jsFormula);
     }
     jsObject->insert("formulas", jsFormulas);

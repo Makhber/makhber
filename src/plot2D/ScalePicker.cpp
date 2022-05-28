@@ -157,7 +157,7 @@ QRect ScalePicker::scaleRect(const QwtScaleWidget *scale) const
 void ScalePicker::refresh()
 {
     for (uint i = 0; i < QwtPlot::axisCnt; i++) {
-        auto *scale = (QwtScaleWidget *)plot()->axisWidget(i);
+        auto *scale = dynamic_cast<QwtScaleWidget *>(plot()->axisWidget(i));
         if (scale)
             scale->installEventFilter(this);
     }

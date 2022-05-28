@@ -49,7 +49,7 @@ class MAKHBER_EXPORT FFTDialog : public QDialog
 public:
     enum DataType { onGraph = 0, onTable = 1 };
 
-    FFTDialog(int type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
+    explicit FFTDialog(int type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     ~FFTDialog() {};
 
     QPushButton *buttonOK;

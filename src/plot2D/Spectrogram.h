@@ -46,21 +46,21 @@ class MAKHBER_EXPORT Spectrogram : public QwtPlotSpectrogram
 {
 public:
     Spectrogram();
-    Spectrogram(Matrix *m);
+    explicit Spectrogram(Matrix *m);
 
     enum ColorMapPolicy { GrayScale, Default, Custom };
 
     Spectrogram *copy();
-    Matrix *matrix() { return d_matrix; };
+    Matrix *matrix() const { return d_matrix; };
 
-    int levels() { return (int)contourLevels().size() + 1; };
+    int levels() const { return (int)contourLevels().size() + 1; };
     void setLevelsNumber(int levels);
 
-    bool hasColorScale();
-    int colorScaleAxis() { return color_axis; };
+    bool hasColorScale() const;
+    int colorScaleAxis() const { return color_axis; };
     void showColorScale(int axis, bool on = true);
 
-    int colorBarWidth();
+    int colorBarWidth() const;
     void setColorBarWidth(int width);
 
     void setGrayScale();
@@ -73,7 +73,7 @@ public:
     //! Used when saving a project file
     void saveToJson(QJsonObject *);
 
-    ColorMapPolicy colorMapPolicy() { return color_map_policy; };
+    ColorMapPolicy colorMapPolicy() const { return color_map_policy; };
 
     QwtLinearColorMap *copyColorMap(const QwtColorMap *oldColorMap);
 
@@ -93,7 +93,7 @@ protected:
 class MAKHBER_EXPORT MatrixData : public QwtMatrixRasterData
 {
 public:
-    MatrixData(Matrix *m);
+    explicit MatrixData(Matrix *m);
 
     ~MatrixData() {};
 

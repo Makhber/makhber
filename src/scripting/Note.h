@@ -53,8 +53,8 @@ public:
     void init(ScriptingEnv *env);
 
 public Q_SLOTS:
-    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
-    void restore(QJsonObject *jsNote);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry) override;
+    void restore(QJsonObject *jsNote) override;
 
     QTextEdit *textWidget() { return (QTextEdit *)te; };
     bool autoexec() const { return autoExec; }
@@ -64,8 +64,8 @@ public Q_SLOTS:
     // ScriptEdit methods
     QString text() { return te->toPlainText(); };
     void setText(const QString &s) { te->setText(s); };
-    void print() { te->print(); };
-    void exportPDF(const QString &fileName) { te->exportPDF(fileName); };
+    void print() override { te->print(); };
+    void exportPDF(const QString &fileName) override { te->exportPDF(fileName); };
     QString exportASCII(const QString &file = {}) { return te->exportASCII(file); };
     QString importASCII(const QString &file = {}) { return te->importASCII(file); };
     void execute() { te->execute(); };

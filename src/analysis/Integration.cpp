@@ -73,18 +73,18 @@ void Integration::init()
 double Integration::trapezoid()
 {
     double sum = 0.0;
-    std::vector<double> result;
-    result.reserve(d_n);
+    std::vector<double> result_v;
+    result_v.reserve(d_n);
     int size = d_n - 1;
     for (int i = 0; i < size; i++) {
         int j = i + 1;
-        result.push_back(sum);
+        result_v.push_back(sum);
         sum += 0.5 * (d_y[j] + d_y[i]) * (d_x[j] - d_x[i]);
     }
 
-    result.push_back(sum);
+    result_v.push_back(sum);
     d_points = d_n;
-    addResultCurve(d_x, &result[0]);
+    addResultCurve(d_x, &result_v[0]);
     return sum;
 }
 

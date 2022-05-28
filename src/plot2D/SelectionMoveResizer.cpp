@@ -84,7 +84,7 @@ SelectionMoveResizer::~SelectionMoveResizer()
 
 void SelectionMoveResizer::add(Legend *target)
 {
-    if ((QWidget *)target->plot()->canvas() != parent())
+    if (dynamic_cast<QWidget *>(target->plot()->canvas()) != parent())
         return;
     d_legend_markers << target;
 
@@ -97,7 +97,7 @@ void SelectionMoveResizer::add(Legend *target)
 }
 void SelectionMoveResizer::add(ArrowMarker *target)
 {
-    if ((QWidget *)target->plot()->canvas() != parent())
+    if (dynamic_cast<QWidget *>(target->plot()->canvas()) != parent())
         return;
     d_line_markers << target;
 
@@ -110,7 +110,7 @@ void SelectionMoveResizer::add(ArrowMarker *target)
 }
 void SelectionMoveResizer::add(ImageMarker *target)
 {
-    if ((QWidget *)target->plot()->canvas() != parent())
+    if (dynamic_cast<QWidget *>(target->plot()->canvas()) != parent())
         return;
     d_image_markers << target;
 

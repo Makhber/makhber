@@ -40,25 +40,25 @@ public:
 public Q_SLOTS:
     QColor color(int i) const;
 
-    int ray() { return d_pie_ray; };
+    int ray() const { return d_pie_ray; };
     void setRay(int size)
     {
         d_pie_ray = size;
         updateBoundingRect();
     };
 
-    Qt::BrushStyle pattern() { return QwtPlotCurve::brush().style(); };
+    Qt::BrushStyle pattern() const { return QwtPlotCurve::brush().style(); };
     void setBrushStyle(const Qt::BrushStyle &style);
 
     void setFirstColor(int index) { d_first_color = index; };
-    int firstColor() { return d_first_color; };
+    int firstColor() const { return d_first_color; };
 
-    virtual bool loadData();
+    virtual bool loadData() override;
     void updateBoundingRect();
 
 private:
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-              const QRectF &canvasRect) const;
+              const QRectF &canvasRect) const override;
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
               int to) const;
 

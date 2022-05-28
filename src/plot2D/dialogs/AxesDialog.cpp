@@ -1011,7 +1011,7 @@ void AxesDialog::updateGrid()
     if (generalDialog.currentWidget() != gridPage)
         return;
 
-    Grid *grid = (Grid *)d_graph->plotWidget()->grid();
+    Grid *grid = dynamic_cast<Grid *>(d_graph->plotWidget()->grid());
     if (!grid)
         return;
 
@@ -1043,7 +1043,7 @@ void AxesDialog::updateGrid()
 
 void AxesDialog::showGridOptions(int axis)
 {
-    Grid *grd = (Grid *)d_graph->plotWidget()->grid();
+    Grid *grd = dynamic_cast<Grid *>(d_graph->plotWidget()->grid());
     if (!grd)
         return;
 
@@ -1152,7 +1152,7 @@ void AxesDialog::changeBaselineDist(int baseline)
 
 bool AxesDialog::updatePlot()
 {
-    if (generalDialog.currentWidget() == (QWidget *)scalesPage) {
+    if (generalDialog.currentWidget() == dynamic_cast<QWidget *>(scalesPage)) {
         QString from = boxStart->text().toLower();
         QString to = boxEnd->text().toLower();
         QString step = boxStep->text().toLower();
@@ -1260,7 +1260,7 @@ bool AxesDialog::updatePlot()
         d_graph->notifyChanges();
     } else if (generalDialog.currentWidget() == gridPage) {
         updateGrid();
-    } else if (generalDialog.currentWidget() == (QWidget *)axesPage) {
+    } else if (generalDialog.currentWidget() == dynamic_cast<QWidget *>(axesPage)) {
         int axis = mapToQwtAxisId();
         auto format = currentSelectedAxisType();
         axesType[axis] = format;
@@ -1332,7 +1332,7 @@ bool AxesDialog::updatePlot()
                  boxShowLabels->isChecked(), boxAxisColor->color(), boxFormat->currentIndex(),
                  boxPrecision->value(), boxAngle->value(), baseline, formula,
                  boxAxisNumColor->color());
-    } else if (generalDialog.currentWidget() == (QWidget *)frame) {
+    } else if (generalDialog.currentWidget() == dynamic_cast<QWidget *>(frame)) {
         d_graph->setAxesLinewidth(boxAxesLinewidth->value());
         d_graph->changeTicksLength(boxMinorTicksLength->value(), boxMajorTicksLength->value());
         d_graph->drawCanvasFrame(boxFramed->isChecked(), boxFrameWidth->value(),
@@ -1686,21 +1686,21 @@ void AxesDialog::setCurrentScale(int axisPos)
         axis = 2;
         break;
     }
-    if (generalDialog.currentWidget() == (QWidget *)scalesPage)
+    if (generalDialog.currentWidget() == dynamic_cast<QWidget *>(scalesPage))
         axesList->setCurrentRow(axis);
-    else if (generalDialog.currentWidget() == (QWidget *)axesPage)
+    else if (generalDialog.currentWidget() == dynamic_cast<QWidget *>(axesPage))
         axesTitlesList->setCurrentRow(axis);
 }
 
 void AxesDialog::showAxesPage()
 {
-    if (generalDialog.currentWidget() != (QWidget *)axesPage)
+    if (generalDialog.currentWidget() != dynamic_cast<QWidget *>(axesPage))
         generalDialog.setCurrentWidget(axesPage);
 }
 
 void AxesDialog::showGridPage()
 {
-    if (generalDialog.currentWidget() != (QWidget *)gridPage)
+    if (generalDialog.currentWidget() != dynamic_cast<QWidget *>(gridPage))
         generalDialog.setCurrentWidget(gridPage);
 }
 

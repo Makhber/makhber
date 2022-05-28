@@ -476,9 +476,9 @@ void Plot3DDialog::showUpperGreek()
 
 void Plot3DDialog::addSymbol(const QString &letter)
 {
-    if (generalDialog->currentWidget() == (QWidget *)title)
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(title))
         boxTitle->insert(letter);
-    else if (generalDialog->currentWidget() == (QWidget *)axes)
+    else if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(axes))
         boxLabel->insert(letter);
 }
 
@@ -512,6 +512,8 @@ void Plot3DDialog::disableAxesOptions()
 
 void Plot3DDialog::showBarsTab(double rad)
 {
+    if (bars != nullptr)
+        delete bars;
     bars = new QWidget(generalDialog);
     auto *bars_layout = new QHBoxLayout();
     bars->setLayout(bars_layout);
@@ -769,7 +771,7 @@ void Plot3DDialog::showLegend(bool show)
 
 void Plot3DDialog::changeZoom(double)
 {
-    if (generalDialog->currentWidget() != (QWidget *)general)
+    if (generalDialog->currentWidget() != dynamic_cast<QWidget *>(general))
         return;
 
     Q_EMIT updateZoom(boxZoom->value() * 0.01);
@@ -778,7 +780,7 @@ void Plot3DDialog::changeZoom(double)
 
 void Plot3DDialog::changeTransparency(int val)
 {
-    if (generalDialog->currentWidget() != (QWidget *)colors)
+    if (generalDialog->currentWidget() != dynamic_cast<QWidget *>(colors))
         return;
 
     Q_EMIT updateTransparency(val * 0.01);
@@ -786,13 +788,13 @@ void Plot3DDialog::changeTransparency(int val)
 
 bool Plot3DDialog::updatePlot()
 {
-    int axis = -1;
+    int axis {};
 
-    if (generalDialog->currentWidget() == (QWidget *)bars) {
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(bars)) {
         Q_EMIT updateBars(boxBarsRad->text().toDouble());
     }
 
-    if (generalDialog->currentWidget() == (QWidget *)points) {
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(points)) {
         if (boxPointStyle->currentIndex() == 0)
             Q_EMIT updatePoints(boxSize->text().toDouble(), boxSmooth->isChecked());
         else if (boxPointStyle->currentIndex() == 1)
@@ -802,17 +804,17 @@ bool Plot3DDialog::updatePlot()
             Q_EMIT updateCones(boxConesRad->text().toDouble(), boxQuality->value());
     }
 
-    if (generalDialog->currentWidget() == (QWidget *)title) {
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(title)) {
         Q_EMIT updateTitle(boxTitle->text(), titleColor, titleFont);
     }
 
-    if (generalDialog->currentWidget() == (QWidget *)colors) {
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(colors)) {
         Q_EMIT updateTransparency(boxTransparency->value() * 0.01);
         Q_EMIT updateDataColors(fromColor, toColor);
         Q_EMIT updateColors(meshColor, axesColor, numColor, labelColor, bgColor, gridColor);
     }
 
-    if (generalDialog->currentWidget() == (QWidget *)general) {
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(general)) {
         Q_EMIT showColorLegend(boxLegend->isChecked());
         Q_EMIT updateMeshLineWidth(boxMeshLineWidth->value());
         Q_EMIT adjustLabels(boxDistance->value());
@@ -824,12 +826,12 @@ bool Plot3DDialog::updatePlot()
                              boxZScale->value() * 0.01);
     }
 
-    if (generalDialog->currentWidget() == (QWidget *)scale) {
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(scale)) {
         axis = axesList->currentRow();
         QString from = boxFrom->text().toLower();
         QString to = boxTo->text().toLower();
         double start = NAN, end = NAN;
-        bool error = false;
+        // bool error = false;
         try {
             MyParser parser;
             parser.SetExpr(from);
@@ -837,7 +839,7 @@ bool Plot3DDialog::updatePlot()
         } catch (mu::ParserError &e) {
             QMessageBox::critical(nullptr, tr("Start limit error"), QStringFromString(e.GetMsg()));
             boxFrom->setFocus();
-            error = true;
+            // error = true;
             return false;
         }
         try {
@@ -847,7 +849,7 @@ bool Plot3DDialog::updatePlot()
         } catch (mu::ParserError &e) {
             QMessageBox::critical(nullptr, tr("End limit error"), QStringFromString(e.GetMsg()));
             boxTo->setFocus();
-            error = true;
+            // error = true;
             return false;
         }
 
@@ -858,12 +860,12 @@ bool Plot3DDialog::updatePlot()
             return false;
         }
 
-        if (!error)
-            Q_EMIT updateScale(
-                    axis, scaleOptions(axis, start, end, boxMajors->text(), boxMinors->text()));
+        // if (!error)
+        Q_EMIT updateScale(axis,
+                           scaleOptions(axis, start, end, boxMajors->text(), boxMinors->text()));
     }
 
-    if (generalDialog->currentWidget() == (QWidget *)axes) {
+    if (generalDialog->currentWidget() == dynamic_cast<QWidget *>(axes)) {
         axis = axesList2->currentRow();
         labels[axis] = boxLabel->text();
         Q_EMIT updateLabel(axis, boxLabel->text(), axisFont(axis));

@@ -46,7 +46,10 @@ class MAKHBER_EXPORT MuParserScript : public Script
 
     struct MuException : public mu::Parser::exception_type
     {
-        MuException(const QString &x) : mu::Parser::exception_type(toString<mu::string_type>(x)) { }
+        explicit MuException(const QString &x)
+            : mu::Parser::exception_type(toString<mu::string_type>(x))
+        {
+        }
     };
 
 public:

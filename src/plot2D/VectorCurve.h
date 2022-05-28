@@ -42,7 +42,7 @@ class MAKHBER_EXPORT VectorCurve : public DataCurve
 public:
     enum VectorStyle { XYXY, XYAM };
 
-    VectorCurve(VectorStyle style, Table *t, const QString &xColName, QString name,
+    VectorCurve(VectorStyle style, Table *t, const QString &xColName, const QString &name,
                 const QString &endCol1, const QString &endCol2, int startRow, int endRow);
     ~VectorCurve();
 
@@ -50,10 +50,10 @@ public:
 
     void copy(const VectorCurve *vc);
 
-    QRectF boundingRect() const;
+    QRectF boundingRect() const override;
 
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
-              const QRectF &canvasRect) const;
+              const QRectF &canvasRect) const override;
     void draw(QPainter *painter, int to) const;
 
     void drawVector(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
@@ -67,29 +67,30 @@ public:
     void setVectorEnd(const QString &xColName, const QString &yColName);
     void setVectorEnd(const QVector<double> &x, const QVector<double> &y);
 
-    int width();
+    int width() const;
     void setWidth(int w);
 
-    QColor color();
+    QColor color() const;
     void setColor(const QColor &c);
 
-    int headLength() { return d_headLength; };
+    int headLength() const { return d_headLength; };
     void setHeadLength(int l);
 
-    int headAngle() { return d_headAngle; };
+    int headAngle() const { return d_headAngle; };
     void setHeadAngle(int a);
 
-    bool filledArrowHead() { return filledArrow; };
+    bool filledArrowHead() const { return filledArrow; };
     void fillArrowHead(bool fill);
 
-    int position() { return d_position; };
+    int position() const { return d_position; };
     void setPosition(int pos) { d_position = pos; };
 
-    bool updateData(Table *t, const QString &colName);
-    virtual bool loadData();
+    bool updateData(Table *t, const QString &colName) override;
+    virtual bool loadData() override;
 
-    QString plotAssociation();
-    void updateColumnNames(const QString &oldName, const QString &newName, bool updateTableName);
+    QString plotAssociation() const override;
+    void updateColumnNames(const QString &oldName, const QString &newName,
+                           bool updateTableName) override;
 
 protected:
 #if QWT_VERSION >= 0x060200

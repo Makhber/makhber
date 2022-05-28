@@ -42,16 +42,16 @@ PolynomialFit::PolynomialFit(ApplicationWindow *parent, Graph *g, int order, boo
     init();
 }
 
-PolynomialFit::PolynomialFit(ApplicationWindow *parent, Graph *g, QString &curveTitle, int order,
-                             bool legend)
+PolynomialFit::PolynomialFit(ApplicationWindow *parent, Graph *g, const QString &curveTitle,
+                             int order, bool legend)
     : Fit(parent, g), d_order(order), show_legend(legend)
 {
     init();
     setDataFromCurve(curveTitle);
 }
 
-PolynomialFit::PolynomialFit(ApplicationWindow *parent, Graph *g, QString &curveTitle, double start,
-                             double end, int order, bool legend)
+PolynomialFit::PolynomialFit(ApplicationWindow *parent, Graph *g, const QString &curveTitle,
+                             double start, double end, int order, bool legend)
     : Fit(parent, g), d_order(order), show_legend(legend)
 {
     init();
@@ -188,8 +188,7 @@ QString PolynomialFit::legendInfo()
             if (cj > 0 && !legend.isEmpty())
                 legend += "+";
 
-            QString s;
-            s.asprintf("%.5f", cj);
+            QString s = QString::asprintf("%.5f", cj);
             if (s != "1.00000")
                 legend += QLocale().toString(cj, 'g', d_prec);
 

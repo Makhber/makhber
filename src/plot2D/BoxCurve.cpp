@@ -40,15 +40,14 @@
 
 #include <cmath>
 
-BoxCurve::BoxCurve(Table *t, QString name, int startRow, int endRow)
-    : DataCurve(t, QString(), name, startRow, endRow)
+BoxCurve::BoxCurve(Table *t, const QString &name, int startRow, int endRow)
+    : DataCurve(t, QString(), name, startRow, endRow),
+      min_style(QwtSymbol::XCross),
+      max_style(QwtSymbol::XCross),
+      mean_style(QwtSymbol::Rect),
+      p99_style(QwtSymbol::NoSymbol),
+      p1_style(QwtSymbol::NoSymbol)
 {
-    mean_style = QwtSymbol::Rect;
-    max_style = QwtSymbol::XCross;
-    min_style = QwtSymbol::XCross;
-    p99_style = QwtSymbol::NoSymbol;
-    p1_style = QwtSymbol::NoSymbol;
-
     b_style = Rect;
     b_coeff = 75.0;
     b_range = r25_75;

@@ -139,6 +139,8 @@ LineDialog::LineDialog(ArrowMarker *line, QWidget *parent, Qt::WindowFlags fl) :
 
 void LineDialog::initGeometryTab()
 {
+    if (unitBox != nullptr)
+        delete unitBox;
     unitBox = new QComboBox();
     unitBox->addItem(tr("Scale Coordinates"));
     unitBox->addItem(tr("Pixels"));
@@ -222,11 +224,11 @@ void LineDialog::setCoordinates(int unit)
 
 void LineDialog::apply()
 {
-    if (tw->currentWidget() == (QWidget *)options) {
+    if (tw->currentWidget() == dynamic_cast<QWidget *>(options)) {
         lm->drawEndArrow(endBox->isChecked());
         lm->drawStartArrow(startBox->isChecked());
         lm->setLinePen(penWidget->pen());
-    } else if (tw->currentWidget() == (QWidget *)head) {
+    } else if (tw->currentWidget() == dynamic_cast<QWidget *>(head)) {
         if (lm->headLength() != boxHeadLength->value())
             lm->setHeadLength(boxHeadLength->value());
 
@@ -235,7 +237,7 @@ void LineDialog::apply()
 
         if (lm->filledArrowHead() != filledBox->isChecked())
             lm->fillArrowHead(filledBox->isChecked());
-    } else if (tw->currentWidget() == (QWidget *)geometry)
+    } else if (tw->currentWidget() == dynamic_cast<QWidget *>(geometry))
         setCoordinates(unitBox->currentIndex());
 
     QwtPlot *plot = lm->plot();

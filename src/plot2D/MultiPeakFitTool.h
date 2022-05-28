@@ -54,7 +54,7 @@ class MAKHBER_EXPORT MultiPeakFitTool : public QObject, public PlotToolInterface
 public:
     MultiPeakFitTool(Graph *graph, ApplicationWindow *app, MultiPeakFit::PeakProfile profile,
                      int num_peaks, const QObject *status_target, const char *status_slot);
-    virtual RTTI rtti() const { return MultiPeak; }
+    virtual RTTI rtti() const override { return MultiPeak; }
     virtual ~MultiPeakFitTool();
 Q_SIGNALS:
     /*! Emitted whenever a new message should be presented to the user.

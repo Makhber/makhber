@@ -39,7 +39,7 @@ class MAKHBER_EXPORT Double2DayOfWeekFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 public:
-    virtual QDate dateAt(int row) const
+    virtual QDate dateAt(int row) const override
     {
         if (!d_inputs.value(0))
             return QDate();
@@ -47,19 +47,22 @@ public:
         // Use 1900-01-01 instead (a Monday)
         return QDate(1900, 1, 1).addDays(qRound(d_inputs.value(0)->valueAt(row) - 1.0));
     }
-    virtual QTime timeAt(int row) const
+    virtual QTime timeAt(int row) const override
     {
         Q_UNUSED(row)
         return QTime(0, 0, 0, 0);
     }
-    virtual QDateTime dateTimeAt(int row) const { return QDateTime(dateAt(row), timeAt(row)); }
+    virtual QDateTime dateTimeAt(int row) const override
+    {
+        return QDateTime(dateAt(row), timeAt(row));
+    }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeQDateTime; }
 
 protected:
     //! Using typed ports: only double inputs are accepted.
-    virtual bool inputAcceptable(int, const AbstractColumn *source)
+    virtual bool inputAcceptable(int, const AbstractColumn *source) override
     {
         return source->dataType() == Makhber::TypeDouble;
     }

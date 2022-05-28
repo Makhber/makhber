@@ -50,7 +50,7 @@ public:
     //! return the base table of which statistics are displayed
     Table *base() const { return d_base; }
     // saving
-    virtual void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
+    virtual void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry) override;
 
 public Q_SLOTS:
     //! update statistics after a column has changed (to be connected with Table::modifiedData)
@@ -61,7 +61,7 @@ public Q_SLOTS:
     void removeCol(const QString &);
 
 protected:
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 private:
     Table *d_base;

@@ -159,7 +159,7 @@ public:
 class MAKHBER_EXPORT ScriptingChangeEvent : public QEvent
 {
 public:
-    ScriptingChangeEvent(ScriptingEnv *e) : QEvent(SCRIPTING_CHANGE_EVENT), env(e) { }
+    explicit ScriptingChangeEvent(ScriptingEnv *e) : QEvent(SCRIPTING_CHANGE_EVENT), env(e) { }
     ScriptingEnv *scriptingEnv() const { return env; }
     Type type() const { return SCRIPTING_CHANGE_EVENT; }
 
@@ -176,7 +176,7 @@ private:
 class MAKHBER_EXPORT scripted
 {
 public:
-    scripted(ScriptingEnv *env);
+    explicit scripted(ScriptingEnv *env);
     ~scripted();
     void scriptingChangeEvent(ScriptingChangeEvent *);
 

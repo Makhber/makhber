@@ -44,7 +44,7 @@ class MAKHBER_EXPORT CanvasPicker : public QObject
 {
     Q_OBJECT
 public:
-    CanvasPicker(Graph *plot);
+    explicit CanvasPicker(Graph *plot);
     virtual bool eventFilter(QObject *, QEvent *);
     void selectPoints(int n);
     void selectPeak(const QPoint &p);

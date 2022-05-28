@@ -44,7 +44,7 @@ class MAKHBER_EXPORT PythonScripting : public ScriptingEnv
 
 public:
     static const char *langName;
-    PythonScripting(ApplicationWindow *parent, bool batch = false);
+    explicit PythonScripting(ApplicationWindow *parent, bool batch = false);
     ~PythonScripting();
     static ScriptingEnv *constructor(ApplicationWindow *parent, bool batch = false)
     {

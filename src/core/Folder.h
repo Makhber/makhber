@@ -63,7 +63,7 @@ class MAKHBER_EXPORT Folder : public MakhberObject<QObject>
     Q_OBJECT
 
 public:
-    Folder(const QString &name);
+    explicit Folder(const QString &name);
 
     QList<MyWidget *> windowsList() { return lstWindows; };
 

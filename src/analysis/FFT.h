@@ -47,8 +47,8 @@ public:
 
 private:
     void init();
-    void output();
-    void output(QList<Column *> columns);
+    void output() override;
+    void output(QList<Column *> &columns);
 
     QList<Column *> fftTable();
 

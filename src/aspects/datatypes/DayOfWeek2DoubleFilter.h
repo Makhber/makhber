@@ -40,7 +40,7 @@ class MAKHBER_EXPORT DayOfWeek2DoubleFilter : public AbstractSimpleFilter
     Q_OBJECT
 
 public:
-    virtual double valueAt(int row) const
+    virtual double valueAt(int row) const override
     {
         if (!d_inputs.value(0))
             return 0;
@@ -48,11 +48,11 @@ public:
     }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeDouble; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeDouble; }
 
 protected:
     //! Using typed ports: only date-time inputs are accepted.
-    virtual bool inputAcceptable(int, const AbstractColumn *source)
+    virtual bool inputAcceptable(int, const AbstractColumn *source) override
     {
         return source->dataType() == Makhber::TypeQDateTime;
     }

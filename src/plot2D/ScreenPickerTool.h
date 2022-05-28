@@ -47,11 +47,11 @@ class MAKHBER_EXPORT ScreenPickerTool : public QwtPlotPicker, public PlotToolInt
 {
     Q_OBJECT
 public:
-    ScreenPickerTool(Graph *graph, const QObject *status_target = NULL,
-                     const char *status_slot = "");
+    explicit ScreenPickerTool(Graph *graph, const QObject *status_target = NULL,
+                              const char *status_slot = "");
     virtual ~ScreenPickerTool();
-    virtual RTTI rtti() const { return ScreenPicker; }
-    virtual bool eventFilter(QObject *obj, QEvent *event);
+    virtual RTTI rtti() const override { return ScreenPicker; }
+    virtual bool eventFilter(QObject *obj, QEvent *event) override;
 Q_SIGNALS:
     /*! Emitted whenever a new message should be presented to the user.
      *
@@ -61,10 +61,10 @@ Q_SIGNALS:
     void statusText(const QString &);
 
 protected:
-    virtual void append(const QPoint &point);
+    virtual void append(const QPoint &point) override;
     QwtPlotMarker d_selection_marker;
-    virtual QwtText trackerText(const QPoint &point) const;
-    virtual QwtText trackerTextF(const QPointF &point) const;
+    virtual QwtText trackerText(const QPoint &point) const override;
+    virtual QwtText trackerTextF(const QPointF &point) const override;
 };
 
 #endif // ifndef SCREEN_PICKER_TOOL_H

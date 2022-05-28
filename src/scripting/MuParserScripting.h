@@ -52,7 +52,7 @@ class MAKHBER_EXPORT MuParserScripting : public ScriptingEnv
 
 public:
     static const char *langName;
-    MuParserScripting(ApplicationWindow *parent) : ScriptingEnv(parent, langName)
+    explicit MuParserScripting(ApplicationWindow *parent) : ScriptingEnv(parent, langName)
     {
         d_initialized = true;
         gsl_set_error_handler_off();
@@ -62,19 +62,20 @@ public:
         return new MuParserScripting(parent);
     }
 
-    bool isRunning() const { return true; }
-    Script *newScript(const QString &code, QObject *context, const QString &name = "<input>")
+    bool isRunning() const override { return true; }
+    Script *newScript(const QString &code, QObject *context,
+                      const QString &name = "<input>") override
     {
         return new MuParserScript(this, code, context, name);
     }
 
     // we do not support global variables
-    bool setQObject(QObject *, const char *) { return false; }
-    bool setInt(int, const char *) { return false; }
-    bool setDouble(double, const char *) { return false; }
+    bool setQObject(QObject *, const char *) override { return false; }
+    bool setInt(int, const char *) override { return false; }
+    bool setDouble(double, const char *) override { return false; }
 
-    const QStringList mathFunctions() const;
-    const QString mathFunctionDoc(const QString &name) const;
+    const QStringList mathFunctions() const override;
+    const QString mathFunctionDoc(const QString &name) const override;
 
     struct mathFunction
     {

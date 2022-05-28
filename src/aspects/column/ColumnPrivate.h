@@ -53,7 +53,7 @@ public:
     ~Private();
     //! Special ctor (to be called from Column only!)
     Private(Column *owner, Makhber::ColumnDataType type, Makhber::ColumnMode mode, void *data,
-            IntervalAttribute<bool> validity);
+            IntervalAttribute<bool> &validity);
 
     //! Return the data type of the column
     Makhber::ColumnDataType dataType() const { return d_data_type; };
@@ -156,19 +156,19 @@ public:
      */
     void replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnDataType type, void *data,
                          AbstractSimpleFilter *in_filter, AbstractSimpleFilter *out_filter,
-                         IntervalAttribute<bool> validity);
+                         IntervalAttribute<bool> &validity);
     //! Replace data pointer and validity
-    void replaceData(void *data, IntervalAttribute<bool> validity);
+    void replaceData(void *data, const IntervalAttribute<bool> &validity);
     //! Return the validity interval attribute
     IntervalAttribute<bool> validityAttribute() { return d_validity; }
     //! Return the masking interval attribute
     IntervalAttribute<bool> maskingAttribute() { return d_masking; }
     //! Replace the list of intervals of masked rows
-    void replaceMasking(IntervalAttribute<bool> masking);
+    void replaceMasking(const IntervalAttribute<bool> &masking);
     //! Return the interval attribute representing the formula strings
     IntervalAttribute<QString> formulaAttribute() { return d_formulas; }
     //! Replace the interval attribute for the formula strings
-    void replaceFormulas(IntervalAttribute<QString> formulas);
+    void replaceFormulas(const IntervalAttribute<QString> &formulas);
 
     //! \name IntervalAttribute related functions
     //@{
@@ -224,9 +224,9 @@ public:
      */
     QList<Interval<int>> formulaIntervals() const { return d_formulas.intervals(); }
     //! Set a formula string for an interval of rows
-    void setFormula(Interval<int> i, QString formula);
+    void setFormula(Interval<int> i, const QString &formula);
     //! Overloaded function for convenience
-    void setFormula(int row, QString formula);
+    void setFormula(int row, const QString &formula);
     //! Clear all formulas
     void clearFormulas();
     //@}

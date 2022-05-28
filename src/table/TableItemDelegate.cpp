@@ -34,9 +34,9 @@
 #include <QPainter>
 #include <QModelIndex>
 
-TableItemDelegate::TableItemDelegate(QObject *parent) : QItemDelegate(parent)
+TableItemDelegate::TableItemDelegate(QObject *parent)
+    : QItemDelegate(parent), d_masking_color(QColor(0xff, 0, 0))
 {
-    d_masking_color = QColor(0xff, 0, 0);
 }
 
 void TableItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option,

@@ -41,9 +41,9 @@ class MAKHBER_EXPORT Double2MonthFilter : public AbstractSimpleFilter
 {
     Q_OBJECT
 public:
-    virtual QDate dateAt(int row) const { return dateTimeAt(row).date(); }
-    virtual QTime timeAt(int row) const { return dateTimeAt(row).time(); }
-    virtual QDateTime dateTimeAt(int row) const
+    virtual QDate dateAt(int row) const override { return dateTimeAt(row).date(); }
+    virtual QTime timeAt(int row) const override { return dateTimeAt(row).time(); }
+    virtual QDateTime dateTimeAt(int row) const override
     {
         if (!d_inputs.value(0))
             return QDateTime();
@@ -56,10 +56,10 @@ public:
     }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeQDateTime; }
 
 protected:
-    virtual bool inputAcceptable(int, const AbstractColumn *source)
+    virtual bool inputAcceptable(int, const AbstractColumn *source) override
     {
         return source->dataType() == Makhber::TypeDouble;
     }

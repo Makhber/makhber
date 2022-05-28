@@ -59,18 +59,10 @@ public:
     void setMinPenX(const QPen &p) { setMinorPen(p); };
     const QPen &minPenX() const { return minorPen(); };
 
-    void setMajPenY(const QPen &p)
-    {
-        if (d_maj_pen_y != p)
-            d_maj_pen_y = p;
-    };
+    void setMajPenY(const QPen &p) { d_maj_pen_y = p; };
     const QPen &majPenY() const { return d_maj_pen_y; };
 
-    void setMinPenY(const QPen &p)
-    {
-        if (d_min_pen_y != p)
-            d_min_pen_y = p;
-    };
+    void setMinPenY(const QPen &p) { d_min_pen_y = p; };
     const QPen &minPenY() const { return d_min_pen_y; };
 
     void load(QJsonObject *jsGrid);

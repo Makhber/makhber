@@ -51,10 +51,10 @@ public:
     enum MoveMode { Free, Vertical, Horizontal };
     DataPickerTool(Graph *graph, ApplicationWindow *app, Mode mode,
                    const QObject *status_target = NULL, const char *status_slot = "");
-    virtual RTTI rtti() const { return DataPicker; }
+    virtual RTTI rtti() const override { return DataPicker; }
     Mode mode() const { return d_mode; }
     virtual ~DataPickerTool();
-    virtual bool eventFilter(QObject *obj, QEvent *event);
+    virtual bool eventFilter(QObject *obj, QEvent *event) override;
     bool keyEventFilter(QKeyEvent *ke);
     QwtPlotCurve *selectedCurve() const { return d_selected_curve; }
 Q_SIGNALS:
@@ -69,13 +69,13 @@ Q_SIGNALS:
 
 protected:
     void removePoint();
-    virtual void append(const QPoint &point);
-    virtual void move(const QPoint &point);
-    virtual bool end(bool ok);
+    virtual void append(const QPoint &point) override;
+    virtual void move(const QPoint &point) override;
+    virtual bool end(bool ok) override;
     void setSelection(QwtPlotCurve *curve, int point_index);
     void moveBy(int dx, int dy);
-    virtual QwtText trackerText(const QPoint &point) const;
-    virtual QwtText trackerTextF(const QPointF &point) const;
+    virtual QwtText trackerText(const QPoint &point) const override;
+    virtual QwtText trackerTextF(const QPointF &point) const override;
 
 private:
     ApplicationWindow *d_app;

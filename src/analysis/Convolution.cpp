@@ -186,7 +186,7 @@ void Convolution::convlv(double *sig, int n, double *dres, int m, int sign)
     gsl_fft_real_radix2_transform(res, 1, n);
     gsl_fft_real_radix2_transform(sig, 1, n);
 
-    double re = NAN, im = NAN, size = NAN;
+    double re {}, im {}, size {};
     for (i = 0; i < n / 2; i++) { // multiply/divide both ffts
         if (i == 0 || i == n / 2 - 1) {
             if (sign == 1)

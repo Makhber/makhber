@@ -52,7 +52,7 @@ protected:
     void convlv(double *sig, int n, double *dres, int m, int sign);
 
 private:
-    virtual void output();
+    virtual void output() override;
     //! Size of the signal data set
     int d_n_signal {};
     //! Size of the response data set
@@ -68,7 +68,7 @@ public:
                   const QString &imagColName = QString());
 
 private:
-    void output();
+    void output() override;
 };
 
 #endif

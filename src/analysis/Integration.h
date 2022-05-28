@@ -55,13 +55,13 @@ public:
     double result() { return d_result; }
 
 protected:
-    virtual bool isDataAcceptable();
+    virtual bool isDataAcceptable() override;
 
 private:
     void init();
     double trapezoid();
-    QString logInfo();
-    void output() {};
+    QString logInfo() override;
+    void output() override {};
 
     //! The method for computing the interpolation used for integrating.
     InterpolationMethod d_method;

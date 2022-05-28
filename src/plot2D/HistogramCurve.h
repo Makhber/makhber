@@ -37,25 +37,25 @@ public:
 
     void copy(const HistogramCurve *h);
 
-    QRectF boundingRect() const;
+    QRectF boundingRect() const override;
 
     void setBinning(bool autoBin, double size, double begin, double end);
-    bool autoBinning() { return d_autoBin; };
-    double begin() { return d_begin; };
-    double end() { return d_end; };
-    double binSize() { return d_bin_size; };
+    bool autoBinning() const { return d_autoBin; };
+    double begin() const { return d_begin; };
+    double end() const { return d_end; };
+    double binSize() const { return d_bin_size; };
 
-    virtual bool loadData();
+    virtual bool loadData() override;
     void initData(const QVector<double> &Y, int size);
 
-    double mean() { return d_mean; };
-    double standardDeviation() { return d_standard_deviation; };
-    double minimum() { return d_min; };
-    double maximum() { return d_max; };
+    double mean() const { return d_mean; };
+    double standardDeviation() const { return d_standard_deviation; };
+    double minimum() const { return d_min; };
+    double maximum() const { return d_max; };
 
 private:
     void draw(QPainter *painter, const QwtScaleMap &xMap, const QwtScaleMap &yMap, int from,
-              int to) const;
+              int to) const override;
 
     bool d_autoBin;
     double d_bin_size {}, d_begin {}, d_end {};

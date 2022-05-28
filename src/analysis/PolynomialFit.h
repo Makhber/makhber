@@ -37,9 +37,9 @@ class MAKHBER_EXPORT PolynomialFit : public Fit
 
 public:
     PolynomialFit(ApplicationWindow *parent, Graph *g, int order = 2, bool legend = false);
-    PolynomialFit(ApplicationWindow *parent, Graph *g, QString &curveTitle, int order = 2,
+    PolynomialFit(ApplicationWindow *parent, Graph *g, const QString &curveTitle, int order = 2,
                   bool legend = false);
-    PolynomialFit(ApplicationWindow *parent, Graph *g, QString &curveTitle, double start,
+    PolynomialFit(ApplicationWindow *parent, Graph *g, const QString &curveTitle, double start,
                   double end, int order = 2, bool legend = false);
 
     QString legendInfo() override;

@@ -60,7 +60,7 @@
 #include <QScrollArea>
 #include <QMenu>
 
-TableView::TableView(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
+TableView::TableView(const QString &label, QWidget *parent, const QString &name, Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)
 {
     d_model = nullptr;

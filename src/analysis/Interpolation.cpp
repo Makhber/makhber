@@ -103,20 +103,20 @@ void Interpolation::setMethod(int m)
 void Interpolation::calculateOutputData(double *x, double *y)
 {
     gsl_interp_accel *acc = gsl_interp_accel_alloc();
-    const gsl_interp_type *method = nullptr;
+    const gsl_interp_type *interp_method = nullptr;
     switch (d_method) {
     case 0:
-        method = gsl_interp_linear;
+        interp_method = gsl_interp_linear;
         break;
     case 1:
-        method = gsl_interp_cspline;
+        interp_method = gsl_interp_cspline;
         break;
     case 2:
-        method = gsl_interp_akima;
+        interp_method = gsl_interp_akima;
         break;
     }
 
-    gsl_spline *interp = gsl_spline_alloc(method, d_n);
+    gsl_spline *interp = gsl_spline_alloc(interp_method, d_n);
     gsl_spline_init(interp, d_x, d_y, d_n);
 
     double step = (d_to - d_from) / (double)(d_points - 1);

@@ -126,7 +126,7 @@ class MAKHBER_EXPORT ApplicationWindow : public MakhberObject<QMainWindow>, publ
     Q_OBJECT
 public:
     ApplicationWindow();
-    ApplicationWindow(const QStringList &l);
+    explicit ApplicationWindow(const QStringList &l);
     ~ApplicationWindow();
 
     enum ShowWindowsPolicy { HideAll, ActiveFolder, SubFolders };
@@ -358,7 +358,7 @@ public Q_SLOTS:
     Table *newTable(const QString &caption, int r, int c);
     Table *newTable(int r, int c, const QString &name = QString(),
                     const QString &legend = QString());
-    Table *newTable(const QString &name, const QString &legend, QList<Column *> columns);
+    Table *newTable(const QString &name, const QString &legend, const QList<Column *> &columns);
     /**
      * \brief Create a Table which is initially hidden; used to return the result of an analysis
      * operation.
@@ -369,13 +369,14 @@ public Q_SLOTS:
      * \param c number of columns
      * \param text tab/newline - seperated initial content; may be empty
      */
-    Table *newHiddenTable(const QString &name, const QString &label, QList<Column *> columns);
+    Table *newHiddenTable(const QString &name, const QString &label,
+                          const QList<Column *> &columns);
     Table *table(const QString &name);
     Table *convertMatrixToTable();
     QList<MyWidget *> *tableList();
 
     void connectTable(Table *w);
-    void newWrksheetPlot(const QString &name, const QString &label, QList<Column *> columns);
+    void newWrksheetPlot(const QString &name, const QString &label, QList<Column *> &columns);
     void initTable(Table *w);
     void customTable(Table *w);
     void customizeTables(const QColor &bgColor, const QColor &textColor, const QColor &headerColor,
@@ -898,7 +899,7 @@ public Q_SLOTS:
               bool partialMatch, bool subfolders);
 
     //!  initializes the list of items dragged by the user
-    void dragFolderItems(QList<QTreeWidgetItem *> items)
+    void dragFolderItems(const QList<QTreeWidgetItem *> &items)
     {
         draggedItems = items;
     };

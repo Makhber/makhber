@@ -46,7 +46,7 @@ protected:
     void addResultCurve();
 
 private:
-    virtual void output();
+    virtual void output() override;
 };
 
 #endif

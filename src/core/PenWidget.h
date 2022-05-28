@@ -67,7 +67,7 @@ public Q_SLOTS:
 
 private Q_SLOTS:
     void updateColor(QColor);
-    void updateWidth(QString);
+    void updateWidth(const QString &);
     void updateLineStyle(int);
     void updateCapStyle(int);
     void updateJoinStyle(int);
@@ -75,8 +75,8 @@ private Q_SLOTS:
     void toggleDashPattern(int);
     void customDashCheck(const QString &);
     QVector<qreal> dashPattern();
-    void setDashPattern(QString s) { d_custom_dash = s; };
-    void setDashPattern(QVector<qreal> dp) { d_custom_dash = dashPatternToString(dp); };
+    void setDashPattern(const QString &s) { d_custom_dash = s; };
+    void setDashPattern(const QVector<qreal> &dp) { d_custom_dash = dashPatternToString(dp); };
     QString dashPatternToString(QVector<qreal>);
     QPixmap penStyleSample(const Qt::PenStyle, const QPen &,
                            const QSize &size = DefaultLineStyleSampleSize);

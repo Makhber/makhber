@@ -47,7 +47,7 @@ class MAKHBER_EXPORT ExpDecayDialog : public QDialog
     Q_OBJECT
 
 public:
-    ExpDecayDialog(int type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
+    explicit ExpDecayDialog(int type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     ~ExpDecayDialog() {};
 
 public Q_SLOTS:

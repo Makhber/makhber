@@ -50,7 +50,7 @@
 
 #include <cmath>
 
-Fit::Fit(ApplicationWindow *parent, Graph *g, QString name)
+Fit::Fit(ApplicationWindow *parent, Graph *g, const QString &name)
     : Filter(parent, g, name), scripted(ScriptingLangManager::newEnv("muParser", parent))
 {
     d_p = 0;
@@ -178,7 +178,7 @@ std::vector<double> Fit::fitGslMultimin(int &iterations, int &status)
         result[i] = gsl_vector_get(s_min->x, i);
     chi_2 = s_min->fval;
     gsl_matrix *J = gsl_matrix_alloc(d_n, d_p);
-    d_df(s_min->x, (void *)f.params, J);
+    d_df(s_min->x, static_cast<void *>(f.params), J);
     gsl_multifit_covar(J, 0.0, covar);
     if (d_y_error_source == UnknownErrors) {
         // multiply covar by variance of residuals, which is used as an estimate for the
@@ -286,7 +286,7 @@ QString Fit::logFitInfo(const std::vector<double> &par, int iterations, int stat
 
 double Fit::rSquare()
 {
-    double mean = 0.0, tss = 0.0, weights_sum = 0.0;
+    double mean = 0.0, tss = 0.0;
 
     if (d_y_error_source == UnknownErrors) {
         for (unsigned i = 0; i < d_n; i++)
@@ -295,6 +295,7 @@ double Fit::rSquare()
         for (unsigned i = 0; i < d_n; i++)
             tss += (d_y[i] - mean) * (d_y[i] - mean);
     } else {
+        double weights_sum {};
         for (unsigned i = 0; i < d_n; i++) {
             mean += d_y[i] / (d_y_errors[i] * d_y_errors[i]);
             weights_sum += 1.0 / (d_y_errors[i] * d_y_errors[i]);
@@ -610,12 +611,13 @@ void Fit::insertFitFunctionCurve(const QString &name, double *x, double *y, int 
     c->setSamples(x, y, d_points);
     c->setRange(d_x[0], d_x[d_n - 1]);
 
-    QString formula;
+    QString function_formula;
     for (unsigned j = 0; j < d_p; j++)
-        formula += QString("%1=%2\n").arg(d_param_names[j]).arg(d_results[j], 0, 'g', d_prec);
-    formula += "\n";
-    formula += d_formula;
-    c->setFormula(formula);
+        function_formula +=
+                QString("%1=%2\n").arg(d_param_names[j]).arg(d_results[j], 0, 'g', d_prec);
+    function_formula += "\n";
+    function_formula += d_formula;
+    c->setFormula(function_formula);
     d_graph->insertPlotItem(c, Graph::Line);
     d_graph->addFitCurve(c);
 }

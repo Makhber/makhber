@@ -45,9 +45,8 @@
 #include <QVBoxLayout>
 #include <QDebug>
 
-PenWidget::PenWidget(QWidget *parent, QPen pen) : QWidget(parent)
+PenWidget::PenWidget(QWidget *parent, QPen pen) : QWidget(parent), m_pen(pen)
 {
-    m_pen = pen;
     d_custom_dash = dashPatternToString(m_pen.dashPattern());
 
     createWidgets();
@@ -187,7 +186,7 @@ void PenWidget::updateColor(QColor color)
     Q_EMIT penChanged(m_pen);
 }
 
-void PenWidget::updateWidth(QString value)
+void PenWidget::updateWidth(const QString &value)
 {
     m_pen.setWidth(value.toInt());
     Q_EMIT penChanged(m_pen);
@@ -368,13 +367,11 @@ QVector<qreal> PenWidget::dashPattern()
 {
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList custDash = d_custom_dash.split(' ', Qt::SkipEmptyParts);
-    QVector<qreal> custDashF;
-    for (auto s : d_custom_dash.split(' ', Qt::SkipEmptyParts))
 #else
     QStringList custDash = d_custom_dash.split(' ', QString::SkipEmptyParts);
-    QVector<qreal> custDashF;
-    for (auto s : d_custom_dash.split(' ', QString::SkipEmptyParts))
 #endif
+    QVector<qreal> custDashF;
+    for (auto s : custDash)
         custDashF << s.toDouble();
     return custDashF;
 }

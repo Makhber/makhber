@@ -48,11 +48,11 @@ public:
     void setMethod(InterpolationMethod m) { setMethod((int)m); };
 
 protected:
-    virtual bool isDataAcceptable();
+    virtual bool isDataAcceptable() override;
 
 private:
     void init(int m);
-    void calculateOutputData(double *x, double *y);
+    void calculateOutputData(double *x, double *y) override;
 
     //! the interpolation method
     int d_method {};

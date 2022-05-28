@@ -123,13 +123,12 @@ Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owne
 }
 
 Column::Private::Private(Column *owner, Makhber::ColumnDataType type, Makhber::ColumnMode mode,
-                         void *data, IntervalAttribute<bool> validity)
-    : d_owner(owner)
+                         void *data, IntervalAttribute<bool> &validity)
+    : d_validity(validity), d_owner(owner)
 {
     d_data_type = type;
     d_column_mode = mode;
     d_data = data;
-    d_validity = validity;
 
     switch (mode) {
     case Makhber::ColumnMode::Numeric: {
@@ -304,10 +303,9 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
         else if (old_mode == Makhber::ColumnMode::Numeric) {
             auto numeric_datetime_converter =
                     reinterpret_cast<NumericDateTimeBaseFilter *>(converter);
-            if (nullptr != numeric_datetime_converter)
-                // the ownership of converter is not taken, copy is stored
-                setNumericDateTimeFilter(
-                        new NumericDateTimeBaseFilter(*numeric_datetime_converter));
+            // if (nullptr != numeric_datetime_converter) ALways true
+            // the ownership of converter is not taken, copy is stored
+            setNumericDateTimeFilter(new NumericDateTimeBaseFilter(*numeric_datetime_converter));
         }
         break;
     }
@@ -428,7 +426,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
 void Column::Private::replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnDataType type,
                                       void *data, AbstractSimpleFilter *in_filter,
                                       AbstractSimpleFilter *out_filter,
-                                      IntervalAttribute<bool> validity)
+                                      IntervalAttribute<bool> &validity)
 {
     Q_EMIT d_owner->modeAboutToChange(d_owner);
     // disconnect formatChanged()
@@ -478,7 +476,7 @@ void Column::Private::replaceModeData(Makhber::ColumnMode mode, Makhber::ColumnD
     Q_EMIT d_owner->modeChanged(d_owner);
 }
 
-void Column::Private::replaceData(void *data, IntervalAttribute<bool> validity)
+void Column::Private::replaceData(void *data, const IntervalAttribute<bool> &validity)
 {
     Q_EMIT d_owner->dataAboutToChange(d_owner);
     d_data = data;
@@ -515,7 +513,7 @@ bool Column::Private::copy(const AbstractColumn *other)
     }
     }
     // copy the validity information
-    d_validity = other->invalidIntervals();
+    d_validity = IntervalAttribute<bool>(other->invalidIntervals());
 
     Q_EMIT d_owner->dataChanged(d_owner);
 
@@ -593,7 +591,7 @@ bool Column::Private::copy(const Private *other)
     }
     }
     // copy the validity information
-    d_validity = other->invalidIntervals();
+    d_validity = IntervalAttribute<bool>(other->invalidIntervals());
 
     Q_EMIT d_owner->dataChanged(d_owner);
 
@@ -801,12 +799,12 @@ void Column::Private::setMasked(int row, bool mask)
     setMasked(Interval<int>(row, row), mask);
 }
 
-void Column::Private::setFormula(Interval<int> i, QString formula)
+void Column::Private::setFormula(Interval<int> i, const QString &formula)
 {
     d_formulas.setValue(i, formula);
 }
 
-void Column::Private::setFormula(int row, QString formula)
+void Column::Private::setFormula(int row, const QString &formula)
 {
     setFormula(Interval<int>(row, row), formula);
 }
@@ -980,14 +978,14 @@ void Column::Private::setNumericDateTimeFilter(NumericDateTimeBaseFilter *const 
     d_numeric_datetime_filter.reset(newFilter);
 }
 
-void Column::Private::replaceMasking(IntervalAttribute<bool> masking)
+void Column::Private::replaceMasking(const IntervalAttribute<bool> &masking)
 {
     Q_EMIT d_owner->maskingAboutToChange(d_owner);
     d_masking = masking;
     Q_EMIT d_owner->maskingChanged(d_owner);
 }
 
-void Column::Private::replaceFormulas(IntervalAttribute<QString> formulas)
+void Column::Private::replaceFormulas(const IntervalAttribute<QString> &formulas)
 {
     d_formulas = formulas;
 }

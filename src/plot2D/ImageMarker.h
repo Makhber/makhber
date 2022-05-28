@@ -66,17 +66,17 @@ class MAKHBER_EXPORT ImageMarker : public PlotEnrichement
 {
 public:
     //! Construct an image marker from a file name.
-    ImageMarker(const QString &fn);
+    explicit ImageMarker(const QString &fn);
 
     //! Return bounding rectangle in paint coordinates.
-    QRect rect() const;
+    QRect rect() const override;
     //! Set value (position) and #d_size, giving everything in paint coordinates.
-    void setRect(int x, int y, int w, int h);
+    void setRect(int x, int y, int w, int h) override;
 
     //! Return bounding rectangle in plot coordinates.
-    virtual QRectF boundingRect() const;
+    virtual QRectF boundingRect() const override;
     //! Set position (xValue() and yValue()), right and bottom values giving everything in plot coordinates.
-    void setBoundingRect(double left, double top, double right, double bottom);
+    void setBoundingRect(double left, double top, double right, double bottom) override;
 
     double right() { return d_x_right; };
     double bottom() { return d_y_bottom; };
@@ -101,11 +101,12 @@ public:
     //! Return the pixmap to be drawn, #d_pic.
     QPixmap pixmap() const { return d_pic; };
 
-    void updateBoundingRect();
+    void updateBoundingRect() override;
 
 private:
     //! Does the actual drawing; see QwtPlotItem::draw.
-    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap, const QRectF &r) const;
+    void draw(QPainter *p, const QwtScaleMap &xMap, const QwtScaleMap &yMap,
+              const QRectF &r) const override;
     //! The position in paint coordiantes.
     QPoint d_pos;
     //! The pixmap to be drawn.

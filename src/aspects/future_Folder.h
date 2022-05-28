@@ -39,23 +39,23 @@ class MAKHBER_EXPORT Folder : public AbstractAspect
     Q_OBJECT
 
 public:
-    Folder(const QString &name);
+    explicit Folder(const QString &name);
 
     virtual ~Folder();
 
-    virtual QIcon icon() const;
+    virtual QIcon icon() const override;
     //! Return a new context menu.
     /**
      * The caller takes ownership of the menu.
      */
-    virtual QMenu *createContextMenu() const;
+    virtual QMenu *createContextMenu() const override;
 
     //! \name serialize/deserialize
     //@{
     //! Save
-    virtual void save(QJsonObject *) const;
+    virtual void save(QJsonObject *) const override;
     //! Load
-    virtual bool load(QJsonObject *);
+    virtual bool load(QJsonObject *) override;
 
 protected:
     //! Read child aspect

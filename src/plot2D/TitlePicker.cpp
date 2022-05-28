@@ -37,15 +37,16 @@
 TitlePicker::TitlePicker(QwtPlot *plot) : QObject(plot)
 {
     d_selected = false;
-    title = (QwtTextLabel *)plot->titleLabel();
-    title->setFocusPolicy(Qt::StrongFocus);
-    if (title)
+    title = dynamic_cast<QwtTextLabel *>(plot->titleLabel());
+    if (title) {
+        title->setFocusPolicy(Qt::StrongFocus);
         title->installEventFilter(this);
+    }
 }
 
 bool TitlePicker::eventFilter(QObject *object, QEvent *e)
 {
-    if (object != (QObject *)title)
+    if (object != dynamic_cast<QObject *>(title))
         return false;
 
     if (object->inherits("QwtTextLabel") && e->type() == QEvent::MouseButtonDblClick) {

@@ -355,16 +355,16 @@ void AssociationsDialog::setGraph(Graph *g)
     graph = g;
 
     for (int i = 0; i < graph->curves(); i++) {
-        const QwtPlotItem *it = (QwtPlotItem *)graph->plotItem(i);
+        const QwtPlotItem *it = dynamic_cast<QwtPlotItem *>(graph->plotItem(i));
         if (!it)
             continue;
         if (it->rtti() != QwtPlotItem::Rtti_PlotCurve)
             continue;
 
-        if (((DataCurve *)it)->type() != Graph::Function) {
-            QString s = ((DataCurve *)it)->plotAssociation();
-            QString table = ((DataCurve *)it)->table()->name();
-            plotAssociationsList << table + ": " + s.remove(table + "_");
+        if (dynamic_cast<const DataCurve *>(it)->type() != Graph::Function) {
+            QString s = dynamic_cast<const DataCurve *>(it)->plotAssociation();
+            QString table_name = dynamic_cast<const DataCurve *>(it)->table()->name();
+            plotAssociationsList << table_name + ": " + s.remove(table_name + "_");
             dataCurvesList << i;
         }
     }

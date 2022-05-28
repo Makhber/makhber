@@ -56,7 +56,7 @@ public:
     int numDigits() const { return d_digits; }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQString; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeQString; }
 
 Q_SIGNALS:
     void formatChanged();
@@ -71,12 +71,12 @@ private:
 
     //! \name Json related functions
     //@{
-    virtual void writeExtraAttributes(QJsonObject *) const;
-    virtual bool load(QJsonObject *reader);
+    virtual void writeExtraAttributes(QJsonObject *) const override;
+    virtual bool load(QJsonObject *reader) override;
     //@}
 
 public:
-    virtual QString textAt(int row) const
+    virtual QString textAt(int row) const override
     {
         if (!d_inputs.value(0))
             return QString();
@@ -89,7 +89,7 @@ public:
 
 protected:
     //! Using typed ports: only double inputs are accepted.
-    virtual bool inputAcceptable(int, const AbstractColumn *source)
+    virtual bool inputAcceptable(int, const AbstractColumn *source) override
     {
         return source->dataType() == Makhber::TypeDouble;
     }

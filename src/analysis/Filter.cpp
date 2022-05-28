@@ -88,7 +88,7 @@ void Filter::setInterval(double from, double to)
 void Filter::setDataCurve(int curve, double start, double end)
 {
     if (start > end)
-        qSwap(start, end);
+        std::swap(start, end);
 
     if (d_n > 0) { // delete previousely allocated memory
         delete[] d_x;

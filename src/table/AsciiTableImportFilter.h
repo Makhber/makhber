@@ -65,9 +65,9 @@ public:
           d_numeric_locale(QLocale::c())
     {
     }
-    virtual AbstractAspect *importAspect(QIODevice &input);
-    virtual QStringList fileExtensions() const;
-    virtual QString name() const { return QObject::tr("ASCII table"); }
+    virtual AbstractAspect *importAspect(QIODevice &input) override;
+    virtual QStringList fileExtensions() const override;
+    virtual QString name() const override { return QObject::tr("ASCII table"); }
 
     ACCESSOR(int, ignored_lines);
     Q_PROPERTY(int ignored_lines READ ignored_lines WRITE set_ignored_lines)

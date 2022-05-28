@@ -49,7 +49,7 @@ HistogramCurve::HistogramCurve(Table *t, const QString &name, int startRow, int 
 
 void HistogramCurve::copy(const HistogramCurve *h)
 {
-    BarCurve::copy((const BarCurve *)h);
+    BarCurve::copy(dynamic_cast<const BarCurve *>(h));
 
     d_autoBin = h->d_autoBin;
     d_bin_size = h->d_bin_size;

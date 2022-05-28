@@ -43,7 +43,7 @@ public:
     ProjectConfigPage();
 
 public Q_SLOTS:
-    virtual void apply();
+    virtual void apply() override;
 
 private:
     Ui::ProjectConfigPage ui {};

@@ -39,8 +39,8 @@ class MAKHBER_EXPORT MultiPeakFit : public Fit
 
 public:
     enum PeakProfile { Gauss, Lorentz };
-    MultiPeakFit(ApplicationWindow *parent, Graph *g = 0, PeakProfile profile = Gauss,
-                 int peaks = 1);
+    explicit MultiPeakFit(ApplicationWindow *parent, Graph *g = 0, PeakProfile profile = Gauss,
+                          int peaks = 1);
 
     int peaks() { return d_peaks; };
     void setNumPeaks(int n);

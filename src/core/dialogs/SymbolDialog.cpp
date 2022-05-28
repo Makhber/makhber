@@ -80,16 +80,18 @@ void SymbolDialog::initLowerGreekChars()
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 5, counter % 5);
     }
-    for (i = 0; i <= (0x3D1 - 0x3D1); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x3D1)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x3D1)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 5, counter % 5);
     }
-    for (i = 0; i <= (0x3D5 - 0x3D5); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x3D5)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x3D5)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
@@ -170,16 +172,18 @@ void SymbolDialog::initMathSymbols()
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
-    for (i = 0; i <= (0x00B1 - 0x00B1); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x00B1)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x00B1)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
-    for (i = 0; i <= (0x2213 - 0x2213); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x2213)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x2213)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
@@ -194,8 +198,9 @@ void SymbolDialog::initMathSymbols()
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
-    for (i = 0; i <= (0x2222 - 0x2222); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x2222)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x2222)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
@@ -210,15 +215,17 @@ void SymbolDialog::initMathSymbols()
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
-    for (i = 0; i <= (0x223F - 0x223F); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x223F)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x223F)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
-    for (i = 0; i <= (0x2245 - 0x2245); i++, counter++) {
+    {
+        counter++;
         auto *btn = new QPushButton(QString(QChar(i + 0x2245)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
@@ -226,8 +233,9 @@ void SymbolDialog::initMathSymbols()
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
-    for (i = 0; i <= (0x2248 - 0x2248); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x2248)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x2248)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
@@ -242,8 +250,9 @@ void SymbolDialog::initMathSymbols()
         buttons->addButton(btn, counter + 1);
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
-    for (i = 0; i <= (0x2259 - 0x2259); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x2259)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x2259)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
@@ -275,8 +284,9 @@ void SymbolDialog::initMathSymbols()
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
     // h bar
-    for (i = 0; i <= (0x210F - 0x210F); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x210F)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x210F)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);
@@ -284,8 +294,9 @@ void SymbolDialog::initMathSymbols()
         gridLayout->addWidget(btn, counter / 8, counter % 8);
     }
     // angstrom
-    for (i = 0; i <= (0x212B - 0x212B); i++, counter++) {
-        auto *btn = new QPushButton(QString(QChar(i + 0x212B)));
+    {
+        counter++;
+        auto *btn = new QPushButton(QString(QChar(0x212B)));
         btn->setMaximumWidth(40);
         btn->setFlat(true);
         btn->setAutoDefault(false);

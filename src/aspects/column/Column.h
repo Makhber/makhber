@@ -76,7 +76,7 @@ public:
      */
     template<class D>
     Column(const QString &name, const D &data,
-           IntervalAttribute<bool> validity = IntervalAttribute<bool>())
+           const IntervalAttribute<bool> &validity = IntervalAttribute<bool>())
         : AbstractColumn(name)
     {
         initPrivate(std::unique_ptr<D>(new D(data)), validity);
@@ -85,7 +85,7 @@ public:
 
     template<class D>
     Column(const QString &name, std::unique_ptr<D> data,
-           IntervalAttribute<bool> validity = IntervalAttribute<bool>())
+           const IntervalAttribute<bool> &validity = IntervalAttribute<bool>())
         : AbstractColumn(name)
     {
         initPrivate(std::move(data), validity);
@@ -230,9 +230,9 @@ public:
      */
     QList<Interval<int>> formulaIntervals() const override;
     //! Set a formula string for an interval of rows
-    void setFormula(Interval<int> i, QString formula);
+    void setFormula(Interval<int> i, const QString &formula);
     //! Overloaded function for convenience
-    void setFormula(int row, QString formula);
+    void setFormula(int row, const QString &formula);
     //! Clear all formulas
     void clearFormulas() override;
     //@}
@@ -344,26 +344,30 @@ class MAKHBER_EXPORT ColumnStringIO : public AbstractColumn
     Q_OBJECT
 
 public:
-    ColumnStringIO(Column *owner)
+    explicit ColumnStringIO(Column *owner)
         : AbstractColumn(tr("as string")), d_owner(owner), d_setting(false)
     {
     }
-    virtual Makhber::ColumnMode columnMode() const { return Makhber::ColumnMode::Text; }
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQString; }
-    virtual Makhber::PlotDesignation plotDesignation() const { return d_owner->plotDesignation(); }
-    virtual int rowCount() const { return d_owner->rowCount(); }
-    virtual QString textAt(int row) const;
+    virtual Makhber::ColumnMode columnMode() const override { return Makhber::ColumnMode::Text; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeQString; }
+    virtual Makhber::PlotDesignation plotDesignation() const override
+    {
+        return d_owner->plotDesignation();
+    }
+    virtual int rowCount() const override { return d_owner->rowCount(); }
+    virtual QString textAt(int row) const override;
     virtual void setTextAt(int row, const QString &value);
-    virtual bool isInvalid(int row) const
+    virtual bool isInvalid(int row) const override
     {
         if (d_setting)
             return false;
         else
             return d_owner->isInvalid(row);
     }
-    virtual bool copy(const AbstractColumn *other);
-    virtual bool copy(const AbstractColumn *source, int source_start, int dest_start, int num_rows);
-    virtual void replaceTexts(int start_row, const QStringList &texts);
+    virtual bool copy(const AbstractColumn *other) override;
+    virtual bool copy(const AbstractColumn *source, int source_start, int dest_start,
+                      int num_rows) override;
+    virtual void replaceTexts(int start_row, const QStringList &texts) override;
 
 private:
     Column *d_owner;

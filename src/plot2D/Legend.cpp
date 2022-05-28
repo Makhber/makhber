@@ -142,6 +142,9 @@ void Legend::setTextColor(const QColor &c)
 
 void Legend::setOrigin(const QPoint &p)
 {
+    if (!d_plot)
+        return;
+
     d_pos = p;
 
     const QwtScaleMap &xMap = d_plot->canvasMap(xAxis());
@@ -149,8 +152,7 @@ void Legend::setOrigin(const QPoint &p)
 
     setXValue(xMap.invTransform(p.x()));
     setYValue(yMap.invTransform(p.y()));
-    if (d_plot != nullptr)
-        d_plot->replot();
+    d_plot->replot();
 }
 
 void Legend::updateOrigin()
@@ -265,11 +267,11 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
     int w = rect.x() + left_margin;
     int l = symbolLineLength + 2 * left_margin;
 
-    QString text = d_text->text().trimmed();
+    QString symbol_text = d_text->text().trimmed();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    QStringList titles = text.split("\n", Qt::KeepEmptyParts);
+    QStringList titles = symbol_text.split("\n", Qt::KeepEmptyParts);
 #else
-    QStringList titles = text.split("\n", QString::KeepEmptyParts);
+    QStringList titles = symbol_text.split("\n", QString::KeepEmptyParts);
 #endif
 
     for (int i = 0; i < (int)titles.count(); i++) {
@@ -328,7 +330,6 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
 
             int id = aux.toInt();
 
-            auto *g = dynamic_cast<Graph *>(d_plot->parent());
             if (g->isPiePlot()) {
                 auto *curve = dynamic_cast<PieCurve *>(d_plot->curve(1));
                 if (curve) {
@@ -352,11 +353,11 @@ void Legend::drawLegends(QPainter *p, const QRect &rect, QVector<long> height,
 {
     int w = rect.x() + left_margin;
 
-    QString text = d_text->text().trimmed();
+    QString legend_text = d_text->text().trimmed();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    QStringList titles = text.split("\n", Qt::KeepEmptyParts);
+    QStringList titles = legend_text.split("\n", Qt::KeepEmptyParts);
 #else
-    QStringList titles = text.split("\n", QString::KeepEmptyParts);
+    QStringList titles = legend_text.split("\n", QString::KeepEmptyParts);
 #endif
 
     for (int i = 0; i < (int)titles.count(); i++) {
@@ -392,13 +393,13 @@ QVector<long> Legend::itemsHeight(int y, int symbolLineLength, int &width, int &
     width = 0;
     height = 0;
 
-    QString text = d_text->text().trimmed();
+    QString legend_text = d_text->text().trimmed();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    QStringList titles = text.split("\n", Qt::KeepEmptyParts);
+    QStringList titles = legend_text.split("\n", Qt::KeepEmptyParts);
 #else
-    QStringList titles = text.split("\n", QString::KeepEmptyParts);
+    QStringList titles = legend_text.split("\n", QString::KeepEmptyParts);
 #endif
-    int n = (int)titles.count();
+    int n = titles.count();
     QVector<long> heights(n);
 
     int h = top_margin;
@@ -442,11 +443,11 @@ int Legend::symbolsMaxLineLength() const
     QList<int> cvs = d_plot->curveKeys();
 
     int maxL = 0;
-    QString text = d_text->text().trimmed();
+    QString legend_text = d_text->text().trimmed();
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
-    QStringList titles = text.split("\n", Qt::KeepEmptyParts);
+    QStringList titles = legend_text.split("\n", Qt::KeepEmptyParts);
 #else
-    QStringList titles = text.split("\n", QString::KeepEmptyParts);
+    QStringList titles = legend_text.split("\n", QString::KeepEmptyParts);
 #endif
     for (int i = 0; i < (int)titles.count(); i++) {
         if (titles[i].contains("\\c{") && (int)cvs.size() > 0) {
@@ -465,7 +466,7 @@ int Legend::symbolsMaxLineLength() const
             if (cv < 0 || cv >= cvs.count())
                 continue;
 
-            const QwtPlotCurve *c = (QwtPlotCurve *)d_plot->curve(cvs[cv]);
+            const QwtPlotCurve *c = dynamic_cast<QwtPlotCurve *>(d_plot->curve(cvs[cv]));
             if (c != nullptr && c->symbol() != nullptr
                 && c->rtti() != QwtPlotItem::Rtti_PlotSpectrogram) {
                 int l = c->symbol()->size().width();
@@ -501,7 +502,7 @@ QString Legend::parse(const QString &str) const
         if (cv >= 0) {
             auto *g = dynamic_cast<Graph *>(d_plot->parent());
             if (g) {
-                const QwtPlotCurve *c = (QwtPlotCurve *)g->curve(cv);
+                const QwtPlotCurve *c = dynamic_cast<QwtPlotCurve *>(g->curve(cv));
                 if (c)
                     s = s.replace(pos, pos2 - pos + 1, c->title().text());
             }

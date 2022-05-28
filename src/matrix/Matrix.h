@@ -56,19 +56,19 @@ public:
     future::Matrix *d_future_matrix;
 
     //! Return the window name
-    virtual QString name() { return d_future_matrix->name(); }
+    virtual QString name() override { return d_future_matrix->name(); }
     //! Set the window name
-    virtual void setName(const QString &s) { d_future_matrix->setName(s); }
+    virtual void setName(const QString &s) override { d_future_matrix->setName(s); }
     //! Return the window label
-    virtual QString windowLabel() { return d_future_matrix->comment(); }
+    virtual QString windowLabel() override { return d_future_matrix->comment(); }
     //! Set the window label
-    virtual void setWindowLabel(const QString &s)
+    virtual void setWindowLabel(const QString &s) override
     {
         d_future_matrix->setComment(s);
         updateCaption();
     }
     //! Set the caption policy
-    void setCaptionPolicy(CaptionPolicy policy)
+    void setCaptionPolicy(CaptionPolicy policy) override
     {
         caption_policy = policy;
         updateCaption();
@@ -85,7 +85,7 @@ public:
         }
     }
     //! Set the creation date
-    virtual void setBirthDate(const QString &s)
+    virtual void setBirthDate(const QString &s) override
     {
         birthdate = s;
         d_future_matrix->importV0x0001XXCreationTime(s);
@@ -120,17 +120,17 @@ public:
     /**
      * Currently handles SCRIPTING_CHANGE_EVENT only.
      */
-    void customEvent(QEvent *e);
-    void closeEvent(QCloseEvent *);
+    void customEvent(QEvent *e) override;
+    void closeEvent(QCloseEvent *) override;
 
     void updateDecimalSeparators();
 
     virtual QWidget *view() { return d_future_matrix->view(); }
 
 public Q_SLOTS:
-    void exportPDF(const QString &fileName);
+    void exportPDF(const QString &fileName) override;
     //! Print the Matrix
-    void print();
+    void print() override;
     //! Print the Matrix to fileName
     void print(const QString &fileName);
     void handleChange();
@@ -215,10 +215,10 @@ public Q_SLOTS:
     void setFormula(const QString &s);
 
     //! Format the matrix format in a string to save it in a template file
-    void saveAsTemplate(QJsonObject *, const QJsonObject &);
+    void saveAsTemplate(QJsonObject *, const QJsonObject &) override;
 
     //! Return a string to save the matrix in a project file (\<matrix\> section)
-    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &jsGeometry) override;
 
     // selection operations
     //! Standard cut operation
@@ -290,7 +290,7 @@ public Q_SLOTS:
     void copy(Matrix *m);
 
     //! Return the creation date
-    virtual QString birthDate()
+    virtual QString birthDate() override
     {
         return QLocale::c().toString(d_future_matrix->creationTime(), "dd-MM-yyyy hh:mm:ss:zzz");
     };

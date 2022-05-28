@@ -52,7 +52,8 @@
 
 #include <limits>
 
-MatrixView::MatrixView(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
+MatrixView::MatrixView(const QString &label, QWidget *parent, const QString &name,
+                       Qt::WindowFlags f)
     : MyWidget(label, parent, name, f)
 {
     d_model = nullptr;

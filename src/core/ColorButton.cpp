@@ -103,7 +103,7 @@ void ColorButton::init()
             QColorDialog::setStandardColor(j + cols * i, colors.at(i + rows * j).rgb());
         }
     }
-    const int btn_size = 28;
+    btn_size = 28;
     selectButton = new QPushButton(QPixmap(":/palette.xpm"), QString(), this);
     selectButton->setMinimumWidth(btn_size);
     selectButton->setMinimumHeight(btn_size);

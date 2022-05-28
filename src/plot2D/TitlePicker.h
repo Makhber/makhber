@@ -41,7 +41,7 @@ class MAKHBER_EXPORT TitlePicker : public QObject
     Q_OBJECT
 
 public:
-    TitlePicker(QwtPlot *plot);
+    explicit TitlePicker(QwtPlot *plot);
 
     void setSelected(bool select = true);
     bool selected() { return d_selected; }

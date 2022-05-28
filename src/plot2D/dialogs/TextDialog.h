@@ -60,7 +60,7 @@ public:
      * \param parent parent widget
      * \param fl window flags
      */
-    TextDialog(TextType type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
+    explicit TextDialog(TextType type, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
     //! Destructor
     ~TextDialog() {};
 

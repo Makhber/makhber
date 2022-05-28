@@ -636,7 +636,7 @@ void ConfigDialog::initAppPage()
 
     numericFormatLayout->setRowStretch(4, 1);
 
-    auto &settings = ApplicationWindow::getSettings();
+    const auto &settings = ApplicationWindow::getSettings();
     lblForeignSeparator = new QLabel();
     numericFormatLayout->addWidget(lblForeignSeparator, 4, 0);
     boxUseForeignSeparator = new QCheckBox();

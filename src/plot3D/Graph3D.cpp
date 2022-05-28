@@ -56,9 +56,9 @@
 #include <stdexcept>
 #include <cmath>
 
-UserFunction::UserFunction(const QString &s, Qwt3D::SurfacePlot &pw) : Qwt3D::Function(pw)
+UserFunction::UserFunction(const QString &s, Qwt3D::SurfacePlot &pw)
+    : Qwt3D::Function(pw), formula(s)
 {
-    formula = s;
 }
 
 double UserFunction::operator()(double x, double y)

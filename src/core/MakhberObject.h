@@ -19,7 +19,7 @@ class MakhberObject : public Base
 
 public:
     template<class... A>
-    MakhberObject(A... args) : Base(std::forward<A>(args)...)
+    explicit MakhberObject(A... args) : Base(std::forward<A>(args)...)
     {
     }
 

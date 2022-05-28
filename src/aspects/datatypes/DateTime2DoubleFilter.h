@@ -45,7 +45,7 @@ public:
     DateTime2DoubleFilter(const UnitInterval unit, const QDateTime &date_time_0)
         : NumericDateTimeBaseFilter(unit, date_time_0) {};
 
-    virtual double valueAt(int row) const
+    virtual double valueAt(int row) const override
     {
         if (!d_inputs.value(0))
             return 0.0;
@@ -54,7 +54,7 @@ public:
     }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeDouble; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeDouble; }
 
     //! Explicit conversion from base class using conversion ctor
     explicit DateTime2DoubleFilter(const NumericDateTimeBaseFilter &numeric)
@@ -62,7 +62,7 @@ public:
 
 protected:
     //! Using typed ports: only DateTime inputs are accepted.
-    virtual bool inputAcceptable(int, const AbstractColumn *source)
+    virtual bool inputAcceptable(int, const AbstractColumn *source) override
     {
         return source->dataType() == Makhber::TypeQDateTime;
     }

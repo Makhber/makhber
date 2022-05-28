@@ -47,7 +47,8 @@ class MAKHBER_EXPORT DataSetDialog : public QDialog
     Q_OBJECT
 
 public:
-    DataSetDialog(const QString &text, QWidget *parent = 0, Qt::WindowFlags fl = Qt::Widget);
+    explicit DataSetDialog(const QString &text, QWidget *parent = 0,
+                           Qt::WindowFlags fl = Qt::Widget);
     ~DataSetDialog() {};
 
     QPushButton *buttonOk;

@@ -53,8 +53,10 @@ class MAKHBER_EXPORT String2DateTimeFilter : public AbstractSimpleFilter
 
 public:
     //! Standard constructor.
-    explicit String2DateTimeFilter(QString format = "yyyy-MM-dd hh:mm:ss.zzz")
-        : d_format(format) { }
+    explicit String2DateTimeFilter(const QString &format = "yyyy-MM-dd hh:mm:ss.zzz")
+        : d_format(format)
+    {
+    }
     //! Set the format string to be used for conversion.
     void setFormat(const QString &format);
     //! Return the format string
@@ -65,12 +67,12 @@ public:
     QString format() const { return d_format; }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeQDateTime; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeQDateTime; }
 
     //! \name Json related functions
     //@{
-    virtual void writeExtraAttributes(QJsonObject *) const;
-    virtual bool load(QJsonObject *reader);
+    virtual void writeExtraAttributes(QJsonObject *) const override;
+    virtual bool load(QJsonObject *reader) override;
     //@}
 
 Q_SIGNALS:
@@ -85,27 +87,27 @@ private:
     static std::array<const char *, 9> time_formats;
 
 public:
-    virtual QDateTime dateTimeAt(int row) const;
-    virtual QDate dateAt(int row) const { return dateTimeAt(row).date(); }
-    virtual QTime timeAt(int row) const { return dateTimeAt(row).time(); }
-    virtual bool isInvalid(int row) const
+    virtual QDateTime dateTimeAt(int row) const override;
+    virtual QDate dateAt(int row) const override { return dateTimeAt(row).date(); }
+    virtual QTime timeAt(int row) const override { return dateTimeAt(row).time(); }
+    virtual bool isInvalid(int row) const override
     {
         const AbstractColumn *col = d_inputs.value(0);
         if (!col)
             return false;
         return !(dateTimeAt(row).isValid()) || col->isInvalid(row);
     }
-    virtual bool isInvalid(Interval<int> i) const
+    virtual bool isInvalid(Interval<int> i) const override
     {
         if (!d_inputs.value(0))
             return false;
-        for (int row = i.start(); row <= i.end(); row++) {
+        for (int row = i.minValue(); row <= i.maxValue(); row++) {
             if (!isInvalid(row))
                 return false;
         }
         return true;
     }
-    virtual QList<Interval<int>> invalidIntervals() const
+    virtual QList<Interval<int>> invalidIntervals() const override
     {
         IntervalAttribute<bool> validity;
         if (d_inputs.value(0)) {
@@ -118,7 +120,7 @@ public:
 
 protected:
     //! Using typed ports: only string inputs are accepted.
-    virtual bool inputAcceptable(int, const AbstractColumn *source)
+    virtual bool inputAcceptable(int, const AbstractColumn *source) override
     {
         return source->dataType() == Makhber::TypeQString;
     }

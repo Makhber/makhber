@@ -52,7 +52,7 @@ class MAKHBER_EXPORT ScriptEdit : public QTextEdit, public scripted
 
 public:
     //! Constructor.
-    ScriptEdit(ScriptingEnv *env, QWidget *parent = 0, QString name = "");
+    explicit ScriptEdit(ScriptingEnv *env, QWidget *parent = 0, QString name = "");
 
     //! Handle changing of scripting environment.
     void customEvent(QEvent *);

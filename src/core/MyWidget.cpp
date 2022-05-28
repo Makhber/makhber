@@ -41,10 +41,9 @@
 #include <QtDebug>
 #include <QPushButton>
 
-MyWidget::MyWidget(const QString &label, QWidget *parent, const QString name, Qt::WindowFlags f)
-    : QMdiSubWindow(parent, f)
+MyWidget::MyWidget(const QString &label, QWidget *parent, const QString &name, Qt::WindowFlags f)
+    : QMdiSubWindow(parent, f), w_label(label)
 {
-    w_label = label;
     caption_policy = Both;
     askOnClose = true;
     w_status = Normal;

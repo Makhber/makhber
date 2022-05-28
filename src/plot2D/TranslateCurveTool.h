@@ -57,7 +57,7 @@ public:
      */
     TranslateCurveTool(Graph *graph, ApplicationWindow *app, Direction dir,
                        const QObject *status_target = NULL, const char *status_slot = "");
-    virtual RTTI rtti() const { return TranslateCurve; }
+    virtual RTTI rtti() const override { return TranslateCurve; }
 Q_SIGNALS:
     /*!\brief Emitted whenever a new message should be presented to the user.
      *

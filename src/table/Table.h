@@ -75,24 +75,27 @@ public:
     void setNumericPrecision(int prec);
 
     //! Return the window name
-    virtual QString name() { return d_future_table ? d_future_table->name() : QString(); }
+    virtual QString name() override { return d_future_table ? d_future_table->name() : QString(); }
     //! Set the window name
-    virtual void setName(const QString &s)
+    virtual void setName(const QString &s) override
     {
         if (d_future_table)
             d_future_table->setName(s);
     }
     //! Return the window label
-    virtual QString windowLabel() { return d_future_table ? d_future_table->comment() : QString(); }
+    virtual QString windowLabel() override
+    {
+        return d_future_table ? d_future_table->comment() : QString();
+    }
     //! Set the window label
-    virtual void setWindowLabel(const QString &s)
+    virtual void setWindowLabel(const QString &s) override
     {
         if (d_future_table)
             d_future_table->setComment(s);
         updateCaption();
     }
     //! Set the caption policy
-    void setCaptionPolicy(CaptionPolicy policy)
+    void setCaptionPolicy(CaptionPolicy policy) override
     {
         if (d_future_table) {
             caption_policy = policy;
@@ -111,14 +114,14 @@ public:
         }
     }
     //! Set the creation date
-    virtual void setBirthDate(const QString &s)
+    virtual void setBirthDate(const QString &s) override
     {
         birthdate = s;
         if (d_future_table)
             d_future_table->importV0x0001XXCreationTime(s);
     }
 
-    void closeEvent(QCloseEvent *);
+    void closeEvent(QCloseEvent *) override;
 public Q_SLOTS:
     void copy(Table *m);
     int numRows();
@@ -174,16 +177,16 @@ public Q_SLOTS:
     QList<int> plotDesignations();
 
     void setColName(int col, const QString &text);
-    void setHeader(QStringList header);
+    void setHeader(const QStringList &header);
     void importV0x0001XXHeader(QJsonArray *jsHeaders);
     void setText(int row, int col, const QString &text);
 
     void clearCell(int row, int col);
 
-    void print();
+    void print() override;
     void print(const QString &fileName);
-    void exportPDF(const QString &fileName);
-    void customEvent(QEvent *e);
+    void exportPDF(const QString &fileName) override;
+    void customEvent(QEvent *e) override;
 
     //! \name Column Operations
     //@{
@@ -247,7 +250,7 @@ public Q_SLOTS:
     Makhber::ColumnMode columnType(int col);
 
     QList<Makhber::ColumnMode> columnTypes();
-    void setColumnTypes(QList<Makhber::ColumnMode> ctl);
+    void setColumnTypes(const QList<Makhber::ColumnMode> &ctl);
     void setColumnTypes(QJsonArray *jsColTypes);
     void setColumnType(int col, Makhber::ColumnMode mode);
 
@@ -260,7 +263,7 @@ public Q_SLOTS:
 
     //! \name Saving and Restoring
     //@{
-    void saveToJson(QJsonObject *jsObject, const QJsonObject &geometry);
+    void saveToJson(QJsonObject *jsObject, const QJsonObject &geometry) override;
     void saveHeader(QJsonObject *);
     void saveComments(QJsonObject *);
     void saveCommands(QJsonObject *);
@@ -282,8 +285,8 @@ public Q_SLOTS:
     void setColComments(QJsonArray *jsComments);
     bool commentsEnabled();
 
-    void saveAsTemplate(QJsonObject *, const QJsonObject &);
-    void restore(QJsonObject *jsTable);
+    void saveAsTemplate(QJsonObject *, const QJsonObject &) override;
+    void restore(QJsonObject *jsTable) override;
 
 Q_SIGNALS:
     void changedColHeader(const QString &, const QString &);

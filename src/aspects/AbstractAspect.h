@@ -84,7 +84,7 @@ public:
     class Private;
     friend class Private;
 
-    AbstractAspect(const QString &name);
+    explicit AbstractAspect(const QString &name);
     virtual ~AbstractAspect();
 
     //! Return my parent Aspect or 0 if I currently don't have one.

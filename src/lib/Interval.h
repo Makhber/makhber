@@ -43,25 +43,25 @@ template<class T>
 class IntervalBase
 {
 public:
-    IntervalBase() : d_start(-1), d_end(-1) { }
-    IntervalBase(T start, T end)
+    IntervalBase() : d_minvalue(-1), d_maxvalue(-1) { }
+    IntervalBase(T minValue, T maxValue)
     {
-        d_start = start;
-        d_end = end;
+        d_minvalue = minValue;
+        d_maxvalue = maxValue;
     }
     virtual ~IntervalBase() { }
-    T start() const { return d_start; }
-    T end() const { return d_end; }
-    void setStart(T start) { d_start = start; }
-    void setEnd(T end) { d_end = end; }
+    T minValue() const { return d_minvalue; }
+    T maxValue() const { return d_maxvalue; }
+    void setMinValue(T minValue) { d_minvalue = minValue; }
+    void setMaxValue(T maxValue) { d_maxvalue = maxValue; }
     bool contains(const Interval<T> &other) const
     {
-        return (d_start <= other.start() && d_end >= other.end());
+        return (d_minvalue <= other.minValue() && d_maxvalue >= other.maxValue());
     }
-    bool contains(T value) const { return (d_start <= value && d_end >= value); }
+    bool contains(T value) const { return (d_minvalue <= value && d_maxvalue >= value); }
     bool intersects(const Interval<T> &other) const
     {
-        return (contains(other.start()) || contains(other.end()));
+        return (contains(other.minValue()) || contains(other.maxValue()));
     }
     //! Return the intersection of two intervals
     /**
@@ -69,16 +69,17 @@ public:
      */
     static Interval<T> intersection(const Interval<T> &first, const Interval<T> &second)
     {
-        return Interval<T>(qMax(first.start(), second.start()), qMin(first.end(), second.end()));
+        return Interval<T>(qMax(first.minValue(), second.minValue()),
+                           qMin(first.maxValue(), second.maxValue()));
     }
     void translate(T offset)
     {
-        d_start += offset;
-        d_end += offset;
+        d_minvalue += offset;
+        d_maxvalue += offset;
     }
     bool operator==(const IntervalBase<T> &other) const
     {
-        return (d_start == other.start() && d_end == other.end());
+        return (d_minvalue == other.minValue() && d_maxvalue == other.maxValue());
     }
     //! Returns true if no gap is between two intervals.
     virtual bool touches(const Interval<T> &other) const = 0;
@@ -87,7 +88,7 @@ public:
     {
         if (!(a.intersects(b) || a.touches(b)))
             return a;
-        return Interval<T>(qMin(a.start(), b.start()), qMax(a.end(), b.end()));
+        return Interval<T>(qMin(a.minValue(), b.minValue()), qMax(a.maxValue(), b.maxValue()));
     }
     //! Subtract an interval from another
     static QList<Interval<T>> subtract(const Interval<T> &src_iv, const Interval<T> &minus_iv)
@@ -98,13 +99,13 @@ public:
 
         if (!src_iv.intersects(minus_iv))
             list.append(src_iv);
-        else if (src_iv.end() <= minus_iv.end())
-            list.append(Interval<T>(src_iv.start(), minus_iv.start() - 1));
-        else if (src_iv.start() >= minus_iv.start())
-            list.append(Interval<T>(minus_iv.end() + 1, src_iv.end()));
+        else if (src_iv.maxValue() <= minus_iv.maxValue())
+            list.append(Interval<T>(src_iv.minValue(), minus_iv.minValue() - 1));
+        else if (src_iv.minValue() >= minus_iv.minValue())
+            list.append(Interval<T>(minus_iv.maxValue() + 1, src_iv.maxValue()));
         else {
-            list.append(Interval<T>(src_iv.start(), minus_iv.start() - 1));
-            list.append(Interval<T>(minus_iv.end() + 1, src_iv.end()));
+            list.append(Interval<T>(src_iv.minValue(), minus_iv.minValue() - 1));
+            list.append(Interval<T>(minus_iv.maxValue() + 1, src_iv.maxValue()));
         }
 
         return list;
@@ -113,11 +114,11 @@ public:
     static QList<Interval<T>> split(const Interval<T> &i, T before)
     {
         QList<Interval<T>> list;
-        if (before < i.start() || before > i.end()) {
+        if (before < i.minValue() || before > i.maxValue()) {
             list.append(i);
         } else {
-            Interval<T> left(i.start(), before - 1);
-            Interval<T> right(before, i.end());
+            Interval<T> left(i.minValue(), before - 1);
+            Interval<T> right(before, i.maxValue());
             if (left.isValid())
                 list.append(left);
             if (right.isValid())
@@ -162,9 +163,8 @@ public:
      */
     static void subtractIntervalFromList(QList<Interval<T>> *list, Interval<T> i)
     {
-        QList<Interval<T>> temp_list;
         for (int c = 0; c < list->size(); c++) {
-            temp_list = subtract(list->at(c), i);
+            QList<Interval<T>> temp_list = subtract(list->at(c), i);
             if (temp_list.isEmpty())
                 list->removeAt(c--);
             else {
@@ -190,23 +190,23 @@ public:
         delete tmp1;
         return result;
     }
-    //! Return a string in the format '[start,end]'
+    //! Return a string in the format '[minValue,maxValue]'
     QString toString() const
     {
-        return "[" + QString::number(d_start) + "," + QString::number(d_end) + "]";
+        return "[" + QString::number(d_minvalue) + "," + QString::number(d_maxvalue) + "]";
     }
 
 protected:
-    //! Interval start
-    T d_start;
-    //! Interval end
-    T d_end;
+    //! Interval minValue
+    T d_minvalue;
+    //! Interval maxValue
+    T d_maxvalue;
 };
 
 //! Auxiliary class for interval based data
 /**
  *	This class represents an interval of
- *	the type [start,end]. It should be pretty
+ *	the type [minValue,maxValue]. It should be pretty
  *	self explanatory.
  *
  *	For the template argument (T), only numerical types ((unsigned) short, (unsigned) int,
@@ -217,17 +217,17 @@ class Interval : public IntervalBase<T>
 {
 public:
     Interval() { }
-    Interval(T start, T end) : IntervalBase<T>(start, end) { }
-    T size() const { return IntervalBase<T>::d_end - IntervalBase<T>::d_start + 1; }
+    Interval(T minValue, T maxValue) : IntervalBase<T>(minValue, maxValue) { }
+    T size() const { return IntervalBase<T>::d_maxvalue - IntervalBase<T>::d_minvalue + 1; }
     bool isValid() const
     {
-        return (IntervalBase<T>::d_start >= 0 && IntervalBase<T>::d_end >= 0
-                && IntervalBase<T>::d_start <= IntervalBase<T>::d_end);
+        return (IntervalBase<T>::d_minvalue >= 0 && IntervalBase<T>::d_maxvalue >= 0
+                && IntervalBase<T>::d_minvalue <= IntervalBase<T>::d_maxvalue);
     }
     bool touches(const Interval<T> &other) const
     {
-        return ((other.end() == IntervalBase<T>::d_start - 1)
-                || (other.start() == IntervalBase<T>::d_end + 1));
+        return ((other.maxValue() == IntervalBase<T>::d_minvalue - 1)
+                || (other.minValue() == IntervalBase<T>::d_maxvalue + 1));
     }
 };
 
@@ -235,51 +235,55 @@ template<>
 class Interval<float> : public IntervalBase<float>
 {
     Interval() { }
-    Interval(float start, float end) : IntervalBase<float>(start, end) { }
+    Interval(float minValue, float maxValue) : IntervalBase<float>(minValue, maxValue) { }
     Interval(const Interval<float> &other) : IntervalBase<float>(other) { }
-    float size() const { return IntervalBase<float>::d_end - IntervalBase<float>::d_start; }
-    bool isValid() const { return (IntervalBase<float>::d_start <= IntervalBase<float>::d_end); }
-    bool touches(const Interval<float> &other) const
+    /*float size() const { return IntervalBase<float>::d_maxvalue - IntervalBase<float>::d_minvalue;
+    } bool isValid() const { return (IntervalBase<float>::d_minvalue <=
+    IntervalBase<float>::d_maxvalue); } bool touches(const Interval<float> &other) const
     {
-        return ((other.end() == IntervalBase<float>::d_start)
-                || (other.start() == IntervalBase<float>::d_end));
-    }
+        return ((other.maxValue() == IntervalBase<float>::d_minvalue)
+                || (other.minValue() == IntervalBase<float>::d_maxvalue));
+    }*/
 };
 
 template<>
 class Interval<double> : public IntervalBase<double>
 {
     Interval() { }
-    Interval(double start, double end) : IntervalBase<double>(start, end) { }
+    Interval(double minValue, double maxValue) : IntervalBase<double>(minValue, maxValue) { }
     Interval(const Interval<double> &other) : IntervalBase<double>(other) { }
-    double size() const { return IntervalBase<double>::d_end - IntervalBase<double>::d_start; }
-    bool isValid() const { return (IntervalBase<double>::d_start <= IntervalBase<double>::d_end); }
-    bool touches(const Interval<double> &other) const
+    /*double size() const { return IntervalBase<double>::d_maxvalue -
+    IntervalBase<double>::d_minvalue; } bool isValid() const { return
+    (IntervalBase<double>::d_minvalue <= IntervalBase<double>::d_maxvalue); } bool touches(const
+    Interval<double> &other) const
     {
-        return ((other.end() == IntervalBase<double>::d_start)
-                || (other.start() == IntervalBase<double>::d_end));
-    }
+        return ((other.maxValue() == IntervalBase<double>::d_minvalue)
+                || (other.minValue() == IntervalBase<double>::d_maxvalue));
+    }*/
 };
 
 template<>
 class Interval<long double> : public IntervalBase<long double>
 {
     Interval() { }
-    Interval(long double start, long double end) : IntervalBase<long double>(start, end) { }
-    Interval(const Interval<long double> &other) : IntervalBase<long double>(other) { }
-    long double size() const
+    Interval(long double minValue, long double maxValue)
+        : IntervalBase<long double>(minValue, maxValue)
     {
-        return IntervalBase<long double>::d_end - IntervalBase<long double>::d_start;
+    }
+    Interval(const Interval<long double> &other) : IntervalBase<long double>(other) { }
+    /*long double size() const
+    {
+        return IntervalBase<long double>::d_maxvalue - IntervalBase<long double>::d_minvalue;
     }
     bool isValid() const
     {
-        return (IntervalBase<long double>::d_start <= IntervalBase<long double>::d_end);
+        return (IntervalBase<long double>::d_minvalue <= IntervalBase<long double>::d_maxvalue);
     }
     bool touches(const Interval<long double> &other) const
     {
-        return ((other.end() == IntervalBase<long double>::d_start)
-                || (other.start() == IntervalBase<long double>::d_end));
-    }
+        return ((other.maxValue() == IntervalBase<long double>::d_minvalue)
+                || (other.minValue() == IntervalBase<long double>::d_maxvalue));
+    }*/
 };
 
 #endif

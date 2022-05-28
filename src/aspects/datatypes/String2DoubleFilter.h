@@ -42,7 +42,7 @@ class MAKHBER_EXPORT String2DoubleFilter : public AbstractSimpleFilter
 
 public:
     String2DoubleFilter() { }
-    virtual double valueAt(int row) const
+    virtual double valueAt(int row) const override
     {
         if (!d_inputs.value(0))
             return 0;
@@ -50,27 +50,27 @@ public:
         convertToDouble(d_inputs.value(0)->textAt(row), val);
         return val;
     }
-    virtual bool isInvalid(int row) const
+    virtual bool isInvalid(int row) const override
     {
         if (!d_inputs.value(0))
             return false;
         double val = std::numeric_limits<double>::quiet_NaN();
         return !convertToDouble(d_inputs.value(0)->textAt(row), val);
     }
-    virtual bool isInvalid(Interval<int> i) const
+    virtual bool isInvalid(Interval<int> i) const override
     {
         if (!d_inputs.value(0))
             return false;
         double val = std::numeric_limits<double>::quiet_NaN();
         QLocale locale = getLocale();
         bool allowForeignSeparator = isAnyDecimalSeparatorAllowed();
-        for (int row = i.start(); row <= i.end(); row++) {
+        for (int row = i.minValue(); row <= i.maxValue(); row++) {
             if (convertToDouble(d_inputs.value(0)->textAt(row), val, locale, allowForeignSeparator))
                 return false;
         }
         return true;
     }
-    virtual QList<Interval<int>> invalidIntervals() const
+    virtual QList<Interval<int>> invalidIntervals() const override
     {
         IntervalAttribute<bool> validity;
         if (d_inputs.value(0)) {
@@ -89,11 +89,11 @@ public:
     }
 
     //! Return the data type of the column
-    virtual Makhber::ColumnDataType dataType() const { return Makhber::TypeDouble; }
+    virtual Makhber::ColumnDataType dataType() const override { return Makhber::TypeDouble; }
 
 protected:
     //! Using typed ports: only string inputs are accepted.
-    virtual bool inputAcceptable(int, const AbstractColumn *source)
+    virtual bool inputAcceptable(int, const AbstractColumn *source) override
     {
         return source->dataType() == Makhber::TypeQString;
     }
@@ -106,7 +106,7 @@ private:
 
     bool isAnyDecimalSeparatorAllowed() const
     {
-        auto &settings = ApplicationWindow::getSettings();
+        const auto &settings = ApplicationWindow::getSettings();
         return settings.value("/General/UseForeignSeparator").toBool();
     }
 

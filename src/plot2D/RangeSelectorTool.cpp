@@ -110,7 +110,7 @@ void RangeSelectorTool::pointSelected(const QPoint &pos)
     const int curve_key = d_graph->plotWidget()->closestCurve(pos.x(), pos.y(), dist, point);
     if (curve_key < 0 || dist >= 5) // 5 pixels tolerance
         return;
-    auto *curve = (QwtPlotCurve *)d_graph->plotWidget()->curve(curve_key);
+    auto *curve = dynamic_cast<QwtPlotCurve *>(d_graph->plotWidget()->curve(curve_key));
     if (!curve)
         return;
 

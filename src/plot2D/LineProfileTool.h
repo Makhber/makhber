@@ -67,7 +67,7 @@ class MAKHBER_EXPORT LineProfileTool : public QWidget, public PlotToolInterface
 public:
     //! Standard constructor.
     LineProfileTool(Graph *graph, int average_pixels);
-    virtual RTTI rtti() const { return LineProfile; }
+    virtual RTTI rtti() const override { return LineProfile; }
     void calculateLineProfile(const QPoint &start, const QPoint &end);
 
 Q_SIGNALS:
@@ -84,18 +84,18 @@ protected:
     void addLineMarker(const QPoint &start, const QPoint &end);
     /*!\brief Draw line during operation (replaced by a LineMarker at the end).
      */
-    virtual void paintEvent(QPaintEvent *e);
+    virtual void paintEvent(QPaintEvent *e) override;
     /*!\brief Pressing the left mouse button starts line selection.
      *
      * Clicks with anything else than the left button are propagated to the parent as usual.
      */
-    virtual void mousePressEvent(QMouseEvent *e);
+    virtual void mousePressEvent(QMouseEvent *e) override;
     /*!\brief Mouse movements need to be monitored for updating the line during operation.
      */
-    virtual void mouseMoveEvent(QMouseEvent *e);
+    virtual void mouseMoveEvent(QMouseEvent *e) override;
     /*!\brief Mouse releases end line selection and cause the profile to be displayed.
      */
-    virtual void mouseReleaseEvent(QMouseEvent *e);
+    virtual void mouseReleaseEvent(QMouseEvent *e) override;
 
 private:
     //! Number of image pixels over which to average.

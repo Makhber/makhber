@@ -184,18 +184,18 @@ void PlotDialog::showPlotAssociations(QTreeWidgetItem *item, int)
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
         return;
 
-    auto *it = (QwtPlotItem *)(dynamic_cast<CurveTreeItem *>(item))->plotItem();
+    auto *it = dynamic_cast<const QwtPlotItem *>((dynamic_cast<CurveTreeItem *>(item))->plotItem());
     if (!it)
         return;
 
     if (it->rtti() == QwtPlotItem::Rtti_PlotSpectrogram) {
-        auto *sp = dynamic_cast<Spectrogram *>(it);
+        auto *sp = dynamic_cast<const Spectrogram *>(it);
         if (sp->matrix())
             sp->matrix()->showMaximized();
         return;
     }
 
-    if ((dynamic_cast<PlotCurve *>(it))->type() == Graph::Function) {
+    if ((dynamic_cast<const PlotCurve *>(it))->type() == Graph::Function) {
         close();
         app->showFunctionDialog((dynamic_cast<CurveTreeItem *>(item))->graph(),
                                 (dynamic_cast<CurveTreeItem *>(item))->plotItemIndex());
@@ -216,7 +216,7 @@ void PlotDialog::editCurve()
         return;
 
     int index = item->plotItemIndex();
-    int curveType = ((PlotCurve *)item->plotItem())->type();
+    int curveType = dynamic_cast<const PlotCurve *>(item->plotItem())->type();
 
     close();
 
@@ -1053,11 +1053,12 @@ void PlotDialog::showStatistics()
     if (it->type() != CurveTreeItem::PlotCurveTreeItem)
         return;
 
-    auto *plotItem = (QwtPlotItem *)(dynamic_cast<CurveTreeItem *>(it))->plotItem();
+    auto *plotItem =
+            dynamic_cast<const QwtPlotItem *>((dynamic_cast<CurveTreeItem *>(it))->plotItem());
     if (!plotItem)
         return;
 
-    auto *h = dynamic_cast<HistogramCurve *>(plotItem);
+    auto *h = dynamic_cast<const HistogramCurve *>(plotItem);
     if (!h)
         return;
 
@@ -1105,7 +1106,7 @@ void PlotDialog::contextMenuEvent(QContextMenuEvent *e)
         return;
     if (item->type() != CurveTreeItem::PlotCurveTreeItem)
         return;
-    auto *it = (QwtPlotItem *)(dynamic_cast<CurveTreeItem *>(item))->plotItem();
+    auto *it = dynamic_cast<const QwtPlotItem *>((dynamic_cast<CurveTreeItem *>(item))->plotItem());
     if (!it)
         return;
 
@@ -1116,7 +1117,7 @@ void PlotDialog::contextMenuEvent(QContextMenuEvent *e)
         contextMenu.addAction(tr("&Delete"), this, SLOT(removeSelectedCurve()));
 
         if (it->rtti() == QwtPlotItem::Rtti_PlotCurve) {
-            if ((dynamic_cast<PlotCurve *>(it))->type() == Graph::Function)
+            if ((dynamic_cast<const PlotCurve *>(it))->type() == Graph::Function)
                 contextMenu.addAction(tr("&Edit..."), this, SLOT(editCurve()));
             else
                 contextMenu.addAction(tr("&Plot Associations..."), this, SLOT(editCurve()));
@@ -1158,7 +1159,7 @@ void PlotDialog::changeErrorBarsPlus()
     if (!graph)
         return;
 
-    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars(dynamic_cast<ErrorPlotCurve *>(item->plotItem()), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1176,7 +1177,7 @@ void PlotDialog::changeErrorBarsMinus()
     if (!graph)
         return;
 
-    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars(dynamic_cast<ErrorPlotCurve *>(item->plotItem()), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1194,7 +1195,7 @@ void PlotDialog::changeErrorBarsThrough()
     if (!graph)
         return;
 
-    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars(dynamic_cast<ErrorPlotCurve *>(item->plotItem()), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1212,7 +1213,7 @@ void PlotDialog::changeErrorBarsType()
     if (!graph)
         return;
 
-    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars(dynamic_cast<ErrorPlotCurve *>(item->plotItem()), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(),
                            colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                            throughBox->isChecked());
@@ -1230,7 +1231,7 @@ void PlotDialog::pickErrorBarsColor(QColor color)
     if (!graph)
         return;
 
-    graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+    graph->updateErrorBars(dynamic_cast<ErrorPlotCurve *>(item->plotItem()), xBox->isChecked(),
                            widthBox->currentText().toInt(), capBox->currentText().toInt(), color,
                            plusBox->isChecked(), minusBox->isChecked(), throughBox->isChecked());
 }
@@ -1414,7 +1415,7 @@ int PlotDialog::setPlotType(CurveTreeItem *item)
             boxPlotType->addItem(tr("Scatter"));
             boxPlotType->addItem(tr("Line + Symbol"));
 
-            auto *c = (QwtPlotCurve *)item->plotItem();
+            auto *c = dynamic_cast<const QwtPlotCurve *>(item->plotItem());
             if (!c)
                 return -1;
 
@@ -1488,7 +1489,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
 
     int curveType = item->plotItemType();
     if (curveType == Graph::Pie) {
-        auto *pie = (PieCurve *)i;
+        auto *pie = dynamic_cast<const PieCurve *>(i);
         boxRadius->setValue(pie->ray());
         boxPiePattern->setPattern(pie->pattern());
         boxPieLineWidth->setValue(pie->pen().width());
@@ -1504,7 +1505,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
 
     if (i->rtti() == QwtPlotItem::Rtti_PlotSpectrogram) {
         btnEditCurve->hide();
-        auto *sp = (Spectrogram *)i;
+        auto *sp = dynamic_cast<const Spectrogram *>(i);
 
         imageGroupBox->setChecked(sp->testDisplayMode(QwtPlotSpectrogram::ImageMode));
         grayScaleBox->setChecked(sp->colorMapPolicy() == Spectrogram::GrayScale);
@@ -1534,7 +1535,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
         return;
     }
 
-    auto *c = (PlotCurve *)i;
+    auto *c = dynamic_cast<const PlotCurve *>(i);
     if (c->type() == Graph::Function)
         btnEditCurve->setText(tr("&Edit..."));
     else
@@ -1567,7 +1568,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
 
     if (curveType == Graph::VerticalBars || curveType == Graph::HorizontalBars
         || curveType == Graph::Histogram) { // spacing page
-        auto *b = (BarCurve *)i;
+        auto *b = dynamic_cast<const BarCurve *>(i);
         if (b) {
             gapBox->setValue(b->gap());
             offsetBox->setValue(b->offset());
@@ -1575,7 +1576,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     }
 
     if (curveType == Graph::Histogram) { // Histogram page
-        auto *h = (HistogramCurve *)i;
+        auto *h = dynamic_cast<const HistogramCurve *>(i);
         if (h) {
             automaticBox->setChecked(h->autoBinning());
             binSizeBox->setText(QString::number(h->binSize()));
@@ -1586,7 +1587,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     }
 
     if (curveType == Graph::VectXYXY || curveType == Graph::VectXYAM) { // Vector page
-        auto *v = (VectorCurve *)i;
+        auto *v = dynamic_cast<const VectorCurve *>(i);
         if (v) {
             vectColorBox->setColor(v->color());
             vectWidthBox->setValue(v->width());
@@ -1599,7 +1600,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     }
 
     if (curveType == Graph::ErrorBars) {
-        auto *err = (ErrorPlotCurve *)i;
+        auto *err = dynamic_cast<const ErrorPlotCurve *>(i);
         if (err) {
             xBox->setChecked(err->xErrors());
             widthBox->setEditText(QString::number(err->width()));
@@ -1612,7 +1613,7 @@ void PlotDialog::setActiveCurve(CurveTreeItem *item)
     }
 
     if (curveType == Graph::Box) {
-        auto *b = (BoxCurve *)i;
+        auto *b = dynamic_cast<const BoxCurve *>(i);
         if (b) {
             boxMaxStyle->setStyle(b->maxStyle());
             boxMinStyle->setStyle(b->minStyle());
@@ -1715,7 +1716,7 @@ bool PlotDialog::acceptParams()
         return false;
 
     auto *item = dynamic_cast<CurveTreeItem *>(it);
-    auto *plotItem = (QwtPlotItem *)item->plotItem();
+    auto *plotItem = item->plotItem();
     if (!plotItem)
         return false;
 
@@ -1789,7 +1790,7 @@ bool PlotDialog::acceptParams()
         if (!h)
             return false;
 
-        QString text = item->text(0);
+        /* QString text = item->text(0);
 #if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList t = text.split(": ", Qt::SkipEmptyParts);
         QStringList list = t[1].split(",", Qt::SkipEmptyParts);
@@ -1797,7 +1798,7 @@ bool PlotDialog::acceptParams()
         QStringList t = text.split(": ", QString::SkipEmptyParts);
         QStringList list = t[1].split(",", QString::SkipEmptyParts);
 #endif
-        text = t[0] + "_" + list[1].remove("(Y)");
+        text = t[0] + "_" + list[1].remove("(Y)"); */
         bool accept = validInput();
         if (accept) {
             if (h->autoBinning() == automaticBox->isChecked()
@@ -1860,13 +1861,13 @@ bool PlotDialog::acceptParams()
         }
         return true;
     } else if (privateTabWidget->currentWidget() == errorsPage) {
-        graph->updateErrorBars((ErrorPlotCurve *)item->plotItem(), xBox->isChecked(),
+        graph->updateErrorBars(dynamic_cast<ErrorPlotCurve *>(plotItem), xBox->isChecked(),
                                widthBox->currentText().toInt(), capBox->currentText().toInt(),
                                colorBox->color(), plusBox->isChecked(), minusBox->isChecked(),
                                throughBox->isChecked());
         return true;
     } else if (privateTabWidget->currentWidget() == piePage) {
-        auto *pie = (PieCurve *)plotItem;
+        auto *pie = dynamic_cast<PieCurve *>(plotItem);
         pie->setPen(QPen(boxPieLineColor->color(), boxPieLineWidth->value(),
                          Graph::getPenStyle(boxPieLineStyle->currentIndex())));
         pie->setRay(boxRadius->value());
@@ -2425,15 +2426,15 @@ void LayerItem::insertCurvesList()
 {
     for (int i = 0; i < d_graph->curves(); i++) {
         QString plotAssociation = QString();
-        const QwtPlotItem *it = (QwtPlotItem *)d_graph->plotItem(i);
+        QwtPlotItem *it = d_graph->plotItem(i);
         if (!it)
             continue;
 
         if (it->rtti() == QwtPlotItem::Rtti_PlotCurve) {
-            auto *c = (PlotCurve *)it;
+            auto *c = dynamic_cast<const PlotCurve *>(it);
             if (c->type() != Graph::Function) {
-                QString s = ((DataCurve *)it)->plotAssociation();
-                QString table = ((DataCurve *)it)->table()->name();
+                QString s = dynamic_cast<const DataCurve *>(it)->plotAssociation();
+                QString table = dynamic_cast<const DataCurve *>(it)->table()->name();
                 plotAssociation = table + ": " + s.remove(table + "_");
             } else
                 plotAssociation = it->title().text();
@@ -2450,7 +2451,7 @@ void LayerItem::insertCurvesList()
  *
  *****************************************************************************/
 
-CurveTreeItem::CurveTreeItem(const QwtPlotItem *curve, LayerItem *parent, const QString &s)
+CurveTreeItem::CurveTreeItem(QwtPlotItem *curve, LayerItem *parent, const QString &s)
     : QTreeWidgetItem(parent, QStringList(s), PlotCurveTreeItem), d_curve(curve)
 {
     setIcon(0, QPixmap(":/graph_disabled.xpm"));
@@ -2470,7 +2471,7 @@ int CurveTreeItem::plotItemIndex()
     if (!g)
         return -1;
 
-    return g->plotItemIndex((QwtPlotItem *)d_curve);
+    return g->plotItemIndex(dynamic_cast<QwtPlotItem *>(d_curve));
 }
 
 int CurveTreeItem::plotItemType()
@@ -2479,6 +2480,6 @@ int CurveTreeItem::plotItemType()
     if (!g)
         return -1;
 
-    int index = g->plotItemIndex((QwtPlotItem *)d_curve);
+    int index = g->plotItemIndex(d_curve);
     return g->curveType(index);
 }

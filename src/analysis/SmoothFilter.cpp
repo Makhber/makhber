@@ -128,7 +128,7 @@ void SmoothFilter::smoothAverage(double *, double *y)
 {
     int p2 = d_right_points / 2;
     auto m = double(2 * p2 + 1);
-    double aux = 0.0;
+    double aux {};
     auto *s = new double[d_n];
 
     s[0] = y[0];

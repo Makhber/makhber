@@ -40,16 +40,16 @@ QHash<QString, QVariant> AbstractAspect::Private::g_defaults;
 AbstractAspect::Private::Private(AbstractAspect *owner, const QString &name)
     : d_name(name.isEmpty() ? "1" : name),
       d_caption_spec("%n%C{ - }%c"),
+      d_creation_time(QDateTime::currentDateTime()),
       d_owner(owner),
       d_parent(nullptr)
 {
-    d_creation_time = QDateTime::currentDateTime();
 }
 
 AbstractAspect::Private::~Private()
 {
-    for (AbstractAspect *child : d_children)
-        delete child;
+    for (AbstractAspect *child_p : d_children)
+        delete child_p;
 }
 
 void AbstractAspect::Private::addChild(AbstractAspect *child)
@@ -216,8 +216,8 @@ QDateTime AbstractAspect::Private::creationTime() const
 QString AbstractAspect::Private::uniqueNameFor(const QString &current_name) const
 {
     QStringList child_names;
-    for (AbstractAspect *child : d_children)
-        child_names << child->name();
+    for (AbstractAspect *child_p : d_children)
+        child_names << child_p->name();
 
     if (!child_names.contains(current_name))
         return current_name;

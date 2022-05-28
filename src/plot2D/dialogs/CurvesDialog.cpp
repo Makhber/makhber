@@ -398,8 +398,7 @@ void CurvesDialog::removeCurves()
     for (auto it : lst) {
         QString s = it->text();
         if (boxShowRange->isChecked()) {
-            QStringList lst = s.split("[");
-            s = lst[0];
+            s = s.split("[")[0];
         }
         d_graph->removeCurve(s);
     }

@@ -88,8 +88,8 @@ class MAKHBER_EXPORT MatrixView : public MyWidget
 
 public:
     //! Constructor
-    MatrixView(const QString &label, QWidget *parent = 0, const QString name = 0,
-               Qt::WindowFlags f = Qt::Widget);
+    explicit MatrixView(const QString &label, QWidget *parent = 0, const QString &name = 0,
+                        Qt::WindowFlags f = Qt::Widget);
     void setMatrix(future::Matrix *matrix);
     //! Destructor
     virtual ~MatrixView();
@@ -188,10 +188,10 @@ protected:
     //! Pointer to the current underlying model
     MatrixModel *d_model;
 
-    virtual void changeEvent(QEvent *event);
+    virtual void changeEvent(QEvent *event) override;
     void retranslateStrings();
 
-    bool eventFilter(QObject *watched, QEvent *event);
+    bool eventFilter(QObject *watched, QEvent *event) override;
 
 protected:
     Ui::MatrixControlTabs ui {};

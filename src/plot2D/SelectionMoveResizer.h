@@ -94,13 +94,13 @@ class MAKHBER_EXPORT SelectionMoveResizer : public QWidget
 
 public:
     //! Construct a new MoveResizer with the given marker as the only target.
-    SelectionMoveResizer(Legend *target);
+    explicit SelectionMoveResizer(Legend *target);
     //! Construct a new MoveResizer with the given marker as the only target.
-    SelectionMoveResizer(ArrowMarker *target);
+    explicit SelectionMoveResizer(ArrowMarker *target);
     //! Construct a new MoveResizer with the given marker as the only target.
-    SelectionMoveResizer(ImageMarker *target);
+    explicit SelectionMoveResizer(ImageMarker *target);
     //! Construct a new MoveResizer with the given widget as the only target.
-    SelectionMoveResizer(QWidget *target);
+    explicit SelectionMoveResizer(QWidget *target);
     //! Clean up after myself.
     ~SelectionMoveResizer();
     /*!\brief React on geometry changes of parent and targets.
@@ -218,7 +218,7 @@ private:
 
 private Q_SLOTS:
     //! A non-typesafe version of remvoveAll(QWidget*) needed for QObject::destroyed().
-    void removeWidget(QObject *w) { removeAll((QWidget *)w); }
+    void removeWidget(QObject *w) { removeAll(dynamic_cast<QWidget *>(w)); }
 };
 
 #endif // ifndef SELECTION_MOVE_RESIZER_H

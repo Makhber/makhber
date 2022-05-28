@@ -96,9 +96,10 @@ Table::Table(ScriptingEnv *env, const QString &fname, const QString &sep, int ig
 
 Table::Table(ScriptingEnv *env, int r, int c, const QString &label, QWidget *parent,
              const char *name, Qt::WindowFlags f)
-    : TableView(label, parent, name, f), scripted(env)
+    : TableView(label, parent, name, f),
+      scripted(env),
+      d_future_table(new future::Table(r, c, label))
 {
-    d_future_table = new future::Table(r, c, label);
     init();
 }
 
@@ -452,7 +453,7 @@ bool Table::recalculate(int col, bool only_selected_rows)
             Interval<int>::subtractIntervalFromList(&formula_intervals, i);
     }
     for (Interval<int> interval : formula_intervals) {
-        QString formula = col_ptr->formula(interval.start());
+        QString formula = col_ptr->formula(interval.minValue());
         if (formula.isEmpty())
             continue;
 
@@ -470,8 +471,8 @@ bool Table::recalculate(int col, bool only_selected_rows)
 
         colscript->setInt(col + 1, "j");
         QVariant ret;
-        int start_row = interval.start();
-        int end_row = interval.end();
+        int start_row = interval.minValue();
+        int end_row = interval.maxValue();
         switch (col_ptr->columnMode()) {
         case Makhber::ColumnMode::Numeric: {
             QVector<qreal> results(end_row - start_row + 1);
@@ -798,8 +799,8 @@ void Table::removeCol()
 void Table::removeCol(const QStringList &list)
 {
     if (d_future_table) {
-        for (QString name : list)
-            d_future_table->removeColumns(colIndex(name), 1);
+        for (QString col_name : list)
+            d_future_table->removeColumns(colIndex(col_name), 1);
     }
 }
 
@@ -887,7 +888,7 @@ void Table::importV0x0001XXHeader(QJsonArray *jsHeaders)
     d_future_table->appendColumns(quarantine);
 }
 
-void Table::setHeader(QStringList header)
+void Table::setHeader(const QStringList &header)
 {
     if (!d_future_table)
         return;
@@ -1155,7 +1156,7 @@ Makhber::ColumnMode Table::columnType(int col)
     return column(col)->columnMode();
 }
 
-void Table::setColumnTypes(QList<Makhber::ColumnMode> ctl)
+void Table::setColumnTypes(const QList<Makhber::ColumnMode> &ctl)
 {
     if (!d_future_table)
         return;
@@ -1276,7 +1277,7 @@ void Table::handleAspectDescriptionChange(const AbstractAspect *aspect)
         for (int i = 0; i < d_future_table->columnCount(); i++) {
             QList<Interval<int>> formula_intervals = column(i)->formulaIntervals();
             for (Interval<int> interval : formula_intervals) {
-                QString formula = column(i)->formula(interval.start());
+                QString formula = column(i)->formula(interval.minValue());
                 if (formula.contains("\"" + old_name + "\"")) {
                     formula.replace("\"" + old_name + "\"", "\"" + new_name + "\"");
                     column(i)->setFormula(interval, formula);

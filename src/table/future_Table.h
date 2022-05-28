@@ -91,18 +91,18 @@ public:
     void setView(TableView *view);
 
     //! Return an icon to be used for decorating my views.
-    virtual QIcon icon() const;
+    virtual QIcon icon() const override;
     //! Return a new context menu.
     /**
      * The caller takes ownership of the menu.
      */
-    virtual QMenu *createContextMenu() const;
+    virtual QMenu *createContextMenu() const override;
     //! Construct a primary view on me.
     /**
      * This method may be called multiple times during the life time of an Aspect, or it might not
      * get called at all. Aspects must not depend on the existence of a view for their operation.
      */
-    virtual QWidget *view();
+    virtual QWidget *view() override;
 
     //! Insert columns
     /**
@@ -118,7 +118,7 @@ public:
      * insertColumns(columnCount(), new_cols);
      * </code>
      */
-    void appendColumns(QList<Column *> new_cols) { insertColumns(columnCount(), new_cols); }
+    void appendColumns(const QList<Column *> &new_cols) { insertColumns(columnCount(), new_cols); }
     void removeColumns(int first, int count);
     void removeColumn(Column *col);
     void removeRows(int first, int count);
@@ -182,12 +182,12 @@ public:
     /**
      * \return true on success, otherwise false (e.g. part has no actions).
      */
-    virtual bool fillProjectMenu(QMenu *menu);
+    virtual bool fillProjectMenu(QMenu *menu) override;
     //! Fill the part specific tool bar for the main window including setting the title
     /**
      * \return true on success, otherwise false (e.g. part has no actions to be shown in a toolbar).
      */
-    virtual bool fillProjectToolBar(QToolBar *bar);
+    virtual bool fillProjectToolBar(QToolBar *bar) override;
 
     //! Determine the corresponding X column
     int colX(int col);
@@ -216,9 +216,9 @@ public:
     //! \name serialize/deserialize
     //@{
     //! Save as Json
-    virtual void save(QJsonObject *jsObject) const;
+    virtual void save(QJsonObject *jsObject) const override;
     //! Load from Json
-    virtual bool load(QJsonObject *);
+    virtual bool load(QJsonObject *) override;
     //@}
 
 public:
@@ -315,13 +315,13 @@ protected:
      * Unlike the aspectAdded() signals, this method does not get called inside undo/redo actions;
      * allowing subclasses to execute undo commands of their own.
      */
-    virtual void completeAspectInsertion(AbstractAspect *aspect, int index);
+    virtual void completeAspectInsertion(AbstractAspect *aspect, int index) override;
     //! Called before a child is removed.
     /**
      * Unlike the aspectAboutToBeRemoved() signals, this method does not get called inside undo/redo
      * actions; allowing subclasses to execute undo commands of their own.
      */
-    virtual void prepareAspectRemoval(AbstractAspect *aspect);
+    virtual void prepareAspectRemoval(AbstractAspect *aspect) override;
 
 public:
     //! This method should only be called by the view.
@@ -461,7 +461,7 @@ public:
     class Private
     {
     public:
-        Private(Table &owner)
+        explicit Private(Table &owner)
             : d_owner(owner), d_column_count(0), d_row_count(0), d_current_column { -1 }
         {
         }

@@ -100,7 +100,7 @@ void DataPickerTool::append(const QPoint &pos)
         setSelection(nullptr, 0);
         return;
     }
-    setSelection((QwtPlotCurve *)d_graph->plotWidget()->curve(curve), point_index);
+    setSelection(dynamic_cast<QwtPlotCurve *>(d_graph->plotWidget()->curve(curve)), point_index);
     if (!d_selected_curve)
         return;
 

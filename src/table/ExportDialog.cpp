@@ -66,14 +66,15 @@ ExportDialog::ExportDialog(QWidget *parent, Qt::WindowFlags fl) : QDialog(parent
     boxSeparator->setEditable(true);
     gl1->addWidget(boxSeparator, 1, 1);
 
-    QString help = tr("The column separator can be customized. The following special codes can be "
-                      "used:\n\\t for a TAB character \n\\s for a SPACE");
-    help += "\n" + tr("The separator must not contain the following characters: 0-9eE.+-");
+    QString help_text =
+            tr("The column separator can be customized. The following special codes can be "
+               "used:\n\\t for a TAB character \n\\s for a SPACE");
+    help_text += "\n" + tr("The separator must not contain the following characters: 0-9eE.+-");
 
-    boxSeparator->setWhatsThis(help);
-    sepText->setWhatsThis(help);
-    boxSeparator->setToolTip(help);
-    sepText->setToolTip(help);
+    boxSeparator->setWhatsThis(help_text);
+    sepText->setWhatsThis(help_text);
+    boxSeparator->setToolTip(help_text);
+    sepText->setToolTip(help_text);
 
     boxNames = new QCheckBox(tr("Include Column &Names"));
     boxNames->setChecked(true);

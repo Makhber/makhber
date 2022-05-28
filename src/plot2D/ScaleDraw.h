@@ -46,7 +46,7 @@ public:
     enum TicksStyle { None = 0, Out = 1, Both = 2, In = 3 };
 
     ScaleDraw(QString s = {});
-    ScaleDraw(const ScaleDraw &other, QString s = {});
+    ScaleDraw(const ScaleDraw &other, const QString &s = {});
     virtual ~ScaleDraw() {};
 
     QString formulaString() { return formula_string; };
@@ -83,14 +83,14 @@ private:
 class MAKHBER_EXPORT QwtTextScaleDraw : public ScaleDraw
 {
 public:
-    QwtTextScaleDraw(const QMap<int, QString> &list);
+    explicit QwtTextScaleDraw(const QMap<int, QString> &list);
     QwtTextScaleDraw(const ScaleDraw &other, const QMap<int, QString> &list)
         : ScaleDraw(other), labels(list)
     {
     }
     ~QwtTextScaleDraw() {};
 
-    QwtText label(double value) const;
+    QwtText label(double value) const override;
 
     QStringList labelsList() { return QStringList(labels.values()); }
     QMap<int, QString> labelsMap() { return labels; }
@@ -113,7 +113,7 @@ public:
     QString origin();
     QString timeFormat() { return t_format; };
 
-    QwtText label(double value) const;
+    QwtText label(double value) const override;
 
 private:
     QTime t_origin;
@@ -133,7 +133,7 @@ public:
     QString origin();
 
     QString format() { return t_format; };
-    QwtText label(double value) const;
+    QwtText label(double value) const override;
 
 private:
     QDate t_origin;
@@ -153,7 +153,7 @@ public:
     QString origin();
 
     QString format() { return d_format; };
-    QwtText label(double value) const;
+    QwtText label(double value) const override;
 
 private:
     QDateTime d_origin;
@@ -166,14 +166,14 @@ public:
     enum NameFormat { ShortName, LongName, Initial };
 
     WeekDayScaleDraw(NameFormat format = ShortName);
-    WeekDayScaleDraw(const ScaleDraw &other, NameFormat format = ShortName)
+    explicit WeekDayScaleDraw(const ScaleDraw &other, NameFormat format = ShortName)
         : ScaleDraw(other), d_format(format)
     {
     }
     ~WeekDayScaleDraw() {};
 
     NameFormat format() { return d_format; };
-    QwtText label(double value) const;
+    QwtText label(double value) const override;
 
 private:
     NameFormat d_format;
@@ -185,14 +185,14 @@ public:
     enum NameFormat { ShortName, LongName, Initial };
 
     MonthScaleDraw(NameFormat format = ShortName);
-    MonthScaleDraw(const ScaleDraw &other, NameFormat format = ShortName)
+    explicit MonthScaleDraw(const ScaleDraw &other, NameFormat format = ShortName)
         : ScaleDraw(other), d_format(format)
     {
     }
     ~MonthScaleDraw() {};
 
     NameFormat format() { return d_format; };
-    QwtText label(double value) const;
+    QwtText label(double value) const override;
 
 private:
     NameFormat d_format;
@@ -202,13 +202,14 @@ class MAKHBER_EXPORT QwtSupersciptsScaleDraw : public ScaleDraw
 {
 public:
     QwtSupersciptsScaleDraw(const QString &s = {});
-    QwtSupersciptsScaleDraw(const ScaleDraw &other, const QString &s = {}) : ScaleDraw(other)
+    explicit QwtSupersciptsScaleDraw(const ScaleDraw &other, const QString &s = {})
+        : ScaleDraw(other)
     {
         setFormulaString(s);
     }
     ~QwtSupersciptsScaleDraw() {};
 
-    QwtText label(double value) const;
+    QwtText label(double value) const override;
 };
 
 #endif

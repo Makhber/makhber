@@ -40,10 +40,13 @@
 #include <QPainter>
 #include <QJsonObject>
 
-Grid::Grid() : QwtPlotGrid(), mrkX(-1), mrkY(-1)
+Grid::Grid()
+    : QwtPlotGrid(),
+      d_maj_pen_y(QPen(Qt::blue, 0, Qt::SolidLine)),
+      d_min_pen_y(QPen(Qt::gray, 0, Qt::DotLine)),
+      mrkX(-1),
+      mrkY(-1)
 {
-    d_maj_pen_y = QPen(Qt::blue, 0, Qt::SolidLine);
-    d_min_pen_y = QPen(Qt::gray, 0, Qt::DotLine);
 }
 
 /*!
@@ -123,28 +126,24 @@ void Grid::load(QJsonObject *jsGrid)
     enableZeroLineY(jsGrid->value("yZeroLineEnabled").toBool());
 
     QJsonObject jsMajPenX = jsGrid->value("majPenX").toObject();
-    QPen majPenX = QPen(QColor(COLORVALUE(jsMajPenX.value("color").toString())),
-                        jsMajPenX.value("width").toInt(),
-                        Graph::getPenStyle(jsMajPenX.value("style").toInt()));
-    setMajPenX(majPenX);
+    setMajPenX(QPen(QColor(COLORVALUE(jsMajPenX.value("color").toString())),
+                    jsMajPenX.value("width").toInt(),
+                    Graph::getPenStyle(jsMajPenX.value("style").toInt())));
 
     QJsonObject jsMinPenX = jsGrid->value("minPenX").toObject();
-    QPen minPenX = QPen(QColor(COLORVALUE(jsMinPenX.value("color").toString())),
-                        jsMinPenX.value("width").toInt(),
-                        Graph::getPenStyle(jsMinPenX.value("style").toInt()));
-    setMinPenX(minPenX);
+    setMinPenX(QPen(QColor(COLORVALUE(jsMinPenX.value("color").toString())),
+                    jsMinPenX.value("width").toInt(),
+                    Graph::getPenStyle(jsMinPenX.value("style").toInt())));
 
     QJsonObject jsMajPenY = jsGrid->value("majPenY").toObject();
-    QPen majPenY = QPen(QColor(COLORVALUE(jsMajPenY.value("color").toString())),
-                        jsMajPenY.value("width").toInt(),
-                        Graph::getPenStyle(jsMajPenY.value("style").toInt()));
-    setMajPenY(majPenY);
+    setMajPenY(QPen(QColor(COLORVALUE(jsMajPenY.value("color").toString())),
+                    jsMajPenY.value("width").toInt(),
+                    Graph::getPenStyle(jsMajPenY.value("style").toInt())));
 
     QJsonObject jsMinPenY = jsGrid->value("minPenY").toObject();
-    QPen minPenY = QPen(QColor(COLORVALUE(jsMinPenY.value("color").toString())),
-                        jsMinPenY.value("width").toInt(),
-                        Graph::getPenStyle(jsMinPenY.value("style").toInt()));
-    setMinPenY(minPenY);
+    setMinPenY(QPen(QColor(COLORVALUE(jsMinPenY.value("color").toString())),
+                    jsMinPenY.value("width").toInt(),
+                    Graph::getPenStyle(jsMinPenY.value("style").toInt())));
 
     enableX(jsGrid->value("xEnabled").toBool());
     enableXMin(jsGrid->value("xMinEnabled").toBool());

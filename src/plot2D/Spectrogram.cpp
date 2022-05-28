@@ -101,7 +101,7 @@ void Spectrogram::setLevelsNumber(int levels)
     setContourLevels(contourLevels);
 }
 
-bool Spectrogram::hasColorScale()
+bool Spectrogram::hasColorScale() const
 {
     QwtPlot *plot = this->plot();
     if (!plot)
@@ -159,7 +159,7 @@ void Spectrogram::showColorScale(int axis, bool on)
     plot->updateLayout();
 }
 
-int Spectrogram::colorBarWidth()
+int Spectrogram::colorBarWidth() const
 {
     QwtPlot *plot = this->plot();
     if (!plot)
