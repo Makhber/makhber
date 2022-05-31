@@ -17,7 +17,6 @@ set( PROJECT_VERSION_SUFFIX "alpha" )
 
 set( PROJECT_RELEASE_DATE "May, 14 2022" )
 
-set( CMAKE_CXX_STANDARD 20 )
 set( CMAKE_CXX_STANDARD_REQUIRED TRUE )
 set( CMAKE_CXX_EXTENSIONS OFF )
 
@@ -134,6 +133,12 @@ find_package( OpenGL COMPONENTS OpenGL REQUIRED )
 find_package( muparser REQUIRED )
 
 find_package( Qwt ${MINIMUM_QWT} REQUIRED )
+# Qwt<6.2 couldn't be used with c++20
+if(Qwt_VERSION VERSION_LESS 6.2)
+  set( CMAKE_CXX_STANDARD 17 )
+else()
+  set( CMAKE_CXX_STANDARD 20 )
+endif()
 
 if( MAKHBER_SEARCH_FOR_UPDATES OR MAKHBER_DOWNLOAD_LINKS )
   find_package( Qt${QT_VERSION_MAJOR} COMPONENTS Network REQUIRED )
