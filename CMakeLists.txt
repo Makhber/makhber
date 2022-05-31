@@ -44,6 +44,8 @@ else()
   set( CMAKE_INTERPROCEDURAL_OPTIMIZATION OFF )
 endif()
 
+include( CheckCXXCompilerFlag )
+
 if( MSVC )
   # /wd4456 /wd4457 /wd4458 Silent "declaration of %1 hides %2 ..."
   # /wd4251 Silent dll-related warnings
@@ -61,7 +63,8 @@ if( MSVC )
 else()
   set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fexceptions -Wall -Wextra -pedantic" )
   set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -pedantic" )
-  if( CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_GREATER_EQUAL 12)
+  check_cxx_compiler_flag("-ftrivial-auto-var-init=pattern" CXX_AUTO_INITIALIZE_PATTERN)
+  if( CXX_AUTO_INITIALIZE_PATTERN )
     set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftrivial-auto-var-init=pattern" )
     set( CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -ftrivial-auto-var-init=pattern" )
   endif()
