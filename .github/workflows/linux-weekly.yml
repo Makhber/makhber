@@ -1,0 +1,639 @@
+name: Linux-weekly
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 2 * * 1'
+
+jobs:
+  Snap:
+    runs-on: ubuntu-22.04
+    name: Snap
+
+    steps:
+      - name: Get Processor Info
+        run : lscpu | grep name
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Install snapcraft
+        run: |
+          sudo snap install snapcraft --classic
+
+      - name: Building & Packaging
+        run: |
+          sudo snapcraft --verbose --destructive-mode
+
+      - name: Installing
+        run: |
+          sudo snap install --dangerous *.snap
+
+      - name: Show info and contents
+        run: |
+          snap info makhber
+          tree /snap/makhber/current/usr
+
+      - name: Upload snap
+        uses: actions/upload-artifact@v3
+        with:
+          name: snap
+          path: '*.snap'
+
+  AppImage:
+    runs-on: ubuntu-20.04
+    name: AppImage
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5.15.2, 6.4.2]
+    env:
+      VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
+      QWT_VER: 6.2.0
+      PYTHON_VERSION: "3.10"
+
+    steps:
+      - name: Get Processor Info
+        run : lscpu | grep name
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Restore cached Qt
+        id: cache-qt
+        uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/Qt
+          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v3
+        with:
+          version: ${{ matrix.QT_VER }}
+          cache: ${{ steps.cache-qt.outputs.cache-hit }}
+          dir: ${{ github.workspace }}/Qt
+
+      # Python version used to build makhber must be the same for miniconda
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '${{ env.PYTHON_VERSION }}'
+
+      - name: Install prerequisties
+        run: |
+          sudo apt install -y --no-install-recommends \
+            libglu1-mesa-dev \
+            libgl2ps-dev \
+            libxkbcommon-x11-0 \
+            xvfb \
+            wget
+          if [[ ${{ matrix.QT_VER }} == "6.4.2" ]]; then
+            sudo apt install -y --no-install-recommends \
+              libxkbcommon-dev \
+              libvulkan-dev
+          fi
+          pip3 install sip pyqt-builder
+          if [[ "${{ matrix.QT_VER }}" == "6.4.2" ]]; then
+            pip3 install pyqt6
+          else
+            pip3 install pyqt5
+          fi
+
+      - name: Get GCC version
+        id: gcc-version
+        run: echo "gcc_version=$(gcc -dumpversion)" >> $GITHUB_OUTPUT
+
+      - name: Restore cached Qwt
+        id: cache-qwt
+        uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/Qwt
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
+
+      - name: Build and install Qwt
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
+        run: |
+          wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
+          tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
+          sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/Qwt|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtDesigner$|#|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtExamples$|#|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtPlayground$|#|g" qwtconfig.pri
+          sed -i "s|^QWT_CONFIG\\s*+=\\s*QwtTests$|#|g" qwtconfig.pri
+          qmake CONFIG-=debug_and_release CONFIG+=release qwt.pro
+          make -j$(nproc)
+          make install
+
+      - name: Setup NuGet Credentials
+        run: |
+          mono `vcpkg fetch nuget | tail -n 1` sources add \
+            -source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" \
+            -storepasswordincleartext \
+            -name "GitHub" \
+            -username ${{ github.repository_owner }} \
+            -password "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: vcpkg package restore
+        run: |
+          vcpkg install gsl muparser
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DCMAKE_INSTALL_PREFIX=/usr \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DBUILD_SHARED_LIBS=ON \
+            -DOpenGL_GL_PREFERENCE=LEGACY \
+            -DCMAKE_TOOLCHAIN_FILE=$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake \
+            -DCMAKE_PREFIX_PATH=${GITHUB_WORKSPACE}/Qwt
+
+      - name: Building
+        run: |
+          xvfb-run make -j$(nproc) -C build
+
+      - name: Packaging
+        run: |
+          cd build
+          make install DESTDIR=AppDir
+          export LD_LIBRARY_PATH=${PWD}/bin:${GITHUB_WORKSPACE}/Qwt/lib:$LD_LIBRARY_PATH
+          wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+          wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
+          chmod +x linuxdeploy*
+          export VERSION=$(git describe --tags)
+          if [[ "${{ matrix.QT_VER }}" == "6.4.2" ]]; then
+            export PIP_REQUIREMENTS="pyqt6 pyqt6-sip --no-deps"
+          else
+            export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
+          fi
+          export CONDA_PYTHON_VERSION=${{ env.PYTHON_VERSION }}
+          ./linuxdeploy-x86_64.AppImage \
+            --appdir ./AppDir \
+            --plugin qt \
+            --plugin conda \
+            --output appimage \
+            --custom-apprun=../packaging/appimage/AppRun
+
+      - name: Upload AppImage
+        uses: actions/upload-artifact@v3
+        with:
+          name: Appimage-${{ matrix.QT_VER }}
+          path: build/Makhber-*.AppImage
+
+  Ubuntu:
+    name: Ubuntu 20.04
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Get Processor Info
+        run : lscpu | grep name
+
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends \
+            ninja-build \
+            pkgconf \
+            qtbase5-dev \
+            libqt5svg5-dev \
+            libqt5opengl5-dev \
+            qttools5-dev \
+            libgsl-dev \
+            libmuparser-dev \
+            libqwt-qt5-dev \
+            libgl2ps-dev \
+            pyqt5-dev \
+            python3-pyqt5 \
+            libgtest-dev \
+            xvfb
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          ninja -C build
+
+      - name: Testing
+        run: |
+          cd build
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
+
+      - name: Packaging
+        run: |
+          cd build
+          cpack -G DEB --verbose
+
+      - name: Show info and contents
+        run: |
+          sudo apt install -y ./build/*.deb
+          dpkg-deb -I build/*.deb
+          dpkg -c build/*.deb
+
+      - name: Upload DEB package
+        uses: actions/upload-artifact@v3
+        with:
+          name: DEB-ubuntu
+          path: build/*.deb
+
+  Arch:
+    name: ArchLinux
+    runs-on: ubuntu-22.04
+    container: archlinux:base-devel
+
+    steps:
+      - name: Get Processor Info
+        run : lscpu | grep name
+
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          sudo pacman -Syu --noconfirm
+          sudo pacman -S --noconfirm --needed \
+            cmake \
+            ninja \
+            qt5-base \
+            qt5-svg \
+            qt5-tools \
+            glu \
+            gsl \
+            muparser \
+            qwt \
+            gl2ps \
+            sip \
+            python-pyqt5 \
+            pyqt-builder \
+            gtest \
+            xorg-server-xvfb
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          ninja -C build
+
+      - name: Testing
+        continue-on-error: true
+        run: |
+          cd build
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
+
+  Fedora:
+    name: Fedora ${{ matrix.image }} - Qt${{ matrix.QT_VER }}
+    runs-on: ubuntu-22.04
+    container: fedora:${{ matrix.image }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - image: latest
+            QT_VER: 5
+          - image: rawhide
+            QT_VER: 5
+          - image: rawhide
+            QT_VER: 6
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          sudo dnf install -y \
+            gcc-c++ \
+            cmake \
+            ninja-build \
+            qt${{ matrix.QT_VER }}-qtbase-devel \
+            qt${{ matrix.QT_VER }}-qtsvg-devel \
+            qt${{ matrix.QT_VER }}-qttools-devel \
+            gsl-devel \
+            muParser-devel \
+            qwt-qt${{ matrix.QT_VER }}-devel \
+            gl2ps-devel \
+            zlib-devel \
+            mesa-libGLU-devel \
+            python3-devel \
+            PyQt-builder \
+            gtest-devel \
+            xorg-x11-server-Xvfb \
+            util-linux \
+            rpm-build
+          if [[ ${{ matrix.QT_VER }} == 6 ]]; then
+            sudo dnf install -y \
+              python3-pyqt6-devel \
+              libxkbcommon-devel
+          else
+            sudo dnf install -y python3-qt5-devel
+          fi
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          ninja -C build
+
+      - name: Testing
+        run: |
+          cd build
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
+
+      - name: Packaging
+        run: |
+          cd build
+          cpack -G RPM --verbose
+
+      - name: Show info and contents
+        run: |
+          sudo dnf localinstall -y build/Makhber-0.10.0-alpha2-Linux.rpm
+          rpm -qi makhber
+          rpm -qR makhber
+          rpm -ql makhber
+
+      - name: Upload RPM package
+        uses: actions/upload-artifact@v3
+        with:
+          name: RPM-fedora-${{ matrix.image }}-${{ matrix.QT_VER }}
+          path: build/*.rpm
+
+  OpenSUSE:
+    name: OpenSUSE ${{ matrix.image }}
+    runs-on: ubuntu-22.04
+    container: opensuse/${{ matrix.image }}
+    strategy:
+      fail-fast: false
+      matrix:
+        image: [tumbleweed, leap]
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          if [[ "${{ matrix.image }}" == "leap" ]]; then
+            py_ver=3
+          else
+            py_ver=310
+          fi
+          zypper -n install \
+            gcc-c++ \
+            cmake \
+            ninja \
+            libqt5-qtbase-devel \
+            libqt5-qtsvg-devel \
+            libqt5-qttools-devel \
+            gsl-devel \
+            muparser-devel \
+            qwt6-devel \
+            gl2ps-devel \
+            zlib-devel \
+            glu-devel \
+            python${py_ver} \
+            python${py_ver}-qt5-devel \
+            python${py_ver}-pyqt-builder \
+            gtest \
+            xvfb-run \
+            rpm-build
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          ninja -C build
+
+      - name: Testing
+        continue-on-error: true
+        run: |
+          cd build
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
+
+      - name: Packaging
+        run: |
+          cd build
+          cpack -G RPM --verbose
+
+      - name: Show info and contents
+        run: |
+          zypper -n install --allow-unsigned-rpm build/Makhber-0.10.0-alpha2-Linux.rpm
+          rpm -qi makhber
+          rpm -qR makhber
+          rpm -ql makhber
+
+      - name: Upload RPM package
+        uses: actions/upload-artifact@v3
+        with:
+          name: RPM-opensuse-${{ matrix.image }}
+          path: build/*.rpm
+
+  Ubuntu-devel:
+    name: Ubuntu 22.10
+    runs-on: ubuntu-22.04
+    container: ubuntu:22.10
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          apt update
+          apt install -y --no-install-recommends \
+            g++ \
+            cmake \
+            ninja-build \
+            pkgconf \
+            qtbase5-dev \
+            libqt5svg5-dev \
+            libqt5opengl5-dev \
+            qttools5-dev \
+            libgsl-dev \
+            libmuparser-dev \
+            libqwt-qt5-dev \
+            libgl2ps-dev \
+            libpython3.10-dev \
+            sip-tools \
+            pyqt5-dev \
+            python3-pyqt5 \
+            python3-pyqtbuild \
+            libgtest-dev \
+            xvfb \
+            file
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          cmake --build build
+
+      - name: Testing
+        run: |
+          cd build
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
+
+      - name: Packaging
+        run: |
+          cd build
+          cpack -G DEB --verbose
+
+      - name: Show info and contents
+        run: |
+          apt install -y ./build/*.deb
+          dpkg-deb -I build/*.deb
+          dpkg -c build/*.deb
+
+      - name: Upload DEB package
+        uses: actions/upload-artifact@v3
+        with:
+          name: DEB-ubuntu-devel
+          path: build/*.deb
+
+  Debian-experimental:
+    name: Debian experimental - Qt${{ matrix.QT_VER }}
+    runs-on: ubuntu-22.04
+    container: debian:unstable
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5, 6]
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          apt update
+          apt install -y --no-install-recommends ca-certificates
+          echo "deb https://deb.debian.org/debian experimental main" | tee /etc/apt/sources.list.d/experimental.list
+          apt update
+          if [ "${{ matrix.QT_VER }}" = "6" ]; then
+            apt install -y --no-install-recommends \
+              -t experimental \
+              qt6-base-dev \
+              qt6-tools-dev \
+              qt6-translations-l10n \
+              libglu1-mesa-dev
+          else
+            apt install -y --no-install-recommends \
+              -t experimental \
+              qtbase5-dev \
+              qttools5-dev \
+              qttranslations5-l10n
+          fi
+          apt install -y --no-install-recommends \
+            -t experimental \
+            g++ \
+            cmake \
+            ninja-build \
+            make \
+            pkgconf \
+            libqt${{ matrix.QT_VER }}svg${{ matrix.QT_VER }}-dev \
+            libqt${{ matrix.QT_VER }}opengl${{ matrix.QT_VER }}-dev \
+            libgsl-dev \
+            libmuparser-dev \
+            libqwt-qt${{ matrix.QT_VER }}-dev \
+            libgl2ps-dev \
+            libpython3.11-dev \
+            sip-tools \
+            pyqt${{ matrix.QT_VER }}-dev \
+            python3-pyqt${{ matrix.QT_VER }} \
+            python3-pyqtbuild \
+            libgtest-dev \
+            xvfb \
+            xauth \
+            file
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -GNinja \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          cmake --build build
+
+      - name: Testing
+        run: |
+          cd build
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
+
+      - name: Packaging
+        run: |
+          cd build
+          cpack -G DEB --verbose
+
+      - name: Show info and contents
+        run: |
+          apt install -y ./build/*.deb
+          dpkg-deb -I build/*.deb
+          dpkg -c build/*.deb
+
+      - name: Upload DEB package
+        uses: actions/upload-artifact@v3
+        with:
+          name: DEB-debian-exp-${{ matrix.QT_VER }}
+          path: build/*.deb
