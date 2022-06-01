@@ -625,11 +625,7 @@ void FitDialog::showFitPage()
     int param_table_rows = boxParams->rowCount();
 
     QString par = boxParam->text().simplified();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList paramList = par.split(QRegularExpression("[,;]+[\\s]*"), Qt::SkipEmptyParts);
-#else
-    QStringList paramList = par.split(QRegExp("[,;]+[\\s]*"), QString::SkipEmptyParts);
-#endif
     int parameters = paramList.count();
     boxParams->setRowCount(parameters);
     boxParams->hideColumn(2);
@@ -1279,13 +1275,8 @@ void FitDialog::setSrcTables(QList<MyWidget *> *tables)
     for (QWidget *i : *d_src_table)
         tableNamesBox->addItem(i->objectName());
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     tableNamesBox->setCurrentIndex(
             tableNamesBox->findText(boxCurve->currentText().split("_", Qt::SkipEmptyParts)[0]));
-#else
-    tableNamesBox->setCurrentIndex(tableNamesBox->findText(
-            boxCurve->currentText().split("_", QString::SkipEmptyParts)[0]));
-#endif
     selectSrcTable(tableNamesBox->currentIndex());
 }
 

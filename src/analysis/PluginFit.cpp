@@ -111,11 +111,7 @@ bool PluginFit::load(const QString &pluginName)
     using fitFunc = char *(*)();
     auto fitFunction = (fitFunc)lib.resolve("parameters");
     if (fitFunction) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         d_param_names = QString(fitFunction()).split(",", Qt::SkipEmptyParts);
-#else
-        d_param_names = QString(fitFunction()).split(",", QString::SkipEmptyParts);
-#endif
         d_p = (int)d_param_names.count();
         d_min_points = d_p;
         d_param_init = gsl_vector_alloc(d_p);
@@ -126,11 +122,7 @@ bool PluginFit::load(const QString &pluginName)
 
     auto fitExplain = (fitFunc)lib.resolve("explanations");
     if (fitExplain)
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         d_param_explain = QString(fitExplain()).split(",", Qt::SkipEmptyParts);
-#else
-        d_param_explain = QString(fitExplain()).split(",", QString::SkipEmptyParts);
-#endif
     else
         for (unsigned i = 0; i < d_p; i++)
             d_param_explain << "";

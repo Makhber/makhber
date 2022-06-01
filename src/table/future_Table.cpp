@@ -416,13 +416,8 @@ void Table::pasteIntoSelection()
         input_row_count = input_rows.count();
         input_col_count = 0;
         for (int i = 0; i < input_row_count; i++) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
             cell_texts.append(input_rows.at(i).trimmed().split(QRegularExpression("( +|\\s)"),
                                                                Qt::KeepEmptyParts));
-#else
-            cell_texts.append(
-                    input_rows.at(i).trimmed().split(QRegExp("( +|\\s)"), QString::KeepEmptyParts));
-#endif
             if (cell_texts.at(i).count() > input_col_count)
                 input_col_count = cell_texts.at(i).count();
         }

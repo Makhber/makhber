@@ -161,17 +161,10 @@ void ErrDialog::setSrcTables(QList<MyWidget *> *tables)
     }
 
     if (!nameLabel->currentText().contains("="))
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         tableNamesBox->setCurrentIndex(
                 std::max(0,
                          tableNamesBox->findText(
                                  nameLabel->currentText().split("_", Qt::SkipEmptyParts)[0])));
-#else
-        tableNamesBox->setCurrentIndex(
-                std::max(0,
-                         tableNamesBox->findText(
-                                 nameLabel->currentText().split("_", QString::SkipEmptyParts)[0])));
-#endif
     selectSrcTable(tableNamesBox->currentIndex());
 }
 

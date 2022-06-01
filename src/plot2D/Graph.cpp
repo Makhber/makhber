@@ -817,11 +817,7 @@ void Graph::setLabelsColHeaderFormat(int axis, Table *table)
 
 void Graph::setLabelsDateTimeFormat(int axis, AxisType type, const QString &formatInfo)
 {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList list = formatInfo.split(";", Qt::KeepEmptyParts);
-#else
-    QStringList list = formatInfo.split(";", QString::KeepEmptyParts);
-#endif
     if ((int)list.count() < 2 || list[1].isEmpty()) {
         QMessageBox::critical(this, tr("Error"),
                               tr("Couldn't change the axis type to the requested format!"));
@@ -2345,11 +2341,7 @@ QJsonObject Graph::saveCurveLayout(int index)
         jsCurveLayout.insert("headAngle", v->headAngle());
         jsCurveLayout.insert("filledArrowHead", v->filledArrowHead());
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList colsList = v->plotAssociation().split(",", Qt::SkipEmptyParts);
-#else
-        QStringList colsList = v->plotAssociation().split(",", QString::SkipEmptyParts);
-#endif
         jsCurveLayout.insert("X_A", colsList[2].remove("(X)").remove("(A)"));
         jsCurveLayout.insert("Y_M", colsList[3].remove("(Y)").remove("(M)"));
         if (style == VectXYAM)
@@ -2691,11 +2683,7 @@ QJsonObject Graph::saveMarkers()
         jsText.insert("angle", mrk->angle());
         jsText.insert("backgroundColor", COLORNAME(mrk->backgroundColor()));
         jsText.insert("alpha", mrk->backgroundColor().alpha());
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList textList = mrk->text().split("\n", Qt::KeepEmptyParts);
-#else
-        QStringList textList = mrk->text().split("\n", QString::KeepEmptyParts);
-#endif
         jsText.insert("textList", QJsonArray::fromStringList(textList));
         jsTexts.append(jsText);
     }
@@ -2948,11 +2936,7 @@ void Graph::updateCurveLayout(int index, const CurveLayout *cL)
     pen.setCapStyle(static_cast<Qt::PenCapStyle>(cL->lCapStyle));
     pen.setJoinStyle(static_cast<Qt::PenJoinStyle>(cL->lJoinStyle));
     QVector<qreal> customDash;
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     for (auto v : (cL->lCustomDash).split(" ", Qt::SkipEmptyParts))
-#else
-    for (auto v : (cL->lCustomDash).split(" ", QString::SkipEmptyParts))
-#endif
         customDash << v.toDouble();
     if (pen.style() == Qt::CustomDashLine)
         pen.setDashPattern(customDash);
@@ -3555,11 +3539,7 @@ void Graph::removeLegendItem(int index)
     }
 
     QString text = mrk->text();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList items = text.split("\n", Qt::SkipEmptyParts);
-#else
-    QStringList items = text.split("\n", QString::SkipEmptyParts);
-#endif
 
     if (index >= (int)items.count())
         return;
@@ -5077,11 +5057,7 @@ void Graph::updateCurveNames(const QString &oldName, const QString &newName, boo
     if (legendMarkerID >= 0) { // update legend
         auto *mrk = dynamic_cast<Legend *>(d_plot->marker(legendMarkerID));
         if (mrk) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
             QStringList lst = mrk->text().split("\n", Qt::SkipEmptyParts);
-#else
-            QStringList lst = mrk->text().split("\n", QString::SkipEmptyParts);
-#endif
             lst.replaceInStrings(oldName, newName);
             mrk->setText(lst.join("\n"));
             d_plot->replot();

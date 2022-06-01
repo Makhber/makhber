@@ -732,11 +732,7 @@ void AxesDialog::showAxisFormatOptions(int format)
         boxFormat->show();
         boxFormat->setEditable(true);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList lst = formatInfo[axis].split(";", Qt::KeepEmptyParts);
-#else
-        QStringList lst = formatInfo[axis].split(";", QString::KeepEmptyParts);
-#endif
         if (lst.count() == 2) {
             boxFormat->addItem(lst[1]);
             boxFormat->setItemText(boxFormat->currentIndex(), lst[1]);
@@ -762,11 +758,7 @@ void AxesDialog::showAxisFormatOptions(int format)
         boxFormat->show();
         boxFormat->setEditable(true);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList lst = formatInfo[axis].split(";", Qt::KeepEmptyParts);
-#else
-        QStringList lst = formatInfo[axis].split(";", QString::KeepEmptyParts);
-#endif
         if (lst.count() == 2) {
             boxFormat->addItem(lst[1]);
             boxFormat->setItemText(boxFormat->currentIndex(), lst[1]);
@@ -782,11 +774,7 @@ void AxesDialog::showAxisFormatOptions(int format)
         boxFormat->show();
         boxFormat->setEditable(true);
 
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList lst = formatInfo[axis].split(";", Qt::KeepEmptyParts);
-#else
-        QStringList lst = formatInfo[axis].split(";", QString::KeepEmptyParts);
-#endif
         if (lst.count() == 2) {
             boxFormat->addItem(lst[1]);
             boxFormat->setItemText(boxFormat->currentIndex(), lst[1]);
@@ -1291,11 +1279,7 @@ bool AxesDialog::updatePlot()
             }
         } else if (format == Graph::AxisType::Time || format == Graph::AxisType::Date
                    || format == Graph::AxisType::DateTime) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
             QStringList lst = formatInfo[axis].split(";", Qt::KeepEmptyParts);
-#else
-            QStringList lst = formatInfo[axis].split(";", QString::KeepEmptyParts);
-#endif
             if (lst.size() < 2 || lst[0].isEmpty()) {
                 lst = QStringList();
                 if (format == Graph::AxisType::Time)
@@ -1638,11 +1622,7 @@ void AxesDialog::updateTickLabelsList(bool on)
         formatInfo[axis] = QString::number(boxFormat->currentIndex());
     else if (type == Graph::AxisType::Time || type == Graph::AxisType::Date
              || type == Graph::AxisType::DateTime) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList lst = formatInfo[axis].split(";", Qt::SkipEmptyParts);
-#else
-        QStringList lst = formatInfo[axis].split(";", QString::SkipEmptyParts);
-#endif
         if (lst.size() < 2 || lst[0].isEmpty()) {
             lst = QStringList();
             if (type == Graph::AxisType::Time)
@@ -1725,11 +1705,7 @@ void AxesDialog::setLabelsNumericFormat(int)
         formatInfo[axis] = QString::number(format);
     else if (type == Graph::AxisType::Time || type == Graph::AxisType::Date
              || type == Graph::AxisType::DateTime) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList lst = formatInfo[axis].split(";", Qt::KeepEmptyParts);
-#else
-        QStringList lst = formatInfo[axis].split(";", QString::KeepEmptyParts);
-#endif
         if (lst.size() < 2 || lst[0].isEmpty()) {
             lst = QStringList();
             if (type == Graph::AxisType::Time)

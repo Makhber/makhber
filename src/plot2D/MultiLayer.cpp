@@ -992,13 +992,8 @@ void MultiLayer::wheelEvent(QWheelEvent *e)
     QSize intSize;
     Graph *resize_graph = nullptr;
     // Get the position of the mouse
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     int xMouse = e->position().x();
     int yMouse = e->position().y();
-#else
-    int xMouse = e->x();
-    int yMouse = e->y();
-#endif
     for (int i = 0; i < (int)graphsList.count(); i++) {
         auto *gr = dynamic_cast<Graph *>(graphsList.at(i));
         intSize = gr->plotWidget()->size();

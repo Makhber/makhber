@@ -268,11 +268,7 @@ void Legend::drawSymbols(QPainter *p, const QRect &rect, QVector<long> height,
     int l = symbolLineLength + 2 * left_margin;
 
     QString symbol_text = d_text->text().trimmed();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList titles = symbol_text.split("\n", Qt::KeepEmptyParts);
-#else
-    QStringList titles = symbol_text.split("\n", QString::KeepEmptyParts);
-#endif
 
     for (int i = 0; i < (int)titles.count(); i++) {
         if (titles[i].contains("\\c{") || titles[i].contains("\\l(")) {
@@ -354,11 +350,7 @@ void Legend::drawLegends(QPainter *p, const QRect &rect, QVector<long> height,
     int w = rect.x() + left_margin;
 
     QString legend_text = d_text->text().trimmed();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList titles = legend_text.split("\n", Qt::KeepEmptyParts);
-#else
-    QStringList titles = legend_text.split("\n", QString::KeepEmptyParts);
-#endif
 
     for (int i = 0; i < (int)titles.count(); i++) {
         QString str = titles[i];
@@ -394,11 +386,7 @@ QVector<long> Legend::itemsHeight(int y, int symbolLineLength, int &width, int &
     height = 0;
 
     QString legend_text = d_text->text().trimmed();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList titles = legend_text.split("\n", Qt::KeepEmptyParts);
-#else
-    QStringList titles = legend_text.split("\n", QString::KeepEmptyParts);
-#endif
     int n = titles.count();
     QVector<long> heights(n);
 
@@ -444,11 +432,7 @@ int Legend::symbolsMaxLineLength() const
 
     int maxL = 0;
     QString legend_text = d_text->text().trimmed();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList titles = legend_text.split("\n", Qt::KeepEmptyParts);
-#else
-    QStringList titles = legend_text.split("\n", QString::KeepEmptyParts);
-#endif
     for (int i = 0; i < (int)titles.count(); i++) {
         if (titles[i].contains("\\c{") && (int)cvs.size() > 0) {
             QString aux;

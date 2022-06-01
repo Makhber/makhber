@@ -3561,11 +3561,7 @@ bool ApplicationWindow::loadProject(const QString &fn)
     }
 
     auto projectVersion = jsObject["projectVersion"].toString();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
     QStringList vl = projectVersion.split(".", Qt::SkipEmptyParts);
-#else
-    QStringList vl = projectVersion.split(".", QString::SkipEmptyParts);
-#endif
     d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
 
     projectname = fn;
@@ -3850,13 +3846,8 @@ void ApplicationWindow::openTemplate()
                         tr("The file: <b> %1 </b> was not created using Makhber!").arg(fn));
                 return;
             }
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
             QStringList vl =
                     jsObject.value("projectVersion").toString().split(".", Qt::SkipEmptyParts);
-#else
-            QStringList vl =
-                    jsObject.value("projectVersion").toString().split(".", QString::SkipEmptyParts);
-#endif
             d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
 
             QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
@@ -3969,11 +3960,7 @@ void ApplicationWindow::readSettings()
     //(only needed on Windows due to a Qt bug?)
 #ifdef Q_OS_WIN
     if (!recentProjects.isEmpty() && recentProjects[0].contains("^e"))
-#    if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         recentProjects = recentProjects[0].split("^e", Qt::SkipEmptyParts);
-#    else
-        recentProjects = recentProjects[0].split("^e", QString::SkipEmptyParts);
-#    endif
     else if (recentProjects.count() == 1) {
         QString s = recentProjects[0];
         if (s.remove(QRegularExpression("\\s")).isEmpty())
@@ -7570,11 +7557,7 @@ QStringList ApplicationWindow::multilayerDependencies(MyWidget *w)
         auto *ag = dynamic_cast<Graph *>(graphsList.at(i));
         QStringList onPlot = ag->curvesList();
         for (int j = 0; j < onPlot.count(); j++) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
             QStringList tl = onPlot[j].split("_", Qt::SkipEmptyParts);
-#else
-            QStringList tl = onPlot[j].split("_", QString::SkipEmptyParts);
-#endif
             if (!tables.contains(tl[0]))
                 tables << tl[0];
         }
@@ -11434,11 +11417,7 @@ void ApplicationWindow::appendProject(const QString &fn)
         auto jsTemplate = jsDoc.object();
 
         auto projectVersion = jsTemplate["projectVersion"].toString();
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         QStringList vl = projectVersion.split(".", Qt::SkipEmptyParts);
-#else
-        QStringList vl = projectVersion.split(".", QString::SkipEmptyParts);
-#endif
         d_file_version = ((vl[0]).toInt() << 16) + ((vl[1]).toInt() << 8) + (vl[2]).toInt();
 
         // process tables and matrix information
@@ -12820,11 +12799,7 @@ QMenu *ApplicationWindow::showWindowMenuImpl(MyWidget *widget)
         if (!formula.isEmpty()) {
             cm->addSeparator();
             if (formula.contains("_")) {
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
                 QStringList tl = formula.split("_", Qt::SkipEmptyParts);
-#else
-                QStringList tl = formula.split("_", QString::SkipEmptyParts);
-#endif
 
                 depend_menu->addAction(tl[0], this, SLOT(setActiveWindowFromAction()));
 
