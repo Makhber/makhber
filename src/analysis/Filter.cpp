@@ -263,7 +263,7 @@ int Filter::sortedCurveData(QwtPlotCurve *c, double start, double end, double **
     (*y) = new double[n];
     for (int j = 0, i = i_start; i <= i_end; i++, j++) {
         (*x)[j] = c->sample(static_cast<int>(p[i])).x();
-        (*y)[j] = c->sample(static_cast<int>(p[i])).x();
+        (*y)[j] = c->sample(static_cast<int>(p[i])).y();
     }
     return n;
 }
