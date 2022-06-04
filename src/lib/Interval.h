@@ -234,44 +234,55 @@ public:
 template<>
 class Interval<float> : public IntervalBase<float>
 {
+public:
     Interval() { }
     Interval(float minValue, float maxValue) : IntervalBase<float>(minValue, maxValue) { }
     Interval(const Interval<float> &other) : IntervalBase<float>(other) { }
-    /*float size() const { return IntervalBase<float>::d_maxvalue - IntervalBase<float>::d_minvalue;
-    } bool isValid() const { return (IntervalBase<float>::d_minvalue <=
-    IntervalBase<float>::d_maxvalue); } bool touches(const Interval<float> &other) const
+    float size() const { return IntervalBase<float>::d_maxvalue - IntervalBase<float>::d_minvalue; }
+    bool isValid() const
+    {
+        return (IntervalBase<float>::d_minvalue <= IntervalBase<float>::d_maxvalue);
+    }
+    bool touches(const Interval<float> &other) const
     {
         return ((other.maxValue() == IntervalBase<float>::d_minvalue)
                 || (other.minValue() == IntervalBase<float>::d_maxvalue));
-    }*/
+    }
 };
 
 template<>
 class Interval<double> : public IntervalBase<double>
 {
+public:
     Interval() { }
     Interval(double minValue, double maxValue) : IntervalBase<double>(minValue, maxValue) { }
     Interval(const Interval<double> &other) : IntervalBase<double>(other) { }
-    /*double size() const { return IntervalBase<double>::d_maxvalue -
-    IntervalBase<double>::d_minvalue; } bool isValid() const { return
-    (IntervalBase<double>::d_minvalue <= IntervalBase<double>::d_maxvalue); } bool touches(const
-    Interval<double> &other) const
+    double size() const
+    {
+        return IntervalBase<double>::d_maxvalue - IntervalBase<double>::d_minvalue;
+    }
+    bool isValid() const
+    {
+        return (IntervalBase<double>::d_minvalue <= IntervalBase<double>::d_maxvalue);
+    }
+    bool touches(const Interval<double> &other) const
     {
         return ((other.maxValue() == IntervalBase<double>::d_minvalue)
                 || (other.minValue() == IntervalBase<double>::d_maxvalue));
-    }*/
+    }
 };
 
 template<>
 class Interval<long double> : public IntervalBase<long double>
 {
+public:
     Interval() { }
     Interval(long double minValue, long double maxValue)
         : IntervalBase<long double>(minValue, maxValue)
     {
     }
     Interval(const Interval<long double> &other) : IntervalBase<long double>(other) { }
-    /*long double size() const
+    long double size() const
     {
         return IntervalBase<long double>::d_maxvalue - IntervalBase<long double>::d_minvalue;
     }
@@ -283,7 +294,7 @@ class Interval<long double> : public IntervalBase<long double>
     {
         return ((other.maxValue() == IntervalBase<long double>::d_minvalue)
                 || (other.minValue() == IntervalBase<long double>::d_maxvalue));
-    }*/
+    }
 };
 
 #endif
