@@ -12500,8 +12500,13 @@ void ApplicationWindow::receivedVersionFile(QNetworkReply *netreply)
 
     if (version_buffer.size() > 0) {
         QJsonDocument json = QJsonDocument::fromJson(version_buffer);
-        QVersionNumber available_version =
-                QVersionNumber::fromString(json[0]["tag_name"].toString());
+        QVersionNumber available_version {};
+        for (int i = 0; i < json.array().size(); i++) {
+            if (!json[i]["prerelease"].toBool()) {
+                available_version = QVersionNumber::fromString(json[i]["tag_name"].toString());
+                break;
+            }
+        }
         QVersionNumber actual_version = QVersionNumber::fromString(Makhber::version());
 
         if (available_version > actual_version) {
