@@ -37,7 +37,7 @@
 #include "core/ColorButton.h"
 #include "core/IconLoader.h"
 #ifdef ORIGIN_IMPORT
-#include "core/importOPJ.h"
+#    include "core/importOPJ.h"
 #endif
 #include "core/dialogs/ConfigDialog.h"
 #include "core/dialogs/ImageDialog.h"
@@ -143,9 +143,9 @@
 #include <QTemporaryFile>
 #include <QDebug>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#include <QStringConverter>
+#    include <QStringConverter>
 #else
-#include <QTextCodec>
+#    include <QTextCodec>
 #endif
 #include <QScrollBar>
 #include <QMimeData>
@@ -162,9 +162,9 @@
 #include <cstdlib>
 
 #ifdef Q_OS_WIN
-#include <io.h> // for _commit()
+#    include <io.h> // for _commit()
 #else
-#include <unistd.h> // for fsync()
+#    include <unistd.h> // for fsync()
 #endif
 
 const QString MANUAL_URI("https://github.com/Makhber/makhber-handbook/releases/latest");
@@ -3968,11 +3968,11 @@ void ApplicationWindow::readSettings()
     //(only needed on Windows due to a Qt bug?)
 #ifdef Q_OS_WIN
     if (!recentProjects.isEmpty() && recentProjects[0].contains("^e"))
-#if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
+#    if QT_VERSION >= QT_VERSION_CHECK(5, 14, 0)
         recentProjects = recentProjects[0].split("^e", Qt::SkipEmptyParts);
-#else
+#    else
         recentProjects = recentProjects[0].split("^e", QString::SkipEmptyParts);
-#endif
+#    endif
     else if (recentProjects.count() == 1) {
         QString s = recentProjects[0];
         if (s.remove(QRegularExpression("\\s")).isEmpty())
@@ -4040,11 +4040,11 @@ void ApplicationWindow::readSettings()
 #ifdef PLUGIN_PATH
     QString defaultFitPluginsPath = qApp->applicationDirPath() + PLUGIN_PATH;
 #else // defined PLUGIN_PATH
-#ifdef Q_OS_WIN
+#    ifdef Q_OS_WIN
     QString defaultFitPluginsPath = qApp->applicationDirPath() + "fitPlugins";
-#else // defined Q_OS_WIN
+#    else // defined Q_OS_WIN
     QString defaultFitPluginsPath = "/usr/lib/makhber/plugins";
-#endif
+#    endif
 #endif // defined PLUGIN_PATH
 #ifdef DYNAMIC_PLUGIN_PATH
     fitPluginsPath = settings.value("/FitPlugins", defaultFitPluginsPath).toString();

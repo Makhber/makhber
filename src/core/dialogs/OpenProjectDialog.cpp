@@ -36,9 +36,9 @@
 #include <QPushButton>
 #include <QCloseEvent>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#include <QStringConverter>
+#    include <QStringConverter>
 #else
-#include <QTextCodec>
+#    include <QTextCodec>
 #endif
 
 OpenProjectDialog::OpenProjectDialog(QWidget *parent, bool extended, Qt::WindowFlags flags)

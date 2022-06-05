@@ -50,8 +50,8 @@
 #include <QMdiArea>
 #include <QSettings>
 #ifdef SEARCH_FOR_UPDATES
-#include <QNetworkAccessManager>
-#include <QNetworkReply>
+#    include <QNetworkAccessManager>
+#    include <QNetworkReply>
 #endif
 
 class QPixmap;

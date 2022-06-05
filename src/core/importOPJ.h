@@ -36,9 +36,9 @@
 #include <OriginFile.h>
 
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#include <QStringConverter>
+#    include <QStringConverter>
 #else
-#include <QTextCodec>
+#    include <QTextCodec>
 #endif
 
 //! Origin project import class

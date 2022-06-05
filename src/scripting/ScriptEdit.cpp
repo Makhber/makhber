@@ -41,9 +41,9 @@
 #include <QFileDialog>
 #include <QTextStream>
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#include <QStringConverter>
+#    include <QStringConverter>
 #else
-#include <QTextCodec>
+#    include <QTextCodec>
 #endif
 #include <QTextBlock>
 #include <QKeyEvent>

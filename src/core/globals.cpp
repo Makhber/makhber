@@ -36,7 +36,7 @@
 #include <muParserDef.h>
 #include <gsl/gsl_version.h>
 #ifdef SCRIPTING_PYTHON
-#include <Python.h>
+#    include <Python.h>
 #endif
 
 #include <QMessageBox>

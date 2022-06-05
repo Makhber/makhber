@@ -34,11 +34,11 @@
 
 // get rid of a compiler warning
 #ifdef _POSIX_C_SOURCE
-#undef _POSIX_C_SOURCE
+#    undef _POSIX_C_SOURCE
 #endif
 #include <Python.h>
 #if PY_VERSION_HEX < 0x03090000
-#include <frameobject.h>
+#    include <frameobject.h>
 #endif
 
 #include "sip.h"
@@ -222,11 +222,11 @@ PythonScripting::PythonScripting(ApplicationWindow *parent, bool batch)
 #if QT_VERSION_MAJOR >= 6
     sipmod = PyImport_ImportModule("PyQt6.sip");
 #else
-#ifdef PYQT_SIP
+#    ifdef PYQT_SIP
     sipmod = PyImport_ImportModule("PyQt5.sip");
-#else
+#    else
     sipmod = PyImport_ImportModule("sip");
-#endif
+#    endif
 #endif
     if (sipmod) {
         sip = PyModule_GetDict(sipmod);
@@ -357,11 +357,11 @@ bool PythonScripting::setQObject(QObject *val, const char *name, PyObject *dict)
 #if QT_VERSION_MAJOR >= 6
     auto *PyQt_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt6.sip._C_API", 0));
 #else
-#ifdef PYQT_SIP
+#    ifdef PYQT_SIP
     auto *PyQt_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("PyQt5.sip._C_API", 0));
-#else
+#    else
     auto *PyQt_sip_CAPI = (const sipAPIDef *)(PyCapsule_Import("sip._C_API", 0));
-#endif
+#    endif
 #endif
     if (!PyQt_sip_CAPI)
         return false;

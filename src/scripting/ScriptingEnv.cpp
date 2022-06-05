@@ -31,12 +31,12 @@
 #include "scripting/Script.h"
 
 #ifdef SCRIPTING_MUPARSER
-#include "scripting/MuParserScript.h"
-#include "scripting/MuParserScripting.h"
+#    include "scripting/MuParserScript.h"
+#    include "scripting/MuParserScripting.h"
 #endif
 #ifdef SCRIPTING_PYTHON
-#include "scripting/PythonScript.h"
-#include "scripting/PythonScripting.h"
+#    include "scripting/PythonScript.h"
+#    include "scripting/PythonScripting.h"
 #endif
 
 #include <cstring>
