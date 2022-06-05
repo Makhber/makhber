@@ -1462,12 +1462,12 @@ void Graph::exportSVG(const QString &fname)
 #if QT_VERSION >= 0x040300
     QSvgGenerator svg;
     svg.setFileName(fname);
-#if QT_VERSION >= 0x040500
+#    if QT_VERSION >= 0x040500
     svg.setSize(d_plot->size());
     svg.setViewBox(d_plot->rect());
     svg.setResolution(96); // FIXME hardcored
     svg.setTitle(this->objectName());
-#endif
+#    endif
     exportPainter(svg);
 #endif
 }

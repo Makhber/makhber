@@ -75,7 +75,7 @@
 #include <QtDebug>
 #include <QMimeData>
 #if QT_VERSION >= QT_VERSION_CHECK(5, 10, 0)
-#include <QRandomGenerator>
+#    include <QRandomGenerator>
 #endif
 
 #include <climits> // for RAND_MAX

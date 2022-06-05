@@ -709,12 +709,12 @@ void MultiLayer::exportSVG(const QString &fname)
 #if QT_VERSION >= 0x040300
     QSvgGenerator generator;
     generator.setFileName(fname);
-#if QT_VERSION >= 0x040500
+#    if QT_VERSION >= 0x040500
     generator.setSize(canvas->size());
     generator.setViewBox(QRect(QPoint(0, 0), generator.size()));
     generator.setResolution(96); // FIXME hardcored
     generator.setTitle(this->name());
-#endif
+#    endif
     exportPainter(generator);
 #endif
 }
