@@ -80,15 +80,15 @@ private:
     int d_minTicks, d_majTicks;
 };
 
-class MAKHBER_EXPORT QwtTextScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT TextScaleDraw : public ScaleDraw
 {
 public:
-    explicit QwtTextScaleDraw(const QMap<int, QString> &list);
-    QwtTextScaleDraw(const ScaleDraw &other, const QMap<int, QString> &list)
+    explicit TextScaleDraw(const QMap<int, QString> &list);
+    TextScaleDraw(const ScaleDraw &other, const QMap<int, QString> &list)
         : ScaleDraw(other), labels(list)
     {
     }
-    ~QwtTextScaleDraw() {};
+    ~TextScaleDraw() {};
 
     QwtText label(double value) const override;
 
@@ -198,16 +198,15 @@ private:
     NameFormat d_format;
 };
 
-class MAKHBER_EXPORT QwtSupersciptsScaleDraw : public ScaleDraw
+class MAKHBER_EXPORT SupersciptsScaleDraw : public ScaleDraw
 {
 public:
-    QwtSupersciptsScaleDraw(const QString &s = {});
-    explicit QwtSupersciptsScaleDraw(const ScaleDraw &other, const QString &s = {})
-        : ScaleDraw(other)
+    SupersciptsScaleDraw(const QString &s = {});
+    explicit SupersciptsScaleDraw(const ScaleDraw &other, const QString &s = {}) : ScaleDraw(other)
     {
         setFormulaString(s);
     }
-    ~QwtSupersciptsScaleDraw() {};
+    ~SupersciptsScaleDraw() {};
 
     QwtText label(double value) const override;
 };

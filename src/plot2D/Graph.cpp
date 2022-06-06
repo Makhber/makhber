@@ -381,7 +381,7 @@ void Graph::setLabelsNumericFormat(int axis, int format, int prec, const QString
     const QwtScaleDiv div = sd_old->scaleDiv();
 
     if (format == Plot::Superscripts) {
-        auto *sd = new QwtSupersciptsScaleDraw(
+        auto *sd = new SupersciptsScaleDraw(
                 *dynamic_cast<const ScaleDraw *>(d_plot->axisScaleDraw(axis)),
                 formula.toUtf8().constData());
         sd->setLabelFormat('s', prec);
@@ -771,8 +771,8 @@ void Graph::setLabelsTextFormat(int axis, const Column *column, int startRow, in
     for (int row = startRow; row <= endRow; row++)
         if (!column->isInvalid(row))
             list.insert(row + 1, column->textAt(row));
-    auto *sd = new QwtTextScaleDraw(*dynamic_cast<const ScaleDraw *>(d_plot->axisScaleDraw(axis)),
-                                    list);
+    auto *sd =
+            new TextScaleDraw(*dynamic_cast<const ScaleDraw *>(d_plot->axisScaleDraw(axis)), list);
     sd->enableComponent(QwtAbstractScaleDraw::Labels, true);
     d_plot->setAxisScaleDraw(axis, sd);
 }
@@ -809,8 +809,8 @@ void Graph::setLabelsColHeaderFormat(int axis, Table *table)
     for (int col = 0; col < table->columnCount(); col++)
         if (table->colPlotDesignation(col) == Makhber::Y)
             list.insert(col, table->colLabel(col));
-    auto *sd = new QwtTextScaleDraw(*dynamic_cast<const ScaleDraw *>(d_plot->axisScaleDraw(axis)),
-                                    list);
+    auto *sd =
+            new TextScaleDraw(*dynamic_cast<const ScaleDraw *>(d_plot->axisScaleDraw(axis)), list);
     sd->enableComponent(QwtAbstractScaleDraw::Labels, true);
     d_plot->setAxisScaleDraw(axis, sd);
 }
@@ -4548,8 +4548,8 @@ void Graph::copy(ApplicationWindow *parent, Graph *g)
                      || axisType[i] == AxisType::DateTime)
                 setLabelsDateTimeFormat(i, axisType[i], axesFormatInfo[i]);
             else {
-                auto *tsd = dynamic_cast<QwtTextScaleDraw *>(plot->axisScaleDraw(i));
-                d_plot->setAxisScaleDraw(i, new QwtTextScaleDraw(tsd->labelsMap()));
+                auto *tsd = dynamic_cast<TextScaleDraw *>(plot->axisScaleDraw(i));
+                d_plot->setAxisScaleDraw(i, new TextScaleDraw(tsd->labelsMap()));
             }
         } else {
             d_plot->axisScaleDraw(i)->enableComponent(QwtAbstractScaleDraw::Labels, false);
@@ -4651,12 +4651,12 @@ void Graph::plotBoxDiagram(Table *w, const QStringList &names, int startRow, int
         mrk->setText(legendText());
 
     axisType[QwtPlot::xBottom] = AxisType::ColHeader;
-    d_plot->setAxisScaleDraw(QwtPlot::xBottom, new QwtTextScaleDraw(w->selectedYLabels()));
+    d_plot->setAxisScaleDraw(QwtPlot::xBottom, new TextScaleDraw(w->selectedYLabels()));
     d_plot->setAxisMaxMajor(QwtPlot::xBottom, names.count() + 1);
     d_plot->setAxisMaxMinor(QwtPlot::xBottom, 0);
 
     axisType[QwtPlot::xTop] = AxisType::ColHeader;
-    d_plot->setAxisScaleDraw(QwtPlot::xTop, new QwtTextScaleDraw(w->selectedYLabels()));
+    d_plot->setAxisScaleDraw(QwtPlot::xTop, new TextScaleDraw(w->selectedYLabels()));
     d_plot->setAxisMaxMajor(QwtPlot::xTop, names.count() + 1);
     d_plot->setAxisMaxMinor(QwtPlot::xTop, 0);
 

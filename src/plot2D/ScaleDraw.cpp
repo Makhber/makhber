@@ -130,13 +130,13 @@ void ScaleDraw::drawTick(QPainter *p, double value, double len) const
 
 /*****************************************************************************
  *
- * Class QwtTextScaleDraw
+ * Class TextScaleDraw
  *
  *****************************************************************************/
 
-QwtTextScaleDraw::QwtTextScaleDraw(const QMap<int, QString> &list) : labels(list) { }
+TextScaleDraw::TextScaleDraw(const QMap<int, QString> &list) : labels(list) { }
 
-QwtText QwtTextScaleDraw::label(double value) const
+QwtText TextScaleDraw::label(double value) const
 {
     const QwtScaleDiv scDiv = scaleDiv();
     if (!scDiv.contains(value))
@@ -289,16 +289,16 @@ QwtText MonthScaleDraw::label(double value) const
 
 /*****************************************************************************
  *
- * Class QwtSupersciptsScaleDraw
+ * Class SupersciptsScaleDraw
  *
  *****************************************************************************/
 
-QwtSupersciptsScaleDraw::QwtSupersciptsScaleDraw(const QString &s)
+SupersciptsScaleDraw::SupersciptsScaleDraw(const QString &s)
 {
     setFormulaString(s);
 }
 
-QwtText QwtSupersciptsScaleDraw::label(double value) const
+QwtText SupersciptsScaleDraw::label(double value) const
 {
     char f = 0;
     int prec = 0;
