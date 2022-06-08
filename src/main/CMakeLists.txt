@@ -89,9 +89,14 @@ if( RUNTIME_DIRS )
     endforeach()
     "
   )
-  find_package( OpenSSL REQUIRED )
-  find_file( OPENSSL_LIBSSL_DLL "libssl-1_1-x64.dll" PATHS ${RUNTIME_DIRS} REQUIRED )
-  find_file( OPENSSL_LIBCRYPTO_DLL "libcrypto-1_1-x64.dll" PATHS ${RUNTIME_DIRS} REQUIRED )
+  find_package( OpenSSL 1.1 REQUIRED )
+  if( OpenSSl_VERSION VERSION_LESS 3 )
+    set( SSL_VERSION "3" )
+  else()
+    set( SSL_VERSION "1_1" )
+  endif()
+  find_file( OPENSSL_LIBSSL_DLL "libssl-${SSL_VERSION}-x64.dll" PATHS ${RUNTIME_DIRS} REQUIRED )
+  find_file( OPENSSL_LIBCRYPTO_DLL "libcrypto-${SSL_VERSION}-x64.dll" PATHS ${RUNTIME_DIRS} REQUIRED )
   install( CODE "
     execute_process(
       COMMAND \"${CMAKE_COMMAND}\" -E
