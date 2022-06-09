@@ -129,7 +129,8 @@ inline size_t qHash(const tree<Origin::ProjectNode>::iterator &key)
 bool ImportOPJ::createProjectTree(const OriginFile &opj)
 {
     const tree<Origin::ProjectNode> *projectTree = opj.project();
-    tree<Origin::ProjectNode>::iterator root = projectTree->begin(projectTree->begin());
+    tree<Origin::ProjectNode>::iterator root =
+            tree<Origin::ProjectNode>::pre_order_iterator(projectTree->begin(projectTree->begin()));
     if (!root.node)
         return false;
     auto *item = dynamic_cast<FolderListItem *>(mw->folders.topLevelItem(0));
@@ -142,9 +143,10 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
          sib != projectTree->end(root); ++sib) {
         if (sib->type == Origin::ProjectNode::Folder) {
 
-            auto &f = parent.value(projectTree->parent(sib))
+            auto &f = parent.value(tree<Origin::ProjectNode>::pre_order_iterator(
+                                           projectTree->parent(sib)))
                               ->addChild<Folder>(decodeMbcs(sib->name.c_str()));
-            parent[sib] = &f;
+            parent[tree<Origin::ProjectNode>::pre_order_iterator(sib)] = &f;
             f.setBirthDate(posixTimeToString(sib->creationDate));
             f.setModificationDate(posixTimeToString(sib->modificationDate));
             mw->addFolderListViewItem(&f);
@@ -186,7 +188,8 @@ bool ImportOPJ::createProjectTree(const OriginFile &opj)
             MyWidget *w = projectFolder->window(name, nodetype);
             while (w) { // Origin window names are unique, but we need to loop on all sheets of
                         // Excel windows
-                Folder *f = parent.value(projectTree->parent(sib));
+                Folder *f = parent.value(
+                        tree<Origin::ProjectNode>::pre_order_iterator(projectTree->parent(sib)));
                 if (f) {
                     if (f == parent[root])
                         break; // skip windows that go to root folder
