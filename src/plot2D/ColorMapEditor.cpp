@@ -129,7 +129,7 @@ void ColorMapEditor::setColorMap(const QwtLinearColorMap *map)
     }
     table->blockSignals(false);
 
-    // color_map = map;
+    color_map = new QwtLinearColorMap(map->color1(), map->color2(), map->format());
 }
 
 void ColorMapEditor::setRange(double min, double max)
