@@ -54,19 +54,6 @@ jobs:
         with:
           submodules: true
 
-      - name: Restore cached Qt
-        id: cache-qt
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: ${{ env.QT_VER }}
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-          dir: ${{ github.workspace }}/Qt
 
       - name: Setup NuGet Credentials
         run: |
@@ -78,7 +65,11 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps openssl pkgconf
+          vcpkg install qt5-svg qt5-tools qt5-translations zlib gsl muparser opengl gl2ps openssl pkgconf
+
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.10'
 
       - name: Install Python packages
         run: |
@@ -95,7 +86,7 @@ jobs:
             -DBUILD_SHARED_LIBS=ON `
             -DVCPKG_TARGET_TRIPLET="$Env:VCPKG_DEFAULT_TRIPLET" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
-            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT\installed\$Env:VCPKG_DEFAULT_TRIPLET\bin;$Env:Qt5_DIR\bin"
+            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT\installed\$Env:VCPKG_DEFAULT_TRIPLET\bin"
 
       - name: Building
         run: |
@@ -118,8 +109,6 @@ jobs:
   macos:
     runs-on: macos-latest
     name: macos
-    env:
-      QT_VER: 5.15.2
 
     steps:
       - name: Checkout
@@ -127,28 +116,15 @@ jobs:
         with:
           submodules: true
 
-      - name: Cache Qt
-        id: cache-qt
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
-
-      - name: Install Qt
-        uses: jurplel/install-qt-action@v2
-        with:
-          version: ${{ env.QT_VER }}
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
-          dir: ${{ github.workspace }}/Qt
-
       - name: Install prerequisties
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
-          brew install --display-times muparser gsl gl2ps
+          brew install --display-times muparser gsl gl2ps qt@5
 
       - name: Configuring
         run: |
+          export PATH=/usr/local/opt/qt@5/bin:$PATH
           mkdir build && cd build
           cmake .. \
             -DCMAKE_BUILD_TYPE=Release
@@ -188,7 +164,7 @@ jobs:
       - name: Building & Packaging
         id: snap_build
         run: |
-          snapcraft --debug --destructive-mode --enable-experimental-extensions
+          snapcraft --debug --destructive-mode
           echo "::set-output name=snap::$(echo $(ls *.snap))"
 
       - name: Upload Snap
