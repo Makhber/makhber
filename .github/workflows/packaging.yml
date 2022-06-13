@@ -94,6 +94,7 @@ jobs:
 
       - name: Packaging
         run: |
+          $Env:PATH = "C:/vcpkg/installed/$Env:VCPKG_DEFAULT_TRIPLET/tools/qt5/bin;$Env:PATH"
           cd build
           cpack -G NSIS
 
