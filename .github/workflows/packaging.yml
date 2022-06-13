@@ -324,6 +324,7 @@ jobs:
 
       - name: Install prerequisties
         run: |
+          sudo apt remove -y libgsl23 libgslcblas0
           sudo apt install -y --no-install-recommends \
             libglu1-mesa-dev \
             libgl2ps-dev \
