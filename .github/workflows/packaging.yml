@@ -44,7 +44,8 @@ jobs:
     name: Windows
     runs-on: windows-2022
     env:
-      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
+      VCPKG_DEFAULT_TRIPLET: x64-windows-release
       QT_VER: 5.15.2
 
     steps:
@@ -77,8 +78,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\x64-windows.cmake "set(VCPKG_BUILD_TYPE release)"
-          vcpkg install zlib gsl muparser opengl gl2ps openssl pkgconf --triplet x64-windows
+          vcpkg install zlib gsl muparser opengl gl2ps openssl pkgconf
 
       - name: Install Python packages
         run: |
@@ -93,8 +93,9 @@ jobs:
             -DPython3_ROOT_DIR=${{ env.pythonLocation }} `
             -DMAKHBER_SCRIPTING_PYTHON=ON `
             -DBUILD_SHARED_LIBS=ON `
+            -DVCPKG_TARGET_TRIPLET="$Env:VCPKG_DEFAULT_TRIPLET" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
-            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows/bin;$Env:Qt5_DIR\bin"
+            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT\installed\$Env:VCPKG_DEFAULT_TRIPLET\bin;$Env:Qt5_DIR\bin"
 
       - name: Building
         run: |
@@ -275,7 +276,8 @@ jobs:
     runs-on: ubuntu-18.04
     name: AppImage
     env:
-      VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
+      VCPKG_DEFAULT_TRIPLET: x64-linux-release
       QT_VER: 5.15.2
       PYTHON_VERSION: 3.9
 
@@ -336,6 +338,7 @@ jobs:
             -DCMAKE_BUILD_TYPE=Release \
             -DBUILD_SHARED_LIBS=ON \
             -DOpenGL_GL_PREFERENCE=LEGACY \
+            -DVCPKG_TARGET_TRIPLET="$VCPKG_DEFAULT_TRIPLET" \
             -DCMAKE_TOOLCHAIN_FILE=$VCPKG_INSTALLATION_ROOT/scripts/buildsystems/vcpkg.cmake
 
       - name: Building

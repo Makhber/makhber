@@ -76,6 +76,7 @@ jobs:
     runs-on: windows-latest
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
+      VCPKG_DEFAULT_TRIPLET: x64-windows
       QT_VER: 5.15.2
 
     steps:
@@ -108,7 +109,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf --triplet x64-windows
+          vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf
 
       - uses: actions/setup-python@v3
         with:
