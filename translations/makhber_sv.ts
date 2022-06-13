@@ -11891,6 +11891,11 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../src/core/globals.cpp" line="89"/>
+        <source>Makhber was built with the fellowing libraries: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../src/core/ApplicationWindow.cpp" line="11068"/>
         <location filename="../src/core/globals.cpp" line="88"/>
         <source>Released</source>
