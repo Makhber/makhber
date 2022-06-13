@@ -124,14 +124,10 @@ private:
         if (accept_any_decimal_separator) {
             QString decimalSeparator =
                     locale.decimalPoint(); // get the decimal separator for this locale
-            QString foreignSeparator = decimalSeparator; // safeguard initialization just in case
-                                                         // there are other decimal separators.
-            if ('.' == decimalSeparator)
-                foreignSeparator = ',';
-            if (',' == decimalSeparator)
-                foreignSeparator = '.';
-
-            tstr.replace(foreignSeparator, decimalSeparator);
+            if (decimalSeparator != '.')
+                tstr.replace('.', decimalSeparator);
+            if (decimalSeparator != ',')
+                tstr.replace(',', decimalSeparator);            
         }
         value = locale.toDouble(tstr, &ok);
 
