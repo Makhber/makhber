@@ -81,6 +81,10 @@
       {
         "name": "msys2",
         "configurePreset": "msys2"
+      },
+      {
+        "name": "msys2-qt5",
+        "configurePreset": "msys2-qt5"
       }
     ],
     "testPresets": [
@@ -101,6 +105,13 @@
       {
         "name": "msys2",
         "configurePreset": "msys2",
+        "output": {
+          "outputOnFailure": true
+        }
+      },
+      {
+        "name": "msys2-qt5",
+        "configurePreset": "msys2-qt5",
         "output": {
           "outputOnFailure": true
         }
