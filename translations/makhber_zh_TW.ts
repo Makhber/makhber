@@ -12649,27 +12649,27 @@ Try to copy the &apos;makhberrc.py&apos; to the current PYTHONPATH, HOME or work
         <translation>&lt;/h4&gt;&lt;p&gt;請確認你有權寫入此位置！</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1028"/>
+        <location filename="../src/table/Table.cpp" line="1033"/>
         <source>Do you want to hide or delete</source>
         <translation>你想要隱藏或刪除</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1032"/>
+        <location filename="../src/table/Table.cpp" line="1037"/>
         <source>Delete</source>
         <translation>刪除</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1031"/>
+        <location filename="../src/table/Table.cpp" line="1036"/>
         <source>Hide</source>
         <translation>隱藏</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1223"/>
+        <location filename="../src/table/Table.cpp" line="1228"/>
         <source>%1: apply formula to column</source>
         <translation>%1: 將公式應用於列</translation>
     </message>
     <message>
-        <location filename="../src/table/Table.cpp" line="1027"/>
+        <location filename="../src/table/Table.cpp" line="1032"/>
         <source>Makhber</source>
         <translation type="unfinished"></translation>
     </message>

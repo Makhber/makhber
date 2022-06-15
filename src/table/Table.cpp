@@ -935,6 +935,11 @@ bool Table::exportASCII(const QString &fname, const QString &separator, bool wit
     }
 
     QTextStream out(&file);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    out.setEncoding(QStringConverter::Utf8);
+#else
+    out.setCodec(QTextCodec::codecForName("UTF-8"));
+#endif
     int i = 0, j = 0;
     int rows = numRows();
     int cols = numCols();
