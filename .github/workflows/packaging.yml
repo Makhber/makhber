@@ -184,7 +184,7 @@ jobs:
           files: build/Makhber*.dmg
 
   Snap:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     name: Snap
 
     steps:
@@ -200,7 +200,7 @@ jobs:
       - name: Building & Packaging
         id: snap_build
         run: |
-          snapcraft --debug --destructive-mode
+          sudo snapcraft --debug --destructive-mode
           echo "::set-output name=snap::$(echo $(ls *.snap))"
 
       - name: Upload Snap
