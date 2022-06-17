@@ -7170,8 +7170,13 @@ void ApplicationWindow::windowsMenuAboutToShow()
     windowsMenu->addSeparator();
     windowsMenu->addAction(actionResizeActiveWindow);
     windowsMenu->addAction(tr("&Hide Window"), this, SLOT(hideActiveWindow()));
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
+    windowsMenu->addAction(QPixmap(":/close.xpm"), tr("Close &Window"), QKeySequence::Close, this,
+                           SLOT(closeActiveWindow()));
+#else
     windowsMenu->addAction(QPixmap(":/close.xpm"), tr("Close &Window"), this,
                            SLOT(closeActiveWindow()), QKeySequence::Close);
+#endif
 
     if (n > 0 && n < 10) {
         windowsMenu->addSeparator();
@@ -7432,7 +7437,11 @@ void ApplicationWindow::deleteSelectedItems()
 QMenu *ApplicationWindow::showListViewSelectionMenuImpl()
 {
     auto *cm = new QMenu(this);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
+    cm->addAction(tr("&Delete Selection"), Qt::Key_F8, this, SLOT(deleteSelectedItems()));
+#else
     cm->addAction(tr("&Delete Selection"), this, SLOT(deleteSelectedItems()), Qt::Key_F8);
+#endif
     return cm;
 }
 
@@ -7447,8 +7456,13 @@ QMenu *ApplicationWindow::showListViewPopupMenuImpl()
     window_menu->addAction(actionNewGraph);
     window_menu->addAction(actionNewFunctionPlot);
     window_menu->addAction(actionNewSurfacePlot);
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
+    cm->addAction(QPixmap(":/newfolder.xpm"), tr("New F&older"), Qt::Key_F7, this,
+                  SLOT(addFolder()));
+#else
     cm->addAction(QPixmap(":/newfolder.xpm"), tr("New F&older"), this, SLOT(addFolder()),
                   Qt::Key_F7);
+#endif
     cm->addSeparator();
     cm->addAction(tr("Auto &Column Width"), &lv, SLOT(adjustColumns()));
     return cm;
@@ -11677,9 +11691,15 @@ QMenu *ApplicationWindow::showFolderPopupMenuImpl(QTreeWidgetItem *it, bool from
     }
 
     if ((dynamic_cast<FolderListItem *>(it))->folder()->parent()) {
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
+        cm->addAction(QPixmap(":/close.xpm"), tr("&Delete Folder"), Qt::Key_F8, this,
+                      SLOT(deleteFolder()));
+        cm->addAction(tr("&Rename"), Qt::Key_F2, this, SLOT(startRenameFolder()));
+#else
         cm->addAction(QPixmap(":/close.xpm"), tr("&Delete Folder"), this, SLOT(deleteFolder()),
                       Qt::Key_F8);
         cm->addAction(tr("&Rename"), this, SLOT(startRenameFolder()), Qt::Key_F2);
+#endif
         cm->addSeparator();
     }
 
@@ -11693,8 +11713,13 @@ QMenu *ApplicationWindow::showFolderPopupMenuImpl(QTreeWidgetItem *it, bool from
         window_menu->addAction(actionNewSurfacePlot);
     }
 
+#if QT_VERSION >= QT_VERSION_CHECK(6, 3, 0)
+    cm->addAction(QPixmap(":/newfolder.xpm"), tr("New F&older"), Qt::Key_F7, this,
+                  SLOT(addFolder()));
+#else
     cm->addAction(QPixmap(":/newfolder.xpm"), tr("New F&older"), this, SLOT(addFolder()),
                   Qt::Key_F7);
+#endif
     cm->addSeparator();
 
     QMenu *viewWindowsMenu = cm->addMenu(tr("&View Windows"));
