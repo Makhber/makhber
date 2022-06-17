@@ -137,6 +137,7 @@ parts:
       - g++
       - libgl-dev
       - libgles-dev
+      - libpython3-dev
       - python3-pip
     stage-packages:
       - libqt5svg5
