@@ -54,6 +54,7 @@ parts:
       - libqt5svg5-dev
       - libqt5opengl5-dev
       - qttools5-dev
+      - pkgconf
     stage-packages:
       - libglu1-mesa
       - libpython3.10
