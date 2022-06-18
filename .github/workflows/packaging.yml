@@ -103,6 +103,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install zlib gsl muparser opengl gl2ps openssl pkgconf
 
       - name: Install Python packages
@@ -368,6 +369,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          echo "set(VCPKG_BUILD_TYPE release)" >> $VCPKG_INSTALLATION_ROOT/triplets/$VCPKG_DEFAULT_TRIPLET.cmake
           vcpkg install gsl muparser
 
       - name: Configuring
