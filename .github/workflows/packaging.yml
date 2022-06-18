@@ -45,7 +45,7 @@ jobs:
     runs-on: windows-2022
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
-      VCPKG_DEFAULT_TRIPLET: x64-windows-release
+      VCPKG_DEFAULT_TRIPLET: x64-windows
       QT_VER: 5.15.2
 
     steps:
@@ -65,6 +65,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install qt5-svg qt5-tools qt5-translations zlib gsl muparser opengl gl2ps openssl pkgconf
 
       - uses: actions/setup-python@v3
@@ -254,7 +255,7 @@ jobs:
     name: AppImage
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
-      VCPKG_DEFAULT_TRIPLET: x64-linux-release
+      VCPKG_DEFAULT_TRIPLET: x64-linux
       QT_VER: 5.15.2
       PYTHON_VERSION: 3.9
 
@@ -304,6 +305,7 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          echo "set(VCPKG_BUILD_TYPE release)" >> $VCPKG_INSTALLATION_ROOT/triplets/$VCPKG_DEFAULT_TRIPLET.cmake
           vcpkg install gsl muparser
 
       - name: Configuring
