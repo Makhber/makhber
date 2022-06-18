@@ -44,7 +44,7 @@ jobs:
     runs-on: windows-2022
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
-      VCPKG_DEFAULT_TRIPLET: x64-windows-release
+      VCPKG_DEFAULT_TRIPLET: x64-windows
       QT_VER: 5.15.2
       QWT_VER: 6.2.0
 
@@ -121,7 +121,7 @@ jobs:
             -DVCPKG_TARGET_TRIPLET="$Env:VCPKG_DEFAULT_TRIPLET" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DCMAKE_PREFIX_PATH="$Env:GITHUB_WORKSPACE\Qwt" `
-            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/x64-windows-release/bin;$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:Qt5_DIR\bin"
+            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/$Env:VCPKG_DEFAULT_TRIPLET/bin;$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:Qt5_DIR\bin"
 
       - name: Building
         run: |
@@ -289,7 +289,7 @@ jobs:
     name: AppImage
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
-      VCPKG_DEFAULT_TRIPLET: x64-linux-release
+      VCPKG_DEFAULT_TRIPLET: x64-linux
       QT_VER: 5.15.2
       QWT_VER: 6.2.0
       PYTHON_VERSION: 3.9
