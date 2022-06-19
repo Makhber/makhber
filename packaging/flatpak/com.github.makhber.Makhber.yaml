@@ -129,7 +129,7 @@ modules:
           packagetype: bdist_wheel
           type: pypi
     cleanup:
-      - "*"
+      - '*'
 
   - name: python3-pyqt-builder
     buildsystem: simple
@@ -152,22 +152,22 @@ modules:
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/d9/41/d9cfb4410589805cd787f8a82cddd13142d9bf7449d12adf2d05a4a7d633/pyparsing-3.0.8-py3-none-any.whl
-        sha256: ef7b523f6356f763771559412c0d7134753f037822dad1b16945b7b846f7ad06
+        url: https://files.pythonhosted.org/packages/6c/10/a7d0fa5baea8fe7b50f448ab742f26f52b80bfca85ac2be9d35cdd9a3246/pyparsing-3.0.9-py3-none-any.whl
+        sha256: 5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc
         x-checker-data:
           name: pyparsing
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/e4/55/db354bd9dfa613c8f8f6ecb81617caefdfb3e77befba098f8e14ed95e385/PyQt_builder-1.12.2-py3-none-any.whl
-        sha256: 48f754394d235307201ec2b5355934858741201af09433ff543ca40ae57b7865
+        url: https://files.pythonhosted.org/packages/b8/80/dfcc80e48bcac4fe60cec378d116ec805ed180474fbfecc3fad33583d35b/PyQt_builder-1.13.0-py3-none-any.whl
+        sha256: e3b32eebf4519515f86abd1b908c3cdae613c0614cfbb09b6acaca3db0f5a0c2
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/c6/08/34642c4db19e9d41f43640547c5a997cb9b12b512f8c61d0d476e8b9e883/sip-6.6.1.tar.gz
-        sha256: 696c575c72144122701171f2cc767fe6cc87050ea755a04909152a8508ae10c3
+        url: https://files.pythonhosted.org/packages/5b/cb/c27c925ae07bd03a2597fa1db17bfc2a4ac57da61aeb90f8ec98ffbb975b/sip-6.6.2.tar.gz
+        sha256: 0e3efac1c5dfd8e525ae57140927df26993e13f58b89d1577c314f4105bfd90d
         x-checker-data:
           name: sip
           type: pypi
@@ -179,7 +179,7 @@ modules:
           packagetype: bdist_wheel
           type: pypi
     cleanup:
-      - "*"
+      - '*'
 
   - name: pyqt5-sip
     buildsystem: simple
@@ -187,8 +187,8 @@ modules:
       - python3 setup.py install --prefix=/app
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/a3/82/08a09deda701feb930aa6462f2f22e07cbcb9aa7c1ef361a090221b4587e/PyQt5_sip-12.10.1.tar.gz
-        sha256: 97e008795c453488f51a5c97dbff29cda7841afb1ca842c9e819d8e6cc0ae724
+        url: https://files.pythonhosted.org/packages/39/5f/fd9384fdcb9cd0388088899c110838007f49f5da1dd1ef6749bfb728a5da/PyQt5_sip-12.11.0.tar.gz
+        sha256: b4710fd85b57edef716cc55fae45bfd5bfac6fc7ba91036f1dcc3f331ca0eb39
         x-checker-data:
           type: pypi
           name: PyQt5-sip
@@ -207,8 +207,8 @@ modules:
         QtX11Extras --disable QtXml --disable QtXmlPatterns --verbose --jobs $(nproc)
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/3b/27/fd81188a35f37be9b3b4c2db1654d9439d1418823916fe702ac3658c9c41/PyQt5-5.15.6.tar.gz
-        sha256: 80343bcab95ffba619f2ed2467fd828ffeb0a251ad7225be5fc06dcc333af452
+        url: https://files.pythonhosted.org/packages/e1/57/2023316578646e1adab903caab714708422f83a57f97eb34a5d13510f4e1/PyQt5-5.15.7.tar.gz
+        sha256: 755121a52b3a08cb07275c10ebb96576d36e320e572591db16cfdbc558101594
         x-checker-data:
           type: pypi
           name: PyQt5
