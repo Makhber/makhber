@@ -1,5 +1,23 @@
 # Changelog
 
+## Makhber 0.9.6
+
+Released: 21-06-2022
+
+### General
+
+- Don't check for pre-releases.
+- Update dependencies.
+
+### Python
+
+- Drop Python2
+
+### Packaging
+
+- Generate packages for Ubuntu 22.04 and Fedora 36
+- Build shared libraries.
+
 ## Makhber 0.9.5.3
 
 Released: 18-04-2022
