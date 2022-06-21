@@ -178,13 +178,6 @@ jobs:
           draft: true
           files: ${{ steps.snap_build.outputs.snap }}
 
-      - uses: snapcore/action-publish@v1
-        if: ${{ github.repository_owner == 'Makhber' }}
-        with:
-          store_login: ${{ secrets.SNAP_STORE_LOGIN }}
-          snap: ${{ steps.snap_build.outputs.snap }}
-          release: beta
-
       - name: Installing
         run: |
           sudo snap install --dangerous *.snap
