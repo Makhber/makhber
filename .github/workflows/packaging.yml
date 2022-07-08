@@ -103,6 +103,8 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          cd $Env:VCPKG_INSTALLATION_ROOT
+          git pull origin master
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install zlib gsl muparser opengl gl2ps openssl pkgconf
 
@@ -153,9 +155,8 @@ jobs:
           submodules: true
 
       - name: Install prerequisties
-        env:
-          HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
+          brew update
           brew install --display-times qwt-qt5 muparser gsl gl2ps
 
       - name: Configuring
@@ -369,6 +370,8 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          cd $VCPKG_INSTALLATION_ROOT
+          git pull origin master
           echo "set(VCPKG_BUILD_TYPE release)" >> $VCPKG_INSTALLATION_ROOT/triplets/$VCPKG_DEFAULT_TRIPLET.cmake
           vcpkg install gsl muparser
 

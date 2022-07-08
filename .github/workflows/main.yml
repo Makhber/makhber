@@ -187,6 +187,8 @@ jobs:
 
       - name: vcpkg package restore
         run: |
+          cd $Env:VCPKG_INSTALLATION_ROOT
+          git pull origin master
           vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf
 
       - uses: actions/setup-python@v3
@@ -260,9 +262,8 @@ jobs:
           dir: ${{ github.workspace }}/Qt
 
       - name: Install prerequisties
-        env:
-          HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
+          brew update
           brew install --display-times muparser gsl gl2ps googletest
 
       - name: Restore cached Qwt
