@@ -101,7 +101,7 @@ QString conv<QString>(const QString &x)
 template<>
 qreal conv<qreal>(const QString &x)
 {
-    return (qreal)(QLocale().toDouble(x));
+    return (qreal)(QLocale::c().toDouble(x));
 }
 
 template<class T>
