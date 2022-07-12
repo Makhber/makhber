@@ -2554,6 +2554,7 @@ TableStatistics *ApplicationWindow::newTableStatistics(Table *base, int type, QL
             new TableStatistics(scriptEnv, &d_workspace, base, (TableStatistics::Type)type, target);
     if (!caption.isEmpty())
         s->setName(caption);
+    initTable(s);
 
     d_project->addChild(s->d_future_table);
     connect(base, SIGNAL(modifiedData(Table *, const QString &)), s,
