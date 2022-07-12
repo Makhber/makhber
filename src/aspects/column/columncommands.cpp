@@ -40,9 +40,9 @@ ColumnSetModeCmd::ColumnSetModeCmd(Column::Private *col, Makhber::ColumnMode mod
                                    AbstractFilter *conversion_filter, QUndoCommand *parent)
     : QUndoCommand(parent),
       d_col(col),
-      d_old_mode(mode),
+      d_old_mode(col->columnMode()),
       d_mode(mode),
-      d_old_type(Makhber::ColumnDataType::TypeDouble),
+      d_old_type(col->dataType()),
       d_new_type(Makhber::ColumnDataType::TypeDouble),
       d_conversion_filter(conversion_filter)
 {

@@ -98,6 +98,7 @@ Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owne
     case Makhber::ColumnMode::Month: {
         d_input_filter = new String2MonthFilter();
         d_output_filter = new DateTime2StringFilter();
+        d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
         dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("MMMM");
         connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
@@ -108,6 +109,7 @@ Column::Private::Private(Column *owner, Makhber::ColumnMode mode) : d_owner(owne
     case Makhber::ColumnMode::Day: {
         d_input_filter = new String2DayOfWeekFilter();
         d_output_filter = new DateTime2StringFilter();
+        d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
         dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("dddd");
         connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
@@ -163,6 +165,7 @@ Column::Private::Private(Column *owner, Makhber::ColumnDataType type, Makhber::C
     case Makhber::ColumnMode::Month: {
         d_input_filter = new String2MonthFilter();
         d_output_filter = new DateTime2StringFilter();
+        d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
         dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("MMMM");
         connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
@@ -171,6 +174,7 @@ Column::Private::Private(Column *owner, Makhber::ColumnDataType type, Makhber::C
     case Makhber::ColumnMode::Day: {
         d_input_filter = new String2DayOfWeekFilter();
         d_output_filter = new DateTime2StringFilter();
+        d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
         dynamic_cast<DateTime2StringFilter *>(d_output_filter)->setFormat("dddd");
         connect(dynamic_cast<DateTime2StringFilter *>(d_output_filter), SIGNAL(formatChanged()),
                 d_owner, SLOT(notifyDisplayChange()));
@@ -312,6 +316,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
     case Makhber::ColumnMode::Month: {
         new_in_filter = new String2MonthFilter();
         new_out_filter = new DateTime2StringFilter();
+        d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
         if ((Makhber::ColumnMode::DateTime != old_mode) && (Makhber::ColumnMode::Month != old_mode)
             && (Makhber::ColumnMode::Day != old_mode)) {
             d_data = new QList<QDateTime>();
@@ -341,6 +346,7 @@ void Column::Private::setColumnMode(Makhber::ColumnMode new_mode, AbstractFilter
     case Makhber::ColumnMode::Day: {
         new_in_filter = new String2DayOfWeekFilter();
         new_out_filter = new DateTime2StringFilter();
+        d_numeric_datetime_filter.reset(new NumericDateTimeBaseFilter());
         if ((Makhber::ColumnMode::DateTime != old_mode) && (Makhber::ColumnMode::Month != old_mode)
             && (Makhber::ColumnMode::Day != old_mode)) {
             d_data = new QList<QDateTime>();
