@@ -35,10 +35,10 @@ jobs:
           key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: ${{ matrix.QT_VER }}
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
       - name: Install prerequisties
@@ -146,10 +146,10 @@ jobs:
           key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: ${{ matrix.QT_VER }}
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
       - name: Restore cached Qwt
@@ -256,11 +256,11 @@ jobs:
 
       - name: Install Qt
         if: ${{ matrix.QT_VER == '6.3.1' }}
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           setup-python: false
           version: ${{ matrix.QT_VER }}
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
       - name: Install prerequisties
