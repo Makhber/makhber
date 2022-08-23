@@ -145,7 +145,7 @@ jobs:
             build/Makhber*.exe
 
   macos:
-    runs-on: macos-10.15
+    runs-on: macos-11
     name: macos
 
     steps:
@@ -287,7 +287,7 @@ jobs:
           tree $HOME/.local/share/flatpak/app/com.github.makhber.Makhber/x86_64/master/active/files
 
   AppImage:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     name: AppImage
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
@@ -320,7 +320,7 @@ jobs:
           dir: ${{ github.workspace }}/Qt
 
       # Python version used to build makhber must be the same for miniconda
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '${{ env.PYTHON_VERSION }}'
 
@@ -371,7 +371,6 @@ jobs:
       - name: vcpkg package restore
         run: |
           cd $VCPKG_INSTALLATION_ROOT
-          git pull origin master
           echo "set(VCPKG_BUILD_TYPE release)" >> $VCPKG_INSTALLATION_ROOT/triplets/$VCPKG_DEFAULT_TRIPLET.cmake
           vcpkg install gsl muparser
 

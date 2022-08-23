@@ -85,7 +85,7 @@ jobs:
           make -j$(nproc)
           make install
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
@@ -191,7 +191,7 @@ jobs:
           git pull origin master
           vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
