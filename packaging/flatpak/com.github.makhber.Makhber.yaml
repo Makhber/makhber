@@ -1,7 +1,7 @@
 app-id: com.github.makhber.Makhber
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-21.08
+runtime-version: 5.15-22.08
 command: makhber
 finish-args:
   - --share=ipc
@@ -70,7 +70,7 @@ modules:
           type: anitya
           project-id: 4147
           stable-only: true
-          url-template: http://downloads.sourceforge.net/qwt/qwt-%{version}.tar.bz2
+          url-template: http://downloads.sourceforge.net/qwt/qwt-$version.tar.bz2
     cleanup:
       - /lib/pkgconfig
       - /include
@@ -181,12 +181,13 @@ modules:
     cleanup:
       - '*'
 
-  - name: pyqt5-sip
+  - name: python3-pyqt5-sip
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=/app
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pyqt5-sip" --no-build-isolation
     sources:
-      - type: archive
+      - type: file
         url: https://files.pythonhosted.org/packages/39/5f/fd9384fdcb9cd0388088899c110838007f49f5da1dd1ef6749bfb728a5da/PyQt5_sip-12.11.0.tar.gz
         sha256: b4710fd85b57edef716cc55fae45bfd5bfac6fc7ba91036f1dcc3f331ca0eb39
         x-checker-data:
@@ -196,9 +197,9 @@ modules:
   - name: pyqt5
     buildsystem: simple
     build-commands:
-      - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.9/site-packages
-        --concatenate $(nproc) --no-designer-plugin --no-qml-plugin --no-tools --disable
-        QtQml --disable QtBluetooth --disable QtDBus --disable QtDesigner --disable
+      - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.10/site-packages
+        --no-designer-plugin --no-qml-plugin --no-tools --disable QtQml
+        --disable QtBluetooth --disable QtDBus --disable QtDesigner --disable
         QtHelp --disable QtMultimedia --disable QtMultimediaWidgets --disable QtNfc
         --disable QtRemoteObjects --disable QtPositioning --disable QtLocation --disable
         QtQuick --disable QtQuickWidgets --disable QtSensors --disable QtSerialPort
@@ -213,7 +214,7 @@ modules:
           type: pypi
           name: PyQt5
     cleanup:
-      - /lib/python3.9/site-packages/PyQt5/bindings
+      - /lib/python3.10/site-packages/PyQt5/bindings
 
   - name: makhber
     buildsystem: cmake-ninja
