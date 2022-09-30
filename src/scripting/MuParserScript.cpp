@@ -296,11 +296,25 @@ double MuParserScript::tableColumn__Function(const mu::string_type::value_type *
     Table *targetTable =
             thisTable->folder()->rootFolder()->table(QStringFromString(tableName), true);
     if (!targetTable)
-        throw MuException(tr("Couldn't find a table named %1.").arg(tableName));
+#ifdef _UNICODE
+        throw MuException(
+                tr("Couldn't find a table named %1.").arg(QString::fromStdWString(tableName)));
+#else
+        throw MuException(
+                tr("Couldn't find a table named %1.").arg(QString::fromStdString(tableName)));
+#endif
     Column *column = targetTable->d_future_table->column(qRound(columnIndex) - 1);
     if (!column)
         throw MuException(
-                tr("There's no column %1 in table %2!").arg(qRound(columnIndex)).arg(tableName));
+#ifdef _UNICODE
+                tr("There's no column %1 in table %2!")
+                        .arg(qRound(columnIndex))
+                        .arg(QString::fromStdWString(tableName)));
+#else
+                tr("There's no column %1 in table %2!")
+                        .arg(qRound(columnIndex))
+                        .arg(QString::fromStdString(tableName)));
+#endif
     int row = qRound(s_currentInstance->m_variables["i"]) - 1;
     if (column->isInvalid(row))
         throw new EmptySourceError();

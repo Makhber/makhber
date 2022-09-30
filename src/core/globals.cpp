@@ -95,7 +95,11 @@ void Makhber::about()
 #ifdef MUP_VERSION
                                + "\nmuParser: " + MUP_VERSION);
 #else
+#    ifdef _UNICODE
+                               + "\nmuParser: " + QString::fromStdWString(mu::ParserVersion));
+#    else
                                + "\nmuParser: " + QString::fromStdString(mu::ParserVersion));
+#    endif
 #endif
     dialog->exec();
 }

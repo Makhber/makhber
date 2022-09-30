@@ -9162,8 +9162,9 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location filename="../src/scripting/MuParserScript.cpp" line="264"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="303"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="348"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="310"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="314"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="362"/>
         <source>There&apos;s no column %1 in table %2!</source>
         <translation>Kolumny %1 nie ma w tabeli %2!</translation>
     </message>
@@ -9173,47 +9174,48 @@ p, li { white-space: pre-wrap; }
         <translation>tablecol() działa tylko na tabelach!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="299"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="445"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="454"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="460"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="301"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="304"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="459"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="468"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="474"/>
         <source>Couldn&apos;t find a table named %1.</source>
         <translation>Nie można znaleźć tabeli %1.</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="345"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="367"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="359"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="381"/>
         <source>cell() works only on tables and matrices!</source>
         <translation>cell() działa tylko na tabelach i macierzach!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="371"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="385"/>
         <source>There&apos;s no row %1 in matrix %2!</source>
         <translation>W macierzy %2 brak wiersza %1!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="375"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="389"/>
         <source>There&apos;s no column %1 in matrix %2!</source>
         <translation>W macierzy %2 brak kolukny %1!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="424"/>
-        <location filename="../src/scripting/MuParserScript.cpp" line="429"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="438"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="443"/>
         <source>Accessing table values is not (yet) supported in this context.</source>
         <translation>Dostęp do wartości tabeli nie jest (jeszcze) wspierany w tym kontekście.</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="467"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="481"/>
         <source>There&apos;s no column named %1 in table %2!</source>
         <translation>W tabeli %2 brak kolumny %1!</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="582"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="596"/>
         <source>tablecol: wrong number of arguments (need 2, got %1)</source>
         <translation>tablecol: zła ilość argumentów (potrzebuje 2, dostała %1)</translation>
     </message>
     <message>
-        <location filename="../src/scripting/MuParserScript.cpp" line="611"/>
+        <location filename="../src/scripting/MuParserScript.cpp" line="625"/>
         <source>cell: wrong number of arguments (need 2, got %1)</source>
         <translation>cell: zła ilość argumentów (potrzebuje 2, dostała %1)</translation>
     </message>
