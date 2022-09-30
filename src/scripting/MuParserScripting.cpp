@@ -46,7 +46,7 @@ const char *MuParserScripting::langName = "muParser";
 // functions without function pointer (fun1,fun2,fun3 == nullptr,nullptr,NULL) are implemented
 // in mu::Parser
 std::array<const MuParserScripting::mathFunction, 48> MuParserScripting::math_functions = {
-    { { "ansn", 2, nullptr, nullptr, nullptr, "Hello" },
+    { { _T("ansn"), 2, nullptr, nullptr, nullptr, "Hello" },
       { _T("abs"), 1, nullptr, nullptr, nullptr, QT_TR_NOOP("abs(x):\n Absolute value of x.") },
       { _T("acos"), 1, nullptr, nullptr, nullptr, QT_TR_NOOP("acos(x):\n Inverse cos function.") },
       { _T("acosh"), 1, nullptr, nullptr, nullptr,
@@ -169,7 +169,11 @@ const QStringList MuParserScripting::mathFunctions() const
 const QString MuParserScripting::mathFunctionDoc(const QString &name) const
 {
     for (auto math_function : math_functions)
-        if (name == math_function.name)
+#ifdef _UNICODE
+        if (name == QString::fromStdWString(math_function.name))
+#else
+        if (name == QString::fromStdString(math_function.name))
+#endif
             return tr(math_function.description.toLocal8Bit());
     return {};
 }
