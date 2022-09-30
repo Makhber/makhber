@@ -50,17 +50,17 @@ struct data
     double *sigma;
 };
 
-DLL_EXPORT char *name()
+DLL_EXPORT char *name(void)
 {
     return "ExponentialSaturation";
 }
 
-DLL_EXPORT char *function()
+DLL_EXPORT char *function(void)
 {
     return "b1*(1-exp(-b2*x))";
 }
 
-DLL_EXPORT char *parameters()
+DLL_EXPORT char *parameters(void)
 {
     return "b1,b2";
 }

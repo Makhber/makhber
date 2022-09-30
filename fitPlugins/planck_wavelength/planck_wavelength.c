@@ -50,17 +50,17 @@ struct data
     double *sigma;
 };
 
-DLL_EXPORT char *name()
+DLL_EXPORT char *name(void)
 {
     return "PlanckWavelength";
 }
 
-DLL_EXPORT char *function()
+DLL_EXPORT char *function(void)
 {
     return "a/(x^5*(exp(b/x)-1))";
 }
 
-DLL_EXPORT char *parameters()
+DLL_EXPORT char *parameters(void)
 {
     return "a,b";
 }
