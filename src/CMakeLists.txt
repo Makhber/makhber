@@ -322,8 +322,10 @@ add_library( libmakhber
 )
 
 set_target_properties( libmakhber PROPERTIES OUTPUT_NAME makhber )
-# couldn't link to muParser library built without Unicode on MinGW
-if( QT_VERSION_MAJOR VERSION_EQUAL 6 )
+# couldn't link to muParser library built without Unicode
+get_target_property( MUPARSER_COMPILE_DEFINITIONS muparser::muparser INTERFACE_COMPILE_DEFINITIONS )
+list( FIND MUPARSER_COMPILE_DEFINITIONS "_UNICODE" MUPARSER_UNICODE )
+if( QT_VERSION_MAJOR VERSION_EQUAL 6 AND MUPARSER_UNICODE LESS 0 )
   set_target_properties( libmakhber PROPERTIES QT_NO_UNICODE_DEFINES ON )
 endif()
 
