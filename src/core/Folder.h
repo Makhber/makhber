@@ -246,15 +246,9 @@ protected:
     void keyPressEvent(QKeyEvent *e) override;
     void mouseReleaseEvent(QMouseEvent *) override { mousePressed = false; };
 #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-    void enterEvent(QEnterEvent *) override
-    {
-        mousePressed = false;
-    };
+    void enterEvent(QEnterEvent *) override { mousePressed = false; };
 #else
-    void enterEvent(QEvent *) override
-    {
-        mousePressed = false;
-    };
+    void enterEvent(QEvent *) override { mousePressed = false; };
 #endif
 
 Q_SIGNALS:

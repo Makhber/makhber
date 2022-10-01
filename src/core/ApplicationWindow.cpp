@@ -182,10 +182,10 @@ ApplicationWindow::ApplicationWindow()
       //      logWindow(new QDockWidget(this)),
       //      explorerWindow(new QDockWidget(this)),
       //      results(new QTextEdit(logWindow)),
-      //#ifdef SCRIPTING_CONSOLE
+      // #ifdef SCRIPTING_CONSOLE
       //      consoleWindow(new QDockWidget(this)),
       //      console(new QTextEdit(consoleWindow)),
-      //#endif
+      // #endif
       //      d_workspace(new QMdiArea(this)),
       //      lv(new FolderListView()),
       //      folders(new FolderListView()),

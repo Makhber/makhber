@@ -127,7 +127,7 @@ private:
             if (decimalSeparator != '.')
                 tstr.replace('.', decimalSeparator);
             if (decimalSeparator != ',')
-                tstr.replace(',', decimalSeparator);            
+                tstr.replace(',', decimalSeparator);
         }
         value = locale.toDouble(tstr, &ok);
 

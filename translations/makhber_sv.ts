@@ -3280,7 +3280,7 @@ Are you sure you want to continue?</source>
         <location filename="../src/core/ApplicationWindow.cpp" line="10813"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12267"/>
         <location filename="../src/core/ApplicationWindow.cpp" line="12305"/>
-        <location filename="../src/core/ApplicationWindow.h" line="519"/>
+        <location filename="../src/core/ApplicationWindow.h" line="513"/>
         <source>Graph</source>
         <translation>Diagram</translation>
     </message>

@@ -101,90 +101,30 @@ private:
         return result.val;                                                                         \
     else                                                                                           \
         return NAN
-    static double ceil(double x)
-    {
-        return ::ceil(x);
-    }
-    static double floor(double x)
-    {
-        return ::floor(x);
-    }
-    static double mod(double x, double y)
-    {
-        return fmod(x, y);
-    }
-    static double mypow(double x, double y)
-    {
-        return pow(x, y);
-    }
-    static double bessel_J0(double x)
-    {
-        SPECIAL(bessel_J0, x);
-    }
-    static double bessel_J1(double x)
-    {
-        SPECIAL(bessel_J1, x);
-    }
-    static double bessel_Jn(double x, double n)
-    {
-        SPECIAL2(bessel_Jn, (int)n, x);
-    }
-    static double bessel_Yn(double x, double n)
-    {
-        SPECIAL2(bessel_Yn, (int)n, x);
-    }
+    static double ceil(double x) { return ::ceil(x); }
+    static double floor(double x) { return ::floor(x); }
+    static double mod(double x, double y) { return fmod(x, y); }
+    static double mypow(double x, double y) { return pow(x, y); }
+    static double bessel_J0(double x) { SPECIAL(bessel_J0, x); }
+    static double bessel_J1(double x) { SPECIAL(bessel_J1, x); }
+    static double bessel_Jn(double x, double n) { SPECIAL2(bessel_Jn, (int)n, x); }
+    static double bessel_Yn(double x, double n) { SPECIAL2(bessel_Yn, (int)n, x); }
     static double bessel_Jn_zero(double n, double s)
     {
         SPECIAL2(bessel_zero_Jnu, n, (unsigned int)s);
     }
-    static double bessel_Y0(double x)
-    {
-        SPECIAL(bessel_Y0, x);
-    }
-    static double bessel_Y1(double x)
-    {
-        SPECIAL(bessel_Y1, x);
-    }
-    static double beta(double a, double b)
-    {
-        SPECIAL2(beta, a, b);
-    }
-    static double erf(double x)
-    {
-        SPECIAL(erf, x);
-    }
-    static double erfc(double x)
-    {
-        SPECIAL(erfc, x);
-    }
-    static double erf_Z(double x)
-    {
-        SPECIAL(erf_Z, x);
-    }
-    static double erf_Q(double x)
-    {
-        SPECIAL(erf_Q, x);
-    }
-    static double gamma(double x)
-    {
-        SPECIAL(gamma, x);
-    }
-    static double lngamma(double x)
-    {
-        SPECIAL(lngamma, x);
-    }
-    static double hazard(double x)
-    {
-        SPECIAL(hazard, x);
-    }
-    static double lambert_W0(double x)
-    {
-        SPECIAL(lambert_W0, x);
-    }
-    static double lambert_Wm1(double x)
-    {
-        SPECIAL(lambert_Wm1, x);
-    }
+    static double bessel_Y0(double x) { SPECIAL(bessel_Y0, x); }
+    static double bessel_Y1(double x) { SPECIAL(bessel_Y1, x); }
+    static double beta(double a, double b) { SPECIAL2(beta, a, b); }
+    static double erf(double x) { SPECIAL(erf, x); }
+    static double erfc(double x) { SPECIAL(erfc, x); }
+    static double erf_Z(double x) { SPECIAL(erf_Z, x); }
+    static double erf_Q(double x) { SPECIAL(erf_Q, x); }
+    static double gamma(double x) { SPECIAL(gamma, x); }
+    static double lngamma(double x) { SPECIAL(lngamma, x); }
+    static double hazard(double x) { SPECIAL(hazard, x); }
+    static double lambert_W0(double x) { SPECIAL(lambert_W0, x); }
+    static double lambert_Wm1(double x) { SPECIAL(lambert_Wm1, x); }
 };
 
 class MAKHBER_EXPORT EmptySourceError : public mu::ParserError

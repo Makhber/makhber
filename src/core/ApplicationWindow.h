@@ -157,10 +157,7 @@ public:
     */
     QString generateUniqueName(const QString &name, bool increment = true);
 
-    bool batchMode() const
-    {
-        return m_batch;
-    } ///< running a python batch script
+    bool batchMode() const { return m_batch; } ///< running a python batch script
     static QSettings &getSettings();
 
 public Q_SLOTS:
@@ -470,10 +467,7 @@ public Q_SLOTS:
 
     //! Show about dialog
     static void about();
-    static int qtVersion()
-    {
-        return QT_VERSION;
-    }
+    static int qtVersion() { return QT_VERSION; }
     void windowsMenuAboutToShow();
     void windowsMenuActivated(bool);
     void removeCurves(const QString &name);
@@ -662,17 +656,11 @@ public Q_SLOTS:
 
     //! Connected to the context menu signal from lv; it's called when there are several items selected in the list
     QMenu *showListViewSelectionMenuImpl();
-    void showListViewSelectionMenu(const QPoint &p)
-    {
-        showListViewSelectionMenuImpl()->exec(p);
-    }
+    void showListViewSelectionMenu(const QPoint &p) { showListViewSelectionMenuImpl()->exec(p); }
 
     //! Connected to the context menu signal from lv; it's called when there are no items selected in the list
     QMenu *showListViewPopupMenuImpl();
-    void showListViewPopupMenu(const QPoint &p)
-    {
-        showListViewPopupMenuImpl()->exec(p);
-    }
+    void showListViewPopupMenu(const QPoint &p) { showListViewPopupMenuImpl()->exec(p); }
 
     void showMoreWindows();
     QMenu *showMarkerPopupMenuImpl();
@@ -807,10 +795,7 @@ public Q_SLOTS:
     //! \name Folders
     //@{
     //! Returns a to the current folder in the project
-    Folder *currentFolder()
-    {
-        return current_folder;
-    };
+    Folder *currentFolder() { return current_folder; };
     //! Adds a new folder to the project
     void addFolder();
     //! Deletes the current folder
@@ -899,10 +884,7 @@ public Q_SLOTS:
               bool partialMatch, bool subfolders);
 
     //!  initializes the list of items dragged by the user
-    void dragFolderItems(const QList<QTreeWidgetItem *> &items)
-    {
-        draggedItems = items;
-    };
+    void dragFolderItems(const QList<QTreeWidgetItem *> &items) { draggedItems = items; };
 
     //!  Drop the objects in the list draggedItems to the folder of the destination item
     void dropFolderItems(QTreeWidgetItem *dest);
@@ -929,10 +911,7 @@ public Q_SLOTS:
     void scriptPrint(const QString &text);
     //! switches to the given scripting language; if this is the same as the current one and force is true, restart it
     bool setScriptingLang(const QString &lang, bool force = false, bool batch = false);
-    void setScriptingLangForBatch(const QString &lang)
-    {
-        setScriptingLang(lang, false, true);
-    }
+    void setScriptingLangForBatch(const QString &lang) { setScriptingLang(lang, false, true); }
     //@}
 
 Q_SIGNALS:
@@ -1079,10 +1058,7 @@ public:
 protected:
     //! Show a context menu for the widget
     QMenu *showWindowMenuImpl(MyWidget *widget);
-    void showWindowMenu(MyWidget *widget)
-    {
-        showWindowMenuImpl(widget)->exec(QCursor::pos());
-    }
+    void showWindowMenu(MyWidget *widget) { showWindowMenuImpl(widget)->exec(QCursor::pos()); }
 
 private:
     bool m_batch {};
