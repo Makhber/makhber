@@ -62,8 +62,7 @@ jobs:
       - name: Get GCC version
         id: gcc-version
         run:
-          gcc_version=
-          echo "::set-output name=gcc_version::$(gcc -dumpversion)"
+          echo "gcc_version=$(gcc -dumpversion)" >> $GITHUB_OUTPUT
 
       - name: Restore cached Qwt
         id: cache-qwt

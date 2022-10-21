@@ -20,7 +20,7 @@ jobs:
         run: |
           VERSION=$(git describe --tags)
           echo $VERSION
-          echo "::set-output name=version::$VERSION"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Archive source files
         run: |
@@ -203,7 +203,7 @@ jobs:
         id: snap_build
         run: |
           sudo snapcraft --debug --destructive-mode
-          echo "::set-output name=snap::$(echo $(ls *.snap))"
+          echo "snap=$(echo $(ls *.snap))" >> $GITHUB_OUTPUT
 
       - name: Upload Snap
         uses: softprops/action-gh-release@v1
@@ -336,7 +336,7 @@ jobs:
 
       - name: Get GCC version
         id: gcc-version
-        run: echo "::set-output name=gcc_version::$(gcc -dumpversion)"
+        run: echo "gcc_version=$(gcc -dumpversion)" >> $GITHUB_OUTPUT
 
       - name: Restore cached Qwt
         id: cache-qwt
