@@ -44,9 +44,9 @@ jobs:
             libgtest-dev \
             xvfb
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install Python packages
         run: |
@@ -111,9 +111,9 @@ jobs:
         run: |
           vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Install Python packages
         run: pip install sip pyqt5 pyqt-builder numpy
