@@ -69,7 +69,7 @@ jobs:
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install qt5-svg qt5-tools qt5-translations zlib gsl muparser opengl gl2ps openssl pkgconf
 
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
@@ -267,14 +267,14 @@ jobs:
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: ${{ env.QT_VER }}
-          cached: ${{ steps.cache-qt.outputs.cache-hit }}
+          cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
       # Python version used to build makhber must be the same for miniconda
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '${{ env.PYTHON_VERSION }}'
 
