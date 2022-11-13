@@ -1,7 +1,7 @@
 app-id: com.github.makhber.Makhber
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-21.08
+runtime-version: 5.15-22.08
 command: makhber
 finish-args:
   - --share=ipc
@@ -96,8 +96,8 @@ modules:
         --prefix=${FLATPAK_DEST} "flit_core" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ad/38/80992c4cb490a05474c886850ec818276d09c0a6722bd5b43bc487818ac7/flit_core-3.7.1-py3-none-any.whl
-        sha256: e454fdbf68c7036e1c7435ec7479383f9d9a1650ca5b304feb184eba1efcdcef
+        url: https://files.pythonhosted.org/packages/04/ac/f91a0219e0d4162762f218e4876bf328f16e4d283e691cd7f42a02b22634/flit_core-3.8.0-py3-none-any.whl
+        sha256: 64a29ec845164a6abe1136bf4bc5ae012bdfe758ed42fc7571a9059a7c80bd83
         x-checker-data:
           name: flit_core
           packagetype: bdist_wheel
@@ -121,10 +121,6 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl
         sha256: 096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce
-        x-checker-data:
-          name: ply
-          packagetype: bdist_wheel
-          type: pypi
       - type: file
         url: https://files.pythonhosted.org/packages/6c/10/a7d0fa5baea8fe7b50f448ab742f26f52b80bfca85ac2be9d35cdd9a3246/pyparsing-3.0.9-py3-none-any.whl
         sha256: 5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc
@@ -133,15 +129,15 @@ modules:
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/b8/80/dfcc80e48bcac4fe60cec378d116ec805ed180474fbfecc3fad33583d35b/PyQt_builder-1.13.0-py3-none-any.whl
-        sha256: e3b32eebf4519515f86abd1b908c3cdae613c0614cfbb09b6acaca3db0f5a0c2
+        url: https://files.pythonhosted.org/packages/ff/2b/cdc9a8b4cdf27b0eea55a8dc441d5863d2da6a4397c8ab4db126f3b411dd/PyQt_builder-1.14.0-py3-none-any.whl
+        sha256: c3aee05fe98f4c0eba4d74010e77adfa2287a339a06e7e258bf3dcc154464014
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/5b/cb/c27c925ae07bd03a2597fa1db17bfc2a4ac57da61aeb90f8ec98ffbb975b/sip-6.6.2.tar.gz
-        sha256: 0e3efac1c5dfd8e525ae57140927df26993e13f58b89d1577c314f4105bfd90d
+        url: https://files.pythonhosted.org/packages/08/f6/06ad8d62331b302b68fbd730eedec8346213db71857128cb3b8309fee2ad/sip-6.7.4.tar.gz
+        sha256: 9dbf8a0e7c8d76d1642e2fdd3f53e6a522f7c30980e527763c45760c2505cfbf
         x-checker-data:
           name: sip
           type: pypi
@@ -155,12 +151,13 @@ modules:
     cleanup:
       - '*'
 
-  - name: pyqt5-sip
+  - name: python3-pyqt5-sip
     buildsystem: simple
     build-commands:
-      - python3 setup.py install --prefix=/app
+      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
+        --prefix=${FLATPAK_DEST} "pyqt5-sip" --no-build-isolation
     sources:
-      - type: archive
+      - type: file
         url: https://files.pythonhosted.org/packages/39/5f/fd9384fdcb9cd0388088899c110838007f49f5da1dd1ef6749bfb728a5da/PyQt5_sip-12.11.0.tar.gz
         sha256: b4710fd85b57edef716cc55fae45bfd5bfac6fc7ba91036f1dcc3f331ca0eb39
         x-checker-data:
@@ -170,7 +167,7 @@ modules:
   - name: pyqt5
     buildsystem: simple
     build-commands:
-      - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.9/site-packages
+      - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.10/site-packages
         --concatenate $(nproc) --no-designer-plugin --no-qml-plugin --no-tools --disable
         QtQml --disable QtBluetooth --disable QtDBus --disable QtDesigner --disable
         QtHelp --disable QtMultimedia --disable QtMultimediaWidgets --disable QtNfc
@@ -187,7 +184,7 @@ modules:
           type: pypi
           name: PyQt5
     cleanup:
-      - /lib/python3.9/site-packages/PyQt5/bindings
+      - /lib/python3.10/site-packages/PyQt5/bindings
 
   - name: makhber
     buildsystem: cmake-ninja
