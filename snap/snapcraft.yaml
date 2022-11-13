@@ -5,7 +5,7 @@ description: |
 # icon: packaging/freedesktop/com.github.makhber.Makhber.svg
 # website: https://github.com/Makhber/makhber
 # issues: https://github.com/Makhber/makhber/issues
-base: core20
+base: core22
 compression: lzo
 grade: stable
 confinement: strict
@@ -21,7 +21,7 @@ apps:
     common-id: com.github.makhber.Makhber
     command: bin/desktop-launch $SNAP/usr/bin/makhber
     environment:
-      PYTHONPATH: $SNAP/usr/lib/python3.8/site-packages
+      PYTHONPATH: $SNAP/usr/lib/python3/dist-packages
     plugs:
       - home
       - network
@@ -46,11 +46,10 @@ parts:
       - "-DBUILD_SHARED_LIBS=ON"
       - "-DMAKHBER_SCRIPTING_PYTHON=ON"
       - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
-      - "-DCMAKE_PREFIX_PATH=$SNAPCRAFT_STAGE/usr"
-      - "-DPyQt_INCLUDE_DIR=$SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages/PyQt5/bindings"
+      - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE/usr"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
-      - PYTHONPATH: $SNAPCRAFT_STAGE/usr/lib/python3.8/site-packages:$HOME/.local/lib/python3.8/site-packages:/usr/local/lib/python3.8/dist-packages
+      - PYTHONPATH: $CRAFT_STAGE/usr/lib/python3/dist-packages:$HOME/.local/lib/python3.10/site-packages:/usr/local/lib/python3.10/dist-packages:/usr/lib/python3/dist-packages
     build-packages:
       - g++
       - git
@@ -60,14 +59,14 @@ parts:
       - pkgconf
     stage-packages:
       - libglu1-mesa
-      - libpython3.8
+      - libpython3.10
       - libqt5svg5
       - libqt5opengl5
       - libqt5printsupport5
       - qttranslations5-l10n
     override-pull: |
-      snapcraftctl pull
-      snapcraftctl set-version "$(git describe --tags)"
+      craftctl default
+      craftctl set version="$(git describe --tags)"
     after:
       - desktop-qt5
       - gsl
@@ -111,8 +110,9 @@ parts:
       - libgomp1
     prime:
       - -usr/include
-      - -usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pkgconfig
-      - -usr/lib/$SNAPCRAFT_ARCH_TRIPLET/cmake
+      - -usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig
+      - -usr/lib/$CRAFT_ARCH_TRIPLET/cmake
+      - -usr/share
   gl2ps:
     source-type: tar
     source: https://geuz.org/gl2ps/src/gl2ps-1.4.2.tgz
@@ -150,27 +150,27 @@ parts:
       - PATH: $HOME/.local/bin:$PATH
     override-build: |
       pip3 install sip pyqt-builder
-      cd $SNAPCRAFT_PART_SRC
+      cd $CRAFT_PART_SRC
       sip-build --confirm-license \
         --build-dir ../build \
-        --target-dir $SNAPCRAFT_PART_INSTALL/usr/lib/python3.8/site-packages \
+        --target-dir $CRAFT_PART_INSTALL/usr/lib/python3/dist-packages \
         --no-make \
         --no-tools \
         --no-designer-plugin \
         --no-qml-plugin \
-        --disable QtQml \
         --disable QtBluetooth \
         --disable QtDBus \
         --disable QtDesigner \
         --disable QtHelp \
+        --disable QtLocation \
         --disable QtMultimedia \
         --disable QtMultimediaWidgets \
         --disable QtNfc \
-        --disable QtRemoteObjects \
         --disable QtPositioning \
-        --disable QtLocation \
+        --disable QtQml \
         --disable QtQuick \
         --disable QtQuickWidgets \
+        --disable QtRemoteObjects \
         --disable QtSensors \
         --disable QtSerialPort \
         --disable QtSql \
@@ -184,17 +184,13 @@ parts:
         --disable QtXml \
         --disable QtXmlPatterns \
         --verbose
-      cd $SNAPCRAFT_PART_BUILD
-      snapcraftctl build
+      cd $CRAFT_PART_BUILD
+      craftctl default
     prime:
-      - -usr/lib/python3.8/site-packages/PyQt5/bindings
+      - -usr/lib/python3/dist-packages/PyQt5/bindings
   pyqt5-sip:
-    plugin: python
-    python-packages:
-      - pyqt5-sip
-      - --no-deps
-      - --target=$SNAPCRAFT_PART_INSTALL/usr/lib/python3.8/site-packages
-    prime:
-      - -bin/
-      - -lib/
-      - -share/
+    plugin: nil
+    build-packages:
+      - python3-pip
+    override-build:
+      pip3 install pyqt5-sip --no-deps --target=$CRAFT_PART_INSTALL/usr/lib/python3/dist-packages
