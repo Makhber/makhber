@@ -1,5 +1,18 @@
 # Changelog
 
+## Makhber 0.9.7
+
+Released: 13-02-2022
+
+### General
+
+- Update dependencies
+
+### Packaging
+
+- Update snapcraft recipe to core22
+- Update flatpak kde-runtime to 5.15-22.08
+
 ## Makhber 0.9.6.1
 
 Released: 16-09-2022
