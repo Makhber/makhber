@@ -6,27 +6,182 @@ on:
 jobs:
   Delete:
     name: Delete
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
-      - uses: smartsquaregmbh/delete-old-packages@v0.4.0
+      - uses: actions/delete-package-versions@v3
         with:
-          keep: 2
-          names: |
-            freeglut_x64-windows
-            gl2ps_x64-windows
-            gsl_x64-linux
-            gsl_x64-windows
-            gtest_x64-windows
-            libpng_x64-windows
-            muparser_x64-linux
-            muparser_x64-windows
-            opengl_x64-windows
-            openssl_x64-windows
-            pkgconf_x64-windows
-            vcpkg-cmake-config_x64-linux
-            vcpkg-cmake-config_x64-windows
-            vcpkg-cmake_x64-linux
-            vcpkg-cmake_x64-windows
-            vcpkg-tool-meson_x64-windows
-            zlib_x64-windows
+          min-versions-to-keep: 2
+          package-name: brotli_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: bzip2_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: double-conversion_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: egl-registry_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: freeglut_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: freetype_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: gl2ps_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: gsl_x64-linux
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: gsl_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: gtest_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: harfbuzz_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: icu_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: jasper_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: libjpeg-turbo_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: liblzma_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: libpng_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: libwebp_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: muparser_x64-linux
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: muparser_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: opengl_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: openssl_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: pcre2_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: pkgconf_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qt5-activeqt_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qt5-base_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qt5-declarative_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qt5-imageformats_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qt5-svg_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qt5-tools_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qt5-translations_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: qwt_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: sqlite3_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: tiff_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-cmake-config_x64-linux
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-cmake-config_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-cmake_x64-linux
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-cmake_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-cmake-config_x64-linux
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-cmake-config_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-cmake-get-vars_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-pkgconfig-get-modules_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: vcpkg-tool-meson_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: zlib_x64-windows
+      - uses: actions/delete-package-versions@v3
+        with:
+          min-versions-to-keep: 2
+          package-name: zstd_x64-windows
