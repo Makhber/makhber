@@ -474,9 +474,9 @@ jobs:
           files: build/Makhber*.deb
 
   RPM:
-    name: Fedora 36 RPM
-    runs-on: ubuntu-20.04
-    container: fedora:36
+    name: Fedora 37 RPM
+    runs-on: ubuntu-22.04
+    container: fedora:37
 
     steps:
       - uses: actions/checkout@v1
