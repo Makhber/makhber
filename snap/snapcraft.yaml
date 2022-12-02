@@ -64,6 +64,7 @@ parts:
       - libqt5opengl5
       - libqt5printsupport5
       - qttranslations5-l10n
+      - qtwayland5
     override-pull: |
       craftctl default
       craftctl set version="$(git describe --tags)"
