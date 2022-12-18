@@ -256,7 +256,7 @@ if( CMAKE_VERSION VERSION_LESS "3.22" )
 endif()
 
 if( MSVC )
-  list( APPEND DOC_FILES license.rtf )
+  list( APPEND DOC_FILES packaging/license.rtf )
   install( FILES ${DOC_FILES} DESTINATION . )
 elseif( APPLE )
   install( FILES ${DOC_FILES} DESTINATION makhber.app/Contents/Resources )
@@ -295,7 +295,7 @@ set( CPACK_SOURCE_IGNORE_FILES "/build/;CMakeLists\.txt\.user*;/\.git/" )
 
 # WIX
 set( CPACK_WIX_UPGRADE_GUID "58250F82-661E-451E-9191-4453EF1A5624" )
-set( CPACK_WIX_LICENSE_RTF "${CMAKE_SOURCE_DIR}/license.rtf" )
+set( CPACK_WIX_LICENSE_RTF "${CMAKE_SOURCE_DIR}/packaging/license.rtf" )
 set( CPACK_WIX_PRODUCT_ICON "${CMAKE_SOURCE_DIR}/src/main/icons/makhber.ico" )
 
 # NSIS
