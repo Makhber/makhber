@@ -258,7 +258,6 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          brew update
           brew install --display-times muparser gsl gl2ps googletest
           if [[ "${{ matrix.QT_VER }}" == "5.15" ]]; then
             brew install qwt-qt5
