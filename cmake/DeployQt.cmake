@@ -59,7 +59,7 @@ function(windeployqt target directory)
                 --no-opengl-sw
                 ${no_angle}
                 \"$<TARGET_FILE:${target}>\"
-        COMMENT "Deploying Qt...\n"
+        COMMENT "Deploying Qt..."
     )
 
     # install(CODE ...) doesn't support generator expressions, but
@@ -104,7 +104,7 @@ function(windeployqt target directory)
     add_custom_command(TARGET ${target} POST_BUILD
         COMMAND "${CMAKE_COMMAND}" -E
             copy_if_different ${CMAKE_INSTALL_SYSTEM_RUNTIME_LIBS} \"$<TARGET_FILE_DIR:${target}>\"
-        COMMENT "Copying System Libraries...\n"
+        COMMENT "Copying System Libraries..."
     )
 endfunction()
 
@@ -115,7 +115,7 @@ function(macdeployqt target)
         COMMAND "${MACDEPLOYQT_EXECUTABLE}"
             \"$<TARGET_BUNDLE_DIR:${target}>\"
             -always-overwrite
-        COMMENT "Deploying Qt...\n"
+        COMMENT "Deploying Qt..."
     )
 endfunction()
 

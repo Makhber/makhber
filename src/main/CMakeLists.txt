@@ -30,7 +30,7 @@ if( MAKHBER_BUILD_TRANSLATIONS )
       make_directory "$<TARGET_FILE_DIR:makhber>/translations"
     COMMAND ${CMAKE_COMMAND} -E
       copy ${QM_FILES} "$<TARGET_FILE_DIR:makhber>/translations/"
-    COMMENT "Copying Translation files...\n"
+    COMMENT "Copying Translation files..."
   )
 endif()
 
@@ -55,7 +55,7 @@ if( MAKHBER_SCRIPTING_PYTHON )
     POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy ${MAKHBER_PYTHON_FILES} "$<TARGET_FILE_DIR:makhber>/"
     COMMAND ${Python3_EXECUTABLE} -m compileall -l ${CMAKE_CURRENT_BINARY_DIR}
-    COMMENT "Copying and Compiling Python files...\n"
+    COMMENT "Copying and Compiling Python files..."
   )
 endif()
 
