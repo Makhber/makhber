@@ -505,8 +505,8 @@ if( MAKHBER_SCRIPTING_PYTHON )
     install( CODE
       "execute_process(
         COMMAND ${Python3_EXECUTABLE} -m pip install
-          pyqt${QT_MAJOR_VERSION}
-          pyqt${QT_MAJOR_VERSION}-sip
+          pyqt${QT_VERSION_MAJOR}
+          pyqt${QT_VERSION_MAJOR}-sip
           --no-deps
           --target=\${CMAKE_INSTALL_PREFIX}/${PYTHON_INSTALL_PATH}
       )"
