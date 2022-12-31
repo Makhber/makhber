@@ -59,20 +59,28 @@ if( MAKHBER_SCRIPTING_PYTHON )
   )
 endif()
 
+install( TARGETS makhber
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  BUNDLE DESTINATION .
+)
+
 if( APPLE )
-  install( TARGETS makhber BUNDLE DESTINATION . )
   install( FILES icons/makhber.icns DESTINATION makhber.app/Contents/Resources )
-else()
-  install( TARGETS makhber RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR} )
 endif()
 
+set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR} )
+include(DeployQt)
 if( MSVC )
-  set( CMAKE_INSTALL_SYSTEM_RUNTIME_DESTINATION ${CMAKE_INSTALL_BINDIR} )
-  include(DeployQt)
   windeployqt( makhber ${CMAKE_INSTALL_BINDIR} )
+elseif( APPLE )
+  install( CODE "
+    execute_process(
+      COMMAND ${MACDEPLOYQT_EXECUTABLE} \${CMAKE_INSTALL_PREFIX}/makhber.app -always-overwrite
+    )"
+  )
 endif()
 
-if( RUNTIME_DIRS )
+if( WIN32 AND RUNTIME_DIRS )
   if( MAKHBER_SCRIPTING_PYTHON )
     list( APPEND RUNTIME_DIRS ${Python3_RUNTIME_LIBRARY_DIRS} )
   endif()
@@ -120,15 +128,6 @@ if( RUNTIME_DIRS )
       copy ${OPENSSL_LIBSSL_DLL} \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\"
       COMMAND \"${CMAKE_COMMAND}\" -E
       copy ${OPENSSL_LIBCRYPTO_DLL} \"\${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_BINDIR}\"
-    )"
-  )
-endif()
-
-if( APPLE )
-  include(DeployQt)
-  install( CODE "
-    execute_process(
-      COMMAND ${MACDEPLOYQT_EXECUTABLE} \${CMAKE_INSTALL_PREFIX}/makhber.app -always-overwrite
     )"
   )
 endif()
