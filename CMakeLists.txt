@@ -13,9 +13,9 @@ project( makhber
   LANGUAGES CXX
   )
 
-set( PROJECT_VERSION_SUFFIX "alpha" )
+set( PROJECT_VERSION_SUFFIX "alpha2" )
 
-set( PROJECT_RELEASE_DATE "May, 14 2022" )
+set( PROJECT_RELEASE_DATE "Jan, 06 2023" )
 
 set( CMAKE_CXX_EXTENSIONS OFF )
 
