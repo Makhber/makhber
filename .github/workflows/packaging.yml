@@ -42,10 +42,13 @@ jobs:
   Windows:
     name: Windows
     runs-on: windows-2022
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5.15.2, 6.4.2]
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-windows
-      QT_VER: 5.15.2
       QWT_VER: 6.2.0
 
     steps:
@@ -59,12 +62,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.Qt_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: ${{ env.QT_VER }}
+          version: ${{ matrix.Qt_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
@@ -73,7 +76,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.Qt_VER }}
 
       - uses: ilammy/msvc-dev-cmd@v1
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -110,7 +113,12 @@ jobs:
 
       - name: Install Python packages
         run: |
-          pip3 install pyqt5 sip pyqt-builder numpy
+          pip3 install sip pyqt-builder
+          if ("${{ matrix.QT_VER }}" -eq "6.4.2") {
+            pip install pyqt6
+          } else {
+            pip install pyqt5
+          }
 
       - name: Configuring
         run: |
@@ -124,7 +132,7 @@ jobs:
             -DVCPKG_TARGET_TRIPLET="$Env:VCPKG_DEFAULT_TRIPLET" `
             -DCMAKE_TOOLCHAIN_FILE="$Env:VCPKG_INSTALLATION_ROOT\scripts\buildsystems\vcpkg.cmake" `
             -DCMAKE_PREFIX_PATH="$Env:GITHUB_WORKSPACE\Qwt" `
-            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/$Env:VCPKG_DEFAULT_TRIPLET/bin;$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:Qt5_DIR\bin"
+            -DRUNTIME_DIRS="$Env:VCPKG_INSTALLATION_ROOT/installed/$Env:VCPKG_DEFAULT_TRIPLET/bin;$Env:GITHUB_WORKSPACE\Qwt\lib;$Env:Qt5_DIR\bin;$Env:Qt6_DIR\bin"
 
       - name: Building
         run: |
@@ -134,6 +142,11 @@ jobs:
         run: |
           cd build
           cpack -G NSIS
+          if ("${{ matrix.QT_VER }}" -eq "6.4.2") {
+            Get-ChildItem *.exe | Rename-Item -NewName { $_.Name -replace '.exe','-Qt6.exe' }
+          } else {
+            Get-ChildItem *.exe | Rename-Item -NewName { $_.Name -replace '.exe','-Qt5.exe' }
+          }
 
       - name: Upload Windows installers
         uses: softprops/action-gh-release@v1
@@ -147,6 +160,10 @@ jobs:
   macos:
     runs-on: macos-11
     name: macos
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5, 6]
 
     steps:
       - name: Checkout
@@ -156,8 +173,12 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          brew update
-          brew install --display-times qwt-qt5 muparser gsl gl2ps
+          brew install --display-times muparser gsl gl2ps
+          if [[ ${{ matrix.QT_VER }} == 6 ]]; then
+            brew install qwt
+          else
+            brew install qwt-qt5
+          fi
 
       - name: Configuring
         run: |
@@ -176,6 +197,7 @@ jobs:
         run: |
           cd build
           cpack -G DragNDrop
+          mv *.dmg Makhber-$(git describe --tags)-macos-Qt${{ matrix.QT_VER }}.dmg
 
       - name: Upload MacOS package
         uses: softprops/action-gh-release@v1
@@ -289,12 +311,15 @@ jobs:
   AppImage:
     runs-on: ubuntu-20.04
     name: AppImage
+    strategy:
+      fail-fast: false
+      matrix:
+        QT_VER: [5.15.2, 6.4.2]
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-linux
-      QT_VER: 5.15.2
       QWT_VER: 6.2.0
-      PYTHON_VERSION: 3.9
+      PYTHON_VERSION: "3.10"
 
     steps:
       - name: Get Processor Info
@@ -310,12 +335,12 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.Qt_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: ${{ env.QT_VER }}
+          version: ${{ matrix.Qt_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
 
@@ -332,7 +357,12 @@ jobs:
             libgl2ps-dev \
             xvfb \
             wget
-          pip3 install pyqt5 sip pyqt-builder
+          pip3 install sip pyqt-builder
+          if [[ "${{ matrix.QT_VER }}" == "6.4.2" ]]; then
+            pip3 install pyqt6
+          else
+            pip3 install pyqt5
+          fi
 
       - name: Get GCC version
         id: gcc-version
@@ -343,7 +373,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ env.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.Qt_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -400,8 +430,13 @@ jobs:
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
           chmod +x linuxdeploy*
-          export VERSION=$(git describe --tags)
-          export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
+          if [[ "${{ matrix.QT_VER }}" == "6.4.2" ]]; then
+            export VERSION=$(git describe --tags)-Qt6
+            export PIP_REQUIREMENTS="pyqt6 pyqt6-sip --no-deps"
+          else
+            export VERSION=$(git describe --tags)-Qt5
+            export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
+          fi
           export CONDA_PYTHON_VERSION=${{ env.PYTHON_VERSION }}
           ./linuxdeploy-x86_64.AppImage \
             --appdir ./AppDir \
@@ -522,7 +557,7 @@ jobs:
           git config --global --add safe.directory /__w/makhber/makhber
           cd build
           cpack -G RPM
-          mv Makhber*.rpm makhber-$(git describe --tags).fc36.x86_64.rpm
+          mv Makhber*.rpm makhber-$(git describe --tags).fc37.x86_64.rpm
 
       - name: Upload RPM package
         uses: softprops/action-gh-release@v1
