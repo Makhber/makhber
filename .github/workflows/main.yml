@@ -52,6 +52,7 @@ jobs:
             libgtest-dev \
             libxcb-xinput0 \
             libxcb-xkb1 \
+            libxkbcommon-x11-0 \
             xvfb
           if [[ ${{ matrix.QT_VER }} == "6.4.2" ]]; then
             sudo apt install -y --no-install-recommends \
