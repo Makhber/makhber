@@ -43,6 +43,61 @@ jobs:
           name: snap
           path: '*.snap'
 
+  Flatpak:
+    runs-on: ubuntu-22.04
+    name: Flatpak
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          sudo apt update
+          sudo apt install -y --no-install-recommends \
+            flatpak-builder \
+            elfutils
+          flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+          flatpak install --user -y org.kde.Platform//5.15-22.08 org.kde.Sdk//5.15-22.08
+
+      - name: Building
+        run: |
+          mkdir build 
+          cd build
+          flatpak-builder \
+            --repo=repo \
+            --install-deps-from=flathub \
+            --user \
+            --force-clean \
+            ./build \
+            ../packaging/flatpak/com.github.makhber.Makhber.yaml
+
+      - name: Packaging
+        run: |
+          cd build
+          flatpak \
+            build-bundle \
+            --runtime-repo=https://dl.flathub.org/repo/flathub.flatpakrepo \
+            repo \
+            Makhber-$(git describe --tags)-x86_64.flatpak \
+            com.github.makhber.Makhber
+
+      - name: Upload flatpak
+        uses: actions/upload-artifact@v3
+        with:
+          name: flatpak
+          path: build/Makhber*.flatpak
+
+      - name: Installing
+        run: |
+          flatpak install --user -y build/*.flatpak
+
+      - name: Show contents
+        run: |
+          tree $HOME/.local/share/flatpak/app/com.github.makhber.Makhber/x86_64/master/active/files
+
   AppImage:
     runs-on: ubuntu-20.04
     name: AppImage
