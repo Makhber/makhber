@@ -412,7 +412,7 @@ jobs:
           if [[ "${{ matrix.image }}" == "leap" ]]; then
             py_ver=3
           else
-            py_ver=310
+            py_ver=311
           fi
           zypper -n install \
             gcc-c++ \
