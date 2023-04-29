@@ -57,6 +57,7 @@ jobs:
           if [[ ${{ matrix.QT_VER }} == "6.5.0" ]]; then
             sudo apt install -y --no-install-recommends \
               libxkbcommon-dev \
+              libxcb-cursor0 \
               libvulkan-dev
           fi
 
