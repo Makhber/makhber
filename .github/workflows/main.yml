@@ -197,7 +197,7 @@ jobs:
         run: |
           pip install sip pyqt-builder numpy
           if ("${{ matrix.QT_VER }}" -eq "6.4.3") {
-            pip install pyqt6
+            pip install pyqt6<6.5
           } else {
             pip install pyqt5
           }
