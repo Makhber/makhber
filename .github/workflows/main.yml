@@ -42,6 +42,7 @@ jobs:
             libgsl-dev \
             libgl2ps-dev \
             libgtest-dev \
+            libxkbcommon-x11-0 \
             xvfb
 
       - uses: actions/setup-python@v4
