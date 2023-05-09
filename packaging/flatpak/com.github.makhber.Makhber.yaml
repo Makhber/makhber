@@ -43,8 +43,8 @@ modules:
       - /lib/cmake
     sources:
       - type: archive
-        url: https://github.com/beltoforion/muparser/archive/v2.3.3-1.tar.gz
-        sha256: 91d26d8274ae9cd9c776ee58250aeddc6b574f369eafd03b25045b858a2b8177
+        url: https://github.com/beltoforion/muparser/archive/v2.3.4.tar.gz
+        sha256: 0c3fa54a3ebf36dda0ed3e7cd5451c964afbb15102bdbcba08aafb359a290121
         x-checker-data:
           type: anitya
           project-id: 2033
@@ -112,8 +112,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pyqt-builder" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/05/8e/8de486cbd03baba4deef4142bd643a3e7bbe954a784dc1bb17142572d127/packaging-21.3-py3-none-any.whl
-        sha256: ef103e05f519cdc783ae24ea4e2e0f508a9c99b2d4969652eed6a2e1ea5bd522
+        url: https://files.pythonhosted.org/packages/ab/c3/57f0601a2d4fe15de7a553c00adbc901425661bf048f2a22dfc500caf121/packaging-23.1-py3-none-any.whl
+        sha256: 994793af429502c4ea2ebf6bf664629d07c1a9fe974af92966e4b8d2df7edc61
         x-checker-data:
           name: packaging
           packagetype: bdist_wheel
@@ -122,30 +122,23 @@ modules:
         url: https://files.pythonhosted.org/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl
         sha256: 096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce
       - type: file
-        url: https://files.pythonhosted.org/packages/6c/10/a7d0fa5baea8fe7b50f448ab742f26f52b80bfca85ac2be9d35cdd9a3246/pyparsing-3.0.9-py3-none-any.whl
-        sha256: 5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc
-        x-checker-data:
-          name: pyparsing
-          packagetype: bdist_wheel
-          type: pypi
-      - type: file
-        url: https://files.pythonhosted.org/packages/ff/2b/cdc9a8b4cdf27b0eea55a8dc441d5863d2da6a4397c8ab4db126f3b411dd/PyQt_builder-1.14.0-py3-none-any.whl
-        sha256: c3aee05fe98f4c0eba4d74010e77adfa2287a339a06e7e258bf3dcc154464014
+        url: https://files.pythonhosted.org/packages/12/f9/1e0f17741e52442b0dfc5aee7e44a10e09335713093608654e02a0b6c1c1/PyQt_builder-1.15.0-py3-none-any.whl
+        sha256: 7e33ee7f0fb608379f5107ed9cb3cb6623838d470626a89feaa86da663a93abf
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/08/f6/06ad8d62331b302b68fbd730eedec8346213db71857128cb3b8309fee2ad/sip-6.7.4.tar.gz
-        sha256: 9dbf8a0e7c8d76d1642e2fdd3f53e6a522f7c30980e527763c45760c2505cfbf
+        url: https://files.pythonhosted.org/packages/48/75/98987181e897ef378d6c239ee733328a7264a41f2d8263e61d7b7c4c0909/sip-6.7.9.tar.gz
+        sha256: 35d51fc10f599d3696abb50f29d068ad04763df7b77808c76b74597660f99b17
         x-checker-data:
           name: sip
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/44/6f/7120676b6d73228c96e17f1f794d8ab046fc910d781c8d151120c3f1569e/toml-0.10.2-py2.py3-none-any.whl
-        sha256: 806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b
+        url: https://files.pythonhosted.org/packages/97/75/10a9ebee3fd790d20926a90a2547f0bf78f371b2f13aa822c759680ca7b9/tomli-2.0.1-py3-none-any.whl
+        sha256: 939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc
         x-checker-data:
-          name: toml
+          name: tomli
           packagetype: bdist_wheel
           type: pypi
     cleanup:
@@ -158,8 +151,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pyqt5-sip" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/39/5f/fd9384fdcb9cd0388088899c110838007f49f5da1dd1ef6749bfb728a5da/PyQt5_sip-12.11.0.tar.gz
-        sha256: b4710fd85b57edef716cc55fae45bfd5bfac6fc7ba91036f1dcc3f331ca0eb39
+        url: https://files.pythonhosted.org/packages/c1/61/4055e7a0f36339964956ff415e36f4abf82561904cc49c021da32949fc55/PyQt5_sip-12.12.1.tar.gz
+        sha256: 8fdc6e0148abd12d977a1d3828e7b79aae958e83c6cb5adae614916d888a6b10
         x-checker-data:
           type: pypi
           name: PyQt5-sip
@@ -178,8 +171,8 @@ modules:
         QtX11Extras --disable QtXml --disable QtXmlPatterns --verbose --jobs $(nproc)
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/e1/57/2023316578646e1adab903caab714708422f83a57f97eb34a5d13510f4e1/PyQt5-5.15.7.tar.gz
-        sha256: 755121a52b3a08cb07275c10ebb96576d36e320e572591db16cfdbc558101594
+        url: https://files.pythonhosted.org/packages/5c/46/b4b6eae1e24d9432905ef1d4e7c28b6610e28252527cdc38f2a75997d8b5/PyQt5-5.15.9.tar.gz
+        sha256: dc41e8401a90dc3e2b692b411bd5492ab559ae27a27424eed4bd3915564ec4c0
         x-checker-data:
           type: pypi
           name: PyQt5
