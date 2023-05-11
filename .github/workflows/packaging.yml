@@ -62,21 +62,22 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ matrix.Qt_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: ${{ matrix.Qt_VER }}
+          version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
+          archives: qtbase qtsvg qttools
 
       - name: Restore cached Qwt
         id: cache-qwt
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.Qt_VER }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
 
       - uses: ilammy/msvc-dev-cmd@v1
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -335,14 +336,15 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ matrix.Qt_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
-          version: ${{ matrix.Qt_VER }}
+          version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
+          archives: qtbase qtsvg qttools
 
       # Python version used to build makhber must be the same for miniconda
       - uses: actions/setup-python@v4
@@ -373,7 +375,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.Qt_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
