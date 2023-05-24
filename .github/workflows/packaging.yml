@@ -45,7 +45,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.4.3]
+        QT_VER: [5.15.2, 6.5.1]
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-windows
@@ -115,7 +115,7 @@ jobs:
       - name: Install Python packages
         run: |
           pip3 install sip pyqt-builder
-          if ("${{ matrix.QT_VER }}" -eq "6.4.3") {
+          if ("${{ matrix.QT_VER }}" -eq "6.5.1") {
             pip install pyqt6
           } else {
             pip install pyqt5
@@ -143,7 +143,7 @@ jobs:
         run: |
           cd build
           cpack -G NSIS
-          if ("${{ matrix.QT_VER }}" -eq "6.4.3") {
+          if ("${{ matrix.QT_VER }}" -eq "6.5.1") {
             Get-ChildItem *.exe | Rename-Item -NewName { $_.Name -replace '.exe','-Qt6.exe' }
           } else {
             Get-ChildItem *.exe | Rename-Item -NewName { $_.Name -replace '.exe','-Qt5.exe' }
@@ -315,7 +315,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.5.0]
+        QT_VER: [5.15.2, 6.5.1]
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-linux
@@ -360,7 +360,7 @@ jobs:
             xvfb \
             wget
           pip3 install sip pyqt-builder
-          if [[ "${{ matrix.QT_VER }}" == "6.5.0" ]]; then
+          if [[ "${{ matrix.QT_VER }}" == "6.5.1" ]]; then
             pip3 install pyqt6
           else
             pip3 install pyqt5
@@ -432,7 +432,7 @@ jobs:
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
           chmod +x linuxdeploy*
-          if [[ "${{ matrix.QT_VER }}" == "6.5.0" ]]; then
+          if [[ "${{ matrix.QT_VER }}" == "6.5.1" ]]; then
             export VERSION=$(git describe --tags)-Qt6
             export PIP_REQUIREMENTS="pyqt6 pyqt6-sip --no-deps"
           else
