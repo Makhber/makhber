@@ -1542,7 +1542,11 @@ void ConfigDialog::insertLanguagesList()
 
                 QString language = loc.nativeLanguageName();
                 if (locales[i].size() > 2)
+#if QT_VERSION >= QT_VERSION_CHECK(6, 2, 0)
+                    language.append(" (" + loc.nativeTerritoryName() + ")");
+#else
                     language.append(" (" + loc.nativeCountryName() + ")");
+#endif
                 languages.push_back(language);
             }
         }

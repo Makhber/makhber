@@ -4897,7 +4897,7 @@ Die folgenden Spezialcodes können benutzt werden:
     </message>
     <message>
         <location filename="../src/core/dialogs/ConfigDialog.cpp" line="963"/>
-        <location filename="../src/core/dialogs/ConfigDialog.cpp" line="1594"/>
+        <location filename="../src/core/dialogs/ConfigDialog.cpp" line="1598"/>
         <source>Preview:</source>
         <comment>preview of the decimal separator</comment>
         <translation>Vorschau:</translation>
