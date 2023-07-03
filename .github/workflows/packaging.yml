@@ -511,9 +511,9 @@ jobs:
           files: build/Makhber*.deb
 
   RPM:
-    name: Fedora 37 RPM
+    name: OpenSUSE leap
     runs-on: ubuntu-22.04
-    container: fedora:37
+    container: opensuse/leap
 
     steps:
       - uses: actions/checkout@v1
@@ -522,24 +522,24 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          sudo dnf install -y \
+          zypper -n install \
             gcc-c++ \
             cmake \
-            ninja-build \
-            qt5-qtbase-devel \
-            qt5-qtsvg-devel \
-            qt5-qttools-devel \
+            ninja \
+            libqt5-qtbase-devel \
+            libqt5-qtsvg-devel \
+            libqt5-linguist-devel \
             gsl-devel \
-            muParser-devel \
-            qwt-qt5-devel \
+            muparser-devel \
+            qwt6-qt5-devel \
             gl2ps-devel \
             zlib-devel \
-            python3-devel \
             python3-qt5-devel \
-            PyQt-builder \
-            mesa-libGLU-devel \
-            rpm-build \
-            git
+            python3-pyqt-builder \
+            glu-devel \
+            python3 \
+            xvfb-run \
+            rpm-build
 
       - name: Configuring
         run: |
@@ -559,7 +559,7 @@ jobs:
           git config --global --add safe.directory /__w/makhber/makhber
           cd build
           cpack -G RPM
-          mv Makhber*.rpm makhber-$(git describe --tags).fc37.x86_64.rpm
+          mv Makhber*.rpm makhber-$(git describe --tags).x86_64.rpm
 
       - name: Upload RPM package
         uses: softprops/action-gh-release@v1
