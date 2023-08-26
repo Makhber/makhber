@@ -52,19 +52,16 @@ modules:
           url-template: https://github.com/beltoforion/muparser/archive/v$version.tar.gz
 
   - name: glu
-    buildsystem: autotools
-    config-opts:
-      - --disable-static
-      - --disable-debug
+    buildsystem: meson
     sources:
       - type: archive
-        url: https://mesa.freedesktop.org/archive/glu/glu-9.0.2.tar.gz
-        sha256: 24effdfb952453cc00e275e1c82ca9787506aba0282145fff054498e60e19a65
+        url: https://archive.mesa3d.org/glu/glu-9.0.3.tar.xz
+        sha256: bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f
         x-checker-data:
           type: anitya
           project-id: 13518
           stable-only: true
-          url-template: https://mesa.freedesktop.org/archive/glu/glu-$version.tar.gz
+          url-template: https://archive.mesa3d.org/glu/glu-$version.tar.xz
     cleanup:
       - /include
       - /lib/*.a
