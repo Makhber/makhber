@@ -556,12 +556,16 @@ jobs:
             apt install -y --no-install-recommends \
               ${_experimental} \
               qt6-base-dev \
+              qt6-svg-dev \
               qt6-tools-dev \
               qt6-translations-l10n \
-              libglu1-mesa-dev
+              libglu1-mesa-dev \
+              libxkbcommon-dev
           else
             apt install -y --no-install-recommends \
               qtbase5-dev \
+              libqt5opengl5-dev \
+              libqt5svg5-dev \
               qttools5-dev \
               qttranslations5-l10n
           fi
@@ -572,8 +576,6 @@ jobs:
             ninja-build \
             make \
             pkgconf \
-            libqt${{ matrix.QT_VER }}svg${{ matrix.QT_VER }}-dev \
-            libqt${{ matrix.QT_VER }}opengl${{ matrix.QT_VER }}-dev \
             libgsl-dev \
             libmuparser-dev \
             libqwt-qt${{ matrix.QT_VER }}-dev \
