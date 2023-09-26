@@ -23,7 +23,7 @@ jobs:
           lscpu | grep name
           nproc
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -134,7 +134,7 @@ jobs:
         run : |
           Get-CIMInstance -Class Win32_Processor | Select-Object -Property Name
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -241,7 +241,7 @@ jobs:
           sysctl -n machdep.cpu.brand_string
           sysctl -n hw.logicalcpu
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
