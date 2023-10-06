@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -50,7 +50,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -115,7 +115,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -156,7 +156,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -192,7 +192,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -255,7 +255,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -350,7 +350,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -398,61 +398,3 @@ jobs:
         with:
           draft: true
           files: build/Makhber*.deb
-
-  RPM:
-    name: Fedora 36 RPM
-    runs-on: ubuntu-20.04
-    container: fedora:36
-
-    steps:
-      - uses: actions/checkout@v1
-        with:
-          submodules: true
-
-      - name: Install prerequisties
-        run: |
-          sudo dnf install -y \
-            gcc-c++ \
-            cmake \
-            ninja-build \
-            qt5-qtbase-devel \
-            qt5-qtsvg-devel \
-            qt5-qttools-devel \
-            gsl-devel \
-            muParser-devel \
-            gl2ps-devel \
-            zlib-devel \
-            python3-devel \
-            python3-qt5-devel \
-            PyQt-builder \
-            mesa-libGLU-devel \
-            rpm-build \
-            git
-
-      - name: Configuring
-        run: |
-          mkdir build && cd build
-          cmake .. \
-            -GNinja \
-            -DCMAKE_BUILD_TYPE=Release \
-            -DMAKHBER_SCRIPTING_PYTHON=ON \
-            -DBUILD_SHARED_LIBS=ON
-
-      - name: Building
-        run: |
-          ninja -C build
-
-      - name: Packaging
-        run: |
-          git config --global --add safe.directory /__w/makhber/makhber
-          cd build
-          cpack -G RPM
-          mv Makhber*.rpm makhber-$(git describe --tags).fc36.x86_64.rpm
-
-      - name: Upload RPM package
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          draft: true
-          files: build/makhber*.rpm
