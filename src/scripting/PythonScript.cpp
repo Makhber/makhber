@@ -318,8 +318,10 @@ void PythonScript::endStdoutRedirect()
 
 bool PythonScript::setQObject(QObject *val, const char *name)
 {
+    PyGILState_STATE state = PyGILState_Ensure();
     if (!PyDict_Contains(modLocalDict, PyUnicode_FromString(name)))
         compiled = notCompiled;
+    PyGILState_Release(state);
     return (env()->setQObject(val, name, modLocalDict)
             && env()->setQObject(val, name, modGlobalDict));
 }
