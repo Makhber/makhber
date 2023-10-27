@@ -1,8 +1,25 @@
 # Changelog
 
+## Makhber 0.9.8
+
+Released: 28-10-2023
+
+### General
+
+- Fix a segfault with Python 3.12
+- Update dependencies
+
+### Packaging
+
+- Windows: Build against Python 3.12
+- Snap: Add qtwayland dependency to fix running on Wayland session
+- AppImage: Build against Python 3.11
+- AppImage: build on Ubuntu 20.04
+- Update flatpak kde-runtime to 5.15-23.08
+
 ## Makhber 0.9.7
 
-Released: 13-02-2022
+Released: 13-11-2022
 
 ### General
 

@@ -34,6 +34,7 @@
   <launchable type="desktop-id">com.github.makhber.Makhber.desktop</launchable>
 
   <releases>
+    <release version="0.9.8" date="2023-10-28"/>
     <release version="0.9.7" date="2022-11-13"/>
     <release version="0.9.6.1" date="2022-09-16"/>
     <release version="0.9.6" date="2022-06-21"/>
@@ -61,11 +62,11 @@
   <screenshots>
     <screenshot type="default">
       <caption>3D plots</caption>
-      <image>https://raw.githubusercontent.com/Makhber/makhber/0.9.7/screenshots/Screen1.png</image>
+      <image>https://raw.githubusercontent.com/Makhber/makhber/0.9.8/screenshots/Screen1.png</image>
     </screenshot>
     <screenshot>
       <caption>2D plots</caption>
-      <image>https://raw.githubusercontent.com/Makhber/makhber/0.9.7/screenshots/Screen2.png</image>
+      <image>https://raw.githubusercontent.com/Makhber/makhber/0.9.8/screenshots/Screen2.png</image>
     </screenshot>
   </screenshots>
 
