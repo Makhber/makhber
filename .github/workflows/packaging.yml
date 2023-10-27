@@ -245,7 +245,7 @@ jobs:
           tree $HOME/.local/share/flatpak/app/com.github.makhber.Makhber/x86_64/master/active/files
 
   AppImage:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     name: AppImage
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
