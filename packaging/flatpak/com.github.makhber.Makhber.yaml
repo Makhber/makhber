@@ -1,7 +1,7 @@
 app-id: com.github.makhber.Makhber
 runtime: org.kde.Platform
 sdk: org.kde.Sdk
-runtime-version: 5.15-22.08
+runtime-version: 5.15-23.08
 command: makhber
 finish-args:
   - --share=ipc
@@ -119,15 +119,15 @@ modules:
         url: https://files.pythonhosted.org/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl
         sha256: 096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce
       - type: file
-        url: https://files.pythonhosted.org/packages/6c/74/f8bd2e249e080f0a55e890171a0d264781bfed8ae6da7286174fa4da7b3e/PyQt_builder-1.15.2-py3-none-any.whl
-        sha256: 9e5acbe6ddffc2b8e7a619c5053d1f7da53f5db0faff8ce2b573f0e6604ad981
+        url: https://files.pythonhosted.org/packages/6b/31/89d6cd9d6ddc7fe160d6834d498c69fc92b9e70771e280a59cc8a085d5a2/PyQt_builder-1.15.3-py3-none-any.whl
+        sha256: 8fa8302510f22df4264d8c8c6869629ebae2b7e4815439ab1a0326a23845bb43
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/ce/8c/f66d1c45946e73a46f258b9628fe974ba8cc46c41b4750a59be192981695/sip-6.7.11.tar.gz
-        sha256: f0dc3287a0b172e5664931c87847750d47e4fdcda4fe362b514af8edd655b469
+        url: https://files.pythonhosted.org/packages/a6/4e/c34eee70109e9a8110672f074fc18b5022bf4b9b4c92641245c73ae0b21a/sip-6.7.12.tar.gz
+        sha256: 08e66f742592eb818ac8fda4173e2ed64c9f2d40b70bee11db1c499127d98450
         x-checker-data:
           name: sip
           type: pypi
@@ -148,8 +148,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pyqt5-sip" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/99/61/6954ff8f8ab550a8fec56a2f29be362f281ee71b6edc7615b905adb0e6a9/PyQt5_sip-12.12.2.tar.gz
-        sha256: 10d9bfa9f59f0fd1cad81be187479316ffc95684f573efea94512cb4257d2b17
+        url: https://files.pythonhosted.org/packages/ee/81/fce2a475aa56c1f49707d9306b930695b6ff078c2242c9f2fd72a3214e1f/PyQt5_sip-12.13.0.tar.gz
+        sha256: 7f321daf84b9c9dbca61b80e1ef37bdaffc0e93312edae2cd7da25b953971d91
         x-checker-data:
           type: pypi
           name: PyQt5-sip
@@ -157,7 +157,7 @@ modules:
   - name: pyqt5
     buildsystem: simple
     build-commands:
-      - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.10/site-packages
+      - sip-install --confirm-license --build-dir ./build --target-dir /app/lib/python3.11/site-packages
         --concatenate $(nproc) --no-designer-plugin --no-qml-plugin --no-tools --disable
         QtQml --disable QtBluetooth --disable QtDBus --disable QtDesigner --disable
         QtHelp --disable QtMultimedia --disable QtMultimediaWidgets --disable QtNfc
@@ -168,13 +168,13 @@ modules:
         QtX11Extras --disable QtXml --disable QtXmlPatterns --verbose --jobs $(nproc)
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/5c/46/b4b6eae1e24d9432905ef1d4e7c28b6610e28252527cdc38f2a75997d8b5/PyQt5-5.15.9.tar.gz
-        sha256: dc41e8401a90dc3e2b692b411bd5492ab559ae27a27424eed4bd3915564ec4c0
+        url: https://files.pythonhosted.org/packages/4d/5d/b8b6e26956ec113ad3f566e02abd12ac3a56b103fcc7e0735e27ee4a1df3/PyQt5-5.15.10.tar.gz
+        sha256: d46b7804b1b10a4ff91753f8113e5b5580d2b4462f3226288e2d84497334898a
         x-checker-data:
           type: pypi
           name: PyQt5
     cleanup:
-      - /lib/python3.10/site-packages/PyQt5/bindings
+      - /lib/python3.11/site-packages/PyQt5/bindings
 
   - name: makhber
     buildsystem: cmake-ninja

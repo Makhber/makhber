@@ -204,7 +204,7 @@ jobs:
             flatpak-builder \
             elfutils
           flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-          flatpak install --user -y org.kde.Platform//5.15-21.08 org.kde.Sdk//5.15-21.08
+          flatpak install --user -y org.kde.Platform//5.15-23.08 org.kde.Sdk//5.15-23.08
 
       - name: Building
         run: |
