@@ -1,0 +1,60 @@
+workflows:
+  macos-m1:
+    instance_type: mac_mini_m1
+    triggering:
+      events:
+        - tag
+    environment:
+      groups:
+        - my_tokens
+      xcode: latest
+    scripts:
+      - name: Install common prerequisties
+        script: |
+          brew install --display-times muparser gsl gl2ps googletest
+      - name: Install qwt (Qt5)
+        script: |
+          brew install --display-times qwt-qt5
+      - name: Configuring (Qt5)
+        script: |
+          PATH=/opt/homebrew/opt/qt@5/bin:$PATH \
+          cmake \
+            --preset macos \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_FORCE_QT5=ON \
+            -DCMAKE_PREFIX_PATH=/opt/homebrew/opt/qwt-qt5 \
+            -B build/macos-qt5
+      - name: Building (Qt5)
+        script: |
+          cmake --build build/macos-qt5 -j$(sysctl -n hw.logicalcpu)
+      - name: Install qwt (Qt6)
+        script: |
+          brew install --display-times qwt
+      - name: Configuring (Qt6)
+        script: |
+          cmake \
+            --preset macos \
+            -DCMAKE_BUILD_TYPE=Release \
+            -B build/macos-qt6
+      - name: Building (Qt6)
+        script: |
+          cmake --build build/macos-qt6 -j$(sysctl -n hw.logicalcpu)
+      - name: Testing
+        script: |
+          ctest --test-dir build/macos-qt5 --repeat until-pass:3
+          ctest --test-dir build/macos-qt6 --repeat until-pass:3
+      - name: Packaging
+        script: |
+          cd build/macos-qt6
+          cpack -G DragNDrop
+          mv *.dmg Makhber-${CM_TAG}-macos-$(uname -m)-Qt6.dmg
+          cd ../../build/macos-qt5
+          cpack -G DragNDrop
+          mv *.dmg Makhber-${CM_TAG}-macos-$(uname -m)-Qt5.dmg
+      - name: Uploading & Publishing
+        script: |
+          cp build/macos-qt6/Makhber-${CM_TAG}-macos-$(uname -m)-Qt6.dmg $CM_EXPORT_DIR/
+          cp build/macos-qt5/Makhber-${CM_TAG}-macos-$(uname -m)-Qt5.dmg $CM_EXPORT_DIR/
+          gh release upload "${CM_TAG}" \
+            build/macos-qt6/Makhber-${CM_TAG}-macos-$(uname -m)-Qt6.dmg \
+            build/macos-qt5/Makhber-${CM_TAG}-macos-$(uname -m)-Qt5.dmg

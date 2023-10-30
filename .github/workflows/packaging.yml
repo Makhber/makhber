@@ -203,7 +203,7 @@ jobs:
         run: |
           cd build
           cpack -G DragNDrop
-          mv *.dmg Makhber-$(git describe --tags)-macos-Qt${{ matrix.QT_VER }}.dmg
+          mv *.dmg Makhber-$(git describe --tags)-macos-$(uname -m)-Qt${{ matrix.QT_VER }}.dmg
 
       - name: Upload MacOS package
         uses: softprops/action-gh-release@v1
