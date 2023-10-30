@@ -349,7 +349,7 @@ jobs:
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools
+          archives: qtbase qtsvg qttools icu
 
       # Python version used to build makhber must be the same for miniconda
       - uses: actions/setup-python@v4
@@ -364,6 +364,12 @@ jobs:
             libgl2ps-dev \
             xvfb \
             wget
+          if [[ ${{ matrix.QT_VER }} == "6.5.2" ]]; then
+            sudo apt install -y --no-install-recommends \
+              libxkbcommon-dev \
+              libxcb-cursor0 \
+              libvulkan-dev
+          fi
           pip3 install sip pyqt-builder
           if [[ "${{ matrix.QT_VER }}" == "6.5.2" ]]; then
             pip3 install pyqt6
@@ -544,7 +550,8 @@ jobs:
             glu-devel \
             python3 \
             xvfb-run \
-            rpm-build
+            rpm-build \
+            git
 
       - name: Configuring
         run: |
