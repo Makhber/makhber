@@ -1,0 +1,36 @@
+workflows:
+  macos-m1:
+    instance_type: mac_mini_m1
+    triggering:
+      events:
+        - tag
+    environment:
+      groups:
+        - my_tokens
+      xcode: latest
+    scripts:
+      - name: Install prerequisties
+        script: |
+          brew install --display-times qt@5 muparser gsl gl2ps zlib googletest
+      - name: Configuring
+        script: |
+          PATH=/opt/homebrew/opt/qt@5/bin:$PATH \
+          cmake \
+            --preset macos \
+            -DCMAKE_BUILD_TYPE=Release
+      - name: Building
+        script: |
+          cmake --build --preset default -j$(sysctl -n hw.logicalcpu)
+      - name: Testing
+        script: |
+          ctest --preset default --repeat until-pass:3
+      - name: Packaging
+        script: |
+          cd build/Darwin
+          cpack -G DragNDrop
+          mv *.dmg Makhber-${CM_TAG}-macos-$(uname -m).dmg
+      - name: Uploading & Publishing
+        script: |
+          cp build/Darwin/Makhber-${CM_TAG}-macos-$(uname -m).dmg $CM_EXPORT_DIR/
+          gh release upload "${CM_TAG}" \
+            build/Darwin/Makhber-${CM_TAG}-macos-$(uname -m).dmg

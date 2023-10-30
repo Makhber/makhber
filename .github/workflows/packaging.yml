@@ -141,6 +141,7 @@ jobs:
         run: |
           cd build
           cpack -G DragNDrop
+          mv *.dmg Makhber-$(git describe --tags)-macos-$(uname -m).dmg
 
       - name: Upload MacOS package
         uses: softprops/action-gh-release@v1
