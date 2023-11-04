@@ -37,6 +37,12 @@
 %Import QtWidgets/QtWidgetsmod.sip
 %Import QtPrintSupport/QtPrintSupportmod.sip
 
+%ExportedHeaderCode
+#if PY_VERSION_HEX < 0x030D0000
+#define PyUnicode_AsUTF8(arg) PyUnicode_AsUTF8AndSize(arg, nullptr)
+#endif
+%End
+
 class AbstractAspect : QObject
 {
 %TypeHeaderCode
@@ -443,7 +449,7 @@ public:
     QList<Column *> cols;
     int n = PyTuple_Size(a0);
     for (int i = 0; i < n; i++) {
-        PyObject *str = PyObject_Str(PyTuple_GET_ITEM(a0, i));
+        PyObject *str = PyObject_Str(PyTuple_GetItem(a0, i));
         if (str) {
             cols << sipCpp->column(PyUnicode_AsUTF8(str));
             Py_DECREF(str);
@@ -1233,7 +1239,7 @@ public:
     QStringList l;
     int n = PyTuple_Size(a1);
     for (int i = 0; i < n; i++) {
-        PyObject *str = PyObject_Str(PyTuple_GET_ITEM(a1, i));
+        PyObject *str = PyObject_Str(PyTuple_GetItem(a1, i));
         if (str) {
             l << PyUnicode_AsUTF8(str);
             Py_DECREF(str);
@@ -1354,17 +1360,17 @@ public:
     void setInitialGuess(int, double) / PyName = setInitialValue / ;
     void setInitialGuesses(...) / PyName = setInitialValues / ;
 %MethodCode
-    int n = PyTuple_GET_SIZE(a0);
+    int n = PyTuple_Size(a0);
     double *values = new double[n];
     for (int i = 0; i < n; i++) {
-        PyObject *item = PyTuple_GET_ITEM(a0, i);
+        PyObject *item = PyTuple_GetItem(a0, i);
         if (PyNumber_Check(item)) {
             item = PyNumber_Float(item);
             if (!item) {
                 sipIsErr = 1;
                 break;
             }
-            values[i] = PyFloat_AS_DOUBLE(item);
+            values[i] = PyFloat_AsDouble(item);
             Py_DECREF(item);
         } else
             values[i] = 0;
@@ -1403,7 +1409,7 @@ public:
     sipRes = PyTuple_New(results.size());
     if (sipRes) {
         for (size_t i = 0; i < results.size(); i++)
-            PyTuple_SET_ITEM(sipRes, i, PyFloat_FromDouble(results[i]));
+            PyTuple_SetItem(sipRes, i, PyFloat_FromDouble(results[i]));
     } else
         sipIsErr = 1;
 %End
@@ -1414,7 +1420,7 @@ public:
     sipRes = PyTuple_New(errors.size());
     if (sipRes) {
         for (size_t i = 0; i < errors.size(); i++)
-            PyTuple_SET_ITEM(sipRes, i, PyFloat_FromDouble(errors[i]));
+            PyTuple_SetItem(sipRes, i, PyFloat_FromDouble(errors[i]));
     } else
         sipIsErr = 1;
 %End
@@ -1567,8 +1573,8 @@ public:
 %MethodCode
     QStringList l;
     const char *item;
-    for (int i = 0; i < PyTuple_GET_SIZE(a0); i++)
-        if ((item = PyUnicode_AsUTF8(PyTuple_GET_ITEM(a0, i))))
+    for (int i = 0; i < PyTuple_Size(a0); i++)
+        if ((item = PyUnicode_AsUTF8(PyTuple_GetItem(a0, i))))
             l << item;
         else
             sipIsErr = 1;

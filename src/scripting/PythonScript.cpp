@@ -37,6 +37,9 @@
 #    undef _POSIX_C_SOURCE
 #endif
 #include <Python.h>
+#if PY_VERSION_HEX < 0x030D0000
+#    define PyUnicode_AsUTF8(arg) PyUnicode_AsUTF8AndSize(arg, nullptr)
+#endif
 
 #include <QObject>
 #include <QVariant>
@@ -60,17 +63,19 @@ PythonScript::PythonScript(PythonScripting *env, const QString &code, QObject *c
     modGlobalDict = PyDict_Copy(this->env()->globalDict());
     // To read and write program-wide globals, we provide "globals"
     // e.g. ">>> globals.remote_ctl_server = server"
-    PyObject *ret;
-    ret = PyRun_String("import __main__\n"
-                       "globals = __main__",
-                       Py_file_input, modLocalDict, modLocalDict);
+    PyObject *ret, *codeobj;
+    codeobj = Py_CompileString("import __main__\n"
+                               "globals = __main__",
+                               "<string>", Py_file_input);
+    ret = PyEval_EvalCode(codeobj, modLocalDict, modLocalDict);
     if (ret)
         Py_DECREF(ret);
     else
         PyErr_Print();
-    ret = PyRun_String("import __main__\n"
-                       "globals = __main__",
-                       Py_file_input, modGlobalDict, modGlobalDict);
+    codeobj = Py_CompileString("import __main__\n"
+                               "globals = __main__",
+                               "<string>", Py_file_input);
+    ret = PyEval_EvalCode(codeobj, modGlobalDict, modGlobalDict);
     if (ret)
         Py_DECREF(ret);
     else
@@ -102,7 +107,7 @@ bool PythonScript::compile(bool for_eval)
     // This can't be done anywhere else, because we need access to the local
     // variables self, i and j.
     if (Context->inherits("Table")) {
-        PyObject *ret = PyRun_String(
+        PyObject *codeobj = Py_CompileString(
                 "def col(c,*arg):\n"
                 "\ttry: return self.column(type(c)==str and c or c-1).valueAt(arg[0]-1)\n"
                 "\texcept(IndexError): return self.column(type(c)==str and c or c-1).valueAt(i-1)\n"
@@ -114,16 +119,18 @@ bool PythonScript::compile(bool for_eval)
                 "def _meth_table_col_(t,c):\n"
                 "\treturn t.column(type(c)==str and c or c-1).valueAt(i-1)\n"
                 "self.__class__.col = _meth_table_col_",
-                Py_file_input, topLevelLocal, topLevelLocal);
+                "<string>", Py_file_input);
+        PyObject *ret = PyEval_EvalCode(codeobj, topLevelLocal, topLevelLocal);
         if (ret)
             Py_DECREF(ret);
         else
             PyErr_Print();
     } else if (Context->inherits("Matrix")) {
-        PyObject *ret = PyRun_String("def cell(*arg):\n"
-                                     "\ttry: return self.cell(arg[0],arg[1])\n"
-                                     "\texcept(IndexError): return self.cell(i,j)\n",
-                                     Py_file_input, topLevelLocal, topLevelLocal);
+        PyObject *codeobj = Py_CompileString("def cell(*arg):\n"
+                                             "\ttry: return self.cell(arg[0],arg[1])\n"
+                                             "\texcept(IndexError): return self.cell(i,j)\n",
+                                             "<string>", Py_file_input);
+        PyObject *ret = PyEval_EvalCode(codeobj, topLevelLocal, topLevelLocal);
         if (ret)
             Py_DECREF(ret);
         else
@@ -212,7 +219,7 @@ QVariant PythonScript::eval()
         qret = QVariant("");
     /* numeric types */
     else if (PyFloat_Check(pyret))
-        qret = QVariant(PyFloat_AS_DOUBLE(pyret));
+        qret = QVariant(PyFloat_AsDouble(pyret));
     else if (PyLong_Check(pyret))
         qret = QVariant((qlonglong)PyLong_AsLong(pyret));
     else if (PyLong_Check(pyret))
@@ -220,7 +227,7 @@ QVariant PythonScript::eval()
     else if (PyNumber_Check(pyret)) {
         PyObject *number = PyNumber_Float(pyret);
         if (number) {
-            qret = QVariant(PyFloat_AS_DOUBLE(number));
+            qret = QVariant(PyFloat_AsDouble(number));
             Py_DECREF(number);
         }
         /* bool */
