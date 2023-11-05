@@ -32,7 +32,7 @@ jobs:
           version: ${{ env.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools
+          archives: qtbase qtsvg qttools qttranslations
 
       - name: Install prerequisties
         run: |
@@ -100,7 +100,7 @@ jobs:
           version: ${{ env.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools
+          archives: qtbase qtsvg qttools qttranslations
 
       - name: Setup NuGet Credentials
         run: |
@@ -172,7 +172,7 @@ jobs:
           version: ${{ env.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools
+          archives: qtbase qtsvg qttools qttranslations
 
       - name: Install prerequisties
         run: |
