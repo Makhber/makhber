@@ -133,7 +133,7 @@ jobs:
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools
+          archives: qtbase qtsvg qttools qttranslations
 
       # Python version used to build makhber must be the same for miniconda
       - uses: actions/setup-python@v4

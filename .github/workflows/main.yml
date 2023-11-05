@@ -40,7 +40,7 @@ jobs:
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools icu
+          archives: qtbase qtsvg qttools qttranslations icu
           aqtversion: '==3.1.*'
 
       - name: Install prerequisties
@@ -151,7 +151,7 @@ jobs:
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools
+          archives: qtbase qtsvg qttools qttranslations
           aqtversion: '==3.1.*'
 
       - name: Restore cached Qwt
@@ -266,7 +266,7 @@ jobs:
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools
+          archives: qtbase qtsvg qttools qttranslations
           aqtversion: '==3.1.*'
 
       - name: Install prerequisties
