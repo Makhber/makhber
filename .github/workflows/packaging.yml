@@ -84,6 +84,7 @@ jobs:
           remove-item "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\Microsoft.VCToolsVersion.v143.default.*"
 
       - uses: ilammy/msvc-dev-cmd@v1
+        if: steps.cache-qwt.outputs.cache-hit != 'true'
         with:
           toolset: 14.37
       - name: Build and install Qwt
