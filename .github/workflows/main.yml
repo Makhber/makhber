@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.6.0]
+        QT_VER: [5.15.2, 6.6.1]
     env:
       QWT_VER: 6.2.0
 
@@ -56,7 +56,7 @@ jobs:
             libxcb-xkb1 \
             libxkbcommon-x11-0 \
             xvfb
-          if [[ ${{ matrix.QT_VER }} == "6.6.0" ]]; then
+          if [[ ${{ matrix.QT_VER }} == "6.6.1" ]]; then
             sudo apt install -y --no-install-recommends \
               libxkbcommon-dev \
               libxcb-cursor0 \
@@ -95,7 +95,7 @@ jobs:
       - name: Install Python packages
         run: |
           pip3 install sip pyqt-builder numpy
-          if [[ "${{ matrix.QT_VER }}" == "6.6.0" ]]; then
+          if [[ "${{ matrix.QT_VER }}" == "6.6.1" ]]; then
             pip3 install pyqt6
           else
             pip3 install pyqt5
@@ -123,7 +123,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.6.0]
+        QT_VER: [5.15.2, 6.6.1]
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       VCPKG_DEFAULT_TRIPLET: x64-windows
@@ -206,7 +206,7 @@ jobs:
       - name: Install Python packages
         run: |
           pip install sip pyqt-builder numpy
-          if ("${{ matrix.QT_VER }}" -eq "6.6.0") {
+          if ("${{ matrix.QT_VER }}" -eq "6.6.1") {
             pip install pyqt6
           } else {
             pip install pyqt5
@@ -237,7 +237,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15, 6.6.0]
+        QT_VER: [5.15, 6.6.1]
     env:
       QWT_VER: 6.2.0
 
@@ -252,7 +252,7 @@ jobs:
           submodules: true
 
       - name: Restore cached Qt
-        if: ${{ matrix.QT_VER == '6.6.0' }}
+        if: ${{ matrix.QT_VER == '6.6.1' }}
         id: cache-qt
         uses: actions/cache@v3
         with:
@@ -260,7 +260,7 @@ jobs:
           key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
-        if: ${{ matrix.QT_VER == '6.6.0' }}
+        if: ${{ matrix.QT_VER == '6.6.1' }}
         uses: jurplel/install-qt-action@v3
         with:
           setup-python: false
@@ -278,7 +278,7 @@ jobs:
           fi
 
       - name: Restore cached Qwt
-        if: ${{ matrix.QT_VER == '6.6.0' }}
+        if: ${{ matrix.QT_VER == '6.6.1' }}
         id: cache-qwt
         uses: actions/cache@v3
         with:
@@ -286,7 +286,7 @@ jobs:
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
 
       - name: Build and install Qwt
-        if: ${{ steps.cache-qwt.outputs.cache-hit != 'true' && matrix.QT_VER == '6.6.0' }}
+        if: ${{ steps.cache-qwt.outputs.cache-hit != 'true' && matrix.QT_VER == '6.6.1' }}
         run: |
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
@@ -301,7 +301,7 @@ jobs:
       - name: Configuring
         run: |
           export PATH=/usr/local/opt/qt@5/bin:$PATH
-          if [[ "${{ matrix.QT_VER }}" == "6.6.0" ]]; then
+          if [[ "${{ matrix.QT_VER }}" == "6.6.1" ]]; then
             QWT_PATH=${GITHUB_WORKSPACE}/Qwt
           else
             QWT_PATH=/usr/local/opt/qwt-qt5
