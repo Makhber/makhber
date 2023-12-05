@@ -112,8 +112,8 @@ parts:
       - libgomp1
     prime:
       - -usr/include
-      - -usr/lib/$CRAFT_ARCH_TRIPLET/pkgconfig
-      - -usr/lib/$CRAFT_ARCH_TRIPLET/cmake
+      - -usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/pkgconfig
+      - -usr/lib/$CRAFT_ARCH_TRIPLET_BUILD_FOR/cmake
       - -usr/share
   qwt:
     source-type: tar
