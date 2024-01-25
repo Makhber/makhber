@@ -53,24 +53,21 @@ foreach( comp ${SIP_COMPONENTS} )
     set( SIP_${comp}_FOUND TRUE )
   endif()
 
-  execute_process(
-    COMMAND ${SIP_${comp}_EXECUTABLE} -V
-    OUTPUT_VARIABLE SIP_${comp}_VERSION
-    OUTPUT_STRIP_TRAILING_WHITESPACE
-  )
-
 endforeach()
 
 if( SIP_Build_FOUND AND SIP_Module_FOUND )
   set( SIP_EXECUTABLES ${SIP_Build_EXECUTABLE} ${SIP_Module_EXECUTABLE} )
-  set( SIP_VERSION ${SIP_Build_VERSION} )
 elseif( SIP_Legacy_FOUND AND SIP_Module_FOUND )
   set( SIP_EXECUTABLES ${SIP_Legacy_EXECUTABLE} ${SIP_Module_EXECUTABLE} )
-  set( SIP_VERSION ${SIP_Legacy_VERSION} )
 elseif( SIP_Legacy_FOUND AND SIP_VERSION VERSION_LESS 5 )
   set( SIP_EXECUTABLES ${SIP_Legacy_EXECUTABLE} )
-  set( SIP_VERSION ${SIP_Legacy_VERSION} )
 endif()
+
+execute_process(
+  COMMAND ${Python3_EXECUTABLE} -c "from sipbuild import SIP_VERSION_STR; print(SIP_VERSION_STR)"
+  OUTPUT_VARIABLE SIP_VERSION
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 
 include( FindPackageHandleStandardArgs )
 
