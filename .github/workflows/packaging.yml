@@ -59,7 +59,7 @@ jobs:
 
       - name: Restore cached Qt
         id: cache-qt
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
@@ -74,7 +74,7 @@ jobs:
 
       - name: Restore cached Qwt
         id: cache-qwt
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
@@ -339,7 +339,7 @@ jobs:
 
       - name: Restore cached Qt
         id: cache-qt
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
@@ -353,7 +353,7 @@ jobs:
           archives: qtbase qtsvg qttools qttranslations icu
 
       # Python version used to build makhber must be the same for miniconda
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '${{ env.PYTHON_VERSION }}'
 
@@ -384,7 +384,7 @@ jobs:
 
       - name: Restore cached Qwt
         id: cache-qwt
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qwt
           key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
