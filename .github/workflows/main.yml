@@ -226,12 +226,13 @@ jobs:
           ctest --preset msvc-vcpkg -C RelWithDebInfo --repeat until-pass:3
 
   macos:
-    runs-on: macos-13
+    runs-on: macos-${{ matrix.macos_ver }}
     name: macos
     strategy:
       fail-fast: false
       matrix:
         QT_VER: [5.15, 6.6.2]
+        macos_ver: [13, 14]
     env:
       QWT_VER: 6.2.0
       HOMEBREW_NO_AUTO_UPDATE: 1
@@ -247,13 +248,22 @@ jobs:
         with:
           submodules: true
 
+      - name: Install prerequisties
+        run: |
+          brew list -1 | grep python | while read formula; do brew unlink $formula; brew link --overwrite $formula; done
+          brew update
+          brew install --display-times muparser liborigin gsl gl2ps googletest
+          if [[ "${{ matrix.QT_VER }}" == "5.15" ]]; then
+            brew install qwt-qt5
+          fi
+
       - name: Restore cached Qt
         if: ${{ matrix.QT_VER == '6.6.2' }}
         id: cache-qt
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
+          key: ${{ runner.os }}-${{ matrix.macos_ver }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
         if: ${{ matrix.QT_VER == '6.6.2' }}
@@ -266,22 +276,13 @@ jobs:
           archives: qtbase qtsvg qttools qttranslations
           aqtversion: '==3.1.*'
 
-      - name: Install prerequisties
-        run: |
-          brew list -1 | grep python | while read formula; do brew unlink $formula; brew link --overwrite $formula; done
-          brew update
-          brew install --display-times muparser liborigin gsl gl2ps googletest
-          if [[ "${{ matrix.QT_VER }}" == "5.15" ]]; then
-            brew install qwt-qt5
-          fi
-
       - name: Restore cached Qwt
         if: ${{ matrix.QT_VER == '6.6.2' }}
         id: cache-qwt
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
+          key: ${{ runner.os }}-${{ matrix.macos_ver }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
 
       - name: Build and install Qwt
         if: ${{ steps.cache-qwt.outputs.cache-hit != 'true' && matrix.QT_VER == '6.6.2' }}
@@ -298,11 +299,11 @@ jobs:
 
       - name: Configuring
         run: |
-          export PATH=/usr/local/opt/qt@5/bin:$PATH
-          if [[ "${{ matrix.QT_VER }}" == "6.6.2" ]]; then
-            QWT_PATH=${GITHUB_WORKSPACE}/Qwt
+          if [[ "${{ matrix.QT_VER }}" == 5.15 ]]; then
+            export PATH=$(brew --prefix)/opt/qt@5/bin:$PATH
+            QWT_PATH=$(brew --prefix)/opt/qwt-qt5
           else
-            QWT_PATH=/usr/local/opt/qwt-qt5
+            QWT_PATH=${GITHUB_WORKSPACE}/Qwt
           fi
           cmake \
             --preset macos \
