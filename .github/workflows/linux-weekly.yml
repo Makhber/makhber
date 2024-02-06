@@ -377,10 +377,13 @@ jobs:
         include:
           - image: leap
             QT_VER: 5
+            py_ver: 3
           - image: tumbleweed
             QT_VER: 5
+            py_ver: 312
           - image: tumbleweed
             QT_VER: 6
+            py_ver: 312
 
     steps:
       - uses: actions/checkout@v1
@@ -400,8 +403,8 @@ jobs:
             gl2ps-devel \
             zlib-devel \
             glu-devel \
-            python3 \
-            python3-pyqt-builder \
+            python${{ matrix.py_ver }} \
+            python${{ matrix.py_ver }}-pyqt-builder \
             gtest \
             xvfb-run \
             rpm-build
@@ -410,13 +413,13 @@ jobs:
                 libqt5-qtbase-devel \
                 libqt5-qtsvg-devel \
                 libqt5-linguist-devel \
-                python3-qt5-devel
+                python${{ matrix.py_ver }}-qt5-devel
             else
               zypper -n install \
                 qt6-base-devel \
                 qt6-svg-devel \
                 qt6-linguist-devel \
-                python3-PyQt6-devel
+                python${{ matrix.py_ver }}-PyQt6-devel
             fi
 
       - name: Configuring
