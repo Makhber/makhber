@@ -1,5 +1,5 @@
-if( ${Python3_VERSION} VERSION_EQUAL "3.12.0" )
-  set( PYTHON_EMBED_HASH "8e24d2b26a8dbf1da0694b9da1a08b2c" )
+if( ${Python3_VERSION} VERSION_EQUAL "3.12.2" )
+  set( PYTHON_EMBED_HASH "ded837d78a1efa7ea47b31c14c756faa" )
 elseif( ${Python3_VERSION} VERSION_EQUAL "3.11.6" )
   set( PYTHON_EMBED_HASH "ff5f34b8d2504c49fc94ffc29998b8a0" )
 elseif( ${Python3_VERSION} VERSION_EQUAL "3.10.11" )
