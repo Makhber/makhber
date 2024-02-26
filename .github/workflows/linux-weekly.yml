@@ -142,7 +142,7 @@ jobs:
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
-          archives: qtbase qtsvg qttools qttranslations
+          archives: qtbase qtsvg qttools qttranslations icu
 
       - name: Install prerequisties
         run: |
