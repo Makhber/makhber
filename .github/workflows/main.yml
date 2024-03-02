@@ -197,7 +197,7 @@ jobs:
         run: |
           cd $Env:VCPKG_INSTALLATION_ROOT
           git pull origin master
-          vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf
+          vcpkg install zlib gsl muparser liborigin opengl gl2ps gtest pkgconf
 
       - uses: actions/setup-python@v5
         with:
@@ -272,7 +272,7 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          brew install --display-times muparser gsl gl2ps googletest
+          brew install --display-times muparser liborigin gsl gl2ps googletest
           if [[ "${{ matrix.QT_VER }}" == "5.15" ]]; then
             brew install qwt-qt5
           fi

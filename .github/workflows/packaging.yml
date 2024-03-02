@@ -67,6 +67,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
+          setup-python: false
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
@@ -116,7 +117,11 @@ jobs:
           cd $Env:VCPKG_INSTALLATION_ROOT
           git pull origin master
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
-          vcpkg install zlib gsl muparser opengl gl2ps openssl pkgconf
+          vcpkg install zlib gsl muparser liborigin opengl gl2ps openssl pkgconf
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: Install Python packages
         run: |
@@ -180,7 +185,7 @@ jobs:
 
       - name: Install prerequisties
         run: |
-          brew install --display-times muparser gsl gl2ps
+          brew install --display-times muparser liborigin gsl gl2ps
           if [[ ${{ matrix.QT_VER }} == 6 ]]; then
             brew install qwt
           else
@@ -543,6 +548,7 @@ jobs:
             libqt5-linguist-devel \
             gsl-devel \
             muparser-devel \
+            liborigin-devel \
             qwt6-qt5-devel \
             gl2ps-devel \
             zlib-devel \

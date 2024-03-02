@@ -124,6 +124,8 @@ find_package( OpenGL COMPONENTS OpenGL REQUIRED )
 
 find_package( muparser REQUIRED )
 
+find_package(liborigin 3.0)
+
 find_package( Qwt ${MINIMUM_QWT} REQUIRED )
 # Qwt<6.2 couldn't be used with c++20
 if(Qwt_VERSION VERSION_LESS 6.2)

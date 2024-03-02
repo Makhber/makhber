@@ -338,6 +338,7 @@ jobs:
             glu \
             gsl \
             muparser \
+            liborigin \
             qwt \
             gl2ps \
             sip \
@@ -394,6 +395,7 @@ jobs:
             ninja \
             gsl-devel \
             muparser-devel \
+            liborigin-devel \
             qwt6-qt${{ matrix.QT_VER }}-devel \
             gl2ps-devel \
             zlib-devel \
