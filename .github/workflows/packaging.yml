@@ -69,7 +69,7 @@ jobs:
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install qt5-svg qt5-tools qt5-translations zlib gsl muparser opengl gl2ps openssl pkgconf
 
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
@@ -262,7 +262,7 @@ jobs:
 
       - name: Restore cached Qt
         id: cache-qt
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qt
           key: ${{ runner.os }}-Qt-${{ env.QT_VER }}-Cache
@@ -275,7 +275,7 @@ jobs:
           dir: ${{ github.workspace }}/Qt
 
       # Python version used to build makhber must be the same for miniconda
-      - uses: actions/setup-python@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '${{ env.PYTHON_VERSION }}'
 
