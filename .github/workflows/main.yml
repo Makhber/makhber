@@ -37,6 +37,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
+          setup-python: false
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
@@ -148,6 +149,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v3
         with:
+          setup-python: false
           version: ${{ matrix.QT_VER }}
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
