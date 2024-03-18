@@ -119,24 +119,17 @@ modules:
         url: https://files.pythonhosted.org/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl
         sha256: 096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce
       - type: file
-        url: https://files.pythonhosted.org/packages/6b/31/89d6cd9d6ddc7fe160d6834d498c69fc92b9e70771e280a59cc8a085d5a2/PyQt_builder-1.15.3-py3-none-any.whl
-        sha256: 8fa8302510f22df4264d8c8c6869629ebae2b7e4815439ab1a0326a23845bb43
+        url: https://files.pythonhosted.org/packages/61/26/a0a1ef876c4842b8ef081a7813ed3e693bb33caa866913f1b73fef3802a7/PyQt_builder-1.15.4-py3-none-any.whl
+        sha256: 2dd20ee5f513b137c2abbfd439302d7c6df321fbd9fde17142bb7aff65f5c635
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/a6/4e/c34eee70109e9a8110672f074fc18b5022bf4b9b4c92641245c73ae0b21a/sip-6.7.12.tar.gz
-        sha256: 08e66f742592eb818ac8fda4173e2ed64c9f2d40b70bee11db1c499127d98450
+        url: https://files.pythonhosted.org/packages/99/85/261c41cc709f65d5b87669f42e502d05cc544c24884121bc594ab0329d8e/sip-6.8.3.tar.gz
+        sha256: 888547b018bb24c36aded519e93d3e513d4c6aa0ba55b7cc1affbd45cf10762c
         x-checker-data:
           name: sip
-          type: pypi
-      - type: file
-        url: https://files.pythonhosted.org/packages/97/75/10a9ebee3fd790d20926a90a2547f0bf78f371b2f13aa822c759680ca7b9/tomli-2.0.1-py3-none-any.whl
-        sha256: 939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc
-        x-checker-data:
-          name: tomli
-          packagetype: bdist_wheel
           type: pypi
     cleanup:
       - '*'
