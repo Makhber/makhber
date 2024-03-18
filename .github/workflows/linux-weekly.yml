@@ -491,7 +491,8 @@ jobs:
             python3-pyqtbuild \
             libgtest-dev \
             xvfb \
-            file
+            file \
+            dpkg-dev
 
       - name: Configuring
         run: |
@@ -590,7 +591,8 @@ jobs:
             libgtest-dev \
             xvfb \
             xauth \
-            file
+            file \
+            dpkg-dev
 
       - name: Configuring
         run: |
