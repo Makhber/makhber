@@ -11,7 +11,8 @@ workflows:
     scripts:
       - name: Install common prerequisties
         script: |
-          brew install --display-times muparser gsl gl2ps googletest
+          brew update
+          brew install --display-times muparser liborigin gsl gl2ps googletest
       - name: Install qwt (Qt5)
         script: |
           brew install --display-times qwt-qt5
