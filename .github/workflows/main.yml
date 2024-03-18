@@ -145,10 +145,12 @@ jobs:
           ctest -C Release --output-on-failure --repeat until-pass:3
 
   macos:
-    runs-on: macos-latest
+    runs-on: macos-12
     name: macos
     env:
       QT_VER: 5.15.2
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
 
     steps:
       - name: Checkout
@@ -173,9 +175,9 @@ jobs:
           archives: qtbase qtsvg qttools
 
       - name: Install prerequisties
-        env:
-          HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
+          brew list -1 | grep python | while read formula; do brew unlink $formula; brew link --overwrite $formula; done
+          brew update
           brew install --display-times muparser liborigin gsl gl2ps googletest
 
       - name: Configuring
