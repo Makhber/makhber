@@ -1,5 +1,18 @@
 # Changelog
 
+## Makhber 0.9.8.1
+
+Released: 18-03-2024
+
+### General
+
+- Support building against external liborigin
+- Update dependencies
+
+### Packaging
+
+- RPM for OpenSUSE/leap
+
 ## Makhber 0.9.8
 
 Released: 28-10-2023
