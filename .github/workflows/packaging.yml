@@ -170,12 +170,15 @@ jobs:
             build/Makhber*.exe
 
   macos:
-    runs-on: macos-11
+    runs-on: macos-12
     name: macos
     strategy:
       fail-fast: false
       matrix:
         QT_VER: [5, 6]
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK: 1
 
     steps:
       - name: Checkout
@@ -185,6 +188,8 @@ jobs:
 
       - name: Install prerequisties
         run: |
+          brew list -1 | grep python | while read formula; do brew unlink $formula; brew link --overwrite $formula; done
+          brew update
           brew install --display-times muparser liborigin gsl gl2ps
           if [[ ${{ matrix.QT_VER }} == 6 ]]; then
             brew install qwt
