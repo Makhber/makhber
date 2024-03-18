@@ -406,8 +406,10 @@ endif()
 
 if( MAKHBER_ORIGIN_IMPORT )
   target_sources( libmakhber PRIVATE "core/importOPJ.h" "core/importOPJ.cpp" )
-  target_link_libraries( libmakhber $<IF:$<BOOL:${BUILD_SHARED_LIBS}>,origin_shared,origin_static> )
-  target_include_directories( libmakhber PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
+  target_link_libraries( libmakhber liborigin::liborigin )
+  if(NOT LIBORIGIN_FOUND)
+    target_include_directories( libmakhber PUBLIC "${CMAKE_SOURCE_DIR}/3rdparty/liborigin" )
+  endif()
   target_compile_definitions( libmakhber PUBLIC ORIGIN_IMPORT )
 endif()
 

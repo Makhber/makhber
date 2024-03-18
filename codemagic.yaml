@@ -11,7 +11,7 @@ workflows:
     scripts:
       - name: Install prerequisties
         script: |
-          brew install --display-times qt@5 muparser gsl gl2ps zlib googletest
+          brew install --display-times qt@5 muparser liborigin gsl gl2ps zlib googletest
       - name: Configuring
         script: |
           PATH=/opt/homebrew/opt/qt@5/bin:$PATH \

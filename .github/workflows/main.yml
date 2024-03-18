@@ -112,7 +112,9 @@ jobs:
 
       - name: vcpkg package restore
         run: |
-          vcpkg install zlib gsl muparser opengl gl2ps gtest pkgconf
+          cd $Env:VCPKG_INSTALLATION_ROOT
+          git pull origin master
+          vcpkg install zlib gsl muparser liborigin opengl gl2ps gtest pkgconf
 
       - uses: actions/setup-python@v5
         with:
@@ -174,7 +176,7 @@ jobs:
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
-          brew install --display-times muparser gsl gl2ps googletest
+          brew install --display-times muparser liborigin gsl gl2ps googletest
 
       - name: Configuring
         run: |

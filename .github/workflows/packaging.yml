@@ -67,7 +67,7 @@ jobs:
           cd $Env:VCPKG_INSTALLATION_ROOT
           git pull origin master
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
-          vcpkg install qt5-svg qt5-tools qt5-translations zlib gsl muparser opengl gl2ps openssl pkgconf
+          vcpkg install qt5-svg qt5-tools qt5-translations zlib gsl muparser liborigin opengl gl2ps openssl pkgconf
 
       - uses: actions/setup-python@v5
         with:
@@ -123,7 +123,7 @@ jobs:
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
         run: |
-          brew install --display-times muparser gsl gl2ps qt@5
+          brew install --display-times muparser liborigin gsl gl2ps qt@5
 
       - name: Configuring
         run: |
