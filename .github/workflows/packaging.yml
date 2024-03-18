@@ -29,7 +29,7 @@ jobs:
           git-archive-all Makhber-${{ steps.version.outputs.version }}-src.tar.xz
 
       - name: Upload source files
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -161,7 +161,7 @@ jobs:
           }
 
       - name: Upload Windows installers
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -217,7 +217,7 @@ jobs:
           mv *.dmg Makhber-$(git describe --tags)-macos-$(uname -m)-Qt${{ matrix.QT_VER }}.dmg
 
       - name: Upload MacOS package
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -245,7 +245,7 @@ jobs:
           echo "snap=$(echo $(ls *.snap))" >> $GITHUB_OUTPUT
 
       - name: Upload Snap
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -310,7 +310,7 @@ jobs:
             com.github.makhber.Makhber
 
       - name: Upload Flatpak
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -470,7 +470,7 @@ jobs:
             --custom-apprun=../packaging/appimage/AppRun
 
       - name: Upload AppImage
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -525,7 +525,7 @@ jobs:
           mv Makhber*.deb Makhber_$(git describe --tags)~22.04_amd64.deb
 
       - name: Upload Debian package
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
@@ -586,7 +586,7 @@ jobs:
           mv Makhber*.rpm makhber-$(git describe --tags).x86_64.rpm
 
       - name: Upload RPM package
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
