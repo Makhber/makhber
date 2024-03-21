@@ -38,7 +38,7 @@ jobs:
           tree /snap/makhber/current/usr
 
       - name: Upload snap
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: snap
           path: '*.snap'
@@ -85,7 +85,7 @@ jobs:
             com.github.makhber.Makhber
 
       - name: Upload flatpak
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: flatpak
           path: build/Makhber*.flatpak
@@ -239,7 +239,7 @@ jobs:
             --custom-apprun=../packaging/appimage/AppRun
 
       - name: Upload AppImage
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Appimage-${{ matrix.QT_VER }}
           path: build/Makhber-*.AppImage
@@ -308,7 +308,7 @@ jobs:
           dpkg -c build/*.deb
 
       - name: Upload DEB package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: DEB-ubuntu
           path: build/*.deb
@@ -455,7 +455,7 @@ jobs:
           rpm -ql makhber
 
       - name: Upload RPM package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: RPM-opensuse-${{ matrix.image }}-${{ matrix.QT_VER }}
           path: build/*.rpm
@@ -528,7 +528,7 @@ jobs:
           dpkg -c build/*.deb
 
       - name: Upload DEB package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: DEB-ubuntu-devel
           path: build/*.deb
@@ -628,7 +628,7 @@ jobs:
           dpkg -c build/*.deb
 
       - name: Upload DEB package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: DEB-debian-exp-${{ matrix.QT_VER }}
           path: build/*.deb
