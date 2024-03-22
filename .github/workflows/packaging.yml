@@ -120,10 +120,10 @@ jobs:
       - name: Install Python packages
         run: |
           pip3 install sip pyqt-builder
-          if ("${{ matrix.QT_VER }}" -eq "6.6.2") {
-            pip install pyqt6
-          } else {
+          if ("${{ matrix.QT_VER }}" -eq "5.15.2") {
             pip install pyqt5
+          } else {
+            pip install pyqt6
           }
 
       - name: Configuring
@@ -148,10 +148,10 @@ jobs:
         run: |
           cd build
           cpack -G NSIS
-          if ("${{ matrix.QT_VER }}" -eq "6.6.2") {
-            Get-ChildItem *.exe | Rename-Item -NewName { $_.Name -replace '.exe','-Qt6.exe' }
-          } else {
+          if ("${{ matrix.QT_VER }}" -eq "5.15.2") {
             Get-ChildItem *.exe | Rename-Item -NewName { $_.Name -replace '.exe','-Qt5.exe' }
+          } else {
+            Get-ChildItem *.exe | Rename-Item -NewName { $_.Name -replace '.exe','-Qt6.exe' }
           }
 
       - name: Upload Windows installers
@@ -369,17 +369,17 @@ jobs:
             libgl2ps-dev \
             xvfb \
             wget
-          if [[ ${{ matrix.QT_VER }} == "6.6.2" ]]; then
+          if [[ ${{ matrix.QT_VER }} != "5.15.2" ]]; then
             sudo apt install -y --no-install-recommends \
               libxkbcommon-dev \
               libxcb-cursor0 \
               libvulkan-dev
           fi
           pip3 install sip pyqt-builder
-          if [[ "${{ matrix.QT_VER }}" == "6.6.2" ]]; then
-            pip3 install pyqt6
-          else
+          if [[ "${{ matrix.QT_VER }}" == "5.15.2" ]]; then
             pip3 install pyqt5
+          else
+            pip3 install pyqt6
           fi
 
       - name: Get GCC version
@@ -448,12 +448,12 @@ jobs:
           wget https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
           chmod +x linuxdeploy*
-          if [[ "${{ matrix.QT_VER }}" == "6.6.2" ]]; then
-            export VERSION=$(git describe --tags)-Qt6
-            export PIP_REQUIREMENTS="pyqt6 pyqt6-sip --no-deps"
-          else
+          if [[ "${{ matrix.QT_VER }}" == "5.15.2" ]]; then
             export VERSION=$(git describe --tags)-Qt5
             export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
+          else
+            export VERSION=$(git describe --tags)-Qt6
+            export PIP_REQUIREMENTS="pyqt6 pyqt6-sip --no-deps"
           fi
           export CONDA_PYTHON_VERSION=${{ env.PYTHON_VERSION }}
           ./linuxdeploy-x86_64.AppImage \

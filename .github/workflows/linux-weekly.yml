@@ -148,17 +148,17 @@ jobs:
             libxkbcommon-x11-0 \
             xvfb \
             wget
-          if [[ ${{ matrix.QT_VER }} == "6.6.2" ]]; then
+          if [[ ${{ matrix.QT_VER }} != "5.15.2" ]]; then
             sudo apt install -y --no-install-recommends \
               libxkbcommon-dev \
               libxcb-cursor0 \
               libvulkan-dev
           fi
           pip3 install sip pyqt-builder
-          if [[ "${{ matrix.QT_VER }}" == "6.6.2" ]]; then
-            pip3 install pyqt6
-          else
+          if [[ "${{ matrix.QT_VER }}" == "5.15.2" ]]; then
             pip3 install pyqt5
+          else
+            pip3 install pyqt6
           fi
 
       - name: Get GCC version
@@ -225,10 +225,10 @@ jobs:
           wget https://raw.githubusercontent.com/linuxdeploy/linuxdeploy-plugin-conda/master/linuxdeploy-plugin-conda.sh
           chmod +x linuxdeploy*
           export VERSION=$(git describe --tags)
-          if [[ "${{ matrix.QT_VER }}" == "6.6.2" ]]; then
-            export PIP_REQUIREMENTS="pyqt6 pyqt6-sip --no-deps"
-          else
+          if [[ "${{ matrix.QT_VER }}" == "5.15.2" ]]; then
             export PIP_REQUIREMENTS="pyqt5 pyqt5-sip --no-deps"
+          else
+            export PIP_REQUIREMENTS="pyqt6 pyqt6-sip --no-deps"
           fi
           export CONDA_PYTHON_VERSION=${{ env.PYTHON_VERSION }}
           ./linuxdeploy-x86_64.AppImage \

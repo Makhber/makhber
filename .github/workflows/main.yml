@@ -57,7 +57,7 @@ jobs:
             libxcb-xkb1 \
             libxkbcommon-x11-0 \
             xvfb
-          if [[ ${{ matrix.QT_VER }} == "6.6.2" ]]; then
+          if [[ "${{ matrix.QT_VER }}" != "5.15.2" ]]; then
             sudo apt install -y --no-install-recommends \
               libxkbcommon-dev \
               libxcb-cursor0 \
@@ -96,10 +96,10 @@ jobs:
       - name: Install Python packages
         run: |
           pip3 install sip pyqt-builder numpy
-          if [[ "${{ matrix.QT_VER }}" == "6.6.2" ]]; then
-            pip3 install pyqt6
-          else
+          if [[ "${{ matrix.QT_VER }}" == "5.15.2" ]]; then
             pip3 install pyqt5
+          else
+            pip3 install pyqt6
           fi
 
       - name: Configuring
@@ -202,10 +202,10 @@ jobs:
       - name: Install Python packages
         run: |
           pip install sip pyqt-builder numpy
-          if ("${{ matrix.QT_VER }}" -eq "6.6.2") {
-            pip install pyqt6
-          } else {
+          if ("${{ matrix.QT_VER }}" -eq "5.15.2") {
             pip install pyqt5
+          } else {
+            pip install pyqt6
           }
 
       - name: Configuring
@@ -260,7 +260,7 @@ jobs:
           fi
 
       - name: Restore cached Qt
-        if: ${{ matrix.QT_VER == '6.6.2' }}
+        if: ${{ matrix.QT_VER != '5.15' }}
         id: cache-qt
         uses: actions/cache@v4
         with:
@@ -268,7 +268,7 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.macos_ver }}-Qt-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
-        if: ${{ matrix.QT_VER == '6.6.2' }}
+        if: ${{ matrix.QT_VER != '5.15' }}
         uses: jurplel/install-qt-action@v3
         with:
           setup-python: false
@@ -279,7 +279,7 @@ jobs:
           aqtversion: '==3.1.*'
 
       - name: Restore cached Qwt
-        if: ${{ matrix.QT_VER == '6.6.2' }}
+        if: ${{ matrix.QT_VER != '5.15' }}
         id: cache-qwt
         uses: actions/cache@v4
         with:
@@ -287,7 +287,7 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.macos_ver }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}
 
       - name: Build and install Qwt
-        if: ${{ steps.cache-qwt.outputs.cache-hit != 'true' && matrix.QT_VER == '6.6.2' }}
+        if: ${{ steps.cache-qwt.outputs.cache-hit != 'true' && matrix.QT_VER != '5.15' }}
         run: |
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
@@ -301,7 +301,7 @@ jobs:
 
       - name: Configuring
         run: |
-          if [[ "${{ matrix.QT_VER }}" == 5.15 ]]; then
+          if [[ "${{ matrix.QT_VER }}" == "5.15" ]]; then
             export PATH=$(brew --prefix)/opt/qt@5/bin:$PATH
             QWT_PATH=$(brew --prefix)/opt/qwt-qt5
           else
