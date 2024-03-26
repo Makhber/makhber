@@ -255,7 +255,7 @@ jobs:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-linux
       QT_VER: 5.15.2
-      PYTHON_VERSION: 3.11
+      PYTHON_VERSION: "3.12"
 
     steps:
       - name: Checkout
