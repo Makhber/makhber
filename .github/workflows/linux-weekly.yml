@@ -108,7 +108,7 @@ jobs:
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       QWT_VER: 6.2.0
-      PYTHON_VERSION: "3.11"
+      PYTHON_VERSION: "3.12"
 
     steps:
       - name: Get Processor Info
