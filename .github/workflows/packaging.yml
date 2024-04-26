@@ -57,6 +57,10 @@ jobs:
         with:
           submodules: true
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v4
@@ -112,10 +116,6 @@ jobs:
           git pull origin master
           Add-Content $Env:VCPKG_INSTALLATION_ROOT\triplets\$Env:VCPKG_DEFAULT_TRIPLET.cmake "set(VCPKG_BUILD_TYPE release)"
           vcpkg install zlib gsl muparser liborigin opengl gl2ps openssl pkgconf
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
 
       - name: Install Python packages
         run: |
@@ -341,6 +341,11 @@ jobs:
         with:
           submodules: true
 
+      # Python version used to build makhber must be the same for miniconda
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '${{ env.PYTHON_VERSION }}'
+
       - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v4
@@ -355,11 +360,6 @@ jobs:
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
           archives: qtbase qtsvg qttools qttranslations icu
-
-      # Python version used to build makhber must be the same for miniconda
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '${{ env.PYTHON_VERSION }}'
 
       - name: Install prerequisties
         run: |

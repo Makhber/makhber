@@ -29,6 +29,10 @@ jobs:
         with:
           submodules: true
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v4
@@ -91,10 +95,6 @@ jobs:
           make -j$(nproc)
           make install
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
       - name: Install Python packages
         run: |
           pip3 install sip pyqt-builder numpy
@@ -140,6 +140,10 @@ jobs:
         uses: actions/checkout@v4
         with:
           submodules: true
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: Restore cached Qt
         id: cache-qt
@@ -196,10 +200,6 @@ jobs:
           cd $Env:VCPKG_INSTALLATION_ROOT
           git pull origin master
           vcpkg install zlib gsl muparser liborigin opengl gl2ps gtest pkgconf
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
 
       - name: Install Python packages
         run: |

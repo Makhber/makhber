@@ -120,6 +120,11 @@ jobs:
           submodules: true
           fetch-depth: 0
 
+      # Python version used to build makhber must be the same for miniconda
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '${{ env.PYTHON_VERSION }}'
+
       - name: Restore cached Qt
         id: cache-qt
         uses: actions/cache@v4
@@ -134,11 +139,6 @@ jobs:
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
           archives: qtbase qtsvg qttools qttranslations
-
-      # Python version used to build makhber must be the same for miniconda
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '${{ env.PYTHON_VERSION }}'
 
       - name: Install prerequisties
         run: |
