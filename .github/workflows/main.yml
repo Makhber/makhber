@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - '*'
+  schedule:
+    - cron: '0 2 * * 1'
 
 jobs:
   Ubuntu:
