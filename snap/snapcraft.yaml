@@ -2,9 +2,11 @@ name: makhber
 summary: Makhber
 description: |
   Application for Visualization and Analysis of Scientific Data
-# icon: packaging/freedesktop/com.github.makhber.Makhber.svg
-# website: https://github.com/Makhber/makhber
-# issues: https://github.com/Makhber/makhber/issues
+license: GPL-2.0-or-later
+type: app
+icon: packaging/freedesktop/com.github.makhber.Makhber.svg
+website: https://github.com/Makhber/makhber
+issues: https://github.com/Makhber/makhber/issues
 base: core22
 compression: lzo
 grade: stable
