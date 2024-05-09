@@ -49,7 +49,7 @@ jobs:
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-windows
-      QWT_VER: 6.2.0
+      QWT_VER: 6.3.0
 
     steps:
       - name: Checkout
@@ -94,6 +94,7 @@ jobs:
           Expand-Archive qwt-${{ env.QWT_VER }}.zip -DestinationPath .; cd qwt-${{ env.QWT_VER }}
           ((Get-Content -path qwtconfig.pri -Raw) `
             -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/Qwt" `
+            -replace 'QWT_CONFIG     \+= QwtDesigner',"" `
             -replace 'QWT_CONFIG     \+= QwtExamples',"" `
             -replace 'QWT_CONFIG     \+= QwtPlayground',"" `
             -replace 'QWT_CONFIG     \+= QwtTests',"") `
@@ -329,7 +330,7 @@ jobs:
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-linux
-      QWT_VER: 6.2.0
+      QWT_VER: 6.3.0
       PYTHON_VERSION: "3.12"
 
     steps:

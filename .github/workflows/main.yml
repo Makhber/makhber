@@ -17,7 +17,7 @@ jobs:
       matrix:
         QT_VER: [5.15.2, 6.7.0]
     env:
-      QWT_VER: 6.2.0
+      QWT_VER: 6.3.0
 
     steps:
       - name: Get Processor Info
@@ -88,6 +88,7 @@ jobs:
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.tar.bz2
           tar -xf qwt-${{ env.QWT_VER }}.tar.bz2 && cd qwt-${{ env.QWT_VER }}
           sed -i "s|= \/usr\/local\/qwt-\$\$QWT\_VERSION|= ${GITHUB_WORKSPACE}/Qwt|g" qwtconfig.pri
+          sed -i "s|QWT_CONFIG     += QwtDesigner'||g" qwtconfig.pri
           sed -i "s|QWT_CONFIG     += QwtExamples||g" qwtconfig.pri
           sed -i "s|QWT_CONFIG     += QwtPlayground||g" qwtconfig.pri
           sed -i "s|QWT_CONFIG     += QwtTests||g" qwtconfig.pri
@@ -130,7 +131,7 @@ jobs:
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       VCPKG_DEFAULT_TRIPLET: x64-windows
-      QWT_VER: 6.2.0
+      QWT_VER: 6.3.0
 
     steps:
       - name: Get Processor Info
@@ -179,6 +180,7 @@ jobs:
           Expand-Archive qwt-${{ env.QWT_VER }}.zip -DestinationPath .; cd qwt-${{ env.QWT_VER }}
           ((Get-Content -path qwtconfig.pri -Raw) `
             -replace 'C:/Qwt-\$\$QWT_VERSION',"$Env:GITHUB_WORKSPACE/Qwt" `
+            -replace 'QWT_CONFIG     \+= QwtDesigner',"" `
             -replace 'QWT_CONFIG     \+= QwtExamples',"" `
             -replace 'QWT_CONFIG     \+= QwtPlayground',"" `
             -replace 'QWT_CONFIG     \+= QwtTests',"") `
