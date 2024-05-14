@@ -8,7 +8,7 @@ on:
 jobs:
   Source:
     name: Source
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
@@ -474,8 +474,8 @@ jobs:
           files: build/Makhber*.AppImage
 
   DEB:
-    name: Ubuntu 22.04 DEB
-    runs-on: ubuntu-22.04
+    name: Ubuntu 24.04 DEB
+    runs-on: ubuntu-24.04
 
     steps:
       - uses: actions/checkout@v4
@@ -530,7 +530,7 @@ jobs:
 
   RPM:
     name: OpenSUSE leap
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     container: opensuse/leap
 
     steps:

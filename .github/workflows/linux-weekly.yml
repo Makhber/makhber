@@ -44,7 +44,7 @@ jobs:
           path: '*.snap'
 
   Flatpak:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     name: Flatpak
 
     steps:
@@ -316,7 +316,7 @@ jobs:
 
   Arch:
     name: ArchLinux
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     container: archlinux:base-devel
 
     steps:
@@ -370,7 +370,7 @@ jobs:
 
   OpenSUSE:
     name: OpenSUSE ${{ matrix.image }} - Qt${{ matrix.QT_VER }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     container: opensuse/${{ matrix.image }}
     strategy:
       fail-fast: false
@@ -462,9 +462,9 @@ jobs:
           path: build/*.rpm
 
   Ubuntu-devel:
-    name: Ubuntu 24.04
-    runs-on: ubuntu-22.04
-    container: ubuntu:24.04
+    name: Ubuntu Devel
+    runs-on: ubuntu-24.04
+    container: ubuntu:devel
 
     steps:
       - uses: actions/checkout@v1
@@ -536,7 +536,7 @@ jobs:
 
   Debian-unstable:
     name: Debian unstable - Qt${{ matrix.QT_VER }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     container: debian:unstable
     strategy:
       fail-fast: false
