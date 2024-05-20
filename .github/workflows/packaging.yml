@@ -305,7 +305,7 @@ jobs:
       - name: vcpkg package restore
         run: |
           echo "set(VCPKG_BUILD_TYPE release)" >> $VCPKG_INSTALLATION_ROOT/triplets/$VCPKG_DEFAULT_TRIPLET.cmake
-          vcpkg install gsl muparser
+          vcpkg install gsl muparser liborigin
 
       - name: Configuring
         run: |
