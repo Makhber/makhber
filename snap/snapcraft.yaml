@@ -119,8 +119,8 @@ parts:
       - -usr/share
   qwt:
     source-type: tar
-    source: https://downloads.sourceforge.net/qwt/qwt-6.2.0.tar.bz2
-    source-checksum: sha256/9194f6513955d0fd7300f67158175064460197abab1a92fa127a67a4b0b71530
+    source: https://downloads.sourceforge.net/qwt/qwt-6.3.0.tar.bz2
+    source-checksum: sha256/dcb085896c28aaec5518cbc08c0ee2b4e60ada7ac929d82639f6189851a6129a
     plugin: make
     build-packages:
       - g++
