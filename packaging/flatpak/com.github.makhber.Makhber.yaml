@@ -86,22 +86,6 @@ modules:
       - /include
       - /share
 
-  - name: python3-flit_core
-    buildsystem: simple
-    build-commands:
-      - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "flit_core" --no-build-isolation
-    sources:
-      - type: file
-        url: https://files.pythonhosted.org/packages/38/45/618e84e49a6c51e5dd15565ec2fcd82ab273434f236b8f108f065ded517a/flit_core-3.9.0-py3-none-any.whl
-        sha256: 7aada352fb0c7f5538c4fafeddf314d3a6a92ee8e2b1de70482329e42de70301
-        x-checker-data:
-          name: flit_core
-          packagetype: bdist_wheel
-          type: pypi
-    cleanup:
-      - '*'
-
   - name: python3-pyqt-builder
     buildsystem: simple
     build-commands:
@@ -109,27 +93,25 @@ modules:
         --prefix=${FLATPAK_DEST} "pyqt-builder" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ec/1a/610693ac4ee14fcdf2d9bf3c493370e4f2ef7ae2e19217d7a237ff42367d/packaging-23.2-py3-none-any.whl
-        sha256: 8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7
+        url: https://files.pythonhosted.org/packages/08/aa/cc0199a5f0ad350994d660967a8efb233fe0416e4639146c089643407ce6/packaging-24.1-py3-none-any.whl
+        sha256: 5b8f2217dbdbd2f7f384c41c628544e6d52f2d0f53c6d0c3ea61aa5d1d7ff124
         x-checker-data:
           name: packaging
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl
-        sha256: 096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce
-      - type: file
-        url: https://files.pythonhosted.org/packages/61/26/a0a1ef876c4842b8ef081a7813ed3e693bb33caa866913f1b73fef3802a7/PyQt_builder-1.15.4-py3-none-any.whl
-        sha256: 2dd20ee5f513b137c2abbfd439302d7c6df321fbd9fde17142bb7aff65f5c635
+        url: https://files.pythonhosted.org/packages/27/0e/6fc6f939c0d4f3a01a045ba538696707226f853f326bf939c911ebb379f7/PyQt_builder-1.16.3-py3-none-any.whl
+        sha256: bb1db2abf6a0fc1ef54c66c18e4859b81dacad4473a0d0069eaa3ab384b410df
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/99/85/261c41cc709f65d5b87669f42e502d05cc544c24884121bc594ab0329d8e/sip-6.8.3.tar.gz
-        sha256: 888547b018bb24c36aded519e93d3e513d4c6aa0ba55b7cc1affbd45cf10762c
+        url: https://files.pythonhosted.org/packages/2d/32/0f3285a9d97918c43851b232212b1c61a46c24b7d115c9680d9dbf1a840c/sip-6.8.5-py3-none-any.whl
+        sha256: 8308d31da6f3cb9425400c71c322d3cd8bf58ab45c8df079c17899bbef849c77
         x-checker-data:
           name: sip
+          packagetype: bdist_wheel
           type: pypi
     cleanup:
       - '*'
