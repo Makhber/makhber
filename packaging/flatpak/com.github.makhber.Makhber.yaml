@@ -137,8 +137,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pyqt-builder" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ec/1a/610693ac4ee14fcdf2d9bf3c493370e4f2ef7ae2e19217d7a237ff42367d/packaging-23.2-py3-none-any.whl
-        sha256: 8c491190033a9af7e1d931d0b5dacc2ef47509b34dd0de67ed209b5203fc88c7
+        url: https://files.pythonhosted.org/packages/49/df/1fceb2f8900f8639e278b056416d49134fb8d84c5942ffaa01ad34782422/packaging-24.0-py3-none-any.whl
+        sha256: 2ddfb553fdf02fb784c234c7ba6ccc288296ceabec964ad2eae3777778130bc5
         x-checker-data:
           name: packaging
           packagetype: bdist_wheel
@@ -147,8 +147,8 @@ modules:
         url: https://files.pythonhosted.org/packages/a3/58/35da89ee790598a0700ea49b2a66594140f44dec458c07e8e3d4979137fc/ply-3.11-py2.py3-none-any.whl
         sha256: 096f9b8350b65ebd2fd1346b12452efe5b9607f7482813ffca50c22722a807ce
       - type: file
-        url: https://files.pythonhosted.org/packages/61/26/a0a1ef876c4842b8ef081a7813ed3e693bb33caa866913f1b73fef3802a7/PyQt_builder-1.15.4-py3-none-any.whl
-        sha256: 2dd20ee5f513b137c2abbfd439302d7c6df321fbd9fde17142bb7aff65f5c635
+        url: https://files.pythonhosted.org/packages/26/36/6c5b623edb36ccf085fc3ed905c0a9bd0b99ddc63e4dc81f1df2fc14bcd4/PyQt_builder-1.16.2-py3-none-any.whl
+        sha256: 0e226fb762c6f12ec17d3fb7a1922cf8e24b13d36923bbb874dec1b5435d2584
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
