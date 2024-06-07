@@ -190,14 +190,15 @@ if( MAKHBER_SCRIPTING_PYTHON )
   endif()
 
   if( MSVC )
-    set( PYTHON_INSTALL_PATH ${CMAKE_INSTALL_BINDIR} )
+    set( DEFAULT_PYTHON_INSTALL_PATH ${CMAKE_INSTALL_BINDIR} )
   elseif( APPLE )
-    set( PYTHON_INSTALL_PATH  "makhber.app/Contents/Resources" )
+    set( DEFAULT_PYTHON_INSTALL_PATH  "makhber.app/Contents/Resources" )
   else() # MinGW and Linux
     get_filename_component( PYTHON_DIR ${Python3_EXECUTABLE} DIRECTORY )
     get_filename_component( PYTHON_PREFIX "${PYTHON_DIR}/.." REALPATH )
-    string( REPLACE "${PYTHON_PREFIX}/" "" PYTHON_INSTALL_PATH ${Python3_SITEARCH} )
+    string( REPLACE "${PYTHON_PREFIX}/" "" DEFAULT_PYTHON_INSTALL_PATH ${Python3_SITEARCH} )
   endif()
+  set(PYTHON_INSTALL_PATH "${DEFAULT_PYTHON_INSTALL_PATH}" CACHE STRING "Install destination for python module" )
 
 endif()
 
