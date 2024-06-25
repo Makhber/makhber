@@ -47,6 +47,7 @@ parts:
       - "-DMAKHBER_SCRIPTING_PYTHON=ON"
       - "-DMAKHBER_SEARCH_FOR_UPDATES=OFF"
       - "-DCMAKE_PREFIX_PATH=$CRAFT_STAGE/usr"
+      - "-DPYTHON_INSTALL_PATH=lib/python3/dist-packages"
     build-environment:
       - PATH: $HOME/.local/bin:$PATH
       - PYTHONPATH: $CRAFT_STAGE/usr/lib/python3/dist-packages:$HOME/.local/lib/python3.10/site-packages:/usr/local/lib/python3.10/dist-packages:/usr/lib/python3/dist-packages
