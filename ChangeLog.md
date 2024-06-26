@@ -1,5 +1,13 @@
 # Changelog
 
+## Makhber 0.9.8.2
+
+Released: 26-06-2024
+
+### General
+
+- Update dependencies
+
 ## Makhber 0.9.8.1
 
 Released: 18-03-2024
