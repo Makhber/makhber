@@ -587,7 +587,7 @@ jobs:
             libmuparser-dev \
             libqwt-qt${{ matrix.QT_VER }}-dev \
             libgl2ps-dev \
-            libpython3.11-dev \
+            libpython3-dev \
             sip-tools \
             pyqt${{ matrix.QT_VER }}-dev \
             python3-pyqt${{ matrix.QT_VER }} \
