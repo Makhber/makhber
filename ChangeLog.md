@@ -1,8 +1,8 @@
 # Changelog
 
-## Makhber 0.10.0 Alpha2
+## Makhber 0.10.0 Alpha3
 
-Released: 14-05-2022
+Released: 10-07-2024
 
 ### General
 
@@ -14,7 +14,7 @@ Released: 14-05-2022
 
 - Support Qt6
 - Port to Qwt>6.1
-- Requires Qt>=5.12
+- Requires Qt>=5.14
 - Silent warnings from different compilers
 - Update and support packaging for different platforms
 
