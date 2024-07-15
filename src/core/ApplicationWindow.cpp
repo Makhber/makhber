@@ -3247,7 +3247,6 @@ void ApplicationWindow::importASCII(const QStringList &files, int import_mode,
             if (!w)
                 continue;
             w->setCaptionPolicy(MyWidget::Both);
-            initTable(w);
             setListViewLabel(w->name(), sorted_files[i]);
             if (i == 0) {
                 dx = w->verticalHeaderWidth();
