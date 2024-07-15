@@ -450,7 +450,7 @@ jobs:
 
       - name: Show info and contents
         run: |
-          zypper -n install --allow-unsigned-rpm build/Makhber-0.10.0-alpha2-Linux.rpm
+          zypper -n install --allow-unsigned-rpm build/Makhber-*.rpm
           rpm -qi makhber
           rpm -qR makhber
           rpm -ql makhber
