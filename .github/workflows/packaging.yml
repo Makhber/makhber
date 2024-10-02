@@ -110,7 +110,7 @@ jobs:
             build/Makhber*.exe
 
   macos:
-    runs-on: macos-12
+    runs-on: macos-13
     name: macos
     env:
       HOMEBREW_NO_AUTO_UPDATE: 1
