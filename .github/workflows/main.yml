@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.7.2]
+        QT_VER: [5.15.2, 6.7.3]
     env:
       QWT_VER: 6.3.0
 
@@ -67,7 +67,8 @@ jobs:
             sudo apt install -y --no-install-recommends \
               libxkbcommon-dev \
               libxcb-cursor0 \
-              libvulkan-dev
+              libvulkan-dev \
+              libcups2-dev
           fi
 
       - name: Get GCC version
@@ -127,7 +128,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.7.2]
+        QT_VER: [5.15.2, 6.7.3]
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       VCPKG_DEFAULT_TRIPLET: x64-windows
