@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.7.3]
+        QT_VER: [5.15.2, 6.8.1]
     env:
       QWT_VER: 6.3.0
 
@@ -128,7 +128,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.7.3]
+        QT_VER: [5.15.2, 6.8.1]
     env:
       VCPKG_BINARY_SOURCES: 'clear;nuget,GitHub,readwrite'
       VCPKG_DEFAULT_TRIPLET: x64-windows
@@ -163,6 +163,7 @@ jobs:
           dir: ${{ github.workspace }}/Qt
           archives: qtbase qtsvg qttools qttranslations
           aqtversion: '==3.1.*'
+          arch: ${{ matrix.QT_ARCH }}
 
       - name: Restore cached Qwt
         id: cache-qwt
