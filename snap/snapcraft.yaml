@@ -135,8 +135,8 @@ parts:
       - -usr/share
   pyqt5:
     source-type: tar
-    source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.10.tar.gz
-    source-checksum: sha256/d46b7804b1b10a4ff91753f8113e5b5580d2b4462f3226288e2d84497334898a
+    source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.11.tar.gz
+    source-checksum: sha256/fda45743ebb4a27b4b1a51c6d8ef455c4c1b5d610c90d2934c7802b5c1557c52
     plugin: make
     build-packages:
       - g++
