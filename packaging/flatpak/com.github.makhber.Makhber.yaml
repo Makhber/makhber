@@ -100,15 +100,15 @@ modules:
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/27/0e/6fc6f939c0d4f3a01a045ba538696707226f853f326bf939c911ebb379f7/PyQt_builder-1.16.3-py3-none-any.whl
-        sha256: bb1db2abf6a0fc1ef54c66c18e4859b81dacad4473a0d0069eaa3ab384b410df
+        url: https://files.pythonhosted.org/packages/b3/42/4c2378cb6fef3c8400f708ddf68a6005382cfc2b12dc1c97f2df90622075/PyQt_builder-1.16.4-py3-none-any.whl
+        sha256: fe6e75bcf8426feee3eb73ae7f6aaa4e38edc2f8d670d8cf28638b21d9924eb7
         x-checker-data:
           name: PyQt_builder
           packagetype: bdist_wheel
           type: pypi
       - type: file
-        url: https://files.pythonhosted.org/packages/2d/32/0f3285a9d97918c43851b232212b1c61a46c24b7d115c9680d9dbf1a840c/sip-6.8.5-py3-none-any.whl
-        sha256: 8308d31da6f3cb9425400c71c322d3cd8bf58ab45c8df079c17899bbef849c77
+        url: https://files.pythonhosted.org/packages/26/7e/1fbee86c34d21f32fd8a6e3efbe4a796fb506541051280d5c94264343db7/sip-6.8.6-py3-none-any.whl
+        sha256: 3d715cb29396db8ff5258cfd2082dc24a75ed0821d9c3d53acccdc83a7f2617f
         x-checker-data:
           name: sip
           packagetype: bdist_wheel
@@ -123,8 +123,8 @@ modules:
         --prefix=${FLATPAK_DEST} "pyqt5-sip" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/ee/81/fce2a475aa56c1f49707d9306b930695b6ff078c2242c9f2fd72a3214e1f/PyQt5_sip-12.13.0.tar.gz
-        sha256: 7f321daf84b9c9dbca61b80e1ef37bdaffc0e93312edae2cd7da25b953971d91
+        url: https://files.pythonhosted.org/packages/1b/15/78318d50f10062c428e97e7ce387e772616a4673c356018b905f247a6a85/PyQt5_sip-12.15.0.tar.gz
+        sha256: d23fdfcf363b5cedd9d39f8a9c5710e7d52804f5b08a58e91c638b36eafcb702
         x-checker-data:
           type: pypi
           name: PyQt5-sip
@@ -143,8 +143,8 @@ modules:
         QtX11Extras --disable QtXml --disable QtXmlPatterns --verbose --jobs $(nproc)
     sources:
       - type: archive
-        url: https://files.pythonhosted.org/packages/4d/5d/b8b6e26956ec113ad3f566e02abd12ac3a56b103fcc7e0735e27ee4a1df3/PyQt5-5.15.10.tar.gz
-        sha256: d46b7804b1b10a4ff91753f8113e5b5580d2b4462f3226288e2d84497334898a
+        url: https://files.pythonhosted.org/packages/0e/07/c9ed0bd428df6f87183fca565a79fee19fa7c88c7f00a7f011ab4379e77a/PyQt5-5.15.11.tar.gz
+        sha256: fda45743ebb4a27b4b1a51c6d8ef455c4c1b5d610c90d2934c7802b5c1557c52
         x-checker-data:
           type: pypi
           name: PyQt5
