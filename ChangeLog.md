@@ -1,5 +1,14 @@
 # Changelog
 
+## Makhber 0.9.8.3
+
+Released: 31-10-2024
+
+### General
+
+- Fix duplicate tables was added when importing from ascii
+- Update dependencies
+
 ## Makhber 0.9.8.2
 
 Released: 26-06-2024
