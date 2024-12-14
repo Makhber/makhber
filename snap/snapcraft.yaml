@@ -102,8 +102,8 @@ parts:
       - -usr/share
   muparser:
     source-type: tar
-    source: https://github.com/beltoforion/muparser/archive/v2.3.4.tar.gz
-    source-checksum: sha256/0c3fa54a3ebf36dda0ed3e7cd5451c964afbb15102bdbcba08aafb359a290121
+    source: https://github.com/beltoforion/muparser/archive/v2.3.5.tar.gz
+    source-checksum: sha256/20b43cc68c655665db83711906f01b20c51909368973116dfc8d7b3c4ddb5dd4
     plugin: cmake
     cmake-generator: Ninja
     cmake-parameters:
@@ -165,8 +165,8 @@ parts:
       - -usr/share
   pyqt5:
     source-type: tar
-    source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.10.tar.gz
-    source-checksum: sha256/d46b7804b1b10a4ff91753f8113e5b5580d2b4462f3226288e2d84497334898a
+    source: https://pypi.python.org/packages/source/P/PyQt5/PyQt5-5.15.11.tar.gz
+    source-checksum: sha256/fda45743ebb4a27b4b1a51c6d8ef455c4c1b5d610c90d2934c7802b5c1557c52
     plugin: make
     build-packages:
       - g++
