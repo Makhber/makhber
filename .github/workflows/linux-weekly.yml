@@ -388,10 +388,10 @@ jobs:
             py_ver: 3
           - image: tumbleweed
             QT_VER: 5
-            py_ver: 312
+            py_ver: 313
           - image: tumbleweed
             QT_VER: 6
-            py_ver: 312
+            py_ver: 313
 
     steps:
       - uses: actions/checkout@v1
