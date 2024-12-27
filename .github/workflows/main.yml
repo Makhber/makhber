@@ -177,7 +177,7 @@ jobs:
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
         run: |
-          choco install wget jom
+          choco install wget jom --no-progress
           wget https://downloads.sourceforge.net/qwt/qwt-${{ env.QWT_VER }}.zip
           Expand-Archive qwt-${{ env.QWT_VER }}.zip -DestinationPath .; cd qwt-${{ env.QWT_VER }}
           ((Get-Content -path qwtconfig.pri -Raw) `
