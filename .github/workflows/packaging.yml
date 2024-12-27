@@ -369,6 +369,7 @@ jobs:
             libglu1-mesa-dev \
             libgl2ps-dev \
             xvfb \
+            libfuse2 \
             wget
           if [[ ${{ matrix.QT_VER }} != "5.15.2" ]]; then
             sudo apt install -y --no-install-recommends \
