@@ -381,7 +381,8 @@ jobs:
           cmake \
             --preset macos \
             -DCMAKE_PREFIX_PATH=${QWT_PATH} \
-            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DCMAKE_OSX_DEPLOYMENT_TARGET=${{ matrix.macos_ver }}
 
       - name: Building
         run: |
