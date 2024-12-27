@@ -147,6 +147,8 @@ jobs:
 
       - name: Packaging
         run: |
+          choco install nsis
+          $Env:PATH = "C:/Program Files (x86)/NSIS;$Env:PATH"
           cd build
           cpack -G NSIS
           if ("${{ matrix.QT_VER }}" -eq "5.15.2") {
