@@ -100,16 +100,14 @@ jobs:
           tree $HOME/.local/share/flatpak/app/com.github.makhber.Makhber/x86_64/master/active/files
 
   AppImage:
-    runs-on: ubuntu-${{ matrix.OS_VER }}
-    name: AppImage
+    runs-on: ubuntu-22.04
+    name: AppImage - Qt ${{ matrix.QT_VER }}
     strategy:
       fail-fast: false
       matrix:
         include:
           - QT_VER: "5.15.2"
-            OS_VER: "20.04"
           - QT_VER: "6.8.1"
-            OS_VER: "22.04"
     env:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       QWT_VER: 6.3.0
