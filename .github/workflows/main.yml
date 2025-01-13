@@ -369,8 +369,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: build
-          key: build-${{ runner.os }}-${{ matrix.QT_VER }}-${{ github.sha }}
-          restore-keys: build-${{ runner.os }}-${{ matrix.QT_VER }}-
+          key: build-${{ runner.os }}-${{ matrix.macos_ver }}-${{ matrix.QT_VER }}-${{ github.sha }}
+          restore-keys: build-${{ runner.os }}-${{ matrix.macos_ver }}-${{ matrix.QT_VER }}-
 
       - name: Configuring
         run: |
