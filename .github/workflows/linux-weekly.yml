@@ -638,3 +638,55 @@ jobs:
         with:
           name: DEB-debian-exp-${{ matrix.QT_VER }}
           path: build/*.deb
+
+  Alpine:
+    name: Alpine
+    runs-on: ubuntu-24.04
+    container: alpine:latest
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+
+      - name: Install prerequisties
+        run: |
+          apk update
+          apk add --no-interactive \
+            g++ \
+            cmake \
+            make \
+            pkgconf \
+            qt5-qtbase \
+            qt5-qtsvg \
+            qt5-qttools-dev \
+            qt5-qttranslations \
+            glu-dev \
+            gsl-dev \
+            muparser-dev \
+            qwt-dev \
+            python3-dev \
+            py3-sip \
+            py3-qt5 \
+            py3-pyqt-builder \
+            gtest-dev \
+            xvfb-run \
+            xauth
+
+      - name: Configuring
+        run: |
+          mkdir build && cd build
+          cmake .. \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DMAKHBER_BUILD_TESTS=ON \
+            -DMAKHBER_SCRIPTING_PYTHON=ON \
+            -DBUILD_SHARED_LIBS=ON
+
+      - name: Building
+        run: |
+          cmake --build build -j$(nproc)
+
+      - name: Testing
+        run: |
+          cd build
+          xvfb-run -a ctest --output-on-failure --repeat until-pass:3
