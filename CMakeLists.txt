@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 3.16 )
+cmake_minimum_required( VERSION 3.22 )
 
 cmake_policy(SET CMP0069 NEW) # INTERPROCEDURAL_OPTIMIZATION
 cmake_policy(SET CMP0083 NEW) # POSITION_INDEPENDENT_CODE
