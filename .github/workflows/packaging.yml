@@ -332,7 +332,7 @@ jobs:
       VCPKG_BINARY_SOURCES: "clear;nuget,GitHub,readwrite"
       VCPKG_DEFAULT_TRIPLET: x64-linux
       QWT_VER: 6.3.0
-      PYTHON_VERSION: "3.12"
+      PYTHON_VERSION: "3.13"
 
     steps:
       - name: Get Processor Info
