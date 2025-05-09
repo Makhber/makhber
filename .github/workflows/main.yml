@@ -49,7 +49,6 @@ jobs:
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
           archives: qtbase qtsvg qttools qttranslations icu
-          aqtversion: '==3.1.*'
 
       - name: Install prerequisties
         run: |
@@ -172,7 +171,6 @@ jobs:
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
           archives: qtbase qtsvg qttools qttranslations
-          aqtversion: '==3.1.*'
           arch: ${{ matrix.QT_ARCH }}
 
       - name: Restore cached Qwt
