@@ -660,7 +660,6 @@ jobs:
             qt5-qtbase \
             qt5-qtsvg \
             qt5-qttools-dev \
-            qt5-qttranslations \
             glu-dev \
             gsl-dev \
             muparser-dev \
