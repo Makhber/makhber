@@ -10,12 +10,18 @@ on:
 
 jobs:
   Ubuntu:
-    runs-on: ubuntu-24.04
-    name: ubuntu-24.04
+    runs-on: ubuntu-${{ matrix.os_ver }}
+    name: ubuntu-${{ matrix.os_ver }}-${{ matrix.QT_VER }}
     strategy:
       fail-fast: false
       matrix:
-        QT_VER: [5.15.2, 6.9.1]
+        include:
+          - os_ver: "24.04"
+            QT_VER: "5.15.2"
+          - os_ver: "24.04"
+            QT_VER: "6.9.1"
+          - os_ver: "24.04-arm"
+            QT_VER: "6.9.1"
     env:
       QWT_VER: 6.3.0
       CCACHE_DIR: build/ccache
@@ -39,7 +45,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qt
-          key: ${{ runner.os }}-Qt-${{ matrix.QT_VER }}-Cache
+          key: ${{ runner.os }}-Qt-${{ matrix.os_ver }}-${{ matrix.QT_VER }}-Cache
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
@@ -82,7 +88,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ github.workspace }}/Qwt
-          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
+          key: ${{ runner.os }}-Qwt-${{ env.QWT_VER }}-Qt-${{ matrix.os_ver }}-${{ matrix.QT_VER }}-gcc-${{ steps.gcc-version.outputs.gcc_version }}
 
       - name: Build and install Qwt
         if: steps.cache-qwt.outputs.cache-hit != 'true'
@@ -111,8 +117,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: build
-          key: build-${{ runner.os }}-${{ matrix.QT_VER }}-${{ github.sha }}
-          restore-keys: build-${{ runner.os }}-${{ matrix.QT_VER }}-
+          key: build-${{ runner.os }}-${{ matrix.os_ver }}-${{ matrix.QT_VER }}-${{ github.sha }}
+          restore-keys: build-${{ runner.os }}-${{ matrix.os_ver }}-${{ matrix.QT_VER }}-
 
       - name: Configuring
         run: |
@@ -171,7 +177,6 @@ jobs:
           cache: ${{ steps.cache-qt.outputs.cache-hit }}
           dir: ${{ github.workspace }}/Qt
           archives: qtbase qtsvg qttools qttranslations
-          arch: ${{ matrix.QT_ARCH }}
 
       - name: Restore cached Qwt
         id: cache-qwt
